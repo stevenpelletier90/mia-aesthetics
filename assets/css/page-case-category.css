@@ -1,0 +1,163 @@
+/*  _case-category-page.css
+    Custom styles for “Case Category Page” template
+    Keep minimal; extend as needed without affecting global styles
+--------------------------------------------------------------------- */
+
+.post-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 992px) {
+  .post-header h1 {
+    font-size: 3rem;
+  }
+}
+
+#breadcrumbs + .post-header {
+  margin-top: 0;
+}
+
+/* Case Cards */
+#cases-grid .card {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#cases-grid .card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+#cases-grid .card-img-top {
+  object-fit: cover;
+  height: 220px;
+  transition: transform 0.3s ease;
+}
+
+#cases-grid .card:hover .card-img-top {
+  transform: scale(1.02);
+}
+
+#cases-grid .card-body {
+  padding: 1.25rem;
+  position: relative;
+}
+
+/* Case title styling */
+#cases-grid .card-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+#cases-grid .card-title a {
+  color: inherit;
+  text-decoration: none;
+}
+
+#cases-grid .card-title a:hover {
+  color: var(--color-gold);
+}
+
+/* Metadata styling */
+#cases-grid .case-meta {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: 0.875rem;
+  color: #666;
+}
+
+#cases-grid .case-meta i {
+  color: var(--color-primary);
+  width: 16px;
+  margin-right: 0.5rem;
+  font-size: 0.85rem;
+}
+
+#cases-grid .case-meta:last-of-type {
+  margin-bottom: 1rem;
+}
+
+/* Case description */
+#cases-grid .case-description {
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+/* View case button */
+#cases-grid .btn-view-case {
+  background: linear-gradient(135deg, var(--color-gold) 0%, #b8966a 100%);
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.2);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  font-size: 0.875rem;
+  width: 100%;
+}
+
+#cases-grid .btn-view-case:hover {
+  background: linear-gradient(135deg, #b8966a 0%, var(--color-gold) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(200, 178, 115, 0.3);
+  color: #ffffff;
+}
+
+#cases-grid .btn-view-case:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.25);
+  color: #ffffff;
+}
+
+#cases-grid .btn-view-case .fa-arrow-right {
+  margin-left: 0.5rem;
+  font-size: 0.85em;
+  transition: transform 0.2s ease;
+}
+
+#cases-grid .btn-view-case:hover .fa-arrow-right {
+  transform: translateX(3px);
+}
+
+@media (min-width: 768px) {
+  #cases-grid .card-img-top {
+    height: 260px;
+  }
+  
+  #cases-grid .card-body {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  #cases-grid .card-img-top {
+    height: 200px;
+  }
+  
+  #cases-grid .card-body {
+    padding: 1rem;
+  }
+}
+
+/* Hero styles – mirror generic page template (_page.css) */
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}

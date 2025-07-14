@@ -1,0 +1,99 @@
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-header h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.post-header .lead {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+.surgeon-card {
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0.5rem;
+  background: #f8f9fa;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid #c7b07133;
+}
+.surgeon-img-container {
+  --container-size: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  width: var(--container-size);
+  height: var(--container-size);
+}
+.surgeon-archive-headshot {
+  --img-size: calc(var(--container-size) - 10px);
+  width: var(--img-size);
+  height: var(--img-size);
+  object-fit: cover;
+  border: 2px solid #c8b273;
+  background-color: #fff;
+  padding: 0;
+  border-radius: 50%;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+}
+.surgeon-info {
+  flex: 1;
+}
+.surgeon-card h2.h5 {
+  color: #1b1b1b;
+}
+.surgeon-card .surgeon-bio-link {
+  color: #a89355;
+}
+.surgeon-card .location-link {
+  color: #6c757d;
+}
+.surgeon-bio-link {
+  position: relative;
+  font-weight: 500;
+  white-space: nowrap;
+  text-decoration: none;
+}
+.surgeon-bio-link:hover {
+  text-decoration: underline;
+}
+.surgeon-bio-link i {
+  /* font-size removed: use base or utility class */
+  margin-left: 8px;
+  position: relative;
+  top: -1px;
+  text-decoration: none !important;
+}
+.surgeon-bio-link:hover i {
+  text-decoration: none !important;
+}
+
+@media (max-width: 767.98px) {
+  .col-sm-6 {
+    width: 100%;
+  }
+  .surgeon-img-container {
+    --container-size: 100px;
+  }
+  .surgeon-card .card-body {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
+  .surgeon-img-container {
+    margin-right: 1rem !important;
+    margin-bottom: 0;
+  }
+  .surgeon-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}

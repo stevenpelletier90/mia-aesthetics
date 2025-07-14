@@ -1,0 +1,729 @@
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.single-case .consent-trigger {
+  color: var(--color-gold);
+  text-decoration: underline;
+  font-size: 14px;
+  transition: color 0.2s ease;
+}
+
+.single-case .consent-trigger:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.post-header h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  text-align: center;
+}
+
+.post-header .lead {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+.case-image-container {
+  max-width: 450px;
+  margin: 0 auto;
+  position: relative;
+}
+
+header h1 {
+  margin-bottom: 1.5rem;
+}
+
+.before-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #1b1b1b;
+  color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+}
+
+.after-label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: var(--color-gold);
+  color: #000000;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
+}
+
+.surgeon-info {
+  background-color: transparent;
+  color: #000000;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  height: 100%;
+}
+
+.location-info {
+  background-color: transparent;
+  color: #000000;
+  padding: 1rem;
+  border-radius: 0.375rem;
+  height: 100%;
+}
+
+.case-surgeon-arrow-link,
+.case-location-arrow-link {
+  color: #666;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.case-surgeon-arrow-link::before,
+.case-location-arrow-link::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 600;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.case-surgeon-arrow-link:hover,
+.case-location-arrow-link:hover {
+  color: var(--color-primary);
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.case-surgeon-arrow-link:hover::before,
+.case-location-arrow-link:hover::before {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* -------------------------------------------------
+ * Unified arrow-link styling for additional sections
+ * -------------------------------------------------
+ * Re-use the same visual treatment applied to
+ * “Performed by” and “Location” so that
+ * “Procedure Performed” and
+ * “Treatment & Recovery Resources” look identical.
+ * We also minimise visual clutter by stripping
+ * Bootstrap list-group borders/padding.
+ */
+.case-procedure-link {
+  color: #666;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 15px;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.case-procedure-link::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 600;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.case-procedure-link:hover {
+  color: var(--color-primary);
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.case-procedure-link:hover::before {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* Hide the redundant icon that was previously
+ * used for these links to avoid duplicate arrows.
+ */
+.case-procedure-link i {
+  display: none !important;
+}
+
+.case-surgeon-link,
+.case-location-link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  text-decoration: none;
+  border: 2px solid #000000;
+  border-radius: 0.375rem;
+  background-color: transparent;
+  color: #000000;
+  margin-top: 0.5rem;
+}
+
+.case-surgeon-link:hover,
+.case-location-link:hover {
+  background-color: #000000;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.case-surgeon-link i,
+.case-location-link i {
+  transition: transform 0.2s ease;
+}
+
+.case-surgeon-link:hover i,
+.case-location-link:hover i {
+  transform: translateX(5px);
+  color: #ffffff;
+}
+
+.patient-info-card {
+  padding: 1rem;
+  border: 2px solid #e9ecef;
+  border-radius: 0.375rem;
+  height: 100%;
+  background-color: transparent;
+  position: relative;
+  display: block;
+}
+
+.patient-info-card-link {
+  position: relative;
+  transition: all 0.2s ease;
+  color: inherit;
+  overflow: hidden;
+}
+
+.patient-info-card-link:hover {
+  border-color: var(--color-gold);
+  background-color: rgba(var(--color-gold-rgb), 0.05);
+  color: inherit;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.patient-info-arrow {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.75rem;
+  color: var(--color-gold);
+  font-size: 0.875rem;
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.patient-info-card-link:hover .patient-info-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+/* Remove conflicting styles - use unified arrow link styling */
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.case-background {
+  margin-bottom: 1.5rem;
+}
+
+.case-content {
+  margin-top: 2rem;
+}
+
+#imageModal .modal-dialog {
+  max-width: 900px;
+  margin: 1.75rem auto;
+}
+
+#imageModal .modal-content {
+  background-color: #fff;
+  border: none;
+}
+
+#imageModal .modal-body {
+  padding: 40px;
+  position: relative;
+  background-color: #fff;
+}
+
+#caseCarousel img {
+  max-height: 70vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+#caseCarousel .carousel-control-prev,
+#caseCarousel .carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+#caseCarousel .carousel-control-prev:hover,
+#caseCarousel .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+#caseCarousel .carousel-control-prev {
+  left: 10px;
+}
+
+#caseCarousel .carousel-control-next {
+  right: 10px;
+}
+
+#caseCarousel .carousel-control-prev-icon,
+#caseCarousel .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+.consultation-card {
+  background: transparent;
+  border: none;
+  margin: 0 0 30px 0;
+  box-shadow: none;
+}
+
+.consultation-card h3 {
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 1rem;
+}
+
+.consultation-card .card-body {
+  padding: 0;
+}
+
+.single-case .gform_wrapper {
+  padding: 0 !important;
+}
+
+.single-case .gform_wrapper input[type="text"],
+.single-case .gform_wrapper input[type="email"],
+.single-case .gform_wrapper input[type="tel"],
+.single-case .gform_wrapper input[type="number"],
+.single-case .gform_wrapper input[type="url"],
+.single-case .gform_wrapper select,
+.single-case .gform_wrapper textarea {
+  font-size: 16px;
+}
+
+.single-case .gform_wrapper .gfield_checkbox .gchoice {
+  margin-bottom: 0;
+}
+
+.single-case .gform_wrapper .gform_footer .gform_button {
+  width: 100%;
+}
+
+.single-case .gform_wrapper .gform_fields {
+  grid-gap: 0.75rem !important;
+}
+
+.single-case .gform_wrapper input,
+.single-case .gform_wrapper select {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.consultation-card,
+.single-case .gform_wrapper.gravity-theme {
+  background: linear-gradient(135deg, #000000 0%, var(--color-primary) 100%);
+}
+
+.single-case .gform_wrapper .gfield_label {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+.gform-footer.gform_footer.top_label {
+  padding-bottom: 0 !important;
+}
+
+.single-case .gform_wrapper .ginput_container input[type="text"],
+.single-case .gform_wrapper .ginput_container input[type="email"],
+.single-case .gform_wrapper .ginput_container input[type="tel"],
+.single-case .gform_wrapper .ginput_container input[type="number"],
+.single-case .gform_wrapper .ginput_container input[type="url"],
+.single-case .gform_wrapper .ginput_container textarea,
+.single-case .gform_wrapper .gfield select {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 0.375rem;
+  color: #ffffff;
+  padding: 0.75rem;
+}
+
+.single-case .gform_wrapper .gform_required_legend {
+  display: none !important;
+}
+
+.single-case .gform_wrapper .gform_fields {
+  display: grid !important;
+  grid-template-columns: 1fr;
+}
+
+.single-case .gform_wrapper .gfield {
+  margin: 0 !important;
+}
+
+.single-case .gform_wrapper .ginput_complex.ginput_container_name {
+  display: flex !important;
+  gap: 0.5rem;
+}
+
+.single-case .gform_wrapper .ginput_complex.ginput_container_name span {
+  flex: 1 !important;
+}
+
+.single-case .gform_wrapper .gfield_checkbox {
+  margin-top: 0 !important;
+}
+
+.single-case .gform_wrapper .gform_footer {
+  margin-top: 1rem !important;
+}
+
+.single-case .gform_wrapper input[type="text"],
+.single-case .gform_wrapper input[type="email"],
+.single-case .gform_wrapper input[type="tel"],
+.single-case .gform_wrapper input[type="number"],
+.single-case .gform_wrapper input[type="url"],
+.single-case .gform_wrapper select {
+  height: 48px;
+}
+
+.single-case .gform_wrapper select {
+  padding: 0.625rem 0.75rem;
+}
+
+.single-case .gform_wrapper select option {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.single-case .gform_wrapper select:focus {
+  border-color: var(--color-gold);
+}
+
+.single-case .gform_wrapper textarea {
+  min-height: 120px;
+}
+
+.single-case .gform_wrapper input:focus,
+.single-case .gform_wrapper select:focus,
+.single-case .gform_wrapper textarea:focus {
+  outline: none;
+  border-color: var(--color-gold);
+}
+
+.single-case .gform_wrapper input::placeholder,
+.single-case .gform_wrapper textarea::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.single-case .gform_wrapper .gfield_checkbox {
+  margin: 0;
+}
+
+.single-case .gform_wrapper .gfield_checkbox .gchoice {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.single-case .gform_wrapper .gfield_checkbox input[type="checkbox"] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+  background-color: transparent;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.single-case .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.single-case .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked::after {
+  content: "\f00c";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #000000;
+  font-size: 10px;
+}
+
+.single-case .gform_wrapper .gfield_checkbox label {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.4;
+  cursor: pointer;
+}
+
+.single-case .gform_wrapper .gfield_checkbox input[type="checkbox"]:hover {
+  border-color: var(--color-gold);
+}
+
+.single-case .gform_wrapper .gform_footer .gform_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  background-color: #ffffff;
+  color: #000000;
+  border: none;
+  border-radius: 0.375rem;
+  padding: 0.875rem 1.5rem;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.single-case .gform_wrapper .gform_footer .gform_button::after {
+  content: "\f061";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  transition: transform 0.2s ease;
+}
+
+.single-case .gform_wrapper .gform_footer .gform_button:hover,
+.single-case .gform_wrapper .gform_footer .gform_button:focus {
+  background-color: var(--color-gold);
+  color: var(--color-primary);
+}
+
+.single-case .gform_wrapper .gform_footer .gform_button:hover::after,
+.single-case .gform_wrapper .gform_footer .gform_button:focus::after {
+  transform: translateX(5px);
+}
+
+.single-case .gform_wrapper .gform_footer {
+  margin-top: 1rem;
+}
+
+@media (min-width: 1200px) {
+  .single-case .col-xl-7 {
+    padding-right: 3rem;
+  }
+
+  .single-case .col-xl-5 {
+    padding-left: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .col-lg-8 {
+    padding-right: 30px;
+  }
+
+  .col-lg-4 {
+    padding-left: 30px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .case-image-container {
+    max-width: 100%;
+  }
+
+  .treatment-recovery-links {
+    margin-bottom: 3rem;
+  }
+
+  .patient-info-card {
+    padding: 0.75rem;
+  }
+
+  .consultation-card {
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 767px) {
+  .consultation-card .card-body {
+    padding: 20px;
+  }
+
+  .single-case .gform_wrapper input[type="text"],
+  .single-case .gform_wrapper input[type="email"],
+  .single-case .gform_wrapper input[type="tel"],
+  .single-case .gform_wrapper input[type="number"],
+  .single-case .gform_wrapper input[type="url"],
+  .single-case .gform_wrapper select,
+  .single-case .gform_wrapper textarea {
+    font-size: 15px;
+  }
+
+  .single-case .gform_wrapper .gfield_checkbox .gchoice {
+    margin-bottom: 0;
+  }
+
+  .single-case .gform_wrapper .gform_footer .gform_button {
+    width: 100%;
+  }
+
+  .single-case .gform_wrapper .gform_fields {
+    grid-gap: 0.5rem !important;
+  }
+}
+
+@media (max-width: 576px) {
+  .col-lg-8 h2.h4 {
+    font-size: 1.15rem;
+  }
+
+  .consultation-card .card-body {
+    padding: 15px;
+  }
+
+  .single-case .gform_wrapper input,
+  .single-case .gform_wrapper select {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .single-case .gform_wrapper .gfield_checkbox input[type="checkbox"] {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+/* Content link styles to match other templates */
+.content a {
+  color: #0000FF;
+}
+
+.content a:hover,
+.content a:focus {
+  color: #551A8B;
+  text-decoration-thickness: 2px;
+}
+
+/* Related Cases Section */
+
+.related-case-item {
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  background: #fff;
+}
+
+.related-case-item:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transform: translateY(-1px);
+}
+
+.related-case-link {
+  display: flex;
+  align-items: center;
+  padding: 1.25rem;
+  text-decoration: none;
+  color: inherit;
+  gap: 1rem;
+}
+
+.related-case-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: var(--color-gold);
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.related-case-number span {
+  color: #000;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.related-case-content {
+  flex: 1;
+}
+
+.related-case-title {
+  color: var(--color-primary);
+  font-weight: 600;
+  font-size: 1.1rem;
+  margin-bottom: 0.25rem;
+  line-height: 1.3;
+}
+
+.related-case-meta {
+  color: #666;
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.related-case-arrow {
+  color: var(--color-gold);
+  opacity: 0.7;
+  transition: all 0.2s ease;
+}
+
+.related-case-item:hover .related-case-arrow {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+@media (max-width: 767px) {
+  .related-case-link {
+    padding: 1rem;
+  }
+  
+  .related-case-number {
+    width: 36px;
+    height: 36px;
+  }
+  
+  .related-case-title {
+    font-size: 1rem;
+  }
+}

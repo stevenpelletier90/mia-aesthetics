@@ -1,0 +1,185 @@
+/* ===== HERO SECTION ===== */
+
+/* ===== HERO SECTION - CLEAN IMPLEMENTATION ===== */
+
+.hero-section {
+  background-color: #fff;
+  border: 2px solid #fff;
+  position: relative;
+}
+
+.hero-container {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+/* ===== CAROUSEL SECTION (1920x1080 - 16:9) ===== */
+.hero-carousel {
+  flex: 2;
+  border-right: 2px solid #fff;
+  position: relative;
+}
+
+/* Force 16:9 aspect ratio for carousel */
+.hero-carousel::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio (1080/1920 = 0.5625) */
+}
+
+.hero-carousel .carousel {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.hero-carousel .carousel-inner,
+.hero-carousel .carousel-item {
+  height: 100%;
+}
+
+.hero-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* ===== SIDEBAR SECTION (Two 1600x900 boxes) ===== */
+.hero-sidebar {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.hero-box {
+  flex: 1;
+  position: relative;
+  border-bottom: 2px solid #fff;
+}
+
+.hero-box:last-child {
+  border-bottom: none;
+}
+
+/* Force 16:9 aspect ratio for each box */
+.hero-box::before {
+  content: '';
+  display: block;
+  padding-top: 56.25%; /* 16:9 aspect ratio (900/1600 = 0.5625) */
+}
+
+.hero-box-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-box-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Hero box titles removed - no longer used */
+
+/* ===== CAROUSEL INDICATORS ===== */
+.carousel-indicators {
+  margin-bottom: 1rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  background-color: #fff;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin: 0 6px;
+  opacity: 0.7;
+  border: 2px solid #fff;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* ===== RESPONSIVE BEHAVIOR ===== */
+
+/* Mobile: Stack boxes below carousel */
+@media (max-width: 767px) {
+  .hero-container {
+    flex-direction: column;
+  }
+
+  .hero-carousel {
+    border-right: none;
+    border-bottom: 2px solid #fff;
+  }
+
+  .hero-sidebar {
+    flex-direction: row;
+  }
+
+  .hero-box {
+    border-bottom: none;
+    border-right: 2px solid #fff;
+  }
+
+  .hero-box:last-child {
+    border-right: none;
+  }
+
+  .hero-box-overlay {
+    padding: 1rem;
+  }
+
+}
+
+/* Tablet adjustments */
+@media (min-width: 768px) and (max-width: 991px) {
+  .hero-box-overlay {
+    padding: 1.5rem;
+  }
+
+  /* Hero box titles removed - no longer used */
+}
+
+/* Large desktop adjustments */
+@media (min-width: 1200px) {
+  .hero-box-overlay {
+    padding: 2.5rem;
+  }
+
+  /* Hero box titles removed - no longer used */
+}
+
+/* ===== PLACEHOLDER STYLES ===== */
+.carousel-placeholder,
+.hero-box-placeholder {
+  min-height: 100%;
+  aspect-ratio: 16/9;
+}
+
+.hero-box-placeholder {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}

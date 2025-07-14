@@ -1,0 +1,166 @@
+/* Page Template: page-before-after-by-doctor.php */
+/* Styles specific to before/after by doctor page template */
+
+/* Gallery CSS for Before & After by Doctor
+   - Only loaded on the /before-after/before-after-by-doctor/ page template.
+   - Uses Bootstrap 5.3 utilities where possible.
+   - Minimal custom styles to let Bootstrap handle the modal display.
+*/
+
+/* Hero styles */
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-header h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 992px) {
+  .post-header h1 {
+    font-size: 3rem;
+  }
+}
+
+/* ================= Dropdown & Doctor Name Spacing ================= */
+
+/* Increase spacing between heading and dropdown */
+#doctors-gallery h1 {
+  margin-bottom: 2.5rem;
+}
+
+/* Style the dropdown to be larger and more prominent */
+#doctorSelect {
+  min-width: 250px;
+  max-width: 300px;
+}
+
+/* Enhance dropdown focus state */
+#doctorSelect:focus {
+  border-color: var(--color-gold);
+  box-shadow: 0 0 0 0.2rem rgba(200, 178, 115, 0.25);
+}
+
+/* Add more spacing between dropdown and doctor name */
+.gallery h2 {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+/* Desktop-specific adjustments */
+@media (min-width: 768px) {
+  #doctorSelect {
+    min-width: 250px;
+    padding: 0.875rem 1.25rem;
+    font-size: 1.125rem;
+  }
+
+  /* Extra spacing for doctor name on desktop */
+  .gallery h2 {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+}
+
+/* Gallery image hover effect */
+#doctors-gallery .gallery img {
+  transition: transform 0.25s ease;
+}
+#doctors-gallery .gallery img:hover {
+  transform: scale(1.04);
+}
+
+/* Gallery button styling - ensure clickable */
+#doctors-gallery .gallery button {
+  cursor: pointer;
+}
+
+/* Modal styling */
+#lightboxModal .modal-dialog {
+  max-width: 900px; /* Slightly wider */
+  margin: 1.75rem auto;
+}
+
+#lightboxModal .modal-content {
+  background-color: #fff;
+  border: none;
+}
+
+#lightboxModal .modal-body {
+  padding: 40px; /* Reduced padding - arrows closer to image */
+  position: relative;
+  background-color: #fff;
+}
+
+/* Carousel image styling */
+#galleryCarousel img {
+  max-height: 70vh; /* Reduced to prevent scrolling */
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Carousel control arrows - dark background for visibility */
+#galleryCarousel .carousel-control-prev,
+#galleryCarousel .carousel-control-next {
+  background-color: rgba(0, 0, 0, 0.5);
+  width: 50px;
+  height: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 50%;
+  opacity: 0.8;
+}
+
+#galleryCarousel .carousel-control-prev:hover,
+#galleryCarousel .carousel-control-next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 1;
+}
+
+#galleryCarousel .carousel-control-prev {
+  left: 10px;
+}
+
+#galleryCarousel .carousel-control-next {
+  right: 10px;
+}
+
+/* Center the arrow icons */
+#galleryCarousel .carousel-control-prev-icon,
+#galleryCarousel .carousel-control-next-icon {
+  width: 20px;
+  height: 20px;
+}
+
+/* Mobile-specific arrow positioning - closer to image edges */
+@media (max-width: 767px) {
+  #lightboxModal .modal-body {
+    padding: 20px; /* Reduced padding on mobile */
+  }
+
+  #galleryCarousel .carousel-control-prev {
+    left: -5px; /* Move closer to left edge */
+  }
+
+  #galleryCarousel .carousel-control-next {
+    right: -5px; /* Move closer to right edge */
+  }
+
+  /* Smaller arrows on mobile for better touch targets */
+  #galleryCarousel .carousel-control-prev,
+  #galleryCarousel .carousel-control-next {
+    width: 40px;
+    height: 40px;
+  }
+
+  #galleryCarousel .carousel-control-prev-icon,
+  #galleryCarousel .carousel-control-next-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

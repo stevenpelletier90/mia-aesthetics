@@ -1,0 +1,216 @@
+/* Non-Surgical Archive Styles - Adapted from procedure-archive.css */
+
+/* Header Styling to match single conditions */
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-header h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.post-header .lead {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+/* Category Cards */
+.procedure-category-card {
+  transition: all 0.3s ease;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  border: none;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  background: #1b1b1b;
+  color: #ffffff;
+}
+
+.procedure-category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.4);
+}
+
+/* Category Image Container */
+.category-image-container {
+  height: 250px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-image-container img {
+  object-fit: cover;
+}
+
+/* Category Overlay */
+.category-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.procedure-category-card:hover .category-overlay {
+  opacity: 1;
+}
+
+.category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background-color: var(--color-gold);
+  color: #000;
+  border: none;
+  transition: all 0.2s ease;
+}
+
+.category-badge:focus,
+.category-badge:hover,
+.category-badge:active {
+  background-color: rgba(200, 178, 115, 0.9);
+  color: #000;
+  transform: scale(1.05);
+}
+
+/* Card Body */
+.procedure-category-card .card-body {
+  padding: 1.5rem;
+  background: #1b1b1b;
+}
+
+.procedure-category-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: #ffffff;
+}
+
+.procedure-category-card h2 {
+  color: var(--color-gold);
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+/* Procedure Links */
+.procedure-links li {
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+  position: relative;
+}
+
+.procedure-links li:last-child {
+  margin-bottom: 0;
+}
+
+.procedure-links a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 15px;
+}
+
+.procedure-links a::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 600;
+  opacity: 0.8;
+  transition: all 0.2s ease;
+}
+
+.procedure-links a:hover {
+  color: #ffffff;
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.procedure-links a:hover::before {
+  opacity: 1;
+  transform: translateX(3px);
+  color: var(--color-gold);
+}
+
+.procedure-links a strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.section-heading {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+/* Video Cards - Clean styling without extra spacing */
+.procedure-video-card {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 0.25rem;
+  overflow: hidden;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .category-image-container {
+    height: 220px;
+  }
+
+  .procedure-category-card .card-body {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .category-image-container {
+    height: 200px;
+  }
+
+  .procedure-category-card .card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .category-image-container {
+    height: 180px;
+  }
+
+  .procedure-category-card .card-body {
+    padding: 0.875rem;
+  }
+
+  .procedure-links a {
+    font-size: 0.85rem;
+  }
+}
+
+/* Accessibility Enhancements */
+@media (prefers-reduced-motion: reduce) {
+  .procedure-category-card,
+  .procedure-links a {
+    transition: none;
+  }
+}
+
+/* Focus States for Better Accessibility */
+.procedure-category-card:focus-within {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.procedure-links a:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .category-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+  }
+}

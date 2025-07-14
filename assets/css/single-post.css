@@ -1,0 +1,291 @@
+.post-header {
+  background-color: var(--color-primary);
+  color: #fff;
+  padding: 2rem 0;
+}
+.post-header h1 {
+  color: #fff;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+.post-header .lead {
+  color: var(--color-gold);
+  /* font-size removed: use base or utility class */
+  font-weight: 400;
+}
+.post-meta {
+  color: rgba(255, 255, 255, 0.8) !important;
+  /* font-size removed: use base or utility class */
+}
+.post-meta i {
+  color: var(--color-gold);
+}
+.content {
+  /* font-size removed: use base or utility class */
+  line-height: 1.8;
+}
+.content h2,
+.content h3,
+.content h4 {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+.content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  margin: 1.5rem 0;
+}
+.content blockquote {
+  border-left: 4px solid var(--color-gold);
+  padding-left: 1.5rem;
+  margin-left: 0;
+  font-style: italic;
+  color: #555;
+}
+
+/* Main content link styles */
+.content a {
+  color: #0000FF;
+}
+
+.content a:hover,
+.content a:focus {
+  color: #551A8B; /* deeper shade or brand-friendly dark blue */
+  text-decoration-thickness: 2px;
+}
+
+/* FAQ/Accordion body link styles */
+.accordion-body a {
+  color: #0000FF;
+}
+
+.accordion-body a:hover,
+.accordion-body a:focus {
+  color: #551A8B; /* deeper shade or brand-friendly dark blue */
+  text-decoration-thickness: 2px;
+}
+.related-topics .h5 {
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+.related-topics .h5:after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px;
+  height: 2px;
+  background-color: var(--color-gold);
+}
+.related-topics a[href*="tag"] {
+  display: inline-block;
+  background-color: #f8f9fa;
+  color: var(--color-primary) !important;
+  padding: 0.25rem 0.75rem;
+  border-radius: 30px;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  /* font-size removed: use base or utility class */
+  transition: all 0.2s ease;
+  text-decoration: none !important;
+}
+.related-topics a[href*="tag"]:hover {
+  background-color: var(--color-gold);
+  color: #000 !important;
+}
+.sidebar {
+  padding-left: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.sidebar .card {
+  border-radius: 12px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+  border: 1px solid #e5e5e5;
+  box-shadow: none;
+  background: #fff;
+  margin-bottom: 2rem;
+}
+.sidebar .card:hover {
+  border-color: #c8b273;
+  box-shadow: none;
+}
+.sidebar .card-body {
+  padding: 2rem 1.5rem 1.5rem 1.5rem;
+}
+
+.sidebar .h5 {
+  font-weight: 700;
+  margin-bottom: 1.25rem;
+  color: var(--color-primary);
+  letter-spacing: 0.01em;
+  font-family: var(--font-heading);
+  border-left: 4px solid var(--color-gold);
+  padding-left: 0.75rem;
+}
+
+.sidebar .list-unstyled {
+  margin-bottom: 0;
+}
+.sidebar .list-unstyled li {
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #f0f0f0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.sidebar .list-unstyled li:last-child {
+  border-bottom: none;
+}
+.sidebar .list-unstyled a {
+  color: var(--color-primary);
+  font-weight: 500;
+  /* font-size removed: use base or utility class */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.2s, background 0.2s;
+  border-radius: 4px;
+  padding: 0.15rem 0.25rem;
+  text-decoration: none;
+}
+.sidebar .list-unstyled a:hover {
+  color: var(--color-gold);
+  background: #f8f9fa;
+  text-decoration: none;
+}
+.sidebar .list-unstyled i {
+  color: var(--color-gold);
+  /* font-size removed: use base or utility class */
+  min-width: 1.5em;
+  text-align: center;
+}
+
+.sidebar .h6 {
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--color-primary);
+}
+
+.sidebar .img-fluid {
+  border-radius: 6px;
+  transition: opacity 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+.sidebar .img-fluid:hover {
+  opacity: 0.92;
+}
+
+.sidebar .text-muted {
+  color: #888 !important;
+  /* font-size removed: use base or utility class */
+}
+
+@media (max-width: 991px) {
+  .post-header {
+    padding: 2rem 0;
+  }
+  .post-header h1 {
+    font-size: 2rem;
+  }
+  .sidebar {
+    margin-top: 2.5rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  .post-header {
+    padding: 1.5rem 0;
+  }
+  .post-header h1 {
+    font-size: 1.75rem;
+  }
+  .content {
+    font-size: 1rem;
+  }
+  .sidebar {
+    margin-top: 2rem;
+    padding: 0;
+  }
+}
+
+/* Accordion Styles for Single Template (for FAQ) */
+.accordion-item {
+  margin-bottom: 1rem;
+  border: none;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.accordion-item:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-header {
+  margin: 0;
+}
+
+.accordion-button {
+  background-color: var(--color-primary);
+  color: #fff;
+  font-weight: 500;
+  padding: 1.25rem;
+  border-radius: 6px;
+  box-shadow: none;
+  font-family: var(--font-heading);
+  position: relative;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: var(--color-primary);
+  color: var(--color-gold);
+  box-shadow: none;
+}
+
+.accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.accordion-button::after {
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  content: "\f078";
+  background-image: none;
+  transition: transform 0.3s ease;
+  color: var(--color-gold);
+}
+
+.accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+  content: "\f078";
+  color: var(--color-gold);
+}
+
+.accordion-body {
+  padding: 1.5rem;
+  background-color: #fff;
+  color: #333;
+  line-height: 1.6;
+}
+
+@media (max-width: 991px) {
+  .post-header {
+    padding: 2rem 0;
+  }
+  .col-lg-4 {
+    margin-top: 3rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .post-header {
+    padding: 1.5rem 0;
+  }
+}

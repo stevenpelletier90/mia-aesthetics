@@ -1,0 +1,147 @@
+/**
+ * Search Results Page Styles
+ * Dedicated styles for the search results page
+ */
+
+/* Search Results Header */
+.search-results .post-header {
+    background-color: #f8f9fa;
+}
+
+.search-results .post-header h1 {
+    color: var(--color-primary);
+    font-weight: 700;
+}
+
+.search-results .post-header h1 span {
+    color: var(--color-gold);
+    font-style: italic;
+}
+
+.search-results .post-header p.lead {
+    color: #6c757d;
+    font-size: 1.1rem;
+}
+
+/* Search Results Cards */
+.search-results .card {
+    border: 1px solid #e9ecef;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.search-results .card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    border-color: var(--color-gold);
+}
+
+.search-results .card-img-top {
+    border-radius: 8px 8px 0 0;
+    height: 200px;
+    object-fit: cover;
+}
+
+.search-results .card-body {
+    padding: 1.5rem;
+}
+
+.search-results .card-body h2 {
+    color: var(--color-primary);
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+.search-results .card-body h2 a {
+    color: inherit;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.search-results .card-body h2 a:hover {
+    color: var(--color-gold);
+}
+
+.search-results .card-body .text-muted {
+    background-color: #f8f9fa;
+    padding: 0.25rem 0.5rem;
+    border-radius: 3px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--color-primary);
+    border: 1px solid #e9ecef;
+    display: inline-block;
+    margin-top: 0.5rem;
+}
+
+/* No Results Found */
+.search-results .no-results {
+    text-align: center;
+    padding: 3rem 2rem;
+    color: #6c757d;
+}
+
+.search-results .no-results h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+}
+
+/* Pagination */
+.search-results .pagination {
+    margin-top: 2rem;
+}
+
+.search-results .pagination .page-link {
+    color: var(--color-primary);
+    border-color: #e9ecef;
+    padding: 0.75rem 1rem;
+    font-weight: 500;
+}
+
+.search-results .pagination .page-link:hover {
+    color: #fff;
+    background-color: var(--color-gold);
+    border-color: var(--color-gold);
+}
+
+.search-results .pagination .page-item.active .page-link {
+    background-color: var(--color-primary);
+    border-color: var(--color-primary);
+    color: #fff;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .search-results .post-header h1 {
+        font-size: 1.8rem;
+    }
+    
+    .search-results .card-img-top {
+        height: 150px;
+    }
+    
+    .search-results .card-body {
+        padding: 1rem;
+    }
+    
+    .search-results .no-results {
+        padding: 2rem 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .search-results .post-header h1 {
+        font-size: 1.5rem;
+    }
+    
+    .search-results .post-header p.lead {
+        font-size: 1rem;
+    }
+    
+    .search-results .card-body h2 {
+        font-size: 1.1rem;
+    }
+}

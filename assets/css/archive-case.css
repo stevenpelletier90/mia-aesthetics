@@ -1,0 +1,222 @@
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-header h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.post-header .lead {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+.case-category-card {
+  transition: box-shadow 0.3s ease;
+  border-radius: 0.25rem;
+  overflow: hidden;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+}
+
+.category-image-container {
+  height: 350px;
+  position: relative;
+  overflow: hidden;
+}
+
+.category-image-container img {
+  object-fit: cover;
+}
+
+.category-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.case-category-card:hover .category-overlay {
+  opacity: 1;
+}
+
+.category-badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  background-color: var(--color-primary, #b48c5e);
+  color: #fff;
+  border: none;
+  transition: background-color 0.2s;
+}
+
+.category-badge:focus,
+.category-badge:hover,
+.category-badge:active {
+  background-color: var(--color-primary, #b48c5e);
+  color: #fff;
+}
+
+.case-category-card .card-body {
+  padding: 1.5rem;
+}
+
+.case-category-card .card-text {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.case-links li {
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+  position: relative;
+}
+
+.case-links li:last-child {
+  margin-bottom: 0;
+}
+
+.case-links a {
+  color: #666;
+  font-size: 0.9rem;
+  transition: all 0.2s ease;
+  display: inline-block;
+  position: relative;
+  padding-left: 15px;
+}
+
+.case-links a::before {
+  content: "›";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 600;
+  opacity: 0.6;
+  transition: all 0.2s ease;
+}
+
+.case-links a:hover {
+  color: var(--color-primary);
+  padding-left: 20px;
+  text-decoration: none;
+}
+
+.case-links a:hover::before {
+  opacity: 1;
+  transform: translateX(3px);
+}
+
+.section-heading {
+  color: var(--color-primary);
+  font-family: var(--font-heading);
+}
+
+.browse-by-surgeon {
+  background-color: #f8f9fa;
+}
+
+.browse-by-surgeon h2 {
+  color: var(--color-primary);
+  font-weight: 600;
+}
+
+.browse-by-surgeon .btn-primary {
+  background-color: var(--color-primary);
+  border-color: var(--color-primary);
+  color: #fff;
+  font-weight: 600;
+  padding: 0.75rem 2rem;
+  transition: all 0.3s ease;
+}
+
+.browse-by-surgeon .btn-primary:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-primary);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.browse-by-surgeon .btn-primary i {
+  transition: transform 0.3s ease;
+}
+
+.browse-by-surgeon .btn-primary:hover i {
+  transform: translateX(3px);
+}
+
+.case-category-card:focus-within {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.case-links a:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.browse-by-surgeon .btn-primary:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3);
+}
+
+@media (min-width: 1200px) {
+  .category-image-container {
+    height: 400px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .category-image-container {
+    height: 280px;
+  }
+
+  .case-category-card .card-body {
+    padding: 1.25rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .category-image-container {
+    height: 220px;
+  }
+
+  .case-category-card .card-body {
+    padding: 1rem;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .category-image-container {
+    height: 300px;
+  }
+
+  .case-category-card .card-body {
+    padding: 0.875rem;
+  }
+
+  .case-links a {
+    font-size: 0.85rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .case-category-card,
+  .case-links a,
+  .browse-by-surgeon .btn-primary,
+  .browse-by-surgeon .btn-primary i {
+    transition: none;
+  }
+}
+
+@media (prefers-contrast: high) {
+  .category-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+  }
+}

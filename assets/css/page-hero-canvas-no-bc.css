@@ -1,0 +1,12 @@
+.post-header h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+#primary .post-header {
+  margin-bottom: 0;
+}
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}

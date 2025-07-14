@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find:*)",
+      "Bash(wp post list:*)",
+      "Bash(grep:*)",
+      "Bash(rg:*)",
+      "Bash(wp:*)",
+      "Bash(-print)",
+      "Bash(git checkout:*)",
+      "Bash(php:*)",
+      "Bash(mv:*)",
+      "Bash(rm:*)",
+      "Bash(cp:*)",
+      "Bash(sed:*)",
+      "Bash(ls:*)",
+      "Bash(diff:*)",
+      "WebFetch(domain:developer.wordpress.org)",
+      "Bash(claude mcp:*)",
+      "Bash(dir /a C:UserssteveDownloadsMia)"
+    ],
+    "deny": []
+  }
+}

@@ -1,0 +1,39 @@
+.post-header {
+  background-color: #f8f8f8;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.post-header h1 {
+  font-weight: 700;
+  margin-bottom: 0;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+}
+
+.post-header .lead {
+  font-size: clamp(1rem, 4vw, 1.25rem);
+}
+
+.page-content {
+  padding: 2rem 0;
+}
+
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-header h1 {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+}
+
+.page-subheading {
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+}
+.page-section {
+  margin-bottom: 3rem;
+}
+
+.page-section:last-child {
+  margin-bottom: 0;
+}
