@@ -32,37 +32,31 @@ include 'hero-section.php';
                 <!-- Video 1 -->
                 <li class="glide__slide">
                   <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/OxigXlYTqH8" title="Mia Aesthetics Video 1" allowfullscreen></iframe>
-                  </div>
+                    <iframe src="https://www.youtube.com/embed/b6b0KaW2cXE" title="Mia Aesthetics Video 1" allowfullscreen></iframe>
+                  </div>                 
                 </li>
                 <!-- Video 2 -->
                 <li class="glide__slide">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/sb8Kapy8mzU" title="Mia Aesthetics Video 2" allowfullscreen></iframe>
-                  </div>
+                   <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/ykz9Z8Kh3Yo" title="Mia Aesthetics Video 2" allowfullscreen></iframe>
+                  </div>                 
                 </li>
                 <!-- Video 3 -->
                 <li class="glide__slide">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/4-B_ISCne28" title="Mia Aesthetics Video 3" allowfullscreen></iframe>
-                  </div>
+                   <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/MI9qpDPGuD4" title="Mia Aesthetics Video 3" allowfullscreen></iframe>
+                  </div>                  
                 </li>
                 <!-- Video 4 -->
                 <li class="glide__slide">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/ykz9Z8Kh3Yo" title="Mia Aesthetics Video 4" allowfullscreen></iframe>
-                  </div>
+                <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/OxigXlYTqH8" title="Mia Aesthetics Video 5" allowfullscreen></iframe>
+                  </div>                  
                 </li>
                 <!-- Video 5 -->
                 <li class="glide__slide">
                   <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/MI9qpDPGuD4" title="Mia Aesthetics Video 5" allowfullscreen></iframe>
-                  </div>
-                </li>
-                <!-- Video 6 -->
-                <li class="glide__slide">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/OxigXlYTqH8" title="Mia Aesthetics Video 6" allowfullscreen></iframe>
+                    <iframe src="https://www.youtube.com/embed/sb8Kapy8mzU" title="Mia Aesthetics Video 4" allowfullscreen></iframe>
                   </div>
                 </li>
               </ul>
@@ -85,7 +79,6 @@ include 'hero-section.php';
               <button class="glide__bullet" data-glide-dir="=2" aria-label="Go to video 3"></button>
               <button class="glide__bullet" data-glide-dir="=3" aria-label="Go to video 4"></button>
               <button class="glide__bullet" data-glide-dir="=4" aria-label="Go to video 5"></button>
-              <button class="glide__bullet" data-glide-dir="=5" aria-label="Go to video 6"></button>
             </div>
           </div>
         </div>
