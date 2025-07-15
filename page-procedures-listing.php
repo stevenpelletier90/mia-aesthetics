@@ -59,7 +59,7 @@ get_header();
 							?>
 							
 							<div class="col-lg-4 col-md-6">
-								<article class="procedure-card">
+								<article class="procedure-card h-100">
 									<figure class="procedure-image">
 										<a href="<?php echo esc_url( $procedure_link ); ?>" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
 											<?php echo $procedure_image; ?>
@@ -71,9 +71,6 @@ get_header();
 												<?php echo esc_html( $procedure_title ); ?>
 											</a>
 										</h3>
-										<p class="procedure-excerpt">
-											<?php echo esc_html( $procedure_excerpt ? $procedure_excerpt : 'Learn more about this procedure and how it can help you achieve your aesthetic goals.' ); ?>
-										</p>
 										<a href="<?php echo esc_url( $procedure_link ); ?>" class="mia-button" data-variant="gold-outline" data-size="sm" role="button">
 											Learn More
 										</a>

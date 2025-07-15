@@ -1,6 +1,6 @@
 /**
- * Non-Surgical Archive Template JavaScript
- * Handles analytics tracking for the non-surgical procedures archive
+ * Procedures Manual Layout Template JavaScript
+ * Handles analytics tracking for the manually curated procedures page
  */
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 gtag('event', 'procedure_click', {
                     'procedure_name': procedureTitle,
                     'page_location': window.location.href,
-                    'page_template': 'archive_non_surgical'
+                    'page_template': 'procedures_manual'
                 });
             }
         });

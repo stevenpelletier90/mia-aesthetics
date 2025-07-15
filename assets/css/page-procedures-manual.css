@@ -1,4 +1,4 @@
-/* Procedures Listing Template Styles */
+/* Procedures Manual Layout Template Styles */
 
 /* Post Header Styling (consistent with other templates) */
 .post-header {
@@ -13,7 +13,7 @@
 }
 
 /* Main section spacing */
-.procedures-listing-section {
+.procedures-manual-section {
 	padding: 4rem 0;
 }
 
@@ -28,7 +28,7 @@
 	line-height: 1.6;
 }
 
-/* Procedure Cards */
+/* Procedure Cards - Same as procedures-listing for consistency */
 .procedure-card {
 	background: #fff;
 	border-radius: 8px;
@@ -111,7 +111,7 @@ figure.procedure-image {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-	.procedures-listing-section {
+	.procedures-manual-section {
 		padding: 3rem 0;
 	}
 	

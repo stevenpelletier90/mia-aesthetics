@@ -5,7 +5,7 @@
 
 get_header(); ?>
 
-<?php mia_breadcrumbs(); ?>
+
 
 <div class="specials-archive-page">
 
