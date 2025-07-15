@@ -179,11 +179,11 @@ get_header(); ?>
     <!-- Question 1 -->
     <div class="accordion-item">
         <h3 class="accordion-header" id="heading-faq-fat-transfer-1">
-            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-fat-transfer-1" aria-expanded="true" aria-controls="collapse-faq-fat-transfer-1">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-faq-fat-transfer-1" aria-expanded="false" aria-controls="collapse-faq-fat-transfer-1">
                 Can fat transfer be reversed or removed?
             </button>
         </h3>
-        <div id="collapse-faq-fat-transfer-1" class="accordion-collapse collapse show" data-bs-parent="#faq-accordion-fat-transfer">
+        <div id="collapse-faq-fat-transfer-1" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-fat-transfer">
             <div class="accordion-body">
                 Fat transfer is technically not reversible, but if issues like lumps, asymmetry, or dissatisfaction arise, surgical revision can be used to remove or adjust the transferred fat. Sometimes these issues are corrected by adding more fat. At other times, liposuction can smooth out the added fat for a better contour. You should generally wait three months to seek a revision, however, to ensure that all of the residual swelling has subsided and that all the fat cells that are going to die have done so.
             </div>

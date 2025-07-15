@@ -315,107 +315,213 @@ h3.section-subheading {
   margin-bottom: 2rem;
 }
 
-.video-carousel-container {
-  overflow: hidden;
-}
-
-#video-thumbnails-container {
-  background-color: transparent;
-  padding: 10px 5px;
-}
-
-.featured-video {
-  overflow: hidden;
-}
-
-.video-thumbnail {
+/* Video Glide.js Layout */
+.video-carousel-wrapper {
+  width: 100%;
   position: relative;
-  border-radius: 4px;
+}
+
+.video-glide {
+  position: relative;
+  width: 100%;
+  padding: 0 60px; /* Space for external navigation buttons */
+}
+
+.video-glide .glide__track {
   overflow: hidden;
-  transition: all 0.3s ease;
-  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.video-thumbnail:hover {
-  transform: translateY(-5px);
+.video-glide .glide__slides {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
 }
 
-.video-thumbnail.active {
-  transform: scale(1.05);
+.video-glide .glide__slide {
+  flex-shrink: 0;
+  width: 100%;
 }
 
-.selected-video .video-thumbnail {
-  transform: scale(1.05);
-  border: 2px solid #000;
+.video-glide .ratio {
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.video-thumbnail img {
-  transition: all 0.3s ease;
+.video-glide .ratio:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
 }
 
-.video-thumbnail:hover img {
-  filter: brightness(0.8);
-}
-
-.video-play-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
+.video-glide iframe {
+  border: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: rgba(0, 0, 0, 0.3);
-  opacity: 0;
-  transition: opacity 0.3s ease;
 }
 
-.video-thumbnail:hover .video-play-overlay {
-  opacity: 1;
-}
-
-.video-play-overlay i {
-  color: #fff;
-  font-size: 2rem;
-  background-color: rgba(0, 0, 0, 0.5);
+/* Glide Navigation Arrows - Positioned Outside */
+.video-glide .glide__arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
   width: 50px;
   height: 50px;
+  border: 2px solid var(--color-gold);
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-gold);
   border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(8px);
+  z-index: 10;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  font-size: 18px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-/* Five video thumbnail layout */
-.video-thumbnails-five {
+.video-glide .glide__arrow--left {
+  left: 0;
+}
+
+.video-glide .glide__arrow--right {
+  right: 0;
+}
+
+.video-glide .glide__arrow:hover {
+  background: var(--color-gold);
+  color: #fff;
+  transform: translateY(-50%) scale(1.1);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.video-glide .glide__arrow:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+  transform: translateY(-50%);
+}
+
+.video-glide .glide__arrow:disabled:hover {
+  background: rgba(255, 255, 255, 0.95);
+  color: var(--color-gold);
+  transform: translateY(-50%);
+}
+
+/* Glide Pagination Bullets */
+.video-glide .glide__bullets {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 1.5rem;
+  padding: 0;
+  list-style: none;
   flex-wrap: nowrap;
-  gap: 0.5rem;
 }
 
-.video-thumbnails-five .col {
-  flex: 0 0 calc(20% - 0.4rem);
-  max-width: calc(20% - 0.4rem);
+.video-glide .glide__bullet {
+  width: 14px;
+  height: 14px;
+  min-width: 14px;
+  min-height: 14px;
+  background: transparent;
+  border: 2px solid var(--color-gold);
+  border-radius: 50%;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  opacity: 1;
+  padding: 0;
+  margin: 0;
+  flex-shrink: 0;
+  position: relative;
+  outline: none;
+  box-sizing: border-box;
 }
 
-/* Responsive adjustments for 5 videos */
+.video-glide .glide__bullet--active {
+  background: var(--color-gold);
+  transform: scale(1.3);
+  border-color: var(--color-gold);
+}
+
+.video-glide .glide__bullet:hover {
+  background: var(--color-gold);
+  transform: scale(1.1);
+  border-color: var(--color-gold);
+}
+
+.video-glide .glide__bullet:focus {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+/* Responsive adjustments */
 @media (max-width: 768px) {
-  .video-thumbnails-five {
-    flex-wrap: wrap;
+  .video-glide {
+    padding: 0 50px; /* Reduce padding on mobile */
   }
   
-  .video-thumbnails-five .col {
-    flex: 0 0 calc(50% - 0.25rem);
-    max-width: calc(50% - 0.25rem);
+  .video-glide .glide__arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 16px;
+  }
+  
+  .video-glide .ratio {
+    border-radius: 6px;
   }
 }
 
 @media (max-width: 480px) {
-  .video-thumbnails-five .col {
-    flex: 0 0 100%;
-    max-width: 100%;
+  .video-glide {
+    padding: 0 45px; /* Further reduce padding on small mobile */
+  }
+  
+  .video-glide .glide__arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 14px;
+  }
+  
+  .video-glide .glide__bullet {
+    width: 12px;
+    height: 12px;
+    min-width: 12px;
+    min-height: 12px;
+  }
+  
+  .video-glide .ratio {
+    border-radius: 4px;
+  }
+}
+
+/* Desktop specific enhancements */
+@media (min-width: 992px) {
+  .video-glide {
+    padding: 0 70px; /* More space for larger buttons on desktop */
+  }
+  
+  .video-glide .glide__arrow {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+  
+  /* Add subtle animation on desktop */
+  .video-glide .glide__slide {
+    transition: transform 0.3s ease;
+  }
+  
+  .video-glide .glide__slide:hover {
+    transform: scale(1.02);
   }
 }
 
@@ -553,37 +659,6 @@ h3.section-subheading {
   }
 }
 
-@media (max-width: 767px) {
-  .video-thumbnail-wrapper {
-    display: flex;
-    justify-content: center;
-    background: transparent;
-  }
-
-  .video-thumbnail {
-    background-color: transparent;
-    overflow: visible;
-  }
-
-  .selected-video .video-thumbnail {
-    border: 2px solid #000;
-    overflow: visible;
-  }
-
-  .video-play-overlay i {
-    font-size: 1.5rem;
-    width: 40px;
-    height: 40px;
-  }
-}
-
-@media (max-width: 480px) {
-  .video-play-overlay i {
-    font-size: 1.2rem;
-    width: 30px;
-    height: 30px;
-  }
-}
 
 @media (min-width: 768px) and (max-width: 991px) {
   .stats-section .display-5[data-count] {

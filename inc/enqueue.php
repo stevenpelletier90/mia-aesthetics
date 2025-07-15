@@ -74,6 +74,7 @@ function mia_get_template_mappings() {
         'page-condition-layout'       => ['css' => 'page-condition-layout.css',       'js' => 'page-condition-layout.js'],
         'page-careers'                => ['css' => 'page-careers.css',                'js' => 'page-careers.js'],
         'page-careers-locations'      => ['css' => 'single-location.css',            'js' => 'single-location.js'],
+        'page-procedures-listing'     => ['css' => 'page-procedures-listing.css',     'js' => 'page-procedures-listing.js'],
         
         // Core WordPress Templates
         'front-page'      => ['css' => 'front-page.css',    'js' => 'front-page.js'],
@@ -208,6 +209,9 @@ function mia_enqueue_assets() {
             if ( $template_key === 'front-page' ) {
                 mia_register_asset( 'style', 'mia-hero-section', '/css/hero-section.css', [ 'mia-base', 'mia-bootstrap' ] );
                 $css_deps[] = 'mia-hero-section';
+                
+                // Add Glide.js for video carousel (JavaScript only - CSS handled by theme)
+                wp_enqueue_script( 'glide-js', 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js', [], '3.6.0', true );
             }
             
             mia_register_asset( 'style', 'mia-' . $template_key, '/css/' . $template['css'], $css_deps );

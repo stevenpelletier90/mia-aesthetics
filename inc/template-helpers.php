@@ -428,17 +428,17 @@ function mia_display_faqs($show_heading = true) {
                 ?>
                 <div class="accordion-item">
                     <h3 class="accordion-header" id="<?php echo esc_attr($heading_id); ?>">
-                        <button class="accordion-button <?php echo $is_first ? '' : 'collapsed'; ?>"
+                        <button class="accordion-button collapsed"
                                 type="button"
                                 data-bs-toggle="collapse"
                                 data-bs-target="#<?php echo esc_attr($collapse_id); ?>"
-                                aria-expanded="<?php echo $is_first ? 'true' : 'false'; ?>"
+                                aria-expanded="false"
                                 aria-controls="<?php echo esc_attr($collapse_id); ?>">
                             <?php echo esc_html($faq['question']); ?>
                         </button>
                     </h3>
                     <div id="<?php echo esc_attr($collapse_id); ?>"
-                         class="accordion-collapse collapse <?php echo $is_first ? 'show' : ''; ?>"
+                         class="accordion-collapse collapse"
                          data-bs-parent="#<?php echo esc_attr($accordion_id); ?>">
                         <div class="accordion-body">
                             <?php echo wp_kses_post($faq['answer']); ?>

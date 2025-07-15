@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Hero Canvas
- * Template Post Type: page, post, procedure, non-surgical, fat-transfer
+ * Template Post Type: page, post, procedure, non-surgical, fat-transfer, case
  * Description: Full‑width canvas template that keeps the flexibility of a blank
  * canvas but adds structured breadcrumbs and a hero header. Built for
  * Gutenberg or Classic editor content blocks wrapped in Bootstrap containers.

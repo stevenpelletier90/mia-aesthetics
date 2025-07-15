@@ -4,64 +4,105 @@
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // ===== VIDEO INTERACTION FUNCTIONALITY =====
-  function initVideoInteraction() {
-    // Get all video thumbnails and their wrappers
-    const videoThumbnails = document.querySelectorAll(".video-thumbnail");
-    const thumbnailWrappers = document.querySelectorAll(".video-thumbnail-wrapper");
-    const featuredVideoIframe = document.getElementById("featured-video-iframe");
-    const thumbnailsContainer = document.getElementById("video-thumbnails-container");
+  // ===== VIDEO GLIDE.JS FUNCTIONALITY =====
+  function initVideoGlide() {
+    const glideContainer = document.getElementById("videoGlide");
+    
+    if (!glideContainer) return;
 
-    if (!featuredVideoIframe || videoThumbnails.length === 0) return;
-
-    // Function to update the featured video and manage thumbnails
-    function updateFeaturedVideo(videoId) {
-      // Update the featured video iframe src
-      featuredVideoIframe.src = `https://www.youtube.com/embed/${videoId}?autoplay=1`;
-
-      // Show all thumbnail wrappers first
-      thumbnailWrappers.forEach((wrapper) => {
-        wrapper.classList.remove("d-none");
-        wrapper.classList.remove("selected-video");
-      });
-
-      // Mark the selected video with a class instead of hiding it
-      thumbnailWrappers.forEach((wrapper) => {
-        if (wrapper.getAttribute("data-video-id") === videoId) {
-          wrapper.classList.add("selected-video");
+    // Initialize Glide.js
+    const glide = new Glide('#videoGlide', {
+      // Basic settings
+      type: 'carousel',
+      startAt: 0,
+      perView: 1,
+      focusAt: 'center',
+      gap: 0,
+      
+      // Animation settings
+      animationDuration: 400,
+      animationTimingFunc: 'ease',
+      
+      // Touch and drag settings
+      touchRatio: 1,
+      touchAngle: 45,
+      dragThreshold: 120,
+      
+      // Keyboard navigation
+      keyboard: true,
+      
+      // Autoplay disabled for video content
+      autoplay: false,
+      
+      // Responsive settings
+      breakpoints: {
+        // Mobile and tablet - same settings for consistency
+        768: {
+          perView: 1,
+          gap: 0,
+        },
+        480: {
+          perView: 1,
+          gap: 0,
         }
-      });
+      },
+      
+      // Direction (ltr/rtl)
+      direction: 'ltr',
+      
+      // Peek settings (show partial next/prev slides)
+      peek: 0,
+      
+      // Bound mode (don't go beyond first/last slide)
+      bound: true,
+      
+      // Rewind to first slide when reaching the end
+      rewind: false,
+    });
 
-      // Update active state for thumbnails
-      videoThumbnails.forEach((thumb) => {
-        thumb.classList.remove("active");
-        if (thumb.getAttribute("data-video-id") === videoId) {
-          thumb.classList.add("active");
-        }
-      });
-    }
-
-    // Set initial state - mark the default featured video
-    updateFeaturedVideo("OxigXlYTqH8");
-
-    // Add click event to each thumbnail
-    videoThumbnails.forEach((thumbnail) => {
-      thumbnail.addEventListener("click", function () {
-        // Get the video ID from the thumbnail
-        const videoId = this.getAttribute("data-video-id");
-
-        // Update the featured video and manage thumbnails
-        updateFeaturedVideo(videoId);
-      });
-
-      // Add keyboard accessibility
-      thumbnail.addEventListener("keypress", function (e) {
-        if (e.key === "Enter" || e.key === " ") {
-          e.preventDefault();
-          this.click();
-        }
+    // Event listeners for better control
+    glide.on('mount.after', function() {
+      // Add custom class for styling
+      glideContainer.classList.add('glide-initialized');
+      
+      // Ensure arrows are properly positioned
+      const arrows = glideContainer.querySelectorAll('.glide__arrow');
+      arrows.forEach(arrow => {
+        arrow.style.display = 'flex';
       });
     });
+
+    glide.on('run.before', function(move) {
+      // Optional: Add custom logic before slide changes
+      // console.log('Moving to:', move.direction, move.steps);
+    });
+
+    glide.on('run.after', function(move) {
+      // Update navigation states
+      updateNavigationStates();
+    });
+
+    // Function to update navigation button states
+    function updateNavigationStates() {
+      const prevArrow = glideContainer.querySelector('.glide__arrow--left');
+      const nextArrow = glideContainer.querySelector('.glide__arrow--right');
+      const bullets = glideContainer.querySelectorAll('.glide__bullet');
+      
+      if (prevArrow && nextArrow) {
+        // Update arrow states based on current index
+        prevArrow.disabled = glide.index === 0;
+        nextArrow.disabled = glide.index === glide.settings.bound ? bullets.length - 1 : false;
+      }
+    }
+
+    // Mount the glide instance
+    glide.mount();
+
+    // Store glide instance for potential later use
+    window.videoGlide = glide;
+    
+    // Initial navigation state update
+    updateNavigationStates();
   }
 
   // ===== STATS COUNT-UP ANIMATION =====
@@ -225,7 +266,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Initialize all functionality
-  initVideoInteraction();
+  initVideoGlide();
   initStatsAnimation();
   initProcedureDropdown();
 });

@@ -24,55 +24,68 @@ include 'hero-section.php';
       
       <!-- Right Column: Video Carousel -->
       <div class="col-lg-6">
-        <div class="video-carousel-container">
-          <!-- Featured Video -->
-          <div class="featured-video mb-3">
-            <div class="ratio ratio-16x9" id="featured-video-container">
-              <iframe id="featured-video-iframe" src="https://www.youtube.com/embed/OxigXlYTqH8" title="Featured Video" allowfullscreen></iframe>
+        <div class="video-carousel-wrapper">
+          <!-- Glide.js Container -->
+          <div class="glide video-glide" id="videoGlide">
+            <div class="glide__track" data-glide-el="track">
+              <ul class="glide__slides">
+                <!-- Video 1 -->
+                <li class="glide__slide">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/OxigXlYTqH8" title="Mia Aesthetics Video 1" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <!-- Video 2 -->
+                <li class="glide__slide">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/sb8Kapy8mzU" title="Mia Aesthetics Video 2" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <!-- Video 3 -->
+                <li class="glide__slide">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/4-B_ISCne28" title="Mia Aesthetics Video 3" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <!-- Video 4 -->
+                <li class="glide__slide">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/ykz9Z8Kh3Yo" title="Mia Aesthetics Video 4" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <!-- Video 5 -->
+                <li class="glide__slide">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/MI9qpDPGuD4" title="Mia Aesthetics Video 5" allowfullscreen></iframe>
+                  </div>
+                </li>
+                <!-- Video 6 -->
+                <li class="glide__slide">
+                  <div class="ratio ratio-16x9">
+                    <iframe src="https://www.youtube.com/embed/OxigXlYTqH8" title="Mia Aesthetics Video 6" allowfullscreen></iframe>
+                  </div>
+                </li>
+              </ul>
             </div>
-          </div>
-          
-          <!-- Thumbnail Carousel - All in one row -->
-          <div class="row g-2 video-thumbnails-five" id="video-thumbnails-container">
-            <div class="col video-thumbnail-wrapper" data-video-id="OxigXlYTqH8">
-              <div class="video-thumbnail ratio ratio-16x9" data-video-id="OxigXlYTqH8" role="button" tabindex="0" aria-label="Play featured video">
-                <img src="https://img.youtube.com/vi/OxigXlYTqH8/mqdefault.jpg" alt="Video thumbnail" class="img-fluid w-100 h-100 object-fit-cover">
-                <div class="video-play-overlay">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </div>
+            
+            <!-- Navigation arrows -->
+            <div class="glide__arrows" data-glide-el="controls">
+              <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous video">
+                <i class="fa-solid fa-chevron-left"></i>
+              </button>
+              <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next video">
+                <i class="fa-solid fa-chevron-right"></i>
+              </button>
             </div>
-            <div class="col video-thumbnail-wrapper" data-video-id="sb8Kapy8mzU">
-              <div class="video-thumbnail ratio ratio-16x9" data-video-id="sb8Kapy8mzU" role="button" tabindex="0" aria-label="Play video 2">
-                <img src="https://img.youtube.com/vi/sb8Kapy8mzU/mqdefault.jpg" alt="Video thumbnail" class="img-fluid w-100 h-100 object-fit-cover">
-                <div class="video-play-overlay">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col video-thumbnail-wrapper" data-video-id="4-B_ISCne28">
-              <div class="video-thumbnail ratio ratio-16x9" data-video-id="4-B_ISCne28" role="button" tabindex="0" aria-label="Play video 3">
-                <img src="https://img.youtube.com/vi/4-B_ISCne28/mqdefault.jpg" alt="Video thumbnail" class="img-fluid w-100 h-100 object-fit-cover">
-                <div class="video-play-overlay">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col video-thumbnail-wrapper" data-video-id="ykz9Z8Kh3Yo">
-              <div class="video-thumbnail ratio ratio-16x9" data-video-id="ykz9Z8Kh3Yo" role="button" tabindex="0" aria-label="Play video 4">
-                <img src="https://img.youtube.com/vi/ykz9Z8Kh3Yo/mqdefault.jpg" alt="Video thumbnail" class="img-fluid w-100 h-100 object-fit-cover">
-                <div class="video-play-overlay">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </div>
-            </div>
-            <div class="col video-thumbnail-wrapper" data-video-id="MI9qpDPGuD4">
-              <div class="video-thumbnail ratio ratio-16x9" data-video-id="MI9qpDPGuD4" role="button" tabindex="0" aria-label="Play video 5">
-                <img src="https://img.youtube.com/vi/MI9qpDPGuD4/mqdefault.jpg" alt="Video thumbnail" class="img-fluid w-100 h-100 object-fit-cover">
-                <div class="video-play-overlay">
-                  <i class="fa-solid fa-play"></i>
-                </div>
-              </div>
+            
+            <!-- Pagination bullets -->
+            <div class="glide__bullets" data-glide-el="controls[nav]">
+              <button class="glide__bullet" data-glide-dir="=0" aria-label="Go to video 1"></button>
+              <button class="glide__bullet" data-glide-dir="=1" aria-label="Go to video 2"></button>
+              <button class="glide__bullet" data-glide-dir="=2" aria-label="Go to video 3"></button>
+              <button class="glide__bullet" data-glide-dir="=3" aria-label="Go to video 4"></button>
+              <button class="glide__bullet" data-glide-dir="=4" aria-label="Go to video 5"></button>
+              <button class="glide__bullet" data-glide-dir="=5" aria-label="Go to video 6"></button>
             </div>
           </div>
         </div>
@@ -335,7 +348,7 @@ include 'hero-section.php';
             <div class="procedure-links mb-4">
               <div class="row">
                 <div class="col-md-6">
-                  <a href="#tummy-tuck" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/body/awake-liposuction/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Awake Lipo
                   </a>
                   <a href="/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/" class="procedure-link">
@@ -352,12 +365,12 @@ include 'hero-section.php';
                   <a href="/cosmetic-plastic-surgery/body/tummy-tuck/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Tummy Tuck
                   </a>
-                  <a href="#thigh-lift" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/body/arm-lift/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Arm Lift
                   </a>
                 </div>
               </div>
-              <a href="#body-procedures" class="procedure-link">
+              <a href="/cosmetic-plastic-surgery/body/" class="procedure-link">
                 <i class="fa-solid fa-arrow-right"></i> View All Body Procedures
               </a>
             </div>
@@ -391,29 +404,26 @@ include 'hero-section.php';
             <div class="procedure-links mb-4">
               <div class="row">
                 <div class="col-md-6">
-                  <a href="#breast-augmentation" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/breast/augmentation-implants/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Breast Augmentation
                   </a>
-                  <a href="#breast-lift" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/breast/lift/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Breast Lift
                   </a>
-                  <a href="#breast-reduction" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/breast/reduction/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Breast Reduction
                   </a>
                 </div>
                 <div class="col-md-6">
-                  <a href="#breast-revision" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/breast/implant-revision-surgery/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Breast Implant Revision
-                  </a>
-                  <a href="#breast-reconstruction" class="procedure-link">
-                    <i class="fa-solid fa-arrow-right"></i> Capsulectomy
-                  </a>
-                  <a href="#breast-implants" class="procedure-link">
-                    <i class="fa-solid fa-arrow-right"></i> Breast Implant Options
+                  </a>                  
+                  <a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/" class="procedure-link">
+                    <i class="fa-solid fa-arrow-right"></i> Male Breast Procedures
                   </a>
                 </div>
               </div>
-              <a href="#breast-procedures" class="procedure-link">
+              <a href="/cosmetic-plastic-surgery/breast/" class="procedure-link">
                 <i class="fa-solid fa-arrow-right"></i> View All Breast Procedures
               </a>
             </div>
@@ -447,29 +457,29 @@ include 'hero-section.php';
             <div class="procedure-links mb-4">
               <div class="row">
                 <div class="col-md-6">
-                  <a href="#facelift" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/face/brow-lift/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Brow Lift
                   </a>
-                  <a href="#rhinoplasty" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Buccal Fat Removal
                   </a>
-                  <a href="#eyelid-surgery" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Eyelid Lift
                   </a>
                 </div>
                 <div class="col-md-6">
-                  <a href="#brow-lift" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/face/facelift/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Facelift
                   </a>
-                  <a href="#neck-lift" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/face/mini-facelift/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Mini Facelift
                   </a>
-                  <a href="#facial-implants" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/face/neck-lift/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Neck Lift
                   </a>
                 </div>
               </div>
-              <a href="#facial-procedures" class="procedure-link">
+              <a href="/cosmetic-plastic-surgery/face/" class="procedure-link">
                 <i class="fa-solid fa-arrow-right"></i> View All Facial Procedures
               </a>
             </div>
