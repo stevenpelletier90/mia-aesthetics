@@ -73,7 +73,7 @@ function mia_get_template_mappings() {
         'page-treatment-layout'       => ['css' => 'page-treatment-layout.css',       'js' => 'page-treatment-layout.js'],
         'page-condition-layout'       => ['css' => 'page-condition-layout.css',       'js' => 'page-condition-layout.js'],
         'page-careers'                => ['css' => 'page-careers.css',                'js' => 'page-careers.js'],
-        'page-careers-locations'      => ['css' => 'single-location.css',            'js' => 'single-location.js'],
+        'page-careers-locations'      => ['css' => 'careers-locations.css',          'js' => 'careers-locations.js'],
         'page-procedures-listing'     => ['css' => 'page-procedures-listing.css',     'js' => 'page-procedures-listing.js'],
         'page-procedures-manual'      => ['css' => 'page-procedures-manual.css',      'js' => 'page-procedures-manual.js'],
         

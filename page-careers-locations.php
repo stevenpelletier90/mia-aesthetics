@@ -185,97 +185,273 @@ get_header();
 
     <article class="py-5">
         <div class="container">
-            <div class="row gx-5">
-                <div class="col-md-7">
-                    <?php while (have_posts()) : the_post(); ?>
-                        <div class="location-content">
-                            <h2>Career Opportunities</h2>
-                            <?php the_content(); ?>
-                            
-                            <!-- Job Listings Section -->
-                            <div class="job-listings mt-5">
-                                <h3>Current Openings</h3>
-                                
-                                <?php
-                                // Check if there are any job listings (can be added via ACF or custom fields)
-                                $job_listings = get_field('job_listings');
-                                if ($job_listings && have_rows('job_listings')):
-                                ?>
-                                    <div class="job-list">
-                                        <?php while (have_rows('job_listings')): the_row(); 
-                                            $job_title = get_sub_field('job_title');
-                                            $job_type = get_sub_field('job_type');
-                                            $job_description = get_sub_field('job_description');
-                                            $apply_link = get_sub_field('apply_link');
-                                        ?>
-                                            <div class="job-item mb-4 p-4 border rounded">
-                                                <h4><?php echo esc_html($job_title); ?></h4>
-                                                <?php if ($job_type): ?>
-                                                    <span class="job-type badge bg-primary mb-2"><?php echo esc_html($job_type); ?></span>
-                                                <?php endif; ?>
-                                                
-                                                <?php if ($job_description): ?>
-                                                    <p><?php echo esc_html($job_description); ?></p>
-                                                <?php endif; ?>
-                                                
-                                                <?php if ($apply_link): ?>
-                                                    <a href="<?php echo esc_url($apply_link); ?>" class="mia-button" data-variant="gold" data-size="sm">
-                                                        Apply Now <i class="fa-solid fa-arrow-right"></i>
-                                                    </a>
-                                                <?php endif; ?>
-                                            </div>
-                                        <?php endwhile; ?>
+            <?php while (have_posts()) : the_post(); ?>
+                <div class="location-content">
+                    <h2 class="text-center mb-5">Career Opportunities</h2>
+                    <?php the_content(); ?>
+                    
+                    <!-- High Level Dept Breakdown -->
+                    <div class="dept-breakdown mt-5">
+                        <h3 class="mb-4">High Level Department Breakdown</h3>
+                        
+                        <div class="accordion" id="deptAccordion">
+                            <!-- Outpatient Surgical Centers -->
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="headingOutpatient">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutpatient" aria-expanded="true" aria-controls="collapseOutpatient">
+                                        <i class="fas fa-hospital-user me-3"></i>
+                                        Positions at our Outpatient Surgical Centers
+                                    </button>
+                                </h2>
+                                <div id="collapseOutpatient" class="accordion-collapse collapse show" aria-labelledby="headingOutpatient" data-bs-parent="#deptAccordion">
+                                    <div class="accordion-body">
+                                        <p class="lead">Our frontline team members who directly aid patients throughout the surgical journey. Check openings at our clinic and join the team responsible for providing moments of Mia magic through each interaction.</p>
                                     </div>
-                                <?php else: ?>
-                                    <div class="no-jobs-message p-4 bg-light rounded">
-                                        <p>We don't have any open positions at this location right now, but we're always looking for talented individuals to join our team. Please check back regularly or submit your resume for future opportunities.</p>
-                                        <a href="/careers" class="mia-button" data-variant="gold" data-size="sm">
-                                            General Application <i class="fa-solid fa-arrow-right"></i>
-                                        </a>
+                                </div>
+                            </div>
+
+                            <!-- Training Positions -->
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="headingTraining">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTraining" aria-expanded="false" aria-controls="collapseTraining">
+                                        <i class="fas fa-chalkboard-teacher me-3"></i>
+                                        Training Positions
+                                    </button>
+                                </h2>
+                                <div id="collapseTraining" class="accordion-collapse collapse" aria-labelledby="headingTraining" data-bs-parent="#deptAccordion">
+                                    <div class="accordion-body">
+                                        <p class="lead">Help onboard and train new staff across Mia locations nationwide. Join the team ensuring consistent protocols and high standards in care and service. Serve as mentor, combining strong coaching, communication, and teaching abilities with a passion for helping others.</p>
                                     </div>
-                                <?php endif; ?>
+                                </div>
                             </div>
-                        </div>
-                    <?php endwhile; ?>
-                </div>
 
-                <div class="col-md-5">
-                    <div class="sidebar-ctas">
-                        <!-- Apply CTA -->
-                        <div class="cta-card cta-card--gold mb-4">
-                            <div class="cta-card__content">
-                                <h3 class="cta-card__title">Ready to Apply?</h3>
-                                <p class="cta-card__text">Submit your application and join our mission of transforming lives.</p>
-                                <a href="/careers" class="mia-button" data-variant="white" data-size="sm">
-                                    Apply Now <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                            <!-- CX Center of Excellence -->
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="headingCX">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCX" aria-expanded="false" aria-controls="collapseCX">
+                                        <i class="fas fa-headset me-3"></i>
+                                        CX Center of Excellence
+                                    </button>
+                                </h2>
+                                <div id="collapseCX" class="accordion-collapse collapse" aria-labelledby="headingCX" data-bs-parent="#deptAccordion">
+                                    <div class="accordion-body">
+                                        <p class="lead">Our behind-the-scenes teams that support our patients throughout their surgical journey. Check out our customer support openings and become a caring team member supporting internal and external communications needed to make our patients dreams become reality.</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
 
-                        <!-- Benefits CTA -->
-                        <div class="cta-card cta-card--primary mb-4">
-                            <div class="cta-card__content">
-                                <h3 class="cta-card__title">Employee Benefits</h3>
-                                <p class="cta-card__text">Discover our comprehensive benefits package and career growth opportunities.</p>
-                                <a href="/careers#benefits" class="mia-button" data-variant="gold-outline" data-size="sm">
-                                    Learn More <i class="fa-solid fa-arrow-right"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <!-- Company Culture CTA -->
-                        <div class="cta-card cta-card--dark mb-4">
-                            <div class="cta-card__content">
-                                <h3 class="cta-card__title">Our Culture</h3>
-                                <p class="cta-card__text">Learn about our values, mission, and what makes Mia Aesthetics special.</p>
-                                <a href="/careers#culture" class="mia-button" data-variant="gold" data-size="sm">
-                                    Our Values <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                            <!-- People Leader Positions -->
+                            <div class="accordion-item mb-3">
+                                <h2 class="accordion-header" id="headingPeople">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePeople" aria-expanded="false" aria-controls="collapsePeople">
+                                        <i class="fas fa-users-cog me-3"></i>
+                                        People Leader Positions
+                                    </button>
+                                </h2>
+                                <div id="collapsePeople" class="accordion-collapse collapse" aria-labelledby="headingPeople" data-bs-parent="#deptAccordion">
+                                    <div class="accordion-body">
+                                        <p class="lead">Manager roles that directly impact team members play a mission critical role in accomplishing our goal in delivering the highest quality of plastic surgery at affordable prices. Check out our people leader roles, including departments such as marketing, finance, compliance, operations, etc.</p>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
+
+                    <!-- Job Functions -->
+                    <div class="job-functions mt-5">
+                        <h3 class="mb-4">Job Functions</h3>
+                        
+                        <div class="row g-4">
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">CX Center of Excellence</h4>
+                                    <p class="job-function-description">Working at the Mia Aesthetics CX Center of Excellence makes you the friendly voice that supports and guides our patients along their journey. You will be a helpful point of contact for patients and the backbone of our support center. Strong communications skills, attention to detail, and a passion for servicing others are key to success in these roles.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Medical Assistants</h4>
+                                    <p class="job-function-description">Medical Assistants at Mia Aesthetics play a vital role in supporting patient care and the clinical team. They assist with pre- and post-op care, take vitals, prep exam rooms, and help educate patients throughout their recovery. This role combines clinical skill with compassion in a fast-paced, aesthetics-driven setting.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">PRNs</h4>
+                                    <p class="job-function-description">PRNs at Mia Aesthetics provide flexible, high-quality support wherever needed—pre-op, post-op, or during surgery. This role suits experienced professionals who thrive in a fast-paced setting and value flexible, team-based work.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Registered Nurses</h4>
+                                    <p class="job-function-description">Registered Nurses at Mia Aesthetics support patients through every step of surgery—from pre-op assessments to post-op recovery. They provide education, assist in procedures, and ensure safe, comfortable healing. Clinical skill, communication, and compassion are essential.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Field Trainers</h4>
+                                    <p class="job-function-description">Field Trainers at Mia Aesthetics onboard and train new staff across clinics, ensuring consistent protocols and high standards in care and service. They serve as mentors, combining clinical expertise with strong communication and a passion for teaching.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">RN Clinical Trainers</h4>
+                                    <p class="job-function-description">RN Clinical Trainers at Mia Aesthetics onboard and educate nursing staff, ensuring consistent, high-quality care. With strong leadership and clinical expertise, they lead training, reinforce safety standards, and promote a culture of continuous learning.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Clinical Operations Specialists</h4>
+                                    <p class="job-function-description">Clinical Operations Specialists at Mia Aesthetics are the first point of contact, managing check-ins, scheduling, and records with professionalism and care. Their attention to detail and strong communication keep the clinic running smoothly and patients supported throughout their visit.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">OR Circulators</h4>
+                                    <p class="job-function-description">OR Circulators at Mia Aesthetics ensure smooth, safe surgeries by prepping the OR, supporting the surgical team, and advocating for patients. This fast-paced role demands precision, communication, and attention to detail.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Clinical Assistants</h4>
+                                    <p class="job-function-description">Clinical Assistants at Mia Aesthetics support patient care by prepping rooms, assisting in procedures, and ensuring comfort. This role requires organization, attention to detail, and compassion to help deliver a smooth clinical experience.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Licensed Massage Therapists</h4>
+                                    <p class="job-function-description">As a Licensed Massage Therapist at Mia Aesthetics, you support post-op recovery through lymphatic massages that reduce swelling and promote healing. You help patients feel cared for and comfortable during their transformation journey.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Cleaning Personnel</h4>
+                                    <p class="job-function-description">Cleaning Personnel at Mia Aesthetics ensure a clean, safe, and welcoming environment by sanitizing patient rooms, surgical areas, and common spaces. Their attention to detail is key to maintaining high hygiene standards and supporting quality care.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">OR Sterilizers</h4>
+                                    <p class="job-function-description">OR Sterilizers at Mia Aesthetics ensure surgical safety by cleaning and sterilizing instruments to meet strict infection control standards. Their precision and dedication are key to smooth operations and positive patient outcomes.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">In-Clinic Surgical Coordinators</h4>
+                                    <p class="job-function-description">In-Clinic Surgical Coordinators at Mia Aesthetics guide patients through their surgical journey, managing documentation, scheduling, and communication. This fast-paced role requires strong multitasking, attention to detail, and compassionate support.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Labs and Clearance Coordinators</h4>
+                                    <p class="job-function-description">Labs and Clearance Coordinators at Mia Aesthetics manage pre-op clearances by reviewing labs, coordinating tests, and ensuring all documentation is complete. Their organization and communication help keep surgeries safe and on schedule.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Surgical Assistants</h4>
+                                    <p class="job-function-description">Surgical Assistants at Mia Aesthetics support surgeons during procedures by prepping the OR, positioning patients, and handling instruments. This hands-on role demands clinical skill, focus, and a commitment to excellent patient care.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Social Media Coordinators</h4>
+                                    <p class="job-function-description">As a Social Media Coordinator at Mia Aesthetics, you'll create content, share patient stories, and grow our presence on Instagram, TikTok, and Facebook. This creative, fast-paced role blends storytelling with strategy to connect and inspire.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Medical Compliance Specialists</h4>
+                                    <p class="job-function-description">Medical Compliance Specialists at Mia Aesthetics ensure clinical practices meet regulatory standards through audits, safety checks, and policy enforcement. Their attention to detail and regulatory knowledge help protect patient safety and care quality.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Clinic Administrator/Practice Manager</h4>
+                                    <p class="job-function-description">Clinic Administrator/Practice Manager leads daily operations of the plastic surgery center, managing staff, scheduling, billing, and compliance to ensure a smooth, patient-focused experience. Strong leadership, organization, and customer service skills are key.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="col-lg-6">
+                                <div class="job-function-card h-100 p-4 border rounded">
+                                    <h4 class="job-function-title">Director of Operations</h4>
+                                    <p class="job-function-description">As Director of Operations at Mia Aesthetics, you lead clinic teams, streamline processes, and ensure top-quality patient care. It's a fast-paced, strategic role focused on driving performance and growth.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Call to Action -->
+                    <div class="text-center mt-5">
+                        <a href="/careers" class="mia-button" data-variant="gold" data-size="lg">
+                            View All Openings <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                    
+                    <!-- Job Listings Section (ACF) -->
+                    <div class="job-listings mt-5">
+                        <h3 class="text-center mb-4">Specific Openings at This Location</h3>
+                        
+                        <?php
+                        // Check if there are any job listings (can be added via ACF or custom fields)
+                        $job_listings = get_field('job_listings');
+                        if ($job_listings && have_rows('job_listings')):
+                        ?>
+                            <div class="row g-4">
+                                <?php while (have_rows('job_listings')): the_row(); 
+                                    $job_title = get_sub_field('job_title');
+                                    $job_type = get_sub_field('job_type');
+                                    $job_description = get_sub_field('job_description');
+                                    $apply_link = get_sub_field('apply_link');
+                                ?>
+                                    <div class="col-lg-6">
+                                        <div class="job-item h-100 p-4 border rounded">
+                                            <h4><?php echo esc_html($job_title); ?></h4>
+                                            <?php if ($job_type): ?>
+                                                <span class="job-type badge bg-primary mb-2"><?php echo esc_html($job_type); ?></span>
+                                            <?php endif; ?>
+                                            
+                                            <?php if ($job_description): ?>
+                                                <p><?php echo esc_html($job_description); ?></p>
+                                            <?php endif; ?>
+                                            
+                                            <?php if ($apply_link): ?>
+                                                <a href="<?php echo esc_url($apply_link); ?>" class="mia-button" data-variant="gold" data-size="sm">
+                                                    Apply Now <i class="fa-solid fa-arrow-right"></i>
+                                                </a>
+                                            <?php endif; ?>
+                                        </div>
+                                    </div>
+                                <?php endwhile; ?>
+                            </div>
+                        <?php else: ?>
+                            <div class="no-jobs-message text-center p-5 bg-light rounded">
+                                <i class="fas fa-briefcase fa-3x text-muted mb-3"></i>
+                                <p class="lead">Check the categories above for available positions at this location. We're always looking for talented individuals to join our team.</p>
+                                <a href="/careers" class="mia-button" data-variant="gold">
+                                    Submit Your Application <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        <?php endif; ?>
+                    </div>
                 </div>
-            </div>
+            <?php endwhile; ?>
         </div>
     </article>
 
@@ -302,6 +478,8 @@ get_header();
                 $args = array(
                     'post_type' => 'surgeon',
                     'posts_per_page' => -1, // Get all surgeons
+                    'orderby' => 'menu_order', // Use WordPress menu order
+                    'order' => 'ASC',
                     'meta_query' => array(
                         array(
                             'key' => 'surgeon_location',
