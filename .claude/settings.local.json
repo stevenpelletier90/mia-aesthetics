@@ -17,7 +17,13 @@
       "Bash(diff:*)",
       "WebFetch(domain:developer.wordpress.org)",
       "Bash(claude mcp:*)",
-      "Bash(dir /a C:UserssteveDownloadsMia)"
+      "Bash(dir:*)",
+      "WebFetch(domain:docs.anthropic.com)",
+      "Bash(setx:*)",
+      "Bash(set CLAUDE_CODE_GIT_BASH_PATH=\"C:\\Program Files\\Git\\bin\\bash.exe\")",
+      "Bash(claude --debug)",
+      "Bash(where claude)",
+      "Bash(git add:*)"
     ],
     "deny": []
   }
