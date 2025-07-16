@@ -131,16 +131,6 @@ html {
   padding-bottom: 10px;
 }
 
-/* Main content link styles */
-.content a {
-  color: #0000FF;
-}
-
-.content a:hover,
-.content a:focus {
-  color: #551A8B; /* deeper shade or brand-friendly dark blue */
-  text-decoration-thickness: 2px;
-}
 
 @media (max-width: 991.98px) {
   .toc-container {

@@ -129,6 +129,33 @@ main a:hover {
   color: var(--color-gold);
 }
 
+/* Content area hyperlink styles - consistent across all templates */
+.content a,
+article .content a,
+.post-content a,
+.page-content a,
+.entry-content a,
+.main-content a {
+  color: #0000FF;
+  text-decoration: underline;
+}
+
+.content a:hover,
+.content a:focus,
+article .content a:hover,
+article .content a:focus,
+.post-content a:hover,
+.post-content a:focus,
+.page-content a:hover,
+.page-content a:focus,
+.entry-content a:hover,
+.entry-content a:focus,
+.main-content a:hover,
+.main-content a:focus {
+  color: #551A8B;
+  text-decoration-thickness: 2px;
+}
+
 ul,
 ol {
   margin-top: 0;

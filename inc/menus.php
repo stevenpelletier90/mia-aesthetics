@@ -61,7 +61,7 @@ function get_mia_menu_structure() {
                 ],
                 'men' => [
                     'title' => 'Men',
-                    'url' => home_url('#'),
+                    'url' => home_url('/cosmetic-plastic-surgery/men/'),
                     'items' => [
                         ['title' => 'Male BBL', 'slug' => 'male-bbl', 'parent' => 'body'],
                         ['title' => 'Male Breast Procedures', 'slug' => 'male-breast-procedures', 'parent' => 'breast'],

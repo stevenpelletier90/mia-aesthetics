@@ -62,9 +62,10 @@
                 <h2 class="footer-heading">Procedures</h2>
                 <nav aria-label="Procedures navigation">
                     <ul class="footer-menu">
-                        <li><a href="<?php echo esc_url(home_url('/cosmetic-plastic-surgery/face/')); ?>">Face Procedures</a></li>
                         <li><a href="<?php echo esc_url(home_url('/cosmetic-plastic-surgery/body/')); ?>">Body Procedures</a></li>
-                        <li><a href="<?php echo esc_url(home_url('/cosmetic-plastic-surgery/breast/')); ?>">Breast Procedures</a></li>                  
+                        <li><a href="<?php echo esc_url(home_url('/cosmetic-plastic-surgery/breast/')); ?>">Breast Procedures</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/cosmetic-plastic-surgery/face/')); ?>">Face Procedures</a></li>
+                        <li><a href="<?php echo esc_url(home_url('/cosmetic-plastic-surgery/men/')); ?>">Male Procedures</a></li>
                         <li><a href="<?php echo esc_url(home_url('/non-surgical/')); ?>">Non-Surgical Options</a></li>
                         <li><a href="<?php echo esc_url(home_url('/before-after/')); ?>">Before & After Gallery</a></li>
                     </ul>

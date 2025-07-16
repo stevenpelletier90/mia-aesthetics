@@ -120,16 +120,6 @@
   transform: translateX(3px);
 }
 
-/* Content link styles to match other templates */
-.content a {
-  color: #0000FF;
-}
-
-.content a:hover,
-.content a:focus {
-  color: #551A8B;
-  text-decoration-thickness: 2px;
-}
 
 @media (max-width: 991.98px) {
   .condition-item {
