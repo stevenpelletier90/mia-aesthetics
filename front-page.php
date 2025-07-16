@@ -505,25 +505,17 @@ include 'hero-section.php';
             
             <div class="procedure-links mb-4">
               <div class="row">
+        
                 <div class="col-md-6">
-                  <a href="#botox" class="procedure-link">
-                    <i class="fa-solid fa-arrow-right"></i> Botox
-                  </a>
-                  <a href="#fillers" class="procedure-link">
-                    <i class="fa-solid fa-arrow-right"></i> Dermal Fillers
-                  </a>
-               
-                </div>
-                <div class="col-md-6">
-                <a href="#laser-resurfacing" class="procedure-link">
+                <a href="/non-surgical/j-plasma-skin-tightening/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> J-Plasma
                   </a>
-                  <a href="#chemical-peels" class="procedure-link">
-                    <i class="fa-solid fa-arrow-right"></i> Skinny Shot
+                  <a href="/weight-loss/" class="procedure-link">
+                    <i class="fa-solid fa-arrow-right"></i> Weight Loss
                   </a>
                 </div>
               </div>
-              <a href="#non-surgical" class="procedure-link">
+              <a href="/non-surgical/" class="procedure-link">
                 <i class="fa-solid fa-arrow-right"></i> View All Non-Surgical Treatments
               </a>
             </div>
@@ -557,25 +549,25 @@ include 'hero-section.php';
             <div class="procedure-links mb-4">
               <div class="row">
                 <div class="col-md-6">
-                  <a href="#male-breast-reduction" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/body/male-bbl/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Male Brazilian Butt Lift (BBL)
                   </a>
-                  <a href="#male-liposuction" class="procedure-link">
-                    <i class="fa-solid fa-arrow-right"></i> Gynecomastia Surgery
+                  <a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/" class="procedure-link">
+                    <i class="fa-solid fa-arrow-right"></i> Male Breast Procedures
                   </a>
                  
                 </div>
                 <div class="col-md-6">
-                <a href="#male-tummy-tuck" class="procedure-link">
+                <a href="/cosmetic-plastic-surgery/body/male-liposuction/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Male Liposuction
                   </a>
-                  <a href="#male-facelift" class="procedure-link">
+                  <a href="/cosmetic-plastic-surgery/body/male-tummy-tuck/" class="procedure-link">
                     <i class="fa-solid fa-arrow-right"></i> Male Tummy Tuck
                   </a>
                
                 </div>
               </div>
-              <a href="#men-procedures" class="procedure-link">
+              <a href="/cosmetic-plastic-surgery/men/" class="procedure-link">
                 <i class="fa-solid fa-arrow-right"></i> View All Men's Procedures
               </a>
             </div>
@@ -602,7 +594,8 @@ include 'hero-section.php';
       <div class="col-12">
         <div class="foundation-content text-center">
           <h2 class="section-heading text-white mb-2">The Mia Aesthetics Foundation</h2>
-          <h3 class="section-subheading mb-4">Gives Back</h3>          <p class="text-white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+          <h3 class="section-subheading mb-4">Gives Back</h3>
+          <p class="text-white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
           <a href="/mia-foundation/" class="mia-button" data-variant="black" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
