@@ -26,5 +26,130 @@
       "Bash(git add:*)"
     ],
     "deny": []
+  },
+  "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit(file_path:**/*.php)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "php -l",
+            "args": ["${file_path}"],
+            "description": "Check PHP syntax before editing"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/assets/css/*.css)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "if ((Get-Item '${file_path}').length -gt 50KB) { Write-Host 'WARNING: CSS file over 50KB - performance concern' }"],
+            "description": "Check CSS file size for performance"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "Edit(file_path:**/*.php)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "php -l",
+            "args": ["${file_path}"],
+            "description": "Validate PHP syntax after editing"
+          },
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "if (Select-String -Path '${file_path}' -Pattern 'eval\\(|exec\\(|system\\(|shell_exec\\(' -Quiet) { Write-Host 'SECURITY WARNING: Potentially dangerous PHP functions detected' }"],
+            "description": "Security check for dangerous PHP functions"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/assets/css/*.css)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "if (Select-String -Path '${file_path}' -Pattern '!important' -AllMatches | Measure-Object | Select-Object -ExpandProperty Count) { Write-Host 'CSS PERFORMANCE: Found !important declarations - consider refactoring' }"],
+            "description": "Check for CSS !important overuse"
+          },
+          {
+            "type": "command",
+            "command": "echo",
+            "args": ["CSS file updated: ${file_path} - Remember to test mobile responsiveness"],
+            "description": "Log CSS changes with mobile reminder"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/assets/js/*.js)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "if ((Get-Item '${file_path}').length -gt 25KB) { Write-Host 'WARNING: JS file over 25KB - consider code splitting' }"],
+            "description": "Check JS file size for performance"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/page-*.php)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "$filename = Split-Path '${file_path}' -Leaf; $cssFile = $filename -replace '\\.php$', '.css'; $jsFile = $filename -replace '\\.php$', '.js'; if (!(Test-Path \"assets/css/$cssFile\")) { Write-Host 'REMINDER: Create corresponding CSS file: assets/css/$cssFile' }; if (!(Test-Path \"assets/js/$jsFile\")) { Write-Host 'REMINDER: Create corresponding JS file: assets/js/$jsFile' }"],
+            "description": "Check for corresponding CSS/JS files for page templates"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/inc/schema/*.php)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "if (!(Select-String -Path '${file_path}' -Pattern 'MedicalBusiness|MedicalClinic|schema\\.org' -Quiet)) { Write-Host 'SCHEMA WARNING: Medical schema markup may be missing' }"],
+            "description": "Validate medical schema markup"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/assets/data/*.json)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "try { Get-Content '${file_path}' | ConvertFrom-Json | Out-Null; Write-Host 'JSON validation passed' } catch { Write-Host 'JSON VALIDATION ERROR: Invalid JSON syntax' }"],
+            "description": "Validate JSON data files"
+          }
+        ]
+      }
+    ],
+    "PreStop": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "git",
+            "args": ["status", "--porcelain"],
+            "description": "Show git status before stopping"
+          },
+          {
+            "type": "command",
+            "command": "powershell",
+            "args": ["-Command", "Write-Host 'PERFORMANCE CHECKLIST:'; Write-Host '✓ Test Core Web Vitals (target: 90+)'; Write-Host '✓ Test mobile speed (target: 95+)'; Write-Host '✓ Verify load time < 3 seconds'; Write-Host '✓ Clear WP Rocket cache if needed'"],
+            "description": "Performance reminder checklist"
+          }
+        ]
+      }
+    ]
   }
 }
