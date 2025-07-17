@@ -208,6 +208,9 @@ get_header();
                 <?php
                 $args = array(
                     'post_type' => 'surgeon',
+                    'posts_per_page' => -1,
+                    'orderby' => 'menu_order',
+                    'order' => 'ASC',
                     'meta_query' => array(
                         array(
                             'key' => 'surgeon_location',
@@ -232,11 +235,13 @@ get_header();
                                     <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
                                 <?php endif; ?>
                                 
-                                <h3><?php the_title(); ?></h3>
-                                <p>Plastic Surgeon</p>
-                                <a href="<?php the_permalink(); ?>" class="mia-button" data-variant="gold" data-size="sm">
-                                    View Profile <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                                <div class="surgeon-info">
+                                    <h3><?php the_title(); ?></h3>
+                                    <p>Plastic Surgeon</p>
+                                    <a href="<?php the_permalink(); ?>" class="mia-button" data-variant="gold" data-size="sm">
+                                        View Profile <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         

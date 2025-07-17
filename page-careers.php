@@ -213,6 +213,88 @@ get_header(); ?>
   </div>
 </section>
 
+<!-- Benefits Section -->
+<section class="benefits-section">
+  <div class="container">
+    <div class="benefits-header text-center mb-5">
+      <p class="section-tagline">What We Offer</p>
+      <h2 class="benefits-title">Benefits</h2>
+      <p class="benefits-subtitle">At Mia Aesthetics, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
+      <blockquote class="founders-quote mt-4 mb-5">
+        <p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
+        <footer class="quote-attribution">Our Founders</footer>
+      </blockquote>
+    </div>
+
+    <div class="row g-4">
+      <!-- Health & Wellness -->
+      <div class="col-lg-3 col-md-6">
+        <div class="benefit-card h-100 p-4 text-center">
+          <div class="benefit-icon mb-3">
+            <i class="fas fa-heart-pulse"></i>
+          </div>
+          <h4 class="benefit-title">Health & Wellness</h4>
+          <ul class="benefit-list">
+            <li><strong>Medical, Dental, and Vision:</strong> Available to employees, their dependents, and domestic partners</li>
+            <li><strong>Additional Benefits:</strong> Short-Term Disability, Long-Term Disability, Dependent Care Flexible Spending Account, Healthcare Flexible Spending Account</li>
+            <li><strong>Employee Assistance Program (EAP):</strong> Available to all employees</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Time To Unwind -->
+      <div class="col-lg-3 col-md-6">
+        <div class="benefit-card h-100 p-4 text-center">
+          <div class="benefit-icon mb-3">
+            <i class="fas fa-calendar-days"></i>
+          </div>
+          <h4 class="benefit-title">Time To Unwind</h4>
+          <ul class="benefit-list">
+            <li><strong>Paid Time Off (PTO):</strong> Accrue from date of hire; PTO for vacation, personal appointments, illness, and other events.</li>
+            <li><strong>Paid Holidays:</strong> Recognized company holidays throughout the calendar year</li>
+            <li><strong>Paid Leave:</strong> As dictated by applicable state law</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Financial Well-Being -->
+      <div class="col-lg-3 col-md-6">
+        <div class="benefit-card h-100 p-4 text-center">
+          <div class="benefit-icon mb-3">
+            <i class="fas fa-piggy-bank"></i>
+          </div>
+          <h4 class="benefit-title">Financial Well-Being</h4>
+          <ul class="benefit-list">
+            <li><strong>Competitive Pay</strong></li>
+            <li><strong>401k with employer match & no vesting schedule</strong></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Other Perks -->
+      <div class="col-lg-3 col-md-6">
+        <div class="benefit-card h-100 p-4 text-center">
+          <div class="benefit-icon mb-3">
+            <i class="fas fa-gift"></i>
+          </div>
+          <h4 class="benefit-title">Other Perks</h4>
+          <ul class="benefit-list">
+            <li><strong>Discounts on service offerings</strong></li>
+            <li><strong>Celebratory company-wide event(s)</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Benefits CTA -->
+    <div class="text-center mt-5">
+      <a href="#careers-application" class="mia-button" data-variant="gold" data-size="lg">
+        Join Our Team <i class="fa-solid fa-arrow-right"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
 <!-- Additional content sections can be added below -->
 <div class="careers-content">
   <div class="container">

@@ -397,15 +397,87 @@ get_header();
                         </div>
                     </div>
 
-                    <!-- Call to Action -->
-                    <div class="text-center mt-5">
-                        <a href="/careers" class="mia-button" data-variant="gold" data-size="lg">
-                            View All Openings <i class="fa-solid fa-arrow-right"></i>
-                        </a>
-                    </div>
-                    
+                    <!-- Benefits Section -->
+                    <section class="benefits-section mt-5">
+                        <div class="text-center mb-5">
+                            <h3 class="mb-4">Benefits</h3>
+                            <p class="lead">At Mia Aesthetics, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
+                            <blockquote class="founders-quote mt-4 mb-5">
+                                <p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
+                                <footer class="quote-attribution">Our Founders</footer>
+                            </blockquote>
+                        </div>
+
+                        <div class="row g-4">
+                            <!-- Health & Wellness -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="benefit-card h-100 p-4 text-center">
+                                    <div class="benefit-icon mb-3">
+                                        <i class="fas fa-heart-pulse"></i>
+                                    </div>
+                                    <h4 class="benefit-title">Health & Wellness</h4>
+                                    <ul class="benefit-list">
+                                        <li><strong>Medical, Dental, and Vision:</strong> Available to employees, their dependents, and domestic partners</li>
+                                        <li><strong>Additional Benefits:</strong> Short-Term Disability, Long-Term Disability, Dependent Care Flexible Spending Account, Healthcare Flexible Spending Account</li>
+                                        <li><strong>Employee Assistance Program (EAP):</strong> Available to all employees</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Time To Unwind -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="benefit-card h-100 p-4 text-center">
+                                    <div class="benefit-icon mb-3">
+                                        <i class="fas fa-calendar-days"></i>
+                                    </div>
+                                    <h4 class="benefit-title">Time To Unwind</h4>
+                                    <ul class="benefit-list">
+                                        <li><strong>Paid Time Off (PTO):</strong> Accrue from date of hire; PTO for vacation, personal appointments, illness, and other events.</li>
+                                        <li><strong>Paid Holidays:</strong> Recognized company holidays throughout the calendar year</li>
+                                        <li><strong>Paid Leave:</strong> As dictated by applicable state law</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Financial Well-Being -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="benefit-card h-100 p-4 text-center">
+                                    <div class="benefit-icon mb-3">
+                                        <i class="fas fa-piggy-bank"></i>
+                                    </div>
+                                    <h4 class="benefit-title">Financial Well-Being</h4>
+                                    <ul class="benefit-list">
+                                        <li><strong>Competitive Pay</strong></li>
+                                        <li><strong>401k with employer match & no vesting schedule</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Other Perks -->
+                            <div class="col-lg-3 col-md-6">
+                                <div class="benefit-card h-100 p-4 text-center">
+                                    <div class="benefit-icon mb-3">
+                                        <i class="fas fa-gift"></i>
+                                    </div>
+                                    <h4 class="benefit-title">Other Perks</h4>
+                                    <ul class="benefit-list">
+                                        <li><strong>Discounts on service offerings</strong></li>
+                                        <li><strong>Celebratory company-wide event(s)</strong></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Benefits CTA -->
+                        <div class="text-center mt-5">
+                            <a href="/careers" class="mia-button" data-variant="gold" data-size="lg">
+                                Join Our Team <i class="fa-solid fa-arrow-right"></i>
+                            </a>
+                        </div>
+                    </section>
+
                     <!-- Job Listings Section (ACF) -->
-                    <div class="job-listings mt-5">
+                    <section class="job-listings mt-5">
                         <h3 class="text-center mb-4">Specific Openings at This Location</h3>
                         
                         <?php
@@ -420,7 +492,7 @@ get_header();
                                     $job_description = get_sub_field('job_description');
                                     $apply_link = get_sub_field('apply_link');
                                 ?>
-                                    <div class="col-lg-6">
+                                    <article class="col-lg-6">
                                         <div class="job-item h-100 p-4 border rounded">
                                             <h4><?php echo esc_html($job_title); ?></h4>
                                             <?php if ($job_type): ?>
@@ -437,19 +509,26 @@ get_header();
                                                 </a>
                                             <?php endif; ?>
                                         </div>
-                                    </div>
+                                    </article>
                                 <?php endwhile; ?>
+                            </div>
+                            
+                            <!-- Call to Action after job listings -->
+                            <div class="text-center mt-5">
+                                <a href="/careers" class="mia-button" data-variant="gold" data-size="lg">
+                                    View All Career Opportunities <i class="fa-solid fa-arrow-right"></i>
+                                </a>
                             </div>
                         <?php else: ?>
                             <div class="no-jobs-message text-center p-5 bg-light rounded">
-                                <i class="fas fa-briefcase fa-3x text-muted mb-3"></i>
+                                <i class="fas fa-briefcase fa-3x text-muted mb-3" aria-hidden="true"></i>
                                 <p class="lead">Check the categories above for available positions at this location. We're always looking for talented individuals to join our team.</p>
                                 <a href="/careers" class="mia-button" data-variant="gold">
-                                    Submit Your Application <i class="fa-solid fa-arrow-right"></i>
+                                    Explore All Career Opportunities <i class="fa-solid fa-arrow-right"></i>
                                 </a>
                             </div>
                         <?php endif; ?>
-                    </div>
+                    </section>
                 </div>
             <?php endwhile; ?>
         </div>
@@ -505,11 +584,13 @@ get_header();
                                     <img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
                                 <?php endif; ?>
                                 
-                                <h3><?php the_title(); ?></h3>
-                                <p>Plastic Surgeon</p>
-                                <a href="<?php the_permalink(); ?>" class="mia-button" data-variant="gold" data-size="sm">
-                                    View Profile <i class="fa-solid fa-arrow-right"></i>
-                                </a>
+                                <div class="surgeon-info">
+                                    <h3><?php the_title(); ?></h3>
+                                    <p>Plastic Surgeon</p>
+                                    <a href="<?php the_permalink(); ?>" class="mia-button" data-variant="gold" data-size="sm">
+                                        View Profile <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                         
@@ -531,5 +612,7 @@ get_header();
             <?php echo display_page_faqs(); ?>           
         </div>
     </section>
+
+</main>
 
 <?php get_footer(); ?>
