@@ -684,3 +684,537 @@
     font-size: 0.9rem;
   }
 }
+
+/* Testimonials Section */
+.testimonials-section {
+  padding: 6rem 0;
+  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  position: relative;
+}
+
+.testimonials-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-gold) 50%, transparent 100%);
+}
+
+.testimonials-header {
+  margin-bottom: 4rem;
+}
+
+.testimonials-title {
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 700;
+  color: #1b1b1b;
+  line-height: 1.1;
+  margin-bottom: 1.5rem;
+  letter-spacing: -1px;
+}
+
+.testimonials-subtitle {
+  font-size: 1.25rem;
+  color: #666;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Carousel Custom Styling */
+#testimonialsCarousel {
+  margin-bottom: 3rem;
+}
+
+.testimonial-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(200, 178, 115, 0.1);
+  height: 100%;
+  min-height: 350px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-gold) 0%, #d4c284 100%);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.testimonial-card:hover::before {
+  transform: scaleX(1);
+}
+
+.testimonial-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.testimonial-stars {
+  display: flex;
+  justify-content: center;
+  gap: 0.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.testimonial-stars .fas.fa-star {
+  color: var(--color-gold);
+  font-size: 1.1rem;
+}
+
+.testimonial-quote {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #333;
+  margin-bottom: 2rem;
+  font-style: italic;
+  position: relative;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+}
+
+.testimonial-quote::before {
+  content: '"';
+  font-size: 4rem;
+  color: var(--color-gold);
+  font-family: serif;
+  position: absolute;
+  top: -1rem;
+  left: -1rem;
+  opacity: 0.3;
+}
+
+.testimonial-author {
+  margin-top: auto;
+}
+
+.author-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #1b1b1b;
+  margin-bottom: 0.5rem;
+}
+
+.author-role {
+  font-size: 1rem;
+  color: var(--color-gold);
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.author-location {
+  font-size: 0.9rem;
+  color: #666;
+  margin-bottom: 0;
+}
+
+/* Carousel Controls Custom Styling */
+#testimonialsCarousel .carousel-control-prev,
+#testimonialsCarousel .carousel-control-next {
+  width: auto;
+  color: var(--color-primary);
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+#testimonialsCarousel .carousel-control-prev:hover,
+#testimonialsCarousel .carousel-control-next:hover {
+  opacity: 1;
+}
+
+#testimonialsCarousel .carousel-control-prev {
+  left: -50px;
+}
+
+#testimonialsCarousel .carousel-control-next {
+  right: -50px;
+}
+
+#testimonialsCarousel .carousel-control-prev-icon,
+#testimonialsCarousel .carousel-control-next-icon {
+  background-color: var(--color-primary);
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  background-size: 50%;
+  background-position: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#testimonialsCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
+#testimonialsCarousel .carousel-control-next:hover .carousel-control-next-icon {
+  background-color: var(--color-gold);
+  transform: scale(1.1);
+  transition: all 0.3s ease;
+}
+
+/* Carousel Indicators Custom Styling */
+#testimonialsCarousel .carousel-indicators {
+  position: static;
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+  background-color: transparent;
+  margin: 0 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.carousel-indicators [data-bs-target].active {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  transform: scale(1.2);
+}
+
+.carousel-indicators [data-bs-target]:hover {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .testimonials-section {
+    padding: 4rem 0;
+  }
+
+  .testimonials-header {
+    margin-bottom: 3rem;
+  }
+
+  .testimonial-card {
+    padding: 2rem;
+    min-height: 300px;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .testimonials-section {
+    padding: 3rem 0;
+  }
+
+  .testimonial-card {
+    padding: 1.5rem;
+    min-height: 280px;
+  }
+
+  .testimonial-quote {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-quote::before {
+    font-size: 3rem;
+    top: -0.5rem;
+    left: -0.5rem;
+  }
+
+  .author-name {
+    font-size: 1.1rem;
+  }
+
+  .author-role {
+    font-size: 0.9rem;
+  }
+
+  .author-location {
+    font-size: 0.85rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 10px;
+    height: 10px;
+  }
+
+  #testimonialsCarousel .carousel-control-prev {
+    left: 10px;
+  }
+
+  #testimonialsCarousel .carousel-control-next {
+    right: 10px;
+  }
+
+  #testimonialsCarousel .carousel-control-prev-icon,
+  #testimonialsCarousel .carousel-control-next-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+}
+
+/* Animation on scroll - Initial state for animation */
+.testimonials-section .testimonial-card {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.6s ease;
+}
+
+.testimonials-section .testimonial-card.animate-in {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Accessibility - Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .testimonial-card {
+    transition: none;
+    opacity: 1;
+    transform: none;
+  }
+
+  .carousel-control-prev:hover .carousel-control-prev-icon,
+  .carousel-control-next:hover .carousel-control-next-icon {
+    transform: none;
+  }
+
+  .testimonial-card:hover {
+    transform: none;
+  }
+}
+
+/* Custom Careers Footer */
+.careers-footer {
+  background: linear-gradient(135deg, #1b1b1b 0%, #2a2a2a 100%);
+  color: #ffffff;
+  padding: 4rem 0 2rem;
+  margin-top: 0;
+}
+
+.careers-footer .footer-column {
+  height: 100%;
+}
+
+.careers-footer .footer-heading {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--color-gold);
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+
+.careers-footer .footer-heading::after {
+  content: '';
+  position: absolute;
+  bottom: -0.5rem;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--color-gold);
+}
+
+.careers-footer .footer-text {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 1.5rem;
+}
+
+.careers-footer .footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.careers-footer .footer-link {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.careers-footer .footer-link:hover {
+  color: var(--color-gold);
+  text-decoration: none;
+  transform: translateX(5px);
+}
+
+.careers-footer .footer-link i {
+  width: 16px;
+  text-align: center;
+}
+
+.careers-footer .contact-info {
+  margin-top: 1rem;
+}
+
+.careers-footer .contact-item {
+  margin-bottom: 0.75rem;
+}
+
+.careers-footer .contact-item strong {
+  color: var(--color-gold);
+  font-weight: 600;
+}
+
+.careers-footer .contact-link {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.careers-footer .contact-link:hover {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+.careers-footer .contact-link i {
+  font-size: 1rem;
+}
+
+/* Footer Bottom */
+.careers-footer .footer-bottom {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 3rem;
+  padding-top: 2rem;
+}
+
+.careers-footer .footer-logo-img {
+  max-height: 50px;
+  width: auto;
+}
+
+.careers-footer .social-links {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}
+
+.careers-footer .social-link {
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.careers-footer .social-link:hover {
+  background: var(--color-gold);
+  color: #1b1b1b;
+  transform: translateY(-2px);
+  text-decoration: none;
+}
+
+.careers-footer .footer-divider {
+  border-color: rgba(255, 255, 255, 0.1);
+  margin: 1.5rem 0 1rem;
+}
+
+.careers-footer .copyright {
+  text-align: center;
+}
+
+.careers-footer .copyright p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  margin: 0;
+}
+
+.careers-footer .copyright a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.careers-footer .copyright a:hover {
+  color: var(--color-gold);
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 991.98px) {
+  .careers-footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .careers-footer .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .careers-footer .footer-bottom {
+    text-align: center;
+  }
+
+  .careers-footer .footer-logo {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 767.98px) {
+  .careers-footer {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .careers-footer .footer-heading {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .careers-footer .footer-text {
+    font-size: 0.95rem;
+  }
+
+  .careers-footer .contact-link {
+    font-size: 1rem;
+  }
+
+  .careers-footer .social-link {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+}
+
+

@@ -51,6 +51,14 @@ get_header(); ?>
                         ?>
                             <p class="surgeon-location">Plastic Surgeon at <a href="<?php echo esc_url($location_url); ?>"> <?php echo $location_title; ?></a></p>
                         <?php endif; ?>
+                        
+                        <!-- Instagram Link Placeholder -->
+                        <div class="surgeon-social mt-3">
+                            <a href="#" class="social-link" target="_blank" rel="noopener" aria-label="Follow <?php echo esc_attr(get_the_title()); ?> on Instagram">
+                                <i class="fab fa-instagram"></i>
+                                <span>Follow on Instagram</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -171,6 +179,7 @@ get_header(); ?>
                 <!-- Sidebar Column -->
                 <div class="col-lg-4">
                     <div class="surgeon-sidebar">
+                        <div class="sidebar-ctas">
                         <?php if($video_id && $thumbnail_url): ?>
                         <!-- Video Section (visible only on desktop) -->
                         <div class="sidebar-section d-none d-lg-block" style="border-radius: 0;">
@@ -193,40 +202,57 @@ get_header(); ?>
                         <?php endif; ?>
 
                         <!-- Before & After Gallery Section -->
-                        <section id="surgeon-before-after" class="sidebar-section">
-                            <div class="card cta-card text-decoration-none text-dark">
-                                <img 
-                                    src="https://placehold.co/400x250" 
-                                    class="card-img-top" 
-                                    alt="Before and After Gallery Preview"
-                                    loading="lazy"
-                                    width="400" 
-                                    height="250"
-                                >
-                                <div class="card-body">
-                                    <h3 class="h5 card-title text-center">Before & After Gallery</h3>
-                                    <p class="card-text text-center small">See the amazing results of procedures performed by <?php echo get_the_title(); ?>.</p>                                    <div class="text-center card-action">
-                                        <a href="#" class="mia-button" data-variant="gold">View Gallery</a>
-                                    </div>
+                        <div class="cta-card mb-0" id="surgeon-before-after">
+                            <div class="cta-card__content">
+                                <div class="before-after-preview mb-3">
+                                    <img 
+                                        src="https://placehold.co/400x200/f8f9fa/cccccc?text=Before+%26+After" 
+                                        class="img-fluid rounded" 
+                                        alt="Before and After Gallery Preview"
+                                        loading="lazy"
+                                        width="400" 
+                                        height="200"
+                                    >
+                                </div>
+                                <h3 class="cta-card__title">Before & After Gallery</h3>
+                                <p class="cta-card__text">View real patient results from procedures performed by <?php echo get_the_title(); ?>.</p>
+                                <a href="#" class="mia-button" data-variant="gold" data-size="sm">
+                                    View Gallery <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                            
+                            <!-- Additional CTA Cards -->
+                            <div class="cta-card">
+                                <div class="cta-card__content">
+                                    <h3 class="cta-card__title">Your Surgical Journey</h3>
+                                    <p class="cta-card__text">Learn about the consultation process and what to expect.</p>
+                                    <a href="#" class="mia-button" data-variant="gold-outline" data-size="sm">
+                                        Learn More <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
                                 </div>
                             </div>
                             
-                            <!-- Enhanced CTA Buttons -->
-                            <div class="sidebar-cta-buttons">
-                                <a href="#" class="btn btn-sidebar">
-                                    <i class="fa-solid fa-road-circle-check" aria-hidden="true"></i>
-                                    <span>Surgical Journey</span>
-                                </a>
-                                <a href="#" class="btn btn-sidebar">
-                                    <i class="fa-solid fa-plane-departure" aria-hidden="true"></i>
-                                    <span>Out of Town Patients</span>
-                                </a>
-                                <a href="#" class="btn btn-sidebar">
-                                    <i class="fa-solid fa-credit-card" aria-hidden="true"></i>
-                                    <span>Financing</span>
-                                </a>
+                            <div class="cta-card">
+                                <div class="cta-card__content">
+                                    <h3 class="cta-card__title">Out of Town Patients</h3>
+                                    <p class="cta-card__text">Special accommodations for patients traveling for surgery.</p>
+                                    <a href="#" class="mia-button" data-variant="gold-outline" data-size="sm">
+                                        Travel Info <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
                             </div>
-                        </section>
+                            
+                            <div class="cta-card">
+                                <div class="cta-card__content">
+                                    <h3 class="cta-card__title">Financing Options</h3>
+                                    <p class="cta-card__text">Flexible payment plans to make your procedure affordable.</p>
+                                    <a href="/financing" class="mia-button" data-variant="gold-outline" data-size="sm">
+                                        View Options <i class="fa-solid fa-arrow-right"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

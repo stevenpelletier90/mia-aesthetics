@@ -1,18 +1,52 @@
 {
   "permissions": {
-    "allow": ["*"],
+    "allow": [
+      "*",
+      "Bash(claude mcp:*)",
+      "Bash(ls:*)",
+      "Bash(find:*)",
+      "mcp__sequential-thinking__sequentialthinking",
+      "Bash(rm:*)"
+    ],
     "deny": []
   },
   "hooks": {
+    "PreToolUse": [
+      {
+        "matcher": "Edit(file_path:**/*.css)|Write(file_path:**/*.css)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/steve/projects/mia-aesthetics/.claude/check-css.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Edit(file_path:**/*.php)|Write(file_path:**/*.php)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/steve/projects/mia-aesthetics/.claude/check-theme.sh"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash(command:git commit*)",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "/home/steve/projects/mia-aesthetics/.claude/check-commit.sh"
+          }
+        ]
+      }
+    ],
     "PostToolUse": [
       {
         "matcher": "Edit(file_path:**/*.php)",
         "hooks": [
           {
             "type": "command",
-            "command": "php",
-            "args": ["-l", "${file_path}"],
-            "description": "Check PHP syntax after editing"
+            "command": "php -l"
           }
         ]
       }

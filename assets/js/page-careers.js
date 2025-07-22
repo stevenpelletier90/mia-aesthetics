@@ -107,4 +107,77 @@
     });
   });
 
+  // Testimonials Carousel Initialization
+  document.addEventListener('DOMContentLoaded', function () {
+    const testimonialCarousel = document.getElementById('testimonialsCarousel');
+    
+    if (testimonialCarousel) {
+      // Initialize Bootstrap carousel with custom options
+      const carousel = new bootstrap.Carousel(testimonialCarousel, {
+        interval: 5000, // 5 seconds between slides
+        ride: 'carousel',
+        pause: 'hover',
+        wrap: true,
+        keyboard: true
+      });
+
+      // Animate testimonial cards on slide change
+      testimonialCarousel.addEventListener('slide.bs.carousel', function (event) {
+        // Remove animation from all cards
+        const allCards = testimonialCarousel.querySelectorAll('.testimonial-card');
+        allCards.forEach(card => {
+          card.classList.remove('animate-in');
+        });
+      });
+
+      testimonialCarousel.addEventListener('slid.bs.carousel', function (event) {
+        // Add animation to visible cards with stagger
+        const activeSlide = event.relatedTarget;
+        const cards = activeSlide.querySelectorAll('.testimonial-card');
+        
+        cards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.add('animate-in');
+          }, index * 150); // 150ms delay between each card
+        });
+      });
+
+      // Animate initial testimonial cards
+      const initialCards = testimonialCarousel.querySelectorAll('.carousel-item.active .testimonial-card');
+      initialCards.forEach((card, index) => {
+        setTimeout(() => {
+          card.classList.add('animate-in');
+        }, index * 150);
+      });
+    }
+
+    // Testimonials Section Animation Observer
+    const testimonialsSection = document.querySelector('.testimonials-section');
+    if (testimonialsSection) {
+      const testimonialsObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              // Trigger initial animation when section comes into view
+              const activeCards = entry.target.querySelectorAll('.carousel-item.active .testimonial-card');
+              activeCards.forEach((card, index) => {
+                setTimeout(() => {
+                  card.classList.add('animate-in');
+                }, index * 150);
+              });
+              
+              testimonialsObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.2,
+          rootMargin: '0px 0px -100px 0px',
+        }
+      );
+
+      testimonialsObserver.observe(testimonialsSection);
+    }
+  });
+
 })();
