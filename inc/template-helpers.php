@@ -438,8 +438,7 @@ function mia_display_faqs($show_heading = true) {
                         </button>
                     </h3>
                     <div id="<?php echo esc_attr($collapse_id); ?>"
-                         class="accordion-collapse collapse"
-                         data-bs-parent="#<?php echo esc_attr($accordion_id); ?>">
+                         class="accordion-collapse collapse">
                         <div class="accordion-body">
                             <?php echo wp_kses_post($faq['answer']); ?>
                         </div>

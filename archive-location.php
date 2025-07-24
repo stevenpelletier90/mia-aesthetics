@@ -42,11 +42,40 @@ get_header();
                                         </a>
                                     </h3>
                                     <?php if ($location_map): 
+                                        $street = (isset($location_map['street_number']) ? $location_map['street_number'] : '') . ' ' . (isset($location_map['street_name']) ? $location_map['street_name'] : '');
                                         $city = isset($location_map['city']) ? $location_map['city'] : '';
                                         $state = isset($location_map['state_short']) ? $location_map['state_short'] : '';
+                                        $zip = isset($location_map['post_code']) ? $location_map['post_code'] : '';
+                                        $street = trim($street); // Clean up any extra spaces
+                                        
+                                        // Special handling for locations where Google Maps doesn't populate city correctly
+                                        if (empty($city) && !empty($state)) {
+                                            // For Brooklyn/NYC addresses, Google sometimes doesn't populate city
+                                            if ($state === 'NY' && strpos(strtolower($street), 'atlantic') !== false) {
+                                                $city = 'Brooklyn';
+                                            }
+                                        }
                                     ?>
-                                        <?php if ($city && $state): ?>
-                                            <p class="text-muted mb-1"><?php echo esc_html($city . ', ' . $state); ?></p>
+                                        <?php if ($street || $city || $state || $zip): ?>
+                                            <div class="text-muted mb-1">
+                                                <?php if ($street): ?>
+                                                    <div><?php echo esc_html($street); ?></div>
+                                                <?php endif; ?>
+                                                <?php 
+                                                $address_line2 = '';
+                                                if ($city) {
+                                                    $address_line2 .= $city;
+                                                }
+                                                if ($state) {
+                                                    $address_line2 .= ($city ? ', ' : '') . $state;
+                                                }
+                                                if ($zip) {
+                                                    $address_line2 .= ($city || $state ? ' ' : '') . $zip;
+                                                }
+                                                if ($address_line2): ?>
+                                                    <div><?php echo esc_html($address_line2); ?></div>
+                                                <?php endif; ?>
+                                            </div>
                                         <?php endif; ?>
                                     <?php endif; ?>
                                     <?php if ($phone_number): ?>
@@ -108,6 +137,14 @@ get_header();
                     $state = isset($location_map['state_short']) ? $location_map['state_short'] : '';
                     $zip = isset($location_map['post_code']) ? $location_map['post_code'] : '';
                     $street = trim($street); // Clean up any extra spaces
+                    
+                    // Special handling for locations where Google Maps doesn't populate city correctly
+                    if (empty($city) && !empty($state)) {
+                        // For Brooklyn/NYC addresses, Google sometimes doesn't populate city
+                        if ($state === 'NY' && strpos(strtolower($street), 'atlantic') !== false) {
+                            $city = 'Brooklyn';
+                        }
+                    }
                 ?>
                     <?php if ($street || $city || $state || $zip): ?>
                     <div class="location-detail mb-2">

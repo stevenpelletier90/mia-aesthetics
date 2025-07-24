@@ -193,6 +193,14 @@ class Clinic_Schema {
         $state = $location_map['state'] ?? $location_map['state_short'] ?? ''; // Try full state name first, then abbreviation
         $zip = $location_map['post_code'] ?? '';
         
+        // Special handling for locations where Google Maps doesn't populate city correctly
+        if (empty($city) && !empty($state)) {
+            // For Brooklyn/NYC addresses, Google sometimes doesn't populate city
+            if (($state === 'NY' || $state === 'New York') && strpos(strtolower($street), 'atlantic') !== false) {
+                $city = 'Brooklyn';
+            }
+        }
+        
         // Only create address if we have the minimum required fields
         if ( $street && $city && $state ) {
             return [

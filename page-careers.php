@@ -16,19 +16,11 @@ if (!defined('ABSPATH')) {
 get_header(); ?>
 
 <!-- Careers Landing Page HTML -->
-<section class="careers-hero">
-  <div class="careers-hero__background">
-    <img
-      src="<?php echo esc_url(get_site_url()); ?>/wp-content/uploads/2024/careers-team-hero.jpg"
-      alt="Mia Aesthetics Team - Join Our Mission"
-      class="careers-hero__image"
-    />
-    <div class="careers-hero__overlay"></div>
-  </div>
-
+<section class="careers-hero py-5">
   <div class="container">
-    <div class="row">
-      <div class="col-lg-8 col-xl-7">
+    <div class="row align-items-center g-4">
+      <!-- Left Column: Content -->
+      <div class="col-lg-6">
         <div class="careers-hero__content">
           <h1 class="careers-hero__title">Join Mia Aesthetics</h1>
           <div class="careers-hero__text">
@@ -40,8 +32,19 @@ get_header(); ?>
             </p>
           </div>
           <div class="careers-hero__cta">
-            <a href="#careers-application" class="mia-button" data-variant="hero"> Click to Apply </a>
+            <a href="#careers-application" class="mia-button" data-variant="gold" data-size="lg"> Join Our Team </a>
           </div>
+        </div>
+      </div>
+      
+      <!-- Right Column: Image -->
+      <div class="col-lg-6">
+        <div class="careers-hero__image-container">
+          <img
+            src="<?php echo esc_url(get_site_url()); ?>/wp-content/uploads/2025/07/careers-background.jpg"
+            alt="Mia Aesthetics Team - Join Our Mission"
+            class="careers-hero__image img-fluid rounded"
+          />
         </div>
       </div>
     </div>
@@ -69,10 +72,6 @@ get_header(); ?>
             life-changing moments for our patients. If you're passionate about helping others, committed to delivering
             outstanding care, and ready to grow with a purpose-driven organization, we'd love to meet you.
           </p>
-          <div class="d-flex">
-            <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="mia-button me-3" data-variant="black" role="button">Our Locations</a>
-            <a href="<?php echo esc_url(home_url('/plastic-surgeons/')); ?>" class="mia-button" data-variant="black" role="button">Our Surgeons</a>
-          </div>
         </div>
       </div>
     </div>
@@ -206,25 +205,39 @@ get_header(); ?>
     // Include the careers location search component
     include get_template_directory() . '/inc/location-search-careers.php'; 
     ?>
-
-    <!-- View All Locations Button -->
-    <div class="text-center mt-4" style="margin-top: 3rem">
-      <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="mia-button" data-variant="gold-outline">View All Locations</a>
-    </div>
   </div>
 </section>
 
 <!-- Benefits Section -->
 <section class="benefits-section">
   <div class="container">
-    <div class="benefits-header text-center mb-5">
-      <p class="section-tagline">What We Offer</p>
-      <h2 class="benefits-title">Benefits</h2>
-      <p class="benefits-subtitle">At Mia Aesthetics, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
-      <blockquote class="founders-quote mt-4 mb-5">
-        <p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
-        <footer class="quote-attribution">Our Founders</footer>
-      </blockquote>
+    <div class="benefits-top-content mb-5">
+      <div class="row align-items-center">
+        <!-- Left Column: Headings and Paragraphs -->
+        <div class="col-lg-6">
+          <div class="benefits-header">
+            <p class="section-tagline">What We Offer</p>
+            <h2 class="benefits-title">Benefits</h2>
+            <p class="benefits-subtitle">At Mia Aesthetics, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
+          </div>
+        </div>
+        
+        <!-- Right Column: Founders Quote -->
+        <div class="col-lg-6">
+          <div class="founders-quote-wrapper">
+            <blockquote class="founders-quote">
+              <div class="quote-icon">
+                <i class="fas fa-quote-left"></i>
+              </div>
+              <p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
+              <footer class="quote-attribution">
+                <span class="attribution-line"></span>
+                <span class="attribution-text">Our Founders</span>
+              </footer>
+            </blockquote>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="row g-4">
@@ -300,214 +313,73 @@ get_header(); ?>
 <section class="testimonials-section">
   <div class="container">
     <div class="testimonials-header text-center mb-5">
-      <p class="section-tagline">Hear From Our Team</p>
-      <h2 class="testimonials-title">What Our Employees Say</h2>
-      <p class="testimonials-subtitle">Discover what makes Mia Aesthetics a great place to work from our talented team members.</p>
+      <p class="section-tagline">Patient Excellence</p>
+      <h2 class="testimonials-title">What Our Patients Say</h2>
+      <p class="testimonials-subtitle">See why patients choose our exceptional team and experience the Mia Aesthetics difference.</p>
     </div>
 
     <!-- Bootstrap Carousel -->
     <div id="testimonialsCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="5000">
       <div class="carousel-inner">
-        <!-- Slide 1 - Testimonials 1-3 -->
+        <!-- Slide 1 - Patient Reviews 1-3 -->
         <div class="carousel-item active">
           <div class="row g-4 justify-content-center">
             <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
+              <div class="testimonial-card">
                 <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
                   <blockquote class="testimonial-quote">
-                    "Working at Mia Aesthetics has been incredibly rewarding. The team truly cares about patient outcomes and supports each other in delivering exceptional care. I've grown both professionally and personally."
+                    "Dr. Valauri, Ana and Mo are Mia's Magic Trio! Mo will make you feel safe and welcome with her amazing customer service etiquette. Dr. Valauri did an amazing job. He delivered exactly what I asked for. My results exceeded my expectations."
                   </blockquote>
                   <div class="testimonial-author">
-                    <h5 class="author-name">Sarah M.</h5>
-                    <p class="author-role">Patient Coordinator</p>
-                    <p class="author-location">Dallas Location</p>
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Tampa Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
+              <div class="testimonial-card">
                 <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
                   <blockquote class="testimonial-quote">
-                    "The culture at Mia Aesthetics is unlike anywhere I've worked before. Management genuinely invests in our success and the benefits package shows they care about our well-being. It's more than just a job."
+                    "From my pre-op, Tajh was AWESOME, she made me very comfortable & gave reassurance. The nurses were AWESOME, but VANESSA, she is THE GOAT!! She's honest & has a gift of calmness. 10/10 definitely recommend."
                   </blockquote>
                   <div class="testimonial-author">
-                    <h5 class="author-name">Michael R.</h5>
-                    <p class="author-role">Medical Assistant</p>
-                    <p class="author-location">Miami Location</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
-                <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <blockquote class="testimonial-quote">
-                    "I love being part of a team that makes such a positive impact on people's lives. The training opportunities and career advancement paths have helped me grow into leadership roles I never thought possible."
-                  </blockquote>
-                  <div class="testimonial-author">
-                    <h5 class="author-name">Jessica L.</h5>
-                    <p class="author-role">Operations Manager</p>
-                    <p class="author-location">Phoenix Location</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 2 - Testimonials 4-6 -->
-        <div class="carousel-item">
-          <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
-                <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <blockquote class="testimonial-quote">
-                    "The professional development opportunities here are amazing. I started as a receptionist and with the company's support, I'm now managing patient care coordination. They truly invest in their people."
-                  </blockquote>
-                  <div class="testimonial-author">
-                    <h5 class="author-name">Amanda K.</h5>
-                    <p class="author-role">Care Coordinator</p>
-                    <p class="author-location">Denver Location</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
-                <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <blockquote class="testimonial-quote">
-                    "Every day I get to help people feel confident and beautiful. The surgeons I work with are world-class, and the support staff creates an environment where excellence is the standard."
-                  </blockquote>
-                  <div class="testimonial-author">
-                    <h5 class="author-name">David T.</h5>
-                    <p class="author-role">Surgical Technician</p>
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
                     <p class="author-location">Atlanta Location</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
-                <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
+                  <div class="testimonial-stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                  </div>
-                  <blockquote class="testimonial-quote">
-                    "The work-life balance here is exceptional. They understand that happy employees provide better patient care. The flexibility and benefits allow me to give my best both at work and at home."
-                  </blockquote>
-                  <div class="testimonial-author">
-                    <h5 class="author-name">Rachel S.</h5>
-                    <p class="author-role">Nurse Practitioner</p>
-                    <p class="author-location">Chicago Location</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- Slide 3 - Testimonials 7-9 -->
-        <div class="carousel-item">
-          <div class="row g-4 justify-content-center">
-            <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
-                <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
-                  <blockquote class="testimonial-quote">
-                    "What sets Mia Aesthetics apart is the genuine care for both patients and employees. Leadership listens to our ideas and implements changes that make our jobs more efficient and rewarding."
-                  </blockquote>
-                  <div class="testimonial-author">
-                    <h5 class="author-name">Carlos M.</h5>
-                    <p class="author-role">Marketing Coordinator</p>
-                    <p class="author-location">Los Angeles Location</p>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
+              <div class="testimonial-card">
                 <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
                   <blockquote class="testimonial-quote">
-                    "The collaborative environment here is incredible. Every department works together seamlessly, and there's always someone willing to help. It feels like being part of a family with a shared mission."
+                    "The experience at Mia Aesthetics was awesome from Yesi my pre-op coordinator. Talking to Yesi was like talking to a friend, she is so nice and welcoming. Best person in the building!"
                   </blockquote>
                   <div class="testimonial-author">
-                    <h5 class="author-name">Emily D.</h5>
-                    <p class="author-role">Finance Manager</p>
-                    <p class="author-location">Houston Location</p>
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Miami Location</p>
                   </div>
-                </div>
-              </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
-                <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
+                  <div class="testimonial-stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
-                  </div>
-                  <blockquote class="testimonial-quote">
-                    "The technology and equipment we use are state-of-the-art, which makes our jobs easier and helps us deliver the best possible results. The company's investment in innovation is impressive."
-                  </blockquote>
-                  <div class="testimonial-author">
-                    <h5 class="author-name">Marcus J.</h5>
-                    <p class="author-role">IT Specialist</p>
-                    <p class="author-location">New York Location</p>
                   </div>
                 </div>
               </div>
@@ -515,68 +387,157 @@ get_header(); ?>
           </div>
         </div>
 
-        <!-- Slide 4 - Testimonials 10-12 -->
+        <!-- Slide 2 - Patient Reviews 4-6 -->
         <div class="carousel-item">
           <div class="row g-4 justify-content-center">
             <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
+              <div class="testimonial-card">
                 <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
                   <blockquote class="testimonial-quote">
-                    "The diversity and inclusion initiatives here create an environment where everyone feels valued. I've never worked somewhere that so actively promotes different perspectives and backgrounds."
+                    "I can't say enough good things about my experience at this location—everything from the care I received to the amazing results. Nurse Vanessa was an absolute angel! She took such wonderful care of me after my procedure."
                   </blockquote>
                   <div class="testimonial-author">
-                    <h5 class="author-name">Priya P.</h5>
-                    <p class="author-role">HR Specialist</p>
-                    <p class="author-location">Seattle Location</p>
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Atlanta Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
+              <div class="testimonial-card">
                 <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                  </div>
                   <blockquote class="testimonial-quote">
-                    "The mentorship program helped me transition into healthcare seamlessly. Senior staff are always willing to share knowledge and guide newer employees. It's a very supportive environment."
+                    "I had Lipo 360 and my experience has been a great one. When I came in Gabi answered all my questions, she joked around with me and just truly made me feel comfortable. My experience has been so smooth and well organized."
                   </blockquote>
                   <div class="testimonial-author">
-                    <h5 class="author-name">Jordan W.</h5>
-                    <p class="author-role">Administrative Assistant</p>
-                    <p class="author-location">Orlando Location</p>
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Miami Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
             </div>
             <div class="col-lg-4 col-md-6">
-              <div class="testimonial-card h-100">
+              <div class="testimonial-card">
                 <div class="testimonial-content">
-                  <div class="testimonial-stars mb-3">
+                  <blockquote class="testimonial-quote">
+                    "This is my second time having a procedure done with the amazing Dr. Wright at MIA. I cannot be more content with my choice. Dr Wright and her staff are all extremely helpful and supportive through it all."
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Miami Location</p>
+                  </div>
+                  <div class="testimonial-stars">
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                     <i class="fas fa-star"></i>
                   </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 3 - Patient Reviews 7-9 -->
+        <div class="carousel-item">
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
                   <blockquote class="testimonial-quote">
-                    "Working here has exceeded all my expectations. The combination of cutting-edge medicine, compassionate patient care, and a team that feels like family makes this the best job I've ever had."
+                    "I had my bbl with lipo 360 surgery this morning with Dr. Charepoo. He's super informative and delightful. After I woke up, Julia was the best recovery nurse. She spoke to me so gentle and reassuring."
                   </blockquote>
                   <div class="testimonial-author">
-                    <h5 class="author-name">Lisa H.</h5>
-                    <p class="author-role">Senior Nurse</p>
-                    <p class="author-location">Las Vegas Location</p>
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Austin Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <blockquote class="testimonial-quote">
+                    "Amazing experience from my first interaction with the staff. I couldn't have asked for better customer service. The staff, specifically Audrey have been great to me by answering all questions and concerns."
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Miami Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <blockquote class="testimonial-quote">
+                    "Vanessa was an excellent nurse. She cared for me during the recovery process and was very attentive to my needs. She was very kind and compassionate. She made my recovery run with ease."
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Atlanta Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Slide 4 - Patient Review 10 -->
+        <div class="carousel-item">
+          <div class="row g-4 justify-content-center">
+            <div class="col-lg-4 col-md-6 col-12">
+              <div class="testimonial-card">
+                <div class="testimonial-content">
+                  <blockquote class="testimonial-quote">
+                    "I cannot express enough gratitude for the incredible care and compassion Nurse Vanessa provided to me following my surgery. She was kind, professional and very attentive. Dr. Fasusi was also exceptional! He embodies everything a great plastic surgeon should be."
+                  </blockquote>
+                  <div class="testimonial-author">
+                    <h5 class="author-name">Mia Aesthetics Patient</h5>
+                    <p class="author-location">Atlanta Location</p>
+                  </div>
+                  <div class="testimonial-stars">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                   </div>
                 </div>
               </div>
@@ -674,7 +635,13 @@ get_header(); ?>
       <div class="row align-items-center">
         <div class="col-md-6">
           <div class="footer-logo">
-            <img src="<?php echo esc_url(get_site_url()); ?>/wp-content/uploads/2023/mia-aesthetics-logo-white.png" alt="Mia Aesthetics" class="footer-logo-img">
+            <?php 
+            $logo_url = mia_get_logo_url();
+            if ($logo_url) : ?>
+              <img src="<?php echo esc_url($logo_url); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>" class="footer-logo-img">
+            <?php else : ?>
+              <h3 class="footer-brand-text"><?php echo esc_html(get_bloginfo('name')); ?></h3>
+            <?php endif; ?>
           </div>
         </div>
         <div class="col-md-6 text-md-end">
@@ -690,6 +657,12 @@ get_header(); ?>
             </a>
             <a href="https://x.com/mia_aesthetics?lang=en" target="_blank" rel="noopener" aria-label="Twitter" class="social-link">
               <i class="fab fa-twitter"></i>
+            </a>
+            <a href="https://www.snapchat.com/add/miaaesthetics" target="_blank" rel="noopener" aria-label="SnapChat" class="social-link">
+              <i class="fab fa-snapchat-ghost"></i>
+            </a>
+            <a href="https://www.youtube.com/mia_aesthetics" target="_blank" rel="noopener" aria-label="YouTube" class="social-link">
+              <i class="fab fa-youtube"></i>
             </a>
           </div>
         </div>

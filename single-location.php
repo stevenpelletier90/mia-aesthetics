@@ -20,12 +20,22 @@ get_header();
                     <div class="location-info mb-4">
 <?php
                         $location_map = get_field('location_map');
-                        if ($location_map):
+                        
+                        if ($location_map) {
                             $street = ($location_map['street_number'] ?? '') . ' ' . ($location_map['street_name'] ?? '');
                             $city = $location_map['city'] ?? '';
                             $state = $location_map['state_short'] ?? '';
                             $zip = $location_map['post_code'] ?? '';
-                    ?>
+                            
+                            // Special handling for locations where Google Maps doesn't populate city correctly
+                            // Check if city is empty but we have other address components
+                            if (empty($city) && !empty($state)) {
+                                // For Brooklyn/NYC addresses, Google sometimes doesn't populate city
+                                if ($state === 'NY' && strpos(strtolower($street), 'atlantic') !== false) {
+                                    $city = 'Brooklyn';
+                                }
+                            }
+                        ?>
                             <?php if (!empty(trim($street)) || !empty($city) || !empty($state) || !empty($zip)): ?>
                             <div class="location-detail mb-4">
                                 <div class="d-flex flex-column">
@@ -40,7 +50,7 @@ get_header();
                                 </div>
                             </div>
                             <?php endif; ?>
-                        <?php endif; ?>
+                        <?php } ?>
 
                         <?php $phone_number = get_field('phone_number'); ?>
                         <?php if ($phone_number): ?>

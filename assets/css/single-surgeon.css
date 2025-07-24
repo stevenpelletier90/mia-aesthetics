@@ -1,392 +1,213 @@
-html {
-  scroll-behavior: smooth;
-}
-body.single-surgeon {
-  overflow-y: auto;
-  overflow-x: hidden;
-}
-/* make the surgeon tab bar park just under the header */
-#surgeon-tabs {
-  position: sticky;
-  top: 76px; /* header is 76px tall */
-  z-index: 1025; /* just above page content, below header */
+/* Single Surgeon Template Styles */
+
+/* Fluid Container */
+.surgeon-fluid-container {
+  width: 100%;
+  padding-right: 2rem;
+  padding-left: 2rem;
+  margin-right: auto;
+  margin-left: auto;
 }
 
-/* For logged-in WordPress users with admin bar */
-body.admin-bar #surgeon-tabs {
-  top: 108px; /* 76px header + 32px admin bar */
+@media (min-width: 1400px) {
+  .surgeon-fluid-container {
+    padding-right: 4rem;
+    padding-left: 4rem;
+  }
 }
 
-.surgeon-mobile-nav {
+@media (min-width: 1600px) {
+  .surgeon-fluid-container {
+    max-width: 1800px;
+  }
+}
+
+/* Header Band */
+.surgeon-header-band {
   background-color: var(--color-primary);
-  padding: 0.5rem 0;
-  z-index: 1020;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-  width: 100vw;
-}
-.surgeon-nav-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 0;
-  width: 100%;
-}
-.surgeon-nav-btn {
-  color: #fff;
-  text-align: center;
-  padding: 0.75rem 0;
-  font-weight: 600;
-  text-decoration: none;
-  position: relative;
-  transition: all 0.1s ease;
-  font-size: 0.95rem;
-  border-right: 1px solid rgba(255, 255, 255, 0.15);
-}
-.surgeon-nav-btn:last-child {
-  border-right: none;
-}
-.surgeon-nav-btn:after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 3px;
-  background-color: var(--color-gold);
-  transition: width 0.1s ease;
-}
-.surgeon-nav-btn.active {
-  color: var(--color-gold);
-}
-.surgeon-nav-btn.active:after {
-  width: 40%;
-}
-.surgeon-nav-btn:hover {
-  color: var(--color-gold);
-  text-decoration: none;
-}
-.surgeon-hero-section {
-  background: #000000;
-  background: linear-gradient(0deg, rgba(0, 0, 0, 1) 0%, rgba(27, 27, 27, 1) 50%, rgba(79, 78, 78, 1) 100%);
-  color: #fff;
-  position: relative;
   padding: 3rem 0;
-  height: 350px;
-  display: flex;
-  align-items: center;
+  margin-bottom: 3rem;
 }
-.surgeon-hero-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  height: 100%;
-  margin-left: 1.5rem; /* Add consistent left margin at all breakpoints */
+
+.surgeon-header-content {
+  color: white;
 }
-.surgeon-hero-content h1 {
-  color: #fff;
+
+.surgeon-specialty {
+  font-size: 1.1rem;
   margin-bottom: 0.5rem;
-}
-.surgeon-location {
-  color: var(--color-gold);
-  margin-bottom: 0;
   font-weight: 400;
-}
-.surgeon-location a {
-  color: #fff;
+  text-transform: capitalize;
 }
 
-/* Instagram Link Styling */
-.surgeon-social {
-  margin-top: 1rem;
+.surgeon-name {
+  font-size: 3rem;
+  font-weight: 700;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: white;
 }
 
-.social-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #fff;
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.3s ease;
-  padding: 0.5rem 1rem;
-  background-color: rgba(255, 255, 255, 0.1);
-  border-radius: 50px;
-  border: 1px solid rgba(200, 178, 115, 0.3);
+/* Main Content Area */
+.surgeon-main-content {
+  padding-bottom: 4rem;
 }
 
-.social-link:hover {
-  background-color: var(--color-gold);
-  color: var(--color-primary);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3);
-}
-
-.social-link i {
-  font-size: 1.2rem;
-}
-.surgeon-headshot {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-}
-.surgeon-headshot img {
-  border: 4px solid var(--color-gold);
-  max-width: 200px;
-  width: 100%;
-  height: auto;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-  background: #fff;
-}
-.surgeon-headshot-placeholder {
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  height: 100%;
-}
-.placeholder-circle {
-  width: 200px;
-  height: 200px;
-  border-radius: 50%;
-  background-color: #333;
-  border: 4px solid var(--color-gold);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-.placeholder-circle i {
-  color: var(--color-gold);
-}
-.surgeon-content-section {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
-}
-.section-title {
-  color: var(--color-primary);
-  font-weight: 600;
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 0.75rem;
-}
-.section-title:after {
-  content: "";
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 60px;
-  height: 3px;
-  background-color: var(--color-gold);
-}
-#surgeon-about,
-#surgeon-specialities,
-#surgeon-before-after {
-  padding-top: 30px;
-  padding-bottom: 20px;
-  margin-bottom: 2rem;
-  min-height: 200px;
-  position: relative;
-  z-index: 1;
-}
-.surgeon-sidebar {
-  position: relative;
-}
-
-/* Updated Sidebar Styling to Match Other Templates */
-.surgeon-sidebar .sidebar-ctas {
+/* Profile Card (Left Column) */
+.surgeon-profile-card {
   background: #ffffff;
-  border: 1px solid #e5e5e5;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-}
-
-.surgeon-sidebar .cta-card {
-  background: transparent;
-  border: none;
-  border-radius: 0;
-  transition: background-color 0.3s ease;
-  border-bottom: 1px solid #f0f0f0;
-}
-
-.surgeon-sidebar .cta-card:last-child {
-  border-bottom: none;
-}
-
-.surgeon-sidebar .cta-card:hover {
-  background-color: #f8f9fa;
-}
-
-.surgeon-sidebar .cta-card__content {
-  padding: 1.5rem;
-}
-
-.surgeon-sidebar .cta-card__title {
-  font-family: var(--font-heading);
-  font-size: 1.1rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  line-height: 1.3;
-  color: var(--color-primary);
-}
-
-.surgeon-sidebar .cta-card__text {
-  font-family: var(--font-body);
-  font-size: 0.85rem;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-  color: #666666;
-}
-
-/* Before/After Preview Image */
-.before-after-preview {
-  margin: -1.5rem -1.5rem 1rem -1.5rem;
-  overflow: hidden;
-}
-
-.before-after-preview img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-/* Video Section in Sidebar */
-.sidebar-section {
-  background-color: transparent;
-  border-radius: 0;
-  overflow: hidden;
-  margin-bottom: 0;
-  border-bottom: 1px solid #f0f0f0;
-  padding-bottom: 1.5rem;
-}
-/* Removed old sidebar button styles - now using consistent cta-card styling */
-.card {
-  border-radius: 8px;
-}
-.card-body {
-  padding: 1rem;
-}
-.card-body strong {
-  color: var(--color-primary);
-}
-.card-title {
-  margin-bottom: 0.75rem;
-}
-.card-action {
-  margin-top: 1rem;
-}
-.cta-card {
-  transition: color 0.2s ease-in-out;
-}
-.consultation-card {
-  background-color: var(--color-primary);
-  color: #fff;
-  border-radius: 8px;
-}
-.consultation-card h3,
-.consultation-card strong,
-.consultation-card p {
-  color: #fff;
-}
-.consultation-card .btn-primary {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
-  font-weight: 600;
-}
-.consultation-card .btn-primary:hover {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
-}
-#surgeon-specialities {
-  margin-top: 10px;
-}
-.specialty-card-wrapper {
-  margin-bottom: 1.5rem;
-}
-#surgeon-specialities .card {
-  transition: all 0.3s ease-in-out;
-  height: 100%;
-  border: 1px solid var(--color-gold);
-  display: flex;
-  flex-direction: column;
-  min-height: 180px;
-}
-#surgeon-specialities .card:hover {
-  background-color: var(--color-primary);
-  transform: translateY(-5px);
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-}
-#surgeon-specialities .card-body {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  padding: 1.25rem;
-}
-#surgeon-specialities .card-title {
-  color: var(--color-primary);
-  margin-bottom: 0.75rem;
-  font-weight: 600;
-  height: 2.5rem;
-  display: flex;
-  align-items: center;
-  transition: color 0.3s ease;
-}
-#surgeon-specialities .card:hover .card-title {
-  color: var(--color-gold);
-}
-#surgeon-specialities .card-text {
-  margin-bottom: 1rem;
-  flex-grow: 1;
-  overflow: hidden;
-  display: -webkit-box;
-  line-clamp: 3;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-  transition: color 0.3s ease;
-}
-#surgeon-specialities .card:hover .card-text {
-  color: #ffffff;
-}
-#surgeon-specialities .procedure-arrow {
-  color: var(--color-gold);
-  font-size: 0.9em;
-  margin-left: 5px;
-  transition: transform 0.3s ease;
-}
-#surgeon-specialities .card:hover .procedure-arrow {
-  transform: translateX(3px);
-}
-#surgeon-specialities .text-end {
-  text-align: left !important;
-  margin-top: auto;
-  padding-top: 0.75rem;
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-  transition: color 0.3s ease, border-color 0.3s ease;
-}
-#surgeon-specialities .card:hover .text-end {
-  color: #ffffff;
-  border-top-color: rgba(255, 255, 255, 0.2);
-}
-#surgeon-video-mobile {
+  border: 1px solid #e9ecef;
   margin-bottom: 2rem;
 }
-.video-container {
+
+.surgeon-photo {
   position: relative;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  padding-top: 56.25%;
-  height: 0;
+  background: #f8f9fa;
 }
-.video-container iframe {
-  display: block;
-  border: none;
-  position: absolute;
-  top: 0;
-  left: 0;
+
+.surgeon-photo {
+  aspect-ratio: 1/1;
+  overflow: hidden;
+}
+
+.surgeon-photo img {
   width: 100%;
   height: 100%;
+  display: block;
+  object-fit: cover;
 }
+
+.surgeon-photo-placeholder {
+  height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.surgeon-photo-placeholder .placeholder-content {
+  text-align: center;
+  color: white;
+}
+
+.surgeon-photo-placeholder i {
+  font-size: 6rem;
+  opacity: 0.7;
+}
+
+
+/* Video Section in Sidebar */
+.surgeon-video-sidebar {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.surgeon-video-sidebar h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  margin-bottom: 0;
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.surgeon-video-sidebar .video-wrapper {
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
+/* Location Info */
+.surgeon-location-info {
+  padding: 1.5rem;
+  color: #666;
+  border-bottom: 1px solid #e9ecef;
+}
+
+/* Simple Call to Action */
+.surgeon-simple-cta {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.surgeon-simple-cta .mia-button {
+  width: 100%;
+  justify-content: center;
+}
+
+.surgeon-location-info p {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.surgeon-location-info a {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.surgeon-location-info a:hover {
+  text-decoration: underline;
+}
+
+/* Social Links */
+.surgeon-social-links {
+  padding: 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.surgeon-social-links .mia-button {
+  width: 100%;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* Right Column Content */
+.surgeon-content {
+  padding-left: 2rem;
+}
+
+.surgeon-about {
+  margin-bottom: 3rem;
+}
+
+.surgeon-about h2 {
+  color: var(--color-primary);
+  margin-bottom: 1.5rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.surgeon-about p {
+  color: #222222;
+  line-height: 1.8;
+  margin-bottom: 1.25rem;
+}
+
+/* Video Section */
+.surgeon-video {
+  margin-bottom: 3rem;
+}
+
+.surgeon-video h2 {
+  color: #333;
+  margin-bottom: 1.5rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.video-wrapper {
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid #e9ecef;
+}
+
 /* Video thumbnail styles */
 .video-thumbnail {
   position: absolute;
@@ -397,104 +218,227 @@ body.admin-bar #surgeon-tabs {
   cursor: pointer;
   overflow: hidden;
 }
+
 .video-thumbnail img {
   width: 100%;
   height: 100%;
   object-fit: cover;
   transition: transform 0.5s ease;
 }
+
 .video-thumbnail:hover img {
   transform: scale(1.05);
 }
+
 .video-play-button {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 70px;
-  height: 70px;
+  width: 80px;
+  height: 80px;
   background-color: var(--color-primary);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0.9;
   transition: all 0.3s ease;
   border: 3px solid var(--color-gold);
+  cursor: pointer;
+  opacity: 0.9;
 }
+
 .video-play-button i {
   color: var(--color-gold);
-  font-size: 24px;
-  margin-left: 5px; /* Slightly adjust to make the play icon appear centered */
+  font-size: 28px;
+  margin-left: 5px;
 }
+
 .video-thumbnail:hover .video-play-button {
   background-color: var(--color-gold);
   transform: translate(-50%, -50%) scale(1.1);
 }
+
 .video-thumbnail:hover .video-play-button i {
   color: var(--color-primary);
 }
-.surgeon-sidebar #surgeon-video {
-  background-color: #fff;
-  border-radius: 8px;
-  overflow: hidden;
+
+/* Specialties Section */
+.surgeon-specialties {
+  margin-bottom: 3rem;
 }
+
+.surgeon-specialties h2 {
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+.specialty-card {
+  background: #f8f9fa;
+  padding: 2rem;
+  border-radius: 12px;
+  height: 100%;
+  transition: all 0.3s ease;
+  border: 1px solid #e9ecef;
+}
+
+
+.specialty-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  background: #ffffff;
+}
+
+.specialty-card h3 {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.specialty-card p {
+  color: #222222;
+  margin-bottom: 1rem;
+  line-height: 1.6;
+}
+
+
+
+
+
+/* Three Separate CTA Sections */
+.surgeon-cta-sections {
+  margin-top: 3rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.surgeon-cta-card {
+  background: #f8f9fa;
+  border-radius: 12px;
+  border: 1px solid #e9ecef;
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.surgeon-cta-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--color-gold);
+  background: #ffffff;
+}
+
+.cta-card-content {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.surgeon-cta-card h3 {
+  color: var(--color-primary);
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.surgeon-cta-card p {
+  color: #666;
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+  flex-grow: 1;
+}
+
+.surgeon-cta-card .mia-button {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+
+/* Mobile Responsive */
+@media (max-width: 1199px) {
+  /* Hide schedule consultation button */
+  .surgeon-simple-cta {
+    display: none;
+  }
+  
+  .surgeon-fluid-container {
+    padding-right: 1.5rem;
+    padding-left: 1.5rem;
+  }
+}
+
 @media (max-width: 991px) {
-}
-
-/* Add standard gutter between row items to replace g-0 we removed from HTML */
-.surgeon-hero-section .row {
-  margin-left: -15px;
-  margin-right: -15px;
-}
-
-.surgeon-hero-section .row > div {
-  padding-left: 15px;
-  padding-right: 15px;
+  .surgeon-content {
+    padding-left: 0;
+    padding-top: 2rem;
+  }
+  
+  .surgeon-header-band {
+    padding: 2rem 0;
+    margin-bottom: 2rem;
+  }
+  
+  .surgeon-name {
+    font-size: 2rem;
+  }
+  
+  .surgeon-profile-card {
+    margin-bottom: 3rem;
+  }
+  
+  .surgeon-video-sidebar {
+    padding-top: 1.5rem;
+  }
+  
+  .surgeon-fluid-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
 }
 
 @media (max-width: 767px) {
-  #surgeon-about,
-  #surgeon-specialities,
-  #surgeon-before-after {
-    padding-top: 20px;
-  }
-  .surgeon-hero-content {
+  .surgeon-header-band {
     text-align: center;
-    padding-top: 15px;
-    margin-left: 0; /* Remove left margin on mobile */
   }
-
-  .surgeon-headshot,
-  .surgeon-headshot-placeholder {
-    justify-content: center;
+  
+  .surgeon-name {
+    font-size: 1.75rem;
   }
-  .surgeon-headshot img,
-  .placeholder-circle {
-    max-width: 200px;
-    width: 100%;
-    height: 200px;
+  
+  .surgeon-cta-sections {
+    grid-template-columns: 1fr;
   }
-  #surgeon-about,
-  #surgeon-before-after,
-  #surgeon-specialities {
-    padding-top: 15px;
-    margin-bottom: 2rem;
+  
+  .specialty-card {
+    margin-bottom: 1rem;
   }
-  .accordion-button {
-    padding: 1rem;
+  
+  /* Hide schedule consultation button on mobile */
+  .surgeon-simple-cta {
+    display: none;
   }
-  .surgeon-sidebar {
-    position: static;
-    margin-top: 2rem;
+  
+  .surgeon-fluid-container {
+    padding-right: 1rem;
+    padding-left: 1rem;
   }
-}
-
-@media (min-width: 768px) and (max-width: 991px) {
-  .surgeon-sidebar {
-    position: static;
-    margin-top: 2rem;
+  
+  .surgeon-photo {
+    aspect-ratio: 1/1;
   }
 }
 
-/* Accordion styles now in _base.css - no surgeon-specific overrides needed */
+/* Remove old unused styles */
+html {
+  scroll-behavior: smooth;
+}
+
+body.single-surgeon {
+  overflow-y: auto;
+  overflow-x: hidden;
+}

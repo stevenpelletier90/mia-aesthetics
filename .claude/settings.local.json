@@ -6,7 +6,9 @@
       "Bash(ls:*)",
       "Bash(find:*)",
       "mcp__sequential-thinking__sequentialthinking",
-      "Bash(rm:*)"
+      "Bash(rm:*)",
+      "WebFetch(domain:getbootstrap.com)",
+      "mcp__filesystem__read_multiple_files"
     ],
     "deny": []
   },

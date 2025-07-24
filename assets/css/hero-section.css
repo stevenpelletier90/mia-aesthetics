@@ -97,7 +97,17 @@
   text-align: center;
 }
 
-/* Hero box titles removed - no longer used */
+/* Hero Box Headings */
+.hero-box-heading {
+  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
 
 /* ===== CAROUSEL INDICATORS ===== */
 .carousel-indicators {
@@ -147,6 +157,11 @@
 
   .hero-box-overlay {
     padding: 1rem;
+  }
+  
+  .hero-box-heading {
+    font-size: clamp(1.25rem, 4vw, 1.75rem);
+    margin-bottom: 0.75rem;
   }
 
 }

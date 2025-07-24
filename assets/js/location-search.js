@@ -406,7 +406,19 @@
     }
     
     const cityStateZip = [];
-    if (locationMap.city) cityStateZip.push(locationMap.city);
+    let city = locationMap.city;
+    
+    // Special handling for locations where Google Maps doesn't populate city correctly
+    if (!city && locationMap.state_short) {
+      // For Brooklyn/NYC addresses, Google sometimes doesn't populate city
+      if (locationMap.state_short === 'NY' && 
+          locationMap.street_name && 
+          locationMap.street_name.toLowerCase().includes('atlantic')) {
+        city = 'Brooklyn';
+      }
+    }
+    
+    if (city) cityStateZip.push(city);
     if (locationMap.state_short) cityStateZip.push(locationMap.state_short);
     if (locationMap.post_code) cityStateZip.push(locationMap.post_code);
     

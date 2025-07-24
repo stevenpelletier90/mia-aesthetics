@@ -27,19 +27,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   width: var(--container-size);
   height: var(--container-size);
 }
 .surgeon-archive-headshot {
-  --img-size: calc(var(--container-size) - 10px);
-  width: var(--img-size);
-  height: var(--img-size);
-  object-fit: cover;
-  border: 2px solid #c8b273;
-  background-color: #fff;
-  padding: 0;
+  width: var(--container-size);
+  height: var(--container-size);
   border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-gold);
+  background: linear-gradient(135deg, #f1f3ff 0%, #f8f6ff 100%);
+  padding: 3px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 .surgeon-info {
@@ -64,7 +62,6 @@
   text-decoration: underline;
 }
 .surgeon-bio-link i {
-  /* font-size removed: use base or utility class */
   margin-left: 8px;
   position: relative;
   top: -1px;
@@ -75,11 +72,11 @@
 }
 
 @media (max-width: 767.98px) {
-  .col-sm-6 {
-    width: 100%;
-  }
   .surgeon-img-container {
     --container-size: 100px;
+  }
+  .surgeon-archive-headshot {
+    border: 2px solid var(--color-gold);
   }
   .surgeon-card .card-body {
     display: flex;
