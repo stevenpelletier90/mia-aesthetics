@@ -677,9 +677,27 @@ get_header(); ?>
       </div>
       <hr class="footer-divider">
       <div class="copyright">
-        <p>&copy; <?php echo date('Y'); ?> Mia Aesthetics. All rights reserved. | 
-        <a href="<?php echo esc_url(home_url('/privacy-policy/')); ?>">Privacy Policy</a> | 
-        <a href="<?php echo esc_url(home_url('/terms-conditions/')); ?>">Terms & Conditions</a></p>
+        <div class="text-center mb-3">
+          <p class="mb-1">&copy; <?php echo date('Y'); ?> Mia Aesthetics. All rights reserved.</p>
+          <p class="disclaimer mb-0">The pictures on this website consist of both models and actual patients.</p>
+        </div>
+        
+        <!-- Legal Links Section -->
+        <div class="text-center">
+          <nav aria-label="Legal and policy navigation">
+            <div class="legal-links">
+              <a href="<?php echo esc_url(home_url('/website-privacy-policy/')); ?>">Privacy Policy</a>
+              <span class="link-separator">|</span>
+              <a href="<?php echo esc_url(home_url('/patient-privacy-practices/')); ?>">Patient Privacy Practices</a>
+              <span class="link-separator">|</span>
+              <a href="<?php echo esc_url(home_url('/terms-and-conditions/')); ?>">Terms & Conditions</a>
+              <span class="link-separator">|</span>
+              <a href="<?php echo esc_url(home_url('/terms-of-use/')); ?>">Terms of Use</a>
+              <span class="link-separator">|</span>
+              <a href="<?php echo esc_url(home_url('/website-sms-terms-and-conditions/')); ?>">SMS Terms & Conditions</a>
+            </div>
+          </nav>
+        </div>
       </div>
     </div>
   </div>
