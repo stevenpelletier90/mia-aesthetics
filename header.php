@@ -47,7 +47,7 @@
           <div class="offcanvas-body">
             <div class="d-flex flex-column flex-xl-row align-items-start align-items-xl-center w-100">
               <!-- Main Navigation -->
-              <ul class="navbar-nav me-xl-auto mb-2 mb-xl-0">
+              <ul class="navbar-nav ms-xl-auto me-xl-3 mb-2 mb-xl-0">
                 <li class="nav-item">
                   <a class="nav-link" href="<?php echo esc_url(home_url('/')); ?>">Home</a>
                 </li>
@@ -107,7 +107,7 @@
           </div>
         </div>
         <!-- Right Side Items -->
-        <div class="d-none d-xl-block ms-auto">
+        <div class="d-none d-xl-block">
           <a href="<?php echo esc_url(home_url('/free-plastic-surgery-consultation/')); ?>" class="header-btn desktop-cta" aria-label="Schedule free virtual consultation">
             Free Virtual Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
           </a>

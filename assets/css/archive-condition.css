@@ -99,7 +99,7 @@
 }
 
 .condition-link:hover {
-  color: var(--color-primary);
+  color: var(--color-gold);
   background-color: rgba(200, 178, 115, 0.05);
 }
 

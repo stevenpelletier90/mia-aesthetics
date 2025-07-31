@@ -1,12 +1,12 @@
 /**
  * Careers Page JavaScript
- * 
+ *
  * Handles animations and interactions for the careers landing page
- * 
+ *
  * @package Mia_Aesthetics
  */
 
-(function() {
+(function () {
   'use strict';
 
   // Stats Counter Animation
@@ -30,7 +30,7 @@
         // Format the number based on its value
         let displayValue;
         if (targetValue >= 2000 && targetValue < 3000) {
-          // Years (like 2018)
+          // Years (like 2017)
           displayValue = currentValue.toString();
         } else if (targetValue >= 100) {
           // Large numbers like 150 (for 150,000+)
@@ -110,7 +110,7 @@
   // Testimonials Carousel Initialization (Bootstrap 5.3 compliant)
   document.addEventListener('DOMContentLoaded', function () {
     const testimonialCarousel = document.getElementById('testimonialsCarousel');
-    
+
     if (testimonialCarousel && typeof bootstrap !== 'undefined') {
       // Function to restructure carousel based on screen size
       function restructureCarousel() {
@@ -119,14 +119,14 @@
         const isTablet = screenWidth > 767.98 && screenWidth <= 991.98;
         const carouselInner = testimonialCarousel.querySelector('.carousel-inner');
         const indicators = testimonialCarousel.querySelector('.carousel-indicators');
-        
+
         // Extract all testimonial cards from original structure
         const allCards = Array.from(testimonialCarousel.querySelectorAll('.testimonial-card'));
-        
+
         // Clear existing content
         carouselInner.innerHTML = '';
         indicators.innerHTML = '';
-        
+
         if (isMobile) {
           // Mobile: 1 review per slide = 10 slides
           allCards.forEach((card, index) => {
@@ -140,7 +140,7 @@
               </div>
             `;
             carouselInner.appendChild(slide);
-            
+
             // Create indicator
             const indicator = document.createElement('button');
             indicator.type = 'button';
@@ -153,17 +153,16 @@
             }
             indicators.appendChild(indicator);
           });
-          
         } else if (isTablet) {
           // Tablet: 2 reviews per slide = 5 slides (2+2+2+2+2)
           for (let i = 0; i < allCards.length; i += 2) {
             const slideIndex = Math.floor(i / 2);
             const slide = document.createElement('div');
             slide.className = `carousel-item${slideIndex === 0 ? ' active' : ''}`;
-            
+
             const firstCard = allCards[i];
             const secondCard = allCards[i + 1];
-            
+
             slide.innerHTML = `
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6">
@@ -173,7 +172,7 @@
               </div>
             `;
             carouselInner.appendChild(slide);
-            
+
             // Create indicator
             const indicator = document.createElement('button');
             indicator.type = 'button';
@@ -186,32 +185,31 @@
             }
             indicators.appendChild(indicator);
           }
-          
         } else {
           // Desktop: 3 reviews per slide = 4 slides (3+3+3+1) - restore original structure
           const originalSlides = [
-            [0, 1, 2],  // Reviews 1-3
-            [3, 4, 5],  // Reviews 4-6  
-            [6, 7, 8],  // Reviews 7-9
-            [9]         // Review 10
+            [0, 1, 2], // Reviews 1-3
+            [3, 4, 5], // Reviews 4-6
+            [6, 7, 8], // Reviews 7-9
+            [9], // Review 10
           ];
-          
+
           originalSlides.forEach((cardIndices, slideIndex) => {
             const slide = document.createElement('div');
             slide.className = `carousel-item${slideIndex === 0 ? ' active' : ''}`;
-            
+
             let slideContent = '<div class="row g-4 justify-content-center">';
-            cardIndices.forEach(cardIndex => {
+            cardIndices.forEach((cardIndex) => {
               if (allCards[cardIndex]) {
                 const colClass = cardIndices.length === 1 ? 'col-lg-4 col-md-6 col-12' : 'col-lg-4 col-md-6';
                 slideContent += `<div class="${colClass}">${allCards[cardIndex].outerHTML}</div>`;
               }
             });
             slideContent += '</div>';
-            
+
             slide.innerHTML = slideContent;
             carouselInner.appendChild(slide);
-            
+
             // Create indicator
             const indicator = document.createElement('button');
             indicator.type = 'button';
@@ -226,33 +224,33 @@
           });
         }
       }
-      
+
       // Initial setup
       restructureCarousel();
-      
+
       // Rebuild on resize (but avoid refreshes on mobile scroll)
       let resizeTimeout;
       let lastWidth = window.innerWidth;
-      
-      window.addEventListener('resize', function() {
+
+      window.addEventListener('resize', function () {
         const currentWidth = window.innerWidth;
-        
+
         // Only restructure if width actually changed significantly (not just mobile scroll)
         if (Math.abs(currentWidth - lastWidth) < 50) {
           return;
         }
-        
+
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function() {
+        resizeTimeout = setTimeout(function () {
           // Dispose existing carousel
           const existingCarousel = bootstrap.Carousel.getInstance(testimonialCarousel);
           if (existingCarousel) {
             existingCarousel.dispose();
           }
-          
+
           // Restructure without reloading
           restructureCarousel();
-          
+
           // Reinitialize carousel
           const newCarousel = new bootstrap.Carousel(testimonialCarousel, {
             interval: 6000,
@@ -260,9 +258,9 @@
             pause: 'hover',
             ride: false,
             wrap: true,
-            touch: true
+            touch: true,
           });
-          
+
           // Update last width
           lastWidth = currentWidth;
         }, 300);
@@ -275,22 +273,22 @@
         pause: 'hover',
         ride: false, // Don't auto-start to improve responsiveness
         wrap: true,
-        touch: true
+        touch: true,
       });
 
       // Improve click responsiveness by stopping any ongoing transitions
       const prevBtn = testimonialCarousel.querySelector('.carousel-control-prev');
       const nextBtn = testimonialCarousel.querySelector('.carousel-control-next');
-      
+
       if (prevBtn) {
-        prevBtn.addEventListener('click', function(e) {
+        prevBtn.addEventListener('click', function (e) {
           e.preventDefault();
           carousel.prev();
         });
       }
-      
+
       if (nextBtn) {
-        nextBtn.addEventListener('click', function(e) {
+        nextBtn.addEventListener('click', function (e) {
           e.preventDefault();
           carousel.next();
         });
@@ -313,7 +311,7 @@
                 allCards.forEach((card) => {
                   card.style.opacity = '1';
                 });
-                
+
                 testimonialsObserver.unobserve(entry.target);
               }
             });
@@ -328,5 +326,4 @@
       }
     }
   });
-
 })();

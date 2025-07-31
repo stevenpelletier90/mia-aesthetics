@@ -187,7 +187,7 @@ header h1 {
 
 .case-surgeon-link:hover i,
 .case-location-link:hover i {
-  transform: translateX(5px);
+  transform: translateX(3px);
   color: #ffffff;
 }
 

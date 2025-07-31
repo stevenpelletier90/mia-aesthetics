@@ -37,6 +37,7 @@
   text-decoration: none;
   font-family: var(--font-heading);
   transition: all 0.2s ease;
+  border-radius: 3px;
 }
 .header-btn:is(:hover, :focus) {
   background-color: var(--color-gold);
@@ -288,6 +289,7 @@
     font-family: var(--font-heading);
     transition: all 0.2s ease;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
   }
   .mobile-consultation-btn:hover,
   .mobile-consultation-btn:focus {

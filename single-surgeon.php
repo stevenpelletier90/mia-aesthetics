@@ -2,58 +2,89 @@
 /**
  * Template for displaying single surgeon
  */
-get_header(); ?>
+get_header(); 
+
+// Extract last name from surgeon title (second word, remove comma)
+$full_name = get_the_title();
+$name_parts = explode(' ', $full_name);
+$last_name = isset($name_parts[1]) ? rtrim($name_parts[1], ',') : $full_name;
+?>
 <main tabindex="0">
-<?php mia_breadcrumbs(); ?>
-
-    <!-- New Layout Design -->
-    <div class="surgeon-header-band">
-        <div class="surgeon-fluid-container">
-            <div class="surgeon-header-content">
-                <p class="surgeon-specialty">Plastic Surgeon</p>
-                <h1 class="surgeon-name"><?php echo get_the_title(); ?></h1>
-            </div>
-        </div>
+<div class="surgeon-breadcrumb-wrapper">
+    <div class="surgeon-fluid-container">
+        <?php mia_breadcrumbs(); ?>
     </div>
+</div>
 
-    <div class="surgeon-main-content">
+    <!-- Professional Surgeon Header -->
+    <section class="surgeon-hero">
         <div class="surgeon-fluid-container">
-            <div class="row">
-                <!-- Left Column: Photo and Info -->
-                <div class="col-lg-4">
-                    <div class="surgeon-profile-card">
+            <div class="row align-items-center">
+                <div class="col-lg-5">
+                    <?php 
+                    $headshot_id = get_field('surgeon_headshot');
+                    if($headshot_id): 
+                        $headshot_url = wp_get_attachment_image_url($headshot_id, 'large');
+                    ?>
+                        <div class="surgeon-hero-image">
+                            <img src="<?php echo esc_url($headshot_url); ?>" alt="<?php echo esc_attr($full_name); ?>" class="img-fluid">
+                            <div class="surgeon-image-accent"></div>
+                        </div>
+                    <?php else: ?>
+                        <div class="surgeon-hero-image surgeon-placeholder">
+                            <div class="placeholder-content">
+                                <i class="fa-solid fa-user-doctor"></i>
+                            </div>
+                            <div class="surgeon-image-accent"></div>
+                        </div>
+                    <?php endif; ?>
+                </div>
+                <div class="col-lg-7">
+                    <div class="surgeon-hero-content">
+                        <div class="surgeon-badge">Plastic Surgeon</div>
+                        <h1 class="surgeon-name"><?php echo get_the_title(); ?></h1>
                         <?php 
-                        // Get surgeon headshot
-                        $headshot_id = get_field('surgeon_headshot');
-                        if($headshot_id): 
-                            $headshot_url = wp_get_attachment_image_url($headshot_id, 'large');
-                            ?>
-                            <div class="surgeon-photo">
-                                <img 
-                                    src="<?php echo esc_url($headshot_url); ?>" 
-                                    alt="<?php echo esc_attr(get_the_title()); ?>" 
-                                    class="img-fluid"
-                                >
-                            </div>
-                        <?php else: ?>
-                            <div class="surgeon-photo surgeon-photo-placeholder">
-                                <div class="placeholder-content">
-                                    <i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
-                                </div>
-                            </div>
+                        $location = get_field('surgeon_location');
+                        if($location): 
+                            $location_title = get_the_title($location);
+                            $location_title = preg_replace('/, [A-Z]{2}$/', '', $location_title);
+                            $location_url = get_permalink($location);
+                        ?>
+                        <p class="surgeon-location"><i class="fas fa-map-marker-alt"></i> <a href="<?php echo esc_url($location_url); ?>"><?php echo $location_title; ?></a></p>
                         <?php endif; ?>
-
-                        <!-- Social Links -->
+                        
+                        <!-- Quick Actions -->
                         <?php 
                         $instagram_url = get_field('instagram_url');
                         if($instagram_url): ?>
-                        <div class="surgeon-social-links">
-                            <a href="<?php echo esc_url($instagram_url); ?>" class="mia-button" data-variant="gold-outline" data-size="sm" target="_blank" rel="noopener">
-                                <i class="fab fa-instagram"></i>
-                                <span>Follow on Instagram</span>
+                        <div class="surgeon-hero-actions">
+                            <a href="<?php echo esc_url($instagram_url); ?>" class="mia-button" data-variant="gold" target="_blank" rel="noopener">
+                                <i class="fab fa-instagram"></i> Follow Dr. <?php echo $last_name; ?>
                             </a>
                         </div>
                         <?php endif; ?>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main Content Area -->
+    <div class="surgeon-content-area">
+        <div class="surgeon-fluid-container">
+            <div class="row">
+                <!-- Main Content Column -->
+                <div class="col-lg-8">
+                    <div class="surgeon-main-column">
+                        <!-- About Section -->
+                        <section class="surgeon-bio-section">
+                            <h2 class="section-title">About Dr. <?php echo $last_name; ?></h2>
+                            <div class="bio-content">
+                                <?php while (have_posts()) : the_post(); ?>
+                                    <?php the_content(); ?>
+                                <?php endwhile; ?>
+                            </div>
+                        </section>
 
                         <!-- Video Section -->
                         <?php 
@@ -72,8 +103,9 @@ get_header(); ?>
                                 }
                             }
                         ?>
-                        <div class="surgeon-video-sidebar">
-                            <div class="video-wrapper">
+                        <section class="surgeon-video-section">
+                            <h2 class="section-title">Meet Dr. <?php echo $last_name; ?></h2>
+                            <div class="video-container">
                                 <div class="ratio ratio-16x9">
                                     <?php if($thumbnail_url): ?>
                                     <div class="video-thumbnail" data-embed-url="<?php echo esc_url($embed_url); ?>">
@@ -85,7 +117,7 @@ get_header(); ?>
                                     <?php else: ?>
                                     <iframe 
                                         src="<?php echo esc_url($embed_url); ?>" 
-                                        title="<?php echo esc_attr(get_the_title()); ?> Video"
+                                        title="Dr. <?php echo esc_attr($last_name); ?> Video"
                                         frameborder="0" 
                                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                                         allowfullscreen
@@ -93,54 +125,23 @@ get_header(); ?>
                                     <?php endif; ?>
                                 </div>
                             </div>
-                            <h3>Meet Dr. <?php echo get_the_title(); ?></h3>
-                        </div>
-                        <?php endif; ?>
-
-                        <!-- Location Info -->
-                        <?php 
-                        $location = get_field('surgeon_location');
-                        if($location): 
-                            $location_title = get_the_title($location);
-                            $location_title = preg_replace('/, [A-Z]{2}$/', '', $location_title);
-                            $location_url = get_permalink($location);
-                        ?>
-                        <div class="surgeon-location-info">
-                            <p><i class="fas fa-map-marker-alt"></i> Located at <a href="<?php echo esc_url($location_url); ?>"><?php echo $location_title; ?></a></p>
-                        </div>
-                        <?php endif; ?>
-
-                        <!-- Simple Call to Action -->
-                        <div class="surgeon-simple-cta">
-                            <a href="#consultation" class="mia-button" data-variant="gold" data-size="sm">
-                                Free Virtual Consultation <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Right Column: Main Content -->
-                <div class="col-lg-8">
-                    <div class="surgeon-content">
-                        <!-- About Section -->
-                        <section class="surgeon-about">
-                            <?php while (have_posts()) : the_post(); ?>
-                                <?php the_content(); ?>
-                            <?php endwhile; ?>
                         </section>
-
+                        <?php endif; ?>
 
                         <!-- Specialties Section -->
                         <?php 
                         $specialties = get_field('specialties');
                         if($specialties && !empty($specialties)): 
                         ?>
-                        <section class="surgeon-specialties">
-                            <h2>Areas of Expertise</h2>
-                            <div class="row">
+                        <section class="surgeon-expertise-section">
+                            <h2 class="section-title">Areas of Expertise</h2>
+                            <div class="expertise-grid">
                                 <?php foreach($specialties as $specialty): ?>
-                                    <div class="col-md-6 mb-4">
-                                        <div class="specialty-card">
+                                    <div class="expertise-card">
+                                        <div class="expertise-icon">
+                                            <i class="fas fa-check-circle"></i>
+                                        </div>
+                                        <div class="expertise-content">
                                             <h3><?php echo get_the_title($specialty->ID); ?></h3>
                                             <?php 
                                             $excerpt = get_the_excerpt($specialty->ID);
@@ -150,7 +151,7 @@ get_header(); ?>
                                             }
                                             ?>
                                             <p><?php echo $excerpt; ?></p>
-                                            <a href="<?php echo get_permalink($specialty->ID); ?>" class="mia-button" data-variant="gold-outline" data-size="sm">
+                                            <a href="<?php echo get_permalink($specialty->ID); ?>" class="expertise-link">
                                                 Learn More <i class="fa-solid fa-arrow-right"></i>
                                             </a>
                                         </div>
@@ -159,42 +160,48 @@ get_header(); ?>
                             </div>
                         </section>
                         <?php endif; ?>
+                    </div>
+                </div>
 
+                <!-- Sidebar Column -->
+                <div class="col-lg-4">
+                    <div class="surgeon-sidebar">
+                        <!-- Quick Info Card -->
+                        <div class="sidebar-card">
+                            <h3 class="sidebar-card-title">Quick Information</h3>
+                            <ul class="surgeon-info-list">
+                                <?php if($location): ?>
+                                <li>
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Located at <a href="<?php echo esc_url($location_url); ?>"><?php echo $location_title; ?></a></span>
+                                </li>
+                                <?php endif; ?>
+                                <li>
+                                    <i class="fas fa-images"></i>
+                                    <span><a href="/before-after-gallery/">View Before & After Gallery</a></span>
+                                </li>
+                            </ul>
+                        </div>
 
-                        <!-- Three Separate CTA Sections -->
-                        <div class="surgeon-cta-sections">
-                            <!-- Surgical Journey Section -->
-                            <section class="surgeon-cta-card">
-                                <div class="cta-card-content">
-                                    <h3>Your Surgical Journey</h3>
-                                    <p>Learn about the consultation process and what to expect from your procedure with Dr. <?php echo get_the_title(); ?>.</p>
-                                    <a href="https://miaaesthetics.com/patient-resources/surgical-journey/" class="mia-button" data-variant="gold-outline" data-size="sm">
-                                        Learn More <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </section>
-
-                            <!-- Out of Town Patients Section -->
-                            <section class="surgeon-cta-card">
-                                <div class="cta-card-content">
-                                    <h3>Out of Town Patients</h3>
-                                    <p>Special accommodations and support for patients traveling from out of town for their procedure.</p>
-                                    <a href="https://miaaesthetics.com/out-of-town-patients/" class="mia-button" data-variant="gold-outline" data-size="sm">
-                                        Travel Info <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </section>
-
-                            <!-- Financing Section -->
-                            <section class="surgeon-cta-card">
-                                <div class="cta-card-content">
-                                    <h3>Financing Options</h3>
-                                    <p>Flexible payment plans and financing solutions to make your aesthetic goals affordable.</p>
-                                    <a href="https://miaaesthetics.com/financing/" class="mia-button" data-variant="gold-outline" data-size="sm">
-                                        View Options <i class="fa-solid fa-arrow-right"></i>
-                                    </a>
-                                </div>
-                            </section>
+                        <div class="sidebar-card">
+                            <h3 class="sidebar-card-title">Patient Resources</h3>
+                            <div class="resource-links">
+                                <a href="https://miaaesthetics.com/patient-resources/surgical-journey/" class="resource-link">
+                                    <i class="fas fa-route"></i>
+                                    <span>Your Surgical Journey</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                                <a href="https://miaaesthetics.com/out-of-town-patients/" class="resource-link">
+                                    <i class="fas fa-plane"></i>
+                                    <span>Out of Town Patients</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                                <a href="https://miaaesthetics.com/financing/" class="resource-link">
+                                    <i class="fas fa-credit-card"></i>
+                                    <span>Financing Options</span>
+                                    <i class="fas fa-chevron-right"></i>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -205,12 +212,14 @@ get_header(); ?>
     <?php
     $faq_section = get_field('faq_section');
     if($faq_section && !empty($faq_section['faqs'])): ?>
-    <section class="faq-section">
+    <section class="surgeon-faq-section">
         <div class="surgeon-fluid-container">
+            <h2 class="section-title text-center">Frequently Asked Questions</h2>
             <?php echo display_page_faqs(); ?>
         </div>
     </section>
     <?php endif; ?>
+
 </main>
 
 <?php get_footer(); ?>

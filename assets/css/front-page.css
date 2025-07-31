@@ -300,6 +300,8 @@ h3.section-subheading {
 .about-section {
   padding: 5rem 0;
   background-color: #fff;
+  margin-top: 0;
+  position: relative;
 }
 
 .about-content h1 {

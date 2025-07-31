@@ -46,29 +46,36 @@
 .surgeon-card h2.h5 {
   color: #1b1b1b;
 }
-.surgeon-card .surgeon-bio-link {
-  color: #a89355;
-}
 .surgeon-card .location-link {
   color: #6c757d;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.surgeon-card .location-link:hover {
+  color: var(--color-gold);
+  text-decoration: none;
 }
 .surgeon-bio-link {
   position: relative;
   font-weight: 500;
   white-space: nowrap;
   text-decoration: none;
+  color: var(--color-primary);
+  transition: color 0.2s ease;
 }
 .surgeon-bio-link:hover {
-  text-decoration: underline;
+  color: var(--color-gold);
+  text-decoration: none;
 }
 .surgeon-bio-link i {
   margin-left: 8px;
   position: relative;
   top: -1px;
-  text-decoration: none !important;
+  transition: transform 0.2s ease;
 }
 .surgeon-bio-link:hover i {
-  text-decoration: none !important;
+  transform: translateX(3px);
 }
 
 @media (max-width: 767.98px) {

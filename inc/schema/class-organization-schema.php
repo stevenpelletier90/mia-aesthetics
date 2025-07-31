@@ -36,7 +36,7 @@ class Organization_Schema {
         // Set our custom properties (following Yoast's documentation pattern)
         $data['alternateName']    = 'Affordable Cosmetic Surgery';
         $data['slogan']           = 'Beauty Redefined';
-        $data['foundingDate']     = '2018-01-01';
+        $data['foundingDate']     = '2017-01-01';
         $data['legalName']        = 'Mia Aesthetics, LLC';
         $data['medicalSpecialty'] = 'PlasticSurgery';
         

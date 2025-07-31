@@ -31,36 +31,44 @@
             <?php 
             $banner_1 = get_field('banner_1');
             if ($banner_1 && !empty($banner_1['url'])): ?>
-            <img src="<?php echo esc_url($banner_1['url']); ?>" 
-                 srcset="<?php echo esc_attr(wp_get_attachment_image_srcset($banner_1['ID'], 'full')); ?>"
-                 sizes="(max-width: 480px) 100vw, (max-width: 767px) 100vw, 66vw"
-                 width="<?php echo esc_attr($banner_1['width']); ?>"
-                 height="<?php echo esc_attr($banner_1['height']); ?>"
-                 class="d-block w-100" 
-                 alt="<?php echo esc_attr($banner_1['alt']); ?>" 
-                 fetchpriority="high">
+            <!-- Desktop: 2560x720, Mobile: 1080x405 -->
+            <picture>
+              <source media="(max-width: 767px)" srcset="https://placehold.co/1080x405/1b1b1b/c8b273?text=Mobile+Carousel+1+(1080x405)">
+              <img src="https://placehold.co/2560x720/1b1b1b/c8b273?text=Desktop+Carousel+1+(2560x720)" 
+                   class="d-block w-100" 
+                   alt="Hero Carousel Slide 1" 
+                   fetchpriority="high">
+            </picture>
             <?php else: ?>
-            <div class="carousel-placeholder bg-secondary d-flex align-items-center justify-content-center">
-              <span class="text-white">Slide 1 Image Not Found</span>
-            </div>
+            <!-- Fallback with placehold.co -->
+            <picture>
+              <source media="(max-width: 767px)" srcset="https://placehold.co/1080x405/1b1b1b/c8b273?text=Mobile+Carousel+1+(1080x405)">
+              <img src="https://placehold.co/2560x720/1b1b1b/c8b273?text=Desktop+Carousel+1+(2560x720)" 
+                   class="d-block w-100" 
+                   alt="Hero Carousel Slide 1" 
+                   fetchpriority="high">
+            </picture>
             <?php endif; ?>
           </div>
           <div class="carousel-item">
             <?php 
             $banner_2 = get_field('banner_2');
             if ($banner_2 && !empty($banner_2['url'])): ?>
-            <img src="<?php echo esc_url($banner_2['url']); ?>"
-                 srcset="<?php echo esc_attr(wp_get_attachment_image_srcset($banner_2['ID'], 'full')); ?>"
-                 sizes="(max-width: 480px) 100vw, (max-width: 767px) 100vw, 66vw"
-                 width="<?php echo esc_attr($banner_2['width']); ?>"
-                 height="<?php echo esc_attr($banner_2['height']); ?>"
-                 class="d-block w-100" 
-                 alt="<?php echo esc_attr($banner_2['alt']); ?>"
-                 >
+            <!-- Desktop: 2560x720, Mobile: 1080x405 -->
+            <picture>
+              <source media="(max-width: 767px)" srcset="https://placehold.co/1080x405/333333/c8b273?text=Mobile+Carousel+2+(1080x405)">
+              <img src="https://placehold.co/2560x720/333333/c8b273?text=Desktop+Carousel+2+(2560x720)" 
+                   class="d-block w-100" 
+                   alt="Hero Carousel Slide 2">
+            </picture>
             <?php else: ?>
-            <div class="carousel-placeholder bg-secondary d-flex align-items-center justify-content-center">
-              <span class="text-white">Slide 2 Image Not Found</span>
-            </div>
+            <!-- Fallback with placehold.co -->
+            <picture>
+              <source media="(max-width: 767px)" srcset="https://placehold.co/1080x405/333333/c8b273?text=Mobile+Carousel+2+(1080x405)">
+              <img src="https://placehold.co/2560x720/333333/c8b273?text=Desktop+Carousel+2+(2560x720)" 
+                   class="d-block w-100" 
+                   alt="Hero Carousel Slide 2">
+            </picture>
             <?php endif; ?>
           </div>
         </div>
@@ -74,18 +82,23 @@
         <?php 
         $ba_image = get_field('ba_image');
         if ($ba_image && !empty($ba_image['url'])): ?>
-        <img src="<?php echo esc_url($ba_image['url']); ?>"
-             srcset="<?php echo esc_attr(wp_get_attachment_image_srcset($ba_image['ID'], 'full')); ?>"
-             sizes="(max-width: 480px) 50vw, (max-width: 767px) 50vw, 33vw"
-             width="<?php echo esc_attr($ba_image['width']); ?>"
-             height="<?php echo esc_attr($ba_image['height']); ?>"
-             class="hero-box-image" 
-             alt="<?php echo esc_attr($ba_image['alt']); ?>"
-             loading="lazy">
+        <!-- Desktop: 1000x600, Mobile: 800x800 -->
+        <picture>
+          <source media="(max-width: 767px)" srcset="https://placehold.co/800x1000/c8b273/1b1b1b?text=Mobile+Before+After+(800x1000)">
+          <img src="https://placehold.co/1000x400/c8b273/1b1b1b?text=Desktop+Before+After+(1000x400)" 
+               class="hero-box-image" 
+               alt="Before & After Gallery"
+               loading="lazy">
+        </picture>
         <?php else: ?>
-        <div class="hero-box-placeholder bg-secondary d-flex align-items-center justify-content-center">
-          <span class="text-white">Before & After Image Not Found</span>
-        </div>
+        <!-- Fallback with placehold.co -->
+        <picture>
+          <source media="(max-width: 767px)" srcset="https://placehold.co/800x1000/c8b273/1b1b1b?text=Mobile+Before+After+(800x1000)">
+          <img src="https://placehold.co/1000x400/c8b273/1b1b1b?text=Desktop+Before+After+(1000x400)" 
+               class="hero-box-image" 
+               alt="Before & After Gallery"
+               loading="lazy">
+        </picture>
         <?php endif; ?>
         <div class="hero-box-overlay">
           <div class="hero-box-heading">Before & After Gallery</div>
@@ -100,18 +113,21 @@
         <?php 
         $financing_image = get_field('financing_image');
         if ($financing_image && !empty($financing_image['url'])): ?>
-        <img src="<?php echo esc_url($financing_image['url']); ?>"
-             srcset="<?php echo esc_attr(wp_get_attachment_image_srcset($financing_image['ID'], 'full')); ?>"
-             sizes="(max-width: 480px) 50vw, (max-width: 767px) 50vw, 33vw"
-             width="<?php echo esc_attr($financing_image['width']); ?>"
-             height="<?php echo esc_attr($financing_image['height']); ?>"
-             class="hero-box-image" 
-             alt="<?php echo esc_attr($financing_image['alt']); ?>"
-             >
+        <!-- Desktop: 1000x600, Mobile: 800x800 -->
+        <picture>
+          <source media="(max-width: 767px)" srcset="https://placehold.co/800x1000/1b1b1b/c8b273?text=Mobile+Financing+(800x1000)">
+          <img src="https://placehold.co/1000x400/1b1b1b/c8b273?text=Desktop+Financing+(1000x400)" 
+               class="hero-box-image" 
+               alt="Affordable Financing">
+        </picture>
         <?php else: ?>
-        <div class="hero-box-placeholder bg-secondary d-flex align-items-center justify-content-center">
-          <span class="text-white">Financing Image Not Found</span>
-        </div>
+        <!-- Fallback with placehold.co -->
+        <picture>
+          <source media="(max-width: 767px)" srcset="https://placehold.co/800x1000/1b1b1b/c8b273?text=Mobile+Financing+(800x1000)">
+          <img src="https://placehold.co/1000x400/1b1b1b/c8b273?text=Desktop+Financing+(1000x400)" 
+               class="hero-box-image" 
+               alt="Affordable Financing">
+        </picture>
         <?php endif; ?>
         <div class="hero-box-overlay">
           <div class="hero-box-heading">Affordable Financing</div>

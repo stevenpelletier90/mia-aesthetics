@@ -82,25 +82,30 @@ get_header(); ?>
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2018">0</h3>
+          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2017">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Year Founded</p>
         </div>
       </div>
 
-      <!-- Stat Item 2: Number of Surgeons -->
+      <!-- Stat Item 2: Number of Surgeons (Dynamic) -->
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="25">0</h3>
+          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="<?php
+            $stats = mia_get_site_stats();
+            echo $stats['surgeons'];
+            ?>">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Expert Surgeons</p>
         </div>
       </div>
 
-      <!-- Stat Item 3: Number of Locations -->
+      <!-- Stat Item 3: Number of Locations (Dynamic) -->
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="15">0</h3>
+          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="<?php
+            echo $stats['locations'];
+            ?>">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Clinic Locations</p>
         </div>
       </div>
@@ -595,13 +600,18 @@ get_header(); ?>
           <p class="footer-text">
             Backed by a robust and experienced team, our surgeons are able to focus fully on providing exceptional patient care. Join our network of professionals dedicated to transforming lives.
           </p>
-          <div class="footer-links">
-            <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="footer-link">
-              <i class="fas fa-map-marker-alt"></i> Our Locations
-            </a>
-            <a href="<?php echo esc_url(home_url('/plastic-surgeons/')); ?>" class="footer-link">
-              <i class="fas fa-user-md"></i> Meet Our Team
-            </a>
+          <div class="contact-info">
+            <div class="contact-item">
+              <strong>Surgeon Inquiries:</strong>
+            </div>
+            <div class="contact-item">
+              <a href="mailto:maggie@miaaesthetics.com" class="contact-link">
+                <i class="fas fa-envelope"></i> maggie@miaaesthetics.com
+              </a>
+            </div>
+            <div class="contact-item mt-3">
+              <small class="text-muted">Please send your curriculum vitae for consideration.</small>
+            </div>
           </div>
         </div>
       </div>
@@ -613,18 +623,13 @@ get_header(); ?>
           <p class="footer-text">
             Ready to make a difference in aesthetic medicine? We'd love to hear from you.
           </p>
-          <div class="contact-info">
-            <div class="contact-item">
-              <strong>For Career Inquiries:</strong>
-            </div>
-            <div class="contact-item">
-              <a href="mailto:maggie@miaaesthetics.com" class="contact-link">
-                <i class="fas fa-envelope"></i> maggie@miaaesthetics.com
-              </a>
-            </div>
-            <div class="contact-item mt-3">
-              <small class="text-muted">Please send your curriculum vitae for consideration.</small>
-            </div>
+          <div class="footer-links">
+            <a href="<?php echo esc_url(home_url('/locations/')); ?>" class="footer-link">
+              <i class="fas fa-map-marker-alt"></i> Our Locations
+            </a>
+            <a href="<?php echo esc_url(home_url('/plastic-surgeons/')); ?>" class="footer-link">
+              <i class="fas fa-user-md"></i> Meet Our Team
+            </a>
           </div>
         </div>
       </div>
@@ -651,6 +656,9 @@ get_header(); ?>
             </a>
             <a href="https://www.instagram.com/mia_aesthetics/?hl=en" target="_blank" rel="noopener" aria-label="Instagram" class="social-link">
               <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://www.linkedin.com/company/mia-aesthetics-clinic/" target="_blank" rel="noopener" aria-label="LinkedIn" class="social-link">
+              <i class="fab fa-linkedin-in"></i>
             </a>
             <a href="https://www.tiktok.com/@mia_aesthetics?lang=en" target="_blank" rel="noopener" aria-label="TikTok" class="social-link">
               <i class="fab fa-tiktok"></i>

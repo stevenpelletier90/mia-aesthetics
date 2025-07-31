@@ -118,7 +118,7 @@ include 'hero-section.php';
   <div class="col">
     <div class="position-relative ps-3 ps-md-4 mb-4">
       <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-      <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2018">0</h3>
+      <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2017">0</h3>
       <p class="text-white opacity-75 mb-0 fs-6">Year Founded</p>
     </div>
   </div>
