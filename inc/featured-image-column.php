@@ -144,10 +144,12 @@ function mia_featured_image_columns_init() {
 	add_action(
 		'admin_notices',
 		static function () {
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is admin notice display only, no actions taken
 			if ( empty( $_GET['thumbs_removed'] ) || ! current_user_can( 'edit_posts' ) ) {
 				return;
 			}
 
+			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is admin notice display only, no actions taken
 			$count = (int) $_GET['thumbs_removed'];
 			printf(
 				'<div class="notice notice-success is-dismissible"><p>%s</p></div>',

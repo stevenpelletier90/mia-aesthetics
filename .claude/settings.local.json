@@ -37,7 +37,8 @@
       "Bash(./vendor/bin/phpstan analyse:*)",
       "mcp__git__git_log",
       "mcp__git__git_show",
-      "mcp__git__git_diff"
+      "mcp__git__git_diff",
+      "Bash(timeout 30 ./vendor/bin/phpcs:*)"
     ],
     "deny": []
   },

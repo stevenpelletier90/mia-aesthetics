@@ -28,7 +28,7 @@ class Clinic_Schema {
 	/**
 	 * Constructor
 	 *
-	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context
+	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast SEO context object.
 	 */
 	public function __construct( $context ) {
 		$this->context = $context;
@@ -76,7 +76,8 @@ class Clinic_Schema {
 		}
 
 		// Contact information.
-		if ( $tel = get_field( 'phone_number', $loc_id ) ) {
+		$tel = get_field( 'phone_number', $loc_id );
+		if ( $tel ) {
 			$clinic['telephone'] = $tel;
 		}
 
@@ -93,7 +94,8 @@ class Clinic_Schema {
 		}
 
 		// Google Maps link.
-		if ( $maps_url = get_field( 'location_maps_link', $loc_id ) ) {
+		$maps_url = get_field( 'location_maps_link', $loc_id );
+		if ( $maps_url ) {
 			$clinic['hasMap'] = $maps_url;
 		}
 
@@ -129,11 +131,12 @@ class Clinic_Schema {
 	/**
 	 * Get clinic description
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return string
 	 */
 	private function get_description( $loc_id ) {
-		if ( $desc = get_post_meta( $loc_id, '_yoast_wpseo_metadesc', true ) ) {
+		$desc = get_post_meta( $loc_id, '_yoast_wpseo_metadesc', true );
+		if ( $desc ) {
 			return $desc;
 		}
 
@@ -143,7 +146,7 @@ class Clinic_Schema {
 	/**
 	 * Get clinic image
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return string
 	 */
 	private function get_image( $loc_id ) {
@@ -179,7 +182,7 @@ class Clinic_Schema {
 	/**
 	 * Get clinic address from Google Maps field
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return array|null
 	 */
 	private function get_address( $loc_id ) {
@@ -200,7 +203,7 @@ class Clinic_Schema {
 
 		// Special handling for locations where Google Maps doesn't populate city correctly.
 		// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-		if ( empty( $city ) && ! empty( $state ) && ( ( $state === 'NY' || $state === 'New York' ) && stripos( $street, 'atlantic' ) !== false ) ) {
+		if ( empty( $city ) && ! empty( $state ) && ( ( 'NY' === $state || 'New York' === $state ) && false !== stripos( $street, 'atlantic' ) ) ) {
 			$city = 'Brooklyn';
 		}
 
@@ -211,7 +214,7 @@ class Clinic_Schema {
 				'streetAddress'   => $street,
 				'addressLocality' => $city,
 				'addressRegion'   => $state,
-				'postalCode'      => $zip ?: '', // Include zip if available.
+				'postalCode'      => $zip ? $zip : '', // Include zip if available.
 				'addressCountry'  => 'US',
 			);
 		}
@@ -222,7 +225,7 @@ class Clinic_Schema {
 	/**
 	 * Get geo coordinates from Google Maps field
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return array|null
 	 */
 	private function get_geo_coordinates( $loc_id ) {
@@ -242,7 +245,7 @@ class Clinic_Schema {
 	/**
 	 * Get opening hours from ACF business_hours repeater field
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return array
 	 */
 	private function get_opening_hours( $loc_id ) {
@@ -283,13 +286,13 @@ class Clinic_Schema {
 			}
 		}
 
-		return $opening_hours === array() ? $this->get_default_hours() : $opening_hours;
+		return array() === $opening_hours ? $this->get_default_hours() : $opening_hours;
 	}
 
 	/**
 	 * Parse hours string into opens/closes times
 	 *
-	 * @param string $hours_string
+	 * @param string $hours_string The hours string to parse.
 	 * @return array|null
 	 */
 	private function parse_hours_string( $hours_string ) {
@@ -318,7 +321,7 @@ class Clinic_Schema {
 	/**
 	 * Convert parsed time matches to 24-hour format
 	 *
-	 * @param array $matches
+	 * @param array $matches The regex matches from time parsing.
 	 * @return array
 	 */
 	private function convert_to_24_hour( $matches ) {
@@ -337,19 +340,19 @@ class Clinic_Schema {
 			$close_period = strtoupper( $matches[6] ?? '' );
 
 			// Convert to 24-hour.
-			if ( $open_period === 'PM' && $open_hour !== 12 ) {
+			if ( 'PM' === $open_period && 12 !== $open_hour ) {
 				$open_hour += 12;
 			}
 
-			if ( $open_period === 'AM' && $open_hour === 12 ) {
+			if ( 'AM' === $open_period && 12 === $open_hour ) {
 				$open_hour = 0;
 			}
 
-			if ( $close_period === 'PM' && $close_hour !== 12 ) {
+			if ( 'PM' === $close_period && 12 !== $close_hour ) {
 				$close_hour += 12;
 			}
 
-			if ( $close_period === 'AM' && $close_hour === 12 ) {
+			if ( 'AM' === $close_period && 12 === $close_hour ) {
 				$close_hour = 0;
 			}
 
@@ -369,19 +372,19 @@ class Clinic_Schema {
 			$close_period = strtoupper( $matches[4] );
 
 			// Convert to 24-hour.
-			if ( $open_period === 'PM' && $open_hour !== 12 ) {
+			if ( 'PM' === $open_period && 12 !== $open_hour ) {
 				$open_hour += 12;
 			}
 
-			if ( $open_period === 'AM' && $open_hour === 12 ) {
+			if ( 'AM' === $open_period && 12 === $open_hour ) {
 				$open_hour = 0;
 			}
 
-			if ( $close_period === 'PM' && $close_hour !== 12 ) {
+			if ( 'PM' === $close_period && 12 !== $close_hour ) {
 				$close_hour += 12;
 			}
 
-			if ( $close_period === 'AM' && $close_hour === 12 ) {
+			if ( 'AM' === $close_period && 12 === $close_hour ) {
 				$close_hour = 0;
 			}
 
@@ -447,16 +450,17 @@ class Clinic_Schema {
 	/**
 	 * Get aggregate rating
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return array|null
 	 */
 	private function get_rating( $loc_id ) {
-		if ( $rating = get_field( 'average_rating', $loc_id ) ) {
+		$rating = get_field( 'average_rating', $loc_id );
+		if ( $rating ) {
 			return array(
 				'@type'       => 'AggregateRating',
 				'ratingValue' => $rating,
 				'bestRating'  => '5',
-				'reviewCount' => get_field( 'review_count', $loc_id ) ?: 0,
+				'reviewCount' => get_field( 'review_count', $loc_id ) ? get_field( 'review_count', $loc_id ) : 0,
 			);
 		}
 
@@ -466,7 +470,7 @@ class Clinic_Schema {
 	/**
 	 * Get employees (surgeons at this location)
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return array
 	 */
 	private function get_employees( $loc_id ) {
@@ -474,7 +478,9 @@ class Clinic_Schema {
 			array(
 				'post_type'      => 'surgeon',
 				'posts_per_page' => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Intentional meta query for surgeon location relationship
 				'meta_key'       => 'surgeon_location',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Intentional meta query for surgeon location relationship
 				'meta_value'     => (string) $loc_id,
 			)
 		);
@@ -494,7 +500,7 @@ class Clinic_Schema {
 	/**
 	 * Get featured video from video_details group field
 	 *
-	 * @param int $loc_id
+	 * @param int $loc_id The location post ID.
 	 * @return array|null
 	 */
 	private function get_featured_video( $loc_id ) {

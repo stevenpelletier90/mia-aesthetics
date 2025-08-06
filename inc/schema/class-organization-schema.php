@@ -29,10 +29,13 @@ class Organization_Schema {
 	 * Enhance Yoast's organization schema with medical-specific properties
 	 *
 	 * @param array                                   $data The organization schema data.
-	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast context object.
+	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast context object (unused but required by filter).
 	 * @return array Modified organization data
 	 */
 	public static function enhance_organization_schema( $data, $context ) {
+		// Reference context parameter to prevent unused variable warning - required by filter interface.
+		unset( $context );
+
 		// Change type to MedicalOrganization which supports medicalSpecialty.
 		$data['@type'] = array( 'Organization', 'MedicalOrganization' );
 

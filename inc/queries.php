@@ -138,6 +138,9 @@ add_filter( 'body_class', 'mia_archive_body_classes', 999 );
 
 /**
  * Customize excerpt length based on context
+ *
+ * @param int $length The default excerpt length.
+ * @return int
  */
 function mia_custom_excerpt_length( $length ) {
 	// Shorter excerpts for archive pages.
@@ -158,6 +161,9 @@ add_filter( 'excerpt_length', 'mia_custom_excerpt_length' );
 
 /**
  * Customize excerpt more text
+ *
+ * @param string $more The default "more" text.
+ * @return string
  */
 function mia_excerpt_more( $more ) {
 	// Don't add "more" text in admin.
@@ -172,6 +178,9 @@ add_filter( 'excerpt_more', 'mia_excerpt_more' );
 
 /**
  * Remove protected/private prefixes from titles
+ *
+ * @param string $title The post title.
+ * @return string
  */
 function mia_remove_title_prefixes( $title ) {
 	// Remove "Protected: " prefix.
@@ -187,6 +196,9 @@ add_filter( 'the_title', 'mia_remove_title_prefixes' );
 
 /**
  * Modify search query to include custom post types
+ *
+ * @param WP_Query $query The WP_Query instance.
+ * @return void
  */
 function mia_search_filter( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
@@ -212,6 +224,9 @@ add_action( 'pre_get_posts', 'mia_search_filter' );
 
 /**
  * Exclude certain pages from search results (with caching)
+ *
+ * @param WP_Query $query The WP_Query instance.
+ * @return void
  */
 function mia_exclude_pages_from_search( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
@@ -257,6 +272,9 @@ add_action( 'pre_get_posts', 'mia_exclude_pages_from_search' );
 
 /**
  * Add custom query vars
+ *
+ * @param array $vars Array of query variables.
+ * @return array
  */
 function mia_add_query_vars( $vars ) {
 	// Add custom query variables if needed.
@@ -270,6 +288,9 @@ add_filter( 'query_vars', 'mia_add_query_vars' );
 
 /**
  * Modify queries based on custom query vars
+ *
+ * @param WP_Query $query The WP_Query instance.
+ * @return void
  */
 function mia_handle_custom_queries( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
@@ -313,6 +334,9 @@ add_action( 'pre_get_posts', 'mia_handle_custom_queries' );
 
 /**
  * Optimize queries by removing unnecessary joins and cache operations
+ *
+ * @param WP_Query $query The WP_Query instance.
+ * @return void
  */
 function mia_optimize_queries( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
@@ -366,6 +390,9 @@ add_action( 'init', 'mia_pagination_rewrite_rules' );
 
 /**
  * Fix pagination on custom post type archives
+ *
+ * @param WP_Query $query The WP_Query instance.
+ * @return void
  */
 function mia_fix_pagination( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( array( 'special' ) ) ) {
@@ -458,6 +485,9 @@ function mia_get_non_surgical_by_category() {
 
 /**
  * Clear query-related caches when relevant posts are updated
+ *
+ * @param int $post_id The post ID being updated.
+ * @return void
  */
 function mia_clear_query_caches( $post_id ) {
 	$post_type = get_post_type( $post_id );
