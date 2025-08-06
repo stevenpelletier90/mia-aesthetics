@@ -48,7 +48,7 @@ get_header(); ?>
 						aria-label="Free Virtual Consultation">
 						<div class="card-body p-4">                            
 							<div class="gf-wrapper" aria-label="Free Virtual Consultation Form">
-								<?php gravity_form( 1, false, false, false, false, true ); ?>
+								<?php gravity_form( '1', false, false, false, null, true ); ?>
 							</div>
 						</div>
 					</div>

@@ -39,7 +39,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="stat-number" data-count="
 		<?php
 			$stats = mia_aesthetics_get_site_stats();
-			echo esc_html( $stats['surgeons'] );
+			echo esc_html( (string) $stats['surgeons'] );
 		?>
 		">0</div>
 		<div class="stat-label">EXPERT<br>SURGEONS</div>
@@ -47,7 +47,7 @@ require __DIR__ . '/hero-section.php';
 	  
 		<!-- Clinic Locations (Dynamic) -->
 		<div class="stat-box text-center">
-		<div class="stat-number" data-count="<?php echo esc_attr( $stats['locations'] ); ?>">0</div>
+		<div class="stat-number" data-count="<?php echo esc_attr( (string) $stats['locations'] ); ?>">0</div>
 		<div class="stat-label">CLINIC<br>LOCATIONS</div>
 		</div>
 	  

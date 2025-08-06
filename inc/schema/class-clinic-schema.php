@@ -139,7 +139,7 @@ class Clinic_Schema {
 	 * Get clinic image
 	 *
 	 * @param int $loc_id
-	 * @return string|null
+	 * @return string
 	 */
 	private function get_image( $loc_id ) {
 		// Prioritize featured image first for business listings.
@@ -470,7 +470,7 @@ class Clinic_Schema {
 				'post_type'      => 'surgeon',
 				'posts_per_page' => -1,
 				'meta_key'       => 'surgeon_location',
-				'meta_value'     => $loc_id,
+				'meta_value'     => (string) $loc_id,
 			)
 		);
 

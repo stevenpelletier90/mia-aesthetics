@@ -138,7 +138,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<!-- Specialties Section -->
 						<?php
 						$specialties = get_field( 'specialties' );
-						if ( $specialties && ! empty( $specialties ) ) :
+						if ( $specialties ) :
 							?>
 						<section class="surgeon-expertise-section">
 							<h2 class="section-title">Areas of Expertise</h2>
@@ -223,7 +223,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 	<section class="surgeon-faq-section">
 		<div class="surgeon-fluid-container">
 			<h2 class="section-title text-center">Frequently Asked Questions</h2>
-			<?php echo wp_kses_post( display_page_faqs() ); ?>
+			<?php echo wp_kses_post( mia_aesthetics_display_page_faqs() ); ?>
 		</div>
 	</section>
 	<?php endif; ?>

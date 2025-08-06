@@ -95,7 +95,7 @@ get_header(); ?>
 			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
 			<?php
 			$stats = mia_aesthetics_get_site_stats();
-			echo esc_attr( $stats['surgeons'] );
+			echo esc_attr( (string) $stats['surgeons'] );
 			?>
 			">0</h3>
 			<p class="text-white opacity-75 mb-0 fs-6">Expert Surgeons</p>
@@ -108,7 +108,7 @@ get_header(); ?>
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
 			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
 			<?php
-			echo esc_attr( $stats['locations'] );
+			echo esc_attr( (string) $stats['locations'] );
 			?>
 			">0</h3>
 			<p class="text-white opacity-75 mb-0 fs-6">Clinic Locations</p>
@@ -264,7 +264,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<i class="fas fa-heart-pulse"></i>
+			<img src="/wp-content/uploads/2025/08/Health-Wellness.svg" alt="Health & Wellness" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Health & Wellness</h4>
 			<ul class="benefit-list">
@@ -279,7 +279,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<i class="fas fa-calendar-days"></i>
+			<img src="/wp-content/uploads/2025/08/PTO.svg" alt="Time To Unwind" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Time To Unwind</h4>
 			<ul class="benefit-list">
@@ -294,7 +294,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<i class="fas fa-piggy-bank"></i>
+			<img src="/wp-content/uploads/2025/08/Financial.svg" alt="Financial Well-Being" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Financial Well-Being</h4>
 			<ul class="benefit-list">
@@ -308,7 +308,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<i class="fas fa-gift"></i>
+			<img src="/wp-content/uploads/2025/08/Other-Perks.svg" alt="Other Perks" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Other Perks</h4>
 			<ul class="benefit-list">
@@ -717,6 +717,11 @@ get_header(); ?>
 	</div>
 	</div>
 </footer>
+
+<?php
+// Add careers CTA component
+require get_template_directory() . '/components/careers-cta.php';
+?>
 
 <?php wp_footer(); ?>
 </body>

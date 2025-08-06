@@ -226,104 +226,43 @@
 
 .value-card {
   background: #fff;
-  border-radius: 16px;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 3rem 2.5rem;
   text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  position: relative;
-  overflow: hidden;
-  border: 1px solid rgba(200, 178, 115, 0.1);
-}
-
-.value-card::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 4px;
-  background: linear-gradient(90deg, var(--color-gold) 0%, #d4c284 100%);
-  transform: scaleX(0);
-  transition: transform 0.4s ease;
 }
 
 .value-card:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15);
+  border-color: var(--color-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-.value-card:hover::before {
-  transform: scaleX(1);
-}
 
 .value-icon {
-  width: 110px;
-  height: 110px;
+  width: 140px;
+  height: 140px;
   margin: 0 auto 2rem;
-  background: linear-gradient(135deg, var(--color-gold) 0%, #d4c284 100%);
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 2rem;
-  color: #1b1b1b;
-  transition: all 0.3s ease;
-  position: relative;
-  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.3);
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  border: 2px solid var(--color-gold-20);
+  box-shadow: 0 4px 15px var(--color-gold-20);
 }
 
 .value-svg-icon {
-  width: 75px;
-  height: 75px;
+  width: 80px;
+  height: 80px;
   object-fit: contain;
-  transition: all 0.3s ease;
-
-  /* CURRENT: Dark theme color to match existing design */
-  filter: brightness(0) saturate(100%) invert(11%) sepia(9%) saturate(1058%) hue-rotate(314deg)
-    brightness(97%) contrast(95%);
-
-  /* ALTERNATIVE OPTIONS - Replace the filter above with one of these for different looks:
-  
-  Option 2: Pure white icons (high contrast, modern look)
-  filter: brightness(0) saturate(100%) invert(100%);
-  
-  Option 3: Pure black icons (classic, bold look)  
-  filter: brightness(0) saturate(100%) invert(0%);
-  
-  Option 4: Gold-tinted dark (subtle gold accent)
-  filter: brightness(0) saturate(100%) invert(20%) sepia(85%) saturate(1200%) hue-rotate(37deg) brightness(90%) contrast(90%);
-  
-  Option 5: No filter (use original SVG colors)
-  filter: none;
-  */
+  /* Use primary gold color for better contrast against light gold background */
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
-.value-icon:hover .value-svg-icon {
-  /* On hover, make icons white for maximum contrast */
-  filter: brightness(0) saturate(100%) invert(100%) sepia(0%) saturate(0%) hue-rotate(0deg)
-    brightness(100%) contrast(100%);
-  transform: scale(1.15);
-}
-
-.value-icon::after {
-  content: "";
-  position: absolute;
-  inset: -4px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-gold), #d4c284);
-  z-index: -1;
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.value-card:hover .value-icon {
-  transform: rotate(5deg) scale(1.1);
-}
-
-.value-card:hover .value-icon::after {
-  opacity: 0.3;
-}
 
 .value-title {
   font-size: 1.5rem;
@@ -383,9 +322,14 @@
     font-size: 1.75rem;
   }
 
+  .value-icon {
+    width: 120px;
+    height: 120px;
+  }
+
   .value-svg-icon {
-    width: 60px;
-    height: 60px;
+    width: 70px;
+    height: 70px;
   }
 }
 
@@ -670,20 +614,30 @@
 }
 
 .benefit-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  border: 2px solid var(--color-gold-20);
+  box-shadow: 0 4px 15px var(--color-gold-20);
 }
 
 .benefit-icon i {
   font-size: 1.75rem;
   color: var(--color-gold);
+}
+
+/* SVG icons for benefits section */
+.benefit-svg-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  /* Use primary gold color for better contrast against light gold background */
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
 .benefit-title {
@@ -793,6 +747,16 @@
 
   .benefit-icon i {
     font-size: 1.5rem;
+  }
+
+  .benefit-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .benefit-svg-icon {
+    width: 70px;
+    height: 70px;
   }
 
   .benefit-title {

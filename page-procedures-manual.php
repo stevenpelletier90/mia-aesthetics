@@ -69,8 +69,7 @@ get_header();
 						);
 					}
 
-					if ( ! empty( $manual_procedures ) ) :
-						foreach ( $manual_procedures as $procedure_data ) :
+					foreach ( $manual_procedures as $procedure_data ) :
 							// Handle both simple ID arrays and complex arrays with custom data.
 							if ( is_numeric( $procedure_data ) ) {
 								$procedure_id   = $procedure_data;
@@ -135,13 +134,6 @@ get_header();
 							<?php
 						endforeach;
 						wp_reset_postdata();
-					else :
-						?>
-						<div class="col-12 text-center">
-							<p class="lead">No procedures have been selected for this page.</p>
-						</div>
-						<?php
-					endif;
 					?>
 				</div>
 			</div>

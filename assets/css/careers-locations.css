@@ -496,20 +496,30 @@
 }
 
 .benefit-icon {
-  width: 70px;
-  height: 70px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  width: 140px;
+  height: 140px;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  border: 2px solid var(--color-gold-20);
+  box-shadow: 0 4px 15px var(--color-gold-20);
 }
 
 .benefit-icon i {
   font-size: 1.75rem;
   color: var(--color-gold);
+}
+
+/* SVG icons for benefits section */
+.benefit-svg-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  /* Use primary gold color for better contrast against light gold background */
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
 .benefit-title {
@@ -788,6 +798,16 @@
 
   .benefit-icon i {
     font-size: 1.5rem;
+  }
+
+  .benefit-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .benefit-svg-icon {
+    width: 70px;
+    height: 70px;
   }
 
   .benefit-title {

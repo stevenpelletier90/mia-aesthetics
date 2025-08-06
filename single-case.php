@@ -276,7 +276,7 @@ get_header(); ?>
 								<div class="related-case-item">
 									<a href="<?php the_permalink(); ?>" class="related-case-link">
 										<div class="related-case-number">
-											<span><?php echo str_pad( $related_cases->current_post + 1, 2, '0', STR_PAD_LEFT ); ?></span>
+											<span><?php echo str_pad( (string) ( $related_cases->current_post + 1 ), 2, '0', STR_PAD_LEFT ); ?></span>
 										</div>
 										<div class="related-case-content">
 											<h3 class="related-case-title"><?php the_title(); ?></h3>
@@ -326,18 +326,14 @@ get_header(); ?>
 			<div class="modal-body">
 				<div id="caseCarousel" class="carousel slide carousel-fade" data-bs-ride="false">
 					<div class="carousel-inner">
-						<?php $carousel_index = 0; ?>
 						<?php if ( $before_photo ) : ?>
-						<div class="carousel-item<?php echo $carousel_index === 0 ? ' active' : ''; ?>">
+						<div class="carousel-item active">
 							<img src="<?php echo esc_url( $before_photo['url'] ); ?>" class="d-block w-100" alt="Before Treatment">
 						</div>
-							<?php
-							++$carousel_index;
-endif;
-						?>
+						<?php endif; ?>
 
 						<?php if ( $after_photo ) : ?>
-						<div class="carousel-item<?php echo $carousel_index === 0 ? ' active' : ''; ?>">
+						<div class="carousel-item<?php echo ! $before_photo ? ' active' : ''; ?>">
 							<img src="<?php echo esc_url( $after_photo['url'] ); ?>" class="d-block w-100" alt="After Treatment">
 						</div>
 						<?php endif; ?>

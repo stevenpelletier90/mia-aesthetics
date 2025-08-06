@@ -77,7 +77,7 @@ if ( ! defined( 'MIA_AESTHETICS_STATE_ABBREVIATIONS' ) ) {
  * @return string State abbreviation or original string if not found
  */
 function mia_aesthetics_get_state_abbr( $state ) {
-	if ( function_exists( 'WP_State::abbr' ) ) {
+	if ( class_exists( 'WP_State' ) ) {
 		$abbr = WP_State::abbr( $state );
 		return $abbr ? $abbr : $state;
 	}

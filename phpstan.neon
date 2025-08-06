@@ -1,0 +1,17 @@
+includes:
+    - vendor/szepeviktor/phpstan-wordpress/extension.neon
+
+parameters:
+    level: 5
+    paths:
+        - .
+    excludePaths:
+        - vendor/
+        - node_modules/
+        - assets/bootstrap/
+        - assets/fontawesome/
+    bootstrapFiles:
+        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+        - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
+        - vendor/php-stubs/gravity-forms-stubs/gravity-forms-stubs.php
+        - vendor/php-stubs/wordpress-seo-stubs/wordpress-seo-stubs.php

@@ -111,13 +111,13 @@
 						++$location_index;
 						?>
 				<div class="accordion-item">
-					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( $location_id ); ?>">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo esc_attr( $location_id ); ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo esc_attr( $location_id ); ?>" aria-describedby="location-description-<?php echo esc_attr( $location_id ); ?>">
+					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( (string) $location_id ); ?>">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo esc_attr( (string) $location_id ); ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo esc_attr( (string) $location_id ); ?>" aria-describedby="location-description-<?php echo esc_attr( (string) $location_id ); ?>">
 							<?php echo esc_html( $location_title ); ?>
 						</button>
 					</h2>
-					<div id="location-collapse-<?php echo esc_attr( $location_id ); ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo esc_attr( $location_id ); ?>">
-						<div class="accordion-body" id="location-description-<?php echo esc_attr( $location_id ); ?>">
+					<div id="location-collapse-<?php echo esc_attr( (string) $location_id ); ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo esc_attr( (string) $location_id ); ?>">
+						<div class="accordion-body" id="location-description-<?php echo esc_attr( (string) $location_id ); ?>">
 							<!-- Location Link -->
 							<div class="location-link mb-3">
 								<a href="<?php echo esc_url( $location_url ); ?>" class="surgeon-link">
@@ -208,6 +208,14 @@
 		</div>
 	</div>
 </footer>
+
+<?php
+// Add consultation CTA for all pages except careers pages
+if ( ! is_page_template( 'page-careers.php' ) && ! is_page_template( 'page-careers-locations.php' ) && 
+     ! is_page( 'careers' ) && ! is_page( 'careers-locations' ) ) {
+	require get_template_directory() . '/components/consultation-cta.php';
+}
+?>
 
 <?php wp_footer(); ?>
 

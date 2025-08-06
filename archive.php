@@ -27,7 +27,7 @@ get_header(); ?>
 					} elseif ( is_author() ) {
 						echo '<h1>Author: ' . esc_html( get_the_author() ) . '</h1>';
 					} elseif ( is_post_type_archive() ) {
-						post_type_archive_title( '<h1>', '</h1>' );
+						echo '<h1>' . esc_html( post_type_archive_title( '', false ) ) . '</h1>';
 					} else {
 						echo '<h1>' . wp_kses_post( get_the_archive_title() ) . '</h1>';
 					}

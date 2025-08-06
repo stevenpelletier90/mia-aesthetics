@@ -58,7 +58,7 @@ class Schema_Loader {
 		}
 
 		// FAQ Schema can be added to any page type.
-		$faq_schema = new FAQ_Schema( $context );
+		$faq_schema = new FAQ_Schema();
 		if ( $faq_schema->is_needed() ) {
 			$pieces[] = $faq_schema;
 		}

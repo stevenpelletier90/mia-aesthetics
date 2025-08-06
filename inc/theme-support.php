@@ -87,6 +87,10 @@ function mia_setup() {
  * Load editor‑only styles.
  */
 add_action( 'after_setup_theme', 'mia_editor_styles' );
+
+/**
+ * Load editor-only styles for Gutenberg.
+ */
 function mia_editor_styles() {
 	add_editor_style(
 		array(
@@ -101,14 +105,22 @@ function mia_editor_styles() {
  * Add View Source button to admin bar
  */
 add_action( 'admin_bar_menu', 'mia_admin_bar_view_source', 100 );
+
+/**
+ * Add View Source button to admin bar for comparing staging to production.
+ *
+ * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+ */
 function mia_admin_bar_view_source( $wp_admin_bar ) {
 	if ( ! is_admin() && ! is_user_logged_in() ) {
 		return;
 	}
 
 	// Get current URL and replace domain.
-	$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-	$source_url  = str_replace( $_SERVER['HTTP_HOST'], 'miaaesthetics.com', $current_url );
+	$http_host   = isset( $_SERVER['HTTP_HOST'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) : '';
+	$request_uri = isset( $_SERVER['REQUEST_URI'] ) ? sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+	$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $http_host . $request_uri;
+	$source_url  = str_replace( $http_host, 'miaaesthetics.com', $current_url );
 
 	$wp_admin_bar->add_node(
 		array(
@@ -127,6 +139,10 @@ function mia_admin_bar_view_source( $wp_admin_bar ) {
  * Enable Google Maps API for ACF Pro
  */
 add_action( 'acf/init', 'mia_acf_init' );
+
+/**
+ * Initialize ACF Pro settings including Google Maps API key.
+ */
 function mia_acf_init() {
 	acf_update_setting( 'google_api_key', 'AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4' );
 }

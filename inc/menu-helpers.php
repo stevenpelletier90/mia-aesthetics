@@ -34,11 +34,12 @@ function mia_get_all_menu_data() {
 			'no_found_rows'          => true,
 			'update_post_meta_cache' => true, // Only for locations that need ACF state field.
 			'update_post_term_cache' => false,
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Cached result, acceptable for menu functionality.
 			'meta_query'             => array(
 				'relation' => 'OR',
 				array(
 					'key'     => 'post_type',
-					'compare' => 'NOT EXISTS', // Default case.
+					'compare' => 'NOT EXISTS', // Include posts without post_type meta.
 				),
 				array(
 					'key'     => 'post_parent',
@@ -63,7 +64,7 @@ function mia_get_all_menu_data() {
 				switch ( $post_type ) {
 					case 'location':
 						// Only include parent locations (post_parent = 0).
-						if ( wp_get_post_parent_id( $post_id ) === 0 ) {
+						if ( 0 === wp_get_post_parent_id( $post_id ) ) {
 							$all_data['locations'][] = array(
 								'id'    => $post_id,
 								'title' => get_the_title( $post_id ),
@@ -97,7 +98,7 @@ function mia_get_all_menu_data() {
 			}
 
 			// Sort surgeons by last name.
-			if ( isset( $all_data['surgeons'] ) && $all_data['surgeons'] !== array() ) {
+			if ( array() !== $all_data['surgeons'] ) {
 				usort(
 					$all_data['surgeons'],
 					function ( $a, $b ) {
@@ -139,10 +140,12 @@ function get_surgeons_direct() {
 
 /**
  * Clear menu data cache when relevant posts are updated
+ *
+ * @param int $post_id The ID of the post being updated.
  */
 function mia_clear_menu_cache( $post_id ) {
 	$post_type = get_post_type( $post_id );
-	if ( in_array( $post_type, array( 'location', 'surgeon', 'non-surgical' ) ) ) {
+	if ( in_array( $post_type, array( 'location', 'surgeon', 'non-surgical' ), true ) ) {
 		delete_transient( 'mia_all_menu_data' );
 		delete_transient( 'mia_locations_menu' );
 		delete_transient( 'mia_surgeons_menu' );
@@ -191,6 +194,7 @@ function mia_get_footer_locations() {
 			array(
 				'post_type'              => 'surgeon',
 				'posts_per_page'         => -1,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Cached result, prevents N+1 queries.
 				'meta_query'             => array(
 					array(
 						'key'     => 'surgeon_location',
@@ -210,7 +214,7 @@ function mia_get_footer_locations() {
 		if ( ! empty( $all_surgeons_query->posts ) ) {
 			foreach ( $all_surgeons_query->posts as $surgeon_id ) {
 				$surgeon_location = get_field( 'surgeon_location', $surgeon_id );
-				if ( $surgeon_location && in_array( $surgeon_location, $location_ids ) ) {
+				if ( $surgeon_location && in_array( $surgeon_location, $location_ids, true ) ) {
 					if ( ! isset( $surgeons_by_location[ $surgeon_location ] ) ) {
 						$surgeons_by_location[ $surgeon_location ] = array();
 					}
@@ -243,10 +247,12 @@ function mia_get_footer_locations() {
 
 /**
  * Clear footer locations cache when relevant posts are updated
+ *
+ * @param int $post_id The ID of the post being updated.
  */
 function mia_clear_footer_locations_cache( $post_id ) {
 	$post_type = get_post_type( $post_id );
-	if ( in_array( $post_type, array( 'location', 'surgeon' ) ) ) {
+	if ( in_array( $post_type, array( 'location', 'surgeon' ), true ) ) {
 		delete_transient( 'mia_footer_locations_with_surgeons' );
 	}
 }
@@ -257,6 +263,9 @@ add_action( 'untrash_post', 'mia_clear_footer_locations_cache' );
 
 /**
  * Render procedures dropdown
+ *
+ * @param array $procedures Array of procedure data.
+ * @param bool  $is_mobile  Whether to render mobile version.
  */
 function render_procedures_menu( $procedures, $is_mobile = false ) {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
@@ -277,6 +286,8 @@ function render_procedures_menu( $procedures, $is_mobile = false ) {
 
 /**
  * Render desktop procedures mega menu
+ *
+ * @param array $procedures Array of procedure data.
  */
 function render_desktop_procedures_menu( $procedures ) {
 	?>
@@ -312,6 +323,8 @@ function render_desktop_procedures_menu( $procedures ) {
 
 /**
  * Render mobile procedures dropdown menu
+ *
+ * @param array $procedures Array of procedure data.
  */
 function render_mobile_procedures_menu( $procedures ) {
 	?>
@@ -328,7 +341,7 @@ function render_mobile_procedures_menu( $procedures ) {
 				?>
 				<li><a class="dropdown-item" href="<?php echo esc_url( $item_url ); ?>"><?php echo esc_html( $item['title'] ); ?></a></li>
 			<?php endforeach; ?>
-			<?php if ( $section_key !== array_key_last( $procedures['sections'] ) ) : ?>
+			<?php if ( array_key_last( $procedures['sections'] ) !== $section_key ) : ?>
 				<li><hr class="dropdown-divider"></li>
 			<?php endif; ?>
 		<?php endforeach; ?>
@@ -338,6 +351,8 @@ function render_mobile_procedures_menu( $procedures ) {
 
 /**
  * Render locations menu for both desktop and mobile
+ *
+ * @param bool $is_mobile Whether to render mobile version.
  */
 function render_locations_menu( $is_mobile = false ) {
 	$locations      = get_locations_direct();
@@ -359,6 +374,8 @@ function render_locations_menu( $is_mobile = false ) {
 
 /**
  * Render desktop locations mega menu
+ *
+ * @param array $locations Array of location data.
  */
 function render_desktop_locations_menu( $locations ) {
 	?>
@@ -386,7 +403,7 @@ function render_desktop_locations_menu( $locations ) {
 						echo '<li><a class="dropdown-item py-1" href="' . esc_url( $location['url'] ) . '">' . esc_html( $menu_label ) . '</a></li>';
 						++$location_count;
 
-						if ( $location_count % $locations_per_column === 0 && $location_count < $total_locations ) {
+						if ( 0 === ( $location_count % $locations_per_column ) && $location_count < $total_locations ) {
 							++$column_count;
 							echo '</ul></div><div class="col-md-3 mb-3"><ul class="list-unstyled">';
 						}
@@ -409,6 +426,8 @@ function render_desktop_locations_menu( $locations ) {
 
 /**
  * Render mobile locations dropdown menu
+ *
+ * @param array $locations Array of location data.
  */
 function render_mobile_locations_menu( $locations ) {
 	?>
@@ -436,6 +455,8 @@ function render_mobile_locations_menu( $locations ) {
 
 /**
  * Render surgeons menu for both desktop and mobile
+ *
+ * @param bool $is_mobile Whether to render mobile version.
  */
 function render_surgeons_menu( $is_mobile = false ) {
 	$surgeons       = get_surgeons_direct();
@@ -457,6 +478,8 @@ function render_surgeons_menu( $is_mobile = false ) {
 
 /**
  * Render desktop surgeons mega menu
+ *
+ * @param array $surgeons Array of surgeon data.
  */
 function render_desktop_surgeons_menu( $surgeons ) {
 	?>
@@ -480,7 +503,7 @@ function render_desktop_surgeons_menu( $surgeons ) {
 						echo '<li><a class="dropdown-item py-1" href="' . esc_url( $surgeon['url'] ) . '">' . esc_html( $surgeon['name'] ) . '</a></li>';
 						++$surgeon_count;
 
-						if ( $surgeon_count % $surgeons_per_column === 0 && $surgeon_count < $total_surgeons ) {
+						if ( 0 === ( $surgeon_count % $surgeons_per_column ) && $surgeon_count < $total_surgeons ) {
 							++$column_count;
 							echo '</ul></div><div class="col-md-3 mb-3"><ul class="list-unstyled">';
 						}
@@ -503,6 +526,8 @@ function render_desktop_surgeons_menu( $surgeons ) {
 
 /**
  * Render mobile surgeons dropdown menu
+ *
+ * @param array $surgeons Array of surgeon data.
  */
 function render_mobile_surgeons_menu( $surgeons ) {
 	?>
@@ -527,6 +552,8 @@ function render_mobile_surgeons_menu( $surgeons ) {
 
 /**
  * Render Before & After menu for both desktop and mobile
+ *
+ * @param bool $is_mobile Whether to render mobile version.
  */
 function render_before_after_menu( $is_mobile = false ) {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
@@ -611,6 +638,8 @@ function render_mobile_before_after_menu() {
 
 /**
  * Render non-surgical menu for both desktop and mobile
+ *
+ * @param bool $is_mobile Whether to render mobile version.
  */
 function render_non_surgical_menu( $is_mobile = false ) {
 	$procedures     = get_non_surgical_direct();
@@ -622,9 +651,9 @@ function render_non_surgical_menu( $is_mobile = false ) {
 			Non-Surgical
 		</a>
 		<?php if ( $is_mobile ) : ?>
-			<?php render_mobile_non_surgical_menu( $procedures ); ?>
+			<?php render_mobile_non_surgical_menu(); ?>
 		<?php else : ?>
-			<?php render_desktop_non_surgical_menu( $procedures ); ?>
+			<?php render_desktop_non_surgical_menu(); ?>
 		<?php endif; ?>
 	</li>
 	<?php
@@ -633,7 +662,7 @@ function render_non_surgical_menu( $is_mobile = false ) {
 /**
  * Render desktop non-surgical mega menu
  */
-function render_desktop_non_surgical_menu( $procedures ) {
+function render_desktop_non_surgical_menu() {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -661,7 +690,7 @@ function render_desktop_non_surgical_menu( $procedures ) {
 /**
  * Render mobile non-surgical dropdown menu
  */
-function render_mobile_non_surgical_menu( $procedures ) {
+function render_mobile_non_surgical_menu() {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>">View All Non-Surgical</a></li>

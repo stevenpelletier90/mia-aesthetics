@@ -133,7 +133,7 @@ class Surgeon_Schema {
 	 * Get surgeon image
 	 *
 	 * @param int $surgeon_id
-	 * @return string|null
+	 * @return string
 	 */
 	private function get_image( $surgeon_id ) {
 		// Prioritize featured image first for surgeon profiles.

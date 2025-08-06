@@ -31,7 +31,10 @@
       "Bash(npm show:*)",
       "Bash(npm install)",
       "Bash(npx eslint:*)",
-      "Bash(composer run:*)"
+      "Bash(composer run:*)",
+      "Bash(code:*)",
+      "Bash(./vendor/bin/phpstan analyse inc/enqueue.php --level=5)",
+      "Bash(./vendor/bin/phpstan analyse:*)"
     ],
     "deny": []
   },

@@ -20,7 +20,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Get the site logo URL with fallback support
  *
- * @param bool $fallback Whether to use fallback if custom logo not set
+ * @param bool $fallback Whether to use fallback if custom logo not set.
  * @return string|false Logo URL or false if not found
  */
 function mia_aesthetics_get_logo_url( $fallback = true ) {
@@ -51,7 +51,7 @@ function mia_aesthetics_get_logo_url( $fallback = true ) {
 /**
  * Output the site logo with proper attributes
  *
- * @param array $args Logo arguments
+ * @param array $args Logo arguments.
  */
 function mia_aesthetics_the_logo( $args = array() ) {
 	$defaults = array(
@@ -128,7 +128,7 @@ function mia_aesthetics_the_logo( $args = array() ) {
 /**
  * Get attachment ID by filename with caching
  *
- * @param string $filename The filename to search for
+ * @param string $filename The filename to search for.
  * @return int|false Attachment ID or false if not found
  */
 function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
@@ -140,9 +140,11 @@ function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
 	$cache_key     = 'mia_attachment_id_' . md5( $filename );
 	$attachment_id = wp_cache_get( $cache_key, 'mia_theme' );
 
-	if ( $attachment_id === false ) {
+	if ( false === $attachment_id ) {
 		global $wpdb;
 
+		// Direct DB query necessary - WordPress has no built-in function to search attachments by filename.
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
 		$attachment_id = $wpdb->get_var(
 			$wpdb->prepare(
 				"SELECT post_id FROM {$wpdb->postmeta} 
@@ -154,17 +156,17 @@ function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
 		);
 
 		// Cache result for 2 hours (attachment files rarely change).
-		wp_cache_set( $cache_key, $attachment_id ?: 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
+		wp_cache_set( $cache_key, $attachment_id ? $attachment_id : 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
 	}
 
-	return $attachment_id ?: false;
+	return $attachment_id ? $attachment_id : false;
 }
 
 /**
  * Get image URL by filename from uploads directory
  *
- * @param string $filename The filename to search for
- * @param string $subdir Optional subdirectory (e.g., '2025/04')
+ * @param string $filename The filename to search for.
+ * @param string $subdir Optional subdirectory (e.g., '2025/04').
  * @return string|false Image URL or false if not found
  */
 function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
@@ -196,9 +198,9 @@ function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
 /**
  * Get responsive image data with srcset
  *
- * @param string $filename Base filename
- * @param string $subdir Subdirectory in uploads
- * @param string $size WordPress image size
+ * @param string $filename Base filename.
+ * @param string $subdir Subdirectory in uploads.
+ * @param string $size WordPress image size.
  * @return array|false Array with src, srcset, sizes or false
  */
 function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' ) {
@@ -210,7 +212,7 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 	$cache_key  = 'mia_responsive_image_' . md5( $filename . '|' . $subdir . '|' . $size );
 	$image_data = wp_cache_get( $cache_key, 'mia_theme' );
 
-	if ( $image_data === false ) {
+	if ( false === $image_data ) {
 		// Try to find attachment ID using shared function.
 		$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
@@ -234,17 +236,17 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 		}
 
 		// Cache result for 2 hours.
-		wp_cache_set( $cache_key, $image_data ?: 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
+		wp_cache_set( $cache_key, $image_data ? $image_data : 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
 	}
 
-	return $image_data ?: false;
+	return $image_data ? $image_data : false;
 }
 
 /**
  * Output responsive image HTML
  *
- * @param string $filename Filename or attachment ID
- * @param array  $args Image arguments
+ * @param string $filename Filename or attachment ID.
+ * @param array  $args Image arguments.
  */
 function mia_responsive_image( $filename, $args = array() ) {
 	$defaults = array(
@@ -260,7 +262,7 @@ function mia_responsive_image( $filename, $args = array() ) {
 	// Handle attachment ID.
 	if ( is_numeric( $filename ) ) {
 		echo wp_get_attachment_image(
-			$filename,
+			(int) $filename,
 			$args['size'],
 			false,
 			array(
@@ -302,9 +304,9 @@ function mia_responsive_image( $filename, $args = array() ) {
 /**
  * Format city, state, ZIP for display
  *
- * @param string $city City name
- * @param string $state State name or abbreviation
- * @param string $zip ZIP code
+ * @param string $city City name.
+ * @param string $state State name or abbreviation.
+ * @param string $zip ZIP code.
  * @return string Formatted location string
  */
 function mia_aesthetics_format_city_state_zip( $city = '', $state = '', $zip = '' ) {
@@ -328,7 +330,7 @@ function mia_aesthetics_format_city_state_zip( $city = '', $state = '', $zip = '
 
 	// Add ZIP code.
 	if ( ! empty( $zip ) ) {
-		$location = $location !== '' && $location !== '0' ? $location . ' ' . trim( $zip ) : trim( $zip );
+		$location = '' !== $location && '0' !== $location ? $location . ' ' . trim( $zip ) : trim( $zip );
 	}
 
 	return $location;
@@ -337,8 +339,8 @@ function mia_aesthetics_format_city_state_zip( $city = '', $state = '', $zip = '
 /**
  * Format phone number for display
  *
- * @param string $phone Phone number
- * @param bool   $link Whether to return as tel: link
+ * @param string $phone Phone number.
+ * @param bool   $link Whether to return as tel: link.
  * @return string Formatted phone number
  */
 function mia_aesthetics_format_phone( $phone, $link = false ) {
@@ -376,7 +378,7 @@ function mia_aesthetics_format_phone( $phone, $link = false ) {
 /**
  * Display FAQ section with Bootstrap accordion
  *
- * @param bool $show_heading Whether to show section heading
+ * @param bool $show_heading Whether to show section heading.
  * @return string HTML output
  */
 function mia_aesthetics_display_faqs( $show_heading = true ) {
@@ -398,7 +400,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	);
 
 	// If no valid FAQs, return empty.
-	if ( $valid_faqs === array() ) {
+	if ( array() === $valid_faqs ) {
 		return '';
 	}
 
@@ -409,7 +411,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	<section class="faqs-section my-5" 
 	<?php
 	if ( $show_heading ) {
-		echo 'aria-labelledby="faq-heading-' . esc_attr( get_the_ID() ) . '"';}
+		echo 'aria-labelledby="faq-heading-' . esc_attr( (string) get_the_ID() ) . '"';}
 	?>
 	>
 		<?php if ( $show_heading ) : ?>
@@ -418,7 +420,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 				? 'Frequently Asked Questions'
 				: $faq_section['title'];
 			?>
-			<h2 id="faq-heading-<?php echo esc_attr( get_the_ID() ); ?>" class="mb-4">
+			<h2 id="faq-heading-<?php echo esc_attr( (string) get_the_ID() ); ?>" class="mb-4">
 				<?php echo esc_html( $section_title ); ?>
 			</h2>
 			
@@ -435,7 +437,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 				$item_id     = 'faq-' . get_the_ID() . '-' . $index;
 				$heading_id  = 'heading-' . $item_id;
 				$collapse_id = 'collapse-' . $item_id;
-				$is_first    = ( $index === 0 );
+				$is_first    = ( 0 === $index );
 				?>
 				<div class="accordion-item">
 					<h3 class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
@@ -465,9 +467,9 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 /**
  * Generate consistent button HTML
  *
- * @param string $text Button text
- * @param string $url Button URL
- * @param array  $args Additional arguments
+ * @param string $text Button text.
+ * @param string $url Button URL.
+ * @param array  $args Additional arguments.
  * @return string Button HTML
  */
 function mia_button( $text, $url = '#', $args = array() ) {
@@ -502,7 +504,7 @@ function mia_button( $text, $url = '#', $args = array() ) {
 
 	if ( ! empty( $args['target'] ) ) {
 		$attributes['target'] = $args['target'];
-		if ( $args['target'] === '_blank' ) {
+		if ( '_blank' === $args['target'] ) {
 			$attributes['rel'] = 'noopener noreferrer';
 		}
 	}
@@ -518,18 +520,18 @@ function mia_button( $text, $url = '#', $args = array() ) {
 
 	// Build button content.
 	$content = '';
-	if ( $args['icon_position'] === 'before' && $icon_html ) {
+	if ( 'before' === $args['icon_position'] && $icon_html ) {
 		$content .= $icon_html . ' ';
 	}
 
 	$content .= esc_html( $text );
 
-	if ( $args['icon_position'] === 'after' && $icon_html ) {
+	if ( 'after' === $args['icon_position'] && $icon_html ) {
 		$content .= ' ' . $icon_html;
 	}
 
 	// Output button or link.
-	if ( $url === '#' || empty( $url ) ) {
+	if ( '#' === $url || empty( $url ) ) {
 		$tag                = 'button';
 		$attributes['type'] = 'button';
 	} else {
@@ -548,7 +550,7 @@ function mia_button( $text, $url = '#', $args = array() ) {
 /**
  * Display social media links
  *
- * @param array $args Display arguments
+ * @param array $args Display arguments.
  */
 function mia_social_links( $args = array() ) {
 	$defaults = array(
@@ -569,7 +571,7 @@ function mia_social_links( $args = array() ) {
 			$icon_class = $args['icon_prefix'] . $platform;
 
 			// Special cases for icon names.
-			if ( $platform === 'twitter' ) {
+			if ( 'twitter' === $platform ) {
 				$icon_class = $args['icon_prefix'] . 'x-twitter';
 			}
 
@@ -626,6 +628,9 @@ function mia_aesthetics_breadcrumbs() {
 
 /**
  * Add custom body classes for template identification
+ *
+ * @param array $classes Array of body classes.
+ * @return array Modified array of body classes.
  */
 function mia_template_body_classes( $classes ) {
 	// Add class for pages with gallery shortcode.
@@ -694,7 +699,14 @@ function mia_get_hero_title() {
  * Backwards compatibility for display_page_faqs function
  */
 if ( ! function_exists( 'mia_aesthetics_display_page_faqs' ) ) {
+	/**
+	 * Legacy alias for mia_aesthetics_display_faqs function.
+	 *
+	 * @param bool $show_heading Whether to show section heading.
+	 * @return string HTML output
+	 */
 	function mia_aesthetics_display_page_faqs( $show_heading = true ) {
 		return mia_aesthetics_display_faqs( $show_heading );
 	}
 }
+

@@ -39,7 +39,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 			<div class="container">
 				<div class="row min-vh-50 d-flex align-items-center justify-content-center">
 					<div class="col-12 col-lg-7 mb-4 mb-lg-0 text-center text-lg-start">
-<h1 id="page-title-<?php echo esc_attr( get_the_ID() ); ?>"><?php the_title(); ?></h1>
+<h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
 						<?php
 						// Try both price fields for flexibility.
 						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ?: get_field( 'non_surgical_price' );
@@ -57,7 +57,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 							<div class="card-body p-4">
 								<h3 class="h4 text-center">Free Virtual Consultation</h3>
 <div class="gf-wrapper" aria-label="Free Virtual Consultation Form">
-		<?php gravity_form( 1, false, false, false, false, true ); ?>
+		<?php gravity_form( '1', false, false, false, null, true ); ?>
 </div>
 							</div>
 						</div>

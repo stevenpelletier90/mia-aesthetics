@@ -30,7 +30,7 @@ function mia_get_video_field( $post_id = null ) {
 	}
 
 	// Validate post ID.
-	if ( ! $post_id || ! is_numeric( $post_id ) || false === get_post_status( $post_id ) ) {
+	if ( ! $post_id || false === get_post_status( $post_id ) ) {
 		return null;
 	}
 
@@ -38,7 +38,6 @@ function mia_get_video_field( $post_id = null ) {
 	foreach ( $candidates as $field ) {
 		// Add error handling for ACF field lookup.
 		if ( ! function_exists( 'get_field' ) ) {
-			error_log( '[mia_get_video_field] ACF get_field() function not available' );
 			return null;
 		}
 
@@ -122,9 +121,9 @@ function mia_get_video_field( $post_id = null ) {
  * @param string $label Image label (before/after).
  * @return string HTML img tag
  */
-function mia_before_after_img( $img, $label ) {
+function mia_before_after_img( $img, string $label ) {
 	// Validate and sanitize inputs.
-	if ( ! is_string( $label ) || in_array( trim( $label ), array( '', '0' ), true ) ) {
+	if ( in_array( trim( $label ), array( '', '0' ), true ) ) {
 		return ''; // Return empty string for invalid label.
 	}
 
@@ -174,7 +173,7 @@ function mia_before_after_img( $img, $label ) {
 		if ( ! filter_var( $img, FILTER_VALIDATE_URL ) ) {
 			// Try to find attachment by URL with error handling.
 			$id = attachment_url_to_postid( $img );
-			if ( $id && is_numeric( $id ) && $id > 0 && wp_attachment_is_image( $id ) ) {
+			if ( $id && $id > 0 && wp_attachment_is_image( $id ) ) {
 				return wp_get_attachment_image(
 					$id,
 					'gallery-small',

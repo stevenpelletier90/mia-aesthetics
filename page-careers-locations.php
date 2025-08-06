@@ -149,10 +149,10 @@ if ( $mia_aesthetics_location_map ) {
 							</div>
 						<?php endif; ?>
 
-						<?php // $location_maps_link already set above ?>
-						<?php if ( $location_maps_link ) : ?>
+						<?php // $mia_aesthetics_location_maps_link already set above ?>
+						<?php if ( $mia_aesthetics_location_maps_link ) : ?>
 							<div class="location-directions">
-								<a href="<?php echo esc_url( $location_maps_link ); ?>" class="location-map-link" target="_blank" rel="noopener">
+								<a href="<?php echo esc_url( $mia_aesthetics_location_maps_link ); ?>" class="location-map-link" target="_blank" rel="noopener">
 									<i class="fas fa-map-marker-alt location-icon" aria-hidden="true"></i> Get Directions
 								</a>
 							</div>
@@ -486,7 +486,7 @@ if ( $mia_aesthetics_location_map ) {
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<i class="fas fa-heart-pulse"></i>
+										<img src="/wp-content/uploads/2025/08/Health-Wellness.svg" alt="Health & Wellness" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Health & Wellness</h4>
 									<ul class="benefit-list">
@@ -501,7 +501,7 @@ if ( $mia_aesthetics_location_map ) {
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<i class="fas fa-calendar-days"></i>
+										<img src="/wp-content/uploads/2025/08/PTO.svg" alt="Time To Unwind" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Time To Unwind</h4>
 									<ul class="benefit-list">
@@ -516,7 +516,7 @@ if ( $mia_aesthetics_location_map ) {
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<i class="fas fa-piggy-bank"></i>
+										<img src="/wp-content/uploads/2025/08/Financial.svg" alt="Financial Well-Being" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Financial Well-Being</h4>
 									<ul class="benefit-list">
@@ -530,7 +530,7 @@ if ( $mia_aesthetics_location_map ) {
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<i class="fas fa-gift"></i>
+										<img src="/wp-content/uploads/2025/08/Other-Perks.svg" alt="Other Perks" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Other Perks</h4>
 									<ul class="benefit-list">
@@ -644,11 +644,16 @@ if ( $mia_aesthetics_location_map ) {
 		<div class="container">            
 			<?php
 			// Function output should be escaped if it returns HTML.
-			echo wp_kses_post( display_page_faqs() );
+			echo wp_kses_post( mia_aesthetics_display_page_faqs() );
 			?>
 					</div>
 	</section>
 
 </main>
+
+<?php
+// Add careers CTA component for careers locations page
+require get_template_directory() . '/components/careers-cta.php';
+?>
 
 <?php get_footer(); ?>

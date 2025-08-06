@@ -35,7 +35,8 @@ get_header(); ?>
 						<div class="overview-content">
 							<div class="overview-item">
 								<i class="fa-solid fa-check-circle overview-check"></i>
-								Fat transfer is a popular procedure as it uses your own body fat to augment problem areas, making it an all-natural enhancement tactic.
+								Fat transfer is a popular procedure as it uses your own body fat to augment problem areas, 
+								making it an all-natural enhancement tactic.
 							</div>
 							<div class="overview-item">
 								<i class="fa-solid fa-check-circle overview-check"></i>

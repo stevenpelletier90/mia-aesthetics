@@ -77,8 +77,8 @@ get_header(); ?>
 							<?php the_content(); ?>
 						</div>
 						<?php
-						// Using display_page_faqs(true) to show heading from custom field.
-						echo wp_kses_post( display_page_faqs( true ) );
+						// Using mia_aesthetics_display_page_faqs(true) to show heading from custom field.
+						echo wp_kses_post( mia_aesthetics_display_page_faqs( true ) );
 						?>
 					</div>
 					

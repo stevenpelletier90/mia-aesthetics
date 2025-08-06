@@ -29,7 +29,7 @@ get_header(); ?>
 								<span><?php echo get_the_date(); ?></span>
 								<span class="mx-2">•</span>
 								<i class="far fa-clock me-2" aria-hidden="true"></i>
-								<span><?php echo esc_html( $reading_time ); ?> min read</span>
+								<span><?php echo esc_html( (string) $reading_time ); ?> min read</span>
 							</div>
 						</div>
 
