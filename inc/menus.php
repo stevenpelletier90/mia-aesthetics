@@ -4,14 +4,17 @@
  *
  * Defines the main navigation menu data structure and rendering entry point.
  * All menu sections and items are defined here for consistency and maintainability.
+ *
+ * @package Mia_Aesthetics
  */
+
 /**
  * Returns the main menu data structure for all procedures and sections.
  * Centralizes menu definitions to avoid duplication and simplify updates.
  *
  * @return array Main menu structure
  */
-function get_mia_menu_structure() {
+function mia_aesthetics_get_menu_structure() {
 	return array(
 		'procedures'   => array(
 			'title'    => 'Procedures',
@@ -176,10 +179,10 @@ function get_mia_menu_structure() {
  * Renders the main navigation menu for desktop or mobile.
  * Delegates to section-specific renderers as needed.
  *
- * @param string $type 'desktop' or 'mobile'
+ * @param string $type 'desktop' or 'mobile'.
  */
-function render_mia_menu( $type = 'desktop' ) {
-	$menu      = get_mia_menu_structure();
+function mia_aesthetics_render_menu( $type = 'desktop' ) {
+	$menu      = mia_aesthetics_get_menu_structure();
 	$is_mobile = $type === 'mobile';
 
 	foreach ( $menu as $key => $section ) {
@@ -188,6 +191,7 @@ function render_mia_menu( $type = 'desktop' ) {
 		} elseif ( $key === 'non-surgical' ) {
 			render_non_surgical_menu( $is_mobile );
 		}
+
 		// Add other menu sections here as needed.
 	}
 }

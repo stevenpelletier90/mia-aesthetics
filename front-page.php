@@ -1,12 +1,15 @@
 <?php
 /**
  * The front page template file
+ *
+ * @package Mia_Aesthetics
  */
+
 get_header(); ?>
 <main id="primary" class="site-main">
 <?php
-// Include hero section
-require 'hero-section.php';
+// Include hero section.
+require __DIR__ . '/hero-section.php';
 ?>
 
 <!-- About Section - Centered Layout -->
@@ -35,8 +38,8 @@ require 'hero-section.php';
 		<div class="stat-box text-center">
 		<div class="stat-number" data-count="
 		<?php
-			$stats = mia_get_site_stats();
-			echo $stats['surgeons'];
+			$stats = mia_aesthetics_get_site_stats();
+			echo esc_html( $stats['surgeons'] );
 		?>
 		">0</div>
 		<div class="stat-label">EXPERT<br>SURGEONS</div>
@@ -44,7 +47,7 @@ require 'hero-section.php';
 	  
 		<!-- Clinic Locations (Dynamic) -->
 		<div class="stat-box text-center">
-		<div class="stat-number" data-count="<?php echo $stats['locations']; ?>">0</div>
+		<div class="stat-number" data-count="<?php echo esc_attr( $stats['locations'] ); ?>">0</div>
 		<div class="stat-label">CLINIC<br>LOCATIONS</div>
 		</div>
 	  
@@ -256,7 +259,7 @@ require 'hero-section.php';
 					)
 				);
 			} else {
-				// Fallback if image ID can't be found
+				// Fallback if image ID can't be found.
 				echo '<img src="/wp-content/uploads/2025/04/body-home.jpg" alt="Body Procedures" class="img-fluid rounded shadow">';
 			}
 			?>
@@ -317,7 +320,7 @@ require 'hero-section.php';
 					)
 				);
 			} else {
-				// Fallback if image ID can't be found
+				// Fallback if image ID can't be found.
 				echo '<img src="/wp-content/uploads/2025/04/breast-home.jpg" alt="Breast Procedures" class="img-fluid rounded shadow">';
 			}
 			?>
@@ -375,7 +378,7 @@ require 'hero-section.php';
 					)
 				);
 			} else {
-				// Fallback if image ID can't be found
+				// Fallback if image ID can't be found.
 				echo '<img src="/wp-content/uploads/2025/04/face-2-home.jpg" alt="Facial Procedures" class="img-fluid rounded shadow">';
 			}
 			?>
@@ -436,7 +439,7 @@ require 'hero-section.php';
 					)
 				);
 			} else {
-				// Fallback if image ID can't be found
+				// Fallback if image ID can't be found.
 				echo '<img src="/wp-content/uploads/2025/04/face-home.jpg" alt="Non-Surgical Procedures" class="img-fluid rounded shadow">';
 			}
 			?>
@@ -479,12 +482,12 @@ require 'hero-section.php';
 					false,
 					array(
 						'class' => 'img-fluid rounded shadow',
-						'alt'   => 'Men\'s Procedures',
+						'alt'   => "Men's Procedures",
 						'sizes' => '(max-width: 767px) 100vw, (max-width: 991px) 50vw, 600px',
 					)
 				);
 			} else {
-				// Fallback if image ID can't be found
+				// Fallback if image ID can't be found.
 				echo '<img src="/wp-content/uploads/2025/04/men-home.jpg" alt="Men\'s Procedures" class="img-fluid rounded shadow">';
 			}
 			?>

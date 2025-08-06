@@ -1,6 +1,8 @@
 <?php
 /**
  * Search results template
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>

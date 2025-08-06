@@ -2,6 +2,8 @@
 /**
  * Non-Surgical Archive Template
  * Organizes non-surgical procedures into categories
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>
@@ -39,7 +41,7 @@ get_header(); ?>
 							)
 						);
 
-						// Fallback image if no featured image
+						// Fallback image if no featured image.
 						if ( ! $procedure_image ) {
 							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 						}
@@ -49,7 +51,7 @@ get_header(); ?>
 							<article class="procedure-card h-100">
 								<figure class="procedure-image">
 									<a href="<?php echo esc_url( $procedure_link ); ?>" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
-										<?php echo $procedure_image; ?>
+										<?php echo wp_kses_post( $procedure_image ); ?>
 									</a>
 								</figure>
 								<div class="procedure-content">
@@ -68,9 +70,9 @@ get_header(); ?>
 						<?php
 					endwhile;
 
-					// Add Weight Loss post at the end for alphabetical order
+					// Add Weight Loss post at the end for alphabetical order.
 					$weight_loss_post = get_post( 233 );
-					if ( $weight_loss_post && $weight_loss_post->post_status === 'publish' ) :
+					if ( $weight_loss_post && 'publish' === $weight_loss_post->post_status ) :
 						setup_postdata( $weight_loss_post );
 						$procedure_title   = get_the_title( 233 );
 						$procedure_excerpt = get_the_excerpt( 233 );
@@ -84,7 +86,7 @@ get_header(); ?>
 							)
 						);
 
-						// Fallback image if no featured image
+						// Fallback image if no featured image.
 						if ( ! $procedure_image ) {
 							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 						}
@@ -94,7 +96,7 @@ get_header(); ?>
 							<article class="procedure-card h-100">
 								<figure class="procedure-image">
 									<a href="<?php echo esc_url( $procedure_link ); ?>" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
-										<?php echo $procedure_image; ?>
+										<?php echo wp_kses_post( $procedure_image ); ?>
 									</a>
 								</figure>
 								<div class="procedure-content">

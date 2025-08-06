@@ -19,18 +19,19 @@ get_header(); ?>
 	/*
 	------------------------------------------------------------------
 	 * Grab everything from the `case_information` ACF group in one go.
-	 * ------------------------------------------------------------------ */
+	 * ------------------------------------------------------------------
+	 */
 	$case_info = get_field( 'case_information' );
 
-	$before_photo        = $case_info['before_photo'] ?? null; // Image array or null
-	$after_photo         = $case_info['after_photo'] ?? null; // Image array or null
+	$before_photo        = $case_info['before_photo'] ?? null; // Image array or null.
+	$after_photo         = $case_info['after_photo'] ?? null; // Image array or null.
 	$height              = $case_info['height'] ?? '';
 	$weight              = $case_info['weight'] ?? '';
 	$bmi                 = $case_info['bmi'] ?? '';
-	$surgeon             = $case_info['performed_by_surgeon'] ?? null; // Post object (ID)
-	$location            = $case_info['performed_at_location'] ?? null; // Post object (ID)
-	$procedure_performed = $case_info['procedure_performed'] ?? array(); // Post object(s)
-	$case_links          = $case_info['case_links'] ?? array(); // Post object(s)
+	$surgeon             = $case_info['performed_by_surgeon'] ?? null; // Post object (ID).
+	$location            = $case_info['performed_at_location'] ?? null; // Post object (ID).
+	$procedure_performed = $case_info['procedure_performed'] ?? array(); // Post object(s).
+	$case_links          = $case_info['case_links'] ?? array(); // Post object(s).
 	?>
 
 	<!-- Page Header -->
@@ -223,28 +224,28 @@ get_header(); ?>
 
 	<?php /* ------------- Related Cases -------------- */ ?>
 	<?php
-	// Get related cases based on case-category taxonomy
+	// Get related cases based on case-category taxonomy.
 	$current_category_terms = wp_get_post_terms( get_the_ID(), 'case-category' );
 
-	// Filter out broad parent categories, use only specific categories
+	// Filter out broad parent categories, use only specific categories.
 	$specific_category_ids = array();
-	$excluded_parent_names = array( 'Body', 'Breast', 'Face' ); // Add other broad parent category names here
+	$excluded_parent_names = array( 'Body', 'Breast', 'Face' ); // Add other broad parent category names here.
 
 	foreach ( $current_category_terms as $term ) {
-		// Skip if it's a known broad parent category
+		// Skip if it's a known broad parent category.
 		if ( ! in_array( $term->name, $excluded_parent_names ) ) {
 			$specific_category_ids[] = $term->term_id;
 		}
 	}
 
-	if ( ! empty( $specific_category_ids ) ) {
-		// Query using only the most specific categories (exclude top-level parent cases)
+	if ( $specific_category_ids !== array() ) {
+		// Query using only the most specific categories (exclude top-level parent cases).
 		$related_cases = new WP_Query(
 			array(
 				'post_type'           => 'case',
 				'post_status'         => 'publish',
 				'post__not_in'        => array( get_the_ID() ),
-				'post_parent__not_in' => array( 0 ), // Exclude top-level cases
+				'post_parent__not_in' => array( 0 ), // Exclude top-level cases.
 				'posts_per_page'      => 4,
 				'orderby'             => 'date',
 				'order'               => 'DESC',
@@ -294,9 +295,9 @@ get_header(); ?>
 		</div>
 	</section>
 			<?php
-		endif; // End related cases have_posts check
+		endif; // End related cases have_posts check.
 		wp_reset_postdata();
-	} // End current_categories check
+	} // End current_categories check.
 	?>
 
 	<?php /* -------------------- FAQ Section ---------------------- */ ?>
@@ -357,7 +358,5 @@ endif;
 		</div>
 	</div>
 </div>
-
-	<!-- Modal logic moved to assets/js/single-case-modal-sync.js -->
 
 <?php get_footer(); ?>

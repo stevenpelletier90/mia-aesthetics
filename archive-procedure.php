@@ -2,6 +2,8 @@
 /**
  * Procedure Archive Template
  * Organizes procedures into categories: Body, Breast, Face, and Men
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>
@@ -198,7 +200,7 @@ get_header(); ?>
 				</div>
 			</div>
 			<?php
-			// All testimonial videos loaded in a single array for consistency
+			// All testimonial videos loaded in a single array for consistency.
 			$video_data = array(
 				array(
 					'id'    => 'OxigXlYTqH8',

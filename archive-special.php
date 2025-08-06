@@ -1,6 +1,8 @@
 <?php
 /**
  * The template for displaying the Specials archive page.
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>

@@ -11,7 +11,10 @@
  * - banner_2: Second carousel slide image (image array)
  * - ba_image: Before & After box image (image array)
  * - financing_image: Financing box image (image array)
+ *
+ * @package Mia_Aesthetics
  */
+
 ?>
 
 <section class="hero-section">

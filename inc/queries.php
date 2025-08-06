@@ -53,27 +53,27 @@ function mia_modify_archive_queries( $query ) {
 		$query->set( 'order', 'DESC' );
 	}
 
-	// Condition archive modifications
+	// Condition archive modifications.
 	elseif ( is_post_type_archive( 'condition' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all conditions
+		$query->set( 'posts_per_page', -1 );      // Show all conditions.
 		$query->set( 'orderby', 'title' );        // Alphabetical order.
 		$query->set( 'order', 'ASC' );
 	}
 
-	// Special archive modifications
+	// Special archive modifications.
 	elseif ( is_post_type_archive( 'special' ) ) {
-		$query->set( 'posts_per_page', 6 );       // Paginate specials
+		$query->set( 'posts_per_page', 6 );       // Paginate specials.
 		$query->set( 'orderby', 'menu_order date' ); // Manual order., then date
 		$query->set( 'order', 'DESC' );
 
-		// Only show active specials
+		// Only show active specials.
 		$query->set(
 			'meta_query',
 			array(
 				'relation' => 'OR',
 				array(
 					'key'     => 'special_end_date',
-					'value'   => date( 'Y-m-d' ),
+					'value'   => gmdate( 'Y-m-d' ),
 					'compare' => '>=',
 					'type'    => 'DATE',
 				),
@@ -85,38 +85,40 @@ function mia_modify_archive_queries( $query ) {
 		);
 	}
 
-	// Non-surgical archive modifications
+	// Non-surgical archive modifications.
 	elseif ( is_post_type_archive( 'non-surgical' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all non-surgical
+		$query->set( 'posts_per_page', -1 );      // Show all non-surgical.
 		$query->set( 'orderby', 'menu_order title' ); // Manual order., then alphabetical
 		$query->set( 'order', 'ASC' );
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_modify_archive_queries' );
 
 /**
  * Modify taxonomy archive queries
  */
 function mia_modify_taxonomy_queries( $query ) {
-	// Only modify main queries on the frontend
+	// Only modify main queries on the frontend.
 	if ( is_admin() || ! $query->is_main_query() ) {
 		return;
 	}
 
-	// Case category taxonomy
+	// Case category taxonomy.
 	if ( is_tax( 'case-category' ) ) {
 		$query->set( 'posts_per_page', -1 );      // Show all cases.
 		$query->set( 'orderby', 'date' );         // Most recent first.
 		$query->set( 'order', 'DESC' );
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_modify_taxonomy_queries' );
 
 /**
  * Ensure correct body classes for custom post type archives
  */
 function mia_archive_body_classes( $classes ) {
-	// Get all registered post types
+	// Get all registered post types.
 	$post_types = get_post_types( array( 'public' => true ), 'names' );
 
 	foreach ( $post_types as $post_type ) {
@@ -128,7 +130,7 @@ function mia_archive_body_classes( $classes ) {
 		}
 	}
 
-	// Add specific classes for single post types
+	// Add specific classes for single post types.
 	if ( is_singular() ) {
 		$post_type = get_post_type();
 		if ( $post_type ) {
@@ -141,52 +143,56 @@ function mia_archive_body_classes( $classes ) {
 
 	return $classes;
 }
+
 add_filter( 'body_class', 'mia_archive_body_classes', 999 );
 
 /**
  * Customize excerpt length based on context
  */
 function mia_custom_excerpt_length( $length ) {
-	// Shorter excerpts for archive pages
+	// Shorter excerpts for archive pages.
 	if ( is_archive() || is_home() ) {
 		return 20;
 	}
 
-	// Even shorter for search results
+	// Even shorter for search results.
 	if ( is_search() ) {
 		return 15;
 	}
 
-	// Default length for other contexts
+	// Default length for other contexts.
 	return 30;
 }
+
 add_filter( 'excerpt_length', 'mia_custom_excerpt_length' );
 
 /**
  * Customize excerpt more text
  */
 function mia_excerpt_more( $more ) {
-	// Don't add "more" text in admin
+	// Don't add "more" text in admin.
 	if ( is_admin() ) {
 		return $more;
 	}
 
 	return '...';
 }
+
 add_filter( 'excerpt_more', 'mia_excerpt_more' );
 
 /**
  * Remove protected/private prefixes from titles
  */
 function mia_remove_title_prefixes( $title ) {
-	// Remove "Protected: " prefix
+	// Remove "Protected: " prefix.
 	$title = str_replace( 'Protected: ', '', $title );
 
-	// Remove "Private: " prefix
+	// Remove "Private: " prefix.
 	$title = str_replace( 'Private: ', '', $title );
 
 	return $title;
 }
+
 add_filter( 'the_title', 'mia_remove_title_prefixes' );
 
 /**
@@ -194,7 +200,7 @@ add_filter( 'the_title', 'mia_remove_title_prefixes' );
  */
 function mia_search_filter( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
-		// Include relevant post types in search
+		// Include relevant post types in search.
 		$searchable_types = array(
 			'post',
 			'page',
@@ -207,10 +213,11 @@ function mia_search_filter( $query ) {
 
 		$query->set( 'post_type', $searchable_types );
 
-		// Limit search results
+		// Limit search results.
 		$query->set( 'posts_per_page', 20 );
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_search_filter' );
 
 /**
@@ -218,12 +225,12 @@ add_action( 'pre_get_posts', 'mia_search_filter' );
  */
 function mia_exclude_pages_from_search( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
-		// Get cached excluded page IDs
+		// Get cached excluded page IDs.
 		$cache_key   = 'mia_excluded_search_pages';
 		$exclude_ids = get_transient( $cache_key );
 
 		if ( false === $exclude_ids ) {
-			// Get IDs of pages to exclude with a single query
+			// Get IDs of pages to exclude with a single query.
 			$exclude_slugs = array(
 				'thank-you',
 				'privacy-policy',
@@ -246,7 +253,7 @@ function mia_exclude_pages_from_search( $query ) {
 
 			$exclude_ids = $pages ?: array();
 
-			// Cache for 1 day (pages rarely change)
+			// Cache for 1 day (pages rarely change).
 			set_transient( $cache_key, $exclude_ids, DAY_IN_SECONDS );
 		}
 
@@ -255,18 +262,20 @@ function mia_exclude_pages_from_search( $query ) {
 		}
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_exclude_pages_from_search' );
 
 /**
  * Add custom query vars
  */
 function mia_add_query_vars( $vars ) {
-	// Add custom query variables if needed
+	// Add custom query variables if needed.
 	$vars[] = 'surgeon_location';
 	$vars[] = 'procedure_type';
 
 	return $vars;
 }
+
 add_filter( 'query_vars', 'mia_add_query_vars' );
 
 /**
@@ -274,10 +283,10 @@ add_filter( 'query_vars', 'mia_add_query_vars' );
  */
 function mia_handle_custom_queries( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
-		// Filter surgeons by location
+		// Filter surgeons by location.
 		if ( get_query_var( 'surgeon_location' ) ) {
 			$location_id = intval( get_query_var( 'surgeon_location' ) );
-			if ( $location_id ) {
+			if ( $location_id !== 0 ) {
 				$query->set(
 					'meta_query',
 					array(
@@ -291,7 +300,7 @@ function mia_handle_custom_queries( $query ) {
 			}
 		}
 
-		// Filter procedures by type
+		// Filter procedures by type.
 		if ( get_query_var( 'procedure_type' ) ) {
 			$procedure_type = sanitize_text_field( get_query_var( 'procedure_type' ) );
 			if ( $procedure_type ) {
@@ -309,6 +318,7 @@ function mia_handle_custom_queries( $query ) {
 		}
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_handle_custom_queries' );
 
 /**
@@ -316,26 +326,26 @@ add_action( 'pre_get_posts', 'mia_handle_custom_queries' );
  */
 function mia_optimize_queries( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
-		// Remove unnecessary meta cache on archives that don't use meta fields
+		// Remove unnecessary meta cache on archives that don't use meta fields.
 		if ( is_post_type_archive() ) {
 			$post_type = get_query_var( 'post_type' );
 
-			// Post types that don't need meta cache in archives
+			// Post types that don't need meta cache in archives.
 			$no_meta_types = array( 'surgeon', 'procedure', 'condition' );
 			if ( in_array( $post_type, $no_meta_types ) && ! $query->get( 'meta_query' ) ) {
 				$query->set( 'update_post_meta_cache', false );
 			}
 		}
 
-		// Remove term cache updates if not needed
+		// Remove term cache updates if not needed.
 		if ( ! is_tax() && ! is_category() && ! is_tag() ) {
 			$query->set( 'update_post_term_cache', false );
 		}
 
-		// Optimize found_rows calculation when not needed
+		// Optimize found_rows calculation when not needed.
 		if ( is_post_type_archive() && ! is_paged() ) {
 			$post_type = get_query_var( 'post_type' );
-			// Archives that show all items don't need found_rows
+			// Archives that show all items don't need found_rows.
 			$no_pagination_types = array( 'location', 'surgeon', 'procedure', 'condition', 'non-surgical' );
 			if ( in_array( $post_type, $no_pagination_types ) ) {
 				$query->set( 'no_found_rows', true );
@@ -343,13 +353,14 @@ function mia_optimize_queries( $query ) {
 		}
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_optimize_queries', 999 );
 
 /**
  * Add pagination support for custom queries
  */
 function mia_pagination_rewrite_rules() {
-	// Add rewrite rules for custom post type pagination
+	// Add rewrite rules for custom post type pagination.
 	$post_types = array( 'special' );
 
 	foreach ( $post_types as $post_type ) {
@@ -360,22 +371,22 @@ function mia_pagination_rewrite_rules() {
 		);
 	}
 }
+
 add_action( 'init', 'mia_pagination_rewrite_rules' );
 
 /**
  * Fix pagination on custom post type archives
  */
 function mia_fix_pagination( $query ) {
-	if ( ! is_admin() && $query->is_main_query() ) {
-		if ( is_post_type_archive( array( 'special' ) ) ) {
-			if ( get_query_var( 'paged' ) ) {
+	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( array( 'special' ) ) ) {
+		if ( get_query_var( 'paged' ) ) {
 				$query->set( 'paged', get_query_var( 'paged' ) );
-			} elseif ( get_query_var( 'page' ) ) {
-				$query->set( 'paged', get_query_var( 'page' ) );
-			}
+		} elseif ( get_query_var( 'page' ) ) {
+			$query->set( 'paged', get_query_var( 'page' ) );
 		}
 	}
 }
+
 add_action( 'pre_get_posts', 'mia_fix_pagination' );
 
 /**
@@ -399,7 +410,7 @@ function mia_get_non_surgical_by_category() {
 			'order'                  => 'ASC',
 			'fields'                 => 'ids',
 			'no_found_rows'          => true,
-			'update_post_meta_cache' => true, // Needed for ACF procedure_category field
+			'update_post_meta_cache' => true, // Needed for ACF procedure_category field.
 			'update_post_term_cache' => false,
 		)
 	);
@@ -422,7 +433,7 @@ function mia_get_non_surgical_by_category() {
 		foreach ( $all_procedures->posts as $post_id ) {
 			$categories = get_field( 'procedure_category', $post_id );
 
-			// Build post data array for caching
+			// Build post data array for caching.
 			$post_data = array(
 				'ID'         => $post_id,
 				'post_title' => get_the_title( $post_id ),
@@ -449,7 +460,7 @@ function mia_get_non_surgical_by_category() {
 		'counts'  => $counts,
 	);
 
-	// Cache for 6 hours (procedures don't change frequently)
+	// Cache for 6 hours (procedures don't change frequently).
 	set_transient( $cache_key, $cached_results, 6 * HOUR_IN_SECONDS );
 
 	return $cached_results;
@@ -461,16 +472,17 @@ function mia_get_non_surgical_by_category() {
 function mia_clear_query_caches( $post_id ) {
 	$post_type = get_post_type( $post_id );
 
-	// Clear non-surgical grouping cache
+	// Clear non-surgical grouping cache.
 	if ( $post_type === 'non-surgical' ) {
 		delete_transient( 'mia_non_surgical_grouped' );
 	}
 
-	// Clear search exclusion cache if a page is updated
+	// Clear search exclusion cache if a page is updated.
 	if ( $post_type === 'page' ) {
 		delete_transient( 'mia_excluded_search_pages' );
 	}
 }
+
 add_action( 'save_post', 'mia_clear_query_caches' );
 add_action( 'delete_post', 'mia_clear_query_caches' );
 add_action( 'trash_post', 'mia_clear_query_caches' );

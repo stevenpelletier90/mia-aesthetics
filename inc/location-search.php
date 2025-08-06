@@ -8,7 +8,7 @@
  * @package Mia_Aesthetics
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -43,12 +43,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 wp_enqueue_style( 'mia-location-search' );
 wp_enqueue_script( 'mia-location-search' );
 
-// Load Google Maps API - make sure it loads after our JS
+// Load Google Maps API - make sure it loads after our JS.
 if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
 	wp_register_script(
 		'google-maps',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4&libraries=places&callback=initGoogleMaps',
-		array( 'mia-location-search' ), // Depends on our location search script
+		array( 'mia-location-search' ), // Depends on our location search script.
 		null,
 		true
 	);

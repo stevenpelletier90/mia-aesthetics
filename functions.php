@@ -4,6 +4,8 @@
  *
  * Loads all core theme features and helper modules.
  * Each include is responsible for a specific area of theme functionality.
+ *
+ * @package Mia_Aesthetics
  */
 
 // Load helper modules (see inc/ for details).
@@ -61,6 +63,7 @@ function mia_aesthetics_allow_svg_uploads( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
+
 add_filter( 'upload_mimes', 'mia_aesthetics_allow_svg_uploads' );
 
 /**
@@ -77,14 +80,14 @@ add_filter( 'upload_mimes', 'mia_aesthetics_allow_svg_uploads' );
 function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 	unset( $meta );
-	if ( $response['type'] === 'image' && $response['subtype'] === 'svg+xml' && class_exists( 'SimpleXMLElement' ) ) {
+	if ( 'image' === $response['type'] && 'svg+xml' === $response['subtype'] && class_exists( 'SimpleXMLElement' ) ) {
 		$path = get_attached_file( $attachment->ID );
 		if ( file_exists( $path ) ) {
 			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
 			$svg = file_get_contents( $path );
-			if ( $svg !== false ) {
+			if ( false !== $svg ) {
 				$xml = simplexml_load_string( $svg );
-				if ( $xml !== false ) {
+				if ( false !== $xml ) {
 					$src    = $response['url'];
 					$width  = intval( $xml['width'] );
 					$height = intval( $xml['height'] );
@@ -99,15 +102,24 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 					}
 
 					// Fallback dimensions if still not found.
-					if ( ! $width ) {
+					if ( 0 === $width ) {
 						$width = 150;
 					}
-					if ( ! $height ) {
+
+					if ( 0 === $height ) {
 						$height = 150;
 					}
 
-					$response['image']              = compact( 'src', 'width', 'height' );
-					$response['thumb']              = compact( 'src', 'width', 'height' );
+					$response['image']              = array(
+						'src'    => $src,
+						'width'  => $width,
+						'height' => $height,
+					);
+					$response['thumb']              = array(
+						'src'    => $src,
+						'width'  => $width,
+						'height' => $height,
+					);
 					$response['sizes']['thumbnail'] = array(
 						'height'      => $height,
 						'width'       => $width,
@@ -118,8 +130,10 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 			}
 		}
 	}
+
 	return $response;
 }
+
 add_filter( 'wp_prepare_attachment_for_js', 'mia_aesthetics_fix_svg_display', 10, 3 );
 
 /**
@@ -141,11 +155,12 @@ function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {
 	}
 
 	$filetype = wp_check_filetype( $filename, $mimes );
-	if ( $filetype['ext'] === 'svg' ) {
+	if ( 'svg' === $filetype['ext'] ) {
 		$data['ext']  = 'svg';
 		$data['type'] = 'image/svg+xml';
 	}
 
 	return $data;
 }
+
 add_filter( 'wp_check_filetype_and_ext', 'mia_aesthetics_check_svg_filetype', 10, 4 );

@@ -37,7 +37,8 @@ get_header();
 	/*
 	-----------------------------------------------------------------
 	 * CASE GRID QUERY
-	 * ----------------------------------------------------------------*/
+	 * ----------------------------------------------------------------
+	 */
 	$term_ids = wp_get_post_terms( get_the_ID(), 'case-category', array( 'fields' => 'ids' ) );
 
 	if ( empty( $term_ids ) ) {
@@ -66,7 +67,7 @@ get_header();
 	}
 	?>
 
-	<?php if ( $case_query ) : ?>
+	<?php if ( $case_query instanceof \WP_Query ) : ?>
 		<section class="py-5">
 			<div class="container">
 				<?php if ( $case_query->have_posts() ) : ?>
@@ -76,7 +77,7 @@ get_header();
 							$case_query->the_post();
 							?>
 							<?php
-							// Get case information ACF fields
+							// Get case information ACF fields.
 							$case_info           = get_field( 'case_information' );
 							$surgeon             = $case_info['performed_by_surgeon'] ?? null;
 							$location            = $case_info['performed_at_location'] ?? null;

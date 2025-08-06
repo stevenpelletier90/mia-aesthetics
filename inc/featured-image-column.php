@@ -12,17 +12,17 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'admin_init', 'mia_featured_image_columns_init' );
 
 function mia_featured_image_columns_init() {
-
 	/*
 	---------------------------------------------------------------------
 	 * Register the column, render its cells, and make it sortable.
-	 * ------------------------------------------------------------------ */
+	 * ------------------------------------------------------------------
+	 */
 	foreach ( get_post_types( array( 'public' => true ) ) as $type ) {
 		if ( post_type_supports( $type, 'thumbnail' ) ) {
 
 			// 1. Add header.
 			add_filter(
-				"manage_{$type}_posts_columns",
+				sprintf( 'manage_%s_posts_columns', $type ),
 				static function ( $cols ) {
 					$label = sprintf(
 						'<span class="dashicons dashicons-format-image" aria-hidden="true"></span>
@@ -39,7 +39,7 @@ function mia_featured_image_columns_init() {
 
 			// 2. Render each cell.
 			add_action(
-				"manage_{$type}_posts_custom_column",
+				sprintf( 'manage_%s_posts_custom_column', $type ),
 				static function ( $column, $post_id ) {
 					if ( 'thumb' !== $column ) {
 						return;
@@ -71,7 +71,7 @@ function mia_featured_image_columns_init() {
 
 			// 3. Make sortable.
 			add_filter(
-				"manage_edit-{$type}_sortable_columns",
+				sprintf( 'manage_edit-%s_sortable_columns', $type ),
 				static fn( $cols ) => $cols + array( 'thumb' => 'has_thumb' )
 			);
 		}
@@ -84,6 +84,7 @@ function mia_featured_image_columns_init() {
 			if ( ! is_admin() || ! $q->is_main_query() ) {
 				return;
 			}
+
 			if ( 'has_thumb' === $q->get( 'orderby' ) ) {
 				$q->set( 'meta_key', '_thumbnail_id' );
 				$q->set( 'orderby', 'meta_value_num' );
@@ -96,7 +97,8 @@ function mia_featured_image_columns_init() {
 	---------------------------------------------------------------------
 	 * Custom bulk action: remove featured image.
 	 * (Setting a thumbnail from Media Library involves JS; omit here.)
-	 * ------------------------------------------------------------------ */
+	 * ------------------------------------------------------------------
+	 */
 	$screen_ids = array_map(
 		static fn( $pt ) => 'edit-' . $pt,
 		array_filter(
@@ -107,22 +109,25 @@ function mia_featured_image_columns_init() {
 
 	foreach ( $screen_ids as $screen ) {
 		add_filter(
-			"bulk_actions-{$screen}",
+			'bulk_actions-' . $screen,
 			static fn( $acts ) => $acts + array( 'remove_thumb' => __( 'Remove Featured Image', 'mia' ) )
 		);
 
 		add_filter(
-			"handle_bulk_actions-{$screen}",
+			'handle_bulk_actions-' . $screen,
 			static function ( $redirect, $action, $ids ) {
 				if ( 'remove_thumb' !== $action ) {
 					return $redirect;
 				}
+
 				if ( ! current_user_can( 'edit_posts' ) ) {
 					return $redirect;
 				}
+
 				foreach ( $ids as $id ) {
 					delete_post_thumbnail( $id );
 				}
+
 				return add_query_arg(
 					array( 'thumbs_removed' => count( $ids ) ),
 					$redirect
@@ -139,6 +144,7 @@ function mia_featured_image_columns_init() {
 			if ( empty( $_GET['thumbs_removed'] ) ) {
 				return;
 			}
+
 			$count = (int) $_GET['thumbs_removed'];
 			printf(
 				'<div class="notice notice-success is-dismissible"><p>%s</p></div>',
@@ -157,7 +163,8 @@ function mia_featured_image_columns_init() {
 	---------------------------------------------------------------------
 	 * A tiny dashicon‑inline style so we avoid an extra stylesheet request.
 	 * Only load on post list screens where the column appears.
-	 * ------------------------------------------------------------------ */
+	 * ------------------------------------------------------------------
+	 */
 	add_action(
 		'admin_enqueue_scripts',
 		static function ( $hook ) {

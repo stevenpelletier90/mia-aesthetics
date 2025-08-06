@@ -22,7 +22,15 @@
       "Bash(npm run lint:*)",
       "Bash(composer run phpcs:*)",
       "Bash(grep:*)",
-      "Bash(./vendor/bin/phpcs:*)"
+      "Bash(./vendor/bin/phpcs:*)",
+      "Bash(./vendor/bin/phpcbf:*)",
+      "Bash(--standard=WordPress --report=full)",
+      "Bash(composer install:*)",
+      "Bash(composer update:*)",
+      "Bash(composer show:*)",
+      "Bash(npm show:*)",
+      "Bash(npm install)",
+      "Bash(npx eslint:*)"
     ],
     "deny": []
   },

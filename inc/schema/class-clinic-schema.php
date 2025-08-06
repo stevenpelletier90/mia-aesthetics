@@ -49,7 +49,7 @@ class Clinic_Schema {
 
 		$schema_data = array();
 
-		// Main clinic schema
+		// Main clinic schema.
 		$clinic = array(
 			'@type'            => array( 'MedicalBusiness', 'MedicalClinic' ),
 			'@id'              => get_permalink( $loc_id ) . '#clinic',
@@ -61,50 +61,50 @@ class Clinic_Schema {
 			'paymentAccepted'  => array( 'Cash', 'Credit Card', 'Affirm', 'United Medical Credit', 'Alphaeon Credit' ),
 		);
 
-		// Description
+		// Description.
 		$clinic['description'] = $this->get_description( $loc_id );
 
-		// Image
+		// Image.
 		$image_url = $this->get_image( $loc_id );
 		if ( $image_url ) {
 			$clinic['image'] = $image_url;
 		}
 
-		// Contact information
+		// Contact information.
 		if ( $tel = get_field( 'phone_number', $loc_id ) ) {
 			$clinic['telephone'] = $tel;
 		}
 
-		// Address
+		// Address.
 		$address = $this->get_address( $loc_id );
 		if ( $address ) {
 			$clinic['address'] = $address;
 		}
 
-		// Geo coordinates
+		// Geo coordinates.
 		$geo = $this->get_geo_coordinates( $loc_id );
 		if ( $geo ) {
 			$clinic['geo'] = $geo;
 		}
 
-		// Google Maps link
+		// Google Maps link.
 		if ( $maps_url = get_field( 'location_maps_link', $loc_id ) ) {
 			$clinic['hasMap'] = $maps_url;
 		}
 
-		// Opening hours
+		// Opening hours.
 		$clinic['openingHoursSpecification'] = $this->get_opening_hours( $loc_id );
 
-		// Available services
+		// Available services.
 		$clinic['availableService'] = $this->get_available_services();
 
-		// Aggregate rating
+		// Aggregate rating.
 		$rating = $this->get_rating( $loc_id );
 		if ( $rating ) {
 			$clinic['aggregateRating'] = $rating;
 		}
 
-		// Employees (surgeons)
+		// Employees (surgeons).
 		$employees = $this->get_employees( $loc_id );
 		if ( ! empty( $employees ) ) {
 			$clinic['employee'] = $employees;
@@ -112,7 +112,7 @@ class Clinic_Schema {
 
 		$schema_data[] = $clinic;
 
-		// Add separate VideoObject schema if video exists
+		// Add separate VideoObject schema if video exists.
 		$video = $this->get_featured_video( $loc_id );
 		if ( $video ) {
 			$schema_data[] = $video;
@@ -142,7 +142,7 @@ class Clinic_Schema {
 	 * @return string|null
 	 */
 	private function get_image( $loc_id ) {
-		// Prioritize featured image first for business listings
+		// Prioritize featured image first for business listings.
 		if ( has_post_thumbnail( $loc_id ) ) {
 			$featured_image = get_the_post_thumbnail_url( $loc_id, 'full' );
 			if ( $featured_image ) {
@@ -150,23 +150,24 @@ class Clinic_Schema {
 			}
 		}
 
-		// Fall back to video thumbnail from video_details group
+		// Fall back to video thumbnail from video_details group.
 		$video_details = get_field( 'video_details', $loc_id );
 		if ( $video_details ) {
-			// Use custom thumbnail if available
+			// Use custom thumbnail if available.
 			if ( ! empty( $video_details['video_thumbnail'] ) ) {
 				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 				if ( $custom_thumbnail ) {
 					return $custom_thumbnail;
 				}
 			}
-			// Fall back to YouTube thumbnail if video_id exists
+
+			// Fall back to YouTube thumbnail if video_id exists.
 			if ( ! empty( $video_details['video_id'] ) ) {
-				return "https://img.youtube.com/vi/{$video_details['video_id']}/maxresdefault.jpg";
+				return sprintf('https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id']);
 			}
 		}
 
-		// Default logo as last resort
+		// Default logo as last resort.
 		return get_template_directory_uri() . '/assets/images/mia-logo.png';
 	}
 
@@ -183,31 +184,29 @@ class Clinic_Schema {
 			return null;
 		}
 
-		// Build street address from components
+		// Build street address from components.
 		$street_number = $location_map['street_number'] ?? '';
 		$street_name   = $location_map['street_name'] ?? '';
 		$street        = trim( $street_number . ' ' . $street_name );
 
 		$city  = $location_map['city'] ?? '';
-		$state = $location_map['state'] ?? $location_map['state_short'] ?? ''; // Try full state name first, then abbreviation
+		$state = $location_map['state'] ?? $location_map['state_short'] ?? ''; // Try full state name first, then abbreviation.
 		$zip   = $location_map['post_code'] ?? '';
 
-		// Special handling for locations where Google Maps doesn't populate city correctly
-		if ( empty( $city ) && ! empty( $state ) ) {
-			// For Brooklyn/NYC addresses, Google sometimes doesn't populate city
-			if ( ( $state === 'NY' || $state === 'New York' ) && strpos( strtolower( $street ), 'atlantic' ) !== false ) {
-				$city = 'Brooklyn';
-			}
+		// Special handling for locations where Google Maps doesn't populate city correctly.
+        // For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
+        if ( empty( $city ) && !empty( $state ) && (($state === 'NY' || $state === 'New York') && stripos( $street, 'atlantic' ) !== false) ) {
+			$city = 'Brooklyn';
 		}
 
-		// Only create address if we have the minimum required fields
+		// Only create address if we have the minimum required fields.
 		if ( $street && $city && $state ) {
 			return array(
 				'@type'           => 'PostalAddress',
 				'streetAddress'   => $street,
 				'addressLocality' => $city,
 				'addressRegion'   => $state,
-				'postalCode'      => $zip ?: '', // Include zip if available
+				'postalCode'      => $zip ?: '', // Include zip if available.
 				'addressCountry'  => 'US',
 			);
 		}
@@ -245,7 +244,7 @@ class Clinic_Schema {
 		$business_hours = get_field( 'business_hours', $loc_id );
 
 		if ( empty( $business_hours ) ) {
-			// Fallback to default hours
+			// Fallback to default hours.
 			return array(
 				array(
 					'@type'     => 'OpeningHoursSpecification',
@@ -266,20 +265,20 @@ class Clinic_Schema {
 				continue;
 			}
 
-			// Parse hours - handle various formats like "9:00 AM - 5:00 PM" or "09:00-17:00"
+			// Parse hours - handle various formats like "9:00 AM - 5:00 PM" or "09:00-17:00".
 			$parsed_times = $this->parse_hours_string( $hours );
 
 			if ( $parsed_times ) {
 				$opening_hours[] = array(
 					'@type'     => 'OpeningHoursSpecification',
-					'dayOfWeek' => ucfirst( strtolower( $day ) ), // Ensure proper capitalization
+					'dayOfWeek' => ucfirst( strtolower( $day ) ), // Ensure proper capitalization.
 					'opens'     => (string) $parsed_times['opens'],
 					'closes'    => (string) $parsed_times['closes'],
 				);
 			}
 		}
 
-		return empty( $opening_hours ) ? $this->get_default_hours() : $opening_hours;
+		return $opening_hours === [] ? $this->get_default_hours() : $opening_hours;
 	}
 
 	/**
@@ -289,7 +288,7 @@ class Clinic_Schema {
 	 * @return array|null
 	 */
 	private function parse_hours_string( $hours_string ) {
-		// Handle "Closed" case
+		// Handle "Closed" case.
 		if ( stripos( $hours_string, 'closed' ) !== false ) {
 			return null;
 		}
@@ -321,9 +320,9 @@ class Clinic_Schema {
 		$opens  = '';
 		$closes = '';
 
-		// Handle different match patterns
+		// Handle different match patterns.
 		if ( count( $matches ) >= 7 && isset( $matches[2] ) && isset( $matches[5] ) ) {
-			// Pattern: "9:00 AM - 5:00 PM" (has minutes)
+			// Pattern: "9:00 AM - 5:00 PM" (has minutes).
 			$open_hour   = intval( $matches[1] );
 			$open_min    = $matches[2];
 			$open_period = strtoupper( $matches[3] ?? '' );
@@ -332,16 +331,19 @@ class Clinic_Schema {
 			$close_min    = $matches[5];
 			$close_period = strtoupper( $matches[6] ?? '' );
 
-			// Convert to 24-hour
+			// Convert to 24-hour.
 			if ( $open_period === 'PM' && $open_hour !== 12 ) {
 				$open_hour += 12;
 			}
+
 			if ( $open_period === 'AM' && $open_hour === 12 ) {
 				$open_hour = 0;
 			}
+
 			if ( $close_period === 'PM' && $close_hour !== 12 ) {
 				$close_hour += 12;
 			}
+
 			if ( $close_period === 'AM' && $close_hour === 12 ) {
 				$close_hour = 0;
 			}
@@ -350,27 +352,30 @@ class Clinic_Schema {
 			$closes = sprintf( '%02d:%s', $close_hour, $close_min );
 
 		} elseif ( count( $matches ) >= 5 && isset( $matches[2] ) && isset( $matches[4] ) && is_numeric( $matches[2] ) ) {
-			// Pattern: "09:00-17:00" (24-hour format with minutes)
+			// Pattern: "09:00-17:00" (24-hour format with minutes).
 			$opens  = sprintf( '%02d:%s', intval( $matches[1] ), $matches[2] );
 			$closes = sprintf( '%02d:%s', intval( $matches[3] ), $matches[4] );
 
 		} elseif ( count( $matches ) >= 5 && isset( $matches[2] ) && isset( $matches[4] ) ) {
-			// Pattern: "9AM-5PM" (hour only with AM/PM)
+			// Pattern: "9AM-5PM" (hour only with AM/PM).
 			$open_hour    = intval( $matches[1] );
 			$open_period  = strtoupper( $matches[2] );
 			$close_hour   = intval( $matches[3] );
 			$close_period = strtoupper( $matches[4] );
 
-			// Convert to 24-hour
+			// Convert to 24-hour.
 			if ( $open_period === 'PM' && $open_hour !== 12 ) {
 				$open_hour += 12;
 			}
+
 			if ( $open_period === 'AM' && $open_hour === 12 ) {
 				$open_hour = 0;
 			}
+
 			if ( $close_period === 'PM' && $close_hour !== 12 ) {
 				$close_hour += 12;
 			}
+
 			if ( $close_period === 'AM' && $close_hour === 12 ) {
 				$close_hour = 0;
 			}
@@ -379,7 +384,7 @@ class Clinic_Schema {
 			$closes = sprintf( '%02d:00', $close_hour );
 
 		} elseif ( count( $matches ) >= 3 ) {
-			// Pattern: "9-17" (24-hour format, hour only)
+			// Pattern: "9-17" (24-hour format, hour only).
 			$opens  = sprintf( '%02d:00', intval( $matches[1] ) );
 			$closes = sprintf( '%02d:00', intval( $matches[2] ) );
 		}
@@ -495,15 +500,15 @@ class Clinic_Schema {
 		}
 
 		$video_id          = $video_details['video_id'];
-		$video_title       = ! empty( $video_details['video_title'] ) ? $video_details['video_title'] : get_the_title() . ' - Featured Video';
-		$video_description = ! empty( $video_details['video_description'] ) ? $video_details['video_description'] : 'Learn more about Mia Aesthetics ' . get_the_title() . ' location';
+		$video_title       = empty( $video_details['video_title'] ) ? get_the_title() . ' - Featured Video' : $video_details['video_title'];
+		$video_description = empty( $video_details['video_description'] ) ? 'Learn more about Mia Aesthetics ' . get_the_title() . ' location' : $video_details['video_description'];
 
-		// Generate YouTube URLs from video ID
-		$watch_url = "https://www.youtube.com/watch?v={$video_id}";
-		$embed_url = "https://www.youtube.com/embed/{$video_id}";
+		// Generate YouTube URLs from video ID.
+		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
+		$embed_url = 'https://www.youtube.com/embed/' . $video_id;
 
-		// Use custom thumbnail if available, otherwise use YouTube thumbnail
-		$thumbnail_url = "https://img.youtube.com/vi/{$video_id}/maxresdefault.jpg";
+		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
+		$thumbnail_url = sprintf('https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id);
 		if ( ! empty( $video_details['video_thumbnail'] ) ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 			if ( $custom_thumbnail ) {
@@ -519,7 +524,7 @@ class Clinic_Schema {
 			'url'          => $watch_url,
 			'embedUrl'     => $embed_url,
 			'thumbnailUrl' => $thumbnail_url,
-			'uploadDate'   => get_the_date( 'c', $loc_id ), // Use location post date as fallback
+			'uploadDate'   => get_the_date( 'c', $loc_id ), // Use location post date as fallback.
 			'publisher'    => array(
 				'@type' => 'Organization',
 				'name'  => 'Mia Aesthetics',

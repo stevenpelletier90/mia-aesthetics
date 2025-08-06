@@ -27,9 +27,14 @@ get_header(); ?>
 							<img src="<?php echo esc_url( $banner_image['url'] ); ?>" 
 								srcset="<?php echo esc_attr( $banner_image['sizes']['medium'] ); ?> 300w,
 										<?php echo esc_attr( $banner_image['sizes']['large'] ); ?> 1024w,
-										<?php echo esc_url( $banner_image['url'] ); ?> <?php echo esc_attr( $banner_image['width'] ); ?>w"
+										<?php echo esc_url( $banner_image['url'] ); ?> 
+										<?php echo esc_attr( $banner_image['width'] ); ?>w"
 								sizes="(max-width: 576px) 100vw, (max-width: 992px) 90vw, 800px"
-								alt="<?php echo esc_attr( $banner_image['alt'] ? $banner_image['alt'] : get_the_title() ); ?>" 
+								alt="
+								<?php
+								echo esc_attr( $banner_image['alt'] ? $banner_image['alt'] : get_the_title() );
+								?>
+								" 
 								class="img-fluid w-100" 
 								loading="lazy">
 						</div>

@@ -60,7 +60,7 @@ get_header();
 				// Support for Gutenberg/Classic page breaks.
 				wp_link_pages(
 					array(
-						'before' => '<nav class="page-links" aria-label="' . 
+						'before' => '<nav class="page-links" aria-label="' .
 							esc_attr__( 'Page', 'mia-aesthetics' ) . '">',
 						'after'  => '</nav>',
 					)

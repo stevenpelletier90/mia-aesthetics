@@ -41,7 +41,7 @@ $hero_id = get_post_thumbnail_id( $post );
 					<div class="col-12 col-lg-7 mb-4 mb-lg-0 text-center text-lg-start">
 <h1 id="page-title-<?php echo get_the_ID(); ?>"><?php the_title(); ?></h1>
 						<?php
-						// Try both price fields for flexibility
+						// Try both price fields for flexibility.
 						$procedure_price = get_field( 'procedure_price' ) ?: get_field( 'non_surgical_price' );
 						if ( $procedure_price ) :
 							?>
@@ -110,7 +110,7 @@ $hero_id = get_post_thumbnail_id( $post );
 								<?php
 								$results_page = get_field( 'results_page' );
 								if ( $results_page ) :
-									// Handle different ACF Page Link return formats
+									// Handle different ACF Page Link return formats.
 									if ( is_array( $results_page ) ) {
 										$page_id  = $results_page['ID'];
 										$page_url = $results_page['url'];
@@ -121,13 +121,13 @@ $hero_id = get_post_thumbnail_id( $post );
 										$page_id  = $results_page;
 										$page_url = get_permalink( $page_id );
 									} else {
-										// Assume it's already a URL
+										// Assume it's already a URL.
 										$page_id  = null;
 										$page_url = $results_page;
 									}
 
-									// Only show if it's not the current page
-									if ( $page_id != get_the_ID() && ! empty( $page_url ) ) :
+									// Only show if it's not the current page.
+									if ( $page_id !== get_the_ID() && ! empty( $page_url ) ) :
 										?>
 										<a href="<?php echo esc_url( $page_url ); ?>" class="mia-button" data-variant="gold">
 											View More Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>

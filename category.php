@@ -1,4 +1,10 @@
 <?php
+/**
+ * Category Archive Template
+ *
+ * @package Mia_Aesthetics
+ */
+
 get_header();
 ?>
 

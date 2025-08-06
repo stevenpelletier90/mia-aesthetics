@@ -29,24 +29,22 @@ if ( $location_map ) {
 	$state  = $location_map['state_short'] ?? '';
 	$zip    = $location_map['post_code'] ?? '';
 
-	// Special handling for locations where Google Maps doesn't populate city correctly
-	// Check if city is empty but we have other address components
-	if ( empty( $city ) && ! empty( $state ) ) {
-		// For Brooklyn/NYC addresses, Google sometimes doesn't populate city
-		if ( $state === 'NY' && strpos( strtolower( $street ), 'atlantic' ) !== false ) {
-			$city = 'Brooklyn';
-		}
+	// Special handling for locations where Google Maps doesn't populate city correctly.
+	// Check if city is empty but we have other address components.
+	// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
+	if ( empty( $city ) && ! empty( $state ) && ( $state === 'NY' && stripos( $street, 'atlantic' ) !== false ) ) {
+		$city = 'Brooklyn';
 	}
 	?>
-							<?php if ( ! empty( trim( $street ) ) || ! empty( $city ) || ! empty( $state ) || ! empty( $zip ) ) : ?>
+							<?php if ( ! in_array( trim( $street ), array( '', '0' ), true ) || ! empty( $city ) || ! empty( $state ) || ! empty( $zip ) ) : ?>
 							<div class="location-detail mb-4">
 								<div class="d-flex flex-column">
-									<?php if ( ! empty( trim( $street ) ) ) : ?>
+									<?php if ( ! in_array( trim( $street ), array( '', '0' ), true ) ) : ?>
 										<span><?php echo esc_html( trim( $street ) ); ?></span>
 									<?php endif; ?>
 									<?php
 									$address_line2 = trim( $city . ', ' . $state . ' ' . $zip, ', ' );
-									if ( ! empty( $address_line2 ) ) :
+									if ( $address_line2 !== '' && $address_line2 !== '0' ) :
 										?>
 										<span><?php echo esc_html( $address_line2 ); ?></span>
 									<?php endif; ?>
@@ -68,7 +66,7 @@ if ( $location_map ) {
 						<?php endif; ?>
 
 						<?php
-						// Grouped hours of operation (short format)
+						// Grouped hours of operation (short format).
 						$short_days = array(
 							'Monday'    => 'Mon',
 							'Tuesday'   => 'Tue',
@@ -104,7 +102,7 @@ if ( $location_map ) {
 							) {
 								++$i;
 							}
-							if ( $start == $i ) {
+							if ( $start === $i ) {
 								$label = $short_days[ $hours_rows[ $start ]['day'] ];
 							} else {
 								$label = $short_days[ $hours_rows[ $start ]['day'] ] . '–' . $short_days[ $hours_rows[ $i ]['day'] ];
@@ -112,7 +110,7 @@ if ( $location_map ) {
 							$output[] = $label . ' ' . $current_hours;
 							++$i;
 						}
-						if ( ! empty( $output ) ) :
+						if ( $output !== array() ) :
 							?>
 							<div class="location-detail mb-2">
 								<div class="d-flex align-items-center">
@@ -135,12 +133,12 @@ if ( $location_map ) {
 
 				<div class="col-lg-6 ps-lg-5">
 					<?php
-					// Get video details from ACF
+					// Get video details from ACF.
 					$video_info    = mia_get_video_field();
 					$video_id      = $video_info['video_id'] ?? '';
 					$thumbnail_url = $video_info['thumbnail'] ?? '';
 
-					// Build YouTube embed URL from ID
+					// Build YouTube embed URL from ID.
 					$embed_url = '';
 					if ( $video_id ) {
 						$embed_url = 'https://www.youtube.com/embed/' . $video_id;

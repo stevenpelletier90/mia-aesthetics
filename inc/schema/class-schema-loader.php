@@ -19,13 +19,13 @@ class Schema_Loader {
 	 * Initialize the schema system
 	 */
 	public static function init() {
-		// Load schema classes
+		// Load schema classes.
 		self::load_dependencies();
 
-		// Initialize organization schema enhancements
+		// Initialize organization schema enhancements.
 		Organization_Schema::init();
 
-		// Register custom schema pieces with Yoast
+		// Register custom schema pieces with Yoast.
 		add_filter( 'wpseo_schema_graph_pieces', array( __CLASS__, 'register_schema_pieces' ), 11, 2 );
 	}
 
@@ -57,7 +57,7 @@ class Schema_Loader {
 			$pieces[] = new Clinic_Schema( $context );
 		}
 
-		// FAQ Schema can be added to any page type
+		// FAQ Schema can be added to any page type.
 		$faq_schema = new FAQ_Schema( $context );
 		if ( $faq_schema->is_needed() ) {
 			$pieces[] = $faq_schema;

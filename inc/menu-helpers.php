@@ -24,7 +24,7 @@ function mia_get_all_menu_data() {
 	$all_data  = get_transient( $cache_key );
 
 	if ( false === $all_data ) {
-		// Single query for all menu post types
+		// Single query for all menu post types.
 		$args = array(
 			'post_type'              => array( 'location', 'surgeon', 'non-surgical' ),
 			'posts_per_page'         => -1,
@@ -32,13 +32,13 @@ function mia_get_all_menu_data() {
 			'order'                  => 'ASC',
 			'fields'                 => 'ids',
 			'no_found_rows'          => true,
-			'update_post_meta_cache' => true, // Only for locations that need ACF state field
+			'update_post_meta_cache' => true, // Only for locations that need ACF state field.
 			'update_post_term_cache' => false,
 			'meta_query'             => array(
 				'relation' => 'OR',
 				array(
 					'key'     => 'post_type',
-					'compare' => 'NOT EXISTS', // Default case
+					'compare' => 'NOT EXISTS', // Default case.
 				),
 				array(
 					'key'     => 'post_parent',
@@ -62,7 +62,7 @@ function mia_get_all_menu_data() {
 
 				switch ( $post_type ) {
 					case 'location':
-						// Only include parent locations (post_parent = 0)
+						// Only include parent locations (post_parent = 0).
 						if ( wp_get_post_parent_id( $post_id ) === 0 ) {
 							$all_data['locations'][] = array(
 								'id'    => $post_id,
@@ -96,8 +96,8 @@ function mia_get_all_menu_data() {
 				}
 			}
 
-			// Sort surgeons by last name
-			if ( ! empty( $all_data['surgeons'] ) ) {
+			// Sort surgeons by last name.
+			if ( isset( $all_data['surgeons'] ) && $all_data['surgeons'] !== array() ) {
 				usort(
 					$all_data['surgeons'],
 					function ( $a, $b ) {
@@ -165,7 +165,7 @@ function mia_get_footer_locations() {
 	$locations_data = get_transient( $cache_key );
 
 	if ( false === $locations_data ) {
-		// Step 1: Get all locations
+		// Step 1: Get all locations.
 		$locations_query = new WP_Query(
 			array(
 				'post_type'              => 'location',
@@ -186,7 +186,7 @@ function mia_get_footer_locations() {
 
 		$location_ids = $locations_query->posts;
 
-		// Step 2: Get ALL surgeons for ALL locations in one query (prevents N+1)
+		// Step 2: Get ALL surgeons for ALL locations in one query (prevents N+1).
 		$all_surgeons_query = new WP_Query(
 			array(
 				'post_type'              => 'surgeon',
@@ -200,12 +200,12 @@ function mia_get_footer_locations() {
 				),
 				'fields'                 => 'ids',
 				'no_found_rows'          => true,
-				'update_post_meta_cache' => true, // Need meta for surgeon_location field
+				'update_post_meta_cache' => true, // Need meta for surgeon_location field.
 				'update_post_term_cache' => false,
 			)
 		);
 
-		// Step 3: Group surgeons by location
+		// Step 3: Group surgeons by location.
 		$surgeons_by_location = array();
 		if ( ! empty( $all_surgeons_query->posts ) ) {
 			foreach ( $all_surgeons_query->posts as $surgeon_id ) {
@@ -223,7 +223,7 @@ function mia_get_footer_locations() {
 			}
 		}
 
-		// Step 4: Build final locations data structure
+		// Step 4: Build final locations data structure.
 		$locations_data = array();
 		foreach ( $location_ids as $location_id ) {
 			$locations_data[] = array(
@@ -234,7 +234,7 @@ function mia_get_footer_locations() {
 			);
 		}
 
-		// Cache for 6 hours (locations and surgeons don't change frequently)
+		// Cache for 6 hours (locations and surgeons don't change frequently).
 		set_transient( $cache_key, $locations_data, 6 * HOUR_IN_SECONDS );
 	}
 
@@ -288,7 +288,7 @@ function render_desktop_procedures_menu( $procedures ) {
 				</div>
 			</div>
 			<div class="row">
-				<?php foreach ( $procedures['sections'] as $section_key => $section ) : ?>
+				<?php foreach ( $procedures['sections'] as $section ) : ?>
 					<div class="col-md-3 mb-3">
 						<div class="dropdown-header">
 							<a href="<?php echo esc_url( $section['url'] ); ?>" class="text-dark fw-bold text-decoration-none"><?php echo esc_html( $section['title'] ); ?></a>
@@ -380,7 +380,7 @@ function render_desktop_locations_menu( $locations ) {
 					echo '<div class="col-md-3 mb-3"><ul class="list-unstyled">';
 					foreach ( $locations as $location ) :
 						$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-						$abbr         = mia_get_state_abbr( $location['state'] );
+						$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
 						$menu_label   = $location['state'] ? $display_city . ', ' . $abbr : $display_city;
 
 						echo '<li><a class="dropdown-item py-1" href="' . esc_url( $location['url'] ) . '">' . esc_html( $menu_label ) . '</a></li>';
@@ -418,7 +418,7 @@ function render_mobile_locations_menu( $locations ) {
 		if ( ! empty( $locations ) ) :
 			foreach ( $locations as $location ) :
 				$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-				$abbr         = mia_get_state_abbr( $location['state'] );
+				$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
 				$menu_label   = $location['state'] ? $display_city . ', ' . $abbr : $display_city;
 				?>
 				<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>

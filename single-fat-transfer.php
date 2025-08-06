@@ -28,31 +28,31 @@ get_header(); ?>
 				<div class="row">
 					<div class="col-lg-8">
 						<?php
-						// Check if overview_details has actual content to display
+						// Check if overview_details has actual content to display.
 						$has_overview_content = false;
 						$overview_items       = get_field( 'overview_details' );
 						if ( $overview_items ) :
 							foreach ( $overview_items as $item ) :
-								if ( ! empty( trim( $item['overview_item'] ) ) ) :
+								if ( ! in_array( trim( $item['overview_item'] ), array( '', '0' ), true ) ) :
 									$has_overview_content = true;
 									break;
 								endif;
 							endforeach;
 						endif;
 
-						// Only display overview section if there's actual content
+						// Only display overview section if there's actual content.
 						if ( $has_overview_content ) :
 							?>
 							<div class="overview-section mb-4">
 								<h2 id="overview">Overview</h2>
 <div class="overview-content">
 							<?php
-							// Loop through the repeater field rows
+							// Loop through the repeater field rows.
 							while ( have_rows( 'overview_details' ) ) :
 								the_row();
-								// Get the overview_item text area value
+								// Get the overview_item text area value.
 								$overview_item = get_sub_field( 'overview_item' );
-								if ( ! empty( trim( $overview_item ) ) ) :
+								if ( ! in_array( trim( $overview_item ), array( '', '0' ), true ) ) :
 									?>
 			<div class="overview-item">
 				<i class="fa-solid fa-check-circle overview-check" aria-hidden="true"></i>
@@ -76,7 +76,7 @@ get_header(); ?>
 							<?php the_content(); ?>
 						</div>
 						<?php
-						// Using display_page_faqs(true) to show heading from custom field
+						// Using display_page_faqs(true) to show heading from custom field.
 						echo display_page_faqs( true );
 						?>
 					</div>

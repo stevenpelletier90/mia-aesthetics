@@ -2,6 +2,8 @@
 /**
  * Template Name: Blank Canvas
  * Template Post Type: post, page, procedure, non-surgical, fat-transfer
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>

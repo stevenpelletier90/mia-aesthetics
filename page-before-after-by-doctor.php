@@ -69,7 +69,7 @@ get_header();
 $gallery_json_path = get_template_directory() . '/assets/data/before-after-gallery.json';
 $gallery_data      = array();
 
-// Debug gallery data loading
+// Debug gallery data loading.
 error_log( '=== Gallery Data Loading Debug ===' );
 error_log( 'Gallery JSON path: ' . $gallery_json_path );
 error_log( 'File exists: ' . ( file_exists( $gallery_json_path ) ? 'Yes' : 'No' ) );
@@ -81,8 +81,8 @@ if ( file_exists( $gallery_json_path ) ) {
 	error_log( 'JSON decode successful: ' . ( $gallery_data !== null ? 'Yes' : 'No' ) );
 	if ( $gallery_data !== null ) {
 		error_log( 'Number of doctors in data: ' . count( $gallery_data ) );
-		foreach ( $gallery_data as $doctor_slug => $doctor ) {
-			error_log( "Doctor {$doctor['name']} has " . count( $doctor['procedures'] ) . ' procedures' );
+		foreach ( $gallery_data as $doctor ) {
+			error_log( sprintf( 'Doctor %s has ', $doctor['name'] ) . count( $doctor['procedures'] ) . ' procedures' );
 		}
 	} else {
 		error_log( 'JSON decode error: ' . json_last_error_msg() );

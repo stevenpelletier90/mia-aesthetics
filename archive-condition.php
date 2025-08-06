@@ -2,6 +2,8 @@
 /**
  * Conditions Archive Template
  * Displays conditions in a hierarchical structure with parents and children
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>
@@ -25,8 +27,8 @@ get_header(); ?>
 	<section class="py-5">
 		<div class="container">
 			<?php
-			// Get all parent conditions (no parent)
-			$parent_conditions = new WP_Query(
+			// Get all parent conditions (no parent).
+			$mia_aesthetics_parent_conditions = new WP_Query(
 				array(
 					'post_type'      => 'condition',
 					'post_parent'    => 0,
@@ -36,26 +38,26 @@ get_header(); ?>
 				)
 			);
 
-			if ( $parent_conditions->have_posts() ) :
+			if ( $mia_aesthetics_parent_conditions->have_posts() ) :
 				?>
 				<div class="conditions-grid">
 					<?php
-					while ( $parent_conditions->have_posts() ) :
-						$parent_conditions->the_post();
-						$parent_id = get_the_ID();
+					while ( $mia_aesthetics_parent_conditions->have_posts() ) :
+						$mia_aesthetics_parent_conditions->the_post();
+						$mia_aesthetics_parent_id = get_the_ID();
 
-						// Get child conditions for this parent
-						$child_conditions = new WP_Query(
+						// Get child conditions for this parent.
+						$mia_aesthetics_child_conditions = new WP_Query(
 							array(
 								'post_type'      => 'condition',
-								'post_parent'    => $parent_id,
+								'post_parent'    => $mia_aesthetics_parent_id,
 								'posts_per_page' => -1,
 								'orderby'        => 'title',
 								'order'          => 'ASC',
 							)
 						);
 
-						$has_children = $child_conditions->have_posts();
+						$mia_aesthetics_has_children = $mia_aesthetics_child_conditions->have_posts();
 						?>
 						<div class="condition-group mb-4">
 							<div class="condition-parent">
@@ -63,19 +65,20 @@ get_header(); ?>
 									<h2 class="condition-title mb-0">
 										<?php the_title(); ?>
 									</h2>
-									<a href="<?php the_permalink(); ?>" class="view-main-condition btn btn-sm btn-outline-primary">
+									<a href="<?php the_permalink(); ?>"
+										class="view-main-condition btn btn-sm btn-outline-primary">
 										<i class="fa-solid fa-external-link me-1"></i>
 										View Main Page
 									</a>
 								</div>
 							</div>
 							
-							<?php if ( $has_children ) : ?>
+							<?php if ( $mia_aesthetics_has_children ) : ?>
 								<div class="condition-children">
 									<div class="row g-2">
 										<?php
-										while ( $child_conditions->have_posts() ) :
-											$child_conditions->the_post();
+										while ( $mia_aesthetics_child_conditions->have_posts() ) :
+											$mia_aesthetics_child_conditions->the_post();
 											?>
 											<div class="col-lg-3 col-md-4 col-sm-6">
 												<div class="condition-item">

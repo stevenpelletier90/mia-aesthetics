@@ -1,3 +1,11 @@
+<?php
+/**
+ * Footer Template
+ *
+ * @package Mia_Aesthetics
+ */
+
+?>
 <!-- footer.php -->
 </div><!-- .site-content -->
 <footer class="site-footer">
@@ -82,7 +90,7 @@
 			<h2 class="footer-heading mb-3">Locations & Surgeons</h2>
 			<div class="accordion" id="locationsAccordion">
 				<?php
-				// Direct query for locations
+				// Direct query for locations.
 				$locations_query = new WP_Query(
 					array(
 						'post_type'      => 'location',
@@ -103,13 +111,13 @@
 						++$location_index;
 						?>
 				<div class="accordion-item">
-					<h2 class="accordion-header" id="location-heading-<?php echo $location_id; ?>">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo $location_id; ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo $location_id; ?>" aria-describedby="location-description-<?php echo $location_id; ?>">
+					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( $location_id ); ?>">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo esc_attr( $location_id ); ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo esc_attr( $location_id ); ?>" aria-describedby="location-description-<?php echo esc_attr( $location_id ); ?>">
 							<?php echo esc_html( $location_title ); ?>
 						</button>
 					</h2>
-					<div id="location-collapse-<?php echo $location_id; ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo $location_id; ?>">
-						<div class="accordion-body" id="location-description-<?php echo $location_id; ?>">
+					<div id="location-collapse-<?php echo esc_attr( $location_id ); ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo esc_attr( $location_id ); ?>">
+						<div class="accordion-body" id="location-description-<?php echo esc_attr( $location_id ); ?>">
 							<!-- Location Link -->
 							<div class="location-link mb-3">
 								<a href="<?php echo esc_url( $location_url ); ?>" class="surgeon-link">
@@ -119,7 +127,7 @@
 							</div>
 							
 							<?php
-							// Direct query for surgeons at this location
+							// Direct query for surgeons at this location.
 							$surgeons_query = new WP_Query(
 								array(
 									'post_type'      => 'surgeon',
@@ -181,7 +189,7 @@
 		<div class="container-fluid wide-container">
 			<!-- Copyright Section -->
 			<div class="text-center mb-4">
-				<p class="copyright mb-1">© <?php echo date( 'Y' ); ?> Mia Aesthetics. All rights reserved.</p>
+				<p class="copyright mb-1">© <?php echo esc_html( gmdate( 'Y' ) ); ?> Mia Aesthetics. All rights reserved.</p>
 				<p class="disclaimer">The pictures on this website consist of both models and actual patients.</p>
 			</div>
 			

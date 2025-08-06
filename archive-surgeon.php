@@ -2,6 +2,8 @@
 /**
  * Surgeons Archive Template
  * Custom template for displaying all surgeons in a more organized layout
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>
@@ -25,35 +27,34 @@ get_header(); ?>
 	<section class="py-5">
 		<div class="container">
 			<?php
-			// Default WordPress loop will handle the query for this archive
+			// Default WordPress loop will handle the query for this archive.
 			if ( have_posts() ) :
 				?>
-				<div class="row"> <?php // Bootstrap row for the grid ?>
+				<div class="row"> <?php // Bootstrap row for the grid. ?>
 					<?php
 					while ( have_posts() ) :
 						the_post();
-						// Get surgeon location if available
+						// Get surgeon location if available.
 						$location       = get_field( 'surgeon_location' );
 						$location_id    = '';
 						$location_title = '';
 						$location_class = '';
 
 						if ( $location ) {
-							// Handle Post Object return format
+							// Handle Post Object return format.
 							if ( is_object( $location ) ) {
 								$location_id    = $location->ID;
 								$location_title = $location->post_title;
 								$location_class = 'location-' . $location_id;
-							}
-							// Handle Post ID return format
-							elseif ( is_numeric( $location ) ) {
+							} elseif ( is_numeric( $location ) ) {
+								// Handle Post ID return format.
 								$location_id    = intval( $location );
 								$location_title = get_the_title( $location_id );
 								$location_class = 'location-' . $location_id;
 							}
 						}
 
-						// Get surgeon headshot ID
+						// Get surgeon headshot ID.
 						$headshot_id = get_field( 'surgeon_headshot' );
 						?>
 						<div class="col-sm-6 col-lg-4 mb-4 <?php echo esc_attr( $location_class ); ?>">
@@ -61,18 +62,18 @@ get_header(); ?>
 								<div class="card-body d-flex">
 									<div class="surgeon-img-container me-3">
 										<?php
-										// Display headshot if ID exists
+										// Display headshot if ID exists.
 										if ( $headshot_id && is_numeric( $headshot_id ) ) :
 											echo wp_get_attachment_image(
 												$headshot_id,
-												'thumbnail', // Use thumbnail size for circular image
+												'thumbnail', // Use thumbnail size for circular image.
 												false,
 												array(
-													'class' => 'surgeon-archive-headshot rounded-circle', // Add classes for styling
+													'class' => 'surgeon-archive-headshot rounded-circle', // Add classes for styling.
 													'alt' => get_the_title() . ' Headshot',
 												)
 											);
-											// Fallback to post thumbnail if headshot field is empty but thumbnail exists
+											// Fallback to post thumbnail if headshot field is empty but thumbnail exists.
 										elseif ( has_post_thumbnail() ) :
 											the_post_thumbnail( 'thumbnail', array( 'class' => 'surgeon-archive-headshot rounded-circle' ) );
 										endif;

@@ -106,7 +106,7 @@ function mia_admin_bar_view_source( $wp_admin_bar ) {
 		return;
 	}
 
-	// Get current URL and replace domain
+	// Get current URL and replace domain.
 	$current_url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
 	$source_url  = str_replace( $_SERVER['HTTP_HOST'], 'miaaesthetics.com', $current_url );
 

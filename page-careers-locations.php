@@ -27,9 +27,9 @@ get_header();
 					<div class="location-intro mb-4">
 						<p>Join our team at our 
 						<?php
-						$mia_location_title = get_the_title();
-						$mia_location_title = str_replace( 'Mia Aesthetics', '', $mia_location_title );
-						echo esc_html( trim( $mia_location_title ) );
+						$mia_aesthetics_location_title = get_the_title();
+						$mia_aesthetics_location_title = str_replace( 'Mia Aesthetics', '', $mia_aesthetics_location_title );
+						echo esc_html( trim( $mia_aesthetics_location_title ) );
 						?>
 						location. We're looking for passionate professionals to join our 
 						mission of transforming lives through exceptional aesthetic care.</p>
@@ -37,58 +37,56 @@ get_header();
 					<div class="location-info mb-4">
 <?php
 						// Get location data from linked main location.
-						$mia_linked_location = get_field( 'linked_main_location' );
-if ( $mia_linked_location ) {
+						$mia_aesthetics_linked_location = get_field( 'linked_main_location' );
+if ( $mia_aesthetics_linked_location ) {
 	// Use ACF fields from the linked location post.
-	$mia_location_map       = get_field( 'location_map', $mia_linked_location->ID );
-	$mia_phone_number       = get_field( 'phone_number', $mia_linked_location->ID );
-	$mia_location_maps_link = get_field( 'location_maps_link', $mia_linked_location->ID );
+	$mia_aesthetics_location_map       = get_field( 'location_map', $mia_aesthetics_linked_location->ID );
+	$mia_aesthetics_phone_number       = get_field( 'phone_number', $mia_aesthetics_linked_location->ID );
+	$mia_aesthetics_location_maps_link = get_field( 'location_maps_link', $mia_aesthetics_linked_location->ID );
 } else {
 	// Fallback to current page fields.
-	$mia_location_map       = get_field( 'location_map' );
-	$mia_phone_number       = get_field( 'phone_number' );
-	$mia_location_maps_link = get_field( 'location_maps_link' );
+	$mia_aesthetics_location_map       = get_field( 'location_map' );
+	$mia_aesthetics_phone_number       = get_field( 'phone_number' );
+	$mia_aesthetics_location_maps_link = get_field( 'location_maps_link' );
 }
 
-if ( $mia_location_map ) {
-	$mia_street = ( $mia_location_map['street_number'] ?? '' ) . ' ' . ( $mia_location_map['street_name'] ?? '' );
-	$mia_city   = $mia_location_map['city'] ?? '';
-	$mia_state  = $mia_location_map['state_short'] ?? '';
-	$mia_zip    = $mia_location_map['post_code'] ?? '';
+if ( $mia_aesthetics_location_map ) {
+	$mia_aesthetics_street = ( $mia_aesthetics_location_map['street_number'] ?? '' ) . ' ' . ( $mia_aesthetics_location_map['street_name'] ?? '' );
+	$mia_aesthetics_city   = $mia_aesthetics_location_map['city'] ?? '';
+	$mia_aesthetics_state  = $mia_aesthetics_location_map['state_short'] ?? '';
+	$mia_aesthetics_zip    = $mia_aesthetics_location_map['post_code'] ?? '';
 
-	// Special handling for locations where Google Maps doesn't populate city correctly
+	// Special handling for locations where Google Maps doesn't populate city correctly.
 	// Check if city is empty but we have other address components.
-	if ( empty( $mia_city ) && ! empty( $mia_state ) ) {
-		// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-		if ( $mia_state === 'NY' && strpos( strtolower( $mia_street ), 'atlantic' ) !== false ) {
-			$mia_city = 'Brooklyn';
-		}
+	// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
+	if ( empty( $mia_aesthetics_city ) && ! empty( $mia_aesthetics_state ) && ( $mia_aesthetics_state === 'NY' && stripos( $mia_aesthetics_street, 'atlantic' ) !== false ) ) {
+		$mia_aesthetics_city = 'Brooklyn';
 	}
 	?>
-							<?php if ( ! empty( trim( $mia_street ) ) || ! empty( $mia_city ) || ! empty( $mia_state ) || ! empty( $mia_zip ) ) : ?>
+							<?php if ( ! in_array( trim( $mia_aesthetics_street ), array( '', '0' ), true ) || ! empty( $mia_aesthetics_city ) || ! empty( $mia_aesthetics_state ) || ! empty( $mia_aesthetics_zip ) ) : ?>
 							<div class="location-detail mb-4">
 								<div class="d-flex flex-column">
-									<?php if ( ! empty( trim( $mia_street ) ) ) : ?>
-										<span><?php echo esc_html( trim( $mia_street ) ); ?></span>
+									<?php if ( ! in_array( trim( $mia_aesthetics_street ), array( '', '0' ), true ) ) : ?>
+										<span><?php echo esc_html( trim( $mia_aesthetics_street ) ); ?></span>
 									<?php endif; ?>
 									<?php
-									$mia_address_line2 = trim( $mia_city . ', ' . $mia_state . ' ' . $mia_zip, ', ' );
-									if ( ! empty( $mia_address_line2 ) ) :
+									$mia_aesthetics_address_line2 = trim( $mia_aesthetics_city . ', ' . $mia_aesthetics_state . ' ' . $mia_aesthetics_zip, ', ' );
+									if ( $mia_aesthetics_address_line2 !== '' && $mia_aesthetics_address_line2 !== '0' ) :
 										?>
-										<span><?php echo esc_html( $mia_address_line2 ); ?></span>
+										<span><?php echo esc_html( $mia_aesthetics_address_line2 ); ?></span>
 									<?php endif; ?>
 								</div>
 							</div>
 							<?php endif; ?>
 						<?php } ?>
 
-						<?php // $mia_phone_number already set above. ?>
-						<?php if ( $mia_phone_number ) : ?>
+						<?php // $mia_aesthetics_phone_number already set above. ?>
+						<?php if ( $mia_aesthetics_phone_number ) : ?>
 							<div class="location-detail mb-2">
 								<div class="d-flex align-items-center">
 									<i class="fas fa-phone location-icon" aria-hidden="true"></i>
-									<a href="tel:<?php echo esc_attr( $mia_phone_number ); ?>" class="location-phone">
-										<?php echo esc_html( $mia_phone_number ); ?>
+									<a href="tel:<?php echo esc_attr( $mia_aesthetics_phone_number ); ?>" class="location-phone">
+										<?php echo esc_html( $mia_aesthetics_phone_number ); ?>
 									</a>
 								</div>
 							</div>
@@ -96,7 +94,7 @@ if ( $mia_location_map ) {
 
 						<?php
 						// Grouped hours of operation (short format).
-						$mia_short_days = array(
+						$mia_aesthetics_short_days = array(
 							'Monday'    => 'Mon',
 							'Tuesday'   => 'Tue',
 							'Wednesday' => 'Wed',
@@ -105,48 +103,48 @@ if ( $mia_location_map ) {
 							'Saturday'  => 'Sat',
 							'Sunday'    => 'Sun',
 						);
-						$mia_hours_rows = array();
+						$mia_aesthetics_hours_rows = array();
 						// Use business hours from linked location if available.
-						$mia_hours_field_location = $mia_linked_location ? $mia_linked_location->ID : false;
-						if ( have_rows( 'business_hours', $mia_hours_field_location ) ) {
-							while ( have_rows( 'business_hours', $mia_hours_field_location ) ) :
+						$mia_aesthetics_hours_field_location = $mia_aesthetics_linked_location ? $mia_aesthetics_linked_location->ID : false;
+						if ( have_rows( 'business_hours', $mia_aesthetics_hours_field_location ) ) {
+							while ( have_rows( 'business_hours', $mia_aesthetics_hours_field_location ) ) :
 								the_row();
-								$mia_day   = get_sub_field( 'day' );
-								$mia_hours = get_sub_field( 'hours' );
-								if ( $mia_day && $mia_hours ) {
-									$mia_hours_rows[] = array(
-										'day'   => $mia_day,
-										'hours' => $mia_hours,
+								$mia_aesthetics_day   = get_sub_field( 'day' );
+								$mia_aesthetics_hours = get_sub_field( 'hours' );
+								if ( $mia_aesthetics_day && $mia_aesthetics_hours ) {
+									$mia_aesthetics_hours_rows[] = array(
+										'day'   => $mia_aesthetics_day,
+										'hours' => $mia_aesthetics_hours,
 									);
 								}
 							endwhile;
 						}
-						$mia_output = array();
-						$mia_n      = count( $mia_hours_rows );
-						$mia_i      = 0;
-						while ( $mia_i < $mia_n ) {
-							$mia_start         = $mia_i;
-							$mia_current_hours = $mia_hours_rows[ $mia_i ]['hours'];
+						$mia_aesthetics_output = array();
+						$mia_aesthetics_n      = count( $mia_aesthetics_hours_rows );
+						$mia_aesthetics_i      = 0;
+						while ( $mia_aesthetics_i < $mia_aesthetics_n ) {
+							$mia_aesthetics_start         = $mia_aesthetics_i;
+							$mia_aesthetics_current_hours = $mia_aesthetics_hours_rows[ $mia_aesthetics_i ]['hours'];
 							while (
-								$mia_i + 1 < $mia_n &&
-								$mia_hours_rows[ $mia_i + 1 ]['hours'] === $mia_current_hours
+								$mia_aesthetics_i + 1 < $mia_aesthetics_n &&
+								$mia_aesthetics_hours_rows[ $mia_aesthetics_i + 1 ]['hours'] === $mia_aesthetics_current_hours
 							) {
-								++$mia_i;
+								++$mia_aesthetics_i;
 							}
-							if ( $mia_start == $mia_i ) {
-								$mia_label = $mia_short_days[ $mia_hours_rows[ $mia_start ]['day'] ];
+							if ( $mia_aesthetics_start === $mia_aesthetics_i ) {
+								$mia_aesthetics_label = $mia_aesthetics_short_days[ $mia_aesthetics_hours_rows[ $mia_aesthetics_start ]['day'] ];
 							} else {
-								$mia_label = $mia_short_days[ $mia_hours_rows[ $mia_start ]['day'] ] . '–' . $mia_short_days[ $mia_hours_rows[ $mia_i ]['day'] ];
+								$mia_aesthetics_label = $mia_aesthetics_short_days[ $mia_aesthetics_hours_rows[ $mia_aesthetics_start ]['day'] ] . '–' . $mia_aesthetics_short_days[ $mia_aesthetics_hours_rows[ $mia_aesthetics_i ]['day'] ];
 							}
-							$mia_output[] = $mia_label . ' ' . $mia_current_hours;
-							++$mia_i;
+							$mia_aesthetics_output[] = $mia_aesthetics_label . ' ' . $mia_aesthetics_current_hours;
+							++$mia_aesthetics_i;
 						}
-						if ( ! empty( $mia_output ) ) :
+						if ( $mia_aesthetics_output !== array() ) :
 							?>
 							<div class="location-detail mb-2">
 								<div class="d-flex align-items-center">
 									<i class="fas fa-clock location-icon" aria-hidden="true"></i>
-									<span><?php echo esc_html( implode( ' | ', $mia_output ) ); ?></span>
+									<span><?php echo esc_html( implode( ' | ', $mia_aesthetics_output ) ); ?></span>
 								</div>
 							</div>
 						<?php endif; ?>
@@ -164,30 +162,30 @@ if ( $mia_location_map ) {
 
 				<div class="col-lg-6 ps-lg-5">
 					<?php
-					// Get video details from linked main location
-					if ( $mia_linked_location ) {
-						$mia_video_info = mia_get_video_field( $mia_linked_location->ID );
+					// Get video details from linked main location.
+					if ( $mia_aesthetics_linked_location ) {
+						$mia_aesthetics_video_info = mia_get_video_field( $mia_aesthetics_linked_location->ID );
 					} else {
 						// Fallback to current page.
-						$mia_video_info = mia_get_video_field();
+						$mia_aesthetics_video_info = mia_get_video_field();
 					}
-					$mia_video_id      = $mia_video_info['video_id'] ?? '';
-					$mia_thumbnail_url = $mia_video_info['thumbnail'] ?? '';
+					$mia_aesthetics_video_id      = $mia_aesthetics_video_info['video_id'] ?? '';
+					$mia_aesthetics_thumbnail_url = $mia_aesthetics_video_info['thumbnail'] ?? '';
 
 					// Build YouTube embed URL from ID.
-					$mia_embed_url = '';
-					if ( $mia_video_id ) {
-						$mia_embed_url = 'https://www.youtube.com/embed/' . $mia_video_id;
+					$mia_aesthetics_embed_url = '';
+					if ( $mia_aesthetics_video_id ) {
+						$mia_aesthetics_embed_url = 'https://www.youtube.com/embed/' . $mia_aesthetics_video_id;
 					}
 					?>
 
 					<!-- Video container - only show if we have video ID and thumbnail -->
-					<?php if ( ! empty( $mia_video_id ) && ! empty( $mia_thumbnail_url ) ) : ?>
+					<?php if ( ! empty( $mia_aesthetics_video_id ) && ! empty( $mia_aesthetics_thumbnail_url ) ) : ?>
 					<div class="sidebar-section" style="border-radius: 0;">
 						<div class="ratio ratio-16x9">
-							<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $mia_embed_url ); ?>">
+							<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $mia_aesthetics_embed_url ); ?>">
 								<img 
-									src="<?php echo esc_url( $mia_thumbnail_url ); ?>" 
+									src="<?php echo esc_url( $mia_aesthetics_thumbnail_url ); ?>" 
 									alt="<?php echo esc_attr( get_the_title() ); ?> Video Thumbnail" 
 									class="img-fluid object-fit-cover"
 									loading="lazy"
@@ -563,20 +561,20 @@ if ( $mia_location_map ) {
 			<div class="row g-4 justify-content-center">
 				<?php
 				// Get the linked main location from ACF relationship field.
-				$mia_main_location = get_field( 'linked_main_location' );
+				$mia_aesthetics_main_location = get_field( 'linked_main_location' );
 
-				if ( $mia_main_location ) {
+				if ( $mia_aesthetics_main_location ) {
 					// We have a linked location, use its ID to find surgeons.
-					$mia_location_id_for_surgeons = $mia_main_location->ID;
-					$mia_location_name            = $mia_main_location->post_title;
+					$mia_aesthetics_location_id_for_surgeons = $mia_aesthetics_main_location->ID;
+					$mia_aesthetics_location_name            = $mia_aesthetics_main_location->post_title;
 				} else {
 					// No linked location - this shouldn't happen in production.
 					// but we'll handle it gracefully.
-					$mia_location_id_for_surgeons = 0; // This will return no surgeons.
-					$mia_location_name            = get_the_title();
+					$mia_aesthetics_location_id_for_surgeons = 0; // This will return no surgeons.
+					$mia_aesthetics_location_name            = get_the_title();
 				}
 
-				$mia_args = array(
+				$mia_aesthetics_args = array(
 					'post_type'      => 'surgeon',
 					'posts_per_page' => -1, // Get all surgeons.
 					'orderby'        => 'menu_order', // Use WordPress menu order.
@@ -584,30 +582,32 @@ if ( $mia_location_map ) {
 					'meta_query'     => array(
 						array(
 							'key'     => 'surgeon_location',
-							'value'   => $mia_location_id_for_surgeons,
+							'value'   => $mia_aesthetics_location_id_for_surgeons,
 							'compare' => '=',
 						),
 					),
 				);
 
-				$mia_surgeons = new WP_Query( $mia_args );
+				$mia_aesthetics_surgeons = new WP_Query( $mia_aesthetics_args );
 
-				if ( $mia_surgeons->have_posts() ) :
-					while ( $mia_surgeons->have_posts() ) :
-						$mia_surgeons->the_post();
+				if ( $mia_aesthetics_surgeons->have_posts() ) :
+					while ( $mia_aesthetics_surgeons->have_posts() ) :
+						$mia_aesthetics_surgeons->the_post();
 						?>
 						
 						<div class="col-12 col-md-6 col-lg-3">
 							<div class="surgeon-card text-center">
 								<?php
-								$mia_surgeon_headshot_id = get_field( 'surgeon_headshot' );
-								if ( $mia_surgeon_headshot_id && is_numeric( $mia_surgeon_headshot_id ) ) :
+								$mia_aesthetics_surgeon_headshot_id = get_field( 'surgeon_headshot' );
+								if ( $mia_aesthetics_surgeon_headshot_id && is_numeric( $mia_aesthetics_surgeon_headshot_id ) ) :
 									?>
-									<img src="<?php 
-									echo esc_url( 
-										wp_get_attachment_image_url( $mia_surgeon_headshot_id, 'medium' ) 
-									); 
-									?>"
+									<img src="
+									<?php
+									echo esc_url(
+										wp_get_attachment_image_url( $mia_aesthetics_surgeon_headshot_id, 'medium' )
+									);
+									?>
+									"
 										alt="<?php echo esc_attr( get_the_title() ); ?> Headshot" />
 								<?php elseif ( has_post_thumbnail() ) : ?>
 									<img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" 
@@ -642,11 +642,11 @@ if ( $mia_location_map ) {
 
 	<section class="py-5">
 		<div class="container">            
-			<?php 
+			<?php
 			// Function output should be escaped if it returns HTML.
-			echo wp_kses_post( display_page_faqs() ); 
-			?>           
-		</div>
+			echo wp_kses_post( display_page_faqs() );
+			?>
+					</div>
 	</section>
 
 </main>

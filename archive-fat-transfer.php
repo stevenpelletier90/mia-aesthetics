@@ -4,6 +4,8 @@
  *
  * This template mimics the single-condition.php layout but uses hard-coded content
  * instead of ACF Pro fields for ACF Pro compatibility while maintaining design consistency.
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>

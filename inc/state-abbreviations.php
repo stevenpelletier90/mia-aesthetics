@@ -5,10 +5,13 @@
  * Provides a static map and a function to convert full state names to abbreviations.
  * Used in navigation menus and location displays.
  * Keeping as a constant avoids recreating the array on every call.
+ *
+ * @package Mia_Aesthetics
  */
-if ( ! defined( 'MIA_STATE_ABBREVIATIONS' ) ) {
+
+if ( ! defined( 'MIA_AESTHETICS_STATE_ABBREVIATIONS' ) ) {
 	define(
-		'MIA_STATE_ABBREVIATIONS',
+		'MIA_AESTHETICS_STATE_ABBREVIATIONS',
 		array(
 			'Alabama'              => 'AL',
 			'Alaska'               => 'AK',
@@ -70,17 +73,19 @@ if ( ! defined( 'MIA_STATE_ABBREVIATIONS' ) ) {
  *
  * Used in navigation menus to display location state abbreviations
  *
- * @param string $state Full state name
+ * @param string $state Full state name.
  * @return string State abbreviation or original string if not found
  */
-function mia_get_state_abbr( $state ) {
+function mia_aesthetics_get_state_abbr( $state ) {
 	if ( function_exists( 'WP_State::abbr' ) ) {
 		$abbr = WP_State::abbr( $state );
 		return $abbr ? $abbr : $state;
 	}
-	// Fallback: constant map for legacy support
-	if ( defined( 'MIA_STATE_ABBREVIATIONS' ) && isset( MIA_STATE_ABBREVIATIONS[ $state ] ) ) {
-		return MIA_STATE_ABBREVIATIONS[ $state ];
+
+	// Fallback: constant map for legacy support.
+	if ( defined( 'MIA_AESTHETICS_STATE_ABBREVIATIONS' ) && isset( MIA_AESTHETICS_STATE_ABBREVIATIONS[ $state ] ) ) {
+		return MIA_AESTHETICS_STATE_ABBREVIATIONS[ $state ];
 	}
+
 	return $state;
 }

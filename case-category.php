@@ -1,6 +1,8 @@
 <?php
 /**
  * Taxonomy Archive Template for "case-category"
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header();

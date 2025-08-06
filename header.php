@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package WordPress
+ * @package Mia_Aesthetics
  */
 ?>
 <!DOCTYPE html>
@@ -74,30 +74,30 @@ if ( ! is_singular( 'surgeon' ) ) :
 				</li>
 				<!-- Procedures Menu - Desktop (using refactored functions) -->
 				<?php
-				$menu_structure = get_mia_menu_structure();
+				$menu_structure = mia_aesthetics_get_menu_structure();
 				render_procedures_menu( $menu_structure['procedures'], false );
 				?>
 				<!-- Procedures Menu - Mobile (using refactored functions) -->
 				<?php render_procedures_menu( $menu_structure['procedures'], true ); ?>
 				<!-- Non-Surgical Menu (using refactored functions) -->
 				<?php
-					render_non_surgical_menu( false ); // desktop
-					render_non_surgical_menu( true );  // mobile
+					render_non_surgical_menu( false ); // desktop.
+					render_non_surgical_menu( true );  // mobile.
 				?>
 				<!-- Locations Menu (using refactored functions) -->
 				<?php
-					render_locations_menu( false ); // desktop
-					render_locations_menu( true );  // mobile
+					render_locations_menu( false ); // desktop.
+					render_locations_menu( true );  // mobile.
 				?>
 				<!-- Surgeons Menu (using refactored functions) -->
 				<?php
-					render_surgeons_menu( false ); // desktop
-					render_surgeons_menu( true );  // mobile
+					render_surgeons_menu( false ); // desktop.
+					render_surgeons_menu( true );  // mobile.
 				?>
 				<!-- Before & After Menu (using refactored functions) -->
 				<?php
-					render_before_after_menu( false ); // desktop
-					render_before_after_menu( true );  // mobile
+					render_before_after_menu( false ); // desktop.
+					render_before_after_menu( true );  // mobile.
 				?>
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo esc_url( home_url( '/financing/' ) ); ?>">Financing</a>

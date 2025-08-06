@@ -8,7 +8,7 @@
  * @package Mia_Aesthetics
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -43,12 +43,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 wp_enqueue_style( 'mia-location-search-careers' );
 wp_enqueue_script( 'mia-location-search-careers' );
 
-// Only load Google Maps if not already loaded
+// Only load Google Maps if not already loaded.
 if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
 	wp_register_script(
 		'google-maps',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4&libraries=places&callback=initGoogleMapsCareers',
-		array( 'mia-location-search-careers' ), // Depends on our careers search script
+		array( 'mia-location-search-careers' ), // Depends on our careers search script.
 		null,
 		true
 	);

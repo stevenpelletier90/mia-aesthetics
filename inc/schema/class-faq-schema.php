@@ -16,26 +16,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 class FAQ_Schema {
 
 	/**
-	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
-	 */
-	private $context;
-
-	/**
-	 * Constructor
-	 *
-	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context
-	 */
-	public function __construct( $context ) {
-		$this->context = $context;
-	}
-
-	/**
 	 * Determines if this schema piece is needed
 	 *
 	 * @return bool
 	 */
 	public function is_needed() {
-		// Check if current page has FAQ content
+		// Check if current page has FAQ content.
 		$faq_section = get_field( 'faq_section', get_the_ID() );
 		return ! empty( $faq_section ) && ! empty( $faq_section['faqs'] );
 	}
@@ -70,7 +56,7 @@ class FAQ_Schema {
 			);
 		}
 
-		if ( empty( $questions ) ) {
+		if ( $questions === [] ) {
 			return array();
 		}
 
@@ -80,12 +66,12 @@ class FAQ_Schema {
 			'mainEntity' => $questions,
 		);
 
-		// Add title if available
+		// Add title if available.
 		if ( ! empty( $faq_section['title'] ) ) {
 			$faq_schema['name'] = wp_strip_all_tags( $faq_section['title'] );
 		}
 
-		// Add URL for the FAQ page
+		// Add URL for the FAQ page.
 		$faq_schema['url'] = get_permalink( $post_id );
 
 		return $faq_schema;

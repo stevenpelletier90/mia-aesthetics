@@ -2,6 +2,8 @@
 /**
  * Location Archive Template
  * Displays all locations in alphabetical order with CTA sections
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header();
@@ -31,7 +33,7 @@ get_header();
 					<?php
 					while ( have_posts() ) :
 						the_post();
-						// Get location data
+						// Get location data.
 						$phone_number = get_field( 'phone_number' );
 						$location_map = get_field( 'location_map' );
 						?>
@@ -40,7 +42,7 @@ get_header();
 								<div class="location-info flex-grow-1">
 									<h3 class="h5 mb-2">
 										<a href="<?php the_permalink(); ?>" class="text-decoration-none">
-											<?php echo get_the_title(); ?>
+											<?php echo esc_html( get_the_title() ); ?>
 										</a>
 									</h3>
 									<?php
@@ -49,19 +51,16 @@ get_header();
 										$city   = isset( $location_map['city'] ) ? $location_map['city'] : '';
 										$state  = isset( $location_map['state_short'] ) ? $location_map['state_short'] : '';
 										$zip    = isset( $location_map['post_code'] ) ? $location_map['post_code'] : '';
-										$street = trim( $street ); // Clean up any extra spaces
-
-										// Special handling for locations where Google Maps doesn't populate city correctly
-										if ( empty( $city ) && ! empty( $state ) ) {
-											// For Brooklyn/NYC addresses, Google sometimes doesn't populate city
-											if ( $state === 'NY' && strpos( strtolower( $street ), 'atlantic' ) !== false ) {
-												$city = 'Brooklyn';
-											}
+										$street = trim( $street ); // Clean up any extra spaces.
+										// Special handling for locations where Google Maps doesn't populate city correctly.
+										// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
+										if ( empty( $city ) && ! empty( $state ) && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
+											$city = 'Brooklyn';
 										}
 										?>
 										<?php if ( $street || $city || $state || $zip ) : ?>
 											<div class="text-muted mb-1">
-												<?php if ( $street ) : ?>
+												<?php if ( '' !== $street && '0' !== $street ) : ?>
 													<div><?php echo esc_html( $street ); ?></div>
 												<?php endif; ?>
 												<?php
@@ -75,7 +74,7 @@ get_header();
 												if ( $zip ) {
 													$address_line2 .= ( $city || $state ? ' ' : '' ) . $zip;
 												}
-												if ( $address_line2 ) :
+												if ( '' !== $address_line2 && '0' !== $address_line2 ) :
 													?>
 													<div><?php echo esc_html( $address_line2 ); ?></div>
 												<?php endif; ?>
@@ -107,7 +106,7 @@ get_header();
 					<?php
 					while ( have_posts() ) :
 						the_post();
-						// Get location data
+						// Get location data.
 						$location_address   = get_field( 'location_address' );
 						$phone_number       = get_field( 'phone_number' );
 						$location_maps_link = get_field( 'location_maps_link' );
@@ -130,7 +129,7 @@ get_header();
 		<div class="location-content p-4">
 			<h2 class="h4 mb-3">
 				<a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark location-title-link">
-						<?php echo get_the_title(); ?>
+						<?php echo esc_html( get_the_title() ); ?>
 				</a>
 			</h2>
 
@@ -142,20 +141,17 @@ get_header();
 							$city   = isset( $location_map['city'] ) ? $location_map['city'] : '';
 							$state  = isset( $location_map['state_short'] ) ? $location_map['state_short'] : '';
 							$zip    = isset( $location_map['post_code'] ) ? $location_map['post_code'] : '';
-							$street = trim( $street ); // Clean up any extra spaces
-
-							// Special handling for locations where Google Maps doesn't populate city correctly
-							if ( empty( $city ) && ! empty( $state ) ) {
-								// For Brooklyn/NYC addresses, Google sometimes doesn't populate city
-								if ( $state === 'NY' && strpos( strtolower( $street ), 'atlantic' ) !== false ) {
-									$city = 'Brooklyn';
-								}
+							$street = trim( $street ); // Clean up any extra spaces.
+							// Special handling for locations where Google Maps doesn't populate city correctly.
+							// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
+							if ( empty( $city ) && ! empty( $state ) && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
+								$city = 'Brooklyn';
 							}
 							?>
 							<?php if ( $street || $city || $state || $zip ) : ?>
 					<div class="location-detail mb-2">
 						<span>
-								<?php if ( $street ) : ?>
+								<?php if ( '' !== $street && '0' !== $street ) : ?>
 									<?php echo esc_html( $street ); ?>
 								<br>
 							<?php endif; ?>
@@ -170,7 +166,7 @@ get_header();
 								if ( $zip ) {
 									$address_line .= ( $city || $state ? ' ' : '' ) . $zip;
 								}
-								if ( $address_line ) :
+								if ( '' !== $address_line && '0' !== $address_line ) :
 									echo esc_html( $address_line );
 							endif;
 								?>

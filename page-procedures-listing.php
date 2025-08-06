@@ -31,7 +31,7 @@ get_header();
 			<div class="container">
 				<div class="row g-4">
 					<?php
-					// Get child procedures
+					// Get child procedures.
 					$current_post_id = get_the_ID();
 
 					$child_procedures = get_posts(
@@ -61,7 +61,7 @@ get_header();
 								)
 							);
 
-							// Fallback image if no featured image
+							// Fallback image if no featured image.
 							if ( ! $procedure_image ) {
 								$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 							}

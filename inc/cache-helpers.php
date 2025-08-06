@@ -7,6 +7,8 @@
  * small helper functions used by templates: a cached post-counter and a site
  * statistics aggregator. No actions or filters are registered, so there is
  * zero performance overhead.
+ *
+ * @package Mia_Aesthetics
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
@@ -21,8 +23,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param array  $args      Optional WP_Query args used to narrow the count.
  * @return int
  */
-function mia_get_cached_post_count( $post_type, $args = array() ) {
-	$cache_key = "mia_count_{$post_type}_" . md5( serialize( $args ) );
+function mia_aesthetics_get_cached_post_count( $post_type, $args = array() ) {
+	$cache_key = sprintf( 'mia_count_%s_', $post_type ) . md5( wp_json_encode( $args ) );
 	$count     = wp_cache_get( $cache_key );
 
 	if ( false === $count ) {
@@ -62,16 +64,16 @@ function mia_get_cached_post_count( $post_type, $args = array() ) {
  *   cases:int
  * }
  */
-function mia_get_site_stats() {
+function mia_aesthetics_get_site_stats() {
 	$cache_key = 'mia_site_stats';
 	$stats     = wp_cache_get( $cache_key );
 
 	if ( false === $stats ) {
 		$stats = array(
-			'surgeons'   => mia_get_cached_post_count( 'surgeon', array( 'post_parent' => 0 ) ),
-			'locations'  => mia_get_cached_post_count( 'location', array( 'post_parent' => 0 ) ),
-			'procedures' => mia_get_cached_post_count( 'procedure' ),
-			'cases'      => mia_get_cached_post_count( 'case' ),
+			'surgeons'   => mia_aesthetics_get_cached_post_count( 'surgeon', array( 'post_parent' => 0 ) ),
+			'locations'  => mia_aesthetics_get_cached_post_count( 'location', array( 'post_parent' => 0 ) ),
+			'procedures' => mia_aesthetics_get_cached_post_count( 'procedure' ),
+			'cases'      => mia_aesthetics_get_cached_post_count( 'case' ),
 		);
 
 		$cache_duration = apply_filters( 'mia_site_stats_cache_duration', 2 * HOUR_IN_SECONDS );

@@ -32,16 +32,16 @@ get_header();
 			<div class="container">
 				<div class="row g-4">
 					<?php
-					// Manually placed procedure IDs
-					// These can be hardcoded or managed via ACF field
+					// Manually placed procedure IDs.
+					// These can be hardcoded or managed via ACF field.
 					$manual_procedures = array();
 
-					// Check if we have an ACF field for manual procedures
+					// Check if we have an ACF field for manual procedures.
 					if ( function_exists( 'get_field' ) && get_field( 'manual_procedures' ) ) {
 						$manual_procedures = get_field( 'manual_procedures' );
 					} else {
-						// Fallback to hardcoded IDs based on the URLs provided
-						// You'll need to replace these with actual post IDs
+						// Fallback to hardcoded IDs based on the URLs provided.
+						// You'll need to replace these with actual post IDs.
 						$manual_procedures = array(
 							// Male BBL - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-bbl/
 							array(
@@ -71,7 +71,7 @@ get_header();
 
 					if ( ! empty( $manual_procedures ) ) :
 						foreach ( $manual_procedures as $procedure_data ) :
-							// Handle both simple ID arrays and complex arrays with custom data
+							// Handle both simple ID arrays and complex arrays with custom data.
 							if ( is_numeric( $procedure_data ) ) {
 								$procedure_id   = $procedure_data;
 								$custom_title   = '';
@@ -93,7 +93,7 @@ get_header();
 
 							setup_postdata( $procedure );
 
-							// Use custom or default values
+							// Use custom or default values.
 							$procedure_title   = $custom_title ?: get_the_title( $procedure_id );
 							$procedure_excerpt = $custom_excerpt ?: get_the_excerpt( $procedure_id );
 							$procedure_link    = get_permalink( $procedure_id );
@@ -106,7 +106,7 @@ get_header();
 								)
 							);
 
-							// Fallback image if no featured image
+							// Fallback image if no featured image.
 							if ( ! $procedure_image ) {
 								$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 							}

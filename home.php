@@ -76,27 +76,27 @@ get_header(); ?>
 							<?php
 							global $wp_query;
 
-							// Don't display pagination if there's only one page
+							// Don't display pagination if there's only one page.
 							if ( $wp_query->max_num_pages > 1 ) :
 
-								// Get current page
+								// Get current page.
 								$current_page = max( 1, get_query_var( 'paged' ) );
 
-								// Get total pages
+								// Get total pages.
 								$total_pages = $wp_query->max_num_pages;
 
 								echo '<div class="d-flex justify-content-between align-items-center pagination-container">';
-									// Previous button
+									// Previous button.
 								if ( $current_page > 1 ) {
 									echo '<a href="' . get_pagenum_link( $current_page - 1 ) . '" class="mia-button" data-variant="gold-outline" aria-label="Previous page"><i class="fas fa-chevron-left me-1" aria-hidden="true"></i> Previous</a>';
 								} else {
 									echo '<button class="mia-button" data-variant="gold-outline" style="opacity: 0.5; cursor: not-allowed;" aria-label="Previous page" disabled><i class="fas fa-chevron-left me-1" aria-hidden="true"></i> Previous</button>';
 								}
 
-								// Page indicator
+								// Page indicator.
 								echo '<span class="page-indicator">Page ' . $current_page . ' of ' . $total_pages . '</span>';
 
-								// Next button
+								// Next button.
 								if ( $current_page < $total_pages ) {
 									echo '<a href="' . get_pagenum_link( $current_page + 1 ) . '" class="mia-button" data-variant="gold-outline" aria-label="Next page">Next <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></a>';
 								} else {

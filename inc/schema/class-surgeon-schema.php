@@ -49,7 +49,7 @@ class Surgeon_Schema {
 
 		$schema_data = array();
 
-		// Get associated clinic
+		// Get associated clinic.
 		$clinic_obj = get_field( 'surgeon_location', $surgeon_id );
 		$clinic_id  = $clinic_obj ? get_permalink( $clinic_obj->ID ) . '#clinic' : null;
 
@@ -63,22 +63,22 @@ class Surgeon_Schema {
 			'affiliation'      => array( '@id' => $org_id ),
 		);
 
-		// Link to clinic
+		// Link to clinic.
 		if ( $clinic_id ) {
 			$surgeon['worksFor']   = array( '@id' => $clinic_id );
 			$surgeon['department'] = array( '@id' => $clinic_id );
 		}
 
-		// Description
+		// Description.
 		$surgeon['description'] = $this->get_description( $surgeon_id );
 
-		// Image
+		// Image.
 		$image_url = $this->get_image( $surgeon_id );
 		if ( $image_url ) {
 			$surgeon['image'] = $image_url;
 		}
 
-		// Professional credentials
+		// Professional credentials.
 		if ( get_field( 'board_certified', $surgeon_id ) ) {
 			$surgeon['hasCredential'] = array(
 				'@type'              => 'EducationalOccupationalCredential',
@@ -90,13 +90,13 @@ class Surgeon_Schema {
 			);
 		}
 
-		// Specialties
+		// Specialties.
 		$specialties = $this->get_specialties( $surgeon_id );
 		if ( ! empty( $specialties ) ) {
 			$surgeon['knowsAbout'] = $specialties;
 		}
 
-		// Education
+		// Education.
 		if ( $school = get_field( 'medical_school', $surgeon_id ) ) {
 			$surgeon['alumniOf'] = array(
 				'@type' => 'EducationalOrganization',
@@ -106,7 +106,7 @@ class Surgeon_Schema {
 
 		$schema_data[] = $surgeon;
 
-		// Add separate VideoObject schema if video exists
+		// Add separate VideoObject schema if video exists.
 		$video = $this->get_featured_video( $surgeon_id );
 		if ( $video ) {
 			$schema_data[] = $video;
@@ -136,7 +136,7 @@ class Surgeon_Schema {
 	 * @return string|null
 	 */
 	private function get_image( $surgeon_id ) {
-		// Prioritize featured image first for surgeon profiles
+		// Prioritize featured image first for surgeon profiles.
 		if ( has_post_thumbnail( $surgeon_id ) ) {
 			$featured_image = get_the_post_thumbnail_url( $surgeon_id, 'full' );
 			if ( $featured_image ) {
@@ -144,23 +144,24 @@ class Surgeon_Schema {
 			}
 		}
 
-		// Fall back to video thumbnail from video_details group
+		// Fall back to video thumbnail from video_details group.
 		$video_details = get_field( 'video_details', $surgeon_id );
 		if ( $video_details ) {
-			// Use custom thumbnail if available
+			// Use custom thumbnail if available.
 			if ( ! empty( $video_details['video_thumbnail'] ) ) {
 				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 				if ( $custom_thumbnail ) {
 					return $custom_thumbnail;
 				}
 			}
-			// Fall back to YouTube thumbnail if video_id exists
+
+			// Fall back to YouTube thumbnail if video_id exists.
 			if ( ! empty( $video_details['video_id'] ) ) {
-				return "https://img.youtube.com/vi/{$video_details['video_id']}/maxresdefault.jpg";
+				return sprintf('https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id']);
 			}
 		}
 
-		// Default logo as last resort
+		// Default logo as last resort.
 		return get_template_directory_uri() . '/assets/images/mia-logo.png';
 	}
 
@@ -178,15 +179,15 @@ class Surgeon_Schema {
 		}
 
 		$video_id          = $video_details['video_id'];
-		$video_title       = ! empty( $video_details['video_title'] ) ? $video_details['video_title'] : 'Dr. ' . get_the_title() . ' - Featured Video';
-		$video_description = ! empty( $video_details['video_description'] ) ? $video_details['video_description'] : 'Learn more about Dr. ' . get_the_title() . ' at Mia Aesthetics';
+		$video_title       = empty( $video_details['video_title'] ) ? 'Dr. ' . get_the_title() . ' - Featured Video' : $video_details['video_title'];
+		$video_description = empty( $video_details['video_description'] ) ? 'Learn more about Dr. ' . get_the_title() . ' at Mia Aesthetics' : $video_details['video_description'];
 
-		// Generate YouTube URLs from video ID
-		$watch_url = "https://www.youtube.com/watch?v={$video_id}";
-		$embed_url = "https://www.youtube.com/embed/{$video_id}";
+		// Generate YouTube URLs from video ID.
+		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
+		$embed_url = 'https://www.youtube.com/embed/' . $video_id;
 
-		// Use custom thumbnail if available, otherwise use YouTube thumbnail
-		$thumbnail_url = "https://img.youtube.com/vi/{$video_id}/maxresdefault.jpg";
+		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
+		$thumbnail_url = sprintf('https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id);
 		if ( ! empty( $video_details['video_thumbnail'] ) ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 			if ( $custom_thumbnail ) {
@@ -202,7 +203,7 @@ class Surgeon_Schema {
 			'url'          => $watch_url,
 			'embedUrl'     => $embed_url,
 			'thumbnailUrl' => $thumbnail_url,
-			'uploadDate'   => get_the_date( 'c', $surgeon_id ), // Use surgeon post date as fallback
+			'uploadDate'   => get_the_date( 'c', $surgeon_id ), // Use surgeon post date as fallback.
 			'publisher'    => array(
 				'@type' => 'Organization',
 				'name'  => 'Mia Aesthetics',

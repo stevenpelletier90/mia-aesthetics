@@ -9,7 +9,7 @@
  * @package Mia_Aesthetics
  */
 
-// Prevent direct access
+// Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -42,7 +42,7 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 
 	// Log missing files during development but fail silently in production.
 	if ( WP_DEBUG && ! file_exists( $file ) ) {
-		error_log( "[mia_register_asset] Missing {$type} asset: {$file}" );
+		error_log( sprintf( '[mia_register_asset] Missing %s asset: %s', $type, $file ) );
 	}
 
 	// Use file modification time for versioning—lighter than computing an MD5 hash on every request.
@@ -52,7 +52,7 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 		wp_register_style( $handle, $src, $deps, $ver );
 	} else {
 		wp_register_script( $handle, $src, $deps, $ver, $footer );
-		wp_script_add_data( $handle, 'strategy', 'defer' ); // Non‑critical JS → defer
+		wp_script_add_data( $handle, 'strategy', 'defer' ); // Non‑critical JS → defer.
 	}
 }
 
@@ -63,7 +63,7 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
  */
 function mia_get_template_mappings() {
 	return array(
-		// Page Templates (available for selection)
+		// Page Templates (available for selection).
 		'page-blank-canvas'           => array(
 			'css' => 'page-blank-canvas.css',
 			'js'  => 'page-blank-canvas.js',
@@ -113,7 +113,7 @@ function mia_get_template_mappings() {
 			'js'  => 'page-procedures-manual.js',
 		),
 
-		// Core WordPress Templates
+		// Core WordPress Templates.
 		'front-page'                  => array(
 			'css' => 'front-page.css',
 			'js'  => 'front-page.js',
@@ -147,7 +147,7 @@ function mia_get_template_mappings() {
 			'js'  => 'page.js',
 		),
 
-		// Default Single Templates (fallbacks for fixed post types)
+		// Default Single Templates (fallbacks for fixed post types).
 		'single-case'                 => array(
 			'css' => 'single-case.css',
 			'js'  => 'single-case.js',
@@ -169,7 +169,7 @@ function mia_get_template_mappings() {
 			'js'  => 'single-special.js',
 		),
 
-		// Archive Templates
+		// Archive Templates.
 		'archive-case'                => array(
 			'css' => 'archive-case.css',
 			'js'  => 'archive-case.js',
@@ -203,7 +203,7 @@ function mia_get_template_mappings() {
 			'js'  => 'archive-surgeon.js',
 		),
 
-		// Home & Index
+		// Home & Index.
 		'home'                        => array(
 			'css' => 'home.css',
 			'js'  => 'home.js',
@@ -237,23 +237,27 @@ function mia_detect_template_key() {
 	if ( is_front_page() ) {
 		return 'front-page';
 	}
+
 	if ( is_404() ) {
 		return '404';
 	}
+
 	if ( is_search() ) {
 		return 'search';
 	}
+
 	if ( is_tax( 'case-category' ) ) {
 		return 'case-category';
 	}
+
 	if ( is_category() ) {
 		return 'category';
 	}
 
 	// 3. Check for blog/posts page BEFORE generic archive check
-	// is_home() is true for the posts page when set in Settings > Reading
+	// is_home() is true for the posts page when set in Settings > Reading.
 	if ( is_home() && ! is_front_page() ) {
-		// This is the blog posts page - use archive template
+		// This is the blog posts page - use archive template.
 		return 'archive';
 	}
 
@@ -268,13 +272,15 @@ function mia_detect_template_key() {
 		if ( array_key_exists( $archive_template, mia_get_template_mappings() ) ) {
 			return $archive_template;
 		}
-		return 'archive'; // Fallback to generic archive
+
+		return 'archive'; // Fallback to generic archive.
 	}
 
 	// 5. Single posts/pages
 	if ( is_singular( 'post' ) ) {
 		return 'single-post';
 	}
+
 	if ( is_page() ) {
 		return 'page';
 	}
@@ -298,7 +304,7 @@ function mia_detect_template_key() {
  * ---------------------------------------------------------------------------
  */
 function mia_enqueue_assets() {
-	// ------------------------ Critical/global assets -----------------------
+	// ------------------------ Critical/global assets -----------------------.
 	mia_register_asset( 'style', 'mia-fonts', '/css/fonts.css' );
 	mia_register_asset( 'style', 'mia-bootstrap', '/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ) );
 	mia_register_asset( 'style', 'mia-base', '/css/base.css', array( 'mia-bootstrap' ) );
@@ -307,16 +313,16 @@ function mia_enqueue_assets() {
 	mia_register_asset( 'style', 'mia-header', '/css/header.css', array( 'mia-base', 'mia-bootstrap' ) );
 	mia_register_asset( 'style', 'mia-footer', '/css/footer.css', array( 'mia-base', 'mia-bootstrap' ) );
 
-	// Register location search assets (loaded on demand)
+	// Register location search assets (loaded on demand).
 	mia_register_asset( 'style', 'mia-location-search', '/css/location-search.css', array( 'mia-base' ) );
 	mia_register_asset( 'script', 'mia-location-search', '/js/location-search.js', array() );
 	mia_register_asset( 'style', 'mia-location-search-careers', '/css/location-search-careers.css', array( 'mia-base' ) );
 	mia_register_asset( 'script', 'mia-location-search-careers', '/js/location-search-careers.js', array() );
 
-	mia_register_asset( 'script', 'mia-bootstrap', '/bootstrap/js/bootstrap.bundle.min.js' ); // no jQuery
+	mia_register_asset( 'script', 'mia-bootstrap', '/bootstrap/js/bootstrap.bundle.min.js' ); // no jQuery.
 	mia_register_asset( 'script', 'mia-header', '/js/header.js', array( 'mia-bootstrap' ) );
 
-	// ------------------------ Template-specific assets ---------------------
+	// ------------------------ Template-specific assets ---------------------.
 	$template_key = mia_detect_template_key();
 	$templates    = mia_get_template_mappings();
 
@@ -326,7 +332,7 @@ function mia_enqueue_assets() {
 		if ( ! empty( $template['css'] ) ) {
 			$css_deps = array( 'mia-base', 'mia-header', 'mia-footer' );
 
-			// Add hero section CSS dependency for front page
+			// Add hero section CSS dependency for front page.
 			if ( $template_key === 'front-page' ) {
 				mia_register_asset( 'style', 'mia-hero-section', '/css/hero-section.css', array( 'mia-base', 'mia-bootstrap' ) );
 				$css_deps[] = 'mia-hero-section';
@@ -342,34 +348,32 @@ function mia_enqueue_assets() {
 			mia_register_asset( 'script', 'mia-' . $template_key, '/js/' . $template['js'], array( 'mia-bootstrap' ) );
 		}
 	} elseif ( WP_DEBUG && $template_key ) {
-		// Log when template detection succeeds but no mapping exists
-		error_log( "[mia_enqueue_assets] Template key '{$template_key}' detected but no mapping found in template mappings." );
+		// Log when template detection succeeds but no mapping exists.
+		error_log( sprintf( "[mia_enqueue_assets] Template key '%s' detected but no mapping found in template mappings.", $template_key ) );
 	} elseif ( WP_DEBUG && ! $template_key ) {
-		// Log when template detection fails completely
+		// Log when template detection fails completely.
 		error_log( '[mia_enqueue_assets] Template detection failed - no template key detected for current request.' );
 	}
 
-	// ------------------------ Enqueue registered ---------------------------
+	// ------------------------ Enqueue registered ---------------------------.
 	foreach ( wp_styles()->registered as $h => $_ ) {
-		if ( str_starts_with( $h, 'mia-' ) || in_array( $h, array( 'mia-fonts', 'mia-bootstrap', 'mia-base', 'mia-fontawesome' ), true ) ) {
-			// Skip location search assets - they are loaded on-demand by the component
-			if ( $h !== 'mia-location-search' && $h !== 'mia-location-search-careers' ) {
-				wp_enqueue_style( $h );
-			}
-		}
-	}
-	foreach ( wp_scripts()->registered as $h => $_ ) {
-		if ( str_starts_with( $h, 'mia-' ) ) {
-			// Skip location search assets - they are loaded on-demand by the component
-			if ( $h !== 'mia-location-search' && $h !== 'mia-location-search-careers' ) {
-				wp_enqueue_script( $h );
-			}
+		// Skip location search assets - they are loaded on-demand by the component.
+		if ( ( str_starts_with( $h, 'mia-' ) || in_array( $h, array( 'mia-fonts', 'mia-bootstrap', 'mia-base', 'mia-fontawesome' ), true ) ) && ( $h !== 'mia-location-search' && $h !== 'mia-location-search-careers' ) ) {
+			wp_enqueue_style( $h );
 		}
 	}
 
-	// Attach runtime configuration
+	foreach ( wp_scripts()->registered as $h => $_ ) {
+		// Skip location search assets - they are loaded on-demand by the component.
+		if ( str_starts_with( $h, 'mia-' ) && ( $h !== 'mia-location-search' && $h !== 'mia-location-search-careers' ) ) {
+			wp_enqueue_script( $h );
+		}
+	}
+
+	// Attach runtime configuration.
 	mia_attach_config();
 }
+
 add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
 
 /**
@@ -421,8 +425,10 @@ function mia_resource_hints( $hints, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {
 		$hints[] = '//fonts.googleapis.com';
 		$hints[] = '//www.google-analytics.com';
-		// $hints[] = '//cdn.jsdelivr.net'; // Uncomment if Font Awesome served via CDN
+		// $hints[] = '//cdn.jsdelivr.net'; // Uncomment if Font Awesome served via CDN.
 	}
+
 	return $hints;
 }
+
 add_filter( 'wp_resource_hints', 'mia_resource_hints', 10, 2 );

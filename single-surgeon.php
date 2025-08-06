@@ -1,10 +1,13 @@
 <?php
 /**
  * Template for displaying single surgeon
+ *
+ * @package Mia_Aesthetics
  */
+
 get_header();
 
-// Extract last name from surgeon title (second word, remove comma)
+// Extract last name from surgeon title (second word, remove comma).
 $full_name  = get_the_title();
 $name_parts = explode( ' ', $full_name );
 $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_name;
@@ -42,7 +45,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				<div class="col-lg-7">
 					<div class="surgeon-hero-content">
 						<div class="surgeon-badge">Plastic Surgeon</div>
-						<h1 class="surgeon-name"><?php echo get_the_title(); ?></h1>
+						<h1 class="surgeon-name"><?php echo esc_html( get_the_title() ); ?></h1>
 						<?php
 						$location = get_field( 'surgeon_location' );
 						if ( $location ) :
@@ -50,7 +53,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title );
 							$location_url   = get_permalink( $location );
 							?>
-						<p class="surgeon-location"><i class="fas fa-map-marker-alt"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo $location_title; ?></a></p>
+						<p class="surgeon-location"><i class="fas fa-map-marker-alt"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></p>
 						<?php endif; ?>
 						
 						<!-- Quick Actions -->
@@ -60,7 +63,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							?>
 						<div class="surgeon-hero-actions">
 							<a href="<?php echo esc_url( $instagram_url ); ?>" class="mia-button" data-variant="gold" target="_blank" rel="noopener">
-								<i class="fab fa-instagram"></i> Follow Dr. <?php echo $last_name; ?>
+								<i class="fab fa-instagram"></i> Follow Dr. <?php echo esc_html( $last_name ); ?>
 							</a>
 						</div>
 						<?php endif; ?>
@@ -79,7 +82,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 					<div class="surgeon-main-column">
 						<!-- About Section -->
 						<section class="surgeon-bio-section">
-							<h2 class="section-title">About Dr. <?php echo $last_name; ?></h2>
+							<h2 class="section-title">About Dr. <?php echo esc_html( $last_name ); ?></h2>
 							<div class="bio-content">
 								<?php
 								while ( have_posts() ) :
@@ -108,7 +111,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							}
 							?>
 						<section class="surgeon-video-section">
-							<h2 class="section-title">Meet Dr. <?php echo $last_name; ?></h2>
+							<h2 class="section-title">Meet Dr. <?php echo esc_html( $last_name ); ?></h2>
 							<div class="video-container">
 								<div class="ratio ratio-16x9">
 									<?php if ( $thumbnail_url ) : ?>
@@ -146,7 +149,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 											<i class="fas fa-check-circle"></i>
 										</div>
 										<div class="expertise-content">
-											<h3><?php echo get_the_title( $specialty->ID ); ?></h3>
+											<h3><?php echo esc_html( get_the_title( $specialty->ID ) ); ?></h3>
 											<?php
 											$excerpt = get_the_excerpt( $specialty->ID );
 											if ( empty( $excerpt ) ) {
@@ -154,8 +157,8 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 												$excerpt = wp_trim_words( $content, 20, '...' );
 											}
 											?>
-											<p><?php echo $excerpt; ?></p>
-											<a href="<?php echo get_permalink( $specialty->ID ); ?>" class="expertise-link">
+											<p><?php echo esc_html( $excerpt ); ?></p>
+											<a href="<?php echo esc_url( get_permalink( $specialty->ID ) ); ?>" class="expertise-link">
 												Learn More <i class="fa-solid fa-arrow-right"></i>
 											</a>
 										</div>
@@ -177,7 +180,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 								<?php if ( $location ) : ?>
 								<li>
 									<i class="fas fa-map-marker-alt"></i>
-									<span>Located at <a href="<?php echo esc_url( $location_url ); ?>"><?php echo $location_title; ?></a></span>
+									<span>Located at <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></span>
 								</li>
 								<?php endif; ?>
 								<li>
@@ -220,7 +223,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 	<section class="surgeon-faq-section">
 		<div class="surgeon-fluid-container">
 			<h2 class="section-title text-center">Frequently Asked Questions</h2>
-			<?php echo display_page_faqs(); ?>
+			<?php echo wp_kses_post( display_page_faqs() ); ?>
 		</div>
 	</section>
 	<?php endif; ?>

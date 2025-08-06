@@ -7,7 +7,7 @@
  * @package Mia_Aesthetics
  */
 
-// Prevent direct access
+// Prevent direct access.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -25,18 +25,18 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return array|null
  */
 function mia_get_video_field( $post_id = null ) {
-	if ( $post_id === null ) {
+	if ( null === $post_id ) {
 		$post_id = get_the_ID();
 	}
 
-	// Validate post ID
-	if ( ! $post_id || ! is_numeric( $post_id ) || get_post_status( $post_id ) === false ) {
+	// Validate post ID.
+	if ( ! $post_id || ! is_numeric( $post_id ) || false === get_post_status( $post_id ) ) {
 		return null;
 	}
 
 	$candidates = array( 'video_details', 'featured_video', 'video' );
 	foreach ( $candidates as $field ) {
-		// Add error handling for ACF field lookup
+		// Add error handling for ACF field lookup.
 		if ( ! function_exists( 'get_field' ) ) {
 			error_log( '[mia_get_video_field] ACF get_field() function not available' );
 			return null;
@@ -47,37 +47,37 @@ function mia_get_video_field( $post_id = null ) {
 			continue;
 		}
 
-		// Case 1: ACF repeater/group with explicit keys
+		// Case 1: ACF repeater/group with explicit keys.
 		if ( is_array( $val ) ) {
-			// Check for video_id (YouTube ID only) - matches schema structure
+			// Check for video_id (YouTube ID only) - matches schema structure.
 			if ( ! empty( $val['video_id'] ) ) {
 				$video_id = sanitize_text_field( $val['video_id'] );
 
-				// Validate YouTube ID format (11 characters, alphanumeric with - and _)
+				// Validate YouTube ID format (11 characters, alphanumeric with - and _).
 				if ( ! preg_match( '/^[a-zA-Z0-9_-]{11}$/', $video_id ) ) {
-					continue; // Invalid YouTube ID format
+					continue; // Invalid YouTube ID format.
 				}
 
 				$video_url = 'https://www.youtube.com/watch?v=' . $video_id;
 
-				// Handle video_thumbnail which could be an attachment ID or array
+				// Handle video_thumbnail which could be an attachment ID or array.
 				$thumbnail = '';
 				if ( ! empty( $val['video_thumbnail'] ) ) {
 					if ( is_numeric( $val['video_thumbnail'] ) ) {
-						// It's an attachment ID
+						// It's an attachment ID.
 						$thumbnail_url = wp_get_attachment_image_url( $val['video_thumbnail'], 'full' );
 						if ( $thumbnail_url ) {
 							$thumbnail = $thumbnail_url;
 						}
 					} elseif ( is_array( $val['video_thumbnail'] ) && ! empty( $val['video_thumbnail']['url'] ) ) {
-						// It's an ACF image array
+						// It's an ACF image array.
 						$thumbnail = $val['video_thumbnail']['url'];
 					}
 				}
 
-				// Always fall back to YouTube thumbnail if no custom thumbnail
+				// Always fall back to YouTube thumbnail if no custom thumbnail.
 				if ( empty( $thumbnail ) ) {
-					$thumbnail = "https://img.youtube.com/vi/{$video_id}/maxresdefault.jpg";
+					$thumbnail = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 				}
 
 				return array(
@@ -85,11 +85,11 @@ function mia_get_video_field( $post_id = null ) {
 					'title'       => sanitize_text_field( $val['video_title'] ?? '' ),
 					'description' => sanitize_textarea_field( $val['video_description'] ?? '' ),
 					'thumbnail'   => esc_url_raw( $thumbnail ),
-					'video_id'    => $video_id, // Include the ID for direct use
+					'video_id'    => $video_id, // Include the ID for direct use.
 				);
 			}
 
-			// Generic link array
+			// Generic link array.
 			if ( ! empty( $val['url'] ) && is_string( $val['url'] ) && filter_var( $val['url'], FILTER_VALIDATE_URL ) ) {
 				return array(
 					'url'         => esc_url_raw( $val['url'] ),
@@ -100,7 +100,7 @@ function mia_get_video_field( $post_id = null ) {
 			}
 		}
 
-		// Case 2: Simple URL string
+		// Case 2: Simple URL string.
 		if ( is_string( $val ) && filter_var( $val, FILTER_VALIDATE_URL ) ) {
 			return array(
 				'url'         => esc_url_raw( $val ),
@@ -118,24 +118,25 @@ function mia_get_video_field( $post_id = null ) {
  * Helper function for before/after gallery images
  * Handles both image IDs and URLs, with fallback to placeholder
  *
- * @param mixed  $img Image ID, URL, or array
- * @param string $label Image label (before/after)
+ * @param mixed  $img Image ID, URL, or array.
+ * @param string $label Image label (before/after).
  * @return string HTML img tag
  */
 function mia_before_after_img( $img, $label ) {
-	// Validate and sanitize inputs
-	if ( ! is_string( $label ) || empty( trim( $label ) ) ) {
-		return ''; // Return empty string for invalid label
+	// Validate and sanitize inputs.
+	if ( ! is_string( $label ) || in_array( trim( $label ), array( '', '0' ), true ) ) {
+		return ''; // Return empty string for invalid label.
 	}
+
 	$safe_label = esc_attr( trim( $label ) );
 
-	// Handle empty/null image
+	// Handle empty/null image.
 	if ( empty( $img ) ) {
 		$src = 'https://placehold.co/600x450';
 		return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
 	}
 
-	// Handle numeric ID (attachment ID)
+	// Handle numeric ID (attachment ID).
 	if ( is_numeric( $img ) ) {
 		$id = (int) $img;
 		if ( $id > 0 && wp_attachment_is_image( $id ) ) {
@@ -150,26 +151,28 @@ function mia_before_after_img( $img, $label ) {
 				)
 			);
 		}
-		// Invalid attachment ID - return placeholder
+
+		// Invalid attachment ID - return placeholder.
 		$src = 'https://placehold.co/600x450';
 		return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
 	}
 
-	// Handle array (ACF image field)
+	// Handle array (ACF image field).
 	if ( is_array( $img ) && ! empty( $img['url'] ) ) {
 		$src = $img['url'];
 		if ( ! filter_var( $src, FILTER_VALIDATE_URL ) ) {
-			// Invalid URL in array - return placeholder
+			// Invalid URL in array - return placeholder.
 			$src = 'https://placehold.co/600x450';
 			return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
 		}
+
 		return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " surgery image' loading='lazy'>";
 	}
 
-	// Handle string URL
+	// Handle string URL.
 	if ( is_string( $img ) ) {
 		if ( ! filter_var( $img, FILTER_VALIDATE_URL ) ) {
-			// Try to find attachment by URL with error handling
+			// Try to find attachment by URL with error handling.
 			$id = attachment_url_to_postid( $img );
 			if ( $id && is_numeric( $id ) && $id > 0 && wp_attachment_is_image( $id ) ) {
 				return wp_get_attachment_image(
@@ -183,14 +186,16 @@ function mia_before_after_img( $img, $label ) {
 					)
 				);
 			}
-			// Invalid URL string - return placeholder
+
+			// Invalid URL string - return placeholder.
 			$src = 'https://placehold.co/600x450';
 			return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
 		}
+
 		return "<img src='" . esc_url( $img ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " surgery image' loading='lazy'>";
 	}
 
-	// Fallback for unsupported types - return placeholder
+	// Fallback for unsupported types - return placeholder.
 	$src = 'https://placehold.co/600x450';
 	return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
 }

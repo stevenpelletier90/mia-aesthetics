@@ -2,6 +2,8 @@
 /**
  * Case Archive Template
  * Organizes case studies into categories with procedure archive styling
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>

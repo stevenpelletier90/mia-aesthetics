@@ -8,7 +8,7 @@
  * @package Mia_Aesthetics
  */
 
-// Exit if accessed directly
+// Exit if accessed directly.
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
@@ -93,7 +93,7 @@ get_header(); ?>
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
 			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
 			<?php
-			$stats = mia_get_site_stats();
+			$stats = mia_aesthetics_get_site_stats();
 			echo $stats['surgeons'];
 			?>
 			">0</h3>
@@ -219,7 +219,7 @@ get_header(); ?>
 	</div>
 
 	<?php
-	// Include the careers location search component
+	// Include the careers location search component.
 	require get_template_directory() . '/inc/location-search-careers.php';
 	?>
 	</div>
@@ -691,7 +691,7 @@ get_header(); ?>
 		<hr class="footer-divider">
 		<div class="copyright">
 		<div class="text-center mb-3">
-			<p class="mb-1">&copy; <?php echo date( 'Y' ); ?> <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>. All rights reserved.</p>
+			<p class="mb-1">&copy; <?php echo esc_html( gmdate( 'Y' ) ); ?> <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>. All rights reserved.</p>
 			<p class="disclaimer mb-0">The pictures on this website consist of both models and actual patients.</p>
 		</div>
 		
