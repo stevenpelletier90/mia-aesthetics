@@ -177,5 +177,4 @@ document.addEventListener('DOMContentLoaded', function () {
 		});
 	});
 
-	console.log('Careers locations page JavaScript loaded successfully');
 });

@@ -12,76 +12,164 @@
  * @return array Main menu structure
  */
 function get_mia_menu_structure() {
-    return [
-        'procedures' => [
-            'title' => 'Procedures',
-            'url' => home_url('/cosmetic-plastic-surgery/'),
-            'sections' => [
-                'body' => [
-                    'title' => 'Body',
-                    'url' => home_url('/cosmetic-plastic-surgery/body/'),
-                    'items' => [
-                        ['title' => 'Mia Waist Corset™', 'slug' => 'mia-corset'],
-                        ['title' => 'Awake Lipo', 'slug' => 'awake-liposuction'],
-                        ['title' => 'Body Lift', 'slug' => 'circumferential-body-lift'],
-                        ['title' => 'Brazilian Butt Lift (BBL)', 'slug' => 'brazilian-butt-lift-bbl'],
-                        ['title' => 'Lipo 360', 'slug' => 'lipo-360'],
-                        ['title' => 'Liposuction', 'slug' => 'liposuction'],
-                        ['title' => 'Tummy Tuck', 'slug' => 'tummy-tuck'],
-                        ['title' => 'Mommy Makeover', 'slug' => 'mommy-makeover'],
-                        ['title' => 'Arm Lift', 'slug' => 'arm-lift'],
-                        ['title' => 'Thigh Lift', 'slug' => 'thigh-lift'],
-                        ['title' => 'Vaginal Rejuvenation', 'slug' => 'labiaplasty-labia-reduction-vaginal-rejuvenation'],
-                    ]
-                ],
-                'breast' => [
-                    'title' => 'Breast',
-                    'url' => home_url('/cosmetic-plastic-surgery/breast/'),
-                    'items' => [
-                        ['title' => 'Breast Augmentation', 'slug' => 'augmentation-implants'],
-                        ['title' => 'Breast Reduction', 'slug' => 'reduction'],
-                        ['title' => 'Breast Lift', 'slug' => 'lift'],
-                        ['title' => 'Breast Implant Revision', 'slug' => 'implant-revision-surgery'],
-                    ]
-                ],
-                'face' => [
-                    'title' => 'Face',
-                    'url' => home_url('/cosmetic-plastic-surgery/face/'),
-                    'items' => [
-                        ['title' => 'Brow Lift', 'slug' => 'brow-lift'],
-                        ['title' => 'Buccal Fat Removal', 'slug' => 'buccal-cheek-fat-removal'],
-                        ['title' => 'Blepharoplasty', 'slug' => 'eyelid-lift-blepharoplasty'],
-                        ['title' => 'Chin Lipo', 'slug' => 'chin-lipo'],
-                        ['title' => 'Facelift', 'slug' => 'facelift'],
-                        ['title' => 'Mini Facelift', 'slug' => 'mini-facelift'],
-                        ['title' => 'Neck Lift', 'slug' => 'neck-lift'],
-                        ['title' => 'Otoplasty', 'slug' => 'ear-pinning-otoplasty'],
-                        ['title' => 'Rhinoplasty', 'slug' => 'nose-job-rhinoplasty'],
-                    ]
-                ],
-                'men' => [
-                    'title' => 'Men',
-                    'url' => home_url('/cosmetic-plastic-surgery/men/'),
-                    'items' => [
-                        ['title' => 'Male BBL', 'slug' => 'male-bbl', 'parent' => 'body'],
-                        ['title' => 'Male Breast Procedures', 'slug' => 'male-breast-procedures', 'parent' => 'breast'],
-                        ['title' => 'Male Liposuction', 'slug' => 'male-liposuction', 'parent' => 'body'],
-                        ['title' => 'Male Tummy Tuck', 'slug' => 'male-tummy-tuck', 'parent' => 'body'],
-                    ]
-                ]
-            ]
-        ],
-        'non-surgical' => [
-            'title' => 'Non-Surgical',
-            'url' => home_url('/non-surgical/'),
-            'categories' => [
-                'injectable' => 'Injectable Treatments',
-                'skin' => 'Skin Treatments', 
-                'body' => 'Body Contouring',
-                'wellness' => 'Wellness Treatments'
-            ]
-        ]
-    ];
+	return array(
+		'procedures'   => array(
+			'title'    => 'Procedures',
+			'url'      => home_url( '/cosmetic-plastic-surgery/' ),
+			'sections' => array(
+				'body'   => array(
+					'title' => 'Body',
+					'url'   => home_url( '/cosmetic-plastic-surgery/body/' ),
+					'items' => array(
+						array(
+							'title' => 'Mia Waist Corset™',
+							'slug'  => 'mia-corset',
+						),
+						array(
+							'title' => 'Awake Lipo',
+							'slug'  => 'awake-liposuction',
+						),
+						array(
+							'title' => 'Body Lift',
+							'slug'  => 'circumferential-body-lift',
+						),
+						array(
+							'title' => 'Brazilian Butt Lift (BBL)',
+							'slug'  => 'brazilian-butt-lift-bbl',
+						),
+						array(
+							'title' => 'Lipo 360',
+							'slug'  => 'lipo-360',
+						),
+						array(
+							'title' => 'Liposuction',
+							'slug'  => 'liposuction',
+						),
+						array(
+							'title' => 'Tummy Tuck',
+							'slug'  => 'tummy-tuck',
+						),
+						array(
+							'title' => 'Mommy Makeover',
+							'slug'  => 'mommy-makeover',
+						),
+						array(
+							'title' => 'Arm Lift',
+							'slug'  => 'arm-lift',
+						),
+						array(
+							'title' => 'Thigh Lift',
+							'slug'  => 'thigh-lift',
+						),
+						array(
+							'title' => 'Vaginal Rejuvenation',
+							'slug'  => 'labiaplasty-labia-reduction-vaginal-rejuvenation',
+						),
+					),
+				),
+				'breast' => array(
+					'title' => 'Breast',
+					'url'   => home_url( '/cosmetic-plastic-surgery/breast/' ),
+					'items' => array(
+						array(
+							'title' => 'Breast Augmentation',
+							'slug'  => 'augmentation-implants',
+						),
+						array(
+							'title' => 'Breast Reduction',
+							'slug'  => 'reduction',
+						),
+						array(
+							'title' => 'Breast Lift',
+							'slug'  => 'lift',
+						),
+						array(
+							'title' => 'Breast Implant Revision',
+							'slug'  => 'implant-revision-surgery',
+						),
+					),
+				),
+				'face'   => array(
+					'title' => 'Face',
+					'url'   => home_url( '/cosmetic-plastic-surgery/face/' ),
+					'items' => array(
+						array(
+							'title' => 'Brow Lift',
+							'slug'  => 'brow-lift',
+						),
+						array(
+							'title' => 'Buccal Fat Removal',
+							'slug'  => 'buccal-cheek-fat-removal',
+						),
+						array(
+							'title' => 'Blepharoplasty',
+							'slug'  => 'eyelid-lift-blepharoplasty',
+						),
+						array(
+							'title' => 'Chin Lipo',
+							'slug'  => 'chin-lipo',
+						),
+						array(
+							'title' => 'Facelift',
+							'slug'  => 'facelift',
+						),
+						array(
+							'title' => 'Mini Facelift',
+							'slug'  => 'mini-facelift',
+						),
+						array(
+							'title' => 'Neck Lift',
+							'slug'  => 'neck-lift',
+						),
+						array(
+							'title' => 'Otoplasty',
+							'slug'  => 'ear-pinning-otoplasty',
+						),
+						array(
+							'title' => 'Rhinoplasty',
+							'slug'  => 'nose-job-rhinoplasty',
+						),
+					),
+				),
+				'men'    => array(
+					'title' => 'Men',
+					'url'   => home_url( '/cosmetic-plastic-surgery/men/' ),
+					'items' => array(
+						array(
+							'title'  => 'Male BBL',
+							'slug'   => 'male-bbl',
+							'parent' => 'body',
+						),
+						array(
+							'title'  => 'Male Breast Procedures',
+							'slug'   => 'male-breast-procedures',
+							'parent' => 'breast',
+						),
+						array(
+							'title'  => 'Male Liposuction',
+							'slug'   => 'male-liposuction',
+							'parent' => 'body',
+						),
+						array(
+							'title'  => 'Male Tummy Tuck',
+							'slug'   => 'male-tummy-tuck',
+							'parent' => 'body',
+						),
+					),
+				),
+			),
+		),
+		'non-surgical' => array(
+			'title'      => 'Non-Surgical',
+			'url'        => home_url( '/non-surgical/' ),
+			'categories' => array(
+				'injectable' => 'Injectable Treatments',
+				'skin'       => 'Skin Treatments',
+				'body'       => 'Body Contouring',
+				'wellness'   => 'Wellness Treatments',
+			),
+		),
+	);
 }
 
 /**
@@ -90,18 +178,18 @@ function get_mia_menu_structure() {
  *
  * @param string $type 'desktop' or 'mobile'
  */
-function render_mia_menu($type = 'desktop') {
-    $menu = get_mia_menu_structure();
-    $is_mobile = $type === 'mobile';
+function render_mia_menu( $type = 'desktop' ) {
+	$menu      = get_mia_menu_structure();
+	$is_mobile = $type === 'mobile';
 
-    foreach ($menu as $key => $section) {
-        if ($key === 'procedures') {
-            render_procedures_menu($section, $is_mobile);
-        } elseif ($key === 'non-surgical') {
-            render_non_surgical_menu($is_mobile);
-        }
-        // Add other menu sections here as needed.
-    }
+	foreach ( $menu as $key => $section ) {
+		if ( $key === 'procedures' ) {
+			render_procedures_menu( $section, $is_mobile );
+		} elseif ( $key === 'non-surgical' ) {
+			render_non_surgical_menu( $is_mobile );
+		}
+		// Add other menu sections here as needed.
+	}
 }
 
 // (Other menu rendering functions are defined in inc/menu-helpers.php)

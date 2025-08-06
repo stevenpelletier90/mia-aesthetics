@@ -67,10 +67,6 @@
   line-height: 1.5;
 }
 
-.condition-children {
-  /* Removed confusing border line */
-}
-
 .condition-item {
   background: #fff;
   border: 1px solid rgba(0, 0, 0, 0.06);

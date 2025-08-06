@@ -10,8 +10,14 @@
 	<exclude-pattern>*/vendor/*</exclude-pattern>
 	<exclude-pattern>*/assets/bootstrap/*</exclude-pattern>
 	<exclude-pattern>*/assets/fontawesome/*</exclude-pattern>
+	<exclude-pattern>*/assets/js/*</exclude-pattern>
+	<exclude-pattern>*/assets/css/*</exclude-pattern>
+	<exclude-pattern>*/assets/fonts/*</exclude-pattern>
+	<exclude-pattern>*/assets/data/*</exclude-pattern>
 	<exclude-pattern>*.min.js</exclude-pattern>
 	<exclude-pattern>*.min.css</exclude-pattern>
+	<exclude-pattern>*.js</exclude-pattern>
+	<exclude-pattern>*.css</exclude-pattern>
 
 	<!-- Check up to 8 files simultaneously -->
 	<arg name="parallel" value="8"/>
@@ -49,7 +55,7 @@
 	<rule ref="WordPress.NamingConventions.PrefixAllGlobals">
 		<properties>
 			<property name="prefixes" type="array">
-				<element value="mia"/>
+				<element value="mia_aesthetics"/>
 				<element value="Mia_Aesthetics"/>
 			</property>
 		</properties>

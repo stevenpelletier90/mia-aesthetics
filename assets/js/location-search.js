@@ -11,18 +11,14 @@
 
 	// Global variables
 	let locations = [];
-	let autocomplete;
 	let userLocation = null;
 	let currentResults = [];
 	let currentHighlightIndex = -1;
 
 	// Define Google Maps callback immediately (before DOM load)
 	window.initGoogleMaps = function () {
-		console.log('Google Maps callback triggered');
 		if ('function' === typeof initializeAutocomplete) {
 			initializeAutocomplete();
-		} else {
-			console.error('initializeAutocomplete function not found');
 		}
 	};
 
@@ -46,15 +42,10 @@
 
 	// Initialize when page loads
 	document.addEventListener('DOMContentLoaded', function () {
-		console.log('Location search: DOM loaded, initializing...');
-		console.log('Search input found:', !!searchInput);
-		console.log('Search dropdown found:', !!searchDropdown);
-		console.log('Search input styles:', searchInput ? getComputedStyle(searchInput) : 'N/A');
-
 		// Test if input events work even without Google Maps
 		if (searchInput) {
 			const testInputHandler = function (e) {
-				console.log('Input event fired:', e.target.value);
+				// Input event handler for testing
 			};
 			searchInput.addEventListener('input', testInputHandler);
 
@@ -66,17 +57,12 @@
 
 		// Check if Google Maps is loading
 		setTimeout(() => {
-			console.log('Checking Google Maps after 3 seconds...');
-			console.log('Google object available:', 'undefined' !== typeof google);
-			console.log('Google Maps available:', 'undefined' !== typeof google && !!google.maps);
-
 			// If Google Maps is available but callback wasn't called, call it manually
 			if (
 				'undefined' !== typeof google &&
         google.maps &&
         'function' === typeof initializeAutocomplete
 			) {
-				console.log('Google Maps loaded but callback not called, initializing manually...');
 				initializeAutocomplete();
 			}
 		}, 3000);
@@ -86,7 +72,6 @@
 
 	// Load locations from WordPress API
 	async function loadLocations() {
-		console.log('Loading locations from API...');
 		try {
 			const response = await fetch(
 				'/wp-json/wp/v2/location?per_page=100&parent=0&_fields=id,title,link,acf'
@@ -104,11 +89,8 @@
 				coordinates: getCoordinates(location.acf),
 				distance: null
 			}));
-
-			console.log(`Loaded ${locations.length} parent locations`);
-			console.log('Sample location:', locations[0]);
 		} catch (error) {
-			console.error('Error loading locations:', error);
+			// Error loading locations - silent handling
 		}
 	}
 
@@ -130,17 +112,13 @@
 
 	// Initialize search functionality
 	window.initializeAutocomplete = function () {
-		console.log('Initializing autocomplete...');
 		try {
 			if ('undefined' === typeof google || !google.maps) {
-				console.error('Google Maps API not loaded');
 				return;
 			}
 
-			console.log('Google Maps API found, creating geocoder...');
 			window.geocoder = new google.maps.Geocoder();
 
-			console.log('Adding event listeners...');
 			// Remove the test input listener first
 			if (searchInput._testHandler) {
 				searchInput.removeEventListener('input', searchInput._testHandler);
@@ -149,10 +127,8 @@
 
 			searchInput.addEventListener('input', debouncedSearch);
 			searchInput.addEventListener('keydown', handleKeyNavigation);
-
-			console.log('Google Maps Geocoder initialized successfully');
 		} catch (error) {
-			console.error('Error initializing Google Maps:', error);
+			// Error initializing Google Maps - silent handling
 		}
 	};
 
@@ -174,22 +150,16 @@
 		const originalQuery = searchInput.value ? searchInput.value.trim() : '';
 		const query = originalQuery.toLowerCase();
 
-		console.log('Search triggered with query:', originalQuery);
-
 		if (query.length < SEARCH_CONFIG.MIN_SEARCH_LENGTH) {
-			console.log('Query too short, hiding dropdown');
 			hideDropdown();
 			return;
 		}
 
 		const exactMatches = findExactMatches(query);
-		console.log('Exact matches found:', exactMatches.length);
 
 		if (0 < exactMatches.length) {
-			console.log('Using exact matches');
 			geocodeAndShowResults(query, exactMatches, true, originalQuery);
 		} else {
-			console.log('No exact matches, geocoding...');
 			geocodeAndShowResults(query, [], false, originalQuery);
 		}
 	}
@@ -216,14 +186,9 @@
 
 	const debouncedSearch = debounce(handleSearch, SEARCH_CONFIG.DEBOUNCE_DELAY);
 
-	console.log('Debounced search function created');
-
 	// Geocoding with caching
 	function geocodeAndShowResults(query, exactMatches, hasExactMatches, originalQuery) {
-		console.log('geocodeAndShowResults called with:', query);
-
 		if (!window.geocoder) {
-			console.error('No geocoder available');
 			return;
 		}
 
@@ -231,14 +196,11 @@
 		const cached = geocodeCache.get(cacheKey);
 
 		if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
-			console.log('Using cached result for:', query);
 			userLocation = cached.location;
 			calculateDistances();
 			displaySimplifiedResults(query, exactMatches, hasExactMatches, originalQuery);
 			return;
 		}
-
-		console.log('Starting geocoding for:', query);
 		showLoading();
 
 		geocoder.geocode(
@@ -247,15 +209,11 @@
 				componentRestrictions: { country: 'US' }
 			},
 			(results, status) => {
-				console.log('Geocoding result:', status, results);
-
 				if ('OK' === status && results[0]) {
 					userLocation = {
 						lat: results[0].geometry.location.lat(),
 						lng: results[0].geometry.location.lng()
 					};
-
-					console.log('Geocoded location:', userLocation);
 
 					geocodeCache.set(cacheKey, {
 						location: userLocation,
@@ -265,7 +223,6 @@
 					calculateDistances();
 					displaySimplifiedResults(query, exactMatches, hasExactMatches, originalQuery);
 				} else {
-					console.log('Geocoding failed:', status);
 					hideLoading();
 					searchDropdown.innerHTML = '<div class="no-results">No locations found</div>';
 					showDropdown();
@@ -523,9 +480,6 @@
 	function showDropdown() {
 		searchDropdown.style.display = 'block';
 		searchInput.setAttribute('aria-expanded', 'true');
-		console.log('Dropdown shown, innerHTML length:', searchDropdown.innerHTML.length);
-		console.log('Dropdown z-index:', getComputedStyle(searchDropdown).zIndex);
-		console.log('Dropdown position:', getComputedStyle(searchDropdown).position);
 	}
 
 	function hideDropdown() {

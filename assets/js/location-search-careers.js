@@ -12,14 +12,12 @@
 
 	// Global variables
 	let careerLocations = [];
-	let autocomplete;
 	let userLocation = null;
 	let currentResults = [];
 	let currentHighlightIndex = -1;
 
 	// Define Google Maps callback immediately (before DOM load)
 	window.initGoogleMapsCareers = function () {
-		console.log('Google Maps callback triggered for careers');
 		if ('function' === typeof initializeAutocompleteCareers) {
 			initializeAutocompleteCareers();
 		}
@@ -45,13 +43,11 @@
 
 	// Initialize when page loads
 	document.addEventListener('DOMContentLoaded', function () {
-		console.log('Career location search: DOM loaded, initializing...');
 		loadCareerLocations();
 	});
 
 	// Load career location pages from WordPress API
 	async function loadCareerLocations() {
-		console.log('Loading career location pages from API...');
 		try {
 			// Query for pages using the careers-locations template
 			const response = await fetch(
@@ -77,7 +73,6 @@
 					);
 					const pageWithAcf = await acfResponse.json();
 
-					console.log('Career page data:', pageWithAcf.title.rendered, pageWithAcf);
 
 					let coordinates = null;
 					let locationData = null;
@@ -86,24 +81,19 @@
 					if (pageWithAcf.acf && pageWithAcf.acf.linked_main_location) {
 						try {
 							const mainLocationId = pageWithAcf.acf.linked_main_location;
-							console.log('Found linked main location ID:', mainLocationId);
 
 							const locationResponse = await fetch(
 								`/wp-json/wp/v2/location/${mainLocationId}?_fields=acf`
 							);
 							const mainLocation = await locationResponse.json();
 
-							console.log('Main location data:', mainLocation);
 
 							if (mainLocation.acf && mainLocation.acf.location_map) {
 								locationData = mainLocation.acf.location_map;
 								coordinates = getCoordinates(mainLocation.acf);
-								console.log('Successfully extracted coordinates:', coordinates);
 							} else {
-								console.log('No location_map found in main location ACF');
 							}
 						} catch (error) {
-							console.error('Error fetching linked location:', error);
 						}
 
 						// Only add to results if we have a linked main location
@@ -117,7 +107,6 @@
 							distance: null
 						});
 					} else {
-						console.log('Skipping page without linked_main_location:', pageWithAcf.title.rendered);
 					}
 
 					// Add small delay between requests to avoid rate limiting
@@ -125,21 +114,15 @@
 						await new Promise((resolve) => setTimeout(resolve, 100));
 					}
 				} catch (error) {
-					console.error('Error processing career page:', page.title?.rendered || page.id, error);
 				}
 			}
 
-			console.log(`Total career locations loaded: ${careerLocations.length}`);
-			console.log('All career locations:', careerLocations);
 
 			// Filter out locations without coordinates
 			const locationsWithCoordinates = careerLocations.filter((loc) => null !== loc.coordinates);
-			console.log(`Career locations with coordinates: ${locationsWithCoordinates.length}`);
 
 			careerLocations = locationsWithCoordinates;
-			console.log('Sample career location:', careerLocations[0]);
 		} catch (error) {
-			console.error('Error loading career locations:', error);
 		}
 	}
 
@@ -161,10 +144,8 @@
 
 	// Initialize search functionality
 	window.initializeAutocompleteCareers = function () {
-		console.log('Initializing careers autocomplete...');
 		try {
 			if ('undefined' === typeof google || !google.maps) {
-				console.error('Google Maps API not loaded');
 				return;
 			}
 
@@ -173,10 +154,8 @@
 			if (searchInput) {
 				searchInput.addEventListener('input', debouncedSearch);
 				searchInput.addEventListener('keydown', handleKeyNavigation);
-				console.log('Career search event listeners added');
 			}
 		} catch (error) {
-			console.error('Error initializing Google Maps for careers:', error);
 		}
 	};
 
@@ -198,7 +177,6 @@
 		const originalQuery = searchInput.value ? searchInput.value.trim() : '';
 		const query = originalQuery.toLowerCase();
 
-		console.log('Career search triggered with query:', originalQuery);
 
 		if (query.length < SEARCH_CONFIG.MIN_SEARCH_LENGTH) {
 			hideDropdown();
@@ -206,7 +184,6 @@
 		}
 
 		const exactMatches = findExactMatches(query);
-		console.log('Career exact matches found:', exactMatches.length);
 
 		if (0 < exactMatches.length) {
 			geocodeAndShowResults(query, exactMatches, true, originalQuery);
@@ -241,7 +218,6 @@
 	// Geocoding with caching
 	function geocodeAndShowResults(query, exactMatches, hasExactMatches, originalQuery) {
 		if (!window.geocoder) {
-			console.error('No geocoder available');
 			return;
 		}
 
@@ -610,9 +586,6 @@
       google.maps &&
       'function' === typeof initializeAutocompleteCareers
 		) {
-			console.log(
-				'Google Maps loaded but callback not called for careers, initializing manually...'
-			);
 			initializeAutocompleteCareers();
 		}
 	}, 3000);

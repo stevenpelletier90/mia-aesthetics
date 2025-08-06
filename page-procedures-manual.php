@@ -2,9 +2,9 @@
 /**
  * Template Name: Procedures Manual Layout
  * Template Post Type: procedure
- * Description: Displays manually curated procedure posts in a grid layout. 
- * Similar to Procedures Listing but with manually placed content instead of 
- * automatically pulling child procedures. Perfect for specialized procedure 
+ * Description: Displays manually curated procedure posts in a grid layout.
+ * Similar to Procedures Listing but with manually placed content instead of
+ * automatically pulling child procedures. Perfect for specialized procedure
  * collections like male-specific procedures.
  *
  * @package Mia_Aesthetics
@@ -16,7 +16,10 @@ get_header();
 <main id="primary" class="hero-canvas-main">
 <?php mia_breadcrumbs(); ?>
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		?>
 		<!-- Page Header / Hero ----------------------------------------->
 		<section class="post-header py-5">
 			<div class="container">
@@ -32,25 +35,37 @@ get_header();
 					// Manually placed procedure IDs
 					// These can be hardcoded or managed via ACF field
 					$manual_procedures = array();
-					
+
 					// Check if we have an ACF field for manual procedures
-					if ( function_exists('get_field') && get_field('manual_procedures') ) {
-						$manual_procedures = get_field('manual_procedures');
+					if ( function_exists( 'get_field' ) && get_field( 'manual_procedures' ) ) {
+						$manual_procedures = get_field( 'manual_procedures' );
 					} else {
 						// Fallback to hardcoded IDs based on the URLs provided
 						// You'll need to replace these with actual post IDs
 						$manual_procedures = array(
 							// Male BBL - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-bbl/
-							array('post_id' => 205, 'custom_title' => 'Male BBL'),
-							
+							array(
+								'post_id'      => 205,
+								'custom_title' => 'Male BBL',
+							),
+
 							// Male Breast Procedures - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/breast/male-breast-procedures/
-							array('post_id' => 231, 'custom_title' => 'Male Breast Procedures'),
-							
+							array(
+								'post_id'      => 231,
+								'custom_title' => 'Male Breast Procedures',
+							),
+
 							// Male Liposuction - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-liposuction/
-							array('post_id' => 206, 'custom_title' => 'Male Liposuction'),
-							
+							array(
+								'post_id'      => 206,
+								'custom_title' => 'Male Liposuction',
+							),
+
 							// Male Tummy Tuck - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-tummy-tuck/
-							array('post_id' => 208, 'custom_title' => 'Male Tummy Tuck'),
+							array(
+								'post_id'      => 208,
+								'custom_title' => 'Male Tummy Tuck',
+							),
 						);
 					}
 
@@ -58,31 +73,39 @@ get_header();
 						foreach ( $manual_procedures as $procedure_data ) :
 							// Handle both simple ID arrays and complex arrays with custom data
 							if ( is_numeric( $procedure_data ) ) {
-								$procedure_id = $procedure_data;
-								$custom_title = '';
+								$procedure_id   = $procedure_data;
+								$custom_title   = '';
 								$custom_excerpt = '';
 							} else {
-								$procedure_id = isset( $procedure_data['post_id'] ) ? $procedure_data['post_id'] : ( isset( $procedure_data['procedure'] ) ? $procedure_data['procedure'] : 0 );
-								$custom_title = isset( $procedure_data['custom_title'] ) ? $procedure_data['custom_title'] : '';
+								$procedure_id   = isset( $procedure_data['post_id'] ) ? $procedure_data['post_id'] : ( isset( $procedure_data['procedure'] ) ? $procedure_data['procedure'] : 0 );
+								$custom_title   = isset( $procedure_data['custom_title'] ) ? $procedure_data['custom_title'] : '';
 								$custom_excerpt = isset( $procedure_data['custom_excerpt'] ) ? $procedure_data['custom_excerpt'] : '';
 							}
-							
-							if ( ! $procedure_id ) continue;
-							
+
+							if ( ! $procedure_id ) {
+								continue;
+							}
+
 							$procedure = get_post( $procedure_id );
-							if ( ! $procedure || $procedure->post_status !== 'publish' ) continue;
-							
+							if ( ! $procedure || $procedure->post_status !== 'publish' ) {
+								continue;
+							}
+
 							setup_postdata( $procedure );
-							
+
 							// Use custom or default values
-							$procedure_title = $custom_title ?: get_the_title( $procedure_id );
+							$procedure_title   = $custom_title ?: get_the_title( $procedure_id );
 							$procedure_excerpt = $custom_excerpt ?: get_the_excerpt( $procedure_id );
-							$procedure_link = get_permalink( $procedure_id );
-							$procedure_image = get_the_post_thumbnail( $procedure_id, 'medium_large', array(
-								'class' => 'img-fluid',
-								'alt' => esc_attr( $procedure_title )
-							));
-							
+							$procedure_link    = get_permalink( $procedure_id );
+							$procedure_image   = get_the_post_thumbnail(
+								$procedure_id,
+								'medium_large',
+								array(
+									'class' => 'img-fluid',
+									'alt'   => esc_attr( $procedure_title ),
+								)
+							);
+
 							// Fallback image if no featured image
 							if ( ! $procedure_image ) {
 								$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';

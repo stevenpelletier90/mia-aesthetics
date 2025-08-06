@@ -36,7 +36,7 @@ function disableBootstrapScrollspy() {
 				instance.dispose();
 			}
 		} catch (error) {
-			console.warn('Could not dispose Bootstrap ScrollSpy:', error);
+			// ScrollSpy disposal failed - this is non-critical
 		}
 	}
 

@@ -253,7 +253,7 @@
 					restructureCarousel();
 
 					// Reinitialize carousel
-					const newCarousel = new bootstrap.Carousel(testimonialCarousel, {
+					new bootstrap.Carousel(testimonialCarousel, {
 						interval: 6000,
 						keyboard: true,
 						pause: 'hover',

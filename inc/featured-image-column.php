@@ -13,10 +13,11 @@ add_action( 'admin_init', 'mia_featured_image_columns_init' );
 
 function mia_featured_image_columns_init() {
 
-	/* ---------------------------------------------------------------------
+	/*
+	---------------------------------------------------------------------
 	 * Register the column, render its cells, and make it sortable.
 	 * ------------------------------------------------------------------ */
-	foreach ( get_post_types( [ 'public' => true ] ) as $type ) {
+	foreach ( get_post_types( array( 'public' => true ) ) as $type ) {
 		if ( post_type_supports( $type, 'thumbnail' ) ) {
 
 			// 1. Add header.
@@ -31,7 +32,7 @@ function mia_featured_image_columns_init() {
 					// Place after Title.
 					$offset = array_search( 'title', array_keys( $cols ), true );
 					return array_slice( $cols, 0, $offset + 1, true )
-						+ [ 'thumb' => $label ]
+						+ array( 'thumb' => $label )
 						+ array_slice( $cols, $offset + 1, null, true );
 				}
 			);
@@ -47,10 +48,15 @@ function mia_featured_image_columns_init() {
 					$id = get_post_thumbnail_id( $post_id );
 					if ( $id ) {
 						echo wp_kses_post(
-							wp_get_attachment_image( $id, [ 40, 40 ], false, [
-								'style' => 'width:40px;height:40px;object-fit:cover;border-radius:4px;',
-								'loading' => 'lazy',
-							] )
+							wp_get_attachment_image(
+								$id,
+								array( 40, 40 ),
+								false,
+								array(
+									'style'   => 'width:40px;height:40px;object-fit:cover;border-radius:4px;',
+									'loading' => 'lazy',
+								)
+							)
 						);
 					} else {
 						printf(
@@ -66,7 +72,7 @@ function mia_featured_image_columns_init() {
 			// 3. Make sortable.
 			add_filter(
 				"manage_edit-{$type}_sortable_columns",
-				static fn( $cols ) => $cols + [ 'thumb' => 'has_thumb' ]
+				static fn( $cols ) => $cols + array( 'thumb' => 'has_thumb' )
 			);
 		}
 	}
@@ -86,14 +92,15 @@ function mia_featured_image_columns_init() {
 		}
 	);
 
-	/* ---------------------------------------------------------------------
+	/*
+	---------------------------------------------------------------------
 	 * Custom bulk action: remove featured image.
 	 * (Setting a thumbnail from Media Library involves JS; omit here.)
 	 * ------------------------------------------------------------------ */
 	$screen_ids = array_map(
 		static fn( $pt ) => 'edit-' . $pt,
 		array_filter(
-			get_post_types( [ 'public' => true ] ),
+			get_post_types( array( 'public' => true ) ),
 			static fn( $pt ) => post_type_supports( $pt, 'thumbnail' )
 		)
 	);
@@ -101,7 +108,7 @@ function mia_featured_image_columns_init() {
 	foreach ( $screen_ids as $screen ) {
 		add_filter(
 			"bulk_actions-{$screen}",
-			static fn( $acts ) => $acts + [ 'remove_thumb' => __( 'Remove Featured Image', 'mia' ) ]
+			static fn( $acts ) => $acts + array( 'remove_thumb' => __( 'Remove Featured Image', 'mia' ) )
 		);
 
 		add_filter(
@@ -117,7 +124,7 @@ function mia_featured_image_columns_init() {
 					delete_post_thumbnail( $id );
 				}
 				return add_query_arg(
-					[ 'thumbs_removed' => count( $ids ) ],
+					array( 'thumbs_removed' => count( $ids ) ),
 					$redirect
 				);
 			},
@@ -146,16 +153,20 @@ function mia_featured_image_columns_init() {
 		}
 	);
 
-	/* ---------------------------------------------------------------------
+	/*
+	---------------------------------------------------------------------
 	 * A tiny dashicon‑inline style so we avoid an extra stylesheet request.
 	 * Only load on post list screens where the column appears.
 	 * ------------------------------------------------------------------ */
-	add_action( 'admin_enqueue_scripts', static function( $hook ) {
-		if ( 'edit.php' === $hook ) {
-			wp_add_inline_style(
-				'dashicons',
-				'.column-thumb { width:60px;text-align:center; }'
-			);
+	add_action(
+		'admin_enqueue_scripts',
+		static function ( $hook ) {
+			if ( 'edit.php' === $hook ) {
+				wp_add_inline_style(
+					'dashicons',
+					'.column-thumb { width:60px;text-align:center; }'
+				);
+			}
 		}
-	} );
+	);
 }

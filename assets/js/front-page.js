@@ -208,18 +208,6 @@ document.addEventListener('DOMContentLoaded', function () {
 
 		// Helper – keep arrows live but disable when useless
 		function updateArrows() {
-			const maxScroll = tabs.scrollWidth - tabs.clientWidth;
-
-			// Debug logging (remove in production)
-			console.log('Debug arrows:', {
-				scrollWidth: tabs.scrollWidth,
-				clientWidth: tabs.clientWidth,
-				maxScroll: maxScroll,
-				scrollLeft: tabs.scrollLeft,
-				tabCount: tabLinks.length,
-				currentTabIndex: currentTabIndex
-			});
-
 			// Always enable arrows - they work regardless of overflow
 			prevArrow.disabled = false;
 			nextArrow.disabled = false;

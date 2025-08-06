@@ -21,7 +21,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param array  $args      Optional WP_Query args used to narrow the count.
  * @return int
  */
-function mia_get_cached_post_count( $post_type, $args = [] ) {
+function mia_get_cached_post_count( $post_type, $args = array() ) {
 	$cache_key = "mia_count_{$post_type}_" . md5( serialize( $args ) );
 	$count     = wp_cache_get( $cache_key );
 
@@ -29,7 +29,7 @@ function mia_get_cached_post_count( $post_type, $args = [] ) {
 		$query = new WP_Query(
 			wp_parse_args(
 				$args,
-				[
+				array(
 					'post_type'              => $post_type,
 					'post_status'            => 'publish',
 					'posts_per_page'         => -1,
@@ -37,7 +37,7 @@ function mia_get_cached_post_count( $post_type, $args = [] ) {
 					'no_found_rows'          => true,
 					'update_post_meta_cache' => false,
 					'update_post_term_cache' => false,
-				]
+				)
 			)
 		);
 
@@ -67,12 +67,12 @@ function mia_get_site_stats() {
 	$stats     = wp_cache_get( $cache_key );
 
 	if ( false === $stats ) {
-		$stats = [
-			'surgeons'   => mia_get_cached_post_count( 'surgeon',   [ 'post_parent' => 0 ] ),
-			'locations'  => mia_get_cached_post_count( 'location',  [ 'post_parent' => 0 ] ),
+		$stats = array(
+			'surgeons'   => mia_get_cached_post_count( 'surgeon', array( 'post_parent' => 0 ) ),
+			'locations'  => mia_get_cached_post_count( 'location', array( 'post_parent' => 0 ) ),
 			'procedures' => mia_get_cached_post_count( 'procedure' ),
 			'cases'      => mia_get_cached_post_count( 'case' ),
-		];
+		);
 
 		$cache_duration = apply_filters( 'mia_site_stats_cache_duration', 2 * HOUR_IN_SECONDS );
 		wp_cache_set( $cache_key, $stats, '', $cache_duration );

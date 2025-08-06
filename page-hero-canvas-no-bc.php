@@ -14,7 +14,10 @@ get_header();
 
 <main id="primary" class="hero-canvas-main">
 
-	<?php while ( have_posts() ) : the_post(); ?>
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		?>
 		<!-- Page Header / Hero ----------------------------------------->
 		<section class="post-header py-5">
 			<div class="container">
@@ -27,13 +30,19 @@ get_header();
 		 * Optional featured hero image. Full‑width and lazy‑loaded.
 		 * Comment out this block if your design doesn’t call for a hero image.
 		 */
-		if ( has_post_thumbnail() ) : ?>
+		if ( has_post_thumbnail() ) :
+			?>
 			<div class="container mb-5">
-				<?php the_post_thumbnail( 'full', [
-					'class'   => 'img-fluid w-100',
-					'loading' => 'lazy',
-					'alt'     => esc_attr( get_the_title() ),
-				] ); ?>
+				<?php
+				the_post_thumbnail(
+					'full',
+					array(
+						'class'   => 'img-fluid w-100',
+						'loading' => 'lazy',
+						'alt'     => esc_attr( get_the_title() ),
+					)
+				);
+				?>
 			</div>
 		<?php endif; ?>
 
@@ -41,17 +50,20 @@ get_header();
 		<article <?php post_class( 'entry-content' ); ?>>
 			<?php
 				/**
-				 * the_content() will render exactly what the editor outputs. Encourage
+				 * The_content() will render exactly what the editor outputs. Encourage
 				 * layout control via  <div class="container"> / .container‑fluid
 				 * blocks inside the editor content.
 				 */
 				the_content();
 
 				// Support for Gutenberg/Classic page breaks.
-				wp_link_pages( [
-					'before' => '<nav class="page-links" aria-label="' . esc_attr__( 'Page', 'mia-aesthetics' ) . '">',
-					'after'  => '</nav>',
-				] );
+				wp_link_pages(
+					array(
+						'before' => '<nav class="page-links" aria-label="' . 
+							esc_attr__( 'Page', 'mia-aesthetics' ) . '">',
+						'after'  => '</nav>',
+					)
+				);
 			?>
 		</article>
 

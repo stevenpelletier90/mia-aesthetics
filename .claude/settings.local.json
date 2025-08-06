@@ -19,7 +19,10 @@
       "Bash(php:*)",
       "Bash(composer --version)",
       "Bash(composer run-script phpcs:*)",
-      "Bash(npm run lint:*)"
+      "Bash(npm run lint:*)",
+      "Bash(composer run phpcs:*)",
+      "Bash(grep:*)",
+      "Bash(./vendor/bin/phpcs:*)"
     ],
     "deny": []
   },

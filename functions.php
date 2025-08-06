@@ -6,68 +6,90 @@
  * Each include is responsible for a specific area of theme functionality.
  */
 
-// Load helper modules (see inc/ for details)
-// 1. CORE FOUNDATION (WordPress features, no dependencies)
-require_once get_template_directory() . '/inc/theme-support.php';         // WordPress theme support features (MUST be first)
-require_once get_template_directory() . '/inc/state-abbreviations.php';   // US state abbreviation lookup and helper (pure utility)
+// Load helper modules (see inc/ for details).
+// 1. CORE FOUNDATION (WordPress features, no dependencies).
+require_once get_template_directory() . '/inc/theme-support.php';
+// WordPress theme support features (MUST be first).
+require_once get_template_directory() . '/inc/state-abbreviations.php';
+// US state abbreviation lookup and helper (pure utility).
 
-// 2. UTILITIES (minimal dependencies, used by other modules)
-require_once get_template_directory() . '/inc/media-helpers.php';         // Video processing, image handling, gallery utilities
-require_once get_template_directory() . '/inc/cache-helpers.php';         // Cache management and clearing (used by queries)
+// 2. UTILITIES (minimal dependencies, used by other modules).
+require_once get_template_directory() . '/inc/media-helpers.php';
+// Video processing, image handling, gallery utilities.
+require_once get_template_directory() . '/inc/cache-helpers.php';
+// Cache management and clearing (used by queries).
 
-// 3. TEMPLATE UTILITIES (depends on utilities above)
-require_once get_template_directory() . '/inc/template-helpers.php';      // Template/UI helpers (uses state abbreviations)
+// 3. TEMPLATE UTILITIES (depends on utilities above).
+require_once get_template_directory() . '/inc/template-helpers.php';
+// Template/UI helpers (uses state abbreviations).
 
-// 4. FEATURE MODULES (moderate dependencies)
-require_once get_template_directory() . '/inc/featured-image-column.php'; // Admin featured image column
+// 4. FEATURE MODULES (moderate dependencies).
+require_once get_template_directory() . '/inc/featured-image-column.php';
+// Admin featured image column.
 
-// 5. QUERY MODIFICATIONS (depends on caching utilities)
-require_once get_template_directory() . '/inc/queries.php';               // Custom query modifications and filters
+// 5. QUERY MODIFICATIONS (depends on caching utilities).
+require_once get_template_directory() . '/inc/queries.php';
+// Custom query modifications and filters.
 
-// 6. NAVIGATION (depends on utilities and state functions)
-require_once get_template_directory() . '/inc/menu-helpers.php';          // Menu rendering helpers and caching (uses state abbreviations)
-require_once get_template_directory() . '/inc/menus.php';                 // Menu structure and rendering (uses menu helpers)
+// 6. NAVIGATION (depends on utilities and state functions).
+require_once get_template_directory() . '/inc/menu-helpers.php';
+// Menu rendering helpers and caching (uses state abbreviations).
+require_once get_template_directory() . '/inc/menus.php';
+// Menu structure and rendering (uses menu helpers).
 
-// 7. SEO AND METADATA (depends on multiple utility modules)
-require_once get_template_directory() . '/inc/schema.php';               // Modular schema system entry point
+// 7. SEO AND METADATA (depends on multiple utility modules).
+require_once get_template_directory() . '/inc/schema.php';
+// Modular schema system entry point.
 
-// 8. ASSET MANAGEMENT (MUST be last to properly detect template context)
-require_once get_template_directory() . '/inc/enqueue.php';               // Asset enqueueing with versioning and conditional loading
+// 8. ASSET MANAGEMENT (MUST be last to properly detect template context).
+require_once get_template_directory() . '/inc/enqueue.php';
+// Asset enqueueing with versioning and conditional loading.
 
 /**
- * Allow SVG uploads in WordPress Media Library
+ * Allow SVG uploads in WordPress Media Library.
  *
  * This adds SVG support to the allowed file types for upload.
  * SVGs are useful for logos, icons, and scalable graphics.
  *
  * Security Note: SVGs can contain JavaScript, so only allow uploads
  * from trusted users (administrators/editors).
+ *
+ * @param array $mimes Array of allowed mime types.
+ * @return array Modified mime types with SVG support.
  */
-function mia_allow_svg_uploads( $mimes ) {
+function mia_aesthetics_allow_svg_uploads( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
 	return $mimes;
 }
-add_filter( 'upload_mimes', 'mia_allow_svg_uploads' );
+add_filter( 'upload_mimes', 'mia_aesthetics_allow_svg_uploads' );
 
 /**
- * Fix SVG display in WordPress Media Library
+ * Fix SVG display in WordPress Media Library.
  *
  * WordPress doesn't generate thumbnails for SVGs by default.
  * This ensures SVGs display properly in the admin media library.
+ *
+ * @param array  $response   Array of prepared attachment data.
+ * @param object $attachment Attachment object.
+ * @param array  $meta       Array of attachment meta data.
+ * @return array Modified response array with SVG display data.
  */
-function mia_fix_svg_display( $response, $attachment, $meta ) {
+function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
+	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	unset( $meta );
 	if ( $response['type'] === 'image' && $response['subtype'] === 'svg+xml' && class_exists( 'SimpleXMLElement' ) ) {
 		$path = get_attached_file( $attachment->ID );
-		if ( @file_exists( $path ) ) {
-			$svg = @file_get_contents( $path );
+		if ( file_exists( $path ) ) {
+			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+			$svg = file_get_contents( $path );
 			if ( $svg !== false ) {
-				$xml = @simplexml_load_string( $svg );
+				$xml = simplexml_load_string( $svg );
 				if ( $xml !== false ) {
 					$src    = $response['url'];
 					$width  = intval( $xml['width'] );
 					$height = intval( $xml['height'] );
 
-					// If width/height not in XML attributes, try viewBox
+					// If width/height not in XML attributes, try viewBox.
 					if ( ! $width || ! $height ) {
 						$viewbox = explode( ' ', $xml['viewBox'] );
 						if ( count( $viewbox ) === 4 ) {
@@ -76,7 +98,7 @@ function mia_fix_svg_display( $response, $attachment, $meta ) {
 						}
 					}
 
-					// Fallback dimensions if still not found
+					// Fallback dimensions if still not found.
 					if ( ! $width ) {
 						$width = 150;
 					}
@@ -98,15 +120,21 @@ function mia_fix_svg_display( $response, $attachment, $meta ) {
 	}
 	return $response;
 }
-add_filter( 'wp_prepare_attachment_for_js', 'mia_fix_svg_display', 10, 3 );
+add_filter( 'wp_prepare_attachment_for_js', 'mia_aesthetics_fix_svg_display', 10, 3 );
 
 /**
- * Add SVG to allowed file types check
+ * Add SVG to allowed file types check.
  *
  * This ensures WordPress recognizes SVG files as valid images
  * for security and validation purposes.
+ *
+ * @param array  $data     Array of file data.
+ * @param string $file     File path.
+ * @param string $filename Original filename.
+ * @param array  $mimes    Array of allowed mime types.
+ * @return array Modified file data array.
  */
-function mia_check_svg_filetype( $data, $file, $filename, $mimes ) {
+function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {
 	global $wp_filetype;
 	if ( ! empty( $data['ext'] ) && ! empty( $data['type'] ) ) {
 		return $data;
@@ -120,4 +148,4 @@ function mia_check_svg_filetype( $data, $file, $filename, $mimes ) {
 
 	return $data;
 }
-add_filter( 'wp_check_filetype_and_ext', 'mia_check_svg_filetype', 10, 4 );
+add_filter( 'wp_check_filetype_and_ext', 'mia_aesthetics_check_svg_filetype', 10, 4 );

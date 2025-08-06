@@ -16,41 +16,44 @@ get_header(); ?>
 
 <main>
 <?php mia_breadcrumbs(); ?>
-    <?php while (have_posts()) : the_post(); ?>
-        <!-- Page Header -->
-        <section class="post-header py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <h1><?php the_title(); ?></h1>
-                    </div>
-                </div>
-            </div>
-        </section>
+	<?php
+	while ( have_posts() ) :
+		the_post();
+		?>
+		<!-- Page Header -->
+		<section class="post-header py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<h1><?php the_title(); ?></h1>
+					</div>
+				</div>
+			</div>
+		</section>
 
-        <!-- Content -->
-        <article class="py-5">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
-                        <?php if (has_post_thumbnail()) : ?>
-                            <div class="mb-4">
-                                <?php the_post_thumbnail('large', ['class' => 'img-fluid']); ?>
-                            </div>
-                        <?php endif; ?>
-                        
-                        <div class="content">
-                            <?php the_content(); ?>
-                        </div>
-                    </div>
-                    
-                    <div class="col-lg-4">
-                        <!-- Sidebar content can go here if needed -->
-                    </div>
-                </div>
-            </div>
-        </article>
-    <?php endwhile; ?>
+		<!-- Content -->
+		<article class="py-5">
+			<div class="container">
+				<div class="row">
+					<div class="col-lg-8">
+						<?php if ( has_post_thumbnail() ) : ?>
+							<div class="mb-4">
+								<?php the_post_thumbnail( 'large', array( 'class' => 'img-fluid' ) ); ?>
+							</div>
+						<?php endif; ?>
+						
+						<div class="content">
+							<?php the_content(); ?>
+						</div>
+					</div>
+					
+					<div class="col-lg-4">
+						<!-- Sidebar content can go here if needed -->
+					</div>
+				</div>
+			</div>
+		</article>
+	<?php endwhile; ?>
 </main>
 
 <?php get_footer(); ?>
