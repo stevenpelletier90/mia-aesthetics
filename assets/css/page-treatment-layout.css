@@ -114,6 +114,7 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+
   /* Removed: padding-block - pages handle their own spacing */
 }
 
@@ -127,7 +128,7 @@
 /* Removed: .main-content > * + * spacing rule - pages handle their own spacing */
 
 .results-resources-section {
-  background: linear-gradient(135deg, #000000 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, #000 0%, var(--color-primary) 100%);
   padding-block: var(--spacing-2xl);
   border-block: 1px solid rgba(255, 255, 255, 0.1);
 }
@@ -164,7 +165,7 @@
 }
 
 .consultation-card {
-  background: linear-gradient(135deg, #000000 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, #000 0%, var(--color-primary) 100%);
   color: #fff;
 }
 
@@ -192,7 +193,7 @@
 }
 
 :is(#field_1_55, #field_1_57, #field_1_58, #field_1_54) {
-  margin-bottom: 0px !important;
+  margin-bottom: 0 !important;
 }
 
 .consultation-card .gform_wrapper .gfield_label {
@@ -279,7 +280,14 @@
 
 .consultation-card
   .gform_wrapper
-  :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"], select) {
+  :is(
+    input[type="text"],
+    input[type="email"],
+    input[type="tel"],
+    input[type="number"],
+    input[type="url"],
+    select
+  ) {
   height: var(--input-height);
   padding: var(--input-padding);
   line-height: 1.5;
@@ -287,7 +295,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-base);
   background-color: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  color: #fff;
   width: 100%;
   appearance: none;
   transition: var(--transition-base);
@@ -297,7 +305,7 @@
   padding: var(--input-padding);
   position: relative;
   background-color: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  color: #fff;
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-base);
   appearance: none;
@@ -313,8 +321,8 @@
 }
 
 .consultation-card .gform_wrapper .ginput_container_select::after {
-  content: '\f078';
-  font-family: 'Font Awesome 6 Free';
+  content: "\f078";
+  font-family: "Font Awesome 6 Free";
   font-weight: 900;
   position: absolute;
   right: 1rem;
@@ -331,8 +339,8 @@
 }
 
 .consultation-card .gform_wrapper select option {
-  background-color: #ffffff;
-  color: #000000;
+  background-color: #fff;
+  color: #000;
   padding: 8px 10px;
 }
 
@@ -350,7 +358,7 @@
   border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: var(--radius-base);
   background-color: rgba(0, 0, 0, 0.2);
-  color: #ffffff;
+  color: #fff;
   appearance: none;
   transition: var(--transition-base);
 }
@@ -402,7 +410,7 @@
   content: "\f00c";
   font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  color: #000000;
+  color: #000;
   font-size: 12px;
   position: absolute;
   top: 50%;
@@ -412,7 +420,7 @@
 
 .consultation-card .gform_wrapper .gfield_checkbox label {
   font-size: 14px;
-  color: #ffffff;
+  color: #fff;
   margin: 0;
   cursor: pointer;
 }
@@ -427,9 +435,9 @@
   justify-content: center;
   font-weight: 600;
   line-height: 1.5;
-  color: #ffffff;
+  color: #fff;
   background-color: transparent;
-  border: 2px solid #ffffff;
+  border: 2px solid #fff;
   box-shadow: var(--shadow-sm);
   padding: 0.625rem 1.5rem;
   font-size: 15px;
@@ -512,12 +520,12 @@ a.consent-trigger::after {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: #ffffff;
+  background-color: #fff;
   transition: var(--transition-base);
 }
 
 a.consent-trigger:hover {
-  color: #ffffff;
+  color: #fff;
 }
 
 a.consent-trigger:hover::after {

@@ -5,7 +5,7 @@
 
 /* Hero Section */
 .specials-hero {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
   padding: 4rem 1.5rem;
   border-bottom: 1px solid rgba(27, 27, 27, 0.1);
 }
@@ -17,7 +17,7 @@
 }
 
 .specials-hero .lead {
-  color: #666666;
+  color: #666;
   font-size: 1.25rem;
   max-width: 600px;
   margin: 0 auto 2rem auto;
@@ -26,13 +26,13 @@
 
 /* Grid Section */
 .specials-grid {
-  background-color: #ffffff;
+  background-color: #fff;
   padding: 4rem 0;
 }
 
 /* Special Cards */
 .special-card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 8px;
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
   overflow: hidden;
@@ -103,7 +103,7 @@
 }
 
 .special-card-excerpt {
-  color: #666666;
+  color: #666;
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1.5rem;
@@ -129,15 +129,15 @@
   .specials-hero {
     padding: 3rem 1.5rem;
   }
-  
+
   .specials-hero h1 {
     font-size: 2rem;
   }
-  
+
   .specials-hero .lead {
     font-size: 1.125rem;
   }
-  
+
   .specials-grid {
     padding: 3rem 0;
   }
@@ -147,28 +147,28 @@
   .specials-hero {
     padding: 2.5rem 1rem;
   }
-  
+
   .specials-hero h1 {
     font-size: 1.75rem;
   }
-  
+
   .specials-hero .lead {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .specials-grid {
     padding: 2.5rem 0;
   }
-  
+
   .special-card-body {
     padding: 1.25rem;
   }
-  
+
   .special-card-title {
     font-size: 1.125rem;
   }
-  
+
   .special-card-excerpt {
     font-size: 0.9rem;
   }
@@ -178,20 +178,20 @@
   .specials-hero {
     padding: 2rem 1rem;
   }
-  
+
   .specials-hero h1 {
     font-size: 1.5rem;
   }
-  
+
   .specials-grid .row {
     margin: 0 -0.5rem;
   }
-  
+
   .specials-grid .col {
     padding: 0 0.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .special-card-body {
     padding: 1rem;
   }
@@ -205,6 +205,6 @@
 }
 
 .specials-grid .text-center p {
-  color: #666666;
+  color: #666;
   font-size: 1.125rem;
 }

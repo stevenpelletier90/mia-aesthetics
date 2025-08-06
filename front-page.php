@@ -9,156 +9,77 @@ get_header(); ?>
 include 'hero-section.php'; 
 ?>
 
-<!-- About Section with Video Carousel -->
+<!-- About Section - Centered Layout -->
 <section class="about-section py-5">
   <div class="container">
-    <div class="row align-items-center">
-      <!-- Left Column: About Content -->
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <div class="about-content">
-          <p class="tagline mb-2">Professional Care You Can Trust</p>
-          <h1 class="mb-4">About Mia Aesthetics</h1>
-          <p class="mb-4">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
-        </div>
-      </div>
-      
-      <!-- Right Column: Video Carousel -->
-      <div class="col-lg-6">
-        <div class="video-carousel-wrapper">
-          <!-- Glide.js Container -->
-          <div class="glide video-glide" id="videoGlide">
-            <div class="glide__track" data-glide-el="track">
-              <ul class="glide__slides">
-                <!-- Video 1 -->
-                <li class="glide__slide">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/b6b0KaW2cXE" title="Mia Aesthetics Video 1" allowfullscreen></iframe>
-                  </div>                 
-                </li>
-                <!-- Video 2 -->
-                <li class="glide__slide">
-                   <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/ykz9Z8Kh3Yo" title="Mia Aesthetics Video 2" allowfullscreen></iframe>
-                  </div>                 
-                </li>
-                <!-- Video 3 -->
-                <li class="glide__slide">
-                   <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/MI9qpDPGuD4" title="Mia Aesthetics Video 3" allowfullscreen></iframe>
-                  </div>                  
-                </li>
-                <!-- Video 4 -->
-                <li class="glide__slide">
-                <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/OxigXlYTqH8" title="Mia Aesthetics Video 5" allowfullscreen></iframe>
-                  </div>                  
-                </li>
-                <!-- Video 5 -->
-                <li class="glide__slide">
-                  <div class="ratio ratio-16x9">
-                    <iframe src="https://www.youtube.com/embed/sb8Kapy8mzU" title="Mia Aesthetics Video 4" allowfullscreen></iframe>
-                  </div>
-                </li>
-              </ul>
-            </div>
-            
-            <!-- Navigation arrows -->
-            <div class="glide__arrows" data-glide-el="controls">
-              <button class="glide__arrow glide__arrow--left" data-glide-dir="<" aria-label="Previous video">
-                <i class="fa-solid fa-chevron-left"></i>
-              </button>
-              <button class="glide__arrow glide__arrow--right" data-glide-dir=">" aria-label="Next video">
-                <i class="fa-solid fa-chevron-right"></i>
-              </button>
-            </div>
-            
-            <!-- Pagination bullets -->
-            <div class="glide__bullets" data-glide-el="controls[nav]">
-              <button class="glide__bullet" data-glide-dir="=0" aria-label="Go to video 1"></button>
-              <button class="glide__bullet" data-glide-dir="=1" aria-label="Go to video 2"></button>
-              <button class="glide__bullet" data-glide-dir="=2" aria-label="Go to video 3"></button>
-              <button class="glide__bullet" data-glide-dir="=3" aria-label="Go to video 4"></button>
-              <button class="glide__bullet" data-glide-dir="=4" aria-label="Go to video 5"></button>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-    </div>
-  </div>
-</section>
-
-<!-- Stats Section -->
-<section class="stats-section py-4 py-md-5">
-  <div class="container">
-    <!-- Top Content -->
-    <div class="row mb-4 mb-md-5">
-      <!-- Left Column: Tagline and Heading -->
-      <div class="col-lg-6 mb-3 mb-lg-0">
-        <div class="stats-heading">
-          <p class="tagline mb-1 mb-md-2">Our Commitment</p>
-          <h2 class="stats-heading-title">Trusted Surgical Excellence</h2>
-        </div>
-      </div>
-      
-      <!-- Right Column: Paragraph and Buttons -->
-      <div class="col-lg-6">
-        <div class="stats-content">          <p class="mb-3 mb-md-4 fs-6"> Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
-          <div class="d-flex">
-            <a href="/locations/" class="mia-button me-3" data-variant="black" role="button">Our Locations</a>
-            <a href="/plastic-surgeons/" class="mia-button" data-variant="black" role="button">Our Surgeons</a>
-          </div>
+    <!-- Centered Content -->
+    <div class="row justify-content-center">
+      <div class="col-lg-10 col-xl-8">
+        <div class="about-content text-center">
+          <p class="tagline mb-3">PROFESSIONAL CARE YOU CAN TRUST</p>
+          <h1 class="about-heading mb-4">About Mia Aesthetics</h1>
+          <p class="about-description mb-5">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
         </div>
       </div>
     </div>
     
-<!-- Stats Row -->
-<div class="row row-cols-2 row-cols-md-4 g-4 mt-4 mt-md-5">
-  <!-- Stat Item 1: Founded Year -->
-  <div class="col">
-    <div class="position-relative ps-3 ps-md-4 mb-4">
-      <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-      <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2017">0</h3>
-      <p class="text-white opacity-75 mb-0 fs-6">Year Founded</p>
+    <!-- Custom Statistics Grid -->
+    <div class="stats-grid">
+      <!-- Founded Year -->  
+      <div class="stat-box text-center">
+        <div class="stat-number" data-count="2017">0</div>
+        <div class="stat-label">YEAR<br>FOUNDED</div>
+      </div>
+      
+      <!-- Expert Surgeons (Dynamic) -->
+      <div class="stat-box text-center">
+        <div class="stat-number" data-count="<?php
+          $stats = mia_get_site_stats();
+          echo $stats['surgeons'];
+        ?>">0</div>
+        <div class="stat-label">EXPERT<br>SURGEONS</div>
+      </div>
+      
+      <!-- Clinic Locations (Dynamic) -->
+      <div class="stat-box text-center">
+        <div class="stat-number" data-count="<?php echo $stats['locations']; ?>">0</div>
+        <div class="stat-label">CLINIC<br>LOCATIONS</div>
+      </div>
+      
+      <!-- Satisfied Patients -->
+      <div class="stat-box text-center">
+        <div class="stat-number" data-count="150000" data-suffix="+">0</div>
+        <div class="stat-label">SATISFIED<br>PATIENTS</div>
+      </div>
     </div>
-  </div>
-  
-  <!-- Stat Item 2: Number of Surgeons (Dynamic) -->
-  <div class="col">
-    <div class="position-relative ps-3 ps-md-4 mb-4">
-      <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-      <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="<?php
-        $stats = mia_get_site_stats();
-        echo $stats['surgeons'];
-        ?>">0</h3>
-      <p class="text-white opacity-75 mb-0 fs-6">Expert Surgeons</p>
-    </div>
-  </div>
-  
-  <!-- Stat Item 3: Number of Locations (Dynamic) -->
-  <div class="col">
-    <div class="position-relative ps-3 ps-md-4 mb-4">
-      <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-      <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="<?php
-        echo $stats['locations'];
-        ?>">0</h3>
-      <p class="text-white opacity-75 mb-0 fs-6">Clinic Locations</p>
-    </div>
-  </div>
-  
-  <!-- Stat Item 4: Total Patients -->
-  <div class="col">
-    <div class="position-relative ps-3 ps-md-4 mb-4">
-      <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-      <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="150" data-suffix=",000 +">0</h3>
-      <p class="text-white opacity-75 mb-0 fs-6">Satisfied Patients</p>
-    </div>
-  </div>
-</div>
   </div>
 </section>
 
-
+<!-- Excellence Section -->
+<section class="excellence-section py-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="excellence-image">
+          <img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/05/surgery-1.jpg" 
+               alt="Trusted Surgical Excellence" 
+               class="img-fluid rounded">
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="excellence-content">
+          <p class="excellence-tagline">Our Commitment</p>
+          <h2 class="excellence-heading">Trusted Surgical Excellence</h2>
+          <p class="excellence-description">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
+          <div class="excellence-buttons">
+            <a href="/locations/" class="mia-button me-3" data-variant="gold" role="button">Our Locations</a>
+            <a href="/plastic-surgeons/" class="mia-button" data-variant="gold-outline" role="button">Our Surgeons</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- How Payments Work Section -->
 <section class="how-payments-work-section py-5">
@@ -173,7 +94,7 @@ include 'hero-section.php';
         <div class="row row-cols-1 row-cols-md-2 g-4">
             <div class="col">
               <div class="payment-step-card">
-                <h4 class="mb-3 fw-semibold">1. Research Surgeons</h4>
+                <h3 class="mb-3 fw-semibold">1. Research Surgeons</h3>
                 <ul class="mb-0 ps-3">
                   <li>Choose from over 25 experienced surgeons</li>
                   <li>Review surgeon bios on our website</li>
@@ -183,7 +104,7 @@ include 'hero-section.php';
             </div>
             <div class="col">
               <div class="payment-step-card">
-                <h4 class="mb-3 fw-semibold">2. Check Specials</h4>
+                <h3 class="mb-3 fw-semibold">2. Check Specials</h3>
                 <ul class="mb-0 ps-3">
                   <li>Contact a sales coordinator for specials</li>
                   <li>New surgeons often offer reduced rates</li>
@@ -193,7 +114,7 @@ include 'hero-section.php';
             </div>
             <div class="col">
               <div class="payment-step-card">
-                <h4 class="mb-3 fw-semibold">3. Lock in Your Price</h4>
+                <h3 class="mb-3 fw-semibold">3. Lock in Your Price</h3>
                 <ul class="mb-0 ps-3">
                   <li>Call us to secure a special price</li>
                   <li>Booking fee required to lock in price</li>
@@ -203,7 +124,7 @@ include 'hero-section.php';
             </div>
             <div class="col">
               <div class="payment-step-card">
-                <h4 class="mb-3 fw-semibold">4. Complete Payments</h4>
+                <h3 class="mb-3 fw-semibold">4. Complete Payments</h3>
                 <ul class="mb-0 ps-3">
                   <li>Pay at your own pace</li>
                   <li>Contact your patient concierge</li>

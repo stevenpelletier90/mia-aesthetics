@@ -43,14 +43,14 @@
 
 /* Professional Hero Section */
 .surgeon-hero {
-  background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
 }
 
 .surgeon-hero::before {
-  content: '';
+  content: "";
   position: absolute;
   top: -50%;
   right: -10%;
@@ -74,7 +74,7 @@
 }
 
 .surgeon-hero-image.surgeon-placeholder {
-  background: linear-gradient(135deg, #1b1b1b 0%, #333333 100%);
+  background: linear-gradient(135deg, #1b1b1b 0%, #333 100%);
   aspect-ratio: 4/5;
   border-radius: 20px;
   display: flex;
@@ -165,7 +165,7 @@
 /* Main Content Area */
 .surgeon-content-area {
   padding: 4rem 0;
-  background: #ffffff;
+  background: #fff;
 }
 
 .surgeon-main-column {
@@ -183,7 +183,7 @@
 }
 
 .section-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: 0;
@@ -311,7 +311,7 @@
 
 .expertise-card:hover {
   transform: translateY(-5px);
-  background: #ffffff;
+  background: #fff;
   border-color: var(--color-gold);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -375,7 +375,7 @@
 }
 
 .sidebar-card {
-  background: #ffffff;
+  background: #fff;
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
@@ -392,7 +392,7 @@
 }
 
 .sidebar-card-title::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: -0.5rem;
   left: 0;
@@ -459,7 +459,7 @@
 }
 
 .resource-link:hover {
-  background: #ffffff;
+  background: #fff;
   border-color: var(--color-gold);
   text-decoration: none;
   color: var(--color-gold);
@@ -492,18 +492,17 @@
   padding: 4rem 0;
 }
 
-
 /* Mobile Responsive */
 @media (max-width: 1199px) {
   .surgeon-fluid-container {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }
-  
+
   .surgeon-hero-content {
     padding-left: 2rem;
   }
-  
+
   .surgeon-main-column {
     padding-right: 2rem;
   }
@@ -513,34 +512,34 @@
   .surgeon-hero {
     padding: 3rem 0;
   }
-  
+
   .surgeon-hero-content {
     padding-left: 0;
     padding-top: 2rem;
     text-align: center;
   }
-  
+
   .surgeon-hero .surgeon-name {
     font-size: 2.5rem;
   }
-  
+
   .surgeon-hero .surgeon-location {
     justify-content: center;
   }
-  
+
   .surgeon-hero-actions {
     justify-content: center;
   }
-  
+
   .surgeon-main-column {
     padding-right: 0;
     margin-bottom: 3rem;
   }
-  
+
   .surgeon-sidebar {
     position: static;
   }
-  
+
   .surgeon-fluid-container {
     padding-right: 1rem;
     padding-left: 1rem;
@@ -551,67 +550,67 @@
   .surgeon-hero .surgeon-name {
     font-size: 2rem;
   }
-  
+
   .surgeon-hero .surgeon-location {
     font-size: 1rem;
   }
-  
+
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
-  
+
   .expertise-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-  
+
   .expertise-card {
     flex-direction: column;
     text-align: center;
     padding: 1.5rem;
   }
-  
+
   /* Consistent mobile spacing - 2rem standard */
   .surgeon-content-area {
     padding: 2rem 0;
   }
-  
+
   .surgeon-bio-section {
     margin-bottom: 2rem;
   }
-  
+
   .surgeon-video-section {
     margin-bottom: 2rem;
   }
-  
+
   .surgeon-expertise-section {
     margin-bottom: 2rem;
   }
-  
+
   .surgeon-faq-section {
     padding: 2rem 0;
   }
-  
+
   .sidebar-card {
     margin-bottom: 1.5rem;
     padding: 1.5rem;
   }
-  
+
   /* Reorder sections on mobile */
   .surgeon-main-column {
     display: flex;
     flex-direction: column;
   }
-  
+
   .surgeon-bio-section {
     order: 2;
   }
-  
+
   .surgeon-video-section {
     order: 1;
   }
-  
+
   .surgeon-expertise-section {
     order: 3;
   }
@@ -623,6 +622,5 @@ html {
 }
 
 body.single-surgeon {
-  overflow-y: auto;
-  overflow-x: hidden;
+  overflow: hidden auto;
 }

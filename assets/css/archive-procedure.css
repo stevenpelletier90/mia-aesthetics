@@ -24,7 +24,7 @@
   border: none;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   background: #1b1b1b;
-  color: #ffffff;
+  color: #fff;
 }
 
 .procedure-category-card:hover {
@@ -45,7 +45,12 @@
 
 /* Category Overlay */
 .category-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -66,6 +71,7 @@
   border: none;
   transition: all 0.2s ease;
 }
+
 .category-badge:focus,
 .category-badge:hover,
 .category-badge:active {
@@ -83,7 +89,7 @@
 .procedure-category-card .card-text {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #ffffff;
+  color: #fff;
 }
 
 .procedure-category-card h2 {
@@ -123,7 +129,7 @@
 }
 
 .procedure-links a:hover {
-  color: #ffffff;
+  color: #fff;
   padding-left: 20px;
   text-decoration: none;
 }
@@ -210,6 +216,11 @@
 /* High Contrast Mode Support */
 @media (prefers-contrast: high) {
   .category-overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      transparent 100%
+    );
   }
 }

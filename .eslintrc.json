@@ -1,0 +1,33 @@
+{
+  "extends": ["wordpress", "prettier"],
+  "env": {
+    "browser": true,
+    "jquery": true,
+    "es6": true
+  },
+  "globals": {
+    "wp": true,
+    "jQuery": true,
+    "Bootstrap": true
+  },
+  "parserOptions": {
+    "ecmaVersion": 2020,
+    "sourceType": "script"
+  },
+  "rules": {
+    "no-console": ["warn", { "allow": ["warn", "error"] }],
+    "no-debugger": "error",
+    "no-alert": "warn",
+    "prefer-const": "warn",
+    "no-var": "warn",
+    "eqeqeq": ["error", "smart"],
+    "curly": ["error", "all"],
+    "brace-style": ["error", "1tbs"],
+    "indent": ["error", "tab", { "SwitchCase": 1 }],
+    "quotes": ["error", "single", { "avoidEscape": true }],
+    "semi": ["error", "always"],
+    "comma-dangle": ["error", "never"],
+    "no-unused-vars": ["warn", { "args": "none" }],
+    "camelcase": "off"
+  }
+}

@@ -32,7 +32,12 @@
 }
 
 .category-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.7) 0%,
+    rgba(0, 0, 0, 0.3) 50%,
+    transparent 100%
+  );
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -217,6 +222,11 @@
 
 @media (prefers-contrast: high) {
   .category-overlay {
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+    background: linear-gradient(
+      to top,
+      rgba(0, 0, 0, 0.9) 0%,
+      rgba(0, 0, 0, 0.5) 50%,
+      transparent 100%
+    );
   }
 }

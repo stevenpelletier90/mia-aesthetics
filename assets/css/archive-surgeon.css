@@ -22,6 +22,7 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
   border: 1px solid #c7b07133;
 }
+
 .surgeon-img-container {
   --container-size: 120px;
   display: flex;
@@ -30,6 +31,7 @@
   width: var(--container-size);
   height: var(--container-size);
 }
+
 .surgeon-archive-headshot {
   width: var(--container-size);
   height: var(--container-size);
@@ -40,12 +42,15 @@
   padding: 3px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
+
 .surgeon-info {
   flex: 1;
 }
+
 .surgeon-card h2.h5 {
   color: #1b1b1b;
 }
+
 .surgeon-card .location-link {
   color: #6c757d;
   text-decoration: none;
@@ -56,6 +61,7 @@
   color: var(--color-gold);
   text-decoration: none;
 }
+
 .surgeon-bio-link {
   position: relative;
   font-weight: 500;
@@ -64,16 +70,19 @@
   color: var(--color-primary);
   transition: color 0.2s ease;
 }
+
 .surgeon-bio-link:hover {
   color: var(--color-gold);
   text-decoration: none;
 }
+
 .surgeon-bio-link i {
   margin-left: 8px;
   position: relative;
   top: -1px;
   transition: transform 0.2s ease;
 }
+
 .surgeon-bio-link:hover i {
   transform: translateX(3px);
 }
@@ -82,19 +91,23 @@
   .surgeon-img-container {
     --container-size: 100px;
   }
+
   .surgeon-archive-headshot {
     border: 2px solid var(--color-gold);
   }
+
   .surgeon-card .card-body {
     display: flex;
     flex-direction: row;
     text-align: left;
     align-items: center;
   }
+
   .surgeon-img-container {
     margin-right: 1rem !important;
     margin-bottom: 0;
   }
+
   .surgeon-info {
     display: flex;
     flex-direction: column;

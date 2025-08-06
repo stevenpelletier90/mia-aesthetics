@@ -32,6 +32,7 @@
   color: var(--color-gold);
   margin-bottom: 1.5rem;
 }
+
 .page-section {
   margin-bottom: 3rem;
 }
@@ -44,6 +45,7 @@
   max-width: 100%;
   overflow: hidden;
 }
+
 .page-indicator {
   font-weight: 500;
   color: #495057;

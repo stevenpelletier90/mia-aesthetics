@@ -97,7 +97,7 @@
 #cases-grid .btn-view-case {
   background: linear-gradient(135deg, var(--color-gold) 0%, #b8966a 100%);
   border: none;
-  color: #ffffff;
+  color: #fff;
   font-weight: 600;
   padding: 0.75rem 1.5rem;
   border-radius: 8px;
@@ -117,13 +117,13 @@
   background: linear-gradient(135deg, #b8966a 0%, var(--color-gold) 100%);
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(200, 178, 115, 0.3);
-  color: #ffffff;
+  color: #fff;
 }
 
 #cases-grid .btn-view-case:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.25);
-  color: #ffffff;
+  color: #fff;
 }
 
 #cases-grid .btn-view-case .fa-arrow-right {
@@ -140,7 +140,7 @@
   #cases-grid .card-img-top {
     height: 260px;
   }
-  
+
   #cases-grid .card-body {
     padding: 1.5rem;
   }
@@ -150,7 +150,7 @@
   #cases-grid .card-img-top {
     height: 200px;
   }
-  
+
   #cases-grid .card-body {
     padding: 1rem;
   }

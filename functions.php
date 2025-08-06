@@ -33,3 +33,91 @@ require_once get_template_directory() . '/inc/schema.php';               // Modu
 
 // 8. ASSET MANAGEMENT (MUST be last to properly detect template context)
 require_once get_template_directory() . '/inc/enqueue.php';               // Asset enqueueing with versioning and conditional loading
+
+/**
+ * Allow SVG uploads in WordPress Media Library
+ *
+ * This adds SVG support to the allowed file types for upload.
+ * SVGs are useful for logos, icons, and scalable graphics.
+ *
+ * Security Note: SVGs can contain JavaScript, so only allow uploads
+ * from trusted users (administrators/editors).
+ */
+function mia_allow_svg_uploads( $mimes ) {
+	$mimes['svg'] = 'image/svg+xml';
+	return $mimes;
+}
+add_filter( 'upload_mimes', 'mia_allow_svg_uploads' );
+
+/**
+ * Fix SVG display in WordPress Media Library
+ *
+ * WordPress doesn't generate thumbnails for SVGs by default.
+ * This ensures SVGs display properly in the admin media library.
+ */
+function mia_fix_svg_display( $response, $attachment, $meta ) {
+	if ( $response['type'] === 'image' && $response['subtype'] === 'svg+xml' && class_exists( 'SimpleXMLElement' ) ) {
+		$path = get_attached_file( $attachment->ID );
+		if ( @file_exists( $path ) ) {
+			$svg = @file_get_contents( $path );
+			if ( $svg !== false ) {
+				$xml = @simplexml_load_string( $svg );
+				if ( $xml !== false ) {
+					$src    = $response['url'];
+					$width  = intval( $xml['width'] );
+					$height = intval( $xml['height'] );
+
+					// If width/height not in XML attributes, try viewBox
+					if ( ! $width || ! $height ) {
+						$viewbox = explode( ' ', $xml['viewBox'] );
+						if ( count( $viewbox ) === 4 ) {
+							$width  = intval( $viewbox[2] );
+							$height = intval( $viewbox[3] );
+						}
+					}
+
+					// Fallback dimensions if still not found
+					if ( ! $width ) {
+						$width = 150;
+					}
+					if ( ! $height ) {
+						$height = 150;
+					}
+
+					$response['image']              = compact( 'src', 'width', 'height' );
+					$response['thumb']              = compact( 'src', 'width', 'height' );
+					$response['sizes']['thumbnail'] = array(
+						'height'      => $height,
+						'width'       => $width,
+						'url'         => $src,
+						'orientation' => $height > $width ? 'portrait' : 'landscape',
+					);
+				}
+			}
+		}
+	}
+	return $response;
+}
+add_filter( 'wp_prepare_attachment_for_js', 'mia_fix_svg_display', 10, 3 );
+
+/**
+ * Add SVG to allowed file types check
+ *
+ * This ensures WordPress recognizes SVG files as valid images
+ * for security and validation purposes.
+ */
+function mia_check_svg_filetype( $data, $file, $filename, $mimes ) {
+	global $wp_filetype;
+	if ( ! empty( $data['ext'] ) && ! empty( $data['type'] ) ) {
+		return $data;
+	}
+
+	$filetype = wp_check_filetype( $filename, $mimes );
+	if ( $filetype['ext'] === 'svg' ) {
+		$data['ext']  = 'svg';
+		$data['type'] = 'image/svg+xml';
+	}
+
+	return $data;
+}
+add_filter( 'wp_check_filetype_and_ext', 'mia_check_svg_filetype', 10, 4 );

@@ -267,7 +267,10 @@
         "/wp-content/uploads/2025/06/GROSS_MM_2.jpg",
         "/wp-content/uploads/2025/06/GROSS_MM_5.jpg"
       ],
-      "Tummy Tuck": ["/wp-content/uploads/2025/06/GROSS_TT_1.jpg", "/wp-content/uploads/2025/06/GROSS_TT_2.jpg"]
+      "Tummy Tuck": [
+        "/wp-content/uploads/2025/06/GROSS_TT_1.jpg",
+        "/wp-content/uploads/2025/06/GROSS_TT_2.jpg"
+      ]
     }
   },
   "dr-horowitz": {
@@ -436,7 +439,10 @@
         "/wp-content/uploads/2025/06/MORSE_BBL_3.jpg"
       ],
       "Breast Procedures": ["/wp-content/uploads/2025/06/MORSE_BA_1.jpg"],
-      "Lipo 360": ["/wp-content/uploads/2025/06/MORSE_LIPO_1.jpg", "/wp-content/uploads/2025/06/MORSE_LIPO_2.jpg"],
+      "Lipo 360": [
+        "/wp-content/uploads/2025/06/MORSE_LIPO_1.jpg",
+        "/wp-content/uploads/2025/06/MORSE_LIPO_2.jpg"
+      ],
       "Mommy Makeover": ["/wp-content/uploads/2025/06/MORSE_MMO_1.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/06/MORSE_TT_3.jpg",
@@ -637,7 +643,10 @@
         "/wp-content/uploads/2025/06/SHAIKH_BAL_1.jpg",
         "/wp-content/uploads/2025/06/SHAIKH_BR_2.jpg"
       ],
-      "Lipo 360": ["/wp-content/uploads/2025/06/SHAIKH_LIPO_1.jpg", "/wp-content/uploads/2025/06/SHAIKH_LIPO_2.jpg"],
+      "Lipo 360": [
+        "/wp-content/uploads/2025/06/SHAIKH_LIPO_1.jpg",
+        "/wp-content/uploads/2025/06/SHAIKH_LIPO_2.jpg"
+      ],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/06/SHAIKH_TT_1.jpg",
         "/wp-content/uploads/2025/06/SHAIKH_TT_2.jpg",
@@ -700,7 +709,10 @@
         "/wp-content/uploads/2025/06/valauri_lipo360_5.jpg"
       ],
       "Mommy Makeover": ["/wp-content/uploads/2025/06/VALAURI_MMO_1.jpg"],
-      "Tummy Tuck": ["/wp-content/uploads/2025/06/VALAURI_TT_1.jpg", "/wp-content/uploads/2025/06/VALAURI_TT_2.jpg"]
+      "Tummy Tuck": [
+        "/wp-content/uploads/2025/06/VALAURI_TT_1.jpg",
+        "/wp-content/uploads/2025/06/VALAURI_TT_2.jpg"
+      ]
     }
   },
   "dr-wright": {
@@ -719,7 +731,10 @@
         "/wp-content/uploads/2025/06/WRIGHT_BAL_1.jpg",
         "/wp-content/uploads/2025/06/WRIGHT_BA_5.jpg"
       ],
-      "Lipo 360": ["/wp-content/uploads/2025/06/WRIGHT_LIPO_1.jpg", "/wp-content/uploads/2025/06/WRIGHT_LIPO_2.jpg"],
+      "Lipo 360": [
+        "/wp-content/uploads/2025/06/WRIGHT_LIPO_1.jpg",
+        "/wp-content/uploads/2025/06/WRIGHT_LIPO_2.jpg"
+      ],
       "Mommy Makeover": ["/wp-content/uploads/2025/06/WRIGHT_MMO_1.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/06/Wright_TummyTuck_4.jpg",
@@ -734,7 +749,10 @@
     "name": "Dr. Xu",
     "procedures": {
       "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/06/XU_BBL_1.jpg"],
-      "Breast Procedures": ["/wp-content/uploads/2025/06/XU_BA_1.jpg", "/wp-content/uploads/2025/06/XU_BA_2.jpg"],
+      "Breast Procedures": [
+        "/wp-content/uploads/2025/06/XU_BA_1.jpg",
+        "/wp-content/uploads/2025/06/XU_BA_2.jpg"
+      ],
       "Lipo 360": ["/wp-content/uploads/2025/06/XU_LIPO_1.jpg"],
       "Mommy Makeover": [
         "/wp-content/uploads/2025/06/XU_MMO_1.jpg",

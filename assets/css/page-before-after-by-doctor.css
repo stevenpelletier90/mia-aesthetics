@@ -1,4 +1,5 @@
 /* Page Template: page-before-after-by-doctor.php */
+
 /* Styles specific to before/after by doctor page template */
 
 /* Gallery CSS for Before & After by Doctor
@@ -68,6 +69,7 @@
 #doctors-gallery .gallery img {
   transition: transform 0.25s ease;
 }
+
 #doctors-gallery .gallery img:hover {
   transform: scale(1.04);
 }

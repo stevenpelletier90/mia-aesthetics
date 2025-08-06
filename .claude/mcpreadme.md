@@ -16,26 +16,26 @@ This guide provides installation commands for common MCP servers in both WSL/Bas
 
 ```bash
 # Local scope (default - current project only)
-claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem .
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem "."
 
 # Project scope (shared with team via .mcp.json)
-claude mcp add filesystem -s project -- npx -y @modelcontextprotocol/server-filesystem .
+claude mcp add filesystem -s project -- npx -y @modelcontextprotocol/server-filesystem "."
 
 # User scope (available across all your projects)
-claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesystem .
+claude mcp add filesystem -s user -- npx -y @modelcontextprotocol/server-filesystem "."
 ```
 
 **Windows PowerShell:**
 
 ```powershell
 # Local scope (default - current project only)
-claude mcp add filesystem -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem .
+claude mcp add filesystem -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem "."
 
 # Project scope (shared with team via .mcp.json)
-claude mcp add filesystem -s project -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem .
+claude mcp add filesystem -s project -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem "."
 
 # User scope (available across all your projects)
-claude mcp add filesystem -s user -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem .
+claude mcp add filesystem -s user -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem "."
 ```
 
 ### Git Server

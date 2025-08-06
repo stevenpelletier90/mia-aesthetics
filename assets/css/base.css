@@ -8,14 +8,21 @@
  * - :root (CSS custom properties)
  * - body, h1-h6 (basic typography)
  * - .site-header, .navbar (above-fold navigation)
+ *
+ * Test comment added by Claude Code
  * - Hero section styles for front-page
+ * 
+ * Additional test comment for demonstration
  */
 
 :root {
   --color-primary: #1b1b1b;
   --color-gold: #c8b273;
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Inter', sans-serif;
+  --color-gold-light: #f9f5ee;
+  --color-gold-10: rgba(200, 178, 115, 0.1);
+  --color-gold-20: rgba(200, 178, 115, 0.2);
+  --font-heading: "Montserrat", sans-serif;
+  --font-body: "Inter", sans-serif;
   --navbar-height: 65px;
   --btn-padding: 0.5rem 1rem;
   --btn-padding-sm: 0.375rem 1rem;
@@ -54,7 +61,7 @@ body {
   font-family: var(--font-body);
   font-weight: 400;
   line-height: 1.6;
-  color: #222222;
+  color: #222;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -113,6 +120,17 @@ p {
   margin-bottom: 1rem;
 }
 
+/* Mia Aesthetics brand name styling - Global */
+.mia-brand {
+  white-space: nowrap;
+}
+
+.mia-brand .trademark {
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+}
+
 a {
   color: var(--color-primary);
 }
@@ -136,7 +154,7 @@ article .content a,
 .page-content a,
 .entry-content a,
 .main-content a {
-  color: #0000FF;
+  color: #00f;
   text-decoration: underline;
 }
 
@@ -152,7 +170,7 @@ article .content a:focus,
 .entry-content a:focus,
 .main-content a:hover,
 .main-content a:focus {
-  color: #551A8B;
+  color: #551a8b;
   text-decoration-thickness: 2px;
 }
 
@@ -214,38 +232,38 @@ ol {
   text-decoration: none;
 }
 
-.mia-button[data-variant='gold'] {
-  color: #000000;
+.mia-button[data-variant="gold"] {
+  color: #000;
   background-color: var(--color-gold);
   border-color: var(--color-gold);
 }
 
-.mia-button[data-variant='gold']:hover,
-.mia-button[data-variant='gold']:focus {
+.mia-button[data-variant="gold"]:hover,
+.mia-button[data-variant="gold"]:focus {
   color: var(--color-gold);
   background-color: var(--color-primary);
   border-color: var(--color-primary);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.mia-button[data-variant='gold-outline'] {
+.mia-button[data-variant="gold-outline"] {
   color: var(--color-primary);
   border-color: var(--color-gold);
 }
 
-.mia-button[data-variant='gold-outline']:hover,
-.mia-button[data-variant='gold-outline']:focus {
+.mia-button[data-variant="gold-outline"]:hover,
+.mia-button[data-variant="gold-outline"]:focus {
   color: #fff;
   background-color: var(--color-gold);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.mia-button[data-variant='hero'] {
+.mia-button[data-variant="hero"] {
   background-color: rgba(0, 0, 0, 0.2);
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  color: #ffffff;
-  border-color: #ffffff;
+  color: #fff;
+  border-color: #fff;
   padding: 0.6rem 1.75rem;
   font-size: clamp(0.8rem, 1.5vw, 1.1rem);
   width: auto;
@@ -254,50 +272,50 @@ ol {
   border-radius: 3px;
 }
 
-.mia-button[data-variant='hero']:hover,
-.mia-button[data-variant='hero']:focus {
+.mia-button[data-variant="hero"]:hover,
+.mia-button[data-variant="hero"]:focus {
   background-color: rgba(0, 0, 0, 0.9);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   color: #fff;
-  border-color: #000000;
+  border-color: #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.mia-button[data-variant='white'] {
-  color: #000000;
-  border-color: #000000;
+.mia-button[data-variant="white"] {
+  color: #000;
+  border-color: #000;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 0.625rem 1.5rem;
 }
 
-.mia-button[data-variant='white']:hover,
-.mia-button[data-variant='white']:focus {
-  color: #ffffff;
-  background-color: #000000;
+.mia-button[data-variant="white"]:hover,
+.mia-button[data-variant="white"]:focus {
+  color: #fff;
+  background-color: #000;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.mia-button[data-variant='black'] {
-  color: #ffffff;
-  border-color: #ffffff;
+.mia-button[data-variant="black"] {
+  color: #fff;
+  border-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   padding: 0.625rem 1.5rem;
 }
 
-.mia-button[data-variant='black']:hover,
-.mia-button[data-variant='black']:focus {
-  color: #000000;
-  background-color: #ffffff;
+.mia-button[data-variant="black"]:hover,
+.mia-button[data-variant="black"]:focus {
+  color: #000;
+  background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.mia-button[data-size='sm'] {
+.mia-button[data-size="sm"] {
   padding: var(--btn-padding-sm);
   font-size: 0.875rem;
 }
 
-.mia-button[data-size='lg'] {
+.mia-button[data-size="lg"] {
   padding: var(--btn-padding-lg);
   font-size: 1.125rem;
   min-width: 160px;
@@ -329,8 +347,8 @@ ol {
   font-family: var(--font-heading);
 }
 
-.faqs-section h2:after {
-  content: '';
+.faqs-section h2::after {
+  content: "";
   position: absolute;
   left: 0;
   bottom: 0;
@@ -384,9 +402,9 @@ ol {
 }
 
 .accordion-button::after {
-  font-family: 'Font Awesome 6 Free';
+  font-family: "Font Awesome 6 Free";
   font-weight: 900;
-  content: '\f078';
+  content: "\f078";
   background-image: none;
   transition: transform 0.3s ease;
   color: var(--color-gold);
@@ -394,7 +412,7 @@ ol {
 
 .accordion-button:not(.collapsed)::after {
   transform: rotate(180deg);
-  content: '\f078';
+  content: "\f078";
   color: var(--color-gold);
 }
 
@@ -407,7 +425,7 @@ ol {
 
 /* FAQ section link styles */
 .faqs-section .accordion-body a {
-  color: #0000ff;
+  color: #00f;
 }
 
 .faqs-section .accordion-body a:hover,
@@ -439,13 +457,13 @@ ol {
 }
 
 @media (max-width: 767px) {
-  .mia-button[data-variant='hero'] {
+  .mia-button[data-variant="hero"] {
     padding: 0.5rem 1.25rem;
     font-size: 0.8rem;
     min-width: 130px;
   }
 
-  .mia-button[data-size='lg'] {
+  .mia-button[data-size="lg"] {
     padding: 0.6rem 1.5rem;
     font-size: 1.05rem;
   }
@@ -460,13 +478,13 @@ ol {
 }
 
 @media (max-width: 480px) {
-  .mia-button[data-variant='hero'] {
+  .mia-button[data-variant="hero"] {
     padding: 0.4rem 1rem;
     font-size: 0.8rem;
     min-width: 110px;
   }
 
-  .mia-button[data-size='lg'] {
+  .mia-button[data-size="lg"] {
     padding: 0.4rem 1.25rem;
     font-size: 0.9rem;
   }

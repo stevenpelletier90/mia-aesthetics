@@ -10,7 +10,16 @@
       "WebFetch(domain:getbootstrap.com)",
       "mcp__filesystem__read_multiple_files",
       "mcp__filesystem__search_files",
-      "mcp__filesystem__read_file"
+      "mcp__filesystem__read_file",
+      "WebFetch(domain:docs.anthropic.com)",
+      "mcp__filesystem__directory_tree",
+      "mcp__filesystem__edit_file",
+      "mcp__filesystem__list_directory",
+      "mcp__filesystem__write_file",
+      "Bash(php:*)",
+      "Bash(composer --version)",
+      "Bash(composer run-script phpcs:*)",
+      "Bash(npm run lint:*)"
     ],
     "deny": []
   },

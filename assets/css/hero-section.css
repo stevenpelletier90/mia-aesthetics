@@ -1,18 +1,19 @@
-/* ===== HERO SECTION - MINIMAL CAROUSEL ONLY ===== */
+/* ===== HERO SECTION - SIMPLE RESPONSIVE LAYOUT ===== */
+
+/* 
+ * RECOMMENDED IMAGE SIZES FOR GRAPHICS TEAM:
+ * 
+ * Wide Desktop Carousel Images: 2560x800 (3.2:1 ratio) - for screens 1921px+
+ * Desktop Carousel Images: 1920x600 (3.2:1 ratio) - for 768px-1920px
+ * Mobile Carousel Images: 800x600 (4:3 ratio) - for screens under 768px
+ * Box Images: 600x240 (2.5:1 ratio) - desktop, 600x720 (5:6 ratio) - mobile
+ */
 
 /* Hero section container */
 .hero-section {
   position: relative;
   width: 100%;
-  max-height: calc(100vh - var(--navbar-height) - 0.5rem); /* Cap at viewport height */
   overflow: hidden;
-}
-
-/* Mobile adjustments - account for floating button */
-@media (max-width: 575px) {
-  .hero-section {
-    max-height: calc(100vh - var(--navbar-height) - 0.5rem - 80px); /* Cap at viewport minus floating button */
-  }
 }
 
 /* Container that holds everything */
@@ -22,18 +23,18 @@
   flex-direction: column;
 }
 
-/* Carousel maintains aspect ratio */
+/* Carousel with aspect ratio */
 .hero-carousel {
   width: 100%;
   position: relative;
   overflow: hidden;
-  aspect-ratio: 2560/720; /* Desktop carousel aspect ratio */
+  aspect-ratio: 2560/800; /* Desktop aspect ratio - slightly taller */
 }
 
-/* Mobile: Different carousel aspect ratio */
+/* Mobile: Taller aspect ratio */
 @media (max-width: 767px) {
   .hero-carousel {
-    aspect-ratio: 1080/405; /* Mobile carousel aspect ratio (8:3) */
+    aspect-ratio: 4/3; /* More square for mobile */
   }
 }
 
@@ -81,25 +82,35 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  flex: 0 0 auto;
+  border-top: 2px solid #fff;
 }
 
 .hero-box {
   flex: 1;
+  width: 50%;
   position: relative;
   overflow: hidden;
 }
 
-/* Aspect ratios for boxes */
-.hero-box::before {
-  content: '';
-  display: block;
-  padding-top: 40%; /* 2.5:1 aspect ratio for desktop (original) */
+.hero-box-top {
+  border-right: 1px solid #fff;
 }
 
+.hero-box-bottom {
+  border-left: 1px solid #fff;
+}
+
+/* Box aspect ratio */
+.hero-box::before {
+  content: "";
+  display: block;
+  padding-top: 40%; /* 2.5:1 aspect ratio for desktop - shorter to offset taller carousel */
+}
+
+/* Mobile: Taller boxes */
 @media (max-width: 767px) {
   .hero-box::before {
-    padding-top: 125%; /* 4:5 aspect ratio for mobile (even taller - portrait) */
+    padding-top: 120%; /* 5:6 aspect ratio for mobile - slightly shorter */
   }
 }
 
@@ -119,34 +130,40 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 50%, transparent 100%);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: center;
   align-items: center;
   padding: 2rem;
   text-align: center;
 }
 
 .hero-box-heading {
-  font-family: var(--font-heading, 'Montserrat', sans-serif);
+  font-family: var(--font-heading, "Montserrat", sans-serif);
   font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 700;
-  color: #ffffff;
+  color: #fff;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
   line-height: 1.2;
   letter-spacing: -0.5px;
 }
 
-/* Mobile adjustments for boxes */
+/* Mobile adjustments */
 @media (max-width: 767px) {
   .hero-box-overlay {
-    padding: 1rem;
+    padding: 1.5rem 1rem; /* More padding for taller boxes */
   }
-  
+
   .hero-box-heading {
-    font-size: clamp(1.25rem, 4vw, 1.75rem);
-    margin-bottom: 0.75rem;
+    font-size: clamp(1rem, 4vw, 1.5rem);
+    margin-bottom: 0.75rem; /* More space for taller boxes */
+  }
+
+  /* Make buttons smaller on mobile */
+  .hero-box .mia-button {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
   }
 }
