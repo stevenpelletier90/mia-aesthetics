@@ -59,7 +59,7 @@ if ( $mia_aesthetics_location_map ) {
 	// Special handling for locations where Google Maps doesn't populate city correctly.
 	// Check if city is empty but we have other address components.
 	// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-	if ( empty( $mia_aesthetics_city ) && ! empty( $mia_aesthetics_state ) && ( $mia_aesthetics_state === 'NY' && stripos( $mia_aesthetics_street, 'atlantic' ) !== false ) ) {
+	if ( empty( $mia_aesthetics_city ) && ! empty( $mia_aesthetics_state ) && ( 'NY' === $mia_aesthetics_state && false !== stripos( $mia_aesthetics_street, 'atlantic' ) ) ) {
 		$mia_aesthetics_city = 'Brooklyn';
 	}
 	?>
@@ -71,7 +71,7 @@ if ( $mia_aesthetics_location_map ) {
 									<?php endif; ?>
 									<?php
 									$mia_aesthetics_address_line2 = trim( $mia_aesthetics_city . ', ' . $mia_aesthetics_state . ' ' . $mia_aesthetics_zip, ', ' );
-									if ( $mia_aesthetics_address_line2 !== '' && $mia_aesthetics_address_line2 !== '0' ) :
+									if ( '' !== $mia_aesthetics_address_line2 && '0' !== $mia_aesthetics_address_line2 ) :
 										?>
 										<span><?php echo esc_html( $mia_aesthetics_address_line2 ); ?></span>
 									<?php endif; ?>
@@ -139,7 +139,7 @@ if ( $mia_aesthetics_location_map ) {
 							$mia_aesthetics_output[] = $mia_aesthetics_label . ' ' . $mia_aesthetics_current_hours;
 							++$mia_aesthetics_i;
 						}
-						if ( $mia_aesthetics_output !== array() ) :
+						if ( array() !== $mia_aesthetics_output ) :
 							?>
 							<div class="location-detail mb-2">
 								<div class="d-flex align-items-center">
@@ -579,6 +579,7 @@ if ( $mia_aesthetics_location_map ) {
 					'posts_per_page' => -1, // Get all surgeons.
 					'orderby'        => 'menu_order', // Use WordPress menu order.
 					'order'          => 'ASC',
+					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 					'meta_query'     => array(
 						array(
 							'key'     => 'surgeon_location',
@@ -652,7 +653,7 @@ if ( $mia_aesthetics_location_map ) {
 </main>
 
 <?php
-// Add careers CTA component for careers locations page
+// Add careers CTA component for careers locations page.
 require get_template_directory() . '/components/careers-cta.php';
 ?>
 

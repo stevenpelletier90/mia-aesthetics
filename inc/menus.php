@@ -183,12 +183,12 @@ function mia_aesthetics_get_menu_structure() {
  */
 function mia_aesthetics_render_menu( $type = 'desktop' ) {
 	$menu      = mia_aesthetics_get_menu_structure();
-	$is_mobile = $type === 'mobile';
+	$is_mobile = 'mobile' === $type;
 
 	foreach ( $menu as $key => $section ) {
-		if ( $key === 'procedures' ) {
+		if ( 'procedures' === $key ) {
 			render_procedures_menu( $section, $is_mobile );
-		} elseif ( $key === 'non-surgical' ) {
+		} elseif ( 'non-surgical' === $key ) {
 			render_non_surgical_menu( $is_mobile );
 		}
 

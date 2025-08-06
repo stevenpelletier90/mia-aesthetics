@@ -132,6 +132,7 @@
 								array(
 									'post_type'      => 'surgeon',
 									'posts_per_page' => -1,
+									// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 									'meta_query'     => array(
 										array(
 											'key'     => 'surgeon_location',
@@ -210,9 +211,9 @@
 </footer>
 
 <?php
-// Add consultation CTA for all pages except careers pages
-if ( ! is_page_template( 'page-careers.php' ) && ! is_page_template( 'page-careers-locations.php' ) && 
-     ! is_page( 'careers' ) && ! is_page( 'careers-locations' ) ) {
+// Add consultation CTA for all pages except careers pages.
+if ( ! is_page_template( 'page-careers.php' ) && ! is_page_template( 'page-careers-locations.php' ) &&
+	! is_page( 'careers' ) && ! is_page( 'careers-locations' ) ) {
 	require get_template_directory() . '/components/consultation-cta.php';
 }
 ?>

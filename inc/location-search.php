@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 
 <?php
-// Enqueue location search assets (they are already registered in inc/enqueue.php)
+// Enqueue location search assets (they are already registered in inc/enqueue.php).
 wp_enqueue_style( 'mia-location-search' );
 wp_enqueue_script( 'mia-location-search' );
 
@@ -49,7 +49,7 @@ if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
 		'google-maps',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4&libraries=places&callback=initGoogleMaps',
 		array( 'mia-location-search' ), // Depends on our location search script.
-		null,
+		'3.60.0',
 		true
 	);
 }

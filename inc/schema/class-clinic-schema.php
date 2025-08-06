@@ -13,9 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Medical clinic schema markup generator
+ */
 class Clinic_Schema {
 
 	/**
+	 * Yoast SEO context object
+	 *
 	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
 	 */
 	private $context;

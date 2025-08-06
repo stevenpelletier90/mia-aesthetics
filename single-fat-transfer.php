@@ -1,6 +1,8 @@
 <?php
 /**
  * Basic Single Template
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>
@@ -56,7 +58,7 @@ get_header(); ?>
 									?>
 			<div class="overview-item">
 				<i class="fa-solid fa-check-circle overview-check" aria-hidden="true"></i>
-										<?php echo $overview_item; ?>
+										<?php echo esc_html( $overview_item ); ?>
 			</div>
 									<?php
 		endif;

@@ -1,4 +1,10 @@
 <?php
+/**
+ * Single location template
+ *
+ * @package Mia_Aesthetics
+ */
+
 get_header();
 ?>
 
@@ -9,13 +15,13 @@ get_header();
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">
-					<h1 class="mb-3"><?php echo get_the_title(); ?></h1>
+					<h1 class="mb-3"><?php echo esc_html( get_the_title() ); ?></h1>
 					<div class="location-intro mb-4">
 						<p>Welcome to our 
 						<?php
 						$location_title = get_the_title();
 						$location_title = str_replace( 'Mia Aesthetics', '', $location_title );
-						echo trim( $location_title );
+						echo esc_html( trim( $location_title ) );
 						?>
 						location. Our state-of-the-art facility offers a wide range of plastic surgery and aesthetic procedures with a team of experienced surgeons dedicated to helping you achieve your aesthetic goals.</p>
 					</div>
@@ -32,7 +38,7 @@ if ( $location_map ) {
 	// Special handling for locations where Google Maps doesn't populate city correctly.
 	// Check if city is empty but we have other address components.
 	// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-	if ( empty( $city ) && ! empty( $state ) && ( $state === 'NY' && stripos( $street, 'atlantic' ) !== false ) ) {
+	if ( empty( $city ) && ! empty( $state ) && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
 		$city = 'Brooklyn';
 	}
 	?>
@@ -44,7 +50,7 @@ if ( $location_map ) {
 									<?php endif; ?>
 									<?php
 									$address_line2 = trim( $city . ', ' . $state . ' ' . $zip, ', ' );
-									if ( $address_line2 !== '' && $address_line2 !== '0' ) :
+									if ( '' !== $address_line2 && '0' !== $address_line2 ) :
 										?>
 										<span><?php echo esc_html( $address_line2 ); ?></span>
 									<?php endif; ?>
@@ -110,12 +116,12 @@ if ( $location_map ) {
 							$output[] = $label . ' ' . $current_hours;
 							++$i;
 						}
-						if ( $output !== array() ) :
+						if ( array() !== $output ) :
 							?>
 							<div class="location-detail mb-2">
 								<div class="d-flex align-items-center">
 									<i class="fas fa-clock location-icon" aria-hidden="true"></i>
-									<span><?php echo implode( ' | ', $output ); ?></span>
+									<span><?php echo esc_html( implode( ' | ', $output ) ); ?></span>
 								</div>
 							</div>
 						<?php endif; ?>
@@ -189,7 +195,7 @@ if ( $location_map ) {
 						<!-- City Guide CTA -->
 						<div class="cta-card cta-card--dark mb-4">
 							<div class="cta-card__content">
-								<h3 class="cta-card__title">Explore <?php echo str_replace( 'Mia Aesthetics', '', get_the_title() ); ?></h3>
+								<h3 class="cta-card__title">Explore <?php echo esc_html( str_replace( 'Mia Aesthetics', '', get_the_title() ) ); ?></h3>
 								<p class="cta-card__text">Discover the best of our city while you're here for your procedure.</p>
 								<a href="#" class="mia-button" data-variant="gold" data-size="sm">
 									City Guide <i class="fa-solid fa-arrow-right"></i>
@@ -227,7 +233,7 @@ if ( $location_map ) {
 	<!-- Team Section -->
 	<section class="team-section py-5">
 		<div class="container">
-			<h2 class="section-title text-center mb-5">Our <?php echo get_the_title(); ?> Team</h2>
+			<h2 class="section-title text-center mb-5">Our <?php echo esc_html( get_the_title() ); ?> Team</h2>
 			<div class="row g-4 justify-content-center">
 				<?php
 				$args     = array(
@@ -235,6 +241,7 @@ if ( $location_map ) {
 					'posts_per_page' => -1,
 					'orderby'        => 'menu_order',
 					'order'          => 'ASC',
+					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
 					'meta_query'     => array(
 						array(
 							'key'     => 'surgeon_location',

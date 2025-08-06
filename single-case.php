@@ -231,14 +231,14 @@ get_header(); ?>
 	$specific_category_ids = array();
 	$excluded_parent_names = array( 'Body', 'Breast', 'Face' ); // Add other broad parent category names here.
 
-	foreach ( $current_category_terms as $term ) {
+	foreach ( $current_category_terms as $category_term ) {
 		// Skip if it's a known broad parent category.
-		if ( ! in_array( $term->name, $excluded_parent_names ) ) {
-			$specific_category_ids[] = $term->term_id;
+		if ( ! in_array( $category_term->name, $excluded_parent_names, true ) ) {
+			$specific_category_ids[] = $category_term->term_id;
 		}
 	}
 
-	if ( $specific_category_ids !== array() ) {
+	if ( array() !== $specific_category_ids ) {
 		// Query using only the most specific categories (exclude top-level parent cases).
 		$related_cases = new WP_Query(
 			array(
@@ -249,6 +249,7 @@ get_header(); ?>
 				'posts_per_page'      => 4,
 				'orderby'             => 'date',
 				'order'               => 'DESC',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 				'tax_query'           => array(
 					array(
 						'taxonomy' => 'case-category',
@@ -276,7 +277,7 @@ get_header(); ?>
 								<div class="related-case-item">
 									<a href="<?php the_permalink(); ?>" class="related-case-link">
 										<div class="related-case-number">
-											<span><?php echo str_pad( (string) ( $related_cases->current_post + 1 ), 2, '0', STR_PAD_LEFT ); ?></span>
+											<span><?php echo esc_html( str_pad( (string) ( $related_cases->current_post + 1 ), 2, '0', STR_PAD_LEFT ) ); ?></span>
 										</div>
 										<div class="related-case-content">
 											<h3 class="related-case-title"><?php the_title(); ?></h3>

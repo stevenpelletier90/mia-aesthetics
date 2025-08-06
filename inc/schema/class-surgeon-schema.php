@@ -13,9 +13,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Surgeon Schema markup generator for individual surgeon pages
+ */
 class Surgeon_Schema {
 
 	/**
+	 * Yoast SEO context object
+	 *
 	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
 	 */
 	private $context;
@@ -23,7 +28,7 @@ class Surgeon_Schema {
 	/**
 	 * Constructor
 	 *
-	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context
+	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast SEO context.
 	 */
 	public function __construct( $context ) {
 		$this->context = $context;
@@ -97,7 +102,8 @@ class Surgeon_Schema {
 		}
 
 		// Education.
-		if ( $school = get_field( 'medical_school', $surgeon_id ) ) {
+		$school = get_field( 'medical_school', $surgeon_id );
+		if ( $school ) {
 			$surgeon['alumniOf'] = array(
 				'@type' => 'EducationalOrganization',
 				'name'  => $school,
@@ -118,11 +124,12 @@ class Surgeon_Schema {
 	/**
 	 * Get surgeon description
 	 *
-	 * @param int $surgeon_id
-	 * @return string
+	 * @param int $surgeon_id The surgeon post ID.
+	 * @return string The surgeon description.
 	 */
 	private function get_description( $surgeon_id ) {
-		if ( $desc = get_post_meta( $surgeon_id, '_yoast_wpseo_metadesc', true ) ) {
+		$desc = get_post_meta( $surgeon_id, '_yoast_wpseo_metadesc', true );
+		if ( $desc ) {
 			return $desc;
 		}
 
@@ -132,8 +139,8 @@ class Surgeon_Schema {
 	/**
 	 * Get surgeon image
 	 *
-	 * @param int $surgeon_id
-	 * @return string
+	 * @param int $surgeon_id The surgeon post ID.
+	 * @return string The surgeon image URL.
 	 */
 	private function get_image( $surgeon_id ) {
 		// Prioritize featured image first for surgeon profiles.
@@ -168,8 +175,8 @@ class Surgeon_Schema {
 	/**
 	 * Get featured video from video_details group field
 	 *
-	 * @param int $surgeon_id
-	 * @return array|null
+	 * @param int $surgeon_id The surgeon post ID.
+	 * @return array|null Featured video data or null.
 	 */
 	private function get_featured_video( $surgeon_id ) {
 		$video_details = get_field( 'video_details', $surgeon_id );
@@ -215,14 +222,15 @@ class Surgeon_Schema {
 	/**
 	 * Get surgeon specialties
 	 *
-	 * @param int $surgeon_id
-	 * @return array
+	 * @param int $surgeon_id The surgeon post ID.
+	 * @return array Array of surgeon specialties.
 	 */
 	private function get_specialties( $surgeon_id ) {
 		$specialties = array();
 
 		for ( $i = 1; $i <= 3; $i++ ) {
-			if ( $specialty = get_field( 'specialty_' . $i, $surgeon_id ) ) {
+			$specialty = get_field( 'specialty_' . $i, $surgeon_id );
+			if ( $specialty ) {
 				$specialties[] = $specialty;
 			}
 		}

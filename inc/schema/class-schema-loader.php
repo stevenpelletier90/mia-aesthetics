@@ -13,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Schema loader for registering custom schema pieces
+ */
 class Schema_Loader {
 
 	/**
@@ -44,8 +47,8 @@ class Schema_Loader {
 	/**
 	 * Register custom schema pieces with Yoast
 	 *
-	 * @param array                                   $pieces Existing schema pieces
-	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context
+	 * @param array                                   $pieces Existing schema pieces.
+	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast context object.
 	 * @return array Modified schema pieces
 	 */
 	public static function register_schema_pieces( $pieces, $context ) {

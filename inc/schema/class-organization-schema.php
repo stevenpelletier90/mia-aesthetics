@@ -13,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Organization Schema markup enhancements for medical organizations
+ */
 class Organization_Schema {
 
 	/**
@@ -25,8 +28,8 @@ class Organization_Schema {
 	/**
 	 * Enhance Yoast's organization schema with medical-specific properties
 	 *
-	 * @param array                                   $data The organization schema data
-	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context
+	 * @param array                                   $data The organization schema data.
+	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast context object.
 	 * @return array Modified organization data
 	 */
 	public static function enhance_organization_schema( $data, $context ) {

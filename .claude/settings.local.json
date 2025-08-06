@@ -34,7 +34,10 @@
       "Bash(composer run:*)",
       "Bash(code:*)",
       "Bash(./vendor/bin/phpstan analyse inc/enqueue.php --level=5)",
-      "Bash(./vendor/bin/phpstan analyse:*)"
+      "Bash(./vendor/bin/phpstan analyse:*)",
+      "mcp__git__git_log",
+      "mcp__git__git_show",
+      "mcp__git__git_diff"
     ],
     "deny": []
   },

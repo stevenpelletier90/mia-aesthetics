@@ -44,7 +44,7 @@ get_header();
 	if ( empty( $term_ids ) ) {
 		$case_query = null; // No grid.
 	} else {
-		$paged = max( 1, get_query_var( 'paged' ) );
+		$current_page = max( 1, get_query_var( 'paged' ) );
 
 		$case_query = new WP_Query(
 			array(
@@ -52,9 +52,10 @@ get_header();
 				'post_status'            => 'publish',
 				'posts_per_page'         => 12,
 				'post__not_in'           => array( get_the_ID() ),
-				'paged'                  => $paged,
+				'paged'                  => $current_page,
 				'update_post_meta_cache' => false,
 				'update_post_term_cache' => false,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
 				'tax_query'              => array(
 					array(
 						'taxonomy' => 'case-category',

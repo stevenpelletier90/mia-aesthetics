@@ -69,28 +69,11 @@ get_header();
 $gallery_json_path = get_template_directory() . '/assets/data/before-after-gallery.json';
 $gallery_data      = array();
 
-// Debug gallery data loading.
-error_log( '=== Gallery Data Loading Debug ===' );
-error_log( 'Gallery JSON path: ' . $gallery_json_path );
-error_log( 'File exists: ' . ( file_exists( $gallery_json_path ) ? 'Yes' : 'No' ) );
-
 if ( file_exists( $gallery_json_path ) ) {
-	$json = file_get_contents( $gallery_json_path );
-	error_log( 'JSON content length: ' . strlen( $json ) );
+	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
+	$json         = file_get_contents( $gallery_json_path );
 	$gallery_data = json_decode( $json, true );
-	error_log( 'JSON decode successful: ' . ( $gallery_data !== null ? 'Yes' : 'No' ) );
-	if ( $gallery_data !== null ) {
-		error_log( 'Number of doctors in data: ' . count( $gallery_data ) );
-		foreach ( $gallery_data as $doctor ) {
-			error_log( sprintf( 'Doctor %s has ', $doctor['name'] ) . count( $doctor['procedures'] ) . ' procedures' );
-		}
-	} else {
-		error_log( 'JSON decode error: ' . json_last_error_msg() );
-	}
-} else {
-	error_log( 'Gallery JSON file not found' );
 }
-error_log( '=== End Gallery Data Debug ===' );
 
 if ( ! empty( $gallery_data ) ) :
 	foreach ( $gallery_data as $doctor_slug => $doctor ) :
@@ -98,7 +81,7 @@ if ( ! empty( $gallery_data ) ) :
 		<article class="gallery d-none" data-doctor="<?php echo esc_attr( $doctor_slug ); ?>">
 		<h2 class="h2 text-center mt-5 mb-5"><?php echo esc_html( $doctor['name'] ); ?></h2>
 		<?php foreach ( $doctor['procedures'] as $procedure => $images ) : ?>
-			<h3 class="h4 border-bottom pb-2 mb-4<?php echo $procedure !== array_key_first( $doctor['procedures'] ) ? ' mt-5' : ''; ?>">
+			<h3 class="h4 border-bottom pb-2 mb-4<?php echo array_key_first( $doctor['procedures'] ) !== $procedure ? ' mt-5' : ''; ?>">
 			<?php echo esc_html( $procedure ); ?>
 			</h3>
 			<div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 g-3">

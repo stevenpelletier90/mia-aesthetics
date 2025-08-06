@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 </div>
 
 <?php
-// Enqueue careers location search assets (they are already registered in inc/enqueue.php)
+// Enqueue careers location search assets (they are already registered in inc/enqueue.php).
 wp_enqueue_style( 'mia-location-search-careers' );
 wp_enqueue_script( 'mia-location-search-careers' );
 
@@ -49,7 +49,7 @@ if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
 		'google-maps',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4&libraries=places&callback=initGoogleMapsCareers',
 		array( 'mia-location-search-careers' ), // Depends on our careers search script.
-		'3.60.0', // Google Maps API version for cache busting
+		'3.60.0', // Google Maps API version for cache busting.
 		true
 	);
 }

@@ -18,8 +18,9 @@ get_header(); ?>
 					<h1>
 						<?php
 						printf(
+							// translators: %s is the search query entered by the user.
 							esc_html__( 'Search Results for: %s', 'mia-aesthetics' ),
-							'<span style="color: var(--color-gold);">' . get_search_query() . '</span>'
+							'<span style="color: var(--color-gold);">' . esc_html( get_search_query() ) . '</span>'
 						);
 						?>
 					</h1>
@@ -29,8 +30,8 @@ get_header(); ?>
 					if ( $total_results > 0 ) {
 						printf(
 							'<p class="lead mb-0">Found %d %s matching your search.</p>',
-							$total_results,
-							$total_results === 1 ? 'result' : 'results'
+							esc_html( $total_results ),
+							1 === $total_results ? 'result' : 'results'
 						);
 					} else {
 						echo '<p class="lead mb-0">No results found for your search query.</p>';
@@ -63,7 +64,7 @@ get_header(); ?>
 									</h2>
 									<?php the_excerpt(); ?>
 									<div class="text-muted small">
-										<?php echo get_post_type_object( get_post_type() )->labels->singular_name; ?>
+										<?php echo esc_html( get_post_type_object( get_post_type() )->labels->singular_name ); ?>
 									</div>
 								</div>
 							</div>

@@ -88,17 +88,17 @@ get_header(); ?>
 								echo '<div class="d-flex justify-content-between align-items-center pagination-container">';
 									// Previous button.
 								if ( $current_page > 1 ) {
-									echo '<a href="' . get_pagenum_link( $current_page - 1 ) . '" class="mia-button" data-variant="gold-outline" aria-label="Previous page"><i class="fas fa-chevron-left me-1" aria-hidden="true"></i> Previous</a>';
+									echo '<a href="' . esc_url( get_pagenum_link( $current_page - 1 ) ) . '" class="mia-button" data-variant="gold-outline" aria-label="Previous page"><i class="fas fa-chevron-left me-1" aria-hidden="true"></i> Previous</a>';
 								} else {
 									echo '<button class="mia-button" data-variant="gold-outline" style="opacity: 0.5; cursor: not-allowed;" aria-label="Previous page" disabled><i class="fas fa-chevron-left me-1" aria-hidden="true"></i> Previous</button>';
 								}
 
 								// Page indicator.
-								echo '<span class="page-indicator">Page ' . $current_page . ' of ' . $total_pages . '</span>';
+								echo '<span class="page-indicator">Page ' . esc_html( $current_page ) . ' of ' . esc_html( $total_pages ) . '</span>';
 
 								// Next button.
 								if ( $current_page < $total_pages ) {
-									echo '<a href="' . get_pagenum_link( $current_page + 1 ) . '" class="mia-button" data-variant="gold-outline" aria-label="Next page">Next <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></a>';
+									echo '<a href="' . esc_url( get_pagenum_link( $current_page + 1 ) ) . '" class="mia-button" data-variant="gold-outline" aria-label="Next page">Next <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></a>';
 								} else {
 									echo '<button class="mia-button" data-variant="gold-outline" style="opacity: 0.5; cursor: not-allowed;" aria-label="Next page" disabled>Next <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i></button>';
 								}

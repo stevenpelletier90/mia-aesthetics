@@ -13,6 +13,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * FAQ Schema markup generator
+ */
 class FAQ_Schema {
 
 	/**
@@ -56,7 +59,7 @@ class FAQ_Schema {
 			);
 		}
 
-		if ( $questions === array() ) {
+		if ( array() === $questions ) {
 			return array();
 		}
 

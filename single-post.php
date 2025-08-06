@@ -4,6 +4,7 @@
  *
  * @package Mia_Aesthetics
  */
+
 get_header(); ?>
 
 <main>
@@ -13,7 +14,7 @@ get_header(); ?>
 	while ( have_posts() ) :
 		the_post();
 		$content      = get_the_content();
-		$word_count   = str_word_count( strip_tags( $content ) );
+		$word_count   = str_word_count( wp_strip_all_tags( $content ) );
 		$reading_time = ceil( $word_count / 200 );
 		?>
 
@@ -67,8 +68,8 @@ get_header(); ?>
 							?>
 							<div class="related-topics mb-5">
 								<h2 class="h5 mb-3">Related Topics</h2>
-								<?php foreach ( $tags as $tag ) : ?>
-									<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" class="text-decoration-none me-2 text-primary">#<?php echo esc_html( $tag->name ); ?></a>
+								<?php foreach ( $tags as $post_tag ) : ?>
+									<a href="<?php echo esc_url( get_tag_link( $post_tag->term_id ) ); ?>" class="text-decoration-none me-2 text-primary">#<?php echo esc_html( $post_tag->name ); ?></a>
 								<?php endforeach; ?>
 							</div>
 						<?php endif; ?>
@@ -173,7 +174,7 @@ get_header(); ?>
 			$schema['image'] = get_the_post_thumbnail_url( null, 'large' );
 		}
 		?>
-		<script type="application/ld+json"><?php echo json_encode( $schema ); ?></script>
+		<script type="application/ld+json"><?php echo wp_json_encode( $schema ); ?></script>
 	<?php endwhile; ?>
 </main>
 <?php get_footer(); ?>

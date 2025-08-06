@@ -11,8 +11,8 @@ get_header();
 ?>
 <a href="#main-content" class="visually-hidden-focusable skip-link">Skip to main content</a>
 <?php
-$post                   = get_queried_object();
-$mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
+$current_post           = get_queried_object();
+$mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 ?>
 <main id="main-content" role="main">
 <?php mia_aesthetics_breadcrumbs(); ?>
@@ -21,7 +21,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 	while ( have_posts() ) :
 		the_post();
 		?>
-<section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo get_the_ID(); ?>">
+<section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( get_the_ID() ); ?>">
 			<?php if ( $mia_aesthetics_hero_id ) : ?>
 				<picture class="hero-picture">
 					<source media="(max-width: 640px)" 
@@ -42,7 +42,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 <h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
 						<?php
 						// Try both price fields for flexibility.
-						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ?: get_field( 'non_surgical_price' );
+						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ? get_field( 'procedure_price' ) : get_field( 'non_surgical_price' );
 						if ( $mia_aesthetics_procedure_price ) :
 							?>
 							<div class="pricing-info mt-3">
@@ -127,7 +127,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 									}
 
 									// Only show if it's not the current page.
-									if ( $mia_aesthetics_page_id !== get_the_ID() && ! empty( $mia_aesthetics_page_url ) ) :
+									if ( get_the_ID() !== $mia_aesthetics_page_id && ! empty( $mia_aesthetics_page_url ) ) :
 										?>
 										<a href="<?php echo esc_url( $mia_aesthetics_page_url ); ?>" class="mia-button" data-variant="gold">
 											View More Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -206,7 +206,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 			$mia_aesthetics_faq_section = get_field( 'faq_section' );
 			if ( $mia_aesthetics_faq_section && ! empty( $mia_aesthetics_faq_section['faqs'] ) ) :
 				?>
-				<section class="py-4 py-lg-5" aria-labelledby="faq-heading-<?php echo get_the_ID(); ?>">
+				<section class="py-4 py-lg-5" aria-labelledby="faq-heading-<?php echo esc_attr( get_the_ID() ); ?>">
 					<div class="container">                        
 						<?php echo wp_kses_post( mia_aesthetics_display_page_faqs() ); ?>                      
 					</div>

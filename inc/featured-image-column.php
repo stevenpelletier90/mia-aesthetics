@@ -11,6 +11,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 add_action( 'admin_init', 'mia_featured_image_columns_init' );
 
+/**
+ * Initialize featured image columns for admin post listings
+ */
 function mia_featured_image_columns_init() {
 	/*
 	---------------------------------------------------------------------
@@ -88,7 +91,7 @@ function mia_featured_image_columns_init() {
 			if ( 'has_thumb' === $q->get( 'orderby' ) ) {
 				$q->set( 'meta_key', '_thumbnail_id' );
 				$q->set( 'orderby', 'meta_value_num' );
-				$q->set( 'order', $q->get( 'order' ) ?: 'DESC' );
+				$q->set( 'order', $q->get( 'order' ) ? $q->get( 'order' ) : 'DESC' );
 			}
 		}
 	);
@@ -141,7 +144,7 @@ function mia_featured_image_columns_init() {
 	add_action(
 		'admin_notices',
 		static function () {
-			if ( empty( $_GET['thumbs_removed'] ) ) {
+			if ( empty( $_GET['thumbs_removed'] ) || ! current_user_can( 'edit_posts' ) ) {
 				return;
 			}
 

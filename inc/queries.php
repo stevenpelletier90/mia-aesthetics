@@ -36,34 +36,22 @@ function mia_modify_archive_queries( $query ) {
 		$query->set( 'posts_per_page', -1 );      // Show all surgeons.
 		$query->set( 'orderby', 'menu_order' );   // Manual order.
 		$query->set( 'order', 'ASC' );
-	}
-
-	// Procedure archive modifications.
-	elseif ( is_post_type_archive( 'procedure' ) ) {
+	} elseif ( is_post_type_archive( 'procedure' ) ) {
 		$query->set( 'posts_per_page', -1 );      // Show all procedures.
 		$query->set( 'post_parent', 0 );          // Only top-level procedures.
-		$query->set( 'orderby', 'menu_order title' ); // Manual order., then alphabetical
+		$query->set( 'orderby', 'menu_order title' ); // Manual order, then alphabetical.
 		$query->set( 'order', 'ASC' );
-	}
-
-	// Case archive modifications.
-	elseif ( is_post_type_archive( 'case' ) ) {
+	} elseif ( is_post_type_archive( 'case' ) ) {
 		$query->set( 'posts_per_page', -1 );      // Show all cases.
 		$query->set( 'orderby', 'date' );         // Most recent first.
 		$query->set( 'order', 'DESC' );
-	}
-
-	// Condition archive modifications.
-	elseif ( is_post_type_archive( 'condition' ) ) {
+	} elseif ( is_post_type_archive( 'condition' ) ) {
 		$query->set( 'posts_per_page', -1 );      // Show all conditions.
 		$query->set( 'orderby', 'title' );        // Alphabetical order.
 		$query->set( 'order', 'ASC' );
-	}
-
-	// Special archive modifications.
-	elseif ( is_post_type_archive( 'special' ) ) {
+	} elseif ( is_post_type_archive( 'special' ) ) {
 		$query->set( 'posts_per_page', 6 );       // Paginate specials.
-		$query->set( 'orderby', 'menu_order date' ); // Manual order., then date
+		$query->set( 'orderby', 'menu_order date' ); // Manual order, then date.
 		$query->set( 'order', 'DESC' );
 
 		// Only show active specials.
@@ -83,12 +71,9 @@ function mia_modify_archive_queries( $query ) {
 				),
 			)
 		);
-	}
-
-	// Non-surgical archive modifications.
-	elseif ( is_post_type_archive( 'non-surgical' ) ) {
+	} elseif ( is_post_type_archive( 'non-surgical' ) ) {
 		$query->set( 'posts_per_page', -1 );      // Show all non-surgical.
-		$query->set( 'orderby', 'menu_order title' ); // Manual order., then alphabetical
+		$query->set( 'orderby', 'menu_order title' ); // Manual order, then alphabetical.
 		$query->set( 'order', 'ASC' );
 	}
 }
@@ -97,6 +82,8 @@ add_action( 'pre_get_posts', 'mia_modify_archive_queries' );
 
 /**
  * Modify taxonomy archive queries
+ *
+ * @param WP_Query $query The WP_Query instance.
  */
 function mia_modify_taxonomy_queries( $query ) {
 	// Only modify main queries on the frontend.
@@ -116,6 +103,9 @@ add_action( 'pre_get_posts', 'mia_modify_taxonomy_queries' );
 
 /**
  * Ensure correct body classes for custom post type archives
+ *
+ * @param array $classes Array of body classes.
+ * @return array Modified body classes.
  */
 function mia_archive_body_classes( $classes ) {
 	// Get all registered post types.
@@ -124,7 +114,7 @@ function mia_archive_body_classes( $classes ) {
 	foreach ( $post_types as $post_type ) {
 		if ( is_post_type_archive( $post_type ) ) {
 			$class_name = 'post-type-archive-' . $post_type;
-			if ( ! in_array( $class_name, $classes ) ) {
+			if ( ! in_array( $class_name, $classes, true ) ) {
 				$classes[] = $class_name;
 			}
 		}
@@ -135,7 +125,7 @@ function mia_archive_body_classes( $classes ) {
 		$post_type = get_post_type();
 		if ( $post_type ) {
 			$class_name = 'single-type-' . $post_type;
-			if ( ! in_array( $class_name, $classes ) ) {
+			if ( ! in_array( $class_name, $classes, true ) ) {
 				$classes[] = $class_name;
 			}
 		}
@@ -161,7 +151,7 @@ function mia_custom_excerpt_length( $length ) {
 	}
 
 	// Default length for other contexts.
-	return 30;
+	return $length;
 }
 
 add_filter( 'excerpt_length', 'mia_custom_excerpt_length' );
@@ -251,7 +241,7 @@ function mia_exclude_pages_from_search( $query ) {
 				)
 			);
 
-			$exclude_ids = $pages ?: array();
+			$exclude_ids = ! empty( $pages ) ? $pages : array();
 
 			// Cache for 1 day (pages rarely change).
 			set_transient( $cache_key, $exclude_ids, DAY_IN_SECONDS );
@@ -286,7 +276,7 @@ function mia_handle_custom_queries( $query ) {
 		// Filter surgeons by location.
 		if ( get_query_var( 'surgeon_location' ) ) {
 			$location_id = intval( get_query_var( 'surgeon_location' ) );
-			if ( $location_id !== 0 ) {
+			if ( 0 !== $location_id ) {
 				$query->set(
 					'meta_query',
 					array(
@@ -332,7 +322,7 @@ function mia_optimize_queries( $query ) {
 
 			// Post types that don't need meta cache in archives.
 			$no_meta_types = array( 'surgeon', 'procedure', 'condition' );
-			if ( in_array( $post_type, $no_meta_types ) && ! $query->get( 'meta_query' ) ) {
+			if ( in_array( $post_type, $no_meta_types, true ) && ! $query->get( 'meta_query' ) ) {
 				$query->set( 'update_post_meta_cache', false );
 			}
 		}
@@ -347,7 +337,7 @@ function mia_optimize_queries( $query ) {
 			$post_type = get_query_var( 'post_type' );
 			// Archives that show all items don't need found_rows.
 			$no_pagination_types = array( 'location', 'surgeon', 'procedure', 'condition', 'non-surgical' );
-			if ( in_array( $post_type, $no_pagination_types ) ) {
+			if ( in_array( $post_type, $no_pagination_types, true ) ) {
 				$query->set( 'no_found_rows', true );
 			}
 		}
@@ -473,12 +463,12 @@ function mia_clear_query_caches( $post_id ) {
 	$post_type = get_post_type( $post_id );
 
 	// Clear non-surgical grouping cache.
-	if ( $post_type === 'non-surgical' ) {
+	if ( 'non-surgical' === $post_type ) {
 		delete_transient( 'mia_non_surgical_grouped' );
 	}
 
 	// Clear search exclusion cache if a page is updated.
-	if ( $post_type === 'page' ) {
+	if ( 'page' === $post_type ) {
 		delete_transient( 'mia_excluded_search_pages' );
 	}
 }

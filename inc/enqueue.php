@@ -356,14 +356,14 @@ function mia_enqueue_assets() {
 
 	// ------------------------ CTA Component Loading -------------------------.
 	// Load consultation CTA for all pages except careers pages
-	if ( ! is_page_template( 'page-careers.php' ) && ! is_page_template( 'page-careers-locations.php' ) && 
-	     ! is_page( 'careers' ) && ! is_page( 'careers-locations' ) ) {
+	if ( ! is_page_template( 'page-careers.php' ) && ! is_page_template( 'page-careers-locations.php' ) &&
+		! is_page( 'careers' ) && ! is_page( 'careers-locations' ) ) {
 		wp_enqueue_style( 'mia-consultation-cta' );
 	}
 
-	// Load careers CTA for careers pages only
+	// Load careers CTA for careers pages only.
 	if ( is_page_template( 'page-careers.php' ) || is_page_template( 'page-careers-locations.php' ) ||
-	     is_page( 'careers' ) || is_page( 'careers-locations' ) ) {
+		is_page( 'careers' ) || is_page( 'careers-locations' ) ) {
 		wp_enqueue_style( 'mia-careers-cta' );
 	}
 

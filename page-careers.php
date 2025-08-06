@@ -719,7 +719,7 @@ get_header(); ?>
 </footer>
 
 <?php
-// Add careers CTA component
+// Add careers CTA component.
 require get_template_directory() . '/components/careers-cta.php';
 ?>
 

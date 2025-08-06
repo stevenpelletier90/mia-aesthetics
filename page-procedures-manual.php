@@ -43,25 +43,25 @@ get_header();
 						// Fallback to hardcoded IDs based on the URLs provided.
 						// You'll need to replace these with actual post IDs.
 						$manual_procedures = array(
-							// Male BBL - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-bbl/
+							// Male BBL procedure.
 							array(
 								'post_id'      => 205,
 								'custom_title' => 'Male BBL',
 							),
 
-							// Male Breast Procedures - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/breast/male-breast-procedures/
+							// Male Breast Procedures.
 							array(
 								'post_id'      => 231,
 								'custom_title' => 'Male Breast Procedures',
 							),
 
-							// Male Liposuction - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-liposuction/
+							// Male Liposuction procedure.
 							array(
 								'post_id'      => 206,
 								'custom_title' => 'Male Liposuction',
 							),
 
-							// Male Tummy Tuck - https://miaprod.wpenginepowered.com/cosmetic-plastic-surgery/body/male-tummy-tuck/
+							// Male Tummy Tuck procedure.
 							array(
 								'post_id'      => 208,
 								'custom_title' => 'Male Tummy Tuck',
@@ -71,30 +71,30 @@ get_header();
 
 					foreach ( $manual_procedures as $procedure_data ) :
 							// Handle both simple ID arrays and complex arrays with custom data.
-							if ( is_numeric( $procedure_data ) ) {
-								$procedure_id   = $procedure_data;
-								$custom_title   = '';
-								$custom_excerpt = '';
-							} else {
-								$procedure_id   = isset( $procedure_data['post_id'] ) ? $procedure_data['post_id'] : ( isset( $procedure_data['procedure'] ) ? $procedure_data['procedure'] : 0 );
-								$custom_title   = isset( $procedure_data['custom_title'] ) ? $procedure_data['custom_title'] : '';
-								$custom_excerpt = isset( $procedure_data['custom_excerpt'] ) ? $procedure_data['custom_excerpt'] : '';
-							}
+						if ( is_numeric( $procedure_data ) ) {
+							$procedure_id   = $procedure_data;
+							$custom_title   = '';
+							$custom_excerpt = '';
+						} else {
+							$procedure_id   = isset( $procedure_data['post_id'] ) ? $procedure_data['post_id'] : ( isset( $procedure_data['procedure'] ) ? $procedure_data['procedure'] : 0 );
+							$custom_title   = isset( $procedure_data['custom_title'] ) ? $procedure_data['custom_title'] : '';
+							$custom_excerpt = isset( $procedure_data['custom_excerpt'] ) ? $procedure_data['custom_excerpt'] : '';
+						}
 
-							if ( ! $procedure_id ) {
-								continue;
-							}
+						if ( ! $procedure_id ) {
+							continue;
+						}
 
 							$procedure = get_post( $procedure_id );
-							if ( ! $procedure || $procedure->post_status !== 'publish' ) {
-								continue;
-							}
+						if ( ! $procedure || 'publish' !== $procedure->post_status ) {
+							continue;
+						}
 
 							setup_postdata( $procedure );
 
 							// Use custom or default values.
-							$procedure_title   = $custom_title ?: get_the_title( $procedure_id );
-							$procedure_excerpt = $custom_excerpt ?: get_the_excerpt( $procedure_id );
+							$procedure_title   = ! empty( $custom_title ) ? $custom_title : get_the_title( $procedure_id );
+							$procedure_excerpt = ! empty( $custom_excerpt ) ? $custom_excerpt : get_the_excerpt( $procedure_id );
 							$procedure_link    = get_permalink( $procedure_id );
 							$procedure_image   = get_the_post_thumbnail(
 								$procedure_id,
@@ -106,10 +106,10 @@ get_header();
 							);
 
 							// Fallback image if no featured image.
-							if ( ! $procedure_image ) {
-								$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
-							}
-							?>
+						if ( ! $procedure_image ) {
+							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
+						}
+						?>
 							
 							<div class="col-lg-4 col-md-6">
 								<article class="procedure-card h-100">

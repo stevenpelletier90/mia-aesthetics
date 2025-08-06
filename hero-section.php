@@ -38,11 +38,9 @@
 				?>
 			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
 			<picture>
-				<source media="(max-width: 767px)" srcset="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/Heat-Banner-MOB.jpg">
-				<source media="(max-width: 1920px)" srcset="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/Heat-Banner-Desktop.jpg">
-				<img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/Heat-Banner-WIDESCREEN.jpg" 
+				<img src="<?php echo esc_url( $banner_1['url'] ); ?>" 
 					class="d-block w-100" 
-					alt="Hero Carousel Slide 1" 
+					alt="<?php echo esc_attr( $banner_1['alt'] ?? 'Hero Carousel Slide 1' ); ?>" 
 					fetchpriority="high">
 			</picture>
 			<?php else : ?>
@@ -119,17 +117,16 @@
 			?>
 		<!-- Desktop: 600x240 (2.5:1), Mobile: 600x720 (5:6) -->
 		<picture>
-			<source media="(max-width: 767px)" srcset="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/results-Mob.jpg">
-			<img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/results-desktop.jpg" 
+			<img src="<?php echo esc_url( $ba_image['url'] ); ?>" 
 				class="hero-box-image" 
-				alt="Before & After Gallery"
+				alt="<?php echo esc_attr( $ba_image['alt'] ?? 'Before & After Gallery' ); ?>"
 				loading="lazy">
 		</picture>
 		<?php else : ?>
 		<!-- Fallback with placehold.co -->
 		<picture>
-			<source media="(max-width: 767px)" srcset="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/results-Mob.jpg">
-			<img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/results-desktop.jpg" 
+			<source media="(max-width: 767px)" srcset="https://placehold.co/600x720/1b1b1b/c8b273?text=Results+Mobile+(600x720)">
+			<img src="https://placehold.co/600x240/1b1b1b/c8b273?text=Results+Desktop+(600x240)" 
 				class="hero-box-image" 
 				alt="Before & After Gallery"
 				loading="lazy">
@@ -151,16 +148,15 @@
 			?>
 		<!-- Desktop: 600x240 (2.5:1), Mobile: 600x720 (5:6) -->
 		<picture>
-			<source media="(max-width: 767px)" srcset="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/financingbox-mobile.jpg">
-			<img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/financingbox-desktop.jpg" 
+			<img src="<?php echo esc_url( $financing_image['url'] ); ?>" 
 				class="hero-box-image" 
-				alt="Affordable Financing">
+				alt="<?php echo esc_attr( $financing_image['alt'] ?? 'Affordable Financing' ); ?>">
 		</picture>
 		<?php else : ?>
 		<!-- Fallback with placehold.co -->
 		<picture>
-			<source media="(max-width: 767px)" srcset="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/financingbox-mobile.jpg">
-			<img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/08/financingbox-desktop.jpg" 
+			<source media="(max-width: 767px)" srcset="https://placehold.co/600x720/1b1b1b/c8b273?text=Financing+Mobile+(600x720)">
+			<img src="https://placehold.co/600x240/1b1b1b/c8b273?text=Financing+Desktop+(600x240)" 
 				class="hero-box-image" 
 				alt="Affordable Financing">
 		</picture>

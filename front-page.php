@@ -66,7 +66,7 @@ require __DIR__ . '/hero-section.php';
 	<div class="row align-items-center">
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="excellence-image">
-			<img src="https://miaprod.wpenginepowered.com/wp-content/uploads/2025/05/surgery-1.jpg" 
+			<img src="/wp-content/uploads/2025/05/surgery-1.jpg" 
 				alt="Trusted Surgical Excellence" 
 				class="img-fluid rounded">
 		</div>

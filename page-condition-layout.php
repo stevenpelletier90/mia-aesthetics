@@ -2,6 +2,8 @@
 /**
  * Template Name: Condition Layout
  * Template Post Type: procedure, non-surgical, fat-transfer, page
+ *
+ * @package Mia_Aesthetics
  */
 
 get_header(); ?>
