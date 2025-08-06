@@ -6,7 +6,7 @@
 get_header(); ?>
 
 <main data-bs-spy="scroll" data-bs-target="#tableOfContents" data-bs-offset="100" data-bs-smooth-scroll="true">
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -77,7 +77,7 @@ get_header(); ?>
 						</div>
 						<?php
 						// Using display_page_faqs(true) to show heading from custom field.
-						echo display_page_faqs( true );
+						echo wp_kses_post( mia_aesthetics_display_page_faqs( true ) );
 						?>
 					</div>
 					

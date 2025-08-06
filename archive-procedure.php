@@ -9,7 +9,7 @@
 get_header(); ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 	
 	<!-- Archive Header -->
 	<section class="post-header py-5">
@@ -220,11 +220,11 @@ get_header(); ?>
 				),
 				array(
 					'id'    => 'oxp3W3KY0hc',
-					'title' => 'Tummy Tuck & Lipo Testimonial',
+					'title' => 'Featured Video 5',
 				),
 				array(
 					'id'    => 'b6b0KaW2cXE',
-					'title' => 'Brazilian Butt Lift & Lipo Testimonial',
+					'title' => 'Featured Video 6',
 				),
 			);
 			?>

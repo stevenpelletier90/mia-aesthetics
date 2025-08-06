@@ -15,7 +15,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 <main tabindex="0">
 <div class="surgeon-breadcrumb-wrapper">
 	<div class="surgeon-fluid-container">
-		<?php mia_breadcrumbs(); ?>
+		<?php mia_aesthetics_breadcrumbs(); ?>
 	</div>
 </div>
 

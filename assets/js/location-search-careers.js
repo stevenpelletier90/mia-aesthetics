@@ -92,8 +92,10 @@
 								locationData = mainLocation.acf.location_map;
 								coordinates = getCoordinates(mainLocation.acf);
 							} else {
+								// No location map data available
 							}
-						} catch (error) {
+						} catch {
+							// Continue if location data unavailable
 						}
 
 						// Only add to results if we have a linked main location
@@ -107,13 +109,15 @@
 							distance: null
 						});
 					} else {
+						// Skip pages without linked locations
 					}
 
 					// Add small delay between requests to avoid rate limiting
 					if (i < data.length - 1) {
 						await new Promise((resolve) => setTimeout(resolve, 100));
 					}
-				} catch (error) {
+				} catch {
+					// Continue processing remaining pages
 				}
 			}
 
@@ -122,7 +126,8 @@
 			const locationsWithCoordinates = careerLocations.filter((loc) => null !== loc.coordinates);
 
 			careerLocations = locationsWithCoordinates;
-		} catch (error) {
+		} catch {
+			// Continue with empty locations array if API fails
 		}
 	}
 
@@ -155,7 +160,8 @@
 				searchInput.addEventListener('input', debouncedSearch);
 				searchInput.addEventListener('keydown', handleKeyNavigation);
 			}
-		} catch (error) {
+		} catch {
+			// Continue without Google Maps functionality
 		}
 	};
 

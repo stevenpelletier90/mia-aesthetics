@@ -261,7 +261,7 @@ add_action( 'untrash_post', 'mia_clear_footer_locations_cache' );
 function render_procedures_menu( $procedures, $is_mobile = false ) {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
-	<li class="nav-item dropdown <?php echo $dropdown_class; ?>">
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
 		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( $procedures['url'] ); ?>" 
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			<?php echo esc_html( $procedures['title'] ); ?>
@@ -343,7 +343,7 @@ function render_locations_menu( $is_mobile = false ) {
 	$locations      = get_locations_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
-	<li class="nav-item dropdown <?php echo $dropdown_class; ?>">
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
 		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>" 
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			Locations
@@ -441,7 +441,7 @@ function render_surgeons_menu( $is_mobile = false ) {
 	$surgeons       = get_surgeons_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
-	<li class="nav-item dropdown <?php echo $dropdown_class; ?>">
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
 		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" 
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			Surgeons
@@ -531,7 +531,7 @@ function render_mobile_surgeons_menu( $surgeons ) {
 function render_before_after_menu( $is_mobile = false ) {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
-	<li class="nav-item dropdown <?php echo $dropdown_class; ?>">
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
 		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" 
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			Before & After
@@ -616,7 +616,7 @@ function render_non_surgical_menu( $is_mobile = false ) {
 	$procedures     = get_non_surgical_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
-	<li class="nav-item dropdown <?php echo $dropdown_class; ?>">
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
 		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" 
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			Non-Surgical

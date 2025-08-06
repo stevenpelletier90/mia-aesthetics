@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @param bool $fallback Whether to use fallback if custom logo not set
  * @return string|false Logo URL or false if not found
  */
-function mia_get_logo_url( $fallback = true ) {
+function mia_aesthetics_get_logo_url( $fallback = true ) {
 	// Try custom logo first.
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
@@ -53,7 +53,7 @@ function mia_get_logo_url( $fallback = true ) {
  *
  * @param array $args Logo arguments
  */
-function mia_the_logo( $args = array() ) {
+function mia_aesthetics_the_logo( $args = array() ) {
 	$defaults = array(
 		'height'        => '50',
 		'width'         => '200',
@@ -67,7 +67,7 @@ function mia_the_logo( $args = array() ) {
 	);
 
 	$args     = wp_parse_args( $args, $defaults );
-	$logo_url = mia_get_logo_url();
+	$logo_url = mia_aesthetics_get_logo_url();
 
 	// Build logo HTML.
 	if ( $logo_url ) {
@@ -131,7 +131,7 @@ function mia_the_logo( $args = array() ) {
  * @param string $filename The filename to search for
  * @return int|false Attachment ID or false if not found
  */
-function mia_get_attachment_id_by_filename( $filename ) {
+function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
 	if ( empty( $filename ) ) {
 		return false;
 	}
@@ -184,7 +184,7 @@ function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
 	}
 
 	// Use cached attachment lookup.
-	$attachment_id = mia_get_attachment_id_by_filename( $filename );
+	$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
 	if ( $attachment_id ) {
 		return wp_get_attachment_url( $attachment_id );
@@ -212,7 +212,7 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 
 	if ( $image_data === false ) {
 		// Try to find attachment ID using shared function.
-		$attachment_id = mia_get_attachment_id_by_filename( $filename );
+		$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
 		if ( $attachment_id ) {
 			$image_data = array(
@@ -307,7 +307,7 @@ function mia_responsive_image( $filename, $args = array() ) {
  * @param string $zip ZIP code
  * @return string Formatted location string
  */
-function mia_format_city_state_zip( $city = '', $state = '', $zip = '' ) {
+function mia_aesthetics_format_city_state_zip( $city = '', $state = '', $zip = '' ) {
 	$parts = array();
 
 	// Add city.
@@ -341,7 +341,7 @@ function mia_format_city_state_zip( $city = '', $state = '', $zip = '' ) {
  * @param bool   $link Whether to return as tel: link
  * @return string Formatted phone number
  */
-function mia_format_phone( $phone, $link = false ) {
+function mia_aesthetics_format_phone( $phone, $link = false ) {
 	// Remove non-numeric characters.
 	$clean = preg_replace( '/[^0-9]/', '', $phone );
 
@@ -379,7 +379,7 @@ function mia_format_phone( $phone, $link = false ) {
  * @param bool $show_heading Whether to show section heading
  * @return string HTML output
  */
-function mia_display_faqs( $show_heading = true ) {
+function mia_aesthetics_display_faqs( $show_heading = true ) {
 	$faq_section = get_field( 'faq_section' );
 
 	// Check for valid FAQ data.
@@ -593,14 +593,14 @@ function mia_social_links( $args = array() ) {
  *
  * Usage in templates:
  * <?php if ( function_exists( 'yoast_breadcrumb' ) ) : ?>
- *     <?php mia_breadcrumbs(); ?>
+ *     <?php mia_aesthetics_breadcrumbs(); ?>
  * <?php endif; ?>
  *
  * Adjust HTML/CSS once here to affect all templates.
  *
  * @return void
  */
-function mia_breadcrumbs() {
+function mia_aesthetics_breadcrumbs() {
 	if ( ! function_exists( 'yoast_breadcrumb' ) ) {
 		return;
 	}
@@ -649,7 +649,7 @@ add_filter( 'body_class', 'mia_template_body_classes' );
  *
  * @return bool
  */
-function mia_has_sidebar() {
+function mia_aesthetics_has_sidebar() {
 	// No sidebar on these pages.
 	if ( is_front_page() || is_404() || is_page_template( array( 'page-blank-canvas.php', 'page-hero-canvas.php' ) ) ) {
 		return false;
@@ -658,7 +658,7 @@ function mia_has_sidebar() {
 	// Check theme option.
 	$show_sidebar = get_theme_mod( 'show_sidebar', true );
 
-	return apply_filters( 'mia_has_sidebar', $show_sidebar );
+	return apply_filters( 'mia_aesthetics_has_sidebar', $show_sidebar );
 }
 
 /**
@@ -693,8 +693,8 @@ function mia_get_hero_title() {
 /**
  * Backwards compatibility for display_page_faqs function
  */
-if ( ! function_exists( 'display_page_faqs' ) ) {
-	function display_page_faqs( $show_heading = true ) {
-		return mia_display_faqs( $show_heading );
+if ( ! function_exists( 'mia_aesthetics_display_page_faqs' ) ) {
+	function mia_aesthetics_display_page_faqs( $show_heading = true ) {
+		return mia_aesthetics_display_faqs( $show_heading );
 	}
 }

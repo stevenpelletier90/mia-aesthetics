@@ -157,7 +157,7 @@ class Surgeon_Schema {
 
 			// Fall back to YouTube thumbnail if video_id exists.
 			if ( ! empty( $video_details['video_id'] ) ) {
-				return sprintf('https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id']);
+				return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
 			}
 		}
 
@@ -187,7 +187,7 @@ class Surgeon_Schema {
 		$embed_url = 'https://www.youtube.com/embed/' . $video_id;
 
 		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
-		$thumbnail_url = sprintf('https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id);
+		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 		if ( ! empty( $video_details['video_thumbnail'] ) ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 			if ( $custom_thumbnail ) {

@@ -13,7 +13,7 @@ global $post;
 get_header(); ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<?php
 	/*
@@ -308,7 +308,7 @@ get_header(); ?>
 	<section class="py-5 py-lg-6">
 		<div class="container">
 			<div class="faq-container">
-				<?php echo display_page_faqs(); ?>
+				<?php echo wp_kses_post( mia_aesthetics_display_page_faqs() ); ?>
 			</div>
 		</div>
 	</section>

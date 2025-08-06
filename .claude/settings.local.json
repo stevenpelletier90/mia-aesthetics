@@ -30,7 +30,8 @@
       "Bash(composer show:*)",
       "Bash(npm show:*)",
       "Bash(npm install)",
-      "Bash(npx eslint:*)"
+      "Bash(npx eslint:*)",
+      "Bash(composer run:*)"
     ],
     "deny": []
   },

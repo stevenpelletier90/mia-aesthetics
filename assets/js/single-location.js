@@ -13,7 +13,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	consultationSelects.forEach((select) => {
 		let isOpen = false;
 
-		select.addEventListener('mousedown', function (e) {
+		select.addEventListener('mousedown', function () {
 			isOpen = !isOpen;
 			const container = this.closest('.ginput_container_select');
 			if (container) {

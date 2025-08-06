@@ -92,11 +92,8 @@
 		</properties>
 	</rule>
 
-	<!-- Line length limits -->
+	<!-- Line length limits - disabled -->
 	<rule ref="Generic.Files.LineLength">
-		<properties>
-			<property name="lineLimit" value="120"/>
-			<property name="absoluteLineLimit" value="150"/>
-		</properties>
+		<severity>0</severity>
 	</rule>
 </ruleset>

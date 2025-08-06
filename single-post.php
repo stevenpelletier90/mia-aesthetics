@@ -7,7 +7,7 @@
 get_header(); ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 	
 	<?php
 	while ( have_posts() ) :
@@ -29,12 +29,12 @@ get_header(); ?>
 								<span><?php echo get_the_date(); ?></span>
 								<span class="mx-2">•</span>
 								<i class="far fa-clock me-2" aria-hidden="true"></i>
-								<span><?php echo $reading_time; ?> min read</span>
+								<span><?php echo esc_html( $reading_time ); ?> min read</span>
 							</div>
 						</div>
 
 						<?php if ( has_excerpt() ) : ?>
-							<p class="lead mb-0"><?php echo get_the_excerpt(); ?></p>
+							<p class="lead mb-0"><?php echo esc_html( get_the_excerpt() ); ?></p>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -51,7 +51,7 @@ get_header(); ?>
 								<?php
 								$thumbnail_caption = get_the_post_thumbnail_caption();
 								if ( $thumbnail_caption ) {
-									echo '<figcaption class="text-muted small">' . $thumbnail_caption . '</figcaption>';
+									echo '<figcaption class="text-muted small">' . esc_html( $thumbnail_caption ) . '</figcaption>';
 								}
 								?>
 							</figure>
@@ -68,7 +68,7 @@ get_header(); ?>
 							<div class="related-topics mb-5">
 								<h2 class="h5 mb-3">Related Topics</h2>
 								<?php foreach ( $tags as $tag ) : ?>
-									<a href="<?php echo get_tag_link( $tag->term_id ); ?>" class="text-decoration-none me-2 text-primary">#<?php echo $tag->name; ?></a>
+									<a href="<?php echo esc_url( get_tag_link( $tag->term_id ) ); ?>" class="text-decoration-none me-2 text-primary">#<?php echo esc_html( $tag->name ); ?></a>
 								<?php endforeach; ?>
 							</div>
 						<?php endif; ?>

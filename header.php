@@ -30,7 +30,7 @@ if ( ! is_singular( 'surgeon' ) ) :
 		<div class="d-flex flex-wrap align-items-center w-100">
 		<!-- Logo -->
 		<?php
-		mia_the_logo(
+		mia_aesthetics_the_logo(
 			array(
 				'fetchpriority' => true,
 				'link_class'    => 'navbar-brand me-xl-3',
@@ -53,7 +53,7 @@ if ( ! is_singular( 'surgeon' ) ) :
 			<div class="offcanvas-header border-bottom border-secondary">
 			<div class="offcanvas-title" id="navbarOffcanvasLabel">
 				<?php
-				mia_the_logo(
+				mia_aesthetics_the_logo(
 					array(
 						'height'     => '30',
 						'width'      => '120',

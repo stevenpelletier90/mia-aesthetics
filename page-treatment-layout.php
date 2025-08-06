@@ -11,24 +11,24 @@ get_header();
 ?>
 <a href="#main-content" class="visually-hidden-focusable skip-link">Skip to main content</a>
 <?php
-$post    = get_queried_object();
-$hero_id = get_post_thumbnail_id( $post );
+$post                   = get_queried_object();
+$mia_aesthetics_hero_id = get_post_thumbnail_id( $post );
 ?>
 <main id="main-content" role="main">
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<?php
 	while ( have_posts() ) :
 		the_post();
 		?>
 <section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo get_the_ID(); ?>">
-			<?php if ( $hero_id ) : ?>
+			<?php if ( $mia_aesthetics_hero_id ) : ?>
 				<picture class="hero-picture">
 					<source media="(max-width: 640px)" 
-						srcset="<?php echo esc_url( wp_get_attachment_image_url( $hero_id, 'hero-mobile' ) ); ?>">
+						srcset="<?php echo esc_url( wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-mobile' ) ); ?>">
 					<source media="(max-width: 1024px)" 
-						srcset="<?php echo esc_url( wp_get_attachment_image_url( $hero_id, 'hero-tablet' ) ); ?>">
-					<img src="<?php echo esc_url( wp_get_attachment_image_url( $hero_id, 'hero-desktop' ) ); ?>" 
+						srcset="<?php echo esc_url( wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-tablet' ) ); ?>">
+					<img src="<?php echo esc_url( wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-desktop' ) ); ?>" 
 						alt="<?php echo esc_attr( get_the_title() ); ?> treatment background"
 						class="hero-bg"
 						loading="eager"
@@ -39,14 +39,14 @@ $hero_id = get_post_thumbnail_id( $post );
 			<div class="container">
 				<div class="row min-vh-50 d-flex align-items-center justify-content-center">
 					<div class="col-12 col-lg-7 mb-4 mb-lg-0 text-center text-lg-start">
-<h1 id="page-title-<?php echo get_the_ID(); ?>"><?php the_title(); ?></h1>
+<h1 id="page-title-<?php echo esc_attr( get_the_ID() ); ?>"><?php the_title(); ?></h1>
 						<?php
 						// Try both price fields for flexibility.
-						$procedure_price = get_field( 'procedure_price' ) ?: get_field( 'non_surgical_price' );
-						if ( $procedure_price ) :
+						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ?: get_field( 'non_surgical_price' );
+						if ( $mia_aesthetics_procedure_price ) :
 							?>
 							<div class="pricing-info mt-3">
-								<h2 class="h4 mb-1">Starting Price: <?php echo $procedure_price; ?>*</h2>
+								<h2 class="h4 mb-1">Starting Price: <?php echo esc_html( $mia_aesthetics_procedure_price ); ?>*</h2>
 								<small>* Pricing varies by provider</small>
 							</div>
 						<?php endif; ?>
@@ -79,22 +79,22 @@ $hero_id = get_post_thumbnail_id( $post );
 							<div id="results-description" class="sr-only">Patient before and after surgery results gallery</div>
 
 							<?php
-							$gallery_images = get_field( 'gallery_images' );
-							if ( $gallery_images ) :
+							$mia_aesthetics_gallery_images = get_field( 'gallery_images' );
+							if ( $mia_aesthetics_gallery_images ) :
 								?>
 								<div class="row g-4">
-									<?php foreach ( array_slice( $gallery_images, 0, 2 ) as $pair ) : ?>
+									<?php foreach ( array_slice( $mia_aesthetics_gallery_images, 0, 2 ) as $mia_aesthetics_pair ) : ?>
 										<div class="col-6">
 											<div class="before-after-card h-100 overflow-hidden position-relative">
-<span class="badge bg-dark position-absolute top-0 start-0 m-2" aria-hidden="true"><?php echo esc_html( __( 'Before', 'mia' ) ); ?></span>
-												<?php echo mia_before_after_img( $pair['before_image'], 'Before' ); ?>
+<span class="badge bg-dark position-absolute top-0 start-0 m-2" aria-hidden="true"><?php echo esc_html( __( 'Before', 'mia-aesthetics' ) ); ?></span>
+												<?php echo wp_kses_post( mia_before_after_img( $mia_aesthetics_pair['before_image'], 'Before' ) ); ?>
 											</div>
 										</div>
 
 										<div class="col-6">
 											<div class="before-after-card h-100 overflow-hidden position-relative">
-<span class="badge text-dark position-absolute top-0 start-0 m-2 badge-after" aria-hidden="true"><?php echo esc_html( __( 'After', 'mia' ) ); ?></span>
-												<?php echo mia_before_after_img( $pair['after_image'], 'After' ); ?>
+<span class="badge text-dark position-absolute top-0 start-0 m-2 badge-after" aria-hidden="true"><?php echo esc_html( __( 'After', 'mia-aesthetics' ) ); ?></span>
+												<?php echo wp_kses_post( mia_before_after_img( $mia_aesthetics_pair['after_image'], 'After' ) ); ?>
 											</div>
 										</div>
 									<?php endforeach; ?>
@@ -108,28 +108,28 @@ $hero_id = get_post_thumbnail_id( $post );
 
 							<div class="text-center mt-4">
 								<?php
-								$results_page = get_field( 'results_page' );
-								if ( $results_page ) :
+								$mia_aesthetics_results_page = get_field( 'results_page' );
+								if ( $mia_aesthetics_results_page ) :
 									// Handle different ACF Page Link return formats.
-									if ( is_array( $results_page ) ) {
-										$page_id  = $results_page['ID'];
-										$page_url = $results_page['url'];
-									} elseif ( is_object( $results_page ) ) {
-										$page_id  = $results_page->ID;
-										$page_url = get_permalink( $page_id );
-									} elseif ( is_numeric( $results_page ) ) {
-										$page_id  = $results_page;
-										$page_url = get_permalink( $page_id );
+									if ( is_array( $mia_aesthetics_results_page ) ) {
+										$mia_aesthetics_page_id  = $mia_aesthetics_results_page['ID'];
+										$mia_aesthetics_page_url = $mia_aesthetics_results_page['url'];
+									} elseif ( is_object( $mia_aesthetics_results_page ) ) {
+										$mia_aesthetics_page_id  = $mia_aesthetics_results_page->ID;
+										$mia_aesthetics_page_url = get_permalink( $mia_aesthetics_page_id );
+									} elseif ( is_numeric( $mia_aesthetics_results_page ) ) {
+										$mia_aesthetics_page_id  = $mia_aesthetics_results_page;
+										$mia_aesthetics_page_url = get_permalink( $mia_aesthetics_page_id );
 									} else {
 										// Assume it's already a URL.
-										$page_id  = null;
-										$page_url = $results_page;
+										$mia_aesthetics_page_id  = null;
+										$mia_aesthetics_page_url = $mia_aesthetics_results_page;
 									}
 
 									// Only show if it's not the current page.
-									if ( $page_id !== get_the_ID() && ! empty( $page_url ) ) :
+									if ( $mia_aesthetics_page_id !== get_the_ID() && ! empty( $mia_aesthetics_page_url ) ) :
 										?>
-										<a href="<?php echo esc_url( $page_url ); ?>" class="mia-button" data-variant="gold">
+										<a href="<?php echo esc_url( $mia_aesthetics_page_url ); ?>" class="mia-button" data-variant="gold">
 											View More Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 										</a>
 										<?php
@@ -144,25 +144,25 @@ $hero_id = get_post_thumbnail_id( $post );
 
 							<nav class="list-group list-group-flush rounded-3" aria-label="Related resources">
 								<?php
-								$related_procedures = get_field( 'related_procedures' );
-								if ( $related_procedures ) :
-									$related_ids   = array_map(
+								$mia_aesthetics_related_procedures = get_field( 'related_procedures' );
+								if ( $mia_aesthetics_related_procedures ) :
+									$mia_aesthetics_related_ids   = array_map(
 										function ( $p ) {
 											return is_object( $p ) ? $p->ID : (int) $p;
 										},
-										$related_procedures
+										$mia_aesthetics_related_procedures
 									);
-									$related_query = new WP_Query(
+									$mia_aesthetics_related_query = new WP_Query(
 										array(
 											'post_type' => array( 'procedure', 'non-surgical', 'fat-transfer' ),
-											'post__in'  => $related_ids,
+											'post__in'  => $mia_aesthetics_related_ids,
 											'orderby'   => 'post__in',
-											'posts_per_page' => count( $related_ids ),
+											'posts_per_page' => count( $mia_aesthetics_related_ids ),
 										)
 									);
-									if ( $related_query->have_posts() ) :
-										while ( $related_query->have_posts() ) :
-											$related_query->the_post();
+									if ( $mia_aesthetics_related_query->have_posts() ) :
+										while ( $mia_aesthetics_related_query->have_posts() ) :
+											$mia_aesthetics_related_query->the_post();
 											?>
 											<a class="list-group-item list-group-item-action d-flex gap-3 py-3"
 												href="<?php the_permalink(); ?>">
@@ -203,12 +203,12 @@ $hero_id = get_post_thumbnail_id( $post );
 			</section>
 
 			<?php
-			$faq_section = get_field( 'faq_section' );
-			if ( $faq_section && ! empty( $faq_section['faqs'] ) ) :
+			$mia_aesthetics_faq_section = get_field( 'faq_section' );
+			if ( $mia_aesthetics_faq_section && ! empty( $mia_aesthetics_faq_section['faqs'] ) ) :
 				?>
 				<section class="py-4 py-lg-5" aria-labelledby="faq-heading-<?php echo get_the_ID(); ?>">
 					<div class="container">                        
-						<?php echo display_page_faqs(); ?>                      
+						<?php echo wp_kses_post( mia_aesthetics_display_page_faqs() ); ?>                      
 					</div>
 				</section>
 			<?php endif; ?>

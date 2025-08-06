@@ -2,6 +2,7 @@
   "name": "mia-aesthetics-theme",
   "version": "3.0.0",
   "description": "Mia Aesthetics WordPress Theme",
+  "type": "module",
   "private": true,
   "scripts": {
     "lint": "npm run lint:js && npm run lint:php",

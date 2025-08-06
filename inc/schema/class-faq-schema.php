@@ -56,7 +56,7 @@ class FAQ_Schema {
 			);
 		}
 
-		if ( $questions === [] ) {
+		if ( $questions === array() ) {
 			return array();
 		}
 

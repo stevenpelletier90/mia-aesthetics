@@ -44,7 +44,7 @@
 	document.addEventListener('DOMContentLoaded', function () {
 		// Test if input events work even without Google Maps
 		if (searchInput) {
-			const testInputHandler = function (e) {
+			const testInputHandler = function () {
 				// Input event handler for testing
 			};
 			searchInput.addEventListener('input', testInputHandler);
@@ -89,8 +89,8 @@
 				coordinates: getCoordinates(location.acf),
 				distance: null
 			}));
-		} catch (error) {
-			// Error loading locations - silent handling
+		} catch {
+			// Continue with empty locations if API fails
 		}
 	}
 
@@ -127,8 +127,8 @@
 
 			searchInput.addEventListener('input', debouncedSearch);
 			searchInput.addEventListener('keydown', handleKeyNavigation);
-		} catch (error) {
-			// Error initializing Google Maps - silent handling
+		} catch {
+			// Continue without Google Maps functionality
 		}
 	};
 

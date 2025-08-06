@@ -7,7 +7,7 @@
 get_header(); ?>
 
 <main data-bs-spy="scroll" data-bs-target="#tableOfContents" data-bs-offset="100" data-bs-smooth-scroll="true">
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -30,19 +30,19 @@ get_header(); ?>
 					<div class="col-lg-8">
 						<?php
 						// Check if overview_details has actual content to display.
-						$has_overview_content = false;
-						$overview_items       = get_field( 'overview_details' );
-						if ( $overview_items ) :
-							foreach ( $overview_items as $item ) :
-								if ( ! in_array( trim( $item['overview_item'] ), array( '', '0' ), true ) ) :
-									$has_overview_content = true;
+						$mia_aesthetics_has_overview_content = false;
+						$mia_aesthetics_overview_items       = get_field( 'overview_details' );
+						if ( $mia_aesthetics_overview_items ) :
+							foreach ( $mia_aesthetics_overview_items as $mia_aesthetics_item ) :
+								if ( ! in_array( trim( $mia_aesthetics_item['overview_item'] ), array( '', '0' ), true ) ) :
+									$mia_aesthetics_has_overview_content = true;
 									break;
 								endif;
 							endforeach;
 						endif;
 
 						// Only display overview section if there's actual content.
-						if ( $has_overview_content ) :
+						if ( $mia_aesthetics_has_overview_content ) :
 							?>
 							<div class="overview-section mb-4">
 								<h2 id="overview">Overview</h2>
@@ -52,12 +52,12 @@ get_header(); ?>
 							while ( have_rows( 'overview_details' ) ) :
 								the_row();
 								// Get the overview_item text area value.
-								$overview_item = get_sub_field( 'overview_item' );
-								if ( ! in_array( trim( $overview_item ), array( '', '0' ), true ) ) :
+								$mia_aesthetics_overview_item = get_sub_field( 'overview_item' );
+								if ( ! in_array( trim( $mia_aesthetics_overview_item ), array( '', '0' ), true ) ) :
 									?>
 			<div class="overview-item">
 				<i class="fa-solid fa-check-circle overview-check" aria-hidden="true"></i>
-										<?php echo $overview_item; ?>
+										<?php echo esc_html( $mia_aesthetics_overview_item ); ?>
 			</div>
 									<?php
 		endif;
@@ -78,7 +78,7 @@ get_header(); ?>
 						</div>
 						<?php
 						// Using display_page_faqs(true) to show heading from custom field.
-						echo display_page_faqs( true );
+						echo wp_kses_post( display_page_faqs( true ) );
 						?>
 					</div>
 					

@@ -13,7 +13,7 @@ get_header();
 ?>
 
 <main id="primary" class="hero-canvas-main">
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<?php
 	while ( have_posts() ) :

@@ -9,7 +9,7 @@
 get_header(); ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 	
 	<!-- Archive Header -->
 	<section class="post-header py-5">

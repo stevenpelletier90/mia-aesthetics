@@ -10,7 +10,7 @@ get_header();
 ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<!-- Archive Header -->
 	<section class="post-header py-5">
@@ -69,10 +69,12 @@ get_header();
 													$address_line2 .= $city;
 												}
 												if ( $state ) {
-													$address_line2 .= ( $city ? ', ' : '' ) . $state;
+													$address_line2 .= ( $city ? ', ' : '' )
+														. $state;
 												}
 												if ( $zip ) {
-													$address_line2 .= ( $city || $state ? ' ' : '' ) . $zip;
+													$address_line2 .= ( $city || $state ? ' ' : '' )
+														. $zip;
 												}
 												if ( '' !== $address_line2 && '0' !== $address_line2 ) :
 													?>

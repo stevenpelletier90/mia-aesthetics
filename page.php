@@ -15,7 +15,7 @@
 get_header(); ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 	<?php
 	while ( have_posts() ) :
 		the_post();
@@ -49,7 +49,7 @@ get_header(); ?>
 						<?php
 						// Display FAQs if available.
 						// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
-						echo display_page_faqs();
+						echo wp_kses_post( mia_aesthetics_display_page_faqs() );
 						?>
 					</div>
 				</div>

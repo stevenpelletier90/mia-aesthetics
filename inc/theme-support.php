@@ -63,9 +63,9 @@ function mia_setup() {
 	/* ---- Navigation --------------------------------------------------- */
 	register_nav_menus(
 		array(
-			'primary' => __( 'Primary Navigation', 'mia' ),
-			'footer'  => __( 'Footer Navigation', 'mia' ),
-			'social'  => __( 'Social Links', 'mia' ),
+			'primary' => __( 'Primary Navigation', 'mia-aesthetics' ),
+			'footer'  => __( 'Footer Navigation', 'mia-aesthetics' ),
+			'social'  => __( 'Social Links', 'mia-aesthetics' ),
 		)
 	);
 

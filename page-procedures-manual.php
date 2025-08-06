@@ -14,7 +14,7 @@ get_header();
 ?>
 
 <main id="primary" class="hero-canvas-main">
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<?php
 	while ( have_posts() ) :
@@ -116,7 +116,7 @@ get_header();
 								<article class="procedure-card h-100">
 									<figure class="procedure-image">
 										<a href="<?php echo esc_url( $procedure_link ); ?>" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
-											<?php echo $procedure_image; ?>
+											<?php echo wp_kses_post( $procedure_image ); ?>
 										</a>
 									</figure>
 									<div class="procedure-content">

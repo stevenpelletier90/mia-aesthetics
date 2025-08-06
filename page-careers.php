@@ -25,7 +25,8 @@ get_header(); ?>
 			<h1 class="careers-hero__title">Join <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span></h1>
 			<div class="careers-hero__text">
 			<p>
-				At <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>, passion, and purpose meet to transform lives every day. We believe confidence is
+				At <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>, passion, and purpose meet to transform lives every day.
+			We believe confidence is
 				powerful — and so are the people behind it. As a nationwide leader in plastic surgery and aesthetic care,
 				we're on a mission to empower individuals through transformative experiences that enhance both inner and
 				outer beauty.
@@ -94,7 +95,7 @@ get_header(); ?>
 			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
 			<?php
 			$stats = mia_aesthetics_get_site_stats();
-			echo $stats['surgeons'];
+			echo esc_attr( $stats['surgeons'] );
 			?>
 			">0</h3>
 			<p class="text-white opacity-75 mb-0 fs-6">Expert Surgeons</p>
@@ -107,7 +108,7 @@ get_header(); ?>
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
 			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
 			<?php
-			echo $stats['locations'];
+			echo esc_attr( $stats['locations'] );
 			?>
 			">0</h3>
 			<p class="text-white opacity-75 mb-0 fs-6">Clinic Locations</p>
@@ -146,7 +147,8 @@ get_header(); ?>
 		</div>
 		<h3 class="value-title">Patients First</h3>
 		<p class="value-description">
-			We are committed to the highest quality of patient care. We understand our patients and support them in their
+			We are committed to the highest quality of patient care. We understand our patients and support them in
+			their
 			journey to achieve their dreams.
 		</p>
 		</div>
@@ -653,7 +655,7 @@ get_header(); ?>
 		<div class="col-md-6">
 			<div class="footer-logo">
 			<?php
-			$logo_url = mia_get_logo_url();
+			$logo_url = mia_aesthetics_get_logo_url();
 			if ( $logo_url ) :
 				?>
 				<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="footer-logo-img">

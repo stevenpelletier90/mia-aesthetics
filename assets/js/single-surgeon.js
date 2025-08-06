@@ -35,8 +35,8 @@ function disableBootstrapScrollspy() {
 			if (instance) {
 				instance.dispose();
 			}
-		} catch (error) {
-			// ScrollSpy disposal failed - this is non-critical
+		} catch {
+			// Continue if ScrollSpy disposal fails
 		}
 	}
 

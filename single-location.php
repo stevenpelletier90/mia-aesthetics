@@ -3,7 +3,7 @@ get_header();
 ?>
 
 <main>
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<section class="location-header py-5">
 		<div class="container">
@@ -283,7 +283,7 @@ if ( $location_map ) {
 
 	<section class="py-5">
 		<div class="container">            
-			<?php echo display_page_faqs(); ?>           
+			<?php echo wp_kses_post( mia_aesthetics_display_page_faqs() ); ?>           
 		</div>
 	</section>
 

@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const procedureLinks = document.querySelectorAll('.procedure-card a');
 
 	procedureLinks.forEach((link) => {
-		link.addEventListener('click', function (e) {
+		link.addEventListener('click', function () {
 			const procedureCard = this.closest('.procedure-card');
 			const procedureTitle = procedureCard.querySelector('.procedure-title a').textContent.trim();
 

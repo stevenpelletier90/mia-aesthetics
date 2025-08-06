@@ -121,7 +121,7 @@ document.addEventListener('DOMContentLoaded', function () {
 	const ctaButtons = document.querySelectorAll('.mia-button');
 
 	ctaButtons.forEach((button) => {
-		button.addEventListener('click', function (e) {
+		button.addEventListener('click', function () {
 			const buttonText = this.textContent.trim();
 
 			// Track button clicks

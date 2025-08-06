@@ -49,7 +49,7 @@ if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
 		'google-maps',
 		'https://maps.googleapis.com/maps/api/js?key=AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4&libraries=places&callback=initGoogleMapsCareers',
 		array( 'mia-location-search-careers' ), // Depends on our careers search script.
-		null,
+		'3.60.0', // Google Maps API version for cache busting
 		true
 	);
 }

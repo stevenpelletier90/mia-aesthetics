@@ -13,7 +13,7 @@ $current_term = get_queried_object();
 ?>
 <main>
 	
-	<?php mia_breadcrumbs(); ?>
+	<?php mia_aesthetics_breadcrumbs(); ?>
 	<!-- Archive Header -->
 	<section class="post-header py-5">
 		<div class="container">

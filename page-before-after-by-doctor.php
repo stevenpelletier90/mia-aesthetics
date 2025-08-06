@@ -13,7 +13,7 @@ get_header();
 ?>
 
 <main id="main-content" role="main" tabindex="-1">
-<?php mia_breadcrumbs(); ?>
+<?php mia_aesthetics_breadcrumbs(); ?>
 
 	<!-- Page Hero / Title ----------------------------------------->
 	<section class="post-header py-5">

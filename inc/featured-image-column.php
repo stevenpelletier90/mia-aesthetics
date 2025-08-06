@@ -27,7 +27,7 @@ function mia_featured_image_columns_init() {
 					$label = sprintf(
 						'<span class="dashicons dashicons-format-image" aria-hidden="true"></span>
 						 <span class="screen-reader-text">%s</span>',
-						esc_html__( 'Featured', 'mia' )
+						esc_html__( 'Featured', 'mia-aesthetics' )
 					);
 					// Place after Title.
 					$offset = array_search( 'title', array_keys( $cols ), true );
@@ -61,7 +61,7 @@ function mia_featured_image_columns_init() {
 					} else {
 						printf(
 							'<span class="dashicons dashicons-format-image" style="opacity:.3;font-size:20px;" aria-hidden="true"></span><span class="screen-reader-text">%s</span>',
-							esc_html__( 'No featured image set', 'mia' )
+							esc_html__( 'No featured image set', 'mia-aesthetics' )
 						);
 					}
 				},
@@ -110,7 +110,7 @@ function mia_featured_image_columns_init() {
 	foreach ( $screen_ids as $screen ) {
 		add_filter(
 			'bulk_actions-' . $screen,
-			static fn( $acts ) => $acts + array( 'remove_thumb' => __( 'Remove Featured Image', 'mia' ) )
+			static fn( $acts ) => $acts + array( 'remove_thumb' => __( 'Remove Featured Image', 'mia-aesthetics' ) )
 		);
 
 		add_filter(
@@ -151,7 +151,7 @@ function mia_featured_image_columns_init() {
 				esc_html(
 					sprintf(
 						/* translators: %s = number of posts */
-						_n( 'Removed featured image from %s item.', 'Removed featured images from %s items.', $count, 'mia' ),
+						_n( 'Removed featured image from %s item.', 'Removed featured images from %s items.', $count, 'mia-aesthetics' ),
 						number_format_i18n( $count )
 					)
 				)
