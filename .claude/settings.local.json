@@ -1,19 +1,16 @@
 {
   "permissions": {
     "allow": [
-      "Bash(npm install:*)",
-      "Bash(winget install:*)",
-      "Bash(winget search:*)",
+      "Bash(where claude)",
+      "Bash(echo $PATH)",
       "Bash(where php)",
-      "Bash(composer --version)",
-      "Bash(powershell:*)",
-      "Bash(cat:*)",
-      "mcp__filesystem__read_text_file",
-      "mcp__sequential-thinking__sequentialthinking"
+      "Bash(php:*)",
+      "Bash(composer global show)",
+      "Bash(composer global require:*)"
+    ],
+    "additionalDirectories": [
+      "C:\\",
+      "D:\\"
     ]
-  },
-  "enableAllProjectMcpServers": true,
-  "enabledMcpjsonServers": [
-    "git"
-  ]
+  }
 }
