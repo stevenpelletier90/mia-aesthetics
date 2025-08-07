@@ -122,6 +122,52 @@ claude mcp add sequential-thinking -s project -- cmd /c -- npx -y @modelcontextp
 claude mcp add sequential-thinking -s user -- cmd /c -- npx -y @modelcontextprotocol/server-sequential-thinking
 ```
 
+### Browser Tools Server
+
+**Prerequisites:**
+1. Install the [BrowserTools Chrome Extension](https://github.com/AgentDeskAI/browser-tools-mcp/releases) (download v1.2.0 or latest)
+2. Enable the extension in Chrome
+3. Have an active browser tab open
+
+**WSL/Bash:**
+
+```bash
+# Local scope
+claude mcp add browser-tools -- npx -y @agentdeskai/browser-tools-mcp@latest
+
+# Project scope
+claude mcp add browser-tools -s project -- npx -y @agentdeskai/browser-tools-mcp@latest
+
+# User scope
+claude mcp add browser-tools -s user -- npx -y @agentdeskai/browser-tools-mcp@latest
+```
+
+**Windows PowerShell:**
+
+```powershell
+# Local scope
+claude mcp add browser-tools -- cmd /c -- npx -y @agentdeskai/browser-tools-mcp@latest
+
+# Project scope
+claude mcp add browser-tools -s project -- cmd /c -- npx -y @agentdeskai/browser-tools-mcp@latest
+
+# User scope
+claude mcp add browser-tools -s user -- cmd /c -- npx -y @agentdeskai/browser-tools-mcp@latest
+```
+
+**Features:**
+- Monitor browser console output
+- Capture network traffic
+- Take screenshots of web pages
+- Analyze selected elements
+- Run accessibility, performance, SEO, and best practices audits (Lighthouse)
+- Interact with browser tabs programmatically
+
+**Note:** After installation, you may also need to run the browser tools server separately:
+```bash
+npx @agentdeskai/browser-tools-server@latest
+```
+
 ## Understanding Scopes
 
 - **Local scope** (default): Only available in current project directory

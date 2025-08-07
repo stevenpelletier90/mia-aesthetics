@@ -14,12 +14,18 @@
     "format": "prettier --write \"assets/**/*.{css,js}\"",
     "format:css": "prettier --write \"assets/css/**/*.css\"",
     "format:js": "prettier --write \"assets/js/**/*.js\"",
-    "format:check": "prettier --check \"assets/**/*.{css,js}\""
+    "format:check": "prettier --check \"assets/**/*.{css,js}\"",
+    "minify:css": "postcss assets/css/**/*.css --dir assets/css/min --ext .min.css",
+    "minify:css:test": "postcss assets/css/base.css -o assets/css/base.min.css"
   },
   "devDependencies": {
+    "cssnano": "^7.1.0",
+    "cssnano-preset-default": "^7.0.8",
     "eslint": "^9.32",
     "eslint-config-prettier": "^10.1",
     "eslint-config-wordpress": "^2.0.0",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
     "prettier": "^3.6.2"
   }
 }
