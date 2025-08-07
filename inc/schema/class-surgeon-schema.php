@@ -46,11 +46,14 @@ class Surgeon_Schema {
 	/**
 	 * Generate the surgeon schema
 	 *
-	 * @return array Schema.org compliant Person/Physician data
+	 * @return array<int, array<string, mixed>> Schema.org compliant Person/Physician data
 	 */
-	public function generate() {
+	public function generate(): array {
 		$surgeon_id = get_the_ID();
-		$org_id     = $this->context->site_url . '#organization';
+		if ( false === $surgeon_id || 0 === $surgeon_id ) {
+			return array();
+		}
+		$org_id = $this->context->site_url . '#organization';
 
 		$schema_data = array();
 
@@ -146,7 +149,7 @@ class Surgeon_Schema {
 		// Prioritize featured image first for surgeon profiles.
 		if ( has_post_thumbnail( $surgeon_id ) ) {
 			$featured_image = get_the_post_thumbnail_url( $surgeon_id, 'full' );
-			if ( $featured_image ) {
+			if ( false !== $featured_image ) {
 				return $featured_image;
 			}
 		}
@@ -157,7 +160,7 @@ class Surgeon_Schema {
 			// Use custom thumbnail if available.
 			if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-				if ( $custom_thumbnail ) {
+				if ( false !== $custom_thumbnail ) {
 					return $custom_thumbnail;
 				}
 			}
@@ -176,9 +179,9 @@ class Surgeon_Schema {
 	 * Get featured video from video_details group field
 	 *
 	 * @param int $surgeon_id The surgeon post ID.
-	 * @return array|null Featured video data or null.
+	 * @return array<string, mixed>|null Featured video data or null.
 	 */
-	private function get_featured_video( $surgeon_id ) {
+	private function get_featured_video( $surgeon_id ): ?array {
 		$video_details = get_field( 'video_details', $surgeon_id );
 
 		if ( null === $video_details || ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
@@ -197,7 +200,7 @@ class Surgeon_Schema {
 		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-			if ( $custom_thumbnail ) {
+			if ( false !== $custom_thumbnail ) {
 				$thumbnail_url = $custom_thumbnail;
 			}
 		}
@@ -223,9 +226,9 @@ class Surgeon_Schema {
 	 * Get surgeon specialties
 	 *
 	 * @param int $surgeon_id The surgeon post ID.
-	 * @return array Array of surgeon specialties.
+	 * @return array<int, mixed> Array of surgeon specialties.
 	 */
-	private function get_specialties( $surgeon_id ) {
+	private function get_specialties( $surgeon_id ): array {
 		$specialties = array();
 
 		for ( $i = 1; $i <= 3; $i++ ) {

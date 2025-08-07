@@ -32,10 +32,13 @@ class FAQ_Schema {
 	/**
 	 * Generate the FAQ schema
 	 *
-	 * @return array|null Schema.org compliant FAQPage data
+	 * @return array<string, mixed> Schema.org compliant FAQPage data
 	 */
-	public function generate() {
-		$post_id     = get_the_ID();
+	public function generate(): array {
+		$post_id = get_the_ID();
+		if ( false === $post_id || 0 === $post_id ) {
+			return array();
+		}
 		$faq_section = get_field( 'faq_section', $post_id );
 
 		if ( ! is_array( $faq_section ) || ! isset( $faq_section['faqs'] ) || ! is_array( $faq_section['faqs'] ) || count( $faq_section['faqs'] ) === 0 ) {

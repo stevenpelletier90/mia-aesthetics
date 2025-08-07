@@ -53,7 +53,7 @@ function mia_get_video_field( $post_id = null ) {
 				$video_id = sanitize_text_field( $val['video_id'] );
 
 				// Validate YouTube ID format (11 characters, alphanumeric with - and _).
-				if ( ! preg_match( '/^[a-zA-Z0-9_-]{11}$/', $video_id ) ) {
+				if ( 1 !== preg_match( '/^[a-zA-Z0-9_-]{11}$/', $video_id ) ) {
 					continue; // Invalid YouTube ID format.
 				}
 

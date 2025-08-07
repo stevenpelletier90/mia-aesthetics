@@ -174,7 +174,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 
 					// Build YouTube embed URL from ID.
 					$mia_aesthetics_embed_url = '';
-					if ( $mia_aesthetics_video_id ) {
+					if ( '' !== $mia_aesthetics_video_id ) {
 						$mia_aesthetics_embed_url = 'https://www.youtube.com/embed/' . $mia_aesthetics_video_id;
 					}
 					?>

@@ -260,8 +260,8 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 /**
  * Output responsive image HTML
  *
- * @param string $filename Filename or attachment ID.
- * @param array<string, mixed>  $args Image arguments.
+ * @param string               $filename Filename or attachment ID.
+ * @param array<string, mixed> $args Image arguments.
  * @return void
  */
 function mia_responsive_image( $filename, $args = array() ): void {
@@ -484,9 +484,9 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 /**
  * Generate consistent button HTML
  *
- * @param string $text Button text.
- * @param string $url Button URL.
- * @param array<string, mixed>  $args Additional arguments.
+ * @param string               $text Button text.
+ * @param string               $url Button URL.
+ * @param array<string, mixed> $args Additional arguments.
  * @return string Button HTML
  */
 function mia_button( $text, $url = '#', $args = array() ) {

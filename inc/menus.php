@@ -12,9 +12,9 @@
  * Returns the main menu data structure for all procedures and sections.
  * Centralizes menu definitions to avoid duplication and simplify updates.
  *
- * @return array Main menu structure
+ * @return array<string, mixed> Main menu structure
  */
-function mia_aesthetics_get_menu_structure() {
+function mia_aesthetics_get_menu_structure(): array {
 	return array(
 		'procedures'   => array(
 			'title'    => 'Procedures',
@@ -180,8 +180,9 @@ function mia_aesthetics_get_menu_structure() {
  * Delegates to section-specific renderers as needed.
  *
  * @param string $type 'desktop' or 'mobile'.
+ * @return void
  */
-function mia_aesthetics_render_menu( $type = 'desktop' ) {
+function mia_aesthetics_render_menu( $type = 'desktop' ): void {
 	$menu      = mia_aesthetics_get_menu_structure();
 	$is_mobile = 'mobile' === $type;
 

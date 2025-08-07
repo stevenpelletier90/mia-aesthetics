@@ -373,7 +373,7 @@ add_action( 'pre_get_posts', 'mia_optimize_queries', 999 );
 
 /**
  * Add pagination support for custom queries
- * 
+ *
  * @return void
  */
 function mia_pagination_rewrite_rules(): void {
@@ -412,7 +412,7 @@ add_action( 'pre_get_posts', 'mia_fix_pagination' );
 /**
  * Get all non-surgical procedures grouped by category
  * Uses persistent transient caching for better performance
- * 
+ *
  * @return array<string, mixed>
  */
 function mia_get_non_surgical_by_category() {

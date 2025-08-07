@@ -17,9 +17,9 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Get all menu data with a single optimized query
  * Returns cached results for locations, surgeons, and non-surgical procedures
  *
- * @return array Associative array with 'locations', 'surgeons', 'non_surgical' keys
+ * @return array<string, array<int, mixed>> Associative array with 'locations', 'surgeons', 'non_surgical' keys
  */
-function mia_get_all_menu_data() {
+function mia_get_all_menu_data(): array {
 	$cache_key = 'mia_all_menu_data';
 	$all_data  = get_transient( $cache_key );
 
@@ -116,24 +116,30 @@ function mia_get_all_menu_data() {
 
 /**
  * Get locations with caching (optimized to use consolidated data)
+ *
+ * @return array<int, mixed>
  */
-function get_locations_direct() {
+function get_locations_direct(): array {
 	$all_data = mia_get_all_menu_data();
 	return $all_data['locations'];
 }
 
 /**
  * Get non-surgical procedures with caching (optimized to use consolidated data)
+ *
+ * @return array<int, mixed>
  */
-function get_non_surgical_direct() {
+function get_non_surgical_direct(): array {
 	$all_data = mia_get_all_menu_data();
 	return $all_data['non_surgical'];
 }
 
 /**
  * Get surgeons with caching (optimized to use consolidated data)
+ *
+ * @return array<int, mixed>
  */
-function get_surgeons_direct() {
+function get_surgeons_direct(): array {
 	$all_data = mia_get_all_menu_data();
 	return $all_data['surgeons'];
 }
@@ -142,8 +148,9 @@ function get_surgeons_direct() {
  * Clear menu data cache when relevant posts are updated
  *
  * @param int $post_id The ID of the post being updated.
+ * @return void
  */
-function mia_clear_menu_cache( $post_id ) {
+function mia_clear_menu_cache( $post_id ): void {
 	$post_type = get_post_type( $post_id );
 	if ( in_array( $post_type, array( 'location', 'surgeon', 'non-surgical' ), true ) ) {
 		delete_transient( 'mia_all_menu_data' );
@@ -161,9 +168,9 @@ add_action( 'untrash_post', 'mia_clear_menu_cache' );
  * Get footer locations with surgeons data (optimized for footer display)
  * Solves N+1 query problem by fetching all surgeons in a single query
  *
- * @return array Array of locations with associated surgeons
+ * @return array<int, array<string, mixed>> Array of locations with associated surgeons
  */
-function mia_get_footer_locations() {
+function mia_get_footer_locations(): array {
 	$cache_key      = 'mia_footer_locations_with_surgeons';
 	$locations_data = get_transient( $cache_key );
 
@@ -214,15 +221,23 @@ function mia_get_footer_locations() {
 		if ( array() !== $all_surgeons_query->posts ) {
 			foreach ( $all_surgeons_query->posts as $surgeon_id ) {
 				$surgeon_location = get_field( 'surgeon_location', $surgeon_id );
-				if ( null !== $surgeon_location && in_array( $surgeon_location, $location_ids, true ) ) {
-					if ( ! isset( $surgeons_by_location[ $surgeon_location ] ) ) {
-						$surgeons_by_location[ $surgeon_location ] = array();
+				if ( null !== $surgeon_location ) {
+					// Handle both object and ID formats - ensure we always get an integer.
+					if ( is_object( $surgeon_location ) && property_exists( $surgeon_location, 'ID' ) ) {
+						$location_key = (int) $surgeon_location->ID;
+					} else {
+						$location_key = (int) $surgeon_location;
 					}
-					$surgeons_by_location[ $surgeon_location ][] = array(
-						'id'    => $surgeon_id,
-						'title' => get_the_title( $surgeon_id ),
-						'url'   => get_permalink( $surgeon_id ),
-					);
+					if ( in_array( $location_key, $location_ids, true ) ) {
+						if ( ! isset( $surgeons_by_location[ $location_key ] ) ) {
+							$surgeons_by_location[ $location_key ] = array();
+						}
+						$surgeons_by_location[ $location_key ][] = array(
+							'id'    => $surgeon_id,
+							'title' => get_the_title( $surgeon_id ),
+							'url'   => get_permalink( $surgeon_id ),
+						);
+					}
 				}
 			}
 		}
@@ -230,11 +245,16 @@ function mia_get_footer_locations() {
 		// Step 4: Build final locations data structure.
 		$locations_data = array();
 		foreach ( $location_ids as $location_id ) {
+			if ( $location_id instanceof WP_Post ) {
+				$location_int_id = (int) $location_id->ID;
+			} else {
+				$location_int_id = (int) $location_id;
+			}
 			$locations_data[] = array(
-				'id'       => $location_id,
-				'title'    => get_the_title( $location_id ),
-				'url'      => get_permalink( $location_id ),
-				'surgeons' => $surgeons_by_location[ $location_id ] ?? array(),
+				'id'       => $location_int_id,
+				'title'    => get_the_title( $location_int_id ),
+				'url'      => get_permalink( $location_int_id ),
+				'surgeons' => $surgeons_by_location[ $location_int_id ] ?? array(),
 			);
 		}
 
@@ -249,8 +269,9 @@ function mia_get_footer_locations() {
  * Clear footer locations cache when relevant posts are updated
  *
  * @param int $post_id The ID of the post being updated.
+ * @return void
  */
-function mia_clear_footer_locations_cache( $post_id ) {
+function mia_clear_footer_locations_cache( $post_id ): void {
 	$post_type = get_post_type( $post_id );
 	if ( in_array( $post_type, array( 'location', 'surgeon' ), true ) ) {
 		delete_transient( 'mia_footer_locations_with_surgeons' );
@@ -264,10 +285,11 @@ add_action( 'untrash_post', 'mia_clear_footer_locations_cache' );
 /**
  * Render procedures dropdown
  *
- * @param array $procedures Array of procedure data.
- * @param bool  $is_mobile  Whether to render mobile version.
+ * @param array<string, mixed> $procedures Array of procedure data.
+ * @param bool                 $is_mobile  Whether to render mobile version.
+ * @return void
  */
-function render_procedures_menu( $procedures, $is_mobile = false ) {
+function render_procedures_menu( $procedures, $is_mobile = false ): void {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
@@ -287,9 +309,10 @@ function render_procedures_menu( $procedures, $is_mobile = false ) {
 /**
  * Render desktop procedures mega menu
  *
- * @param array $procedures Array of procedure data.
+ * @param array<string, mixed> $procedures Array of procedure data.
+ * @return void
  */
-function render_desktop_procedures_menu( $procedures ) {
+function render_desktop_procedures_menu( $procedures ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -324,9 +347,10 @@ function render_desktop_procedures_menu( $procedures ) {
 /**
  * Render mobile procedures dropdown menu
  *
- * @param array $procedures Array of procedure data.
+ * @param array<string, mixed> $procedures Array of procedure data.
+ * @return void
  */
-function render_mobile_procedures_menu( $procedures ) {
+function render_mobile_procedures_menu( $procedures ): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( $procedures['url'] ); ?>">View All Procedures</a></li>
@@ -353,8 +377,9 @@ function render_mobile_procedures_menu( $procedures ) {
  * Render locations menu for both desktop and mobile
  *
  * @param bool $is_mobile Whether to render mobile version.
+ * @return void
  */
-function render_locations_menu( $is_mobile = false ) {
+function render_locations_menu( bool $is_mobile = false ): void {
 	$locations      = get_locations_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
@@ -375,9 +400,10 @@ function render_locations_menu( $is_mobile = false ) {
 /**
  * Render desktop locations mega menu
  *
- * @param array $locations Array of location data.
+ * @param array<int, mixed> $locations Array of location data.
+ * @return void
  */
-function render_desktop_locations_menu( $locations ) {
+function render_desktop_locations_menu( $locations ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -398,7 +424,7 @@ function render_desktop_locations_menu( $locations ) {
 					foreach ( $locations as $location ) :
 						$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
 						$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-						$menu_label   = $location['state'] ? $display_city . ', ' . $abbr : $display_city;
+						$menu_label   = ( isset( $location['state'] ) && '' !== $location['state'] ) ? $display_city . ', ' . $abbr : $display_city;
 
 						echo '<li><a class="dropdown-item py-1" href="' . esc_url( $location['url'] ) . '">' . esc_html( $menu_label ) . '</a></li>';
 						++$location_count;
@@ -427,9 +453,10 @@ function render_desktop_locations_menu( $locations ) {
 /**
  * Render mobile locations dropdown menu
  *
- * @param array $locations Array of location data.
+ * @param array<int, mixed> $locations Array of location data.
+ * @return void
  */
-function render_mobile_locations_menu( $locations ) {
+function render_mobile_locations_menu( $locations ): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">View All Locations</a></li>
@@ -438,7 +465,7 @@ function render_mobile_locations_menu( $locations ) {
 			foreach ( $locations as $location ) :
 				$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
 				$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-				$menu_label   = $location['state'] ? $display_city . ', ' . $abbr : $display_city;
+				$menu_label   = ( isset( $location['state'] ) && '' !== $location['state'] ) ? $display_city . ', ' . $abbr : $display_city;
 				?>
 				<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
 				<?php
@@ -457,8 +484,9 @@ function render_mobile_locations_menu( $locations ) {
  * Render surgeons menu for both desktop and mobile
  *
  * @param bool $is_mobile Whether to render mobile version.
+ * @return void
  */
-function render_surgeons_menu( $is_mobile = false ) {
+function render_surgeons_menu( bool $is_mobile = false ): void {
 	$surgeons       = get_surgeons_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
@@ -479,9 +507,10 @@ function render_surgeons_menu( $is_mobile = false ) {
 /**
  * Render desktop surgeons mega menu
  *
- * @param array $surgeons Array of surgeon data.
+ * @param array<int, mixed> $surgeons Array of surgeon data.
+ * @return void
  */
-function render_desktop_surgeons_menu( $surgeons ) {
+function render_desktop_surgeons_menu( $surgeons ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -527,9 +556,10 @@ function render_desktop_surgeons_menu( $surgeons ) {
 /**
  * Render mobile surgeons dropdown menu
  *
- * @param array $surgeons Array of surgeon data.
+ * @param array<int, mixed> $surgeons Array of surgeon data.
+ * @return void
  */
-function render_mobile_surgeons_menu( $surgeons ) {
+function render_mobile_surgeons_menu( $surgeons ): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>">View All Surgeons</a></li>
@@ -554,8 +584,9 @@ function render_mobile_surgeons_menu( $surgeons ) {
  * Render Before & After menu for both desktop and mobile
  *
  * @param bool $is_mobile Whether to render mobile version.
+ * @return void
  */
-function render_before_after_menu( $is_mobile = false ) {
+function render_before_after_menu( bool $is_mobile = false ): void {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
@@ -574,8 +605,10 @@ function render_before_after_menu( $is_mobile = false ) {
 
 /**
  * Render desktop Before & After mega menu
+ *
+ * @return void
  */
-function render_desktop_before_after_menu() {
+function render_desktop_before_after_menu(): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -617,8 +650,10 @@ function render_desktop_before_after_menu() {
 
 /**
  * Render mobile Before & After dropdown menu
+ *
+ * @return void
  */
-function render_mobile_before_after_menu() {
+function render_mobile_before_after_menu(): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>">View All Before & After</a></li>
@@ -640,8 +675,9 @@ function render_mobile_before_after_menu() {
  * Render non-surgical menu for both desktop and mobile
  *
  * @param bool $is_mobile Whether to render mobile version.
+ * @return void
  */
-function render_non_surgical_menu( $is_mobile = false ) {
+function render_non_surgical_menu( bool $is_mobile = false ): void {
 	$procedures     = get_non_surgical_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
@@ -661,8 +697,10 @@ function render_non_surgical_menu( $is_mobile = false ) {
 
 /**
  * Render desktop non-surgical mega menu
+ *
+ * @return void
  */
-function render_desktop_non_surgical_menu() {
+function render_desktop_non_surgical_menu(): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -689,8 +727,10 @@ function render_desktop_non_surgical_menu() {
 
 /**
  * Render mobile non-surgical dropdown menu
+ *
+ * @return void
  */
-function render_mobile_non_surgical_menu() {
+function render_mobile_non_surgical_menu(): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>">View All Non-Surgical</a></li>

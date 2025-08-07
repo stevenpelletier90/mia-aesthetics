@@ -20,19 +20,21 @@ class Organization_Schema {
 
 	/**
 	 * Initialize organization schema modifications
+	 *
+	 * @return void
 	 */
-	public static function init() {
+	public static function init(): void {
 		add_filter( 'wpseo_schema_organization', array( __CLASS__, 'enhance_organization_schema' ), 11, 2 );
 	}
 
 	/**
 	 * Enhance Yoast's organization schema with medical-specific properties
 	 *
-	 * @param array                                   $data The organization schema data.
+	 * @param array<string, mixed>                    $data The organization schema data.
 	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast context object (unused but required by filter).
-	 * @return array Modified organization data
+	 * @return array<string, mixed> Modified organization data
 	 */
-	public static function enhance_organization_schema( $data, $context ) {
+	public static function enhance_organization_schema( $data, $context ): array {
 		// Change type to MedicalOrganization which supports medicalSpecialty.
 		$data['@type'] = array( 'Organization', 'MedicalOrganization' );
 

@@ -12,6 +12,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'after_setup_theme', 'mia_setup' );
 /**
  * Register theme supports, menus, and sizes.
+ *
  * @return void
  */
 function mia_setup(): void {
@@ -91,6 +92,7 @@ add_action( 'after_setup_theme', 'mia_editor_styles' );
 
 /**
  * Load editor-only styles for Gutenberg.
+ *
  * @return void
  */
 function mia_editor_styles(): void {
@@ -145,6 +147,7 @@ add_action( 'acf/init', 'mia_acf_init' );
 
 /**
  * Initialize ACF Pro settings including Google Maps API key.
+ *
  * @return void
  */
 function mia_acf_init(): void {

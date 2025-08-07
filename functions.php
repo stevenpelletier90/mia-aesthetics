@@ -72,9 +72,9 @@ add_filter( 'upload_mimes', 'mia_aesthetics_allow_svg_uploads' );
  * WordPress doesn't generate thumbnails for SVGs by default.
  * This ensures SVGs display properly in the admin media library.
  *
- * @param array<string, mixed>  $response   Array of prepared attachment data.
- * @param object $attachment Attachment object.
- * @param array<string, mixed>  $meta       Array of attachment meta data.
+ * @param array<string, mixed> $response   Array of prepared attachment data.
+ * @param object               $attachment Attachment object.
+ * @param array<string, mixed> $meta       Array of attachment meta data.
  * @return array<string, mixed> Modified response array with SVG display data.
  */
 function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
@@ -84,61 +84,61 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 		if ( is_object( $attachment ) && property_exists( $attachment, 'ID' ) ) {
 			$path = get_attached_file( $attachment->ID );
 			if ( false !== $path && file_exists( $path ) ) {
-			// Use WP_Filesystem API for better security and compatibility.
-			if ( ! function_exists( 'WP_Filesystem' ) ) {
-				/**
-				 * Load WordPress filesystem API
-				 *
-				 * @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists
-				 */
-				require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
-			}
-			WP_Filesystem();
-			global $wp_filesystem;
-			$svg = $wp_filesystem->get_contents( $path );
-			if ( false !== $svg ) {
-				$xml = simplexml_load_string( $svg );
-				if ( false !== $xml ) {
-					$src    = $response['url'];
-					$width  = intval( $xml['width'] );
-					$height = intval( $xml['height'] );
-
-					// If width/height not in XML attributes, try viewBox.
-					if ( 0 === $width || 0 === $height ) {
-						$viewbox = explode( ' ', $xml['viewBox'] );
-						if ( count( $viewbox ) === 4 ) {
-							$width  = intval( $viewbox[2] );
-							$height = intval( $viewbox[3] );
-						}
-					}
-
-					// Fallback dimensions if still not found.
-					if ( 0 === $width ) {
-						$width = 150;
-					}
-
-					if ( 0 === $height ) {
-						$height = 150;
-					}
-
-					$response['image']              = array(
-						'src'    => $src,
-						'width'  => $width,
-						'height' => $height,
-					);
-					$response['thumb']              = array(
-						'src'    => $src,
-						'width'  => $width,
-						'height' => $height,
-					);
-					$response['sizes']['thumbnail'] = array(
-						'height'      => $height,
-						'width'       => $width,
-						'url'         => $src,
-						'orientation' => $height > $width ? 'portrait' : 'landscape',
-					);
+				// Use WP_Filesystem API for better security and compatibility.
+				if ( ! function_exists( 'WP_Filesystem' ) ) {
+					/**
+					 * Load WordPress filesystem API
+					 *
+					 * @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists
+					 */
+					require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
 				}
-			}
+				WP_Filesystem();
+				global $wp_filesystem;
+				$svg = $wp_filesystem->get_contents( $path );
+				if ( false !== $svg ) {
+					$xml = simplexml_load_string( $svg );
+					if ( false !== $xml ) {
+						$src    = $response['url'];
+						$width  = intval( $xml['width'] );
+						$height = intval( $xml['height'] );
+
+						// If width/height not in XML attributes, try viewBox.
+						if ( 0 === $width || 0 === $height ) {
+							$viewbox = explode( ' ', $xml['viewBox'] );
+							if ( count( $viewbox ) === 4 ) {
+								$width  = intval( $viewbox[2] );
+								$height = intval( $viewbox[3] );
+							}
+						}
+
+						// Fallback dimensions if still not found.
+						if ( 0 === $width ) {
+							$width = 150;
+						}
+
+						if ( 0 === $height ) {
+							$height = 150;
+						}
+
+						$response['image']              = array(
+							'src'    => $src,
+							'width'  => $width,
+							'height' => $height,
+						);
+						$response['thumb']              = array(
+							'src'    => $src,
+							'width'  => $width,
+							'height' => $height,
+						);
+						$response['sizes']['thumbnail'] = array(
+							'height'      => $height,
+							'width'       => $width,
+							'url'         => $src,
+							'orientation' => $height > $width ? 'portrait' : 'landscape',
+						);
+					}
+				}
 			}
 		}
 	}
@@ -155,9 +155,9 @@ add_filter( 'wp_prepare_attachment_for_js', 'mia_aesthetics_fix_svg_display', 10
  * for security and validation purposes.
  *
  * @param array<string, mixed>  $data     Array of file data.
- * @param string $file     File path.
- * @param string $filename Original filename.
- * @param array<string, string>  $mimes    Array of allowed mime types.
+ * @param string                $file     File path.
+ * @param string                $filename Original filename.
+ * @param array<string, string> $mimes    Array of allowed mime types.
  * @return array<string, mixed> Modified file data array.
  */
 function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {

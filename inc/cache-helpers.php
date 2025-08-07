@@ -19,8 +19,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Return the number of published posts for a given post-type.
  * Result is cached for two hours (object cache if available).
  *
- * @param string $post_type Custom post-type slug.
- * @param array<string, mixed>  $args      Optional WP_Query args used to narrow the count.
+ * @param string               $post_type Custom post-type slug.
+ * @param array<string, mixed> $args      Optional WP_Query args used to narrow the count.
  * @return int
  */
 function mia_aesthetics_get_cached_post_count( $post_type, $args = array() ) {

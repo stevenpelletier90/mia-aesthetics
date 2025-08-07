@@ -146,7 +146,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 
 					// Build YouTube embed URL from ID.
 					$embed_url = '';
-					if ( $video_id ) {
+					if ( '' !== $video_id ) {
 						$embed_url = 'https://www.youtube.com/embed/' . $video_id;
 					}
 					?>

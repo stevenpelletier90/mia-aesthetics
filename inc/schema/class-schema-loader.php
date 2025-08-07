@@ -20,8 +20,10 @@ class Schema_Loader {
 
 	/**
 	 * Initialize the schema system
+	 *
+	 * @return void
 	 */
-	public static function init() {
+	public static function init(): void {
 		// Load schema classes.
 		self::load_dependencies();
 
@@ -34,8 +36,10 @@ class Schema_Loader {
 
 	/**
 	 * Load required schema classes
+	 *
+	 * @return void
 	 */
-	private static function load_dependencies() {
+	private static function load_dependencies(): void {
 		$schema_dir = get_template_directory() . '/inc/schema/';
 
 		require_once $schema_dir . 'class-organization-schema.php';
@@ -47,11 +51,11 @@ class Schema_Loader {
 	/**
 	 * Register custom schema pieces with Yoast
 	 *
-	 * @param array                                   $pieces Existing schema pieces.
+	 * @param array<int, mixed>                       $pieces Existing schema pieces.
 	 * @param \Yoast\WP\SEO\Context\Meta_Tags_Context $context The Yoast context object.
-	 * @return array Modified schema pieces
+	 * @return array<int, mixed> Modified schema pieces
 	 */
-	public static function register_schema_pieces( $pieces, $context ) {
+	public static function register_schema_pieces( $pieces, $context ): array {
 		if ( is_singular( 'surgeon' ) ) {
 			$pieces[] = new Surgeon_Schema( $context );
 		}

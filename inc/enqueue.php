@@ -27,11 +27,11 @@ if ( ! defined( 'MIA_ASSET_HASH_LEN' ) ) {
 /**
  * Register a style or script with automatic file‑hash versioning.
  *
- * @param string $type   Either 'style' or 'script'.
- * @param string $handle WordPress handle.
- * @param string $path   File path relative to /assets (leading slash allowed).
- * @param array<int, string>  $deps   Optional dependencies.
- * @param bool   $footer Load script in footer (scripts only).
+ * @param string             $type   Either 'style' or 'script'.
+ * @param string             $handle WordPress handle.
+ * @param string             $path   File path relative to /assets (leading slash allowed).
+ * @param array<int, string> $deps   Optional dependencies.
+ * @param bool               $footer Load script in footer (scripts only).
  * @return void
  */
 function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = true ): void {
@@ -60,9 +60,16 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
  * ---------------------------------------------------------------------------
  */
 /**
+ * Get template mappings for CSS enqueuing
+ *
  * @return array<string, array<string, string>>
  */
 function mia_get_template_mappings(): array {
+	/**
+	 * Template mappings array.
+	 *
+	 * @var array<string, array<string, string>>
+	 */
 	return array(
 		// Page Templates (available for selection).
 		'page-blank-canvas'           => array(
@@ -310,6 +317,7 @@ function mia_detect_template_key(): string {
  * ---------------------------------------------------------------------------
  * Main enqueue callback
  * ---------------------------------------------------------------------------
+ *
  * @return void
  */
 function mia_enqueue_assets(): void {
@@ -399,6 +407,7 @@ add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
 
 /**
  * Localise runtime configuration to the primary script.
+ *
  * @return void
  */
 function mia_attach_config(): void {
@@ -443,8 +452,8 @@ function mia_get_primary_script_handle() {
 /**
  * Add dns‑prefetch resource hints for external domains.
  *
- * @param array<int, string>  $hints         Array of resource hints.
- * @param string $relation_type The relation type of the resource hint.
+ * @param array<int, string> $hints         Array of resource hints.
+ * @param string             $relation_type The relation type of the resource hint.
  * @return array<int, string> Modified array of resource hints.
  */
 function mia_resource_hints( $hints, $relation_type ) {

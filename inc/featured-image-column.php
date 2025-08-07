@@ -13,6 +13,7 @@ add_action( 'admin_init', 'mia_featured_image_columns_init' );
 
 /**
  * Initialize featured image columns for admin post listings
+ *
  * @return void
  */
 function mia_featured_image_columns_init(): void {

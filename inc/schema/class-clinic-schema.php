@@ -46,10 +46,13 @@ class Clinic_Schema {
 	/**
 	 * Generate the clinic schema
 	 *
-	 * @return array Schema.org compliant MedicalBusiness/MedicalClinic data
+	 * @return array<int, array<string, mixed>> Schema.org compliant MedicalBusiness/MedicalClinic data
 	 */
-	public function generate() {
+	public function generate(): array {
 		$loc_id = get_the_ID();
+		if ( false === $loc_id || 0 === $loc_id ) {
+			return array();
+		}
 		$org_id = $this->context->site_url . '#organization';
 
 		$schema_data = array();
@@ -150,18 +153,18 @@ class Clinic_Schema {
 		// Prioritize featured image first for business listings.
 		if ( has_post_thumbnail( $loc_id ) ) {
 			$featured_image = get_the_post_thumbnail_url( $loc_id, 'full' );
-			if ( $featured_image ) {
+			if ( false !== $featured_image ) {
 				return $featured_image;
 			}
 		}
 
 		// Fall back to video thumbnail from video_details group.
 		$video_details = get_field( 'video_details', $loc_id );
-		if ( is_array( $video_details ) || is_object( $video_details ) ) {
+		if ( is_array( $video_details ) ) {
 			// Use custom thumbnail if available.
 			if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-				if ( $custom_thumbnail ) {
+				if ( false !== $custom_thumbnail ) {
 					return $custom_thumbnail;
 				}
 			}
@@ -180,9 +183,9 @@ class Clinic_Schema {
 	 * Get clinic address from Google Maps field
 	 *
 	 * @param int $loc_id The location post ID.
-	 * @return array|null
+	 * @return array<string, string>|null
 	 */
-	private function get_address( $loc_id ) {
+	private function get_address( $loc_id ): ?array {
 		$location_map = get_field( 'location_map', $loc_id );
 
 		if ( ! is_array( $location_map ) || count( $location_map ) === 0 ) {
@@ -223,9 +226,9 @@ class Clinic_Schema {
 	 * Get geo coordinates from Google Maps field
 	 *
 	 * @param int $loc_id The location post ID.
-	 * @return array|null
+	 * @return array<string, string>|null
 	 */
-	private function get_geo_coordinates( $loc_id ) {
+	private function get_geo_coordinates( $loc_id ): ?array {
 		$location_map = get_field( 'location_map', $loc_id );
 
 		if ( ! is_array( $location_map ) || ! isset( $location_map['lat'] ) || ! isset( $location_map['lng'] ) || '' === $location_map['lat'] || '' === $location_map['lng'] ) {
@@ -243,7 +246,7 @@ class Clinic_Schema {
 	 * Get opening hours from ACF business_hours repeater field
 	 *
 	 * @param int $loc_id The location post ID.
-	 * @return array
+	 * @return array<int, array<string, mixed>>
 	 */
 	private function get_opening_hours( $loc_id ) {
 		$business_hours = get_field( 'business_hours', $loc_id );
@@ -290,7 +293,7 @@ class Clinic_Schema {
 	 * Parse hours string into opens/closes times
 	 *
 	 * @param string $hours_string The hours string to parse.
-	 * @return array|null
+	 * @return array<string, string>|null
 	 */
 	private function parse_hours_string( $hours_string ) {
 		// Handle "Closed" case.
@@ -307,7 +310,7 @@ class Clinic_Schema {
 		);
 
 		foreach ( $patterns as $pattern ) {
-			if ( preg_match( $pattern, $hours_string, $matches ) ) {
+			if ( 1 === preg_match( $pattern, $hours_string, $matches ) ) {
 				return $this->convert_to_24_hour( $matches );
 			}
 		}
@@ -318,8 +321,8 @@ class Clinic_Schema {
 	/**
 	 * Convert parsed time matches to 24-hour format
 	 *
-	 * @param array $matches The regex matches from time parsing.
-	 * @return array
+	 * @param array<int, string> $matches The regex matches from time parsing.
+	 * @return array<string, string>
 	 */
 	private function convert_to_24_hour( $matches ) {
 		$opens  = '';
@@ -403,7 +406,7 @@ class Clinic_Schema {
 	/**
 	 * Get default opening hours
 	 *
-	 * @return array
+	 * @return array<int, array<string, mixed>>
 	 */
 	private function get_default_hours() {
 		return array(
@@ -419,7 +422,7 @@ class Clinic_Schema {
 	/**
 	 * Get available services
 	 *
-	 * @return array
+	 * @return array<int, array<string, string>>
 	 */
 	private function get_available_services() {
 		$services = array(
@@ -448,7 +451,7 @@ class Clinic_Schema {
 	 * Get aggregate rating
 	 *
 	 * @param int $loc_id The location post ID.
-	 * @return array|null
+	 * @return array<string, mixed>|null
 	 */
 	private function get_rating( $loc_id ) {
 		$rating = get_field( 'average_rating', $loc_id );
@@ -468,7 +471,7 @@ class Clinic_Schema {
 	 * Get employees (surgeons at this location)
 	 *
 	 * @param int $loc_id The location post ID.
-	 * @return array
+	 * @return array<int, array<string, string>>
 	 */
 	private function get_employees( $loc_id ) {
 		$surgeons = get_posts(
@@ -502,7 +505,7 @@ class Clinic_Schema {
 	 * Get featured video from video_details group field
 	 *
 	 * @param int $loc_id The location post ID.
-	 * @return array|null
+	 * @return array<string, mixed>|null
 	 */
 	private function get_featured_video( $loc_id ) {
 		$video_details = get_field( 'video_details', $loc_id );
@@ -523,7 +526,7 @@ class Clinic_Schema {
 		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-			if ( $custom_thumbnail ) {
+			if ( false !== $custom_thumbnail ) {
 				$thumbnail_url = $custom_thumbnail;
 			}
 		}

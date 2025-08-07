@@ -18,7 +18,8 @@
       "Bash(composer:*)",
       "Bash(vendor/bin/phpstan analyse:*)",
       "Bash(rm:*)",
-      "Bash(find:*)"
+      "Bash(find:*)",
+      "Bash(vendor/bin/phpcbf:*)"
     ],
     "additionalDirectories": [
       "C:\\",
