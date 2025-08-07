@@ -1,9 +1,7 @@
 import js from '@eslint/js';
-import wordpress from '@wordpress/eslint-plugin';
 
 export default [
   js.configs.recommended,
-  ...wordpress.configs.recommended,
   {
     files: ['assets/js/**/*.js'],
     languageOptions: {
@@ -40,7 +38,14 @@ export default [
     rules: {
       'no-console': 'warn',
       'no-unused-vars': 'warn',
-      'prefer-const': 'error'
+      'prefer-const': 'error',
+      'no-undef': 'error',
+      'no-redeclare': 'error',
+      'no-unused-expressions': 'error',
+      'curly': 'error',
+      'eqeqeq': 'error',
+      'no-eval': 'error',
+      'no-implied-eval': 'error'
     }
   }
 ];

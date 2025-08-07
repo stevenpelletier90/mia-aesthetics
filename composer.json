@@ -20,7 +20,7 @@
         }
     },
     "scripts": {
-        "phpcs": "phpcs --standard=WordPress --report=full",
+        "phpcs": "phpcs --standard=WordPress --report=full functions.php inc/",
         "phpcbf": "phpcbf --standard=WordPress",
         "phpstan": "phpstan analyse --level=5"
     }

@@ -11,7 +11,8 @@
       "Bash(composer require:*)",
       "Bash(composer remove:*)",
       "Bash(grep:*)",
-      "Bash(rmdir:*)"
+      "Bash(rmdir:*)",
+      "Bash(npm run lint)"
     ],
     "additionalDirectories": [
       "C:\\",
