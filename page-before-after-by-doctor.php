@@ -71,7 +71,7 @@ $gallery_data      = array();
 
 if ( file_exists( $gallery_json_path ) ) {
 	// Use WP_Filesystem API for better security and compatibility.
-	/** @phpstan-ignore-next-line requireOnce.fileNotFound */
+	/** @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists */
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	WP_Filesystem();
 	global $wp_filesystem;

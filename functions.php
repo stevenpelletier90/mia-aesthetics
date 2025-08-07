@@ -85,7 +85,7 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 		if ( file_exists( $path ) ) {
 			// Use WP_Filesystem API for better security and compatibility.
 			if ( ! function_exists( 'WP_Filesystem' ) ) {
-				/** @phpstan-ignore-next-line requireOnce.fileNotFound */
+				/** @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists */
 				require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
 			}
 			WP_Filesystem();

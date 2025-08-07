@@ -97,7 +97,7 @@ class Surgeon_Schema {
 
 		// Specialties.
 		$specialties = $this->get_specialties( $surgeon_id );
-		if ( [] !== $specialties ) {
+		if ( array() !== $specialties ) {
 			$surgeon['knowsAbout'] = $specialties;
 		}
 

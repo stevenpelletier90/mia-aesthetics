@@ -64,7 +64,7 @@ get_header(); ?>
 
 						<?php
 						$tags = get_the_tags();
-						if ( $tags ) :
+						if ( is_array( $tags ) && count( $tags ) > 0 ) :
 							?>
 							<div class="related-topics mb-5">
 								<h2 class="h5 mb-3">Related Topics</h2>
