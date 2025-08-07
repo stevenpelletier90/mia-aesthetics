@@ -1,7 +1,9 @@
 import js from '@eslint/js';
+import wordpress from '@wordpress/eslint-plugin';
 
 export default [
   js.configs.recommended,
+  ...wordpress.configs.recommended,
   {
     files: ['assets/js/**/*.js'],
     languageOptions: {
