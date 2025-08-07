@@ -247,7 +247,7 @@ require __DIR__ . '/hero-section.php';
 			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
 			<?php
 			$body_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/body-home.jpg' );
-			if ( $body_img_id ) {
+			if ( 0 !== $body_img_id ) {
 				echo wp_get_attachment_image(
 					$body_img_id,
 					'large',
@@ -308,7 +308,7 @@ require __DIR__ . '/hero-section.php';
 			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
 			<?php
 			$breast_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/breast-home.jpg' );
-			if ( $breast_img_id ) {
+			if ( 0 !== $breast_img_id ) {
 				echo wp_get_attachment_image(
 					$breast_img_id,
 					'large',
@@ -366,7 +366,7 @@ require __DIR__ . '/hero-section.php';
 			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
 			<?php
 			$face_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/face-2-home.jpg' );
-			if ( $face_img_id ) {
+			if ( 0 !== $face_img_id ) {
 				echo wp_get_attachment_image(
 					$face_img_id,
 					'large',
@@ -427,7 +427,7 @@ require __DIR__ . '/hero-section.php';
 			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
 			<?php
 			$nonsurg_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/face-home.jpg' );
-			if ( $nonsurg_img_id ) {
+			if ( 0 !== $nonsurg_img_id ) {
 				echo wp_get_attachment_image(
 					$nonsurg_img_id,
 					'large',
@@ -475,7 +475,7 @@ require __DIR__ . '/hero-section.php';
 			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
 			<?php
 			$men_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/men-home.jpg' );
-			if ( $men_img_id ) {
+			if ( 0 !== $men_img_id ) {
 				echo wp_get_attachment_image(
 					$men_img_id,
 					'large',

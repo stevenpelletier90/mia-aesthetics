@@ -37,7 +37,7 @@ get_header();
 					$manual_procedures = array();
 
 					// Check if we have an ACF field for manual procedures.
-					if ( function_exists( 'get_field' ) && get_field( 'manual_procedures' ) ) {
+					if ( function_exists( 'get_field' ) && null !== get_field( 'manual_procedures' ) ) {
 						$manual_procedures = get_field( 'manual_procedures' );
 					} else {
 						// Fallback to hardcoded IDs based on the URLs provided.
@@ -81,20 +81,20 @@ get_header();
 							$custom_excerpt = isset( $procedure_data['custom_excerpt'] ) ? $procedure_data['custom_excerpt'] : '';
 						}
 
-						if ( ! $procedure_id ) {
+						if ( null === $procedure_id || 0 === $procedure_id ) {
 							continue;
 						}
 
 							$procedure = get_post( $procedure_id );
-						if ( ! $procedure || 'publish' !== $procedure->post_status ) {
+						if ( null === $procedure || 'publish' !== $procedure->post_status ) {
 							continue;
 						}
 
 							setup_postdata( $procedure );
 
 							// Use custom or default values.
-							$procedure_title   = ! empty( $custom_title ) ? $custom_title : get_the_title( $procedure_id );
-							$procedure_excerpt = ! empty( $custom_excerpt ) ? $custom_excerpt : get_the_excerpt( $procedure_id );
+							$procedure_title   = ( '' !== $custom_title ) ? $custom_title : get_the_title( $procedure_id );
+							$procedure_excerpt = ( '' !== $custom_excerpt ) ? $custom_excerpt : get_the_excerpt( $procedure_id );
 							$procedure_link    = get_permalink( $procedure_id );
 							$procedure_image   = get_the_post_thumbnail(
 								$procedure_id,
@@ -106,7 +106,7 @@ get_header();
 							);
 
 							// Fallback image if no featured image.
-						if ( ! $procedure_image ) {
+						if ( '' === $procedure_image ) {
 							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 						}
 						?>
@@ -140,7 +140,7 @@ get_header();
 		</section>
 
 		<!-- Page Content (from WordPress editor) -->
-		<?php if ( get_the_content() ) : ?>
+		<?php if ( '' !== trim( get_the_content() ) ) : ?>
 			<section class="page-content-section">
 				<div class="container">
 					<div class="row">

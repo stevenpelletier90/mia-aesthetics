@@ -123,7 +123,7 @@ function mia_archive_body_classes( $classes ) {
 	// Add specific classes for single post types.
 	if ( is_singular() ) {
 		$post_type = get_post_type();
-		if ( $post_type ) {
+		if ( '' !== $post_type ) {
 			$class_name = 'single-type-' . $post_type;
 			if ( ! in_array( $class_name, $classes, true ) ) {
 				$classes[] = $class_name;
@@ -256,13 +256,13 @@ function mia_exclude_pages_from_search( $query ) {
 				)
 			);
 
-			$exclude_ids = ! empty( $pages ) ? $pages : array();
+			$exclude_ids = array() !== $pages ? $pages : array();
 
 			// Cache for 1 day (pages rarely change).
 			set_transient( $cache_key, $exclude_ids, DAY_IN_SECONDS );
 		}
 
-		if ( ! empty( $exclude_ids ) ) {
+		if ( array() !== $exclude_ids ) {
 			$query->set( 'post__not_in', $exclude_ids );
 		}
 	}
@@ -295,7 +295,7 @@ add_filter( 'query_vars', 'mia_add_query_vars' );
 function mia_handle_custom_queries( $query ) {
 	if ( ! is_admin() && $query->is_main_query() ) {
 		// Filter surgeons by location.
-		if ( get_query_var( 'surgeon_location' ) ) {
+		if ( '' !== get_query_var( 'surgeon_location' ) ) {
 			$location_id = intval( get_query_var( 'surgeon_location' ) );
 			if ( 0 !== $location_id ) {
 				$query->set(
@@ -312,9 +312,9 @@ function mia_handle_custom_queries( $query ) {
 		}
 
 		// Filter procedures by type.
-		if ( get_query_var( 'procedure_type' ) ) {
+		if ( '' !== get_query_var( 'procedure_type' ) ) {
 			$procedure_type = sanitize_text_field( get_query_var( 'procedure_type' ) );
-			if ( $procedure_type ) {
+			if ( '' !== $procedure_type ) {
 				$query->set(
 					'meta_query',
 					array(
@@ -346,7 +346,7 @@ function mia_optimize_queries( $query ) {
 
 			// Post types that don't need meta cache in archives.
 			$no_meta_types = array( 'surgeon', 'procedure', 'condition' );
-			if ( in_array( $post_type, $no_meta_types, true ) && ! $query->get( 'meta_query' ) ) {
+			if ( in_array( $post_type, $no_meta_types, true ) && null === $query->get( 'meta_query' ) ) {
 				$query->set( 'update_post_meta_cache', false );
 			}
 		}
@@ -396,9 +396,9 @@ add_action( 'init', 'mia_pagination_rewrite_rules' );
  */
 function mia_fix_pagination( $query ) {
 	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( array( 'special' ) ) ) {
-		if ( get_query_var( 'paged' ) ) {
+		if ( 0 !== (int) get_query_var( 'paged' ) ) {
 				$query->set( 'paged', get_query_var( 'paged' ) );
-		} elseif ( get_query_var( 'page' ) ) {
+		} elseif ( 0 !== (int) get_query_var( 'page' ) ) {
 			$query->set( 'paged', get_query_var( 'page' ) );
 		}
 	}
@@ -446,7 +446,7 @@ function mia_get_non_surgical_by_category() {
 		'wellness'   => 0,
 	);
 
-	if ( ! empty( $all_procedures->posts ) ) {
+	if ( array() !== $all_procedures->posts ) {
 		foreach ( $all_procedures->posts as $post_id ) {
 			$categories = get_field( 'procedure_category', $post_id );
 

@@ -27,9 +27,9 @@ function mia_aesthetics_get_logo_url( $fallback = true ) {
 	// Try custom logo first.
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-	if ( $custom_logo_id ) {
+	if ( 0 !== $custom_logo_id ) {
 		$logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
-		if ( $logo_url ) {
+		if ( false !== $logo_url && '' !== $logo_url ) {
 			return $logo_url;
 		}
 	}
@@ -132,7 +132,7 @@ function mia_aesthetics_the_logo( $args = array() ) {
  * @return int|false Attachment ID or false if not found
  */
 function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
-	if ( empty( $filename ) ) {
+	if ( '' === $filename ) {
 		return false;
 	}
 
@@ -159,13 +159,13 @@ function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
 			)
 		);
 
-		$attachment_id = ! empty( $attachments->posts ) ? $attachments->posts[0] : 0;
+		$attachment_id = array() !== $attachments->posts ? $attachments->posts[0] : 0;
 
 		// Cache result for 2 hours (attachment files rarely change).
 		wp_cache_set( $cache_key, $attachment_id, 'mia_theme', 2 * HOUR_IN_SECONDS );
 	}
 
-	return $attachment_id ? $attachment_id : false;
+	return 0 !== $attachment_id ? $attachment_id : false;
 }
 
 /**
@@ -176,14 +176,14 @@ function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
  * @return string|false Image URL or false if not found
  */
 function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
-	if ( empty( $filename ) ) {
+	if ( '' === $filename ) {
 		return false;
 	}
 
 	$upload_dir = wp_upload_dir();
 
 	// Check direct path first.
-	if ( $subdir ) {
+	if ( '' !== $subdir ) {
 		$file_path = $upload_dir['basedir'] . '/' . trim( $subdir, '/' ) . '/' . $filename;
 
 		if ( file_exists( $file_path ) ) {
@@ -194,7 +194,7 @@ function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
 	// Use cached attachment lookup.
 	$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
-	if ( $attachment_id ) {
+	if ( 0 !== $attachment_id ) {
 		return wp_get_attachment_url( $attachment_id );
 	}
 
@@ -210,7 +210,7 @@ function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
  * @return array|false Array with src, srcset, sizes or false
  */
 function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' ) {
-	if ( empty( $filename ) ) {
+	if ( '' === $filename ) {
 		return false;
 	}
 
@@ -222,7 +222,7 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 		// Try to find attachment ID using shared function.
 		$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
-		if ( $attachment_id ) {
+		if ( 0 !== $attachment_id ) {
 			$image_data = array(
 				'id'     => $attachment_id,
 				'src'    => wp_get_attachment_image_url( $attachment_id, $size ),
@@ -242,10 +242,10 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 		}
 
 		// Cache result for 2 hours.
-		wp_cache_set( $cache_key, $image_data ? $image_data : 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
+		wp_cache_set( $cache_key, null !== $image_data ? $image_data : 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
 	}
 
-	return $image_data ? $image_data : false;
+	return null !== $image_data ? $image_data : false;
 }
 
 /**
@@ -295,7 +295,7 @@ function mia_responsive_image( $filename, $args = array() ) {
 
 		echo '<img';
 		foreach ( $attributes as $key => $value ) {
-			if ( ! empty( $value ) ) {
+			if ( '' !== $value ) {
 				echo ' ' . esc_attr( $key ) . '="' . esc_attr( $value ) . '"';
 			}
 		}
@@ -319,23 +319,23 @@ function mia_aesthetics_format_city_state_zip( $city = '', $state = '', $zip = '
 	$parts = array();
 
 	// Add city.
-	if ( ! empty( $city ) ) {
+	if ( '' !== $city ) {
 		$parts[] = trim( $city );
 	}
 
 	// Add state abbreviation.
-	if ( ! empty( $state ) ) {
+	if ( '' !== $state ) {
 		$parts[] = mia_aesthetics_get_state_abbr( trim( $state ) );
 	}
 
 	// Combine city and state.
 	$location = '';
-	if ( ! empty( $parts ) ) {
+	if ( array() !== $parts ) {
 		$location = implode( ', ', $parts );
 	}
 
 	// Add ZIP code.
-	if ( ! empty( $zip ) ) {
+	if ( '' !== $zip ) {
 		$location = '' !== $location && '0' !== $location ? $location . ' ' . trim( $zip ) : trim( $zip );
 	}
 
@@ -370,7 +370,7 @@ function mia_aesthetics_format_phone( $phone, $link = false ) {
 	}
 
 	// Return original if not 10 digits.
-	if ( $link && ! empty( $clean ) ) {
+	if ( $link && '' !== $clean ) {
 		return '<a href="tel:' . $phone . '">' . $phone . '</a>';
 	}
 
@@ -391,7 +391,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	$faq_section = get_field( 'faq_section' );
 
 	// Check for valid FAQ data.
-	if ( empty( $faq_section ) || empty( $faq_section['faqs'] ) || ! is_array( $faq_section['faqs'] ) ) {
+	if ( null === $faq_section || ! isset( $faq_section['faqs'] ) || ! is_array( $faq_section['faqs'] ) ) {
 		return '';
 	}
 
@@ -401,7 +401,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	$valid_faqs = array_filter(
 		$faqs,
 		function ( $faq ) {
-			return ! empty( $faq['question'] ) && ! empty( $faq['answer'] );
+			return isset( $faq['question'] ) && '' !== $faq['question'] && isset( $faq['answer'] ) && '' !== $faq['answer'];
 		}
 	);
 
@@ -422,7 +422,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	>
 		<?php if ( $show_heading ) : ?>
 			<?php
-			$section_title = empty( $faq_section['title'] )
+			$section_title = ( ! isset( $faq_section['title'] ) || '' === $faq_section['title'] )
 				? 'Frequently Asked Questions'
 				: $faq_section['title'];
 			?>
@@ -430,7 +430,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 				<?php echo esc_html( $section_title ); ?>
 			</h2>
 			
-			<?php if ( ! empty( $faq_section['description'] ) ) : ?>
+			<?php if ( isset( $faq_section['description'] ) && '' !== $faq_section['description'] ) : ?>
 				<div class="faq-description mb-4">
 					<?php echo wp_kses_post( $faq_section['description'] ); ?>
 				</div>
@@ -495,11 +495,11 @@ function mia_button( $text, $url = '#', $args = array() ) {
 	$classes   = array( 'btn' );
 	$classes[] = 'btn-' . $args['variant'];
 
-	if ( ! empty( $args['size'] ) ) {
+	if ( '' !== $args['size'] ) {
 		$classes[] = 'btn-' . $args['size'];
 	}
 
-	if ( ! empty( $args['class'] ) ) {
+	if ( '' !== $args['class'] ) {
 		$classes[] = $args['class'];
 	}
 
@@ -508,7 +508,7 @@ function mia_button( $text, $url = '#', $args = array() ) {
 		'class' => implode( ' ', $classes ),
 	);
 
-	if ( ! empty( $args['target'] ) ) {
+	if ( '' !== $args['target'] ) {
 		$attributes['target'] = $args['target'];
 		if ( '_blank' === $args['target'] ) {
 			$attributes['rel'] = 'noopener noreferrer';
@@ -520,24 +520,24 @@ function mia_button( $text, $url = '#', $args = array() ) {
 
 	// Build icon HTML.
 	$icon_html = '';
-	if ( ! empty( $args['icon'] ) ) {
+	if ( '' !== $args['icon'] ) {
 		$icon_html = '<i class="' . esc_attr( $args['icon'] ) . '"></i>';
 	}
 
 	// Build button content.
 	$content = '';
-	if ( 'before' === $args['icon_position'] && $icon_html ) {
+	if ( 'before' === $args['icon_position'] && '' !== $icon_html ) {
 		$content .= $icon_html . ' ';
 	}
 
 	$content .= esc_html( $text );
 
-	if ( 'after' === $args['icon_position'] && $icon_html ) {
+	if ( 'after' === $args['icon_position'] && '' !== $icon_html ) {
 		$content .= ' ' . $icon_html;
 	}
 
 	// Output button or link.
-	if ( '#' === $url || empty( $url ) ) {
+	if ( '#' === $url || '' === $url ) {
 		$tag                = 'button';
 		$attributes['type'] = 'button';
 	} else {
@@ -573,7 +573,7 @@ function mia_social_links( $args = array() ) {
 	foreach ( $args['platforms'] as $platform ) {
 		$url = get_field( $platform . '_url', 'option' );
 
-		if ( ! empty( $url ) ) {
+		if ( '' !== $url ) {
 			$icon_class = $args['icon_prefix'] . $platform;
 
 			// Special cases for icon names.
@@ -616,7 +616,7 @@ function mia_aesthetics_breadcrumbs() {
 	// Yoast outputs breadcrumb trail as string.
 	$breadcrumbs = yoast_breadcrumb( '', '', false );
 
-	if ( empty( $breadcrumbs ) ) {
+	if ( '' === $breadcrumbs ) {
 		return;
 	}
 

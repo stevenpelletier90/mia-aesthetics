@@ -51,11 +51,11 @@ get_header(); ?>
 			<div class="row g-4 g-lg-5">
 				<!-- Before & After Images Column -->
 				<div class="col-lg-6">
-					<?php if ( $before_photo || $after_photo ) : ?>
+					<?php if ( null !== $before_photo || null !== $after_photo ) : ?>
 					<div class="case-images-container">
 						<h2 class="h4 mb-3">Before & After</h2>
 						<div class="row g-3">
-							<?php if ( $before_photo ) : ?>
+							<?php if ( null !== $before_photo ) : ?>
 							<div class="col-6">
 								<div class="position-relative case-image-container">
 									<img src="<?php echo esc_url( $before_photo['sizes']['medium_large'] ?? $before_photo['url'] ); ?>"
@@ -71,7 +71,7 @@ get_header(); ?>
 							</div>
 							<?php endif; ?>
 
-							<?php if ( $after_photo ) : ?>
+							<?php if ( null !== $after_photo ) : ?>
 							<div class="col-6">
 								<div class="position-relative case-image-container">
 									<img src="<?php echo esc_url( $after_photo['sizes']['medium_large'] ?? $after_photo['url'] ); ?>"
@@ -95,8 +95,8 @@ get_header(); ?>
 				<div class="col-lg-6">
 					<?php /* ---------------- Patient Information -------------- */ ?>
 					<?php
-					$has_height_weight_bmi = $height || $weight || $bmi;
-					$has_surgeon_location  = $surgeon || $location;
+					$has_height_weight_bmi = '' !== $height || '' !== $weight || '' !== $bmi;
+					$has_surgeon_location  = null !== $surgeon || null !== $location;
 					?>
 					<section class="mb-5">
 						<h2 class="h4 mb-3">Patient Information</h2>
@@ -108,7 +108,7 @@ get_header(); ?>
 							<?php if ( $has_height_weight_bmi ) : ?>
 							<!-- Height, Weight, BMI Row -->
 							<div class="row g-3 mb-3">
-								<?php if ( $height ) : ?>
+								<?php if ( '' !== $height ) : ?>
 								<div class="col-4">
 									<div class="patient-info-card">
 										<h5 class="h6">Height</h5>
@@ -117,7 +117,7 @@ get_header(); ?>
 								</div>
 								<?php endif; ?>
 
-								<?php if ( $weight ) : ?>
+								<?php if ( '' !== $weight ) : ?>
 								<div class="col-4">
 									<div class="patient-info-card">
 										<h5 class="h6">Weight</h5>
@@ -126,7 +126,7 @@ get_header(); ?>
 								</div>
 								<?php endif; ?>
 
-								<?php if ( $bmi ) : ?>
+								<?php if ( '' !== $bmi ) : ?>
 								<div class="col-4">
 									<div class="patient-info-card">
 										<h5 class="h6">BMI</h5>
@@ -137,10 +137,10 @@ get_header(); ?>
 							</div>
 							<?php endif; ?>
 
-							<?php if ( $has_surgeon_location || ! empty( $procedure_performed ) ) : ?>
+							<?php if ( $has_surgeon_location || ( is_array( $procedure_performed ) && count( $procedure_performed ) > 0 ) ) : ?>
 							<!-- Surgeon, Location, and Procedure Row -->
 							<div class="row g-3">
-								<?php if ( $surgeon ) : ?>
+								<?php if ( null !== $surgeon ) : ?>
 								<div class="col-6">
 									<a href="<?php echo esc_url( get_permalink( $surgeon ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 										<h5 class="h6">Performed by</h5>
@@ -150,7 +150,7 @@ get_header(); ?>
 								</div>
 								<?php endif; ?>
 
-								<?php if ( $location ) : ?>
+								<?php if ( null !== $location ) : ?>
 								<div class="col-6">
 									<a href="<?php echo esc_url( get_permalink( $location ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 										<h5 class="h6">Location</h5>
@@ -160,8 +160,8 @@ get_header(); ?>
 								</div>
 								<?php endif; ?>
 
-								<?php if ( ! empty( $procedure_performed ) ) : ?>
-									<?php foreach ( (array) $procedure_performed as $procedure_id ) : ?>
+								<?php if ( is_array( $procedure_performed ) && count( $procedure_performed ) > 0 ) : ?>
+									<?php foreach ( $procedure_performed as $procedure_id ) : ?>
 										<div class="col-6">
 											<a href="<?php echo esc_url( get_permalink( $procedure_id ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 												<h5 class="h6">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></h5>
@@ -183,7 +183,7 @@ get_header(); ?>
 	</article>
 
 	<?php /* ---------------- Patient Background ------------- */ ?>
-	<?php if ( get_the_content() ) : ?>
+	<?php if ( '' !== trim( get_the_content() ) ) : ?>
 	<section class="py-4 py-lg-5">
 		<div class="container">
 			<div class="row">
@@ -199,14 +199,14 @@ get_header(); ?>
 	<?php endif; ?>
 
 	<?php /* ------------- Treatment & Recovery -------------- */ ?>
-	<?php if ( ! empty( $case_links ) ) : ?>
+	<?php if ( is_array( $case_links ) && count( $case_links ) > 0 ) : ?>
 	<section class="py-4 py-lg-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
 					<h2 class="h4 mb-4">Treatment &amp; Recovery Resources</h2>
 					<div class="row g-3">
-						<?php foreach ( (array) $case_links as $resource_id ) : ?>
+						<?php foreach ( $case_links as $resource_id ) : ?>
 							<div class="col-6">
 								<a href="<?php echo esc_url( get_permalink( $resource_id ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 									<h5 class="h6">Resource</h5>
@@ -304,7 +304,7 @@ get_header(); ?>
 	<?php /* -------------------- FAQ Section ---------------------- */ ?>
 	<?php
 	$faq_section = get_field( 'faq_section' );
-	if ( $faq_section && ! empty( $faq_section['faqs'] ) ) :
+	if ( null !== $faq_section && is_array( $faq_section['faqs'] ?? null ) && count( $faq_section['faqs'] ) > 0 ) :
 		?>
 	<section class="py-5 py-lg-6">
 		<div class="container">
@@ -327,20 +327,20 @@ get_header(); ?>
 			<div class="modal-body">
 				<div id="caseCarousel" class="carousel slide carousel-fade" data-bs-ride="false">
 					<div class="carousel-inner">
-						<?php if ( $before_photo ) : ?>
+						<?php if ( null !== $before_photo ) : ?>
 						<div class="carousel-item active">
 							<img src="<?php echo esc_url( $before_photo['url'] ); ?>" class="d-block w-100" alt="Before Treatment">
 						</div>
 						<?php endif; ?>
 
-						<?php if ( $after_photo ) : ?>
-						<div class="carousel-item<?php echo ! $before_photo ? ' active' : ''; ?>">
+						<?php if ( null !== $after_photo ) : ?>
+						<div class="carousel-item<?php echo null === $before_photo ? ' active' : ''; ?>">
 							<img src="<?php echo esc_url( $after_photo['url'] ); ?>" class="d-block w-100" alt="After Treatment">
 						</div>
 						<?php endif; ?>
 					</div>
 
-					<?php if ( $before_photo && $after_photo ) : ?>
+					<?php if ( null !== $before_photo && null !== $after_photo ) : ?>
 					<button class="carousel-control-prev" type="button" data-bs-target="#caseCarousel" data-bs-slide="prev">
 						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
 						<span class="visually-hidden">Previous</span>

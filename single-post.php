@@ -51,7 +51,7 @@ get_header(); ?>
 								<?php the_post_thumbnail( 'large', array( 'class' => 'img-fluid mb-2' ) ); ?>
 								<?php
 								$thumbnail_caption = get_the_post_thumbnail_caption();
-								if ( $thumbnail_caption ) {
+								if ( '' !== $thumbnail_caption ) {
 									echo '<figcaption class="text-muted small">' . esc_html( $thumbnail_caption ) . '</figcaption>';
 								}
 								?>
@@ -104,7 +104,7 @@ get_header(); ?>
 
 						<?php
 						$categories = get_the_category();
-						if ( $categories ) {
+						if ( count( $categories ) > 0 ) {
 							$category_ids = array();
 							foreach ( $categories as $category ) {
 								$category_ids[] = $category->term_id;

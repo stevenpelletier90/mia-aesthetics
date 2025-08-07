@@ -71,6 +71,7 @@ $gallery_data      = array();
 
 if ( file_exists( $gallery_json_path ) ) {
 	// Use WP_Filesystem API for better security and compatibility.
+	/** @phpstan-ignore-next-line requireOnce.fileNotFound */
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	WP_Filesystem();
 	global $wp_filesystem;
@@ -80,7 +81,7 @@ if ( file_exists( $gallery_json_path ) ) {
 	}
 }
 
-if ( ! empty( $gallery_data ) ) :
+if ( is_array( $gallery_data ) && count( $gallery_data ) > 0 ) :
 	foreach ( $gallery_data as $doctor_slug => $doctor ) :
 		?>
 		<article class="gallery d-none" data-doctor="<?php echo esc_attr( $doctor_slug ); ?>">

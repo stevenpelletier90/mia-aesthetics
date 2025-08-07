@@ -33,7 +33,7 @@ get_header(); ?>
 					}
 
 					// Archive description if it exists.
-					if ( get_the_archive_description() ) {
+					if ( '' !== get_the_archive_description() ) {
 						echo '<div class="archive-description mt-3">';
 						the_archive_description();
 						echo '</div>';

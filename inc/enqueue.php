@@ -331,10 +331,10 @@ function mia_enqueue_assets() {
 	$template_key = mia_detect_template_key();
 	$templates    = mia_get_template_mappings();
 
-	if ( $template_key && isset( $templates[ $template_key ] ) ) {
+	if ( '' !== $template_key && isset( $templates[ $template_key ] ) ) {
 		$template = $templates[ $template_key ];
 
-		if ( ! empty( $template['css'] ) ) {
+		if ( isset( $template['css'] ) && '' !== $template['css'] ) {
 			$css_deps = array( 'mia-base', 'mia-header', 'mia-footer' );
 
 			// Add hero section CSS dependency for front page.
@@ -349,7 +349,7 @@ function mia_enqueue_assets() {
 			mia_register_asset( 'style', 'mia-' . $template_key, '/css/' . $template['css'], $css_deps );
 		}
 
-		if ( ! empty( $template['js'] ) ) {
+		if ( isset( $template['js'] ) && '' !== $template['js'] ) {
 			mia_register_asset( 'script', 'mia-' . $template_key, '/js/' . $template['js'], array( 'mia-bootstrap' ) );
 		}
 	}
@@ -394,7 +394,7 @@ add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
  */
 function mia_attach_config() {
 	$primary = mia_get_primary_script_handle();
-	if ( ! $primary || ! wp_script_is( $primary, 'registered' ) ) {
+	if ( '' === $primary || ! wp_script_is( $primary, 'registered' ) ) {
 		return;
 	}
 
@@ -420,7 +420,7 @@ function mia_attach_config() {
 function mia_get_primary_script_handle() {
 	$template_key = mia_detect_template_key();
 
-	if ( $template_key && wp_script_is( 'mia-' . $template_key, 'registered' ) ) {
+	if ( '' !== $template_key && wp_script_is( 'mia-' . $template_key, 'registered' ) ) {
 		return 'mia-' . $template_key;
 	}
 

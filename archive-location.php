@@ -46,7 +46,7 @@ get_header();
 										</a>
 									</h3>
 									<?php
-									if ( $location_map ) :
+									if ( null !== $location_map && is_array( $location_map ) && count( $location_map ) > 0 ) :
 										$street = ( isset( $location_map['street_number'] ) ? $location_map['street_number'] : '' ) . ' ' . ( isset( $location_map['street_name'] ) ? $location_map['street_name'] : '' );
 										$city   = isset( $location_map['city'] ) ? $location_map['city'] : '';
 										$state  = isset( $location_map['state_short'] ) ? $location_map['state_short'] : '';
@@ -54,26 +54,26 @@ get_header();
 										$street = trim( $street ); // Clean up any extra spaces.
 										// Special handling for locations where Google Maps doesn't populate city correctly.
 										// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-										if ( empty( $city ) && ! empty( $state ) && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
+										if ( '' === $city && '' !== $state && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
 											$city = 'Brooklyn';
 										}
 										?>
-										<?php if ( $street || $city || $state || $zip ) : ?>
+										<?php if ( '' !== $street || '' !== $city || '' !== $state || '' !== $zip ) : ?>
 											<div class="text-muted mb-1">
 												<?php if ( '' !== $street && '0' !== $street ) : ?>
 													<div><?php echo esc_html( $street ); ?></div>
 												<?php endif; ?>
 												<?php
 												$address_line2 = '';
-												if ( $city ) {
+												if ( '' !== $city ) {
 													$address_line2 .= $city;
 												}
-												if ( $state ) {
-													$address_line2 .= ( $city ? ', ' : '' )
+												if ( '' !== $state ) {
+													$address_line2 .= ( '' !== $city ? ', ' : '' )
 														. $state;
 												}
-												if ( $zip ) {
-													$address_line2 .= ( $city || $state ? ' ' : '' )
+												if ( '' !== $zip ) {
+													$address_line2 .= ( '' !== $city || '' !== $state ? ' ' : '' )
 														. $zip;
 												}
 												if ( '' !== $address_line2 && '0' !== $address_line2 ) :
@@ -83,7 +83,7 @@ get_header();
 											</div>
 										<?php endif; ?>
 									<?php endif; ?>
-									<?php if ( $phone_number ) : ?>
+									<?php if ( '' !== $phone_number ) : ?>
 										<p class="mb-0">
 											<a href="tel:<?php echo esc_attr( $phone_number ); ?>" class="text-primary text-decoration-none">
 												<i class="fas fa-phone me-1"></i><?php echo esc_html( $phone_number ); ?>
@@ -116,7 +116,7 @@ get_header();
 <div class="col-md-6 col-lg-4">
 						<?php
 						$bg_image_id = get_field( 'background_image' );
-						if ( $bg_image_id ) {
+						if ( null !== $bg_image_id && '' !== $bg_image_id && is_numeric( $bg_image_id ) ) {
 							$bg_image_url = wp_get_attachment_image_url( $bg_image_id, 'medium_large' );
 						} elseif ( has_post_thumbnail() ) {
 							$bg_image_url = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
@@ -138,7 +138,7 @@ get_header();
 			<div class="location-details mb-3">
 						<?php
 						$location_map = get_field( 'location_map' );
-						if ( $location_map ) :
+						if ( null !== $location_map && is_array( $location_map ) && count( $location_map ) > 0 ) :
 							$street = ( isset( $location_map['street_number'] ) ? $location_map['street_number'] : '' ) . ' ' . ( isset( $location_map['street_name'] ) ? $location_map['street_name'] : '' );
 							$city   = isset( $location_map['city'] ) ? $location_map['city'] : '';
 							$state  = isset( $location_map['state_short'] ) ? $location_map['state_short'] : '';
@@ -146,11 +146,11 @@ get_header();
 							$street = trim( $street ); // Clean up any extra spaces.
 							// Special handling for locations where Google Maps doesn't populate city correctly.
 							// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-							if ( empty( $city ) && ! empty( $state ) && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
+							if ( '' === $city && '' !== $state && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
 								$city = 'Brooklyn';
 							}
 							?>
-							<?php if ( $street || $city || $state || $zip ) : ?>
+							<?php if ( '' !== $street || '' !== $city || '' !== $state || '' !== $zip ) : ?>
 					<div class="location-detail mb-2">
 						<span>
 								<?php if ( '' !== $street && '0' !== $street ) : ?>
@@ -159,14 +159,14 @@ get_header();
 							<?php endif; ?>
 								<?php
 								$address_line = '';
-								if ( $city ) {
+								if ( '' !== $city ) {
 									$address_line .= $city;
 								}
-								if ( $state ) {
-									$address_line .= ( $city ? ', ' : '' ) . $state;
+								if ( '' !== $state ) {
+									$address_line .= ( '' !== $city ? ', ' : '' ) . $state;
 								}
-								if ( $zip ) {
-									$address_line .= ( $city || $state ? ' ' : '' ) . $zip;
+								if ( '' !== $zip ) {
+									$address_line .= ( '' !== $city || '' !== $state ? ' ' : '' ) . $zip;
 								}
 								if ( '' !== $address_line && '0' !== $address_line ) :
 									echo esc_html( $address_line );
@@ -177,7 +177,7 @@ get_header();
 					<?php endif; ?>
 						<?php endif; ?>
 
-						<?php if ( $phone_number ) : ?>
+						<?php if ( '' !== $phone_number ) : ?>
 					<div class="location-detail mb-2">
 						<div class="d-flex align-items-center">
 							<i class="fas fa-phone me-2 location-icon"></i>

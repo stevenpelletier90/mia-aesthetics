@@ -26,7 +26,7 @@ class FAQ_Schema {
 	public function is_needed() {
 		// Check if current page has FAQ content.
 		$faq_section = get_field( 'faq_section', get_the_ID() );
-		return ! empty( $faq_section ) && ! empty( $faq_section['faqs'] );
+		return is_array( $faq_section ) && isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && count( $faq_section['faqs'] ) > 0;
 	}
 
 	/**
@@ -38,14 +38,14 @@ class FAQ_Schema {
 		$post_id     = get_the_ID();
 		$faq_section = get_field( 'faq_section', $post_id );
 
-		if ( empty( $faq_section ) || empty( $faq_section['faqs'] ) ) {
+		if ( ! is_array( $faq_section ) || ! isset( $faq_section['faqs'] ) || ! is_array( $faq_section['faqs'] ) || count( $faq_section['faqs'] ) === 0 ) {
 			return array();
 		}
 
 		$questions = array();
 
 		foreach ( $faq_section['faqs'] as $faq_item ) {
-			if ( empty( $faq_item['question'] ) || empty( $faq_item['answer'] ) ) {
+			if ( ! isset( $faq_item['question'] ) || ! isset( $faq_item['answer'] ) || '' === $faq_item['question'] || '' === $faq_item['answer'] ) {
 				continue;
 			}
 
@@ -70,7 +70,7 @@ class FAQ_Schema {
 		);
 
 		// Add title if available.
-		if ( ! empty( $faq_section['title'] ) ) {
+		if ( isset( $faq_section['title'] ) && '' !== $faq_section['title'] ) {
 			$faq_schema['name'] = wp_strip_all_tags( $faq_section['title'] );
 		}
 

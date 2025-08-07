@@ -21,7 +21,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 	while ( have_posts() ) :
 		the_post();
 		?>
-<section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( get_the_ID() ); ?>">
+<section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
 			<?php if ( $mia_aesthetics_hero_id ) : ?>
 				<picture class="hero-picture">
 					<source media="(max-width: 640px)" 
@@ -42,8 +42,8 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 <h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
 						<?php
 						// Try both price fields for flexibility.
-						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ? get_field( 'procedure_price' ) : get_field( 'non_surgical_price' );
-						if ( $mia_aesthetics_procedure_price ) :
+						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ?? get_field( 'non_surgical_price' );
+						if ( null !== $mia_aesthetics_procedure_price && '' !== $mia_aesthetics_procedure_price ) :
 							?>
 							<div class="pricing-info mt-3">
 								<h2 class="h4 mb-1">Starting Price: <?php echo esc_html( $mia_aesthetics_procedure_price ); ?>*</h2>
@@ -80,7 +80,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 
 							<?php
 							$mia_aesthetics_gallery_images = get_field( 'gallery_images' );
-							if ( $mia_aesthetics_gallery_images ) :
+							if ( is_array( $mia_aesthetics_gallery_images ) && count( $mia_aesthetics_gallery_images ) > 0 ) :
 								?>
 								<div class="row g-4">
 									<?php foreach ( array_slice( $mia_aesthetics_gallery_images, 0, 2 ) as $mia_aesthetics_pair ) : ?>
@@ -109,7 +109,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 							<div class="text-center mt-4">
 								<?php
 								$mia_aesthetics_results_page = get_field( 'results_page' );
-								if ( $mia_aesthetics_results_page ) :
+								if ( null !== $mia_aesthetics_results_page ) :
 									// Handle different ACF Page Link return formats.
 									if ( is_array( $mia_aesthetics_results_page ) ) {
 										$mia_aesthetics_page_id  = $mia_aesthetics_results_page['ID'];
@@ -127,7 +127,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 									}
 
 									// Only show if it's not the current page.
-									if ( get_the_ID() !== $mia_aesthetics_page_id && ! empty( $mia_aesthetics_page_url ) ) :
+									if ( get_the_ID() !== $mia_aesthetics_page_id && '' !== $mia_aesthetics_page_url ) :
 										?>
 										<a href="<?php echo esc_url( $mia_aesthetics_page_url ); ?>" class="mia-button" data-variant="gold">
 											View More Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -145,7 +145,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 							<nav class="list-group list-group-flush rounded-3" aria-label="Related resources">
 								<?php
 								$mia_aesthetics_related_procedures = get_field( 'related_procedures' );
-								if ( $mia_aesthetics_related_procedures ) :
+								if ( is_array( $mia_aesthetics_related_procedures ) && count( $mia_aesthetics_related_procedures ) > 0 ) :
 									$mia_aesthetics_related_ids   = array_map(
 										function ( $p ) {
 											return is_object( $p ) ? $p->ID : (int) $p;
@@ -204,9 +204,9 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 
 			<?php
 			$mia_aesthetics_faq_section = get_field( 'faq_section' );
-			if ( $mia_aesthetics_faq_section && ! empty( $mia_aesthetics_faq_section['faqs'] ) ) :
+			if ( is_array( $mia_aesthetics_faq_section ) && isset( $mia_aesthetics_faq_section['faqs'] ) && is_array( $mia_aesthetics_faq_section['faqs'] ) && count( $mia_aesthetics_faq_section['faqs'] ) > 0 ) :
 				?>
-				<section class="py-4 py-lg-5" aria-labelledby="faq-heading-<?php echo esc_attr( get_the_ID() ); ?>">
+				<section class="py-4 py-lg-5" aria-labelledby="faq-heading-<?php echo esc_attr( (string) get_the_ID() ); ?>">
 					<div class="container">                        
 						<?php echo wp_kses_post( mia_aesthetics_display_page_faqs() ); ?>                      
 					</div>

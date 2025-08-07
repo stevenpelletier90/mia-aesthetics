@@ -145,7 +145,7 @@ function mia_featured_image_columns_init() {
 		'admin_notices',
 		static function () {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is admin notice display only, no actions taken
-			if ( empty( $_GET['thumbs_removed'] ) || ! current_user_can( 'edit_posts' ) ) {
+			if ( ! isset( $_GET['thumbs_removed'] ) || '' === $_GET['thumbs_removed'] || ! current_user_can( 'edit_posts' ) ) {
 				return;
 			}
 

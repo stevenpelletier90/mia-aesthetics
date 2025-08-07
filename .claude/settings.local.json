@@ -6,7 +6,12 @@
       "Bash(where php)",
       "Bash(php:*)",
       "Bash(composer global show)",
-      "Bash(composer global require:*)"
+      "Bash(composer global require:*)",
+      "Bash(composer install:*)",
+      "Bash(composer require:*)",
+      "Bash(composer remove:*)",
+      "Bash(grep:*)",
+      "Bash(rmdir:*)"
     ],
     "additionalDirectories": [
       "C:\\",

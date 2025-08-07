@@ -84,7 +84,10 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 		$path = get_attached_file( $attachment->ID );
 		if ( file_exists( $path ) ) {
 			// Use WP_Filesystem API for better security and compatibility.
-			require_once ABSPATH . 'wp-admin/includes/file.php';
+			if ( ! function_exists( 'WP_Filesystem' ) ) {
+				/** @phpstan-ignore-next-line requireOnce.fileNotFound */
+				require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
+			}
 			WP_Filesystem();
 			global $wp_filesystem;
 			$svg = $wp_filesystem->get_contents( $path );
@@ -96,7 +99,7 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 					$height = intval( $xml['height'] );
 
 					// If width/height not in XML attributes, try viewBox.
-					if ( ! $width || ! $height ) {
+					if ( 0 === $width || 0 === $height ) {
 						$viewbox = explode( ' ', $xml['viewBox'] );
 						if ( count( $viewbox ) === 4 ) {
 							$width  = intval( $viewbox[2] );
@@ -153,7 +156,7 @@ add_filter( 'wp_prepare_attachment_for_js', 'mia_aesthetics_fix_svg_display', 10
  */
 function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {
 	global $wp_filetype;
-	if ( ! empty( $data['ext'] ) && ! empty( $data['type'] ) ) {
+	if ( isset( $data['ext'] ) && '' !== $data['ext'] && isset( $data['type'] ) && '' !== $data['type'] ) {
 		return $data;
 	}
 

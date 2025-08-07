@@ -34,7 +34,7 @@ get_header(); ?>
 						// Check if overview_details has actual content to display.
 						$mia_aesthetics_has_overview_content = false;
 						$mia_aesthetics_overview_items       = get_field( 'overview_details' );
-						if ( $mia_aesthetics_overview_items ) :
+						if ( is_array( $mia_aesthetics_overview_items ) && count( $mia_aesthetics_overview_items ) > 0 ) :
 							foreach ( $mia_aesthetics_overview_items as $mia_aesthetics_item ) :
 								if ( ! in_array( trim( $mia_aesthetics_item['overview_item'] ), array( '', '0' ), true ) ) :
 									$mia_aesthetics_has_overview_content = true;

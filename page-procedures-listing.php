@@ -45,7 +45,7 @@ get_header();
 						)
 					);
 
-					if ( $child_procedures ) :
+					if ( count( $child_procedures ) > 0 ) :
 						foreach ( $child_procedures as $procedure ) :
 							setup_postdata( $procedure );
 							$procedure_id      = $procedure->ID;
@@ -62,7 +62,7 @@ get_header();
 							);
 
 							// Fallback image if no featured image.
-							if ( ! $procedure_image ) {
+							if ( '' === $procedure_image ) {
 								$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 							}
 							?>
@@ -103,7 +103,7 @@ get_header();
 		</section>
 
 		<!-- Page Content (from WordPress editor) -->
-		<?php if ( get_the_content() ) : ?>
+		<?php if ( '' !== trim( get_the_content() ) ) : ?>
 			<section class="page-content-section">
 				<div class="container">
 					<div class="row">

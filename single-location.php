@@ -29,7 +29,7 @@ get_header();
 <?php
 						$location_map = get_field( 'location_map' );
 
-if ( $location_map ) {
+if ( null !== $location_map && is_array( $location_map ) ) {
 	$street = ( $location_map['street_number'] ?? '' ) . ' ' . ( $location_map['street_name'] ?? '' );
 	$city   = $location_map['city'] ?? '';
 	$state  = $location_map['state_short'] ?? '';
@@ -38,11 +38,11 @@ if ( $location_map ) {
 	// Special handling for locations where Google Maps doesn't populate city correctly.
 	// Check if city is empty but we have other address components.
 	// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-	if ( empty( $city ) && ! empty( $state ) && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
+	if ( '' === $city && '' !== $state && ( 'NY' === $state && false !== stripos( $street, 'atlantic' ) ) ) {
 		$city = 'Brooklyn';
 	}
 	?>
-							<?php if ( ! in_array( trim( $street ), array( '', '0' ), true ) || ! empty( $city ) || ! empty( $state ) || ! empty( $zip ) ) : ?>
+							<?php if ( ! in_array( trim( $street ), array( '', '0' ), true ) || '' !== $city || '' !== $state || '' !== $zip ) : ?>
 							<div class="location-detail mb-4">
 								<div class="d-flex flex-column">
 									<?php if ( ! in_array( trim( $street ), array( '', '0' ), true ) ) : ?>
@@ -60,7 +60,7 @@ if ( $location_map ) {
 						<?php } ?>
 
 						<?php $phone_number = get_field( 'phone_number' ); ?>
-						<?php if ( $phone_number ) : ?>
+						<?php if ( null !== $phone_number && '' !== $phone_number ) : ?>
 							<div class="location-detail mb-2">
 								<div class="d-flex align-items-center">
 									<i class="fas fa-phone location-icon" aria-hidden="true"></i>
@@ -88,7 +88,7 @@ if ( $location_map ) {
 								the_row();
 								$day   = get_sub_field( 'day' );
 								$hours = get_sub_field( 'hours' );
-								if ( $day && $hours ) {
+								if ( null !== $day && '' !== $day && null !== $hours && '' !== $hours ) {
 									$hours_rows[] = array(
 										'day'   => $day,
 										'hours' => $hours,
@@ -127,7 +127,7 @@ if ( $location_map ) {
 						<?php endif; ?>
 
 						<?php $location_maps_link = get_field( 'location_maps_link' ); ?>
-						<?php if ( $location_maps_link ) : ?>
+						<?php if ( null !== $location_maps_link && '' !== $location_maps_link ) : ?>
 							<div class="location-directions">
 								<a href="<?php echo esc_url( $location_maps_link ); ?>" class="location-map-link" target="_blank" rel="noopener">
 									<i class="fas fa-map-marker-alt location-icon" aria-hidden="true"></i> Get Directions
@@ -152,7 +152,7 @@ if ( $location_map ) {
 					?>
 
 					<!-- Video container - only show if we have video ID and thumbnail -->
-					<?php if ( ! empty( $video_id ) && ! empty( $thumbnail_url ) ) : ?>
+					<?php if ( '' !== $video_id && '' !== $thumbnail_url ) : ?>
 					<div class="sidebar-section" style="border-radius: 0;">
 						<div class="ratio ratio-16x9">
 							<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
@@ -261,7 +261,7 @@ if ( $location_map ) {
 							<div class="surgeon-card text-center">
 								<?php
 								$surgeon_headshot_id = get_field( 'surgeon_headshot' );
-								if ( $surgeon_headshot_id && is_numeric( $surgeon_headshot_id ) ) :
+								if ( null !== $surgeon_headshot_id && is_numeric( $surgeon_headshot_id ) ) :
 									?>
 									<img src="<?php echo esc_url( wp_get_attachment_image_url( $surgeon_headshot_id, 'medium' ) ); ?>"
 										alt="<?php the_title(); ?> Headshot" />

@@ -42,14 +42,14 @@ function mia_get_video_field( $post_id = null ) {
 		}
 
 		$val = get_field( $field, $post_id );
-		if ( empty( $val ) ) {
+		if ( null === $val || '' === $val ) {
 			continue;
 		}
 
 		// Case 1: ACF repeater/group with explicit keys.
 		if ( is_array( $val ) ) {
 			// Check for video_id (YouTube ID only) - matches schema structure.
-			if ( ! empty( $val['video_id'] ) ) {
+			if ( isset( $val['video_id'] ) && '' !== $val['video_id'] ) {
 				$video_id = sanitize_text_field( $val['video_id'] );
 
 				// Validate YouTube ID format (11 characters, alphanumeric with - and _).
@@ -61,21 +61,21 @@ function mia_get_video_field( $post_id = null ) {
 
 				// Handle video_thumbnail which could be an attachment ID or array.
 				$thumbnail = '';
-				if ( ! empty( $val['video_thumbnail'] ) ) {
+				if ( isset( $val['video_thumbnail'] ) && '' !== $val['video_thumbnail'] ) {
 					if ( is_numeric( $val['video_thumbnail'] ) ) {
 						// It's an attachment ID.
 						$thumbnail_url = wp_get_attachment_image_url( $val['video_thumbnail'], 'full' );
 						if ( $thumbnail_url ) {
 							$thumbnail = $thumbnail_url;
 						}
-					} elseif ( is_array( $val['video_thumbnail'] ) && ! empty( $val['video_thumbnail']['url'] ) ) {
+					} elseif ( is_array( $val['video_thumbnail'] ) && isset( $val['video_thumbnail']['url'] ) && '' !== $val['video_thumbnail']['url'] ) {
 						// It's an ACF image array.
 						$thumbnail = $val['video_thumbnail']['url'];
 					}
 				}
 
 				// Always fall back to YouTube thumbnail if no custom thumbnail.
-				if ( empty( $thumbnail ) ) {
+				if ( '' === $thumbnail ) {
 					$thumbnail = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 				}
 
@@ -89,7 +89,7 @@ function mia_get_video_field( $post_id = null ) {
 			}
 
 			// Generic link array.
-			if ( ! empty( $val['url'] ) && is_string( $val['url'] ) && filter_var( $val['url'], FILTER_VALIDATE_URL ) ) {
+			if ( isset( $val['url'] ) && '' !== $val['url'] && is_string( $val['url'] ) && filter_var( $val['url'], FILTER_VALIDATE_URL ) ) {
 				return array(
 					'url'         => esc_url_raw( $val['url'] ),
 					'title'       => sanitize_text_field( $val['title'] ?? '' ),
@@ -130,7 +130,7 @@ function mia_before_after_img( $img, string $label ) {
 	$safe_label = esc_attr( trim( $label ) );
 
 	// Handle empty/null image.
-	if ( empty( $img ) ) {
+	if ( null === $img || '' === $img ) {
 		$src = 'https://placehold.co/600x450';
 		return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
 	}
@@ -157,7 +157,7 @@ function mia_before_after_img( $img, string $label ) {
 	}
 
 	// Handle array (ACF image field).
-	if ( is_array( $img ) && ! empty( $img['url'] ) ) {
+	if ( is_array( $img ) && isset( $img['url'] ) && '' !== $img['url'] ) {
 		$src = $img['url'];
 		if ( ! filter_var( $src, FILTER_VALIDATE_URL ) ) {
 			// Invalid URL in array - return placeholder.
@@ -173,7 +173,7 @@ function mia_before_after_img( $img, string $label ) {
 		if ( ! filter_var( $img, FILTER_VALIDATE_URL ) ) {
 			// Try to find attachment by URL with error handling.
 			$id = attachment_url_to_postid( $img );
-			if ( $id && $id > 0 && wp_attachment_is_image( $id ) ) {
+			if ( 0 !== $id && $id > 0 && wp_attachment_is_image( $id ) ) {
 				return wp_get_attachment_image(
 					$id,
 					'gallery-small',

@@ -34,7 +34,7 @@
 			<div class="carousel-item active">
 			<?php
 			$banner_1 = get_field( 'banner_1' );
-			if ( $banner_1 && ! empty( $banner_1['url'] ) ) :
+			if ( null !== $banner_1 && is_array( $banner_1 ) && isset( $banner_1['url'] ) && '' !== $banner_1['url'] ) :
 				?>
 			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
 			<picture>
@@ -58,7 +58,7 @@
 			<div class="carousel-item">
 			<?php
 			$banner_2 = get_field( 'banner_2' );
-			if ( $banner_2 && ! empty( $banner_2['url'] ) ) :
+			if ( null !== $banner_2 && is_array( $banner_2 ) && isset( $banner_2['url'] ) && '' !== $banner_2['url'] ) :
 				?>
 			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
 			<picture>
@@ -82,7 +82,7 @@
 			<div class="carousel-item">
 			<?php
 			$banner_3 = get_field( 'banner_3' );
-			if ( $banner_3 && ! empty( $banner_3['url'] ) ) :
+			if ( null !== $banner_3 && is_array( $banner_3 ) && isset( $banner_3['url'] ) && '' !== $banner_3['url'] ) :
 				?>
 			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
 			<picture>
@@ -113,7 +113,7 @@
 		<div class="hero-box hero-box-top">
 		<?php
 		$ba_image = get_field( 'ba_image' );
-		if ( $ba_image && ! empty( $ba_image['url'] ) ) :
+		if ( null !== $ba_image && is_array( $ba_image ) && isset( $ba_image['url'] ) && '' !== $ba_image['url'] ) :
 			?>
 		<!-- Desktop: 600x240 (2.5:1), Mobile: 600x720 (5:6) -->
 		<picture>
@@ -144,7 +144,7 @@
 		<div class="hero-box hero-box-bottom">
 		<?php
 		$financing_image = get_field( 'financing_image' );
-		if ( $financing_image && ! empty( $financing_image['url'] ) ) :
+		if ( null !== $financing_image && is_array( $financing_image ) && isset( $financing_image['url'] ) && '' !== $financing_image['url'] ) :
 			?>
 		<!-- Desktop: 600x240 (2.5:1), Mobile: 600x720 (5:6) -->
 		<picture>

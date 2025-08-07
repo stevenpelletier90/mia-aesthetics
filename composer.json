@@ -7,11 +7,16 @@
         "php-stubs/acf-pro-stubs": "*",
         "php-stubs/gravity-forms-stubs": "*",
         "php-stubs/wordpress-seo-stubs": "*",
-        "szepeviktor/phpstan-wordpress": "*"
+        "szepeviktor/phpstan-wordpress": "*",
+        "php-stubs/wp-cli-stubs": "*",
+        "phpstan/phpstan-strict-rules": "*",
+        "phpstan/extension-installer": "*",
+        "php-stubs/genesis-stubs": "^3.5"
     },
     "config": {
         "allow-plugins": {
-            "dealerdirect/phpcodesniffer-composer-installer": true
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "phpstan/extension-installer": true
         }
     },
     "scripts": {

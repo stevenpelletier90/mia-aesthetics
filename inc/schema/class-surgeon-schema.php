@@ -56,7 +56,7 @@ class Surgeon_Schema {
 
 		// Get associated clinic.
 		$clinic_obj = get_field( 'surgeon_location', $surgeon_id );
-		$clinic_id  = $clinic_obj ? get_permalink( $clinic_obj->ID ) . '#clinic' : null;
+		$clinic_id  = null !== $clinic_obj ? get_permalink( $clinic_obj->ID ) . '#clinic' : null;
 
 		$surgeon = array(
 			'@type'            => array( 'Person', 'Physician' ),
@@ -69,7 +69,7 @@ class Surgeon_Schema {
 		);
 
 		// Link to clinic.
-		if ( $clinic_id ) {
+		if ( null !== $clinic_id ) {
 			$surgeon['worksFor']   = array( '@id' => $clinic_id );
 			$surgeon['department'] = array( '@id' => $clinic_id );
 		}
@@ -79,12 +79,12 @@ class Surgeon_Schema {
 
 		// Image.
 		$image_url = $this->get_image( $surgeon_id );
-		if ( $image_url ) {
+		if ( '' !== $image_url ) {
 			$surgeon['image'] = $image_url;
 		}
 
 		// Professional credentials.
-		if ( get_field( 'board_certified', $surgeon_id ) ) {
+		if ( null !== get_field( 'board_certified', $surgeon_id ) && true === get_field( 'board_certified', $surgeon_id ) ) {
 			$surgeon['hasCredential'] = array(
 				'@type'              => 'EducationalOccupationalCredential',
 				'credentialCategory' => 'Board Certification',
@@ -97,13 +97,13 @@ class Surgeon_Schema {
 
 		// Specialties.
 		$specialties = $this->get_specialties( $surgeon_id );
-		if ( ! empty( $specialties ) ) {
+		if ( [] !== $specialties ) {
 			$surgeon['knowsAbout'] = $specialties;
 		}
 
 		// Education.
 		$school = get_field( 'medical_school', $surgeon_id );
-		if ( $school ) {
+		if ( null !== $school && '' !== $school ) {
 			$surgeon['alumniOf'] = array(
 				'@type' => 'EducationalOrganization',
 				'name'  => $school,
@@ -114,7 +114,7 @@ class Surgeon_Schema {
 
 		// Add separate VideoObject schema if video exists.
 		$video = $this->get_featured_video( $surgeon_id );
-		if ( $video ) {
+		if ( null !== $video ) {
 			$schema_data[] = $video;
 		}
 
@@ -129,7 +129,7 @@ class Surgeon_Schema {
 	 */
 	private function get_description( $surgeon_id ) {
 		$desc = get_post_meta( $surgeon_id, '_yoast_wpseo_metadesc', true );
-		if ( $desc ) {
+		if ( null !== $desc && '' !== $desc ) {
 			return $desc;
 		}
 
@@ -153,9 +153,9 @@ class Surgeon_Schema {
 
 		// Fall back to video thumbnail from video_details group.
 		$video_details = get_field( 'video_details', $surgeon_id );
-		if ( $video_details ) {
+		if ( null !== $video_details ) {
 			// Use custom thumbnail if available.
-			if ( ! empty( $video_details['video_thumbnail'] ) ) {
+			if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 				if ( $custom_thumbnail ) {
 					return $custom_thumbnail;
@@ -163,7 +163,7 @@ class Surgeon_Schema {
 			}
 
 			// Fall back to YouTube thumbnail if video_id exists.
-			if ( ! empty( $video_details['video_id'] ) ) {
+			if ( isset( $video_details['video_id'] ) && '' !== $video_details['video_id'] ) {
 				return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
 			}
 		}
@@ -181,13 +181,13 @@ class Surgeon_Schema {
 	private function get_featured_video( $surgeon_id ) {
 		$video_details = get_field( 'video_details', $surgeon_id );
 
-		if ( empty( $video_details ) || empty( $video_details['video_id'] ) ) {
+		if ( null === $video_details || ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
 			return null;
 		}
 
 		$video_id          = $video_details['video_id'];
-		$video_title       = empty( $video_details['video_title'] ) ? 'Dr. ' . get_the_title() . ' - Featured Video' : $video_details['video_title'];
-		$video_description = empty( $video_details['video_description'] ) ? 'Learn more about Dr. ' . get_the_title() . ' at Mia Aesthetics' : $video_details['video_description'];
+		$video_title       = ( ! isset( $video_details['video_title'] ) || '' === $video_details['video_title'] ) ? 'Dr. ' . get_the_title() . ' - Featured Video' : $video_details['video_title'];
+		$video_description = ( ! isset( $video_details['video_description'] ) || '' === $video_details['video_description'] ) ? 'Learn more about Dr. ' . get_the_title() . ' at Mia Aesthetics' : $video_details['video_description'];
 
 		// Generate YouTube URLs from video ID.
 		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
@@ -195,7 +195,7 @@ class Surgeon_Schema {
 
 		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
 		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
-		if ( ! empty( $video_details['video_thumbnail'] ) ) {
+		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 			if ( $custom_thumbnail ) {
 				$thumbnail_url = $custom_thumbnail;
@@ -230,7 +230,7 @@ class Surgeon_Schema {
 
 		for ( $i = 1; $i <= 3; $i++ ) {
 			$specialty = get_field( 'specialty_' . $i, $surgeon_id );
-			if ( $specialty ) {
+			if ( null !== $specialty && '' !== $specialty ) {
 				$specialties[] = $specialty;
 			}
 		}

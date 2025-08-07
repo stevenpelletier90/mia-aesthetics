@@ -33,7 +33,7 @@ get_header(); ?>
 						// Check if overview_details has actual content to display.
 						$has_overview_content = false;
 						$overview_items       = get_field( 'overview_details' );
-						if ( $overview_items ) :
+						if ( null !== $overview_items && is_array( $overview_items ) ) :
 							foreach ( $overview_items as $item ) :
 								if ( ! in_array( trim( $item['overview_item'] ), array( '', '0' ), true ) ) :
 									$has_overview_content = true;

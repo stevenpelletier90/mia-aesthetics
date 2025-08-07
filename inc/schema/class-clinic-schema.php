@@ -70,32 +70,29 @@ class Clinic_Schema {
 		$clinic['description'] = $this->get_description( $loc_id );
 
 		// Image.
-		$image_url = $this->get_image( $loc_id );
-		if ( $image_url ) {
-			$clinic['image'] = $image_url;
-		}
+		$clinic['image'] = $this->get_image( $loc_id );
 
 		// Contact information.
 		$tel = get_field( 'phone_number', $loc_id );
-		if ( $tel ) {
+		if ( is_string( $tel ) && '' !== $tel ) {
 			$clinic['telephone'] = $tel;
 		}
 
 		// Address.
 		$address = $this->get_address( $loc_id );
-		if ( $address ) {
+		if ( null !== $address ) {
 			$clinic['address'] = $address;
 		}
 
 		// Geo coordinates.
 		$geo = $this->get_geo_coordinates( $loc_id );
-		if ( $geo ) {
+		if ( null !== $geo ) {
 			$clinic['geo'] = $geo;
 		}
 
 		// Google Maps link.
 		$maps_url = get_field( 'location_maps_link', $loc_id );
-		if ( $maps_url ) {
+		if ( is_string( $maps_url ) && '' !== $maps_url ) {
 			$clinic['hasMap'] = $maps_url;
 		}
 
@@ -107,13 +104,13 @@ class Clinic_Schema {
 
 		// Aggregate rating.
 		$rating = $this->get_rating( $loc_id );
-		if ( $rating ) {
+		if ( null !== $rating ) {
 			$clinic['aggregateRating'] = $rating;
 		}
 
 		// Employees (surgeons).
 		$employees = $this->get_employees( $loc_id );
-		if ( ! empty( $employees ) ) {
+		if ( count( $employees ) > 0 ) {
 			$clinic['employee'] = $employees;
 		}
 
@@ -121,7 +118,7 @@ class Clinic_Schema {
 
 		// Add separate VideoObject schema if video exists.
 		$video = $this->get_featured_video( $loc_id );
-		if ( $video ) {
+		if ( null !== $video ) {
 			$schema_data[] = $video;
 		}
 
@@ -136,7 +133,7 @@ class Clinic_Schema {
 	 */
 	private function get_description( $loc_id ) {
 		$desc = get_post_meta( $loc_id, '_yoast_wpseo_metadesc', true );
-		if ( $desc ) {
+		if ( is_string( $desc ) && '' !== $desc ) {
 			return $desc;
 		}
 
@@ -160,9 +157,9 @@ class Clinic_Schema {
 
 		// Fall back to video thumbnail from video_details group.
 		$video_details = get_field( 'video_details', $loc_id );
-		if ( $video_details ) {
+		if ( is_array( $video_details ) || is_object( $video_details ) ) {
 			// Use custom thumbnail if available.
-			if ( ! empty( $video_details['video_thumbnail'] ) ) {
+			if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 				if ( $custom_thumbnail ) {
 					return $custom_thumbnail;
@@ -170,7 +167,7 @@ class Clinic_Schema {
 			}
 
 			// Fall back to YouTube thumbnail if video_id exists.
-			if ( ! empty( $video_details['video_id'] ) ) {
+			if ( isset( $video_details['video_id'] ) && '' !== $video_details['video_id'] ) {
 				return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
 			}
 		}
@@ -188,7 +185,7 @@ class Clinic_Schema {
 	private function get_address( $loc_id ) {
 		$location_map = get_field( 'location_map', $loc_id );
 
-		if ( ! $location_map ) {
+		if ( ! is_array( $location_map ) || count( $location_map ) === 0 ) {
 			return null;
 		}
 
@@ -203,18 +200,18 @@ class Clinic_Schema {
 
 		// Special handling for locations where Google Maps doesn't populate city correctly.
 		// For Brooklyn/NYC addresses, Google sometimes doesn't populate city.
-		if ( empty( $city ) && ! empty( $state ) && ( ( 'NY' === $state || 'New York' === $state ) && false !== stripos( $street, 'atlantic' ) ) ) {
+		if ( '' === $city && '' !== $state && ( 'NY' === $state || 'New York' === $state ) && false !== stripos( $street, 'atlantic' ) ) {
 			$city = 'Brooklyn';
 		}
 
 		// Only create address if we have the minimum required fields.
-		if ( $street && $city && $state ) {
+		if ( '' !== $street && '' !== $city && '' !== $state ) {
 			return array(
 				'@type'           => 'PostalAddress',
 				'streetAddress'   => $street,
 				'addressLocality' => $city,
 				'addressRegion'   => $state,
-				'postalCode'      => $zip ? $zip : '', // Include zip if available.
+				'postalCode'      => '' !== $zip ? $zip : '', // Include zip if available.
 				'addressCountry'  => 'US',
 			);
 		}
@@ -231,7 +228,7 @@ class Clinic_Schema {
 	private function get_geo_coordinates( $loc_id ) {
 		$location_map = get_field( 'location_map', $loc_id );
 
-		if ( ! $location_map || empty( $location_map['lat'] ) || empty( $location_map['lng'] ) ) {
+		if ( ! is_array( $location_map ) || ! isset( $location_map['lat'] ) || ! isset( $location_map['lng'] ) || '' === $location_map['lat'] || '' === $location_map['lng'] ) {
 			return null;
 		}
 
@@ -251,7 +248,7 @@ class Clinic_Schema {
 	private function get_opening_hours( $loc_id ) {
 		$business_hours = get_field( 'business_hours', $loc_id );
 
-		if ( empty( $business_hours ) ) {
+		if ( ! is_array( $business_hours ) || count( $business_hours ) === 0 ) {
 			// Fallback to default hours.
 			return array(
 				array(
@@ -269,14 +266,14 @@ class Clinic_Schema {
 			$day   = $hours_row['day'] ?? '';
 			$hours = $hours_row['hours'] ?? '';
 
-			if ( empty( $day ) || empty( $hours ) ) {
+			if ( '' === $day || '' === $hours ) {
 				continue;
 			}
 
 			// Parse hours - handle various formats like "9:00 AM - 5:00 PM" or "09:00-17:00".
 			$parsed_times = $this->parse_hours_string( $hours );
 
-			if ( $parsed_times ) {
+			if ( null !== $parsed_times ) {
 				$opening_hours[] = array(
 					'@type'     => 'OpeningHoursSpecification',
 					'dayOfWeek' => ucfirst( strtolower( $day ) ), // Ensure proper capitalization.
@@ -455,12 +452,12 @@ class Clinic_Schema {
 	 */
 	private function get_rating( $loc_id ) {
 		$rating = get_field( 'average_rating', $loc_id );
-		if ( $rating ) {
+		if ( ( is_string( $rating ) && '' !== $rating ) || is_numeric( $rating ) ) {
 			return array(
 				'@type'       => 'AggregateRating',
 				'ratingValue' => $rating,
 				'bestRating'  => '5',
-				'reviewCount' => get_field( 'review_count', $loc_id ) ? get_field( 'review_count', $loc_id ) : 0,
+				'reviewCount' => get_field( 'review_count', $loc_id ) ?? 0,
 			);
 		}
 
@@ -489,7 +486,7 @@ class Clinic_Schema {
 			)
 		);
 
-		if ( empty( $surgeons ) ) {
+		if ( count( $surgeons ) === 0 ) {
 			return array();
 		}
 
@@ -510,13 +507,13 @@ class Clinic_Schema {
 	private function get_featured_video( $loc_id ) {
 		$video_details = get_field( 'video_details', $loc_id );
 
-		if ( empty( $video_details ) || empty( $video_details['video_id'] ) ) {
+		if ( ! is_array( $video_details ) || ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
 			return null;
 		}
 
 		$video_id          = $video_details['video_id'];
-		$video_title       = empty( $video_details['video_title'] ) ? get_the_title() . ' - Featured Video' : $video_details['video_title'];
-		$video_description = empty( $video_details['video_description'] ) ? 'Learn more about Mia Aesthetics ' . get_the_title() . ' location' : $video_details['video_description'];
+		$video_title       = ( ! isset( $video_details['video_title'] ) || '' === $video_details['video_title'] ) ? get_the_title() . ' - Featured Video' : $video_details['video_title'];
+		$video_description = ( ! isset( $video_details['video_description'] ) || '' === $video_details['video_description'] ) ? 'Learn more about Mia Aesthetics ' . get_the_title() . ' location' : $video_details['video_description'];
 
 		// Generate YouTube URLs from video ID.
 		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
@@ -524,7 +521,7 @@ class Clinic_Schema {
 
 		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
 		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
-		if ( ! empty( $video_details['video_thumbnail'] ) ) {
+		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
 			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
 			if ( $custom_thumbnail ) {
 				$thumbnail_url = $custom_thumbnail;

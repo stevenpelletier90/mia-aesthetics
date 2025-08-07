@@ -41,7 +41,7 @@ get_header();
 	 */
 	$term_ids = wp_get_post_terms( get_the_ID(), 'case-category', array( 'fields' => 'ids' ) );
 
-	if ( empty( $term_ids ) ) {
+	if ( ! is_array( $term_ids ) || count( $term_ids ) === 0 ) {
 		$case_query = null; // No grid.
 	} else {
 		$current_page = max( 1, get_query_var( 'paged' ) );
@@ -106,19 +106,19 @@ get_header();
 											</a>
 										</h2>
 
-										<?php if ( $surgeon ) : ?>
+										<?php if ( null !== $surgeon ) : ?>
 											<div class="case-meta">
 												<i class="fas fa-user-md" aria-hidden="true"></i>
 												<?php echo esc_html( get_the_title( $surgeon ) ); ?>
 											</div>
 										<?php endif; ?>
 
-										<?php if ( ! empty( $procedure_performed ) ) : ?>
+										<?php if ( is_array( $procedure_performed ) && count( $procedure_performed ) > 0 ) : ?>
 											<div class="case-meta">
 												<i class="fas fa-procedures" aria-hidden="true"></i>
 												<?php
 												$procedure_names = array();
-												foreach ( (array) $procedure_performed as $procedure_id ) {
+												foreach ( $procedure_performed as $procedure_id ) {
 													$procedure_names[] = get_the_title( $procedure_id );
 												}
 												echo esc_html( implode( ', ', $procedure_names ) );
@@ -126,7 +126,7 @@ get_header();
 											</div>
 										<?php endif; ?>
 
-										<?php if ( $location ) : ?>
+										<?php if ( null !== $location ) : ?>
 											<div class="case-meta">
 												<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
 												<?php echo esc_html( get_the_title( $location ) ); ?>

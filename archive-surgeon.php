@@ -40,7 +40,7 @@ get_header(); ?>
 						$location_title = '';
 						$location_class = '';
 
-						if ( $location ) {
+						if ( null !== $location && '' !== $location ) {
 							// Handle Post Object return format.
 							if ( is_object( $location ) ) {
 								$location_id    = $location->ID;
@@ -63,7 +63,7 @@ get_header(); ?>
 									<div class="surgeon-img-container me-3">
 										<?php
 										// Display headshot if ID exists.
-										if ( $headshot_id && is_numeric( $headshot_id ) ) :
+										if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
 											echo wp_get_attachment_image(
 												$headshot_id,
 												'thumbnail', // Use thumbnail size for circular image.

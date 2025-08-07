@@ -20,7 +20,7 @@ get_header(); ?>
 					<!-- Banner Image -->
 					<?php
 					$mia_banner_image = get_field( 'banner_image' );
-					if ( $mia_banner_image ) :
+					if ( null !== $mia_banner_image && is_array( $mia_banner_image ) ) :
 						?>
 						<div class="special-hero-image">
 							<img src="<?php echo esc_url( $mia_banner_image['url'] ); ?>" 
@@ -31,7 +31,7 @@ get_header(); ?>
 								sizes="(max-width: 576px) 100vw, (max-width: 992px) 90vw, 800px"
 								alt="
 								<?php
-								echo esc_attr( $mia_banner_image['alt'] ? $mia_banner_image['alt'] : get_the_title() );
+								echo esc_attr( ( isset( $mia_banner_image['alt'] ) && '' !== $mia_banner_image['alt'] ) ? $mia_banner_image['alt'] : get_the_title() );
 								?>
 								" 
 								class="img-fluid w-100" 

@@ -43,7 +43,7 @@ function mia_aesthetics_get_cached_post_count( $post_type, $args = array() ) {
 			)
 		);
 
-		$count = (int) $query->post_count;
+		$count = $query->post_count;
 		wp_reset_postdata();
 
 		// Cache for 2 hours (or for the duration of the request if no persistent cache).

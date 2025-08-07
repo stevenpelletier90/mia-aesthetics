@@ -26,7 +26,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				<div class="col-lg-5">
 					<?php
 					$headshot_id = get_field( 'surgeon_headshot' );
-					if ( $headshot_id ) :
+					if ( null !== $headshot_id && '' !== $headshot_id ) :
 						$headshot_url = wp_get_attachment_image_url( $headshot_id, 'large' );
 						?>
 						<div class="surgeon-hero-image">
@@ -48,7 +48,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<h1 class="surgeon-name"><?php echo esc_html( get_the_title() ); ?></h1>
 						<?php
 						$location = get_field( 'surgeon_location' );
-						if ( $location ) :
+						if ( null !== $location && '' !== $location ) :
 							$location_title = get_the_title( $location );
 							$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title );
 							$location_url   = get_permalink( $location );
@@ -59,7 +59,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<!-- Quick Actions -->
 						<?php
 						$instagram_url = get_field( 'instagram_url' );
-						if ( $instagram_url ) :
+						if ( null !== $instagram_url && '' !== $instagram_url ) :
 							?>
 						<div class="surgeon-hero-actions">
 							<a href="<?php echo esc_url( $instagram_url ); ?>" class="mia-button" data-variant="gold" target="_blank" rel="noopener">
@@ -96,16 +96,16 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<!-- Video Section -->
 						<?php
 						$video_details = get_field( 'video_details' );
-						if ( ! empty( $video_details ) && isset( $video_details['video_id'] ) ) :
+						if ( null !== $video_details && is_array( $video_details ) && isset( $video_details['video_id'] ) && '' !== $video_details['video_id'] ) :
 							$video_id      = $video_details['video_id'];
 							$embed_url     = 'https://www.youtube.com/embed/' . $video_id;
 							$thumbnail_url = '';
 
 							if ( isset( $video_details['video_thumbnail'] ) ) {
 								$video_thumbnail = $video_details['video_thumbnail'];
-								if ( $video_thumbnail && is_array( $video_thumbnail ) ) {
+								if ( is_array( $video_thumbnail ) ) {
 									$thumbnail_url = $video_thumbnail['url'];
-								} elseif ( $video_thumbnail && is_numeric( $video_thumbnail ) ) {
+								} elseif ( is_numeric( $video_thumbnail ) ) {
 									$thumbnail_url = wp_get_attachment_image_url( $video_thumbnail, 'full' );
 								}
 							}
@@ -114,7 +114,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							<h2 class="section-title">Meet Dr. <?php echo esc_html( $last_name ); ?></h2>
 							<div class="video-container">
 								<div class="ratio ratio-16x9">
-									<?php if ( $thumbnail_url ) : ?>
+									<?php if ( '' !== $thumbnail_url ) : ?>
 									<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
 										<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="Video thumbnail" class="img-fluid">
 										<button class="video-play-button" aria-label="Play video">
@@ -138,7 +138,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<!-- Specialties Section -->
 						<?php
 						$specialties = get_field( 'specialties' );
-						if ( $specialties ) :
+						if ( null !== $specialties && is_array( $specialties ) && count( $specialties ) > 0 ) :
 							?>
 						<section class="surgeon-expertise-section">
 							<h2 class="section-title">Areas of Expertise</h2>
@@ -152,7 +152,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 											<h3><?php echo esc_html( get_the_title( $specialty->ID ) ); ?></h3>
 											<?php
 											$excerpt = get_the_excerpt( $specialty->ID );
-											if ( empty( $excerpt ) ) {
+											if ( '' === $excerpt ) {
 												$content = get_post_field( 'post_content', $specialty->ID );
 												$excerpt = wp_trim_words( $content, 20, '...' );
 											}
@@ -177,7 +177,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<div class="sidebar-card">
 							<h3 class="sidebar-card-title">Quick Information</h3>
 							<ul class="surgeon-info-list">
-								<?php if ( $location ) : ?>
+								<?php if ( null !== $location && '' !== $location ) : ?>
 								<li>
 									<i class="fas fa-map-marker-alt"></i>
 									<span>Located at <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></span>
@@ -218,7 +218,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 
 	<?php
 	$faq_section = get_field( 'faq_section' );
-	if ( $faq_section && ! empty( $faq_section['faqs'] ) ) :
+	if ( null !== $faq_section && is_array( $faq_section ) && isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && count( $faq_section['faqs'] ) > 0 ) :
 		?>
 	<section class="surgeon-faq-section">
 		<div class="surgeon-fluid-container">

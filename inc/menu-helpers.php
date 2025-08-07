@@ -57,7 +57,7 @@ function mia_get_all_menu_data() {
 			'non_surgical' => array(),
 		);
 
-		if ( ! empty( $post_ids ) ) {
+		if ( array() !== $post_ids ) {
 			foreach ( $post_ids as $post_id ) {
 				$post_type = get_post_type( $post_id );
 
@@ -183,7 +183,7 @@ function mia_get_footer_locations() {
 			)
 		);
 
-		if ( empty( $locations_query->posts ) ) {
+		if ( array() === $locations_query->posts ) {
 			return array();
 		}
 
@@ -211,10 +211,10 @@ function mia_get_footer_locations() {
 
 		// Step 3: Group surgeons by location.
 		$surgeons_by_location = array();
-		if ( ! empty( $all_surgeons_query->posts ) ) {
+		if ( array() !== $all_surgeons_query->posts ) {
 			foreach ( $all_surgeons_query->posts as $surgeon_id ) {
 				$surgeon_location = get_field( 'surgeon_location', $surgeon_id );
-				if ( $surgeon_location && in_array( $surgeon_location, $location_ids, true ) ) {
+				if ( null !== $surgeon_location && in_array( $surgeon_location, $location_ids, true ) ) {
 					if ( ! isset( $surgeons_by_location[ $surgeon_location ] ) ) {
 						$surgeons_by_location[ $surgeon_location ] = array();
 					}
@@ -388,7 +388,7 @@ function render_desktop_locations_menu( $locations ) {
 			</div>
 			<div class="row">
 				<?php
-				if ( ! empty( $locations ) ) :
+				if ( array() !== $locations ) :
 					$total_locations      = count( $locations );
 					$locations_per_column = ceil( $total_locations / 4 );
 					$location_count       = 0;
@@ -434,7 +434,7 @@ function render_mobile_locations_menu( $locations ) {
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">View All Locations</a></li>
 		<?php
-		if ( ! empty( $locations ) ) :
+		if ( array() !== $locations ) :
 			foreach ( $locations as $location ) :
 				$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
 				$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
@@ -492,7 +492,7 @@ function render_desktop_surgeons_menu( $surgeons ) {
 			</div>
 			<div class="row">
 				<?php
-				if ( ! empty( $surgeons ) ) :
+				if ( array() !== $surgeons ) :
 					$total_surgeons      = count( $surgeons );
 					$surgeons_per_column = ceil( $total_surgeons / 4 );
 					$surgeon_count       = 0;
@@ -534,7 +534,7 @@ function render_mobile_surgeons_menu( $surgeons ) {
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>">View All Surgeons</a></li>
 		<?php
-		if ( ! empty( $surgeons ) ) :
+		if ( array() !== $surgeons ) :
 			foreach ( $surgeons as $surgeon ) :
 				?>
 				<li><a class="dropdown-item" href="<?php echo esc_url( $surgeon['url'] ); ?>"><?php echo esc_html( $surgeon['name'] ); ?></a></li>
