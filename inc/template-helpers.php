@@ -141,22 +141,28 @@ function mia_aesthetics_get_attachment_id_by_filename( $filename ) {
 	$attachment_id = wp_cache_get( $cache_key, 'mia_theme' );
 
 	if ( false === $attachment_id ) {
-		global $wpdb;
-
-		// Direct DB query necessary - WordPress has no built-in function to search attachments by filename.
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery
-		$attachment_id = $wpdb->get_var(
-			$wpdb->prepare(
-				"SELECT post_id FROM {$wpdb->postmeta} 
-            WHERE meta_key = '_wp_attached_file' 
-            AND meta_value LIKE %s 
-            LIMIT 1",
-				'%' . $wpdb->esc_like( $filename )
+		// Use WP_Query to search attachments by filename - more WordPress-native approach.
+		$attachments = new WP_Query(
+			array(
+				'post_type'      => 'attachment',
+				'post_status'    => 'inherit',
+				'posts_per_page' => 1,
+				'fields'         => 'ids',
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Necessary for filename search, result cached
+				'meta_query'     => array(
+					array(
+						'key'     => '_wp_attached_file',
+						'value'   => $filename,
+						'compare' => 'LIKE',
+					),
+				),
 			)
 		);
 
+		$attachment_id = ! empty( $attachments->posts ) ? $attachments->posts[0] : 0;
+
 		// Cache result for 2 hours (attachment files rarely change).
-		wp_cache_set( $cache_key, $attachment_id ? $attachment_id : 0, 'mia_theme', 2 * HOUR_IN_SECONDS );
+		wp_cache_set( $cache_key, $attachment_id, 'mia_theme', 2 * HOUR_IN_SECONDS );
 	}
 
 	return $attachment_id ? $attachment_id : false;

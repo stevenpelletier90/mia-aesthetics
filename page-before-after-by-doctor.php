@@ -70,9 +70,14 @@ $gallery_json_path = get_template_directory() . '/assets/data/before-after-galle
 $gallery_data      = array();
 
 if ( file_exists( $gallery_json_path ) ) {
-	// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-	$json         = file_get_contents( $gallery_json_path );
-	$gallery_data = json_decode( $json, true );
+	// Use WP_Filesystem API for better security and compatibility.
+	require_once ABSPATH . 'wp-admin/includes/file.php';
+	WP_Filesystem();
+	global $wp_filesystem;
+	$json = $wp_filesystem->get_contents( $gallery_json_path );
+	if ( false !== $json ) {
+		$gallery_data = json_decode( $json, true );
+	}
 }
 
 if ( ! empty( $gallery_data ) ) :

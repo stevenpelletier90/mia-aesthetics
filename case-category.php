@@ -8,8 +8,7 @@
 get_header();
 
 // Grab current term object.
-// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
-$current_term = get_queried_object();
+$mia_current_term = get_queried_object();
 ?>
 <main>
 	
@@ -25,9 +24,9 @@ $current_term = get_queried_object();
 					</h1>
 					
 					<!-- Optional: display term description if present -->
-					<?php if ( ! empty( $current_term->description ) ) : ?>
+					<?php if ( ! empty( $mia_current_term->description ) ) : ?>
 						<div class="taxonomy-description">
-							<?php echo wp_kses_post( $current_term->description ); ?>
+							<?php echo wp_kses_post( $mia_current_term->description ); ?>
 						</div>
 					<?php endif; ?>
 				</div>

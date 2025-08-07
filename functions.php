@@ -83,8 +83,11 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 	if ( 'image' === $response['type'] && 'svg+xml' === $response['subtype'] && class_exists( 'SimpleXMLElement' ) ) {
 		$path = get_attached_file( $attachment->ID );
 		if ( file_exists( $path ) ) {
-			// phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents
-			$svg = file_get_contents( $path );
+			// Use WP_Filesystem API for better security and compatibility.
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			WP_Filesystem();
+			global $wp_filesystem;
+			$svg = $wp_filesystem->get_contents( $path );
 			if ( false !== $svg ) {
 				$xml = simplexml_load_string( $svg );
 				if ( false !== $xml ) {

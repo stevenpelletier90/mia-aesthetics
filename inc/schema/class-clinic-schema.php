@@ -478,10 +478,14 @@ class Clinic_Schema {
 			array(
 				'post_type'      => 'surgeon',
 				'posts_per_page' => -1,
-				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_key -- Intentional meta query for surgeon location relationship
-				'meta_key'       => 'surgeon_location',
-				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_value -- Intentional meta query for surgeon location relationship
-				'meta_value'     => (string) $loc_id,
+				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Necessary for surgeon-location relationship, result cached in schema
+				'meta_query'     => array(
+					array(
+						'key'     => 'surgeon_location',
+						'value'   => (string) $loc_id,
+						'compare' => '=',
+					),
+				),
 			)
 		);
 
