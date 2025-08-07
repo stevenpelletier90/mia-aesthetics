@@ -241,7 +241,6 @@
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
 
-
 .value-icon {
   width: 140px;
   height: 140px;
@@ -260,9 +259,9 @@
   height: 80px;
   object-fit: contain;
   /* Use primary gold color for better contrast against light gold background */
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
+    brightness(90%) contrast(86%);
 }
-
 
 .value-title {
   font-size: 1.5rem;
@@ -637,7 +636,8 @@
   height: 80px;
   object-fit: contain;
   /* Use primary gold color for better contrast against light gold background */
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
+    brightness(90%) contrast(86%);
 }
 
 .benefit-title {

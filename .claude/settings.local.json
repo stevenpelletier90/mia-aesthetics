@@ -38,7 +38,9 @@
       "mcp__git__git_log",
       "mcp__git__git_show",
       "mcp__git__git_diff",
-      "Bash(timeout 30 ./vendor/bin/phpcs:*)"
+      "Bash(timeout 30 ./vendor/bin/phpcs:*)",
+      "Bash(npm install:*)",
+      "Bash(npx prettier:*)"
     ],
     "deny": []
   },

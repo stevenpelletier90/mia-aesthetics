@@ -6,31 +6,31 @@
 // -----------------------------------------------------------------------------
 
 (() => {
-	'use strict';
+  "use strict";
 
-	// Helper: Safe DOM ready (in case script loads before end of body)
-	const onReady = (fn) => {
-		if ('loading' === document.readyState) {
-			document.addEventListener('DOMContentLoaded', fn, { once: true });
-		} else {
-			fn();
-		}
-	};
+  // Helper: Safe DOM ready (in case script loads before end of body)
+  const onReady = (fn) => {
+    if ("loading" === document.readyState) {
+      document.addEventListener("DOMContentLoaded", fn, { once: true });
+    } else {
+      fn();
+    }
+  };
 
-	// Main
-	onReady(() => {
-		// Example interaction: collapse hero on scroll (replace/remove as needed)
-		const hero = document.querySelector('.home-hero');
-		if (!hero) {
-			return;
-		}
+  // Main
+  onReady(() => {
+    // Example interaction: collapse hero on scroll (replace/remove as needed)
+    const hero = document.querySelector(".home-hero");
+    if (!hero) {
+      return;
+    }
 
-		const toggleHero = () => {
-			const collapsed = 50 < window.scrollY;
-			hero.classList.toggle('is-collapsed', collapsed);
-		};
+    const toggleHero = () => {
+      const collapsed = 50 < window.scrollY;
+      hero.classList.toggle("is-collapsed", collapsed);
+    };
 
-		toggleHero();
-		window.addEventListener('scroll', toggleHero, { passive: true });
-	});
+    toggleHero();
+    window.addEventListener("scroll", toggleHero, { passive: true });
+  });
 })();

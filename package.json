@@ -5,15 +5,21 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "lint": "npm run lint:js && npm run lint:php",
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:php",
     "lint:js": "eslint assets/js/**/*.js",
+    "lint:css": "prettier --check \"assets/css/**/*.css\"",
     "lint:php": "composer run-script phpcs",
-    "lint:fix": "npm run lint:js:fix",
-    "lint:js:fix": "eslint assets/js/**/*.js --fix"
+    "lint:fix": "npm run lint:js:fix && npm run format:css",
+    "lint:js:fix": "eslint assets/js/**/*.js --fix",
+    "format": "prettier --write \"assets/**/*.{css,js}\"",
+    "format:css": "prettier --write \"assets/css/**/*.css\"",
+    "format:js": "prettier --write \"assets/js/**/*.js\"",
+    "format:check": "prettier --check \"assets/**/*.{css,js}\""
   },
   "devDependencies": {
     "eslint": "^9.32",
     "eslint-config-prettier": "^10.1",
-    "eslint-config-wordpress": "^2.0.0"
+    "eslint-config-wordpress": "^2.0.0",
+    "prettier": "^3.6.2"
   }
 }
