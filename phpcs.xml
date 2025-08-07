@@ -18,4 +18,15 @@
     <rule ref="WordPress.Files.FileName.InvalidClassFileName">
         <exclude-pattern>*/inc/*</exclude-pattern>
     </rule>
+    
+    <!-- ACF Pro specific escaping functions -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customAutoEscapedFunctions" type="array">
+                <!-- ACF functions that auto-escape -->
+                <element value="the_field"/>
+                <element value="the_sub_field"/>
+            </property>
+        </properties>
+    </rule>
 </ruleset>

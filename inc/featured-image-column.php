@@ -13,8 +13,9 @@ add_action( 'admin_init', 'mia_featured_image_columns_init' );
 
 /**
  * Initialize featured image columns for admin post listings
+ * @return void
  */
-function mia_featured_image_columns_init() {
+function mia_featured_image_columns_init(): void {
 	/*
 	---------------------------------------------------------------------
 	 * Register the column, render its cells, and make it sortable.
@@ -34,6 +35,9 @@ function mia_featured_image_columns_init() {
 					);
 					// Place after Title.
 					$offset = array_search( 'title', array_keys( $cols ), true );
+					if ( false === $offset ) {
+						$offset = 0;
+					}
 					return array_slice( $cols, 0, $offset + 1, true )
 						+ array( 'thumb' => $label )
 						+ array_slice( $cols, $offset + 1, null, true );
@@ -49,7 +53,7 @@ function mia_featured_image_columns_init() {
 					}
 
 					$id = get_post_thumbnail_id( $post_id );
-					if ( $id ) {
+					if ( 0 !== $id && false !== $id ) {
 						echo wp_kses_post(
 							wp_get_attachment_image(
 								$id,

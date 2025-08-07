@@ -245,7 +245,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 					'meta_query'     => array(
 						array(
 							'key'     => 'surgeon_location',
-							'value'   => get_the_ID(),
+							'value'   => (int) get_the_ID(),
 							'compare' => '=',
 						),
 					),
@@ -262,11 +262,19 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 								<?php
 								$surgeon_headshot_id = get_field( 'surgeon_headshot' );
 								if ( null !== $surgeon_headshot_id && is_numeric( $surgeon_headshot_id ) ) :
+									$headshot_url = wp_get_attachment_image_url( (int) $surgeon_headshot_id, 'medium' );
+									if ( false !== $headshot_url ) :
 									?>
-									<img src="<?php echo esc_url( wp_get_attachment_image_url( $surgeon_headshot_id, 'medium' ) ); ?>"
+									<img src="<?php echo esc_url( $headshot_url ); ?>"
 										alt="<?php the_title(); ?> Headshot" />
+									<?php endif; ?>
 								<?php elseif ( has_post_thumbnail() ) : ?>
-									<img src="<?php the_post_thumbnail_url(); ?>" alt="<?php the_title(); ?>" />
+									<?php
+									$thumbnail_url = get_the_post_thumbnail_url();
+									if ( false !== $thumbnail_url ) :
+									?>
+									<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php the_title(); ?>" />
+									<?php endif; ?>
 								<?php endif; ?>
 								
 								<div class="surgeon-info">

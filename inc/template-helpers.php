@@ -27,8 +27,8 @@ function mia_aesthetics_get_logo_url( $fallback = true ) {
 	// Try custom logo first.
 	$custom_logo_id = get_theme_mod( 'custom_logo' );
 
-	if ( 0 !== $custom_logo_id ) {
-		$logo_url = wp_get_attachment_image_url( $custom_logo_id, 'full' );
+	if ( 0 !== $custom_logo_id && is_numeric( $custom_logo_id ) ) {
+		$logo_url = wp_get_attachment_image_url( (int) $custom_logo_id, 'full' );
 		if ( false !== $logo_url && '' !== $logo_url ) {
 			return $logo_url;
 		}
@@ -51,9 +51,10 @@ function mia_aesthetics_get_logo_url( $fallback = true ) {
 /**
  * Output the site logo with proper attributes
  *
- * @param array $args Logo arguments.
+ * @param array<string, string> $args Logo arguments.
+ * @return void
  */
-function mia_aesthetics_the_logo( $args = array() ) {
+function mia_aesthetics_the_logo( $args = array() ): void {
 	$defaults = array(
 		'height'        => '50',
 		'width'         => '200',
@@ -70,7 +71,7 @@ function mia_aesthetics_the_logo( $args = array() ) {
 	$logo_url = mia_aesthetics_get_logo_url();
 
 	// Build logo HTML.
-	if ( $logo_url ) {
+	if ( false !== $logo_url ) {
 		$attributes = array(
 			'src'    => esc_url( $logo_url ),
 			'alt'    => esc_attr( $args['alt'] ),
@@ -195,7 +196,8 @@ function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
 	$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
 	if ( 0 !== $attachment_id ) {
-		return wp_get_attachment_url( $attachment_id );
+		$attachment_url = wp_get_attachment_url( (int) $attachment_id );
+		return false !== $attachment_url ? $attachment_url : false;
 	}
 
 	return false;
@@ -207,7 +209,7 @@ function mia_get_image_url_by_filename( $filename, $subdir = '' ) {
  * @param string $filename Base filename.
  * @param string $subdir Subdirectory in uploads.
  * @param string $size WordPress image size.
- * @return array|false Array with src, srcset, sizes or false
+ * @return array<string, mixed>|false Array with src, srcset, sizes or false
  */
 function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' ) {
 	if ( '' === $filename ) {
@@ -223,17 +225,24 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
 		$attachment_id = mia_aesthetics_get_attachment_id_by_filename( $filename );
 
 		if ( 0 !== $attachment_id ) {
-			$image_data = array(
-				'id'     => $attachment_id,
-				'src'    => wp_get_attachment_image_url( $attachment_id, $size ),
-				'srcset' => wp_get_attachment_image_srcset( $attachment_id, $size ),
-				'sizes'  => wp_get_attachment_image_sizes( $attachment_id, $size ),
-			);
+			$src    = wp_get_attachment_image_url( (int) $attachment_id, $size );
+			$srcset = wp_get_attachment_image_srcset( (int) $attachment_id, $size );
+			$sizes  = wp_get_attachment_image_sizes( (int) $attachment_id, $size );
+
+			// Only proceed if we got valid data.
+			if ( false !== $src ) {
+				$image_data = array(
+					'id'     => (int) $attachment_id,
+					'src'    => $src,
+					'srcset' => false !== $srcset ? $srcset : $src . ' 1x',
+					'sizes'  => false !== $sizes ? $sizes : '100vw',
+				);
+			}
 		} else {
 			// Fallback to manual construction.
 			$src = mia_get_image_url_by_filename( $filename, $subdir );
 
-			$image_data = $src ? array(
+			$image_data = false !== $src ? array(
 				'id'     => 0,
 				'src'    => $src,
 				'srcset' => $src . ' 1x',
@@ -252,9 +261,10 @@ function mia_get_responsive_image_data( $filename, $subdir = '', $size = 'full' 
  * Output responsive image HTML
  *
  * @param string $filename Filename or attachment ID.
- * @param array  $args Image arguments.
+ * @param array<string, mixed>  $args Image arguments.
+ * @return void
  */
-function mia_responsive_image( $filename, $args = array() ) {
+function mia_responsive_image( $filename, $args = array() ): void {
 	$defaults = array(
 		'size'    => 'full',
 		'class'   => 'img-fluid',
@@ -283,7 +293,7 @@ function mia_responsive_image( $filename, $args = array() ) {
 	// Handle filename.
 	$image_data = mia_get_responsive_image_data( $filename, $args['subdir'], $args['size'] );
 
-	if ( $image_data ) {
+	if ( false !== $image_data ) {
 		$attributes = array(
 			'src'     => esc_url( $image_data['src'] ),
 			'srcset'  => esc_attr( $image_data['srcset'] ),
@@ -467,7 +477,8 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 		</div>
 	</section>
 	<?php
-	return ob_get_clean();
+	$output = ob_get_clean();
+	return false !== $output ? $output : '';
 }
 
 /**
@@ -475,7 +486,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
  *
  * @param string $text Button text.
  * @param string $url Button URL.
- * @param array  $args Additional arguments.
+ * @param array<string, mixed>  $args Additional arguments.
  * @return string Button HTML
  */
 function mia_button( $text, $url = '#', $args = array() ) {
@@ -556,9 +567,10 @@ function mia_button( $text, $url = '#', $args = array() ) {
 /**
  * Display social media links
  *
- * @param array $args Display arguments.
+ * @param array<string, mixed> $args Display arguments.
+ * @return void
  */
-function mia_social_links( $args = array() ) {
+function mia_social_links( $args = array() ): void {
 	$defaults = array(
 		'class'       => 'social-links',
 		'item_class'  => 'social-link',
@@ -573,7 +585,7 @@ function mia_social_links( $args = array() ) {
 	foreach ( $args['platforms'] as $platform ) {
 		$url = get_field( $platform . '_url', 'option' );
 
-		if ( '' !== $url ) {
+		if ( null !== $url && '' !== $url && false !== $url ) {
 			$icon_class = $args['icon_prefix'] . $platform;
 
 			// Special cases for icon names.
@@ -635,8 +647,8 @@ function mia_aesthetics_breadcrumbs() {
 /**
  * Add custom body classes for template identification
  *
- * @param array $classes Array of body classes.
- * @return array Modified array of body classes.
+ * @param array<int, string> $classes Array of body classes.
+ * @return array<int, string> Modified array of body classes.
  */
 function mia_template_body_classes( $classes ) {
 	// Add class for pages with gallery shortcode.
@@ -683,7 +695,12 @@ function mia_get_hero_title() {
 	}
 
 	if ( is_home() ) {
-		return get_the_title( get_option( 'page_for_posts' ) );
+		$page_for_posts = get_option( 'page_for_posts' );
+		if ( false !== $page_for_posts && is_numeric( $page_for_posts ) ) {
+			$title = get_the_title( (int) $page_for_posts );
+			return false !== $title ? $title : 'Blog';
+		}
+		return 'Blog';
 	}
 
 	if ( is_archive() ) {

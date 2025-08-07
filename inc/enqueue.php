@@ -30,10 +30,11 @@ if ( ! defined( 'MIA_ASSET_HASH_LEN' ) ) {
  * @param string $type   Either 'style' or 'script'.
  * @param string $handle WordPress handle.
  * @param string $path   File path relative to /assets (leading slash allowed).
- * @param array  $deps   Optional dependencies.
+ * @param array<int, string>  $deps   Optional dependencies.
  * @param bool   $footer Load script in footer (scripts only).
+ * @return void
  */
-function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = true ) {
+function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = true ): void {
 	$base_uri = trailingslashit( get_template_directory_uri() ) . 'assets';
 	$base_dir = trailingslashit( get_template_directory() ) . 'assets';
 
@@ -43,7 +44,7 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 	// Fail silently if file doesn't exist in production.
 
 	// Use file modification time for versioning—lighter than computing an MD5 hash on every request.
-	$ver = file_exists( $file ) ? filemtime( $file ) : null;
+	$ver = file_exists( $file ) ? (string) filemtime( $file ) : null;
 
 	if ( 'style' === $type ) {
 		wp_register_style( $handle, $src, $deps, $ver );
@@ -58,7 +59,10 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
  * Context mappings (single source of truth for CSS/JS filenames)
  * ---------------------------------------------------------------------------
  */
-function mia_get_template_mappings() {
+/**
+ * @return array<string, array<string, string>>
+ */
+function mia_get_template_mappings(): array {
 	return array(
 		// Page Templates (available for selection).
 		'page-blank-canvas'           => array(
@@ -218,12 +222,12 @@ function mia_get_template_mappings() {
  *
  * @return string Template key for asset mapping.
  */
-function mia_detect_template_key() {
+function mia_detect_template_key(): string {
 	// 1. Check for user-selected template (highest priority)
 	if ( is_singular() || is_page() ) {
 		$selected_template = get_page_template_slug();
-		if ( $selected_template ) {
-			$template_key = str_replace( '.php', '', $selected_template );
+		if ( '' !== $selected_template ) {
+			$template_key = str_replace( '.php', '', (string) $selected_template );
 			if ( array_key_exists( $template_key, mia_get_template_mappings() ) ) {
 				return $template_key;
 			}
@@ -268,7 +272,10 @@ function mia_detect_template_key() {
 	}
 
 	if ( is_post_type_archive() ) {
-		$post_type        = get_post_type() ? get_post_type() : get_query_var( 'post_type' );
+		$post_type = get_post_type();
+		if ( false === $post_type ) {
+			$post_type = get_query_var( 'post_type' );
+		}
 		$archive_template = 'archive-' . $post_type;
 		if ( array_key_exists( $archive_template, mia_get_template_mappings() ) ) {
 			return $archive_template;
@@ -303,8 +310,9 @@ function mia_detect_template_key() {
  * ---------------------------------------------------------------------------
  * Main enqueue callback
  * ---------------------------------------------------------------------------
+ * @return void
  */
-function mia_enqueue_assets() {
+function mia_enqueue_assets(): void {
 	// ------------------------ Critical/global assets -----------------------.
 	mia_register_asset( 'style', 'mia-fonts', '/css/fonts.css' );
 	mia_register_asset( 'style', 'mia-bootstrap', '/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ) );
@@ -391,8 +399,9 @@ add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
 
 /**
  * Localise runtime configuration to the primary script.
+ * @return void
  */
-function mia_attach_config() {
+function mia_attach_config(): void {
 	$primary = mia_get_primary_script_handle();
 	if ( '' === $primary || ! wp_script_is( $primary, 'registered' ) ) {
 		return;
@@ -434,9 +443,9 @@ function mia_get_primary_script_handle() {
 /**
  * Add dns‑prefetch resource hints for external domains.
  *
- * @param array  $hints         Array of resource hints.
+ * @param array<int, string>  $hints         Array of resource hints.
  * @param string $relation_type The relation type of the resource hint.
- * @return array Modified array of resource hints.
+ * @return array<int, string> Modified array of resource hints.
  */
 function mia_resource_hints( $hints, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {

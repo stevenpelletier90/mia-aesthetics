@@ -656,7 +656,7 @@ get_header(); ?>
 			<div class="footer-logo">
 			<?php
 			$logo_url = mia_aesthetics_get_logo_url();
-			if ( $logo_url ) :
+			if ( false !== $logo_url ) :
 				?>
 				<img src="<?php echo esc_url( $logo_url ); ?>" alt="<?php echo esc_attr( get_bloginfo( 'name' ) ); ?>" class="footer-logo-img">
 			<?php else : ?>

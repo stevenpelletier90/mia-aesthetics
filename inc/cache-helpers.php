@@ -20,11 +20,12 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Result is cached for two hours (object cache if available).
  *
  * @param string $post_type Custom post-type slug.
- * @param array  $args      Optional WP_Query args used to narrow the count.
+ * @param array<string, mixed>  $args      Optional WP_Query args used to narrow the count.
  * @return int
  */
 function mia_aesthetics_get_cached_post_count( $post_type, $args = array() ) {
-	$cache_key = sprintf( 'mia_count_%s_', $post_type ) . md5( wp_json_encode( $args ) );
+	$json_args = wp_json_encode( $args );
+	$cache_key = sprintf( 'mia_count_%s_', $post_type ) . md5( false !== $json_args ? $json_args : '' );
 	$count     = wp_cache_get( $cache_key );
 
 	if ( false === $count ) {

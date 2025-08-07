@@ -26,13 +26,15 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				<div class="col-lg-5">
 					<?php
 					$headshot_id = get_field( 'surgeon_headshot' );
-					if ( null !== $headshot_id && '' !== $headshot_id ) :
-						$headshot_url = wp_get_attachment_image_url( $headshot_id, 'large' );
+					if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
+						$headshot_url = wp_get_attachment_image_url( (int) $headshot_id, 'large' );
+						if ( false !== $headshot_url ) :
 						?>
 						<div class="surgeon-hero-image">
 							<img src="<?php echo esc_url( $headshot_url ); ?>" alt="<?php echo esc_attr( $full_name ); ?>" class="img-fluid">
 							<div class="surgeon-image-accent"></div>
 						</div>
+						<?php endif; ?>
 					<?php else : ?>
 						<div class="surgeon-hero-image surgeon-placeholder">
 							<div class="placeholder-content">
@@ -49,12 +51,24 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<?php
 						$location = get_field( 'surgeon_location' );
 						if ( null !== $location && '' !== $location ) :
+							if ( is_numeric( $location ) ) {
+								$location = (int) $location;
+							} elseif ( is_object( $location ) && property_exists( $location, 'ID' ) ) {
+								$location = (int) $location->ID;
+							}
+							
 							$location_title = get_the_title( $location );
-							$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title );
 							$location_url   = get_permalink( $location );
+							
+							// Type safety checks
+							if ( false !== $location_title && false !== $location_url ) {
+								$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title );
 							?>
 						<p class="surgeon-location"><i class="fas fa-map-marker-alt"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></p>
-						<?php endif; ?>
+						<?php
+							}
+						endif;
+						?>
 						
 						<!-- Quick Actions -->
 						<?php
@@ -106,7 +120,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 								if ( is_array( $video_thumbnail ) ) {
 									$thumbnail_url = $video_thumbnail['url'];
 								} elseif ( is_numeric( $video_thumbnail ) ) {
-									$thumbnail_url = wp_get_attachment_image_url( $video_thumbnail, 'full' );
+									$thumbnail_url = wp_get_attachment_image_url( (int) $video_thumbnail, 'full' );
 								}
 							}
 							?>
@@ -158,9 +172,14 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 											}
 											?>
 											<p><?php echo esc_html( $excerpt ); ?></p>
-											<a href="<?php echo esc_url( get_permalink( $specialty->ID ) ); ?>" class="expertise-link">
+											<?php
+											$specialty_permalink = get_permalink( $specialty->ID );
+											if ( false !== $specialty_permalink ) :
+											?>
+											<a href="<?php echo esc_url( $specialty_permalink ); ?>" class="expertise-link">
 												Learn More <i class="fa-solid fa-arrow-right"></i>
 											</a>
+											<?php endif; ?>
 										</div>
 									</div>
 								<?php endforeach; ?>
@@ -177,7 +196,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<div class="sidebar-card">
 							<h3 class="sidebar-card-title">Quick Information</h3>
 							<ul class="surgeon-info-list">
-								<?php if ( null !== $location && '' !== $location ) : ?>
+								<?php if ( null !== $location && '' !== $location && false !== $location_url ) : ?>
 								<li>
 									<i class="fas fa-map-marker-alt"></i>
 									<span>Located at <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></span>

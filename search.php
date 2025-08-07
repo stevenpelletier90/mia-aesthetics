@@ -64,7 +64,15 @@ get_header(); ?>
 									</h2>
 									<?php the_excerpt(); ?>
 									<div class="text-muted small">
-										<?php echo esc_html( get_post_type_object( get_post_type() )->labels->singular_name ); ?>
+										<?php 
+										$post_type = get_post_type();
+										if ( false !== $post_type ) {
+											$post_type_object = get_post_type_object( $post_type );
+											if ( null !== $post_type_object ) {
+												echo esc_html( $post_type_object->labels->singular_name );
+											}
+										}
+										?>
 									</div>
 								</div>
 							</div>

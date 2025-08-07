@@ -142,32 +142,62 @@ get_header(); ?>
 							<div class="row g-3">
 								<?php if ( null !== $surgeon ) : ?>
 								<div class="col-6">
-									<a href="<?php echo esc_url( get_permalink( $surgeon ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
+									<?php
+									$surgeon_permalink = get_permalink( $surgeon );
+									if ( false !== $surgeon_permalink ) :
+									?>
+									<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 										<h5 class="h6">Performed by</h5>
 										<p class="mb-0"><?php echo esc_html( get_the_title( $surgeon ) ); ?></p>
 										<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 									</a>
+									<?php else : ?>
+									<div class="patient-info-card">
+										<h5 class="h6">Performed by</h5>
+										<p class="mb-0"><?php echo esc_html( get_the_title( $surgeon ) ); ?></p>
+									</div>
+									<?php endif; ?>
 								</div>
 								<?php endif; ?>
 
 								<?php if ( null !== $location ) : ?>
 								<div class="col-6">
-									<a href="<?php echo esc_url( get_permalink( $location ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
+									<?php
+									$location_permalink = get_permalink( $location );
+									if ( false !== $location_permalink ) :
+									?>
+									<a href="<?php echo esc_url( $location_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 										<h5 class="h6">Location</h5>
 										<p class="mb-0"><?php echo esc_html( get_the_title( $location ) ); ?></p>
 										<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 									</a>
+									<?php else : ?>
+									<div class="patient-info-card">
+										<h5 class="h6">Location</h5>
+										<p class="mb-0"><?php echo esc_html( get_the_title( $location ) ); ?></p>
+									</div>
+									<?php endif; ?>
 								</div>
 								<?php endif; ?>
 
 								<?php if ( is_array( $procedure_performed ) && count( $procedure_performed ) > 0 ) : ?>
 									<?php foreach ( $procedure_performed as $procedure_id ) : ?>
 										<div class="col-6">
-											<a href="<?php echo esc_url( get_permalink( $procedure_id ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
+											<?php
+											$procedure_permalink = get_permalink( $procedure_id );
+											if ( false !== $procedure_permalink ) :
+											?>
+											<a href="<?php echo esc_url( $procedure_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 												<h5 class="h6">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></h5>
 												<p class="mb-0"><?php echo esc_html( get_the_title( $procedure_id ) ); ?></p>
 												<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 											</a>
+											<?php else : ?>
+											<div class="patient-info-card">
+												<h5 class="h6">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></h5>
+												<p class="mb-0"><?php echo esc_html( get_the_title( $procedure_id ) ); ?></p>
+											</div>
+											<?php endif; ?>
 										</div>
 									<?php endforeach; ?>
 								<?php endif; ?>
@@ -208,11 +238,21 @@ get_header(); ?>
 					<div class="row g-3">
 						<?php foreach ( $case_links as $resource_id ) : ?>
 							<div class="col-6">
-								<a href="<?php echo esc_url( get_permalink( $resource_id ) ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
+								<?php
+								$resource_permalink = get_permalink( $resource_id );
+								if ( false !== $resource_permalink ) :
+								?>
+								<a href="<?php echo esc_url( $resource_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
 									<h5 class="h6">Resource</h5>
 									<p class="mb-0"><?php echo esc_html( get_the_title( $resource_id ) ); ?></p>
 									<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 								</a>
+								<?php else : ?>
+								<div class="patient-info-card">
+									<h5 class="h6">Resource</h5>
+									<p class="mb-0"><?php echo esc_html( get_the_title( $resource_id ) ); ?></p>
+								</div>
+								<?php endif; ?>
 							</div>
 						<?php endforeach; ?>
 					</div>
@@ -225,7 +265,17 @@ get_header(); ?>
 	<?php /* ------------- Related Cases -------------- */ ?>
 	<?php
 	// Get related cases based on case-category taxonomy.
-	$current_category_terms = wp_get_post_terms( get_the_ID(), 'case-category' );
+	$post_id = get_the_ID();
+	if ( false === $post_id ) {
+		return;
+	}
+	
+	$current_category_terms = wp_get_post_terms( $post_id, 'case-category' );
+
+	// Handle WP_Error or empty results.
+	if ( is_wp_error( $current_category_terms ) || ! is_array( $current_category_terms ) || 0 === count( $current_category_terms ) ) {
+		return;
+	}
 
 	// Filter out broad parent categories, use only specific categories.
 	$specific_category_ids = array();

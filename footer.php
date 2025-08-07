@@ -109,6 +109,11 @@
 						$location_title = get_the_title();
 						$location_url   = get_permalink();
 						++$location_index;
+						
+						// Skip if no permalink available.
+						if ( false === $location_url ) {
+							continue;
+						}
 						?>
 				<div class="accordion-item">
 					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( (string) $location_id ); ?>">
@@ -150,14 +155,18 @@
 										<?php
 										while ( $surgeons_query->have_posts() ) :
 											$surgeons_query->the_post();
+											$surgeon_permalink = get_permalink();
+											if ( false !== $surgeon_permalink ) :
 											?>
 											<li class="mb-2">
-												<a href="<?php echo esc_url( get_permalink() ); ?>" class="surgeon-link">
+												<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-link">
 													<span><?php echo esc_html( get_the_title() ); ?></span>
 													<i class="fas fa-arrow-right surgeon-arrow" aria-hidden="true"></i>
 												</a>
 											</li>
-										<?php endwhile; ?>
+										<?php 
+										endif; // End if permalink check
+										endwhile; ?>
 									</ul>
 								</div>
 							<?php else : ?>

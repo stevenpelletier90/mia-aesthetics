@@ -56,8 +56,8 @@ require_once get_template_directory() . '/inc/enqueue.php';
  * Security Note: SVGs can contain JavaScript, so only allow uploads
  * from trusted users (administrators/editors).
  *
- * @param array $mimes Array of allowed mime types.
- * @return array Modified mime types with SVG support.
+ * @param array<string, string> $mimes Array of allowed mime types.
+ * @return array<string, string> Modified mime types with SVG support.
  */
 function mia_aesthetics_allow_svg_uploads( $mimes ) {
 	$mimes['svg'] = 'image/svg+xml';
@@ -72,20 +72,25 @@ add_filter( 'upload_mimes', 'mia_aesthetics_allow_svg_uploads' );
  * WordPress doesn't generate thumbnails for SVGs by default.
  * This ensures SVGs display properly in the admin media library.
  *
- * @param array  $response   Array of prepared attachment data.
+ * @param array<string, mixed>  $response   Array of prepared attachment data.
  * @param object $attachment Attachment object.
- * @param array  $meta       Array of attachment meta data.
- * @return array Modified response array with SVG display data.
+ * @param array<string, mixed>  $meta       Array of attachment meta data.
+ * @return array<string, mixed> Modified response array with SVG display data.
  */
 function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
 	unset( $meta );
 	if ( 'image' === $response['type'] && 'svg+xml' === $response['subtype'] && class_exists( 'SimpleXMLElement' ) ) {
-		$path = get_attached_file( $attachment->ID );
-		if ( file_exists( $path ) ) {
+		if ( is_object( $attachment ) && property_exists( $attachment, 'ID' ) ) {
+			$path = get_attached_file( $attachment->ID );
+			if ( false !== $path && file_exists( $path ) ) {
 			// Use WP_Filesystem API for better security and compatibility.
 			if ( ! function_exists( 'WP_Filesystem' ) ) {
-				/** @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists */
+				/**
+				 * Load WordPress filesystem API
+				 *
+				 * @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists
+				 */
 				require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
 			}
 			WP_Filesystem();
@@ -134,6 +139,7 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 					);
 				}
 			}
+			}
 		}
 	}
 
@@ -148,11 +154,11 @@ add_filter( 'wp_prepare_attachment_for_js', 'mia_aesthetics_fix_svg_display', 10
  * This ensures WordPress recognizes SVG files as valid images
  * for security and validation purposes.
  *
- * @param array  $data     Array of file data.
+ * @param array<string, mixed>  $data     Array of file data.
  * @param string $file     File path.
  * @param string $filename Original filename.
- * @param array  $mimes    Array of allowed mime types.
- * @return array Modified file data array.
+ * @param array<string, string>  $mimes    Array of allowed mime types.
+ * @return array<string, mixed> Modified file data array.
  */
 function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {
 	global $wp_filetype;

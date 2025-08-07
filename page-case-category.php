@@ -39,7 +39,8 @@ get_header();
 	 * CASE GRID QUERY
 	 * ----------------------------------------------------------------
 	 */
-	$term_ids = wp_get_post_terms( get_the_ID(), 'case-category', array( 'fields' => 'ids' ) );
+	$current_post_id = get_the_ID();
+	$term_ids = 0 !== $current_post_id ? wp_get_post_terms( $current_post_id, 'case-category', array( 'fields' => 'ids' ) ) : array();
 
 	if ( ! is_array( $term_ids ) || count( $term_ids ) === 0 ) {
 		$case_query = null; // No grid.
@@ -101,7 +102,8 @@ get_header();
 
 									<div class="card-body d-flex flex-column">
 										<h2 class="card-title">
-											<a href="<?php echo esc_url( get_permalink() ); ?>">
+											<?php $case_permalink = get_permalink(); ?>
+											<a href="<?php echo esc_url( false !== $case_permalink ? $case_permalink : '#' ); ?>">
 												<?php echo esc_html( get_the_title() ); ?>
 											</a>
 										</h2>
@@ -133,7 +135,8 @@ get_header();
 											</div>
 										<?php endif; ?>
 
-										<a href="<?php echo esc_url( get_permalink() ); ?>" class="btn btn-primary btn-view-case mt-auto">
+										<?php $case_permalink_btn = get_permalink(); ?>
+										<a href="<?php echo esc_url( false !== $case_permalink_btn ? $case_permalink_btn : '#' ); ?>" class="btn btn-primary btn-view-case mt-auto">
 											View Case <i class="fa-solid fa-arrow-right ms-1" aria-hidden="true"></i>
 										</a>
 									</div>

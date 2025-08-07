@@ -1,5 +1,5 @@
 parameters:
-    level: 5
+    level: 7
     paths:
         - .
     excludePaths:
@@ -13,15 +13,48 @@ parameters:
         - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
         - vendor/php-stubs/gravity-forms-stubs/gravity-forms-stubs.php
         - vendor/php-stubs/wordpress-seo-stubs/wordpress-seo-stubs.php
-        # Removed to reduce memory usage:
-        # - vendor/php-stubs/wp-cli-stubs/wp-cli-stubs.php
-        # - vendor/php-stubs/genesis-stubs/genesis-stubs.php
+    
+    # WordPress-specific settings
+    treatPhpDocTypesAsCertain: false  # ACF and WordPress functions often have incorrect PHPDocs
+    
+    # Ignore common WordPress/ACF/Yoast patterns that are safe
+    ignoreErrors:
+        # ACF get_field() can return various types - this is expected behavior
+        - '#Function get_field invoked with#'
+        - '#Method ACF::(get_field|get_sub_field|get_row_layout)\(\) invoked with#'
+        
+        # ACF field returns are intentionally flexible
+        - '#get_field\(\) return type has no value type#'
+        
+        # WordPress functions with mixed return types (by design)
+        - '#Function get_post_meta invoked with#'
+        - '#Function get_option invoked with#'
+        - '#Function get_theme_mod invoked with#'
+        
+        # Yoast SEO functions (keep for when they're used)
+        - '#Function YoastSEO\(\) invoked with#'
+        - '#Call to function WPSEO_#'
+        
+        # WordPress hooks and filters (dynamic by nature)
+        - '#Function (add_action|add_filter|do_action|apply_filters) invoked with#'
+        
+        # ACF Blocks (if using them)
+        - '#Function acf_register_block_type invoked with#'
     
     # Memory and performance
-    # tmpDir: '.phpstan-cache'  # Commented out to use system temp directory
     reportUnmatchedIgnoredErrors: false
     
     # Disable parallel processing completely
     parallel:
         maximumNumberOfProcesses: 1
         processTimeout: 300.0
+    
+    # WordPress-specific type hints
+    universalObjectCratesClasses:
+        - WP_Post
+        - WP_Term
+        - WP_User
+        - WP_Query
+        - WP_Comment
+        - WP_Error
+        - stdClass  # Often returned by $wpdb->get_row()

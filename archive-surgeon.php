@@ -42,15 +42,19 @@ get_header(); ?>
 
 						if ( null !== $location && '' !== $location ) {
 							// Handle Post Object return format.
-							if ( is_object( $location ) ) {
-								$location_id    = $location->ID;
+							if ( is_object( $location ) && property_exists( $location, 'ID' ) && property_exists( $location, 'post_title' ) ) {
+								$location_id    = (int) $location->ID;
 								$location_title = $location->post_title;
 								$location_class = 'location-' . $location_id;
 							} elseif ( is_numeric( $location ) ) {
 								// Handle Post ID return format.
-								$location_id    = intval( $location );
+								$location_id    = (int) $location;
 								$location_title = get_the_title( $location_id );
 								$location_class = 'location-' . $location_id;
+								// Ensure get_the_title() didn't return false.
+								if ( false === $location_title ) {
+									$location_title = '';
+								}
 							}
 						}
 
@@ -65,7 +69,7 @@ get_header(); ?>
 										// Display headshot if ID exists.
 										if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
 											echo wp_get_attachment_image(
-												$headshot_id,
+												(int) $headshot_id,
 												'thumbnail', // Use thumbnail size for circular image.
 												false,
 												array(
@@ -84,15 +88,25 @@ get_header(); ?>
 											<?php the_title(); ?>
 										</h2>
 										
-										<?php if ( $location_title && $location_id ) : ?>
+										<?php if ( '' !== $location_title && '' !== $location_id ) : ?>
+											<?php
+											$location_permalink = get_permalink( $location_id );
+											if ( false !== $location_permalink ) :
+											?>
 										<p class="small mb-2"> 
-											<a href="<?php echo esc_url( get_permalink( $location_id ) ); ?>" class="location-link">
+											<a href="<?php echo esc_url( $location_permalink ); ?>" class="location-link">
 												<?php echo esc_html( $location_title ); ?>
 											</a>
 										</p>
+											<?php endif; ?>
 										<?php endif; ?>
 										
-										<a href="<?php the_permalink(); ?>" class="surgeon-bio-link">View Bio <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+										<?php
+										$surgeon_permalink = get_permalink();
+										if ( false !== $surgeon_permalink ) :
+										?>
+										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-bio-link">View Bio <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+										<?php endif; ?>
 									</div>
 								</div>
 							</div>

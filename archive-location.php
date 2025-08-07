@@ -41,9 +41,16 @@ get_header();
 							<div class="d-flex justify-content-between align-items-start">
 								<div class="location-info flex-grow-1">
 									<h3 class="h5 mb-2">
-										<a href="<?php the_permalink(); ?>" class="text-decoration-none">
+										<?php
+										$location_permalink = get_permalink();
+										if ( false !== $location_permalink ) :
+										?>
+										<a href="<?php echo esc_url( $location_permalink ); ?>" class="text-decoration-none">
 											<?php echo esc_html( get_the_title() ); ?>
 										</a>
+										<?php else : ?>
+											<?php echo esc_html( get_the_title() ); ?>
+										<?php endif; ?>
 									</h3>
 									<?php
 									if ( null !== $location_map && is_array( $location_map ) && count( $location_map ) > 0 ) :
@@ -92,9 +99,14 @@ get_header();
 									<?php endif; ?>
 								</div>
 								<div class="location-action">
-									<a href="<?php the_permalink(); ?>" class="btn btn-sm btn-outline-primary">
+									<?php
+									$location_view_permalink = get_permalink();
+									if ( false !== $location_view_permalink ) :
+									?>
+									<a href="<?php echo esc_url( $location_view_permalink ); ?>" class="btn btn-sm btn-outline-primary">
 										View <i class="fas fa-chevron-right ms-1"></i>
 									</a>
+									<?php endif; ?>
 								</div>
 							</div>
 						</div>
@@ -117,15 +129,20 @@ get_header();
 						<?php
 						$bg_image_id = get_field( 'background_image' );
 						if ( null !== $bg_image_id && '' !== $bg_image_id && is_numeric( $bg_image_id ) ) {
-							$bg_image_url = wp_get_attachment_image_url( $bg_image_id, 'medium_large' );
+							$bg_image_url = wp_get_attachment_image_url( (int) $bg_image_id, 'medium_large' );
 						} elseif ( has_post_thumbnail() ) {
-							$bg_image_url = get_the_post_thumbnail_url( get_the_ID(), 'medium_large' );
+							$post_id = get_the_ID();
+							if ( false !== $post_id ) {
+								$bg_image_url = get_the_post_thumbnail_url( $post_id, 'medium_large' );
+							} else {
+								$bg_image_url = false;
+							}
 						} else {
-							$bg_image_url = '';
+							$bg_image_url = false;
 						}
 						?>
 	<div class="location-card">
-						<?php if ( $bg_image_url ) : ?>
+						<?php if ( false !== $bg_image_url && '' !== $bg_image_url ) : ?>
 			<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="location-card-img-top w-100">
 		<?php endif; ?>
 		<div class="location-content p-4">

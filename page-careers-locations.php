@@ -604,21 +604,22 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 									?>
 									<img src="
 									<?php
-									echo esc_url(
-										wp_get_attachment_image_url( $mia_aesthetics_surgeon_headshot_id, 'medium' )
-									);
+									$headshot_url = wp_get_attachment_image_url( (int) $mia_aesthetics_surgeon_headshot_id, 'medium' );
+									echo esc_url( false !== $headshot_url ? $headshot_url : '' );
 									?>
 									"
 										alt="<?php echo esc_attr( get_the_title() ); ?> Headshot" />
 								<?php elseif ( has_post_thumbnail() ) : ?>
-									<img src="<?php echo esc_url( get_the_post_thumbnail_url() ); ?>" 
+									<?php $thumbnail_url = get_the_post_thumbnail_url(); ?>
+									<img src="<?php echo esc_url( false !== $thumbnail_url ? $thumbnail_url : '' ); ?>" 
 									alt="<?php echo esc_attr( get_the_title() ); ?>" />
 								<?php endif; ?>
 								
 								<div class="surgeon-info">
 									<h3><?php echo esc_html( get_the_title() ); ?></h3>
 									<p>Plastic Surgeon</p>
-									<a href="<?php echo esc_url( get_permalink() ); ?>" class="mia-button" data-variant="gold" data-size="sm">
+									<?php $surgeon_permalink = get_permalink(); ?>
+									<a href="<?php echo esc_url( false !== $surgeon_permalink ? $surgeon_permalink : '#' ); ?>" class="mia-button" data-variant="gold" data-size="sm">
 										View Profile <i class="fa-solid fa-arrow-right"></i>
 									</a>
 								</div>

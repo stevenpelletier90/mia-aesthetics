@@ -33,7 +33,7 @@ if ( ! is_singular( 'surgeon' ) ) :
 		<?php
 		mia_aesthetics_the_logo(
 			array(
-				'fetchpriority' => true,
+				'fetchpriority' => 'high',
 				'link_class'    => 'navbar-brand me-xl-3',
 				'aria_label'    => 'Homepage – Main Navigation',
 			)

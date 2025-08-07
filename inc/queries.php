@@ -84,8 +84,9 @@ add_action( 'pre_get_posts', 'mia_modify_archive_queries' );
  * Modify taxonomy archive queries
  *
  * @param WP_Query $query The WP_Query instance.
+ * @return void
  */
-function mia_modify_taxonomy_queries( $query ) {
+function mia_modify_taxonomy_queries( $query ): void {
 	// Only modify main queries on the frontend.
 	if ( is_admin() || ! $query->is_main_query() ) {
 		return;
@@ -104,8 +105,8 @@ add_action( 'pre_get_posts', 'mia_modify_taxonomy_queries' );
 /**
  * Ensure correct body classes for custom post type archives
  *
- * @param array $classes Array of body classes.
- * @return array Modified body classes.
+ * @param array<int, string> $classes Array of body classes.
+ * @return array<int, string> Modified body classes.
  */
 function mia_archive_body_classes( $classes ) {
 	// Get all registered post types.
@@ -273,8 +274,8 @@ add_action( 'pre_get_posts', 'mia_exclude_pages_from_search' );
 /**
  * Add custom query vars
  *
- * @param array $vars Array of query variables.
- * @return array
+ * @param array<int, string> $vars Array of query variables.
+ * @return array<int, string>
  */
 function mia_add_query_vars( $vars ) {
 	// Add custom query variables if needed.
@@ -372,8 +373,10 @@ add_action( 'pre_get_posts', 'mia_optimize_queries', 999 );
 
 /**
  * Add pagination support for custom queries
+ * 
+ * @return void
  */
-function mia_pagination_rewrite_rules() {
+function mia_pagination_rewrite_rules(): void {
 	// Add rewrite rules for custom post type pagination.
 	$post_types = array( 'special' );
 
@@ -409,6 +412,8 @@ add_action( 'pre_get_posts', 'mia_fix_pagination' );
 /**
  * Get all non-surgical procedures grouped by category
  * Uses persistent transient caching for better performance
+ * 
+ * @return array<string, mixed>
  */
 function mia_get_non_surgical_by_category() {
 	$cache_key      = 'mia_non_surgical_grouped';

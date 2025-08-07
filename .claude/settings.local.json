@@ -12,7 +12,13 @@
       "Bash(composer remove:*)",
       "Bash(grep:*)",
       "Bash(rmdir:*)",
-      "Bash(npm run lint)"
+      "Bash(npm run lint)",
+      "Bash(mkdir:*)",
+      "Bash(composer phpcs:*)",
+      "Bash(composer:*)",
+      "Bash(vendor/bin/phpstan analyse:*)",
+      "Bash(rm:*)",
+      "Bash(find:*)"
     ],
     "additionalDirectories": [
       "C:\\",

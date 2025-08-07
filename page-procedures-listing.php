@@ -37,7 +37,7 @@ get_header();
 					$child_procedures = get_posts(
 						array(
 							'post_type'      => 'procedure',
-							'post_parent'    => $current_post_id,
+							'post_parent'    => (int) $current_post_id,
 							'posts_per_page' => -1,
 							'orderby'        => 'menu_order title',
 							'order'          => 'ASC',
@@ -48,10 +48,21 @@ get_header();
 					if ( count( $child_procedures ) > 0 ) :
 						foreach ( $child_procedures as $procedure ) :
 							setup_postdata( $procedure );
-							$procedure_id      = $procedure->ID;
+							$procedure_id      = (int) $procedure->ID;
 							$procedure_title   = get_the_title( $procedure_id );
 							$procedure_excerpt = get_the_excerpt( $procedure_id );
 							$procedure_link    = get_permalink( $procedure_id );
+							
+							// Type safety checks
+							if ( false === $procedure_title ) {
+								$procedure_title = '';
+							}
+							if ( false === $procedure_excerpt ) {
+								$procedure_excerpt = '';
+							}
+							if ( false === $procedure_link ) {
+								continue; // Skip this procedure if we can't get its permalink
+							}
 							$procedure_image   = get_the_post_thumbnail(
 								$procedure_id,
 								'medium_large',

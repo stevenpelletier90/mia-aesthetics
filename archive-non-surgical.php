@@ -32,8 +32,15 @@ get_header(); ?>
 						$procedure_title   = get_the_title();
 						$procedure_excerpt = get_the_excerpt();
 						$procedure_link    = get_permalink();
+						$post_id           = get_the_ID();
+						
+						// Skip if no valid post ID.
+						if ( false === $post_id ) {
+							continue;
+						}
+						
 						$procedure_image   = get_the_post_thumbnail(
-							get_the_ID(),
+							$post_id,
 							'medium_large',
 							array(
 								'class' => 'img-fluid',
@@ -45,6 +52,9 @@ get_header(); ?>
 						if ( '' === $procedure_image ) {
 							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 						}
+						
+						// Only display if permalink is available.
+						if ( false !== $procedure_link ) :
 						?>
 						
 						<div class="col-lg-4 col-md-6">
@@ -68,6 +78,7 @@ get_header(); ?>
 						</div>
 						
 						<?php
+						endif;
 					endwhile;
 
 					// Add Weight Loss post at the end for alphabetical order.
@@ -90,6 +101,9 @@ get_header(); ?>
 						if ( '' === $procedure_image ) {
 							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
 						}
+						
+						// Only display if permalink is available.
+						if ( false !== $procedure_link ) :
 						?>
 						
 						<div class="col-lg-4 col-md-6">
@@ -113,6 +127,7 @@ get_header(); ?>
 						</div>
 						
 						<?php
+						endif;
 						wp_reset_postdata();
 					endif;
 

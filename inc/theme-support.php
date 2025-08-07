@@ -12,8 +12,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 add_action( 'after_setup_theme', 'mia_setup' );
 /**
  * Register theme supports, menus, and sizes.
+ * @return void
  */
-function mia_setup() {
+function mia_setup(): void {
 
 	/* ---- Core --------------------------------------------------------- */
 	add_theme_support( 'title-tag' );          // SEO‑friendly <title>.
@@ -90,8 +91,9 @@ add_action( 'after_setup_theme', 'mia_editor_styles' );
 
 /**
  * Load editor-only styles for Gutenberg.
+ * @return void
  */
-function mia_editor_styles() {
+function mia_editor_styles(): void {
 	add_editor_style(
 		array(
 			'assets/css/_fonts.css',
@@ -110,8 +112,9 @@ add_action( 'admin_bar_menu', 'mia_admin_bar_view_source', 100 );
  * Add View Source button to admin bar for comparing staging to production.
  *
  * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+ * @return void
  */
-function mia_admin_bar_view_source( $wp_admin_bar ) {
+function mia_admin_bar_view_source( $wp_admin_bar ): void {
 	if ( ! is_admin() && ! is_user_logged_in() ) {
 		return;
 	}
@@ -142,7 +145,8 @@ add_action( 'acf/init', 'mia_acf_init' );
 
 /**
  * Initialize ACF Pro settings including Google Maps API key.
+ * @return void
  */
-function mia_acf_init() {
+function mia_acf_init(): void {
 	acf_update_setting( 'google_api_key', 'AIzaSyAiXSTjbyqjv_b9yGrxVyXYRmZQZ4GXBJ4' );
 }

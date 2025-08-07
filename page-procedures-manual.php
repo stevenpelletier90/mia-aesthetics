@@ -95,7 +95,8 @@ get_header();
 							// Use custom or default values.
 							$procedure_title   = ( '' !== $custom_title ) ? $custom_title : get_the_title( $procedure_id );
 							$procedure_excerpt = ( '' !== $custom_excerpt ) ? $custom_excerpt : get_the_excerpt( $procedure_id );
-							$procedure_link    = get_permalink( $procedure_id );
+							$procedure_link_raw = get_permalink( $procedure_id );
+							$procedure_link = false !== $procedure_link_raw ? $procedure_link_raw : '#';
 							$procedure_image   = get_the_post_thumbnail(
 								$procedure_id,
 								'medium_large',

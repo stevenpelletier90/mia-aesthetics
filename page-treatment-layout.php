@@ -11,8 +11,12 @@ get_header();
 ?>
 <a href="#main-content" class="visually-hidden-focusable skip-link">Skip to main content</a>
 <?php
-$current_post           = get_queried_object();
-$mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
+$current_post = get_queried_object();
+$mia_aesthetics_hero_id = false;
+
+if ( $current_post instanceof WP_Post ) {
+	$mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
+}
 ?>
 <main id="main-content" role="main">
 <?php mia_aesthetics_breadcrumbs(); ?>
@@ -22,17 +26,30 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 		the_post();
 		?>
 <section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
-			<?php if ( $mia_aesthetics_hero_id ) : ?>
+			<?php if ( false !== $mia_aesthetics_hero_id ) : ?>
 				<picture class="hero-picture">
+					<?php
+					$hero_mobile_url = wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-mobile' );
+					$hero_tablet_url = wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-tablet' );
+					?>
+					<?php if ( false !== $hero_mobile_url ) : ?>
 					<source media="(max-width: 640px)" 
-						srcset="<?php echo esc_url( wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-mobile' ) ); ?>">
+						srcset="<?php echo esc_url( $hero_mobile_url ); ?>">
+					<?php endif; ?>
+					<?php if ( false !== $hero_tablet_url ) : ?>
 					<source media="(max-width: 1024px)" 
-						srcset="<?php echo esc_url( wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-tablet' ) ); ?>">
-					<img src="<?php echo esc_url( wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-desktop' ) ); ?>" 
+						srcset="<?php echo esc_url( $hero_tablet_url ); ?>">
+					<?php endif; ?>
+					<?php
+					$hero_desktop_url = wp_get_attachment_image_url( $mia_aesthetics_hero_id, 'hero-desktop' );
+					if ( false !== $hero_desktop_url ) :
+					?>
+					<img src="<?php echo esc_url( $hero_desktop_url ); ?>" 
 						alt="<?php echo esc_attr( get_the_title() ); ?> treatment background"
 						class="hero-bg"
 						loading="eager"
 						fetchpriority="high">
+					<?php endif; ?>
 				</picture>
 			<?php endif; ?>
 			
@@ -114,11 +131,11 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 									if ( is_array( $mia_aesthetics_results_page ) ) {
 										$mia_aesthetics_page_id  = $mia_aesthetics_results_page['ID'];
 										$mia_aesthetics_page_url = $mia_aesthetics_results_page['url'];
-									} elseif ( is_object( $mia_aesthetics_results_page ) ) {
+									} elseif ( is_object( $mia_aesthetics_results_page ) && property_exists( $mia_aesthetics_results_page, 'ID' ) ) {
 										$mia_aesthetics_page_id  = $mia_aesthetics_results_page->ID;
 										$mia_aesthetics_page_url = get_permalink( $mia_aesthetics_page_id );
 									} elseif ( is_numeric( $mia_aesthetics_results_page ) ) {
-										$mia_aesthetics_page_id  = $mia_aesthetics_results_page;
+										$mia_aesthetics_page_id  = (int) $mia_aesthetics_results_page;
 										$mia_aesthetics_page_url = get_permalink( $mia_aesthetics_page_id );
 									} else {
 										// Assume it's already a URL.
@@ -148,7 +165,7 @@ $mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 								if ( is_array( $mia_aesthetics_related_procedures ) && count( $mia_aesthetics_related_procedures ) > 0 ) :
 									$mia_aesthetics_related_ids   = array_map(
 										function ( $p ) {
-											return is_object( $p ) ? $p->ID : (int) $p;
+											return is_object( $p ) && property_exists( $p, 'ID' ) ? $p->ID : (int) $p;
 										},
 										$mia_aesthetics_related_procedures
 									);

@@ -47,10 +47,15 @@ get_header(); ?>
 								<?php endif; ?>
 								<div class="special-card-body">
 									<?php
-									the_title(
-										'<h2 class="special-card-title"><a href="' . esc_url( get_permalink() ) . '">',
-										'</a></h2>'
-									);
+									$permalink = get_permalink();
+									if ( false !== $permalink ) :
+										the_title(
+											'<h2 class="special-card-title"><a href="' . esc_url( $permalink ) . '">',
+											'</a></h2>'
+										);
+									else :
+										the_title( '<h2 class="special-card-title">', '</h2>' );
+									endif;
 									?>
 									<div class="special-card-excerpt">
 										<?php the_excerpt(); ?>

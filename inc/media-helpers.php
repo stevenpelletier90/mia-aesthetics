@@ -22,7 +22,7 @@ if ( ! defined( 'ABSPATH' ) ) {
  *   ['url','title','description','thumbnail'] – empty array if none found.
  *
  * @param int|null $post_id Post ID or current post if null.
- * @return array|null
+ * @return array<string, string>|null
  */
 function mia_get_video_field( $post_id = null ) {
 	if ( null === $post_id ) {
@@ -30,7 +30,7 @@ function mia_get_video_field( $post_id = null ) {
 	}
 
 	// Validate post ID.
-	if ( ! $post_id || false === get_post_status( $post_id ) ) {
+	if ( 0 === $post_id || false === $post_id || false === get_post_status( $post_id ) ) {
 		return null;
 	}
 
@@ -64,8 +64,8 @@ function mia_get_video_field( $post_id = null ) {
 				if ( isset( $val['video_thumbnail'] ) && '' !== $val['video_thumbnail'] ) {
 					if ( is_numeric( $val['video_thumbnail'] ) ) {
 						// It's an attachment ID.
-						$thumbnail_url = wp_get_attachment_image_url( $val['video_thumbnail'], 'full' );
-						if ( $thumbnail_url ) {
+						$thumbnail_url = wp_get_attachment_image_url( (int) $val['video_thumbnail'], 'full' );
+						if ( false !== $thumbnail_url ) {
 							$thumbnail = $thumbnail_url;
 						}
 					} elseif ( is_array( $val['video_thumbnail'] ) && isset( $val['video_thumbnail']['url'] ) && '' !== $val['video_thumbnail']['url'] ) {
@@ -89,7 +89,7 @@ function mia_get_video_field( $post_id = null ) {
 			}
 
 			// Generic link array.
-			if ( isset( $val['url'] ) && '' !== $val['url'] && is_string( $val['url'] ) && filter_var( $val['url'], FILTER_VALIDATE_URL ) ) {
+			if ( isset( $val['url'] ) && '' !== $val['url'] && is_string( $val['url'] ) && false !== filter_var( $val['url'], FILTER_VALIDATE_URL ) ) {
 				return array(
 					'url'         => esc_url_raw( $val['url'] ),
 					'title'       => sanitize_text_field( $val['title'] ?? '' ),
@@ -100,7 +100,7 @@ function mia_get_video_field( $post_id = null ) {
 		}
 
 		// Case 2: Simple URL string.
-		if ( is_string( $val ) && filter_var( $val, FILTER_VALIDATE_URL ) ) {
+		if ( is_string( $val ) && false !== filter_var( $val, FILTER_VALIDATE_URL ) ) {
 			return array(
 				'url'         => esc_url_raw( $val ),
 				'title'       => '',
@@ -159,7 +159,7 @@ function mia_before_after_img( $img, string $label ) {
 	// Handle array (ACF image field).
 	if ( is_array( $img ) && isset( $img['url'] ) && '' !== $img['url'] ) {
 		$src = $img['url'];
-		if ( ! filter_var( $src, FILTER_VALIDATE_URL ) ) {
+		if ( false === filter_var( $src, FILTER_VALIDATE_URL ) ) {
 			// Invalid URL in array - return placeholder.
 			$src = 'https://placehold.co/600x450';
 			return "<img src='" . esc_url( $src ) . "' class='img-fluid w-100 object-fit-cover' alt='" . $safe_label . " placeholder' loading='lazy'>";
@@ -170,7 +170,7 @@ function mia_before_after_img( $img, string $label ) {
 
 	// Handle string URL.
 	if ( is_string( $img ) ) {
-		if ( ! filter_var( $img, FILTER_VALIDATE_URL ) ) {
+		if ( false === filter_var( $img, FILTER_VALIDATE_URL ) ) {
 			// Try to find attachment by URL with error handling.
 			$id = attachment_url_to_postid( $img );
 			if ( 0 !== $id && $id > 0 && wp_attachment_is_image( $id ) ) {
