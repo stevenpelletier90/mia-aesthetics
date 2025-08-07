@@ -2,13 +2,16 @@
 /**
  * Hero Section Template
  *
- * Clean implementation with proper aspect ratios:
- * - Carousel: 1920x1080 (16:9)
- * - Boxes: 1600x900 (16:9)
+ * Responsive banner implementation with hardcoded images:
+ * - Heat Banner: Mobile/Desktop/Widescreen versions
+ * - HotMom Banner: Mobile/Desktop/Widescreen versions
  *
- * Uses ACF custom fields:
- * - banner_1: First carousel slide image (image array)
- * - banner_2: Second carousel slide image (image array)
+ * Uses picture element with source sets for optimal loading:
+ * - Mobile: up to 767px
+ * - Desktop: 768px to 1920px  
+ * - Widescreen: above 1920px
+ *
+ * ACF custom fields (for sidebar boxes):
  * - ba_image: Before & After box image (image array)
  * - financing_image: Financing box image (image array)
  *
@@ -19,91 +22,20 @@
 
 <section class="hero-section">
 	<div class="hero-container">
-	<!-- Carousel Section (1920x1080) -->
+	<!-- Hero Banner (Responsive) -->
 	<div class="hero-carousel">
-		<div id="heroCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-touch="true" data-bs-interval="5000">
-		<!-- Indicators -->
-		<div class="carousel-indicators">
-			<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
-			<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
-			<button type="button" data-bs-target="#heroCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
-		</div>
-		
-		<!-- Slides -->
-		<div class="carousel-inner">
-			<div class="carousel-item active">
-			<?php
-			$banner_1 = get_field( 'banner_1' );
-			if ( null !== $banner_1 && is_array( $banner_1 ) && isset( $banner_1['url'] ) && '' !== $banner_1['url'] ) :
-				?>
-			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
+		<div class="hero-banner">
 			<picture>
-				<img src="<?php echo esc_url( $banner_1['url'] ); ?>" 
+				<!-- Desktop/Widescreen: 768px+ (same 3.2:1 aspect ratio) -->
+				<source media="(min-width: 768px)" 
+					srcset="/wp-content/uploads/2025/08/Heat-Banner-Desktop.jpg 1920w, /wp-content/uploads/2025/08/Heat-Banner-WIDESCREEN.jpg 2560w"
+					sizes="100vw">
+				<!-- Mobile fallback: up to 767px (800x600 - different aspect ratio) -->
+				<img src="/wp-content/uploads/2025/08/Heat-Banner-MOB.jpg" 
 					class="d-block w-100" 
-					alt="<?php echo esc_attr( $banner_1['alt'] ?? 'Hero Carousel Slide 1' ); ?>" 
+					alt="Beat the Heat Summer Special" 
 					fetchpriority="high">
 			</picture>
-			<?php else : ?>
-			<!-- Fallback with placehold.co -->
-			<picture>
-				<source media="(max-width: 767px)" srcset="https://placehold.co/800x600/1b1b1b/c8b273?text=Mobile+Carousel+1+(800x600)">
-				<source media="(max-width: 1920px)" srcset="https://placehold.co/1920x600/1b1b1b/c8b273?text=Desktop+Carousel+1+(1920x600)">
-				<img src="https://placehold.co/2560x800/1b1b1b/c8b273?text=Wide+Desktop+Carousel+1+(2560x800)" 
-					class="d-block w-100" 
-					alt="Hero Carousel Slide 1" 
-					fetchpriority="high">
-			</picture>
-			<?php endif; ?>
-			</div>
-			<div class="carousel-item">
-			<?php
-			$banner_2 = get_field( 'banner_2' );
-			if ( null !== $banner_2 && is_array( $banner_2 ) && isset( $banner_2['url'] ) && '' !== $banner_2['url'] ) :
-				?>
-			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
-			<picture>
-				<source media="(max-width: 767px)" srcset="https://placehold.co/800x600/333333/c8b273?text=Mobile+Carousel+2+(800x600)">
-				<source media="(max-width: 1920px)" srcset="https://placehold.co/1920x600/333333/c8b273?text=Desktop+Carousel+2+(1920x600)">
-				<img src="https://placehold.co/2560x800/333333/c8b273?text=Wide+Desktop+Carousel+2+(2560x800)" 
-					class="d-block w-100" 
-					alt="Hero Carousel Slide 2">
-			</picture>
-			<?php else : ?>
-			<!-- Fallback with placehold.co -->
-			<picture>
-				<source media="(max-width: 767px)" srcset="https://placehold.co/800x600/333333/c8b273?text=Mobile+Carousel+2+(800x600)">
-				<source media="(max-width: 1920px)" srcset="https://placehold.co/1920x600/333333/c8b273?text=Desktop+Carousel+2+(1920x600)">
-				<img src="https://placehold.co/2560x800/333333/c8b273?text=Wide+Desktop+Carousel+2+(2560x800)" 
-					class="d-block w-100" 
-					alt="Hero Carousel Slide 2">
-			</picture>
-			<?php endif; ?>
-			</div>
-			<div class="carousel-item">
-			<?php
-			$banner_3 = get_field( 'banner_3' );
-			if ( null !== $banner_3 && is_array( $banner_3 ) && isset( $banner_3['url'] ) && '' !== $banner_3['url'] ) :
-				?>
-			<!-- Wide Desktop: 2560x800, Desktop: 1920x600, Mobile: 800x600 -->
-			<picture>
-				<source media="(max-width: 767px)" srcset="https://placehold.co/800x600/555555/c8b273?text=Mobile+Carousel+3+(800x600)">
-				<source media="(max-width: 1920px)" srcset="https://placehold.co/1920x600/555555/c8b273?text=Desktop+Carousel+3+(1920x600)">
-				<img src="https://placehold.co/2560x800/555555/c8b273?text=Wide+Desktop+Carousel+3+(2560x800)" 
-					class="d-block w-100" 
-					alt="Hero Carousel Slide 3">
-			</picture>
-			<?php else : ?>
-			<!-- Fallback with placehold.co -->
-			<picture>
-				<source media="(max-width: 767px)" srcset="https://placehold.co/800x600/555555/c8b273?text=Mobile+Carousel+3+(800x600)">
-				<source media="(max-width: 1920px)" srcset="https://placehold.co/1920x600/555555/c8b273?text=Desktop+Carousel+3+(1920x600)">
-				<img src="https://placehold.co/2560x800/555555/c8b273?text=Wide+Desktop+Carousel+3+(2560x800)" 
-					class="d-block w-100" 
-					alt="Hero Carousel Slide 3">
-			</picture>
-			<?php endif; ?>
-			</div>
-		</div>
 		</div>
 	</div>
 

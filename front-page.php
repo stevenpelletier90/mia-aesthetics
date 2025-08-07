@@ -78,7 +78,7 @@ require __DIR__ . '/hero-section.php';
 			<p class="excellence-description">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
 			<a href="/locations/" class="mia-button me-3" data-variant="gold" role="button">Our Locations</a>
-			<a href="/plastic-surgeons/" class="mia-button" data-variant="gold-outline" role="button">Our Surgeons</a>
+			<a href="/plastic-surgeons/" class="mia-button" data-variant="black" role="button">Our Surgeons</a>
 			</div>
 		</div>
 		</div>
