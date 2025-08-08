@@ -36,11 +36,32 @@
       "Bash(\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\" https://google.com)",
       "mcp__browser-tools__takeScreenshot",
       "mcp__browser-tools__getConsoleLogs",
-      "mcp__puppeteer__puppeteer_navigate"
+      "mcp__puppeteer__puppeteer_navigate",
+      "mcp__browser-tools__runDebuggerMode",
+      "Bash(cat:*)",
+      "Bash(echo \"BROWSER set to: $BROWSER\")",
+      "Bash(npx:*)",
+      "Bash(sudo mkdir:*)",
+      "Bash(dmesg:*)",
+      "Bash(systemctl:*)",
+      "Bash(test:*)",
+      "Bash(\"/mnt/c/Windows/System32/cmd.exe\" /c echo \"Test from Windows CMD\")",
+      "Bash(sudo journalctl:*)",
+      "Bash(cmd.exe:*)",
+      "Bash(echo \"BROWSER=$BROWSER\")",
+      "Bash(echo:*)",
+      "Bash(\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\" --version)",
+      "Bash(ping:*)",
+      "Bash(/dev/null)",
+      "Bash(nslookup:*)",
+      "Bash(curl:*)",
+      "Bash(CHROME_WIN_PATH=\"/mnt/c/Program Files/Google/Chrome/Application/chrome.exe\")",
+      "Bash(\"$CHROME_WIN_PATH\" --version)",
+      "Bash(export:*)"
     ],
     "additionalDirectories": [
-      "C:\\",
-      "D:\\"
+      "/mnt/c/",
+      "/mnt/d/"
     ]
   }
 }

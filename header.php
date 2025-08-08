@@ -28,7 +28,7 @@ if ( ! is_singular( 'surgeon' ) ) :
 <header class="position-sticky site-header top-0">
 	<nav class="navbar navbar-expand-xl navbar-dark" id="primary-navigation" aria-label="Main navigation">
 	<div class="container-fluid">
-		<div class="d-flex flex-wrap align-items-center w-100">
+		<div class="d-flex flex-nowrap align-items-center w-100">
 		<!-- Logo -->
 		<?php
 		mia_aesthetics_the_logo(
@@ -70,9 +70,6 @@ if ( ! is_singular( 'surgeon' ) ) :
 			<div class="d-flex flex-column flex-xl-row align-items-start align-items-xl-center w-100">
 				<!-- Main Navigation -->
 				<ul class="navbar-nav ms-xl-auto me-xl-3 mb-2 mb-xl-0">
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo esc_url( home_url( '/' ) ); ?>">Home</a>
-				</li>
 				<!-- Procedures Menu - Desktop (using refactored functions) -->
 				<?php
 				$menu_structure = mia_aesthetics_get_menu_structure();
@@ -106,15 +103,15 @@ if ( ! is_singular( 'surgeon' ) ) :
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo esc_url( home_url( '/specials/' ) ); ?>">Specials</a>
 				</li>
-				<!-- Patient Portal Dropdown -->
+				<!-- Patient Resources Dropdown -->
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-describedby="patient-portal-menu">
-					Patient Portal
+					Patient Resources
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="patient-portal-dropdown" id="patient-portal-menu">
 					<li>
 						<a class="dropdown-item" href="https://patient.miaaesthetics.com/s/login?ec=302&startURL=%2Fs%2Fhome" target="_blank" rel="noopener">
-						Patient Portal Login
+						Patient Portal
 						</a>
 					</li>
 					<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/patient-portal-guide/' ) ); ?>">Patient Portal Guide</a></li>

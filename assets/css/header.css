@@ -16,7 +16,7 @@
 }
 
 .navbar-nav .nav-link {
-  font-size: clamp(0.6rem, 0.4vw + 0.35rem, 1rem);
+  font-size: clamp(0.6rem, 1.2vw, 0.85rem);
   font-weight: 600;
   text-decoration: none;
 }
@@ -123,9 +123,9 @@
     position: static;
   }
 
-  /* Make logo smaller on desktop to save space */
+  /* Make logo bigger like mobile view */
   .navbar-brand img {
-    height: clamp(22px, 2.8vw, 32px);
+    height: 40px;
     width: auto;
   }
 
@@ -133,13 +133,17 @@
   .offcanvas-body .d-flex {
     justify-content: flex-start;
     align-items: center;
-    gap: clamp(0.3rem, 1.5vw, 2rem);
+    flex-wrap: nowrap;
+    gap: 1rem;
   }
 
   .navbar-nav {
+    display: flex;
+    flex-wrap: nowrap;
     margin-left: auto;
-    margin-right: clamp(0.15rem, 0.4vw, 0.6rem);
-    flex-shrink: 1;
+    margin-right: 0.5rem;
+    flex-shrink: 0;
+    min-width: 0;
   }
 
   .dropdown-menu.mega-menu {
@@ -218,18 +222,20 @@
   }
 
   .navbar-nav .nav-item {
-    margin: 0 clamp(0.01rem, 0.1vw, 0.2rem);
+    margin: 0 0.1rem;
+    flex-shrink: 0;
   }
 
   .navbar-nav .nav-link {
-    padding-left: clamp(0.2rem, 0.3vw, 0.7rem);
-    padding-right: clamp(0.2rem, 0.3vw, 0.7rem);
+    padding-left: 0.4rem;
+    padding-right: 0.4rem;
+    white-space: nowrap;
   }
 
   .desktop-cta {
-    padding: clamp(0.2rem, 0.25vw + 0.1rem, 0.6rem) clamp(0.4rem, 0.5vw + 0.2rem, 1.2rem);
-    font-size: clamp(0.65rem, 0.2vw + 0.5rem, 1rem);
-    font-weight: 600;
+    padding: clamp(0.3rem, 0.4vw, 0.5rem) clamp(0.6rem, 1vw, 1.2rem);
+    font-size: clamp(0.6rem, 1.2vw, 0.85rem);
+    font-weight: clamp(600, 650, 700);
     white-space: nowrap;
     margin-left: 0;
     flex-shrink: 0;
@@ -241,68 +247,95 @@
   }
 }
 
-/* Consolidated desktop breakpoints for efficiency */
-@media (min-width: 1200px) {
-  /* Base desktop styles already defined above */
 
-  /* Medium desktop adjustments */
-  @media (max-width: 1280px) {
-    .desktop-cta {
-      padding: 0.3rem 0.5rem;
-      font-size: 0.75rem;
-      margin-left: 0.3rem;
-    }
-
-    .desktop-cta .fa-arrow-right {
-      margin-left: 0.25rem;
-      font-size: 0.65em;
-    }
+/* Fix overflow in 1620-1630px range and maintain nav font size from 1600px down */
+@media (max-width: 1700px) {
+  .navbar-nav .nav-link {
+    font-size: 0.75rem !important;
   }
 
-  /* Large desktop enhancements */
-  @media (min-width: 1400px) {
-    .navbar-nav .nav-item {
-      margin: 0 0.15rem;
-    }
+  .desktop-cta {
+    padding: 0.4rem 0.9rem !important;
+    font-size: 0.75rem !important;
+    font-weight: 600 !important;
+  }
+}
 
-    .navbar-nav .nav-link {
-      padding-left: 0.6rem;
-      padding-right: 0.6rem;
-      font-size: clamp(0.85rem, 0.3vw + 0.6rem, 1rem);
-    }
-
-    .desktop-cta {
-      padding: 0.5rem 1.2rem;
-      font-size: clamp(0.9rem, 0.2vw + 0.8rem, 1rem);
-      font-weight: 700;
-      letter-spacing: 0.01em;
-    }
-
-    .desktop-cta .fa-arrow-right {
-      margin-left: 0.5rem;
-      font-size: 0.8em;
-    }
+@media (max-width: 1300px) {
+  .navbar-brand img {
+    height: 33px;
   }
 
-  /* Extra large desktop (1600px+) */
-  @media (min-width: 1600px) {
-    .navbar-brand img {
-      height: clamp(32px, 3.5vw, 40px);
-    }
+  .navbar-nav .nav-link {
+    font-size: 11px !important;
+  }
 
-    .navbar-nav .nav-item {
-      margin: 0 0.2rem;
-    }
+  .desktop-cta {
+    padding: 0.3rem 0.7rem !important;
+    font-size: 11px !important;
+  }
+}
 
-    .navbar-nav .nav-link {
-      padding-left: 0.8rem;
-      padding-right: 0.8rem;
-    }
+/* Start transition earlier to prevent overflow */
+@media (min-width: 1500px) {
+  .navbar-nav .nav-link {
+    font-size: 0.9rem;
+  }
 
-    .desktop-cta {
-      padding: 0.6rem 1.5rem;
-      font-size: 1rem;
-    }
+  .desktop-cta {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .desktop-cta .fa-arrow-right {
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+  }
+}
+
+/* Large desktop enhancements - moved to 1550px */
+@media (min-width: 1550px) {
+  .navbar-nav .nav-item {
+    margin: 0 0.15rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    font-size: 0.9rem;
+  }
+
+  .desktop-cta {
+    padding: 0.5rem 1.2rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.01em;
+  }
+
+  .desktop-cta .fa-arrow-right {
+    margin-left: 0.5rem;
+    font-size: 0.8em;
+  }
+}
+
+
+/* Extra large desktop (1600px+) */
+@media (min-width: 1600px) {
+  .navbar-nav .nav-item {
+    margin: 0 0.2rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding-left: 0.8rem;
+    padding-right: 0.8rem;
+    font-size: 1rem;
+  }
+
+  .desktop-cta {
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
   }
 }
 
