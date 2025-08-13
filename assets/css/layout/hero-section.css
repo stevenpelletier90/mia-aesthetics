@@ -1,0 +1,170 @@
+/* ===== HERO SECTION - SIMPLE RESPONSIVE LAYOUT ===== */
+
+/*
+ * RECOMMENDED IMAGE SIZES FOR GRAPHICS TEAM:
+ *
+ * Wide Desktop Carousel Images: 2560x800 (3.2:1 ratio) - for screens 1921px+
+ * Desktop Carousel Images: 1920x600 (3.2:1 ratio) - for 768px-1920px
+ * Mobile Carousel Images: 800x600 (4:3 ratio) - for screens under 768px
+ * Box Images: 600x240 (2.5:1 ratio) - desktop, 600x720 (5:6 ratio) - mobile
+ */
+
+/* Hero section container */
+.hero-section {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+/* Container that holds everything */
+.hero-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Carousel with aspect ratio */
+.hero-carousel {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 2560/800; /* Desktop aspect ratio - slightly taller */
+}
+
+/* Mobile: Taller aspect ratio */
+@media (max-width: 767px) {
+  .hero-carousel {
+    aspect-ratio: 4/3; /* More square for mobile */
+  }
+}
+
+/* Bootstrap carousel positioning */
+.hero-carousel .carousel {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-carousel .carousel-inner,
+.hero-carousel .carousel-item {
+  width: 100%;
+  height: 100%;
+}
+
+/* Images fill container */
+.hero-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Carousel controls */
+.carousel-indicators {
+  bottom: 2rem;
+}
+
+.carousel-indicators [data-bs-target] {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #fff;
+  border: 2px solid #fff;
+  opacity: 0.7;
+}
+
+.carousel-indicators .active {
+  opacity: 1;
+  transform: scale(1.2);
+}
+
+/* Bottom boxes section */
+.hero-sidebar {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  border-top: 2px solid #fff;
+}
+
+.hero-box {
+  flex: 1;
+  width: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-box-top {
+  border-right: 1px solid #fff;
+}
+
+.hero-box-bottom {
+  border-left: 1px solid #fff;
+}
+
+/* Box aspect ratio */
+.hero-box::before {
+  content: "";
+  display: block;
+  padding-top: 40%; /* 2.5:1 aspect ratio for desktop - shorter to offset taller carousel */
+}
+
+/* Mobile: Taller boxes */
+@media (max-width: 767px) {
+  .hero-box::before {
+    padding-top: 120%; /* 5:6 aspect ratio for mobile - slightly shorter */
+  }
+}
+
+.hero-box-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-box-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  text-align: center;
+}
+
+.hero-box-heading {
+  font-family: var(--font-heading, "Montserrat", sans-serif);
+  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+  font-weight: 700;
+  color: #fff;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-transform: uppercase;
+  letter-spacing: -0.5px;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+  .hero-box-overlay {
+    padding: 1.5rem 1rem; /* More padding for taller boxes */
+  }
+
+  .hero-box-heading {
+    font-size: clamp(1.25rem, 4.5vw, 1.75rem);
+    margin-bottom: 0.75rem; /* More space for taller boxes */
+  }
+
+  /* Make buttons smaller on mobile */
+  .hero-box .mia-button {
+    font-size: 0.875rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

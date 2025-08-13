@@ -1,0 +1,895 @@
+/* Styles for the page-careers-locations.php template */
+
+/* Location Header (Hero) Styles */
+.location-header {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  color: #fff;
+  padding: 3rem 0;
+  position: relative;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.location-header h1 {
+  color: var(--color-gold);
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.location-header p {
+  color: #fff;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+}
+
+.location-intro {
+  border-left: 3px solid var(--color-gold);
+  padding-left: 1rem;
+}
+
+.location-info {
+  background-color: rgba(155, 155, 155, 0.2);
+  border-radius: 8px;
+  padding: 1.5rem;
+  backdrop-filter: blur(5px);
+}
+
+.location-detail {
+  color: #fff;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.location-icon {
+  color: var(--color-gold);
+  margin-right: 0.75rem;
+  font-size: 1.2rem;
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+}
+
+.location-phone {
+  color: #fff;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.location-phone:hover {
+  color: var(--color-gold);
+}
+
+.location-map-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.location-map-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Department Breakdown Styles */
+.dept-breakdown {
+  margin-top: 3rem;
+}
+
+.dept-breakdown h3 {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.dept-breakdown h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-gold);
+}
+
+/* Department Accordion Styles */
+.dept-breakdown .accordion-item {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.dept-breakdown .accordion-button {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.dept-breakdown .accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  color: #fff;
+  box-shadow: none;
+}
+
+.dept-breakdown .accordion-button:not(.collapsed) i {
+  color: var(--color-gold);
+}
+
+.dept-breakdown .accordion-button:hover {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  color: #fff;
+}
+
+.dept-breakdown .accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.dept-breakdown .accordion-body {
+  padding: 2rem 1.5rem;
+  background: #f8f9fa;
+}
+
+.dept-breakdown .accordion-body .lead {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+}
+
+/* Job Functions Styles */
+.job-functions {
+  margin-top: 3rem;
+}
+
+.job-functions h3 {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.75rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0.75rem;
+}
+
+.job-functions h3::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 3px;
+  background-color: var(--color-gold);
+}
+
+.job-function-card {
+  background: #fff;
+  border: 1px solid #e5e5e5 !important;
+  transition: all 0.3s ease;
+  height: 100%;
+}
+
+.job-function-card:hover {
+  border-color: var(--color-gold) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.job-function-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+}
+
+.job-function-card:hover .job-function-title {
+  color: var(--color-gold);
+}
+
+.job-function-description {
+  color: #666;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+/* Legacy Career Categories Styles */
+.career-categories {
+  margin-top: 3rem;
+}
+
+/* Accordion Styles - Scoped to careers location template */
+.page-template-page-careers-locations main .accordion-item {
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 0.5rem;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.page-template-page-careers-locations main .accordion-header {
+  margin-bottom: 0;
+}
+
+.page-template-page-careers-locations main .accordion-button {
+  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1.25rem;
+  padding: 1.25rem 1.5rem;
+  border: none;
+  box-shadow: none;
+  transition: all 0.3s ease;
+}
+
+.page-template-page-careers-locations main .accordion-button:not(.collapsed) {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  color: #fff;
+  box-shadow: none;
+}
+
+.page-template-page-careers-locations main .accordion-button:not(.collapsed) i {
+  color: var(--color-gold);
+}
+
+.page-template-page-careers-locations main .accordion-button:hover {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  color: #fff;
+}
+
+.page-template-page-careers-locations main .accordion-button:focus {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.page-template-page-careers-locations main .accordion-body {
+  padding: 2rem 1.5rem;
+  background: #f8f9fa;
+}
+
+.page-template-page-careers-locations main .accordion-body .lead {
+  color: #666;
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+
+/* New Position Card Styles */
+.position-card-expanded {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  height: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.position-card-expanded::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-gold);
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+}
+
+.position-card-expanded:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.position-card-expanded:hover::before {
+  transform: translateX(0);
+}
+
+.position-title-expanded {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.75rem;
+  transition: color 0.3s ease;
+}
+
+.position-card-expanded:hover .position-title-expanded {
+  color: var(--color-gold);
+}
+
+.position-description {
+  font-size: 0.9rem;
+  color: #666;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Job Listings Section */
+.job-listings {
+  border-top: 2px solid #f0f0f0;
+  padding-top: 3rem;
+}
+
+.job-item {
+  background: #fff;
+  border: 2px solid #e5e5e5 !important;
+  transition: all 0.3s ease;
+}
+
+.job-item:hover {
+  border-color: var(--color-gold) !important;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.job-item h4 {
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.job-type {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.no-jobs-message {
+  background: #f8f9fa;
+  border: 2px dashed #dee2e6;
+}
+
+.no-jobs-message i {
+  color: var(--color-gold);
+  opacity: 0.6;
+}
+
+/* Icons in Accordion Headers - Scoped */
+.page-template-page-careers-locations main .accordion-button i {
+  font-size: 1.25rem;
+  color: var(--color-gold);
+  transition: color 0.3s ease;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  padding: 5rem 0;
+}
+
+/* Two-column top content layout */
+.benefits-top-content {
+  margin-bottom: 4rem;
+}
+
+.benefits-header {
+  text-align: left;
+  padding-right: 3rem;
+}
+
+.benefits-header .section-tagline {
+  color: var(--color-gold);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 0.5rem;
+}
+
+.benefits-title {
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-bottom: 0;
+  text-align: left;
+}
+
+.benefits-title::after {
+  display: none;
+}
+
+.benefits-subtitle {
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: #666;
+  margin: 0;
+  text-align: left;
+}
+
+/* Founders Quote Styling */
+.founders-quote-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding-left: 2rem;
+}
+
+.founders-quote {
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, rgba(200, 178, 115, 0.1) 100%);
+  border: 1px solid rgba(200, 178, 115, 0.2);
+  border-radius: 16px;
+  padding: 3rem;
+  margin: 0;
+  font-style: normal;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  position: relative;
+  overflow: hidden;
+}
+
+.founders-quote::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(200, 178, 115, 0.1) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.quote-icon {
+  font-size: 2.5rem;
+  color: var(--color-gold);
+  opacity: 0.3;
+  margin-bottom: 1rem;
+  line-height: 1;
+}
+
+.quote-text {
+  font-size: 1.25rem;
+  line-height: 1.8;
+  color: var(--color-primary);
+  margin-bottom: 2rem;
+  font-weight: 500;
+  font-style: italic;
+  position: relative;
+  z-index: 1;
+}
+
+.quote-attribution {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-style: normal;
+}
+
+.attribution-line {
+  display: inline-block;
+  width: 40px;
+  height: 2px;
+  background: var(--color-gold);
+}
+
+.attribution-text {
+  font-size: 1rem;
+  color: var(--color-gold);
+  font-weight: 700;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.benefit-card {
+  background: #fff;
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  height: 100%;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.benefit-card:hover {
+  border-color: var(--color-gold);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+}
+
+.benefit-icon {
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: var(--color-gold-light);
+  border: 2px solid var(--color-gold-20);
+  box-shadow: 0 4px 15px var(--color-gold-20);
+}
+
+.benefit-icon i {
+  font-size: 1.75rem;
+  color: var(--color-gold);
+}
+
+/* SVG icons for benefits section */
+.benefit-svg-icon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  /* Use primary gold color for better contrast against light gold background */
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
+    brightness(90%) contrast(86%);
+}
+
+.benefit-title {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 1.25rem;
+}
+
+.benefit-list {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+}
+
+.benefit-list li {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #666;
+  margin-bottom: 1rem;
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.benefit-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-gold);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+
+/* Video Container */
+.video-container,
+.sidebar-section {
+  margin-bottom: 2rem;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.video-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.video-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.video-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.video-play-button {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 70px;
+  height: 70px;
+  background-color: rgba(200, 178, 115, 0.9);
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.video-play-button:hover {
+  background-color: var(--color-gold);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-play-button i {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-left: 3px;
+}
+
+/* Team Section - Scoped to careers location template */
+.page-template-page-careers-locations .team-section {
+  background-color: #f8f9fa;
+}
+
+.page-template-page-careers-locations .section-title {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 3rem;
+}
+
+.page-template-page-careers-locations .surgeon-card {
+  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  border-radius: 12px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  border: 1px solid rgba(200, 178, 115, 0.2);
+  color: #fff;
+}
+
+.page-template-page-careers-locations .surgeon-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+}
+
+.page-template-page-careers-locations .surgeon-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--color-gold);
+  margin-bottom: 1.5rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 3px;
+}
+
+.page-template-page-careers-locations .surgeon-card h3 {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+
+.page-template-page-careers-locations .surgeon-card p {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}
+
+/* Responsive Styles */
+@media (max-width: 991.98px) {
+  .benefits-top-content {
+    margin-bottom: 3rem;
+  }
+
+  .benefits-header {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .founders-quote-wrapper {
+    padding-left: 0;
+  }
+}
+
+@media (max-width: 768px) {
+  .location-header {
+    padding: 2rem 0;
+  }
+
+  .dept-breakdown h3,
+  .job-functions h3 {
+    font-size: 1.5rem;
+  }
+
+  .dept-breakdown .accordion-button {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .dept-breakdown .accordion-button i {
+    font-size: 1rem;
+    margin-right: 0.5rem !important;
+  }
+
+  .dept-breakdown .accordion-body {
+    padding: 1.5rem 1rem;
+  }
+
+  .job-function-title {
+    font-size: 1.1rem;
+  }
+
+  .job-function-description {
+    font-size: 0.9rem;
+  }
+
+  .page-template-page-careers-locations main .accordion-button {
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
+
+  .page-template-page-careers-locations main .accordion-button i {
+    font-size: 1rem;
+    margin-right: 0.5rem !important;
+  }
+
+  .page-template-page-careers-locations main .accordion-body {
+    padding: 1.5rem 1rem;
+  }
+
+  .position-card-expanded {
+    padding: 1.25rem;
+  }
+
+  /* Mobile benefits section */
+  .benefits-section {
+    padding: 3rem 0;
+  }
+
+  .benefits-top-content {
+    margin-bottom: 2.5rem;
+  }
+
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 2rem;
+    padding-right: 0;
+  }
+
+  .benefits-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .benefits-subtitle {
+    text-align: center;
+  }
+
+  .founders-quote-wrapper {
+    padding: 0;
+  }
+
+  .founders-quote {
+    padding: 2rem;
+    margin: 0;
+  }
+
+  .quote-icon {
+    font-size: 2rem;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .attribution-line {
+    width: 30px;
+  }
+
+  .attribution-text {
+    font-size: 0.9rem;
+  }
+
+  .benefit-card {
+    margin-bottom: 2rem;
+  }
+
+  .benefit-icon {
+    width: 60px;
+    height: 60px;
+  }
+
+  .benefit-icon i {
+    font-size: 1.5rem;
+  }
+
+  .benefit-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .benefit-svg-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .benefit-title {
+    font-size: 1.2rem;
+  }
+
+  .benefit-list li {
+    font-size: 0.9rem;
+  }
+
+  .position-title-expanded {
+    font-size: 1rem;
+  }
+
+  .position-description {
+    font-size: 0.85rem;
+  }
+
+  /* Mobile surgeon card redesign - horizontal layout to save space */
+  .page-template-page-careers-locations .team-section .surgeon-card {
+    background: #fff;
+    border: 1px solid #e5e5e5;
+    color: var(--color-primary);
+    padding: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    text-align: left;
+    min-height: 120px;
+  }
+
+  .page-template-page-careers-locations .team-section .surgeon-card:hover {
+    border-color: var(--color-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
+
+  .page-template-page-careers-locations .team-section .surgeon-card img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid var(--color-gold);
+    margin-bottom: 0;
+    margin-right: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .page-template-page-careers-locations .team-section .surgeon-card .surgeon-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: left;
+    height: 100%;
+  }
+
+  .page-template-page-careers-locations .team-section .surgeon-card h3 {
+    font-size: 1.1rem;
+    color: var(--color-primary);
+    margin-bottom: 0.25rem;
+    line-height: 1.3;
+  }
+
+  .page-template-page-careers-locations .team-section .surgeon-card p {
+    color: #666;
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    font-style: normal;
+  }
+
+  .page-template-page-careers-locations .team-section .surgeon-card .mia-button {
+    font-size: 0.75rem;
+    padding: 0.4rem 0.8rem;
+    align-self: flex-start;
+    min-width: auto;
+    width: auto;
+  }
+}
+
+@media (min-width: 768px) {
+  .surgeon-card img {
+    width: 140px;
+    height: 140px;
+  }
+}

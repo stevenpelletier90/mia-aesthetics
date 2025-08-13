@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<ruleset name="Mia Aesthetics WordPress">
+    <description>PHP_CodeSniffer configuration for Mia Aesthetics WordPress theme</description>
+
+    <!-- Check all PHP files in the theme -->
+    <file>.</file>
+
+    <!-- Exclude third party code -->
+    <exclude-pattern>*/vendor/*</exclude-pattern>
+    <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/assets/bootstrap/*</exclude-pattern>
+    <exclude-pattern>*/assets/fontawesome/*</exclude-pattern>
+
+    <!-- Use WordPress coding standards -->
+    <rule ref="WordPress"/>
+
+    <!-- Allow for theme specific customizations -->
+    <rule ref="WordPress.Files.FileName.InvalidClassFileName">
+        <exclude-pattern>*/inc/*</exclude-pattern>
+    </rule>
+    
+    <!-- ACF Pro specific escaping functions -->
+    <rule ref="WordPress.Security.EscapeOutput">
+        <properties>
+            <property name="customAutoEscapedFunctions" type="array">
+                <!-- ACF functions that auto-escape -->
+                <element value="the_field"/>
+                <element value="the_sub_field"/>
+            </property>
+        </properties>
+    </rule>
+</ruleset>

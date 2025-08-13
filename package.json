@@ -1,0 +1,32 @@
+{
+  "name": "mia-aesthetics-theme",
+  "version": "3.0.0",
+  "description": "Mia Aesthetics WordPress Theme",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:php",
+    "lint:js": "eslint assets/js/**/*.js",
+    "lint:css": "prettier --check \"assets/css/**/*.css\"",
+    "lint:php": "composer run-script phpcs",
+    "lint:fix": "npm run lint:js:fix && npm run format:css",
+    "lint:js:fix": "eslint assets/js/**/*.js --fix",
+    "format": "prettier --write \"assets/**/*.{css,js}\"",
+    "format:css": "prettier --write \"assets/css/**/*.css\"",
+    "format:js": "prettier --write \"assets/js/**/*.js\"",
+    "format:check": "prettier --check \"assets/**/*.{css,js}\"",
+    "minify:css": "postcss assets/css/**/*.css --dir assets/css/min --ext .min.css",
+    "minify:css:test": "postcss assets/css/base.css -o assets/css/base.min.css",
+    "bundle": "node scripts/bundle-theme.js",
+    "bundle:clean": "npm run lint && npm run format && npm run bundle"
+  },
+  "devDependencies": {
+    "cssnano": "^7.1.0",
+    "cssnano-preset-default": "^7.0.8",
+    "eslint": "^9.33.0",
+    "eslint-config-prettier": "^10.1.8",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "prettier": "^3.6.2"
+  }
+}

@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mia Aesthetics - Style Guide</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <style>
+        .style-guide-section {
+            margin: 4rem 0;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--color-gray-200);
+        }
+        .color-swatch {
+            width: 100px;
+            height: 100px;
+            border-radius: 8px;
+            border: 1px solid var(--color-gray-300);
+            display: flex;
+            align-items: end;
+            justify-content: center;
+            position: relative;
+        }
+        .color-swatch-label {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 0.25rem 0.5rem;
+            font-size: 0.75rem;
+            font-weight: 600;
+            border-radius: 4px;
+            margin-bottom: 0.5rem;
+        }
+        .component-example {
+            background: var(--color-gray-50);
+            padding: 2rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        .code-block {
+            background: var(--color-gray-900);
+            color: var(--color-white);
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.875rem;
+            overflow-x: auto;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-fluid">
+        <!-- Header -->
+        <header class="py-5 bg-primary text-white text-center">
+            <div class="container">
+                <h1 class="display-2 mb-3">Mia Aesthetics</h1>
+                <p class="lead">Design System & Style Guide</p>
+                <p>Comprehensive component library and design tokens for consistent UI development</p>
+            </div>
+        </header>
+
+        <div class="container my-5">
+            <!-- Table of Contents -->
+            <section class="style-guide-section">
+                <h2>Table of Contents</h2>
+                <div class="row">
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><a href="#colors">Colors & Brand Palette</a></li>
+                            <li><a href="#typography">Typography System</a></li>
+                            <li><a href="#spacing">Spacing & Layout</a></li>
+                            <li><a href="#buttons">Button Components</a></li>
+                            <li><a href="#cards">Card Components</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <ul class="list-unstyled">
+                            <li><a href="#forms">Form Elements</a></li>
+                            <li><a href="#utilities">Utility Classes</a></li>
+                            <li><a href="#icons">Icons & Media</a></li>
+                            <li><a href="#accessibility">Accessibility</a></li>
+                            <li><a href="#usage">Usage Guidelines</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Colors -->
+            <section id="colors" class="style-guide-section">
+                <h2>Colors & Brand Palette</h2>
+                <p>Our color system is built around the gold and dark primary brand colors, with a comprehensive gray scale for text and UI elements.</p>
+                
+                <h3>Brand Colors</h3>
+                <div class="row mb-4">
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-primary);">
+                            <div class="color-swatch-label">#1b1b1b</div>
+                        </div>
+                        <small><strong>Primary</strong><br>--color-primary</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gold);">
+                            <div class="color-swatch-label">#c8b273</div>
+                        </div>
+                        <small><strong>Gold</strong><br>--color-gold</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gold-light);">
+                            <div class="color-swatch-label">#f9f5ee</div>
+                        </div>
+                        <small><strong>Gold Light</strong><br>--color-gold-light</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gold-dark);">
+                            <div class="color-swatch-label">#a89660</div>
+                        </div>
+                        <small><strong>Gold Dark</strong><br>--color-gold-dark</small>
+                    </div>
+                </div>
+
+                <h3>Gray Scale</h3>
+                <div class="row">
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gray-50);">
+                            <div class="color-swatch-label">Gray 50</div>
+                        </div>
+                        <small>--color-gray-50</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gray-200);">
+                            <div class="color-swatch-label">Gray 200</div>
+                        </div>
+                        <small>--color-gray-200</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gray-400);">
+                            <div class="color-swatch-label">Gray 400</div>
+                        </div>
+                        <small>--color-gray-400</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gray-600);">
+                            <div class="color-swatch-label" style="color: white;">Gray 600</div>
+                        </div>
+                        <small>--color-gray-600</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gray-800);">
+                            <div class="color-swatch-label" style="color: white;">Gray 800</div>
+                        </div>
+                        <small>--color-gray-800</small>
+                    </div>
+                    <div class="col-md-2 col-4 mb-3">
+                        <div class="color-swatch" style="background: var(--color-gray-900);">
+                            <div class="color-swatch-label" style="color: white;">Gray 900</div>
+                        </div>
+                        <small>--color-gray-900</small>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Typography -->
+            <section id="typography" class="style-guide-section">
+                <h2>Typography System</h2>
+                <p>Our typography system uses Montserrat for headings and Inter for body text, with a modular scale for consistent sizing.</p>
+
+                <h3>Headings</h3>
+                <div class="component-example">
+                    <h1>Heading 1 (48-72px)</h1>
+                    <h2>Heading 2 (36-48px)</h2>
+                    <h3>Heading 3 (30-36px)</h3>
+                    <h4>Heading 4 (24-30px)</h4>
+                    <h5>Heading 5 (20px)</h5>
+                    <h6>Heading 6 (18px)</h6>
+                </div>
+
+                <h3>Display Headings</h3>
+                <div class="component-example">
+                    <h1 class="display-1">Display 1 - Hero Heading</h1>
+                    <h2 class="display-2">Display 2 - Large Section</h2>
+                    <h3 class="display-3">Display 3 - Section Heading</h3>
+                </div>
+
+                <h3>Body Text</h3>
+                <div class="component-example">
+                    <p class="lead-large">Lead Large - Introduction text for important sections</p>
+                    <p class="lead">Lead text - Emphasized paragraph text for introductions</p>
+                    <p>Regular paragraph text - This is the standard body text used throughout the site. It has comfortable line height and spacing for easy reading.</p>
+                    <p class="text-sm">Small text - Used for captions and secondary information</p>
+                </div>
+
+                <h3>Specialized Text</h3>
+                <div class="component-example">
+                    <p class="tagline">Professional Care You Can Trust</p>
+                    <p class="eyebrow">Aesthetic Surgery</p>
+                    <blockquote class="quote">"This is a testimonial quote showing our italic quote styling with proper spacing and emphasis."</blockquote>
+                    <p class="attribution">— Client Name, Location</p>
+                    <div class="stat-number">15K+</div>
+                    <div class="stat-label">Procedures Completed</div>
+                </div>
+
+                <h3>Font Size Scale</h3>
+                <div class="code-block">
+--font-xs: 0.75rem;      /* 12px */
+--font-sm: 0.875rem;     /* 14px */
+--font-base: 1rem;       /* 16px */
+--font-lg: 1.125rem;     /* 18px */
+--font-xl: 1.25rem;      /* 20px */
+--font-2xl: 1.5rem;      /* 24px */
+--font-3xl: 1.875rem;    /* 30px */
+--font-4xl: 2.25rem;     /* 36px */
+--font-5xl: 3rem;        /* 48px */
+--font-6xl: 3.75rem;     /* 60px */
+--font-7xl: 4.5rem;      /* 72px */
+                </div>
+            </section>
+
+            <!-- Spacing -->
+            <section id="spacing" class="style-guide-section">
+                <h2>Spacing & Layout</h2>
+                <p>Consistent spacing creates visual harmony. Our system uses a base unit of 4px (0.25rem) with logical scale progression.</p>
+
+                <h3>Spacing Scale</h3>
+                <div class="component-example">
+                    <div class="d-flex align-items-center mb-2">
+                        <div style="width: 4px; height: 20px; background: var(--color-gold);" class="me-3"></div>
+                        <span>space-1 (4px) - 0.25rem</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div style="width: 8px; height: 20px; background: var(--color-gold);" class="me-3"></div>
+                        <span>space-2 (8px) - 0.5rem</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div style="width: 16px; height: 20px; background: var(--color-gold);" class="me-3"></div>
+                        <span>space-4 (16px) - 1rem</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div style="width: 24px; height: 20px; background: var(--color-gold);" class="me-3"></div>
+                        <span>space-6 (24px) - 1.5rem</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div style="width: 32px; height: 20px; background: var(--color-gold);" class="me-3"></div>
+                        <span>space-8 (32px) - 2rem</span>
+                    </div>
+                    <div class="d-flex align-items-center mb-2">
+                        <div style="width: 48px; height: 20px; background: var(--color-gold);" class="me-3"></div>
+                        <span>space-12 (48px) - 3rem</span>
+                    </div>
+                </div>
+
+                <h3>Section Spacing</h3>
+                <div class="code-block">
+.section         /* 80px top/bottom padding */
+.section-sm      /* 48px top/bottom padding */
+.section-lg      /* 128px top/bottom padding */
+.section-xl      /* 160px top/bottom padding */
+                </div>
+            </section>
+
+            <!-- Buttons -->
+            <section id="buttons" class="style-guide-section">
+                <h2>Button Components</h2>
+                <p>Our button system provides consistent styling across different variants and sizes while maintaining accessibility.</p>
+
+                <h3>Button Variants</h3>
+                <div class="component-example">
+                    <button class="btn btn-primary me-3 mb-3">Primary Button</button>
+                    <button class="btn btn-secondary me-3 mb-3">Secondary Button</button>
+                    <button class="btn btn-dark me-3 mb-3">Dark Button</button>
+                    <button class="btn btn-light me-3 mb-3">Light Button</button>
+                    <button class="btn btn-ghost me-3 mb-3">Ghost Button</button>
+                    <button class="btn btn-link me-3 mb-3">Link Button</button>
+                </div>
+
+                <h3>Button Sizes</h3>
+                <div class="component-example">
+                    <button class="btn btn-primary btn-sm me-3 mb-3">Small Button</button>
+                    <button class="btn btn-primary me-3 mb-3">Default Button</button>
+                    <button class="btn btn-primary btn-lg me-3 mb-3">Large Button</button>
+                    <button class="btn btn-primary btn-xl me-3 mb-3">Extra Large</button>
+                </div>
+
+                <h3>Special Buttons</h3>
+                <div class="component-example bg-dark">
+                    <button class="btn btn-hero me-3 mb-3">Hero Button</button>
+                    <button class="btn btn-cta me-3 mb-3">Call to Action</button>
+                    <button class="btn btn-primary btn-arrow me-3 mb-3">Button with Arrow</button>
+                </div>
+
+                <h3>Button States</h3>
+                <div class="component-example">
+                    <button class="btn btn-primary me-3 mb-3">Normal</button>
+                    <button class="btn btn-primary me-3 mb-3" disabled>Disabled</button>
+                    <button class="btn btn-primary btn-loading me-3 mb-3">Loading</button>
+                    <button class="btn btn-primary btn-block mb-3">Block Button</button>
+                </div>
+
+                <h3>Usage</h3>
+                <div class="code-block">
+&lt;button class="btn btn-primary"&gt;Primary Action&lt;/button&gt;
+&lt;button class="btn btn-secondary btn-lg"&gt;Secondary Large&lt;/button&gt;
+&lt;button class="btn btn-cta btn-arrow"&gt;Call to Action&lt;/button&gt;
+                </div>
+            </section>
+
+            <!-- Cards -->
+            <section id="cards" class="style-guide-section">
+                <h2>Card Components</h2>
+                <p>Flexible card system for displaying content with various layouts and hover effects.</p>
+
+                <h3>Basic Cards</h3>
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">Basic Card</h5>
+                                <p class="card-text">This is a basic card with title and text content.</p>
+                                <a href="#" class="btn btn-primary">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-bordered">
+                            <div class="card-body">
+                                <h5 class="card-title">Bordered Card</h5>
+                                <p class="card-text">This card has a distinct border treatment.</p>
+                                <a href="#" class="btn btn-secondary">View Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card card-elevated">
+                            <div class="card-body">
+                                <h5 class="card-title">Elevated Card</h5>
+                                <p class="card-text">This card has enhanced shadow for emphasis.</p>
+                                <a href="#" class="btn btn-primary">Get Started</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Specialized Cards</h3>
+                <div class="row mb-4">
+                    <div class="col-md-4">
+                        <div class="case-card">
+                            <div class="card-img-container">
+                                <img src="https://via.placeholder.com/300x200/c8b273/ffffff?text=Before+%26+After" class="card-img-top" alt="Case study">
+                                <div class="card-overlay">
+                                    <div class="overlay-content">
+                                        <h5 class="text-white">View Results</h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <h6 class="card-subtitle">Breast Augmentation</h6>
+                                <h5 class="card-title">Patient Case Study</h5>
+                                <p class="card-text">Amazing transformation results.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="location-card">
+                            <img src="https://via.placeholder.com/300x200/1b1b1b/ffffff?text=Location" class="card-img-top" alt="Location">
+                            <div class="card-body">
+                                <h5 class="location-name">Miami Location</h5>
+                                <p class="location-address">123 Medical Plaza<br>Miami, FL 33101</p>
+                                <a href="#" class="btn btn-primary btn-sm">Get Directions</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="surgeon-card">
+                            <div class="card-body">
+                                <img src="https://via.placeholder.com/120x120/c8b273/ffffff?text=Dr" class="surgeon-photo" alt="Surgeon">
+                                <h5 class="surgeon-name">Dr. Jane Smith</h5>
+                                <p class="surgeon-title">Board Certified Surgeon</p>
+                                <p class="card-text">Specializing in aesthetic surgery with 15+ years experience.</p>
+                                <a href="#" class="btn btn-secondary btn-sm">View Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Card Usage</h3>
+                <div class="code-block">
+&lt;div class="card"&gt;
+  &lt;img src="..." class="card-img-top" alt="..."&gt;
+  &lt;div class="card-body"&gt;
+    &lt;h5 class="card-title"&gt;Card Title&lt;/h5&gt;
+    &lt;p class="card-text"&gt;Card content goes here.&lt;/p&gt;
+    &lt;a href="#" class="btn btn-primary"&gt;Action&lt;/a&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+                </div>
+            </section>
+
+            <!-- Utilities -->
+            <section id="utilities" class="style-guide-section">
+                <h2>Utility Classes</h2>
+                <p>Helper classes for common styling needs that extend Bootstrap's utility system.</p>
+
+                <h3>Extended Spacing</h3>
+                <div class="code-block">
+/* Extended margin/padding beyond Bootstrap's 0-5 scale */
+.mb-6, .mb-8, .mb-10, .mb-12, .mb-16, .mb-20, .mb-24
+.p-6, .p-8, .p-10, .p-12, .p-16, .p-20, .p-24
+                </div>
+
+                <h3>Brand Colors</h3>
+                <div class="code-block">
+.text-gold         /* Gold text color */
+.bg-gold           /* Gold background */
+.border-gold       /* Gold border */
+.shadow-gold       /* Gold shadow effect */
+                </div>
+
+                <h3>Layout Helpers</h3>
+                <div class="code-block">
+.aspect-video      /* 16:9 aspect ratio */
+.aspect-square     /* 1:1 aspect ratio */
+.hero              /* Hero section layout */
+.section           /* Standard section padding */
+                </div>
+            </section>
+
+            <!-- Accessibility -->
+            <section id="accessibility" class="style-guide-section">
+                <h2>Accessibility Features</h2>
+                <p>Our design system includes built-in accessibility features and follows WCAG guidelines.</p>
+
+                <h3>Focus Management</h3>
+                <div class="component-example">
+                    <button class="btn btn-primary focus-ring me-3">Focus Ring Button</button>
+                    <a href="#" class="focus-ring">Focus Ring Link</a>
+                </div>
+
+                <h3>Color Contrast</h3>
+                <p>All color combinations meet WCAG AA standards for contrast ratio (4.5:1 minimum).</p>
+
+                <h3>Reduced Motion</h3>
+                <p>Animations respect the <code>prefers-reduced-motion</code> setting and can be disabled.</p>
+
+                <h3>Screen Reader Support</h3>
+                <div class="code-block">
+.sr-only           /* Screen reader only text */
+.visually-hidden   /* Visually hidden but accessible */
+                </div>
+            </section>
+
+            <!-- Usage Guidelines -->
+            <section id="usage" class="style-guide-section">
+                <h2>Usage Guidelines</h2>
+                
+                <h3>WordPress Integration</h3>
+                <p>This design system integrates seamlessly with WordPress and Bootstrap 5:</p>
+                <ul>
+                    <li>Use Bootstrap classes for standard layouts and utilities</li>
+                    <li>Use our custom classes for brand-specific styling</li>
+                    <li>Follow the modular CSS architecture for new components</li>
+                </ul>
+
+                <h3>File Structure</h3>
+                <div class="code-block">
+assets/css/
+├── system/
+│   ├── variables.css      # Design tokens
+│   ├── typography.css     # Typography system
+│   ├── layout.css         # Layout utilities
+│   └── utilities.css      # Helper classes
+├── components/
+│   ├── buttons.css        # Button components
+│   └── cards.css          # Card components
+├── base.css               # Main import file
+└── [template].css         # Template-specific styles
+                </div>
+
+                <h3>Best Practices</h3>
+                <ul>
+                    <li><strong>Use CSS custom properties</strong> - Always use our design tokens instead of hardcoded values</li>
+                    <li><strong>Follow the cascade</strong> - Avoid !important unless absolutely necessary</li>
+                    <li><strong>Mobile first</strong> - Write mobile styles first, then enhance for larger screens</li>
+                    <li><strong>Semantic HTML</strong> - Use proper HTML elements for accessibility</li>
+                    <li><strong>Component-based</strong> - Create reusable components rather than page-specific styles</li>
+                </ul>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer class="bg-dark text-white py-5 mt-5">
+            <div class="container text-center">
+                <h3>Mia Aesthetics Design System</h3>
+                <p>Version 1.0 - Built for WordPress with Bootstrap 5</p>
+                <p class="text-muted">Last updated: <span id="current-date"></span></p>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Add current date
+        document.getElementById('current-date').textContent = new Date().toLocaleDateString();
+    </script>
+</body>
+</html>

@@ -1,0 +1,27 @@
+# Dependencies
+node_modules/
+vendor/
+
+# WordPress core files
+wp-admin/
+wp-includes/
+
+# Build output
+dist/
+build/
+
+# Minified files
+*.min.css
+*.min.js
+
+# Bootstrap and FontAwesome
+assets/bootstrap/
+assets/fontawesome/
+
+# Cache and logs
+*.log
+wp-content/cache/
+
+# Other
+.git/
+*.md
