@@ -26,6 +26,7 @@ export default [
 					requestAnimationFrame: 'readonly',
 					fetch: 'readonly',
 					Event: 'readonly',
+					URL: 'readonly',
 					URLSearchParams: 'readonly',
 					location: 'readonly',
 					history: 'readonly',
