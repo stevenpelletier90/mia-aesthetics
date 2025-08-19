@@ -1,0 +1,282 @@
+/* ==========================================================================
+	Case Card Component - Following Mia Aesthetics Design System
+	Based on special-card pattern from archive-special.css
+	========================================================================== */
+
+.case-card {
+  height: 100%;
+}
+
+.case-card-inner {
+  background: linear-gradient(135deg, #000000 0%, #1b1b1b 100%);
+  border-radius: 12px;
+  border: 2px solid var(--color-gold);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* NO HOVER TRANSFORMS - clean modern styling */
+  transition: none;
+}
+
+.case-card-inner:hover {
+  /* NO TRANSFORM EFFECTS - maintain clean appearance */
+  transform: none;
+}
+
+/* Case Card Image - Optimized for landscape medical images (1600x600) */
+.case-card-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 8/3;
+}
+
+.case-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.case-image-link:focus {
+  outline: 3px solid var(--color-gold);
+  outline-offset: 2px;
+}
+
+.case-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  /* NO IMAGE HOVER EFFECTS */
+  transition: none;
+}
+
+.case-image-link:hover .case-card-img {
+  /* NO TRANSFORM ON HOVER */
+  transform: none;
+}
+
+/* Case Card Body */
+.case-card-body {
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Case Card Title - Following theme typography */
+.case-card-title {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  line-height: 1.3;
+}
+
+.case-title-link {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.case-title-link:hover,
+.case-title-link:focus {
+  color: var(--color-gold);
+  text-decoration: none;
+}
+
+/* Case Meta Information */
+.case-card-meta {
+  margin-bottom: 1.5rem;
+  flex-grow: 1;
+}
+
+.case-meta-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.875rem;
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.4;
+}
+
+.case-meta-item:last-child {
+  margin-bottom: 0;
+}
+
+.case-meta-item i {
+  color: var(--color-gold);
+  width: 18px;
+  margin-right: 0.75rem;
+  font-size: 1rem;
+  flex-shrink: 0;
+}
+
+/* Surgeon and Location Links - Consistent styling */
+.case-surgeon-link,
+.case-location-link {
+  color: var(--color-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+}
+
+.case-surgeon-link:hover,
+.case-surgeon-link:focus,
+.case-location-link:hover,
+.case-location-link:focus {
+  color: #ffffff;
+  text-decoration: none;
+  transform: none;
+}
+
+/* Procedure Text (not linked) - More subdued */
+.case-procedure {
+  color: #999999;
+  font-weight: 400;
+  font-style: italic;
+}
+
+/* Case Card Action */
+.case-card-action {
+  margin-top: auto;
+  padding-top: 1rem;
+}
+
+/* Button styling overrides for dark background */
+.case-card .mia-button[data-variant="gold-outline"] {
+  color: #ffffff;
+  border-color: var(--color-gold);
+  background-color: transparent;
+}
+
+.case-card .mia-button[data-variant="gold-outline"]:hover,
+.case-card .mia-button[data-variant="gold-outline"]:focus {
+  color: #000000;
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
+}
+
+/* Mobile Vertical Layout - Light theme with proper landscape image handling */
+@media (max-width: 768px) {
+  .case-card-inner {
+    background: #ffffff;
+    flex-direction: column;
+    border: 2px solid var(--color-gold);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .case-card-image {
+    width: 100%;
+    aspect-ratio: 8/3;
+    border-radius: 0;
+  }
+
+  .case-card-img {
+    object-position: center center;
+    object-fit: cover;
+  }
+
+  .case-card-body {
+    padding: 1.25rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+
+  /* Light theme text colors */
+  .case-title-link {
+    color: var(--color-primary);
+  }
+
+  .case-title-link:hover,
+  .case-title-link:focus {
+    color: var(--color-gold);
+  }
+
+  .case-card-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+  }
+
+  .case-card-meta {
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .case-meta-item {
+    font-size: 0.875rem;
+    color: #666;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-meta-item i {
+    color: var(--color-gold);
+  }
+
+  .case-surgeon-link,
+  .case-location-link {
+    color: var(--color-primary);
+    font-weight: 600;
+  }
+
+  .case-surgeon-link:hover,
+  .case-surgeon-link:focus,
+  .case-location-link:hover,
+  .case-location-link:focus {
+    color: var(--color-gold);
+    transform: none;
+  }
+
+  .case-procedure {
+    color: #888;
+    font-style: italic;
+  }
+
+  .case-card-action {
+    padding-top: 0.75rem;
+  }
+
+  /* Override button colors for light mobile theme */
+  .case-card .mia-button[data-variant="gold-outline"] {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    color: var(--color-primary);
+    border-color: var(--color-gold);
+  }
+
+  .case-card .mia-button[data-variant="gold-outline"]:hover,
+  .case-card .mia-button[data-variant="gold-outline"]:focus {
+    color: #000;
+    background-color: var(--color-gold);
+    transform: translateY(-1px);
+  }
+}
+
+@media (max-width: 576px) {
+  .case-card-body {
+    padding: 1rem;
+  }
+
+  .case-card-title {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .case-card-meta {
+    margin-bottom: 0.75rem;
+  }
+
+  .case-meta-item {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .case-card .mia-button[data-variant="gold-outline"] {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.85rem;
+  }
+}
