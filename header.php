@@ -103,18 +103,17 @@ if ( ! is_singular( 'surgeon' ) ) :
 				<li class="nav-item">
 					<a class="nav-link" href="<?php echo esc_url( home_url( '/specials/' ) ); ?>">Specials</a>
 				</li>
-				<!-- Patient Resources Dropdown -->
+				<!-- Patient Portal Dropdown -->
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-describedby="patient-portal-menu">
-					Patient Resources
+					Patient Portal
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="patient-portal-dropdown" id="patient-portal-menu">
 					<li>
 						<a class="dropdown-item" href="https://patient.miaaesthetics.com/s/login?ec=302&startURL=%2Fs%2Fhome" target="_blank" rel="noopener">
-						Patient Portal
+						Portal Login
 						</a>
 					</li>
-					<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/patient-portal-guide/' ) ); ?>">Patient Portal Guide</a></li>
 					<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/web-to-case/' ) ); ?>">Portal Support</a></li>
 					</ul>
 				</li>

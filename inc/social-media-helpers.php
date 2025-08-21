@@ -38,10 +38,6 @@ function mia_social_media_links( $class_name = 'social-icon' ) {
 			'label' => 'Instagram',
 			'icon'  => 'fab fa-instagram',
 		),
-		'linkedin'  => array(
-			'label' => 'LinkedIn',
-			'icon'  => 'fab fa-linkedin-in',
-		),
 		'tiktok'    => array(
 			'label' => 'TikTok',
 			'icon'  => 'fab fa-tiktok',
@@ -59,6 +55,14 @@ function mia_social_media_links( $class_name = 'social-icon' ) {
 			'icon'  => 'fab fa-youtube',
 		),
 	);
+	
+	// Add LinkedIn only on careers page
+	if ( is_page( 'careers' ) ) {
+		$platforms['linkedin'] = array(
+			'label' => 'LinkedIn',
+			'icon'  => 'fab fa-linkedin-in',
+		);
+	}
 
 	foreach ( $platforms as $platform => $data ) {
 		$url = get_social_media_url( $platform );
