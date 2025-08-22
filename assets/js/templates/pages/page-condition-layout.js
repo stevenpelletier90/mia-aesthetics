@@ -18,14 +18,18 @@ document.addEventListener("DOMContentLoaded", function () {
 function setupTableOfContents() {
   // Only run on pages with TOC
   const tocContainer = document.getElementById("tableOfContents");
-  const contentSection = document.querySelector(".content");
   const tocList = tocContainer?.querySelector(".toc-list");
 
-  if (!tocContainer || !contentSection || !tocList) {
+  if (!tocContainer || !tocList) {
     return;
   }
 
-  // Get all h2 elements from the content section only (not the overview)
+  // Get all h2 elements from the content section (not the overview)
+  const contentSection = document.querySelector(".content");
+  if (!contentSection) {
+    return;
+  }
+  
   const headings = contentSection.querySelectorAll("h2");
   if (0 === headings.length) {
     return;

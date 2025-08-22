@@ -64,7 +64,7 @@ if ( $current_post instanceof WP_Post ) {
 							?>
 							<div class="pricing-info mt-3">
 								<h2 class="h4 mb-1">Starting Price: <?php echo esc_html( $mia_aesthetics_procedure_price ); ?>*</h2>
-								<small>* Pricing varies by provider</small>
+								<small>* Pricing varies by surgeon</small>
 							</div>
 						<?php endif; ?>
 					</div>

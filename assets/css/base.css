@@ -825,7 +825,6 @@ li {
   background-color: var(--color-gold-dark);
   border-color: var(--color-gold-dark);
   text-decoration: none;
-  transform: translateY(-1px);
 }
 
 /* ==============================================
@@ -846,7 +845,6 @@ li {
 
 .card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-2px);
 }
 
 .card-header {
@@ -916,7 +914,6 @@ li {
 
 .card-elevated:hover {
   box-shadow: var(--shadow-xl);
-  transform: translateY(-4px);
 }
 
 .case-card {
@@ -1286,6 +1283,19 @@ li {
   background-color: var(--color-white);
   color: var(--bs-secondary-color);
   line-height: var(--leading-relaxed);
+}
+
+.accordion-body a {
+  color: #0066cc;
+  text-decoration: none;
+  font-weight: var(--font-medium);
+  transition: color var(--duration-200) var(--ease-out);
+}
+
+.accordion-body a:hover,
+.accordion-body a:focus {
+  color: #004499;
+  text-decoration: underline;
 }
 
 /* ==============================================

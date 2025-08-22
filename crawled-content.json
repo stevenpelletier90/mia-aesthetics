@@ -1,0 +1,26 @@
+{
+  "breast-augmentation": {
+    "error": "Failed to crawl"
+  },
+  "breast-reduction": {
+    "error": "Failed to crawl"
+  },
+  "breast-lift": {
+    "error": "Failed to crawl"
+  },
+  "breast-implant-revision": {
+    "error": "Failed to crawl"
+  },
+  "male-bbl": {
+    "error": "Failed to crawl"
+  },
+  "male-liposuction": {
+    "error": "Failed to crawl"
+  },
+  "male-tummy-tuck": {
+    "error": "Failed to crawl"
+  },
+  "gynecomastia": {
+    "error": "Failed to crawl"
+  }
+}

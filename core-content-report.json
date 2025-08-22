@@ -1,0 +1,100 @@
+[
+  {
+    "procedure": "breast-augmentation",
+    "headingsMatch": [
+      "What is Breast Augmentation?",
+      "Two Types of Breast Implants",
+      "About Breast Augmentation",
+      "Breast Augmentation recovery"
+    ],
+    "headingsMissing": [
+      "Frequently Asked Questions"
+    ],
+    "contentMatches": [
+      "Breast augmentation is a surgical procedure that involves placing synthetic impl...",
+      "The procedure, which is sought out by over 300,000 American women a year, is typ...",
+      "The outcome of breast augmentation varies based on the desires of each surgery c...",
+      "Filled with a sterile salt water solution, saline implants are among the safest ...",
+      "These implants have a silicone outer shell that is filled with silicone gel. The..."
+    ],
+    "contentMissing": [
+      "Though breast augmentation is generally very safe, there are always risks to maj...",
+      "Some potential risks may include:...",
+      "Although breast implants are manufactured to last many years, most implants do n...",
+      "Patients with silicone implants may occasionally need to be monitored with routi...",
+      "Having lupus does not disqualify you from being able to get breast implants, but...",
+      "Many women are able to successfully breastfeed following augmentation with impla...",
+      "The best cup size for you depends on a variety of factors including body frame a...",
+      "For women with drooping breasts (whether due to age, breastfeeding and pregnancy...",
+      "During your breast augmentation consultation, the doctor will also determine if ...",
+      "After undergoing a breast augmentation, patients will need to take a few days or...",
+      "Following the procedure, patients may also be fitted with compression or support..."
+    ],
+    "coreAccuracy": 69
+  },
+  {
+    "procedure": "breast-reduction",
+    "headingsMatch": [
+      "What is a breast reduction?",
+      "About the breast Reduction Procedure",
+      "Breast Reduction Recovery"
+    ],
+    "headingsMissing": [
+      "Frequently Asked Questions"
+    ],
+    "contentMatches": [
+      "Breast reduction surgery is a cosmetic procedure that involves removing excess b...",
+      "Breast reduction surgery can offer these women lifelong relief by easing back pa...",
+      "Breast reduction surgery can be done on an outpatient or inpatient basis, depend...",
+      "Incisions are usually made around the areola (skin surrounding the nipple), exte...",
+      "After the incisions are made, the surgeon will remove excess breast gland, fat, ..."
+    ],
+    "contentMissing": [
+      "Though breast reduction is generally very safe, there are always risks to major ...",
+      "Some potential risks may include:...",
+      "Breast surgery always has the potential to cause an inability to breastfeed, but...",
+      "Patients need to accept this risk if they decide to move forward with a breast r...",
+      "Yes–Breast enhancement procedures are very customizable, and your surgeon will h...",
+      "Ideal candidates for breast reduction surgery are women with fully developed bre...",
+      "It is helpful to take a look at a variety of before and after photos ahead of yo..."
+    ],
+    "coreAccuracy": 67
+  },
+  {
+    "procedure": "breast-lift",
+    "headingsMatch": [
+      "What is a Breast Lift?",
+      "About The Breast Lift Procedure",
+      "Breast Lift Recovery"
+    ],
+    "headingsMissing": [
+      "Frequently Asked Questions"
+    ],
+    "contentMatches": [
+      "Breast lift is a surgical procedure that shapes and raises the breasts to create...",
+      "Genetics, ageing, breastfeeding and pregnancy, weight loss and weight gain, or a...",
+      "Breast lift is a reliable way to turn back the hands of time and get the vibrant...",
+      "Breast lift surgery is typically an outpatient procedure performed under general...",
+      "The surgeons at Mia Aesthetics will always opt for the most minimal incision pat...",
+      "For more extensive lifts, an incision extending down from the areola may be adde...",
+      "Once the breast is shaped, the nipple and areola will be repositioned to maintai..."
+    ],
+    "contentMissing": [
+      "Though breast lift is generally very safe, there are always risks to major surge...",
+      "Some potential risks may include:...",
+      "While very little tissue (mostly skin) is removed during the breast lift surgery...",
+      "Many women are able to successfully breastfeed following a breast lift, but it’s...",
+      "Breast lift incisions are designed to be as discreet as possible, but generally,...",
+      "Good candidates for breast lift are women who would like to improve the shape, l..."
+    ],
+    "coreAccuracy": 83
+  },
+  {
+    "procedure": "breast-implant-revision",
+    "headingsMatch": [],
+    "headingsMissing": [],
+    "contentMatches": [],
+    "contentMissing": [],
+    "coreAccuracy": 0
+  }
+]

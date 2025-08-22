@@ -466,7 +466,7 @@
 }
 
 .consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus)::after {
-  transform: translateX(5px);
+  /* Arrow movement removed */
 }
 
 .consultation-card .gform_wrapper .gform_footer {
@@ -609,15 +609,16 @@ a.consent-trigger:hover::after {
    ============================================== */
 
 .procedure-section {
-  margin-bottom: 3rem;
+  margin-bottom: 4rem;
 }
 
 .procedure-section h2 {
   color: var(--color-primary);
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 700;
-  line-height: 1.1;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 .procedure-section h3 {
@@ -625,8 +626,166 @@ a.consent-trigger:hover::after {
   font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-weight: 600;
   margin-bottom: 1rem;
+  font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
+/* Hero Section Styles */
+.procedure-hero-section {
+  position: relative;
+  padding: 4rem 0;
+}
+
+.text-gold {
+  color: var(--color-gold) !important;
+}
+
+.bg-gold {
+  background-color: var(--color-gold) !important;
+}
+
+.border-gold {
+  border-color: var(--color-gold) !important;
+}
+
+.bg-light-gold {
+  background-color: rgba(200, 178, 115, 0.1) !important;
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.highlight-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+.customization-note {
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, rgba(200, 178, 115, 0.1) 100%);
+  border: 1px solid rgba(200, 178, 115, 0.2);
+}
+
+.bg-gradient-subtle {
+  background: linear-gradient(135deg, #1b1b1b 0%, #000 100%);
+}
+
+.customization-note {
+  background: linear-gradient(135deg, #1b1b1b 0%, #000 100%);
+  border: 1px solid rgba(200, 178, 115, 0.3);
+}
+
+/* Image Styling */
+.procedure-image-wrapper .image-frame {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.procedure-image-wrapper .image-frame:hover {
+  /* Scale transform removed */
+}
+
+.image-overlay {
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+}
+
+/* Implant Types Section */
+.implant-types-section {
+  margin: 4rem 0;
+}
+
+.implant-card {
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+
+.implant-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+}
+
+.icon-circle {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-hover {
+  border: 2px solid #e9ecef;
+  transition: all 0.3s ease;
+}
+
+.border-hover:hover {
+  border-color: var(--color-gold);
+}
+
+/* About Procedure Section */
+.about-procedure-section {
+  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
+}
+
+.letter-spacing-1 {
+  letter-spacing: 0.1em;
+}
+
+.procedure-info-card {
+  transition: all 0.3s ease;
+}
+
+.procedure-info-card:hover {
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
+}
+
+.procedure-steps {
+  background: rgba(200, 178, 115, 0.08);
+  border: 1px solid rgba(200, 178, 115, 0.2);
+}
+
+.info-badges .badge {
+  font-size: 0.75rem;
+  padding: 0.5rem 0.75rem;
+}
+
+/* Risks Section */
+.risks-section {
+  margin-top: 4rem;
+}
+
+.risk-category {
+  transition: all 0.3s ease;
+}
+
+.risk-category:hover {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--color-gold) !important;
+}
+
+.consultation-cta {
+  background: linear-gradient(135deg, #000 0%, var(--color-primary) 100%) !important;
+}
+
+.btn-gold {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  color: var(--color-primary);
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-gold:hover {
+  background-color: var(--color-gold-dark);
+  border-color: var(--color-gold-dark);
+  box-shadow: 0 5px 15px rgba(200, 178, 115, 0.4);
+}
+
+/* Legacy styles kept for compatibility */
 .procedure-hero {
   background-color: #f8f9fa;
   padding: 3rem 0;
@@ -635,7 +794,7 @@ a.consent-trigger:hover::after {
 
 .procedure-image {
   width: 100%;
-  height: 400px;
+  height: auto;
   border-radius: 0.25rem;
   overflow: hidden;
   margin-bottom: 1.5rem;
@@ -661,27 +820,67 @@ a.consent-trigger:hover::after {
   margin: 2rem 0;
 }
 
-/* Procedure Template Responsive Design */
-@media (max-width: 768px) {
-  .procedure-image {
-    height: 250px;
+/* Responsive Design */
+@media (max-width: 991px) {
+  .procedure-section {
+    margin-bottom: 3rem;
   }
   
+  .implant-types-section {
+    margin: 3rem 0;
+  }
+  
+  .procedure-hero-section {
+    padding: 3rem 0;
+  }
+}
+
+@media (max-width: 768px) {
   .procedure-section {
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
+  }
+  
+  .procedure-section h2 {
+    font-size: 1.75rem;
+  }
+  
+  .procedure-section h3 {
+    font-size: 1.25rem;
   }
   
   .case-study {
     padding: 1.5rem;
   }
+  
+  .info-badges {
+    display: none !important;
+  }
+  
+  .implant-card {
+    margin-bottom: 1rem;
+  }
 }
 
 @media (max-width: 576px) {
-  .procedure-image {
-    height: 200px;
+  .procedure-hero-section {
+    padding: 2rem 0;
   }
   
   .procedure-note {
     padding: 0.75rem;
+  }
+  
+  .icon-circle {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .consultation-cta {
+    padding: 1.5rem !important;
+  }
+  
+  .btn-gold.btn-lg {
+    padding: 0.75rem 2rem;
+    font-size: 1rem;
   }
 }
