@@ -41,57 +41,66 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 		<div class="container">
 
 			<?php
-			// Build tax query based on language selection.
-			$tax_query = array();
-			if ( 'english' === $current_language ) {
-				$tax_query = array(
-					array(
-						'taxonomy' => 'special-category',
-						'field'    => 'slug',
-						'terms'    => 'english-specials',
+			// Modern WordPress query optimization with caching.
+			$cache_key     = 'specials_archive_' . $current_language;
+			$specials_data = get_transient( $cache_key );
+
+			if ( false === $specials_data ) {
+				// Build optimized single query with custom ordering.
+				$query_args = array(
+					'post_type'              => 'special',
+					'posts_per_page'         => -1,
+					'post_status'            => 'publish',
+					// Performance optimizations.
+					'no_found_rows'          => true,
+					'update_post_meta_cache' => true,  // We need meta for sticky check.
+					'update_post_term_cache' => true,  // We need terms for language filtering.
+					// Custom ordering: sticky posts first, then by date.
+					'meta_query'             => array(
+						'sticky_clause' => array(
+							'key'     => 'is_sticky',
+							'compare' => 'EXISTS',
+						),
+					),
+					'orderby'                => array(
+						'sticky_clause' => 'DESC',  // Sticky posts first.
+						'date'          => 'DESC',   // Then by date.
 					),
 				);
-			} elseif ( 'spanish' === $current_language ) {
-				$tax_query = array(
-					array(
-						'taxonomy' => 'special-category',
-						'field'    => 'slug',
-						'terms'    => 'spanish-specials',
-					),
+
+				// Add language filtering if specified.
+				if ( 'english' === $current_language ) {
+					$query_args['tax_query'] = array(
+						array(
+							'taxonomy' => 'special-category',
+							'field'    => 'slug',
+							'terms'    => 'english-specials',
+						),
+					);
+				} elseif ( 'spanish' === $current_language ) {
+					$query_args['tax_query'] = array(
+						array(
+							'taxonomy' => 'special-category',
+							'field'    => 'slug',
+							'terms'    => 'spanish-specials',
+						),
+					);
+				}
+
+				$specials_query = new WP_Query( $query_args );
+
+				// Cache the results for 15 minutes.
+				$specials_data = array(
+					'posts'     => $specials_query->posts,
+					'has_posts' => $specials_query->have_posts(),
 				);
+				set_transient( $cache_key, $specials_data, 15 * MINUTE_IN_SECONDS );
+
+				// Clean up.
+				wp_reset_postdata();
 			}
 
-			// First Query: Sticky Specials.
-			$sticky_args  = array(
-				'post_type'      => 'special',
-				'posts_per_page' => -1,
-				'meta_key'       => 'is_sticky',
-				'meta_value'     => '1',
-				'tax_query'      => $tax_query,
-			);
-			$sticky_query = new WP_Query( $sticky_args );
-
-			// Second Query: Regular Specials.
-			$regular_args  = array(
-				'post_type'      => 'special',
-				'posts_per_page' => -1,
-				'meta_query'     => array(
-					'relation' => 'OR',
-					array(
-						'key'     => 'is_sticky',
-						'value'   => '0',
-						'compare' => '=',
-					),
-					array(
-						'key'     => 'is_sticky',
-						'compare' => 'NOT EXISTS',
-					),
-				),
-				'tax_query'      => $tax_query,
-			);
-			$regular_query = new WP_Query( $regular_args );
-
-			$has_specials = $sticky_query->have_posts() || $regular_query->have_posts();
+			$has_specials = $specials_data['has_posts'];
 			?>
 
 			<?php if ( $has_specials ) : ?>
@@ -99,18 +108,20 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 				<div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 g-lg-5">
 
 					<?php
-					// Display Sticky Specials First.
-					if ( $sticky_query->have_posts() ) :
-						while ( $sticky_query->have_posts() ) :
-							$sticky_query->the_post();
-							$is_spanish = has_term( 'spanish-specials', 'special-category' );
-							?>
+					// Display all specials (sticky first due to custom ordering).
+					foreach ( $specials_data['posts'] as $special_post ) :
+						setup_postdata( $special_post );
+						$is_sticky  = get_post_meta( get_the_ID(), 'is_sticky', true );
+						$is_spanish = has_term( 'spanish-specials', 'special-category' );
+						?>
 
 							<div class="col">
-								<article class="special-card h-100 sticky-special">
-									<div class="featured-badge">
-										<span><?php echo $is_spanish ? 'Destacado' : 'Featured'; ?></span>
-									</div>
+								<article class="special-card h-100 <?php echo $is_sticky ? 'sticky-special' : ''; ?>">
+									<?php if ( $is_sticky ) : ?>
+										<div class="featured-badge">
+											<span><?php echo $is_spanish ? 'Destacado' : 'Featured'; ?></span>
+										</div>
+									<?php endif; ?>
 									<?php if ( has_post_thumbnail() ) : ?>
 										<div class="special-card-image">
 											<a href="<?php the_permalink(); ?>"
@@ -134,7 +145,7 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 										<div class="special-card-excerpt">
 											<?php the_excerpt(); ?>
 										</div>
-										<a href="<?php the_permalink(); ?>" class="btn btn-primary">
+										<a href="<?php the_permalink(); ?>" class="btn <?php echo $is_sticky ? 'btn-primary' : 'btn-outline-primary'; ?>">
 											<?php echo $is_spanish ? 'Ver Oferta' : 'View Special'; ?> 
 											<i class="fas fa-arrow-right"></i>
 										</a>
@@ -143,54 +154,8 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 							</div>
 
 							<?php
-						endwhile;
-						wp_reset_postdata();
-					endif;
-
-					// Display Regular Specials.
-					if ( $regular_query->have_posts() ) :
-						while ( $regular_query->have_posts() ) :
-							$regular_query->the_post();
-							$is_spanish = has_term( 'spanish-specials', 'special-category' );
-							?>
-
-							<div class="col">
-								<article class="special-card h-100">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<div class="special-card-image">
-											<a href="<?php the_permalink(); ?>"
-												aria-label="View <?php echo esc_attr( get_the_title() ); ?>">
-												<?php the_post_thumbnail( 'large', array( 'class' => 'img-fluid' ) ); ?>
-											</a>
-										</div>
-									<?php endif; ?>
-									<div class="special-card-body">
-										<?php
-										$permalink = get_permalink();
-										if ( false !== $permalink ) :
-											the_title(
-												'<h2 class="special-card-title"><a href="' . esc_url( $permalink ) . '">',
-												'</a></h2>'
-											);
-										else :
-											the_title( '<h2 class="special-card-title">', '</h2>' );
-										endif;
-										?>
-										<div class="special-card-excerpt">
-											<?php the_excerpt(); ?>
-										</div>
-										<a href="<?php the_permalink(); ?>" class="btn btn-outline-primary">
-											<?php echo $is_spanish ? 'Ver Oferta' : 'View Special'; ?> 
-											<i class="fas fa-arrow-right"></i>
-										</a>
-									</div>
-								</article>
-							</div>
-
-							<?php
-						endwhile;
-						wp_reset_postdata();
-					endif;
+					endforeach;
+					wp_reset_postdata();
 					?>
 
 				</div> <!-- .row -->

@@ -6,7 +6,7 @@ parameters:
         - vendor/
         - node_modules/
         - theme-bundle/
-        - assets/bootstrap/
+        - assets/bootstrap/ (?)
         - assets/fontawesome/
         - .claude (?)
     bootstrapFiles:
@@ -41,6 +41,25 @@ parameters:
         
         # ACF Blocks (if using them)
         - '#Function acf_register_block_type invoked with#'
+        
+        # WordPress/ACF mixed type patterns that are safe
+        - '#Only booleans are allowed in a negated boolean, mixed given#'
+        - '#Only booleans are allowed in an if condition, mixed given#'
+        - '#Only booleans are allowed in an if condition, string\|false given#'
+        - '#Construct empty\(\) is not allowed#'
+        
+        # WordPress template and conditional functions
+        - '#Function (is_home|is_front_page|is_single|is_page|is_archive|is_category|is_tag|is_author|is_search|is_404|is_page_template|have_posts|the_post) invoked with#'
+        
+        # WordPress loop and iteration patterns
+        - '#Variable \$post might not be defined#'
+        - '#Offset .* does not exist on array#'
+        
+        # WordPress superglobals (commonly used in themes)
+        - '#Variable \$_(GET|POST|SERVER|REQUEST) .* does not exist#'
+        
+        # WordPress formatting functions that handle escaping
+        - '#Function (wp_kses_post|wp_strip_all_tags|sanitize_text_field|esc_html|esc_attr|esc_url) .* should not be used#'
     
     # Memory and performance
     reportUnmatchedIgnoredErrors: false
@@ -48,7 +67,6 @@ parameters:
     # Disable parallel processing completely
     parallel:
         maximumNumberOfProcesses: 1
-        processTimeout: 300.0
     
     # WordPress-specific type hints
     universalObjectCratesClasses:

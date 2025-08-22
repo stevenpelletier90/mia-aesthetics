@@ -118,7 +118,7 @@ get_header(); ?>
 											'class'      => 'disabled',
 											'attributes' => array(
 												'aria-label' => 'Previous page',
-												'disabled'   => 'disabled',
+												'disabled' => 'disabled',
 											),
 										)
 									);
@@ -148,7 +148,7 @@ get_header(); ?>
 											'class'      => 'disabled',
 											'attributes' => array(
 												'aria-label' => 'Next page',
-												'disabled'   => 'disabled',
+												'disabled' => 'disabled',
 											),
 										)
 									);

@@ -3,23 +3,43 @@
 const { chromium } = require("playwright");
 const fs = require("fs").promises;
 
-// Breast procedures to verify (focusing on core content only)
-const BREAST_PROCEDURES = {
-  "breast-augmentation": {
-    url: "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/augmentation-implants/",
-    template: "breast-procedure-templates/breast-augmentation-template.html",
+// Face procedures to verify (need to determine correct URLs)
+const FACE_PROCEDURES = {
+  facelift: {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/facelift/",
+    template: "face-procedure-templates/facelift-template.html",
   },
-  "breast-reduction": {
-    url: "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/reduction/",
-    template: "breast-procedure-templates/breast-reduction-template.html",
+  "mini-facelift": {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/mini-facelift/",
+    template: "face-procedure-templates/mini-facelift-template.html",
   },
-  "breast-lift": {
-    url: "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/lift/",
-    template: "breast-procedure-templates/breast-lift-template.html",
+  "brow-lift": {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/brow-lift/",
+    template: "face-procedure-templates/brow-lift-template.html",
   },
-  "breast-implant-revision": {
-    url: "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/implant-revision/",
-    template: "breast-procedure-templates/breast-implant-revision-template.html",
+  blepharoplasty: {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/blepharoplasty/",
+    template: "face-procedure-templates/blepharoplasty-template.html",
+  },
+  rhinoplasty: {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/rhinoplasty/",
+    template: "face-procedure-templates/rhinoplasty-template.html",
+  },
+  "neck-lift": {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/neck-lift/",
+    template: "face-procedure-templates/neck-lift-template.html",
+  },
+  otoplasty: {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/otoplasty/",
+    template: "face-procedure-templates/otoplasty-template.html",
+  },
+  "buccal-fat-removal": {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/buccal-fat-removal/",
+    template: "face-procedure-templates/buccal-fat-removal-template.html",
+  },
+  "chin-lipo": {
+    url: "https://miaaesthetics.com/cosmetic-plastic-surgery/face/chin-lipo/",
+    template: "face-procedure-templates/chin-lipo-template.html",
   },
 };
 
@@ -46,6 +66,7 @@ async function scrapeCoreContent(url) {
             !text.includes("FAQ") &&
             !text.includes("DREAM BODY") &&
             !text.includes("GET YOUR") &&
+            !text.includes("Frequently Asked Questions") &&
             text.length > 0
           );
         });
@@ -156,8 +177,8 @@ function analyzeCoreContent(live, template, procedureName) {
     }
   });
 
-  // Calculate core content accuracy (procedure info only)
-  const totalCoreContent = live.headings.length + Math.min(live.paragraphs.length, 8); // Focus on main paragraphs
+  // Calculate core content accuracy
+  const totalCoreContent = live.headings.length + Math.min(live.paragraphs.length, 8);
   const totalMatches = analysis.headingsMatch.length + coreMatches;
 
   if (totalCoreContent > 0) {
@@ -167,16 +188,16 @@ function analyzeCoreContent(live, template, procedureName) {
   return analysis;
 }
 
-async function verifyCoreContent() {
-  console.log("🔍 Mia Aesthetics - Core Content Verification (Template Content Only)");
+async function verifyFaceProcedures() {
+  console.log("🔍 Mia Aesthetics - Face Procedures Core Content Verification");
   console.log("=".repeat(70));
   console.log("Note: Ignoring FAQ sections, pricing, H1s - these are handled by page layout");
   console.log("=".repeat(70));
 
   const results = [];
 
-  for (const [name, config] of Object.entries(BREAST_PROCEDURES)) {
-    console.log(`\\n📋 VERIFYING CORE CONTENT: ${name.toUpperCase()}`);
+  for (const [name, config] of Object.entries(FACE_PROCEDURES)) {
+    console.log(`\n📋 VERIFYING FACE PROCEDURE: ${name.toUpperCase()}`);
     console.log("-".repeat(50));
 
     // Scrape core content only
@@ -198,7 +219,7 @@ async function verifyCoreContent() {
     results.push(analysis);
 
     // Display results
-    console.log(`\\n  📊 CORE CONTENT ANALYSIS:`);
+    console.log(`\n  📊 CORE CONTENT ANALYSIS:`);
     console.log(`     Core Accuracy: ${analysis.coreAccuracy}%`);
     console.log(
       `     Headings Matched: ${analysis.headingsMatch.length}/${liveContent.headings.length}`
@@ -219,12 +240,12 @@ async function verifyCoreContent() {
 
     // Show matched headings
     if (analysis.headingsMatch.length > 0) {
-      console.log(`\\n  🎯 Core Headings Matched:`);
+      console.log(`\n  🎯 Core Headings Matched:`);
       analysis.headingsMatch.forEach((h) => console.log(`     ✓ ${h}`));
     }
 
     if (analysis.headingsMissing.length > 0) {
-      console.log(`\\n  ⚠️ Missing Core Headings:`);
+      console.log(`\n  ⚠️ Missing Core Headings:`);
       analysis.headingsMissing.forEach((h) => console.log(`     • ${h}`));
     }
 
@@ -233,11 +254,11 @@ async function verifyCoreContent() {
   }
 
   // Save report
-  await fs.writeFile("core-content-report.json", JSON.stringify(results, null, 2));
+  await fs.writeFile("face-procedures-report.json", JSON.stringify(results, null, 2));
 
   // Summary
-  console.log("\\n" + "=".repeat(70));
-  console.log("📈 CORE CONTENT SUMMARY (Template Content Only):");
+  console.log("\n" + "=".repeat(70));
+  console.log("📈 FACE PROCEDURES SUMMARY:");
   console.log("=".repeat(70));
 
   let totalScore = 0;
@@ -265,29 +286,29 @@ async function verifyCoreContent() {
 
   if (validResults > 0) {
     const avgScore = Math.round(totalScore / validResults);
-    console.log(`\\n🏆 OVERALL CORE CONTENT ACCURACY: ${avgScore}%`);
+    console.log(`\n🏆 OVERALL FACE PROCEDURES ACCURACY: ${avgScore}%`);
 
     if (avgScore >= 85) {
-      console.log("🎉 Templates are highly accurate for core content!");
+      console.log("🎉 Face procedure templates are highly accurate!");
     } else if (avgScore >= 70) {
-      console.log("✅ Templates have good core content accuracy.");
+      console.log("✅ Face procedure templates have good accuracy.");
     } else {
-      console.log("⚠️ Some templates may need core content updates.");
+      console.log("⚠️ Some face procedure templates need content updates.");
     }
   }
 
-  console.log(`\\n📋 Detailed report: core-content-report.json`);
+  console.log(`\n📋 Detailed report: face-procedures-report.json`);
 
   return results;
 }
 
 // Run verification
 if (require.main === module) {
-  verifyCoreContent().catch(console.error);
+  verifyFaceProcedures().catch(console.error);
 }
 
 module.exports = {
-  verifyCoreContent,
+  verifyFaceProcedures,
   scrapeCoreContent,
   extractTemplateContent,
   analyzeCoreContent,

@@ -342,7 +342,6 @@ function mia_enqueue_assets(): void {
 
 	// Register case card component (loaded on demand by case-related templates).
 	mia_register_asset( 'style', 'mia-case-card', '/css/components/case-card.css', array( 'mia-base' ) );
-	
 
 	mia_register_asset( 'script', 'mia-bootstrap', '/bootstrap/js/bootstrap.bundle.min.js' ); // no jQuery.
 	mia_register_asset( 'script', 'mia-header', '/js/layout/header.js', array( 'mia-bootstrap' ) );
@@ -391,7 +390,6 @@ function mia_enqueue_assets(): void {
 		is_page( 'careers' ) || is_page( 'careers-locations' ) ) {
 		wp_enqueue_style( 'mia-careers-cta' );
 	}
-
 
 	// ------------------------ Enqueue registered ---------------------------.
 	foreach ( wp_styles()->registered as $h => $_ ) {

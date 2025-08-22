@@ -20,8 +20,8 @@
     }
   },
   "scripts": {
-    "phpcs": "phpcs --standard=WordPress --report=full functions.php inc/",
-    "phpcbf": "phpcbf --standard=WordPress",
-    "phpstan": "phpstan analyse"
+    "phpcs": "phpcs",
+    "phpcbf": "phpcbf",
+    "phpstan": "phpstan analyse --memory-limit=2G --no-progress"
   }
 }

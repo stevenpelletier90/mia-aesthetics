@@ -1,10 +1,7 @@
 [
   {
     "procedure": "breast-augmentation",
-    "headingsMatch": [
-      "Two Types of Breast Implants",
-      "About Breast Augmentation"
-    ],
+    "headingsMatch": ["Two Types of Breast Implants", "About Breast Augmentation"],
     "headingsMissing": [
       "What is Breast Augmentation?",
       "Frequently Asked Questions",
@@ -40,10 +37,7 @@
   },
   {
     "procedure": "breast-reduction",
-    "headingsMatch": [
-      "About the breast Reduction Procedure",
-      "Breast Reduction Recovery"
-    ],
+    "headingsMatch": ["About the breast Reduction Procedure", "Breast Reduction Recovery"],
     "headingsMissing": [
       "What is a breast reduction?",
       "Frequently Asked Questions",
@@ -74,10 +68,7 @@
   },
   {
     "procedure": "breast-lift",
-    "headingsMatch": [
-      "About The Breast Lift Procedure",
-      "Breast Lift Recovery"
-    ],
+    "headingsMatch": ["About The Breast Lift Procedure", "Breast Lift Recovery"],
     "headingsMissing": [
       "What is a Breast Lift?",
       "Frequently Asked Questions",
@@ -110,9 +101,7 @@
   {
     "procedure": "breast-implant-revision",
     "headingsMatch": [],
-    "headingsMissing": [
-      "GET YOUR DREAM BODY TODAY"
-    ],
+    "headingsMissing": ["GET YOUR DREAM BODY TODAY"],
     "contentMatches": [],
     "contentMissing": [
       "BEGIN YOUR TRANSFORMATION...",
@@ -122,9 +111,7 @@
   },
   {
     "procedure": "male-bbl",
-    "headingsMatch": [
-      "Mia Aesthetics Patient Case Study"
-    ],
+    "headingsMatch": ["Mia Aesthetics Patient Case Study"],
     "headingsMissing": [
       "How the BBL FOR MEN WORKS",
       "Frequently Asked Questions",

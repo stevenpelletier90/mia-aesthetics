@@ -29,7 +29,7 @@ function setupTableOfContents() {
   if (!contentSection) {
     return;
   }
-  
+
   const headings = contentSection.querySelectorAll("h2");
   if (0 === headings.length) {
     return;

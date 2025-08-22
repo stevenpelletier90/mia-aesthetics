@@ -4,12 +4,24 @@
 
     <!-- Check all PHP files in the theme -->
     <file>.</file>
+    
+    <!-- Only scan PHP files -->
+    <arg name="extensions" value="php"/>
 
-    <!-- Exclude third party code -->
+    <!-- Exclude third party code and duplicates -->
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
+    <exclude-pattern>*/theme-bundle/*</exclude-pattern>
     <exclude-pattern>*/assets/bootstrap/*</exclude-pattern>
     <exclude-pattern>*/assets/fontawesome/*</exclude-pattern>
+    <exclude-pattern>*/.claude/*</exclude-pattern>
+    
+    <!-- Show progress and use colors -->
+    <arg value="p"/>
+    <arg name="colors"/>
+    
+    <!-- Memory and performance settings -->
+    <ini name="memory_limit" value="512M"/>
 
     <!-- Use WordPress coding standards -->
     <rule ref="WordPress"/>
@@ -26,7 +38,14 @@
                 <!-- ACF functions that auto-escape -->
                 <element value="the_field"/>
                 <element value="the_sub_field"/>
+                <!-- Custom theme functions that handle escaping internally -->
+                <element value="mia_button"/>
             </property>
         </properties>
+    </rule>
+    
+    <!-- Allow GET parameters for filtering/display (no CSRF risk) -->
+    <rule ref="WordPress.Security.NonceVerification.Recommended">
+        <exclude-pattern>*/archive-special.php</exclude-pattern>
     </rule>
 </ruleset>

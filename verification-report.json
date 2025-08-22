@@ -5,10 +5,7 @@
     "url": "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/augmentation-implants/",
     "templatePath": "/Users/stevenpelletier/Developer/mia-aesthetics/breast-procedure-templates/breast-augmentation-template.html",
     "content": {
-      "headings": [
-        "Two Types of Breast Implants",
-        "About Breast Augmentation"
-      ],
+      "headings": ["Two Types of Breast Implants", "About Breast Augmentation"],
       "paragraphCount": 0,
       "firstParagraph": "No content found"
     }
@@ -19,10 +16,7 @@
     "url": "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/reduction/",
     "templatePath": "/Users/stevenpelletier/Developer/mia-aesthetics/breast-procedure-templates/breast-reduction-template.html",
     "content": {
-      "headings": [
-        "About the breast Reduction Procedure",
-        "Breast Reduction Recovery"
-      ],
+      "headings": ["About the breast Reduction Procedure", "Breast Reduction Recovery"],
       "paragraphCount": 0,
       "firstParagraph": "No content found"
     }
@@ -33,10 +27,7 @@
     "url": "https://www.miaaesthetics.com/cosmetic-plastic-surgery/breast/lift/",
     "templatePath": "/Users/stevenpelletier/Developer/mia-aesthetics/breast-procedure-templates/breast-lift-template.html",
     "content": {
-      "headings": [
-        "About The Breast Lift Procedure",
-        "Breast Lift Recovery"
-      ],
+      "headings": ["About The Breast Lift Procedure", "Breast Lift Recovery"],
       "paragraphCount": 0,
       "firstParagraph": "No content found"
     }
@@ -63,9 +54,7 @@
     "url": "https://www.miaaesthetics.com/cosmetic-plastic-surgery/body/male-bbl/",
     "templatePath": "/Users/stevenpelletier/Developer/mia-aesthetics/male-procedure-templates/male-bbl-template.html",
     "content": {
-      "headings": [
-        "Mia Aesthetics Patient Case Study"
-      ],
+      "headings": ["Mia Aesthetics Patient Case Study"],
       "paragraphCount": 0,
       "firstParagraph": "No content found"
     }

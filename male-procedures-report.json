@@ -1,13 +1,8 @@
 [
   {
     "procedure": "male-bbl",
-    "headingsMatch": [
-      "How the BBL FOR MEN WORKS",
-      "Mia Aesthetics Patient Case Study"
-    ],
-    "headingsMissing": [
-      "Frequently Asked Questions"
-    ],
+    "headingsMatch": ["How the BBL FOR MEN WORKS", "Mia Aesthetics Patient Case Study"],
+    "headingsMissing": ["Frequently Asked Questions"],
     "contentMatches": [
       "A male BBL works the same way as a female BBL, although the end goal is slightly...",
       "Once the surgeon harvests the donor fat, they will wash it, spin it, and purify ..."
@@ -34,9 +29,7 @@
       "Am I a Good Candidate?",
       "What Should I Expect During the Procedure?"
     ],
-    "headingsMissing": [
-      "Frequently Asked Questions"
-    ],
+    "headingsMissing": ["Frequently Asked Questions"],
     "contentMatches": [
       "As this before and after photo shows, men who carefully follow their post-op ins...",
       "Liposuction for men works by permanently removing unwanted fat through a thin tu...",
@@ -61,13 +54,8 @@
   },
   {
     "procedure": "male-tummy-tuck",
-    "headingsMatch": [
-      "Male Tummy Tuck",
-      "Mia Aesthetics Patient Case Study"
-    ],
-    "headingsMissing": [
-      "Frequently Asked Questions"
-    ],
+    "headingsMatch": ["Male Tummy Tuck", "Mia Aesthetics Patient Case Study"],
+    "headingsMissing": ["Frequently Asked Questions"],
     "contentMatches": [
       "Male tummy tucks are increasingly popular because they can get rid of stubborn b...",
       "This actual Mia Aesthetics male tummy tuck patient enjoyed optimal results after...",

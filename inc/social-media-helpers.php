@@ -55,8 +55,8 @@ function mia_social_media_links( $class_name = 'social-icon' ) {
 			'icon'  => 'fab fa-youtube',
 		),
 	);
-	
-	// Add LinkedIn only on careers page
+
+	// Add LinkedIn only on careers page.
 	if ( is_page( 'careers' ) ) {
 		$platforms['linkedin'] = array(
 			'label' => 'LinkedIn',
