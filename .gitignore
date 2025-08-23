@@ -8,6 +8,12 @@ theme-bundle/
 *.min.css
 *.map
 
+# Exception: Keep essential Bootstrap and FontAwesome files
+!assets/bootstrap/**/*.min.js
+!assets/bootstrap/**/*.min.css
+!assets/bootstrap/**/*.map
+!assets/fontawesome/**/*.min.css
+
 # Environment files
 .env
 .env.local
