@@ -8,7 +8,7 @@
 }
 
 .case-card-inner {
-  background: linear-gradient(135deg, #000000 0%, #1b1b1b 100%);
+  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%);
   border-radius: 12px;
   border: 2px solid var(--color-gold);
   overflow: hidden;
@@ -74,7 +74,7 @@
 }
 
 .case-title-link {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -96,7 +96,7 @@
   align-items: center;
   margin-bottom: 0.875rem;
   font-size: 0.9rem;
-  color: #cccccc;
+  color: var(--color-text-secondary);
   line-height: 1.4;
 }
 
@@ -125,14 +125,14 @@
 .case-surgeon-link:focus,
 .case-location-link:hover,
 .case-location-link:focus {
-  color: #ffffff;
+  color: var(--color-white);
   text-decoration: none;
   transform: none;
 }
 
 /* Procedure Text (not linked) - More subdued */
 .case-procedure {
-  color: #999999;
+  color: var(--color-text-secondary);
   font-weight: 400;
   font-style: italic;
 }
@@ -143,25 +143,12 @@
   padding-top: 1rem;
 }
 
-/* Button styling overrides for dark background */
-.case-card .mia-button[data-variant="gold-outline"] {
-  color: #ffffff;
-  border-color: var(--color-gold);
-  background-color: transparent;
-}
-
-.case-card .mia-button[data-variant="gold-outline"]:hover,
-.case-card .mia-button[data-variant="gold-outline"]:focus {
-  color: #000000;
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  box-shadow: 0 4px 8px rgba(212, 175, 55, 0.3);
-}
+/* Use btn btn-outline-primary-alt2 for dark background buttons */
 
 /* Mobile Vertical Layout - Light theme with proper landscape image handling */
 @media (max-width: 768px) {
   .case-card-inner {
-    background: #ffffff;
+    background: var(--color-white);
     flex-direction: column;
     border: 2px solid var(--color-gold);
     border-radius: 12px;
@@ -209,7 +196,7 @@
 
   .case-meta-item {
     font-size: 0.875rem;
-    color: #666;
+    color: var(--color-text-secondary);
     margin-bottom: 0.5rem;
   }
 
@@ -232,7 +219,7 @@
   }
 
   .case-procedure {
-    color: #888;
+    color: var(--color-text-secondary);
     font-style: italic;
   }
 
@@ -240,20 +227,7 @@
     padding-top: 0.75rem;
   }
 
-  /* Override button colors for light mobile theme */
-  .case-card .mia-button[data-variant="gold-outline"] {
-    padding: 0.75rem 1.5rem;
-    font-size: 0.9rem;
-    color: var(--color-primary);
-    border-color: var(--color-gold);
-  }
-
-  .case-card .mia-button[data-variant="gold-outline"]:hover,
-  .case-card .mia-button[data-variant="gold-outline"]:focus {
-    color: #000;
-    background-color: var(--color-gold);
-    transform: translateY(-1px);
-  }
+  /* Use btn btn-outline-primary-alt for light mobile theme */
 }
 
 @media (max-width: 576px) {
@@ -275,8 +249,5 @@
     margin-bottom: 0.4rem;
   }
 
-  .case-card .mia-button[data-variant="gold-outline"] {
-    padding: 0.625rem 1.25rem;
-    font-size: 0.85rem;
-  }
+  /* Use btn btn-sm for smaller mobile buttons */
 }

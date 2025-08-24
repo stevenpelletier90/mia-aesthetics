@@ -5,7 +5,7 @@
 
 /* Search Results Header */
 .search-results .post-header {
-  background-color: #f8f9fa;
+  background-color: var(--color-gold-light);
 }
 
 .search-results .post-header h1 {
@@ -19,16 +19,16 @@
 }
 
 .search-results .post-header p.lead {
-  color: #6c757d;
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
 }
 
 /* Search Results Cards */
 .search-results .card {
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--color-gold-light);
   border-radius: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 4px var(--shadow-subtle);
 }
 
 .search-results .card:hover {
@@ -64,7 +64,7 @@
 }
 
 .search-results .card-body .text-muted {
-  background-color: #f8f9fa;
+  background-color: var(--color-gold-light);
   padding: 0.25rem 0.5rem;
   border-radius: 3px;
   font-size: 0.8rem;
@@ -72,7 +72,7 @@
   text-transform: uppercase;
   letter-spacing: 0.5px;
   color: var(--color-primary);
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--color-gold-light);
   display: inline-block;
   margin-top: 0.5rem;
 }
@@ -81,7 +81,7 @@
 .search-results .no-results {
   text-align: center;
   padding: 3rem 2rem;
-  color: #6c757d;
+  color: var(--color-text-secondary);
 }
 
 .search-results .no-results h3 {
@@ -96,13 +96,13 @@
 
 .search-results .pagination .page-link {
   color: var(--color-primary);
-  border-color: #e9ecef;
+  border-color: var(--color-gold-light);
   padding: 0.75rem 1rem;
   font-weight: 500;
 }
 
 .search-results .pagination .page-link:hover {
-  color: #fff;
+  color: var(--color-white);
   background-color: var(--color-gold);
   border-color: var(--color-gold);
 }
@@ -110,7 +110,7 @@
 .search-results .pagination .page-item.active .page-link {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
 }
 
 /* Responsive Design */

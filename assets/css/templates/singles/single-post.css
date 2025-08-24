@@ -1,24 +1,24 @@
 .post-header {
   background-color: var(--color-primary);
-  color: #fff;
-  padding: 2rem 0;
+  color: var(--color-white);
+  padding: var(--space-8) 0;
 }
 
 .post-header h1 {
-  color: #fff;
-  font-weight: 600;
-  margin-bottom: 1.5rem;
+  color: var(--color-white);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-6);
 }
 
 .post-header .lead {
   color: var(--color-gold);
 
   /* font-size removed: use base or utility class */
-  font-weight: 400;
+  font-weight: var(--font-normal);
 }
 
 .post-meta {
-  color: rgba(255, 255, 255, 0.8) !important;
+  color: var(--color-white-80) !important;
 
   /* font-size removed: use base or utility class */
 }
@@ -35,33 +35,33 @@
 .content h2,
 .content h3,
 .content h4 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-4);
 }
 
 .content img {
   max-width: 100%;
   height: auto;
-  border-radius: 4px;
-  margin: 1.5rem 0;
+  border-radius: var(--radius-sm);
+  margin: var(--space-6) 0;
 }
 
 .content blockquote {
   border-left: 4px solid var(--color-gold);
-  padding-left: 1.5rem;
+  padding-left: var(--space-6);
   margin-left: 0;
   font-style: italic;
-  color: #555;
+  color: var(--color-text-primary);
 }
 
 /* FAQ/Accordion body link styles */
 .accordion-body a {
-  color: #00f;
+  color: var(--color-link);
 }
 
 .accordion-body a:hover,
 .accordion-body a:focus {
-  color: #551a8b; /* deeper shade or brand-friendly dark blue */
+  color: var(--color-link-hover); /* deeper shade or brand-friendly dark blue */
   text-decoration-thickness: 2px;
 }
 
@@ -82,12 +82,12 @@
 
 .related-topics a[href*="tag"] {
   display: inline-block;
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-light);
   color: var(--color-primary) !important;
-  padding: 0.25rem 0.75rem;
+  padding: var(--space-1) var(--space-3);
   border-radius: 30px;
-  margin-right: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin-right: var(--space-2);
+  margin-bottom: var(--space-2);
 
   /* font-size removed: use base or utility class */
   transition: all 0.2s ease;
@@ -96,7 +96,7 @@
 
 .related-topics a[href*="tag"]:hover {
   background-color: var(--color-gold);
-  color: #000 !important;
+  color: var(--color-black) !important;
 }
 
 .sidebar {
@@ -105,17 +105,17 @@
 }
 
 .sidebar .card {
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color 0.2s;
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-border-medium);
   box-shadow: none;
-  background: #fff;
-  margin-bottom: 2rem;
+  background: var(--color-white);
+  margin-bottom: var(--space-8);
 }
 
 .sidebar .card:hover {
-  border-color: #c8b273;
+  border-color: var(--color-gold);
   box-shadow: none;
 }
 
@@ -124,13 +124,13 @@
 }
 
 .sidebar .h5 {
-  font-weight: 700;
-  margin-bottom: 1.25rem;
+  font-weight: var(--font-bold);
+  margin-bottom: var(--space-5);
   color: var(--color-primary);
   letter-spacing: 0.01em;
   font-family: var(--font-heading);
   border-left: 4px solid var(--color-gold);
-  padding-left: 0.75rem;
+  padding-left: var(--space-3);
 }
 
 .sidebar .list-unstyled {
@@ -138,11 +138,11 @@
 }
 
 .sidebar .list-unstyled li {
-  padding: 0.65rem 0;
-  border-bottom: 1px solid #f0f0f0;
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--color-border-light);
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-2);
 }
 
 .sidebar .list-unstyled li:last-child {
@@ -151,12 +151,12 @@
 
 .sidebar .list-unstyled a {
   color: var(--color-primary);
-  font-weight: 500;
+  font-weight: var(--font-medium);
 
   /* font-size removed: use base or utility class */
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: var(--space-2);
   transition:
     color 0.2s,
     background 0.2s;
@@ -167,7 +167,7 @@
 
 .sidebar .list-unstyled a:hover {
   color: var(--color-gold);
-  background: #f8f9fa;
+  background: var(--color-bg-light);
   text-decoration: none;
 }
 
@@ -188,7 +188,7 @@
 .sidebar .img-fluid {
   border-radius: 6px;
   transition: opacity 0.2s;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px var(--color-black-10);
 }
 
 .sidebar .img-fluid:hover {
@@ -196,7 +196,7 @@
 }
 
 .sidebar .text-muted {
-  color: #888 !important;
+  color: var(--color-text-secondary) !important;
 
   /* font-size removed: use base or utility class */
 }
@@ -238,16 +238,16 @@
 
 /* Accordion Styles for Single Template (for FAQ) */
 .accordion-item {
-  margin-bottom: 1rem;
+  margin-bottom: var(--space-4);
   border: none;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 5px var(--color-black-05);
   transition: all 0.3s ease;
 }
 
 .accordion-item:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 15px var(--color-black-10);
 }
 
 .accordion-header {
@@ -256,8 +256,8 @@
 
 .accordion-button {
   background-color: var(--color-primary);
-  color: #fff;
-  font-weight: 500;
+  color: var(--color-white);
+  font-weight: var(--font-medium);
   padding: 1.25rem;
   border-radius: 6px;
   box-shadow: none;
@@ -276,11 +276,10 @@
   border-color: transparent;
 }
 
-
 .accordion-body {
-  padding: 1.5rem;
-  background-color: #fff;
-  color: #333;
+  padding: var(--space-6);
+  background-color: var(--color-white);
+  color: var(--color-text-primary);
   line-height: 1.6;
 }
 

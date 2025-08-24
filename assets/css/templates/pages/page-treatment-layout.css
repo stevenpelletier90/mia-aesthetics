@@ -1,36 +1,6 @@
-:root {
-  /* Spacing */
-  --spacing-xs: 0.25rem;
-  --spacing-sm: 0.5rem;
-  --spacing-md: 0.75rem;
-  --spacing-lg: 1rem;
-  --spacing-xl: 1.5rem;
-  --spacing-2xl: 2rem;
-  --spacing-3xl: 3rem;
-  --spacing-4xl: 4rem;
-
-  /* Form Field Heights */
-  --input-height: 48px;
-  --input-padding: 0.625rem 0.75rem;
-  --input-font-size: 16px;
-
-  /* Transitions */
-  --transition-base: all 0.3s ease;
-  --transition-fast: all 0.2s ease;
-
-  /* Border Radius */
-  --radius-sm: 3px;
-  --radius-base: 4px;
-
-  /* Shadows */
-  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.3);
-  --shadow-text: 2px 2px 4px #000000d1;
-}
-
 .treatment-header {
   position: relative;
-  min-height: 500px;
+  min-height: 31.25rem;
   display: flex;
   align-items: center;
 }
@@ -39,13 +9,31 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, rgba(0, 0, 0, 0.6), rgba(27, 27, 27, 0.5));
+  background: linear-gradient(to right, var(--color-black-60), rgba(27, 27, 27, 0.5));
   z-index: 1;
 }
 
 .treatment-header .container {
   position: relative;
   z-index: 2;
+}
+
+.treatment-header h1,
+.treatment-header .pricing-info {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+}
+
+.treatment-header h1 {
+  font-weight: var(--font-bold);
+  color: var(--color-white);
+  text-shadow: 2px 2px 4px var(--color-black-80);
+  font-size: clamp(2.5rem, 5vw, 62px);
+  letter-spacing: var(--tracking-tight);
+}
+
+.treatment-header .pricing-info {
+  font-weight: var(--font-semibold);
 }
 
 .hero-bg {
@@ -65,57 +53,25 @@
   height: 100%;
 }
 
-.treatment-header h1,
-.treatment-header .pricing-info {
-  color: #fff;
-  font-family: var(--font-heading);
-}
-
-.treatment-header h1 {
-  font-weight: 700;
-  color: #fff;
-  text-shadow: var(--shadow-text);
-  font-size: clamp(2.5rem, 5vw, 62px);
-  letter-spacing: -2px;
-}
-
-.treatment-header .pricing-info {
-  font-weight: 600;
-}
-
 .pricing-info h2 {
   color: var(--color-gold);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
-  font-weight: 700;
-  text-shadow: var(--shadow-text);
-  margin-bottom: 0.5rem;
+  font-weight: var(--font-bold);
+  text-shadow: 2px 2px 4px var(--color-black-80);
+  margin-bottom: var(--space-2);
 }
 
 .pricing-info small {
-  color: #fff;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+  color: var(--color-white);
+  text-shadow: 1px 1px 2px var(--color-black-80);
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   opacity: 0.9;
-}
-
-.treatment-subsection {
-  margin-top: var(--spacing-3xl);
-  padding-top: var(--spacing-2xl);
-  border-top: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.treatment-subsection h3 {
-  color: var(--color-primary);
-  font-weight: 600;
-  margin-bottom: var(--spacing-xl);
 }
 
 .main-content {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-
-  /* Removed: padding-block - pages handle their own spacing */
 }
 
 .main-content > .container-fluid,
@@ -125,696 +81,102 @@
   margin-inline: auto;
 }
 
-/* Removed: .main-content > * + * spacing rule - pages handle their own spacing */
-
 .results-resources-section {
-  background: linear-gradient(135deg, #000 0%, var(--color-primary) 100%);
-  padding-block: var(--spacing-2xl);
-  border-block: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%);
+  padding-block: var(--space-8);
+  border-block: 1px solid var(--color-white-10);
 }
 
 .results-resources-section .badge-after {
   background-color: var(--color-gold);
 }
 
-.before-after-card {
-  background: #fff;
-  border-radius: var(--radius-base);
-  overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  transition: border-color var(--transition-fast);
-  display: flex;
-  flex-direction: column;
-}
-
-.before-after-card img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-  display: block;
-  flex: 1;
-}
-
-.before-after-card:hover {
-  border-color: rgba(200, 178, 115, 0.3);
-}
-
-.results-disclaimer-text {
-  color: #fff;
-  opacity: 0.8;
-}
-
-.consultation-card {
-  background: linear-gradient(135deg, #000 0%, var(--color-primary) 100%);
-  color: #fff;
-}
-
-.consultation-card .gform_wrapper {
-  padding: 0 !important;
-  background: transparent !important;
-  border: none !important;
-}
-
-.consultation-card :is(h3, strong, p, h2) {
-  color: #fff;
-}
-
-.consultation-card .btn-primary {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
-  font-weight: 600;
-}
-
-.consultation-card .btn-primary:hover {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
-}
-
-:is(#field_1_55, #field_1_57, #field_1_58, #field_1_54) {
-  margin-bottom: 0 !important;
-}
-
-.consultation-card .gform_wrapper .gfield_label {
-  position: absolute !important;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0 0 0 0);
-  white-space: nowrap;
-  border: 0;
-}
-
-.gform-footer.gform_footer.top_label {
-  padding-bottom: 0 !important;
-}
-
-.consultation-card
-  .gform_wrapper
-  :is(
-    .ginput_container input[type="text"],
-    .ginput_container input[type="email"],
-    .ginput_container input[type="tel"],
-    .ginput_container input[type="number"],
-    .ginput_container input[type="url"],
-    .ginput_container textarea,
-    .gfield select
-  ) {
-  width: 100%;
-  max-width: 100%;
-  box-sizing: border-box;
-}
-
-.consultation-card .gform_wrapper .gform_required_legend {
-  display: none !important;
-}
-
-.consultation-card .gform_wrapper .gform_fields {
-  display: grid !important;
-  grid-template-columns: repeat(2, 1fr) !important;
-  gap: var(--spacing-md) !important;
-  padding: 0 !important;
-  margin: 0 !important;
-}
-
-.consultation-card .gform_wrapper .gfield {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-:is(#field_1_13, #field_1_55, #field_1_57, #field_1_58, #field_1_54) {
-  grid-column: span 2 !important;
-}
-
-:is(#field_1_2, #field_1_3, #field_1_36, #field_1_42, #field_1_33, #field_1_38) {
-  grid-column: span 1 !important;
-}
-
-:is(#field_1_55, #field_1_57, #field_1_58, #field_1_54) {
-  margin-top: var(--spacing-sm) !important;
-}
-
-.consultation-card .gform_wrapper .ginput_complex.ginput_container_name {
-  display: flex !important;
-  gap: var(--spacing-md) !important;
-  margin: 0 !important;
-}
-
-.consultation-card .gform_wrapper .ginput_complex.ginput_container_name span {
-  flex: 1 !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-.consultation-card .gform_wrapper .gfield_checkbox {
-  margin-block: 0 !important;
-}
-
-.consultation-card .gform_wrapper .gform_footer {
-  margin-top: var(--spacing-lg) !important;
-  padding: 0 !important;
-}
-
-.consultation-card
-  .gform_wrapper
-  :is(
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="url"],
-    select
-  ) {
-  height: var(--input-height);
-  padding: var(--input-padding);
-  line-height: 1.5;
-  font-size: var(--input-font-size);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--radius-base);
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  width: 100%;
-  appearance: none;
-  transition: var(--transition-base);
-}
-
-.consultation-card .gform_wrapper select {
-  padding: var(--input-padding);
-  position: relative;
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--radius-base);
-  appearance: none;
-  background-image: none;
-  padding-right: 2.5rem;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-}
-
-.consultation-card .gform_wrapper .ginput_container_select {
-  position: relative;
-}
-
-
-.consultation-card .gform_wrapper select option {
-  background-color: #fff;
-  color: #000;
-  padding: 8px 10px;
-}
-
-.consultation-card .gform_wrapper select:focus {
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 2px rgba(200, 178, 115, 0.3);
-  outline: none;
-}
-
-.consultation-card .gform_wrapper textarea {
-  min-height: 120px;
-  padding: var(--input-padding);
-  line-height: 1.5;
-  font-size: var(--input-font-size);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: var(--radius-base);
-  background-color: rgba(0, 0, 0, 0.2);
-  color: #fff;
-  appearance: none;
-  transition: var(--transition-base);
-}
-
-.consultation-card .gform_wrapper :is(input, select, textarea):focus {
-  outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 2px rgba(200, 178, 115, 0.3);
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.consultation-card .gform_wrapper :is(input, textarea)::placeholder {
-  color: rgba(255, 255, 255, 0.6);
-  opacity: 1;
-}
-
-.consultation-card .gform_wrapper .gfield_checkbox {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-}
-
-.consultation-card .gform_wrapper .gfield_checkbox .gchoice {
-  display: flex;
-  align-items: center;
-  margin-bottom: 0;
-  padding-block: var(--spacing-xs);
-}
-
-.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"] {
-  appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid rgba(255, 255, 255, 0.6);
-  border-radius: var(--radius-sm);
-  margin-right: 10px;
-  position: relative;
-  cursor: pointer;
-  background-color: transparent;
-  transition: var(--transition-base);
-}
-
-.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-}
-
-
-.consultation-card .gform_wrapper .gfield_checkbox label {
-  font-size: 14px;
-  color: #fff;
-  margin: 0;
-  cursor: pointer;
-}
-
-.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:hover {
-  border-color: var(--color-gold);
-}
-
-.consultation-card .gform_wrapper .gform_footer .gform_button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: 600;
-  line-height: 1.5;
-  color: #fff;
-  background-color: transparent;
-  border: 2px solid #fff;
-  box-shadow: var(--shadow-sm);
-  padding: 0.625rem 1.5rem;
-  font-size: 15px;
-  border-radius: var(--radius-sm);
-  transition: var(--transition-base);
-  text-transform: capitalize;
-  text-decoration: none;
-  cursor: pointer;
-  width: 100% !important;
-}
-
-.consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus) {
-  color: var(--color-primary);
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  box-shadow: var(--shadow-md);
-}
-
-.consultation-card .gform_wrapper .gform_footer {
-  margin-top: var(--spacing-lg);
-  padding-top: var(--spacing-sm);
-  text-align: center;
-}
-
 .results-resources-section .list-group-item {
-  background-color: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  margin-bottom: var(--spacing-sm);
-  border-radius: var(--radius-base);
+  background-color: var(--color-white-10);
+  border: 1px solid var(--color-white-20);
+  color: var(--color-white);
+  margin-bottom: var(--space-2);
+  border-radius: var(--radius-DEFAULT);
 }
 
 .results-resources-section .list-group-item:is(:hover, :focus) {
-  background-color: rgba(200, 178, 115, 0.2);
-  border-color: rgba(200, 178, 115, 0.4);
-  color: #fff;
+  background-color: var(--color-gold-20);
+  border-color: var(--color-gold-40);
+  color: var(--color-white);
   text-decoration: none;
 }
 
 .results-resources-section .list-group-item strong {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .results-resources-section .list-group-item .text-muted {
-  color: rgba(255, 255, 255, 0.7) !important;
+  color: var(--color-white-70);
 }
 
 .results-resources-section .list-group-item i {
   color: var(--color-gold);
 }
 
-a.consent-trigger {
-  color: var(--color-gold);
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  margin-top: var(--spacing-sm);
-  position: relative;
-  padding-bottom: 2px;
-  transition: var(--transition-base);
+.results-disclaimer-text {
+  color: var(--color-white);
+  opacity: 0.8;
 }
 
-a.consent-trigger::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: #fff;
-  transition: var(--transition-base);
+.before-after-card {
+  background: var(--color-white);
+  border-radius: var(--radius-DEFAULT);
+  overflow: hidden;
+  border: 1px solid var(--color-black-10);
+  transition: border-color all var(--duration-200) var(--ease-in-out);
+  display: flex;
+  flex-direction: column;
 }
 
-a.consent-trigger:hover {
-  color: #fff;
-}
-
-a.consent-trigger:hover::after {
+.before-after-card img {
   width: 100%;
+  height: 12.5rem;
+  object-fit: cover;
+  display: block;
+  flex: 1;
 }
 
-@media (max-width: 991px) {
-  /* Removed: .main-content padding-block - pages handle their own spacing */
-
-  /* Removed: .main-content > * + * spacing rule - pages handle their own spacing */
-
-  .treatment-subsection {
-    margin-top: var(--spacing-2xl);
-    padding-top: var(--spacing-xl);
-  }
+.before-after-card:hover {
+  border-color: var(--color-gold-30);
 }
-
-/* Responsive adjustments */
-@media (max-width: 991px) {
-  .treatment-header {
-    min-height: 400px;
-  }
-
-  .treatment-header .col-12 {
-    padding-inline: 2rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .treatment-header {
-    min-height: 180px;
-  }
-
-  .treatment-header .row.min-vh-50 {
-    min-height: 220px !important;
-  }
-
-  .treatment-header .col-12 {
-    padding-inline: 1rem;
-  }
-
-  .consultation-card .gform_wrapper .gform_fields {
-    display: block !important;
-  }
-
-  .consultation-card .gform_wrapper .gfield {
-    width: 100% !important;
-    margin-bottom: var(--spacing-sm) !important;
-  }
-
-  .consultation-card .gform_wrapper .gform_footer .gform_button {
-    width: 100%;
-    justify-content: center;
-    padding: var(--spacing-md) var(--spacing-lg);
-    font-size: 14px;
-  }
-
-  /* Removed: .main-content padding-block - pages handle their own spacing */
-
-  /* Removed: .main-content > * + * spacing rule - pages handle their own spacing */
-
-  .treatment-subsection {
-    margin-top: var(--spacing-xl);
-    padding-top: var(--spacing-lg);
-  }
-}
-
-@media (max-width: 480px) {
-  .consultation-card .gform_wrapper :is(input, select) {
-    -webkit-tap-highlight-color: transparent;
-  }
-
-  .consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"] {
-    width: 20px;
-    height: 20px;
-  }
-}
-
-/* ==============================================
-   PROCEDURE TEMPLATE LAYOUT
-   ============================================== */
 
 .procedure-section {
-  margin-bottom: 4rem;
+  margin-bottom: var(--space-16);
 }
 
 .procedure-section h2 {
   color: var(--color-primary);
-  font-family:
-    "Montserrat",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  font-weight: 700;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
+  font-family: var(--font-heading);
+  font-weight: var(--font-bold);
+  line-height: var(--leading-tight);
+  margin-bottom: var(--space-6);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
 .procedure-section h3 {
   color: var(--color-primary);
-  font-family:
-    "Montserrat",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    sans-serif;
-  font-weight: 600;
-  margin-bottom: 1rem;
+  font-family: var(--font-heading);
+  font-weight: var(--font-semibold);
+  margin-bottom: var(--space-4);
   font-size: clamp(1.25rem, 3vw, 1.75rem);
 }
 
-/* Hero Section Styles */
 .procedure-hero-section {
   position: relative;
-  padding: 4rem 0;
-}
-
-.text-gold,
-.text-gold-dark,
-span.text-gold,
-i.text-gold,
-.fa-solid.text-gold,
-.bg-dark .text-gold,
-.bg-light .text-gold,
-.bg-white .text-gold,
-.procedure-section .text-gold,
-.section-header .text-gold {
-  color: var(--color-gold) !important;
-}
-
-/* Prevent any context from overriding gold */
-* .text-gold,
-.text-gold:hover,
-.text-gold:focus,
-.text-gold:active {
-  color: var(--color-gold) !important;
-}
-
-.bg-gold {
-  background-color: var(--color-gold) !important;
-}
-
-.border-gold,
-.border-start.border-gold,
-.border-5.border-gold {
-  border-color: var(--color-gold) !important;
-}
-
-.bg-light-gold {
-  background-color: rgba(200, 178, 115, 0.1) !important;
-}
-
-/* Ensure dark sections have proper contrast */
-.bg-dark,
-.procedure-overview.bg-dark,
-.recovery-overview.bg-dark,
-.candidacy-overview.bg-dark {
-  background-color: var(--color-primary) !important;
-  color: var(--color-white) !important;
-}
-
-.bg-dark p,
-.bg-dark li,
-.bg-dark span:not(.text-gold) {
-  color: var(--color-white) !important;
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  color: transparent;
-  /* Fallback for browsers that don't support background-clip: text */
-  color: var(--color-primary);
-}
-
-/* Mobile fallback for gradient text */
-@media (max-width: 768px) {
-  .text-gradient {
-    background: none;
-    color: var(--color-gold) !important;
-    -webkit-text-fill-color: var(--color-gold);
-  }
-}
-
-.highlight-card {
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
-}
-
-.highlight-card:hover {
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.customization-note {
-  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, rgba(200, 178, 115, 0.1) 100%);
-  border: 1px solid rgba(200, 178, 115, 0.2);
-}
-
-.bg-gradient-subtle {
-  background: linear-gradient(135deg, #1b1b1b 0%, #000 100%);
-}
-
-.customization-note {
-  background: linear-gradient(135deg, #1b1b1b 0%, #000 100%);
-  border: 1px solid rgba(200, 178, 115, 0.3);
-}
-
-/* Image Styling */
-.procedure-image-wrapper .image-frame {
-  position: relative;
-  transition: transform 0.3s ease;
-}
-
-.procedure-image-wrapper .image-frame:hover {
-  /* Scale transform removed */
-}
-
-.image-overlay {
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-}
-
-/* Implant Types Section */
-.implant-types-section {
-  margin: 4rem 0;
-}
-
-.implant-card {
-  transition: all 0.3s ease;
-  border: 2px solid transparent;
-}
-
-.implant-card:hover {
-  border-color: var(--color-gold);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
-}
-
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.border-hover {
-  border: 2px solid #e9ecef;
-  transition: all 0.3s ease;
-}
-
-.border-hover:hover {
-  border-color: var(--color-gold);
-}
-
-/* About Procedure Section */
-.about-procedure-section {
-  background: linear-gradient(135deg, #fff 0%, #f8f9fa 100%);
-}
-
-.letter-spacing-1 {
-  letter-spacing: 0.1em;
-}
-
-.procedure-info-card {
-  transition: all 0.3s ease;
-}
-
-.procedure-info-card:hover {
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1) !important;
-}
-
-.procedure-steps {
-  background: rgba(200, 178, 115, 0.08);
-  border: 1px solid rgba(200, 178, 115, 0.2);
-}
-
-.info-badges .badge {
-  font-size: 0.75rem;
-  padding: 0.5rem 0.75rem;
-}
-
-/* Risks Section */
-.risks-section {
-  margin-top: 4rem;
-}
-
-.risk-category {
-  transition: all 0.3s ease;
-}
-
-.risk-category:hover {
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-  border-color: var(--color-gold) !important;
-}
-
-.consultation-cta {
-  background: linear-gradient(135deg, #000 0%, var(--color-primary) 100%) !important;
-}
-
-.btn-gold {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
-  font-weight: 600;
-  transition: all 0.3s ease;
-}
-
-.btn-gold:hover {
-  background-color: var(--color-gold-dark);
-  border-color: var(--color-gold-dark);
-  box-shadow: 0 5px 15px rgba(200, 178, 115, 0.4);
-}
-
-/* Legacy styles kept for compatibility */
-.procedure-hero {
-  background-color: #f8f9fa;
-  padding: 3rem 0;
-  margin-bottom: 3rem;
+  padding: var(--space-16) 0;
 }
 
 .procedure-image {
   width: 100%;
   height: auto;
-  border-radius: 0.25rem;
+  border-radius: var(--radius-DEFAULT);
   overflow: hidden;
-  margin-bottom: 1.5rem;
+  margin-bottom: var(--space-6);
 }
 
 .procedure-image img {
@@ -823,81 +185,190 @@ i.text-gold,
   object-fit: cover;
 }
 
+.procedure-image-wrapper .image-frame {
+  position: relative;
+  transition: transform var(--duration-300) var(--ease-in-out);
+}
+
 .procedure-note {
-  background-color: #fff3cd;
+  background-color: var(--color-bg-light);
   border-left: 4px solid var(--color-gold);
-  padding: 1rem;
-  margin: 1.5rem 0;
+  padding: var(--space-4);
+  margin: var(--space-6) 0;
 }
 
-.case-study {
-  background-color: #f8f9fa;
-  padding: 2rem;
-  border-radius: 0.25rem;
-  margin: 2rem 0;
+.procedure-info-card {
+  transition: all var(--duration-300) var(--ease-in-out);
 }
 
-/* Responsive Design */
+.procedure-info-card:hover {
+  box-shadow: var(--shadow-lg);
+}
+
+.procedure-steps {
+  background: var(--color-gold-10);
+  border: 1px solid var(--color-gold-20);
+}
+
+.bg-dark,
+.procedure-overview.bg-dark,
+.recovery-overview.bg-dark,
+.candidacy-overview.bg-dark {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.bg-dark p,
+.bg-dark li,
+.bg-dark span:not(.text-gold) {
+  color: var(--color-white);
+}
+
+.bg-gradient-subtle {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-black) 100%);
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-gold) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  color: var(--color-primary);
+}
+
+.highlight-card {
+  transition:
+    transform var(--duration-300) var(--ease-in-out),
+    box-shadow var(--duration-300) var(--ease-in-out);
+}
+
+.highlight-card:hover {
+  box-shadow: var(--shadow-xl);
+}
+
+.customization-note {
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-black) 100%);
+  border: 1px solid var(--color-gold-30);
+}
+
+.about-procedure-section {
+  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-bg-light) 100%);
+}
+
+.implant-types-section {
+  margin: var(--space-16) 0;
+}
+
+.implant-card {
+  transition: all var(--duration-300) var(--ease-in-out);
+  border: 2px solid transparent;
+}
+
+.implant-card:hover {
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-2xl);
+}
+
+.icon-circle {
+  width: var(--space-14);
+  height: var(--space-14);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.border-hover {
+  border: 2px solid var(--color-border-light);
+  transition: all var(--duration-300) var(--ease-in-out);
+}
+
+.border-hover:hover {
+  border-color: var(--color-gold);
+}
+
+.letter-spacing-1 {
+  letter-spacing: var(--tracking-wider);
+}
+
+.info-badges .badge {
+  font-size: var(--font-xs);
+  padding: var(--space-2) var(--space-3);
+}
+
 @media (max-width: 991px) {
+  .treatment-header {
+    min-height: 25rem;
+  }
+
+  .treatment-header .col-12 {
+    padding-inline: var(--space-8);
+  }
+
   .procedure-section {
-    margin-bottom: 3rem;
+    margin-bottom: var(--space-12);
   }
 
   .implant-types-section {
-    margin: 3rem 0;
+    margin: var(--space-12) 0;
   }
 
   .procedure-hero-section {
-    padding: 3rem 0;
+    padding: var(--space-12) 0;
   }
 }
 
 @media (max-width: 768px) {
+  .treatment-header {
+    min-height: 11.25rem;
+  }
+
+  .treatment-header .row.min-vh-50 {
+    min-height: 13.75rem;
+  }
+
+  .treatment-header .col-12 {
+    padding-inline: var(--space-4);
+  }
+
+  .text-gradient {
+    background: none;
+    color: var(--color-gold);
+    -webkit-text-fill-color: var(--color-gold);
+  }
+
   .procedure-section {
-    margin-bottom: 2.5rem;
+    margin-bottom: var(--space-10);
   }
 
   .procedure-section h2 {
-    font-size: 1.75rem;
+    font-size: var(--font-4xl);
   }
 
   .procedure-section h3 {
-    font-size: 1.25rem;
-  }
-
-  .case-study {
-    padding: 1.5rem;
+    font-size: var(--font-xl);
   }
 
   .info-badges {
-    display: none !important;
+    display: none;
   }
 
   .implant-card {
-    margin-bottom: 1rem;
+    margin-bottom: var(--space-4);
   }
 }
 
 @media (max-width: 576px) {
   .procedure-hero-section {
-    padding: 2rem 0;
+    padding: var(--space-8) 0;
   }
 
   .procedure-note {
-    padding: 0.75rem;
+    padding: var(--space-3);
   }
 
   .icon-circle {
-    width: 50px;
-    height: 50px;
-  }
-
-  .consultation-cta {
-    padding: 1.5rem !important;
-  }
-
-  .btn-gold.btn-lg {
-    padding: 0.75rem 2rem;
-    font-size: 1rem;
+    width: var(--space-12);
+    height: var(--space-12);
   }
 }

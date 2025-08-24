@@ -122,9 +122,9 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 					// Display all specials (sticky first due to custom ordering).
 					foreach ( $specials_data['posts'] as $special_post ) :
 						setup_postdata( $special_post );
-						$post_id = get_the_ID();
-						$is_sticky  = $post_id !== false ? (bool) get_post_meta( $post_id, 'is_sticky', true ) : false;
-						$is_spanish = (bool) has_term( 'spanish-specials', 'special-category' );
+						$current_post_id = get_the_ID();
+						$is_sticky       = false !== $current_post_id ? (bool) get_post_meta( $current_post_id, 'is_sticky', true ) : false;
+						$is_spanish      = (bool) has_term( 'spanish-specials', 'special-category' );
 						?>
 
 							<div class="col">

@@ -1,6 +1,6 @@
 .post-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--color-gold-light);
+  border-bottom: 1px solid var(--shadow-subtle);
 }
 
 .post-header h1 {
@@ -53,8 +53,8 @@
   text-transform: uppercase;
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
-  background-color: var(--color-primary, #b48c5e);
-  color: #fff;
+  background-color: var(--color-primary, var(--color-gold));
+  color: var(--color-white);
   border: none;
   transition: background-color 0.2s;
 }
@@ -62,8 +62,8 @@
 .category-badge:focus,
 .category-badge:hover,
 .category-badge:active {
-  background-color: var(--color-primary, #b48c5e);
-  color: #fff;
+  background-color: var(--color-primary, var(--color-gold));
+  color: var(--color-white);
 }
 
 .case-category-card .card-body {
@@ -86,7 +86,7 @@
 }
 
 .case-links a {
-  color: #666;
+  color: var(--color-text-secondary);
   font-size: 0.9rem;
   transition: all 0.2s ease;
   display: inline-block;
@@ -121,7 +121,7 @@
 }
 
 .browse-by-surgeon {
-  background-color: #f8f9fa;
+  background-color: var(--color-gold-light);
 }
 
 .browse-by-surgeon h2 {
@@ -132,7 +132,7 @@
 .browse-by-surgeon .btn-primary {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
   font-weight: 600;
   padding: 0.75rem 2rem;
   transition: all 0.3s ease;

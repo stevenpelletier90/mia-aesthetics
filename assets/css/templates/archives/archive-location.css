@@ -1,6 +1,6 @@
 .post-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--color-gold-light);
+  border-bottom: 1px solid var(--shadow-subtle);
 }
 
 .post-header h1 {
@@ -14,7 +14,7 @@
 }
 
 .location-archive-section .lead {
-  color: #555;
+  color: var(--color-text-secondary);
   max-width: 800px;
 }
 
@@ -22,7 +22,7 @@
 .location-card {
   display: flex;
   flex-direction: column;
-  background: #fff;
+  background: var(--color-white);
   border: 1px solid #000;
   color: #222;
 }
@@ -57,7 +57,7 @@
 
 .location-detail {
   /* font-size removed: use base or utility class */
-  color: #555;
+  color: var(--color-text-secondary);
   text-shadow: none;
   margin-bottom: 0.75rem;
 }
@@ -91,9 +91,9 @@
 .location-cta-buttons .btn {
   padding: 0.5rem 1rem;
   font-weight: 600;
-  color: #000;
-  background-color: #c8b273;
-  border-color: #c8b273;
+  color: var(--color-primary);
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
   width: fit-content;
   text-align: left;
   display: inline-block;
@@ -157,7 +157,7 @@
 
 .location-list-item .text-muted {
   font-size: 0.875rem;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .location-list-item .location-action .btn {

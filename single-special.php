@@ -22,14 +22,7 @@ get_header(); ?>
 						</div>
 					<?php endif; ?>
 					
-					<div class="card shadow-sm consultation-card" role="complementary" 
-						aria-label="Free Virtual Consultation">
-						<div class="card-body p-4">                            
-							<div class="gf-wrapper" aria-label="Free Virtual Consultation Form">
-								<?php gravity_form( '1', false, false, false, null, true ); ?>
-							</div>
-						</div>
-					</div>
+					<?php get_template_part( 'components/consultation-form' ); ?>
 					
 					<div class="special-disclaimer">
 						<?php the_content(); ?>

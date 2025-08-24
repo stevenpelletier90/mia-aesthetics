@@ -7,7 +7,7 @@ parameters:
         - node_modules/
         - theme-bundle/
         - assets/bootstrap/ (?)
-        - assets/fontawesome/
+        - assets/fontawesome/ (?)
         - .claude (?)
     bootstrapFiles:
         - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php

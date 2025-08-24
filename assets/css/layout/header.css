@@ -4,7 +4,7 @@
 }
 
 .navbar {
-  background: linear-gradient(to bottom, var(--color-primary), #000);
+  background: linear-gradient(to bottom, var(--color-primary), var(--color-black));
 }
 
 .navbar-toggler {
@@ -33,7 +33,7 @@
 }
 
 .header-btn {
-  color: #fff;
+  color: var(--color-white);
   background-color: transparent;
   border: 2px solid var(--color-gold);
   padding: 0.5rem 1.25rem;
@@ -48,7 +48,7 @@
 
 .header-btn:is(:hover, :focus) {
   background-color: var(--color-gold);
-  color: #000;
+  color: var(--color-black);
   text-decoration: none;
 }
 
@@ -94,12 +94,12 @@
 }
 
 .navbar .offcanvas {
-  background-color: #1b1b1b;
-  color: #fff;
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .offcanvas .nav-link {
-  color: #fff;
+  color: var(--color-white);
 }
 
 .offcanvas .nav-link:hover {
@@ -148,7 +148,7 @@
 
   .dropdown-menu.mega-menu {
     border-top: 3px solid var(--color-gold);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px var(--color-black-20);
     left: 0;
     right: 0;
   }
@@ -163,7 +163,7 @@
   }
 
   .mega-menu-title:hover {
-    color: #222;
+    color: var(--color-text-primary);
     text-decoration: none;
   }
 
@@ -176,7 +176,7 @@
   .mega-menu .dropdown-header {
     padding: 0.5rem 0;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid var(--color-black-10);
     font-size: 1.1rem;
     font-family: var(--font-body);
     font-weight: 600;
@@ -185,7 +185,7 @@
   .mega-menu .dropdown-header a {
     text-decoration: none;
     font-weight: 600;
-    color: #222;
+    color: var(--color-text-primary);
     font-size: 1.1rem;
   }
 
@@ -206,8 +206,8 @@
   }
 
   .navbar-nav .mega-menu .bg-light {
-    background-color: rgba(200, 178, 115, 0.1);
-    border: 1px solid rgba(200, 178, 115, 0.2);
+    background-color: var(--color-gold-10);
+    border: 1px solid var(--color-gold-20);
   }
 
   .mega-menu .btn-outline-dark {
@@ -358,7 +358,7 @@
     background-color: transparent;
     margin-left: 1rem;
     border: none;
-    border-left: 2px solid var(--color-gold, #c8b273);
+    border-left: 2px solid var(--color-gold);
     box-shadow: none;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -366,7 +366,7 @@
   }
 
   .offcanvas .dropdown-item {
-    color: #fff;
+    color: var(--color-white);
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
   }
@@ -381,7 +381,7 @@
   }
 
   .offcanvas .dropdown-divider {
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    border-top: 1px solid var(--color-white-10);
     margin: 0.5rem 0;
   }
 

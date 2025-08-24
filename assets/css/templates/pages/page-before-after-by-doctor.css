@@ -10,18 +10,18 @@
 
 /* Hero styles */
 .post-header {
-  background-color: #f8f8f8;
+  background-color: var(--color-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .post-header h1 {
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-size: var(--font-5xl);
+  font-weight: var(--font-bold);
 }
 
 @media (min-width: 992px) {
   .post-header h1 {
-    font-size: 3rem;
+    font-size: var(--font-6xl);
   }
 }
 
@@ -29,7 +29,7 @@
 
 /* Increase spacing between heading and dropdown */
 #doctors-gallery h1 {
-  margin-bottom: 2.5rem;
+  margin-bottom: var(--space-10);
 }
 
 /* Style the dropdown to be larger and more prominent */
@@ -46,22 +46,22 @@
 
 /* Add more spacing between dropdown and doctor name */
 .gallery h2 {
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
 }
 
 /* Desktop-specific adjustments */
 @media (min-width: 768px) {
   #doctorSelect {
     min-width: 250px;
-    padding: 0.875rem 1.25rem;
-    font-size: 1.125rem;
+    padding: var(--space-3) var(--space-5);
+    font-size: var(--font-lg);
   }
 
   /* Extra spacing for doctor name on desktop */
   .gallery h2 {
-    margin-top: 2.5rem;
-    margin-bottom: 2.5rem;
+    margin-top: var(--space-10);
+    margin-bottom: var(--space-10);
   }
 }
 
@@ -82,18 +82,18 @@
 /* Modal styling */
 #lightboxModal .modal-dialog {
   max-width: 900px; /* Slightly wider */
-  margin: 1.75rem auto;
+  margin: var(--space-7) auto;
 }
 
 #lightboxModal .modal-content {
-  background-color: #fff;
+  background-color: var(--color-white);
   border: none;
 }
 
 #lightboxModal .modal-body {
   padding: 40px; /* Reduced padding - arrows closer to image */
   position: relative;
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 /* Carousel image styling */

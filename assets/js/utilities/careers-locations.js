@@ -117,8 +117,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Handle CTA button clicks
-  const ctaButtons = document.querySelectorAll(".mia-button");
+  // Handle CTA button clicks  
+  const ctaButtons = document.querySelectorAll(".btn");
 
   ctaButtons.forEach((button) => {
     button.addEventListener("click", function () {

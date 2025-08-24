@@ -2,8 +2,8 @@
 
 /* Header Styling to match single conditions */
 .post-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--color-gold-light);
+  border-bottom: 1px solid var(--shadow-subtle);
 }
 
 .post-header h1 {
@@ -23,8 +23,8 @@
   overflow: hidden;
   border: none;
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  background: #1b1b1b;
-  color: #fff;
+  background: var(--color-primary);
+  color: var(--color-white);
 }
 
 .procedure-category-card:hover {
@@ -67,7 +67,7 @@
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   background-color: var(--color-gold);
-  color: #000;
+  color: var(--color-primary);
   border: none;
   transition: all 0.2s ease;
 }
@@ -76,20 +76,20 @@
 .category-badge:hover,
 .category-badge:active {
   background-color: rgba(200, 178, 115, 0.9);
-  color: #000;
+  color: var(--color-primary);
   transform: scale(1.05);
 }
 
 /* Card Body */
 .procedure-category-card .card-body {
   padding: 1.5rem;
-  background: #1b1b1b;
+  background: var(--color-primary);
 }
 
 .procedure-category-card .card-text {
   font-size: 0.95rem;
   line-height: 1.5;
-  color: #fff;
+  color: var(--color-white);
 }
 
 .procedure-category-card h2 {
@@ -129,7 +129,7 @@
 }
 
 .procedure-links a:hover {
-  color: #fff;
+  color: var(--color-white);
   padding-left: 20px;
   text-decoration: none;
 }

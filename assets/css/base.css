@@ -36,15 +36,20 @@
   --color-gold-20: rgba(200, 178, 115, 0.2);
   --color-gold-30: rgba(200, 178, 115, 0.3);
 
+  /* Essential Text Colors */
+  --color-text-body: #222;
+  --color-text-secondary: #666;
+
+  /* Link Colors */
+  --color-link: #0066cc;
+  --color-link-visited: #551a8b;
+  --color-link-hover: #004499;
+
   /* Bootstrap Override Variables */
   --bs-primary: var(--color-gold);
   --bs-primary-rgb: 200, 178, 115;
   --bs-secondary: var(--color-black);
   --bs-secondary-rgb: 0, 0, 0;
-
-  /* Brand Colors Only */
-  --color-white: #ffffff;
-  --color-black: #000000;
 
   /* Typography */
   --font-heading: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -362,7 +367,7 @@ p {
   line-height: 1.5;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: #495057;
+  color: var(--color-text-secondary);
   margin-bottom: 0.25rem;
 }
 
@@ -398,7 +403,7 @@ p {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.375;
-  color: #495057;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
@@ -826,36 +831,6 @@ li {
   transform: translateX(-4px);
 }
 
-/* Legacy mia-button support */
-.mia-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--font-body);
-  font-weight: var(--font-semibold);
-  line-height: var(--leading-none);
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  user-select: none;
-  min-height: var(--btn-height-md);
-  padding: 0 var(--btn-padding-x-md);
-  font-size: var(--font-base);
-  border-radius: var(--radius-DEFAULT);
-  transition: var(--btn-transition);
-  text-transform: capitalize;
-  border: var(--btn-border-width) solid transparent;
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-black);
-  position: relative;
-}
-
-.mia-button:hover {
-  background-color: var(--color-gold-dark);
-  border-color: var(--color-gold-dark);
-  text-decoration: none;
-}
 
 /* ==============================================
    CARD COMPONENT SYSTEM
@@ -906,7 +881,7 @@ li {
 .card-subtitle {
   font-size: var(--font-sm);
   font-weight: var(--font-medium);
-  color: #495057;
+  color: var(--color-text-secondary);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   margin-bottom: var(--space-2);
@@ -1161,7 +1136,7 @@ li {
   color: var(--color-gold-dark) !important;
 }
 .text-tertiary {
-  color: #495057 !important;
+  color: var(--color-text-secondary) !important;
 }
 .text-inverse {
   color: var(--color-white) !important;
@@ -1450,7 +1425,7 @@ li {
   body {
     font-size: 12pt;
     line-height: 1.4;
-    color: #000;
+    color: var(--color-primary);
   }
 
   h1,
@@ -1460,7 +1435,7 @@ li {
   h5,
   h6 {
     page-break-after: avoid;
-    color: #000;
+    color: var(--color-primary);
   }
 
   .text-gold,

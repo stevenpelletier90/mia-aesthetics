@@ -1,6 +1,6 @@
 .site-footer {
-  background: linear-gradient(to right, #000, var(--color-primary));
-  color: #fff;
+  background: linear-gradient(to right, var(--color-black), var(--color-primary));
+  color: var(--color-white);
   padding-top: 4rem;
   padding-bottom: 5rem;
   position: relative;
@@ -42,7 +42,7 @@
 }
 
 .footer-menu a {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
@@ -67,17 +67,15 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(
-    --footer-social-bg
-  ); /* ⚡ Performance: Pre-calculated vs runtime calculation */
-  color: #fff;
+  background-color: var(--color-white-10);
+  color: var(--color-white);
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .social-icon:hover {
   background-color: var(--color-gold);
-  color: #000;
+  color: var(--color-black);
   text-decoration: none;
 }
 
@@ -94,7 +92,7 @@
 .footer-divider {
   border: 0;
   height: 1px;
-  background: var(--footer-border-color); /* 🎨 Consistency: Centralized color system */
+  background: var(--color-white-20);
   width: 100%;
   margin: 0;
 }
@@ -118,13 +116,13 @@
 }
 
 .locations-section .accordion-item {
-  background-color: #000;
-  border: 1px solid var(--footer-border-light); /* 🔧 Maintainability: Easy global border updates */
-  border-radius: 0.25rem;
+  background-color: var(--color-black);
+  border: 1px solid var(--color-white-10);
+  border-radius: var(--radius-DEFAULT);
   overflow: hidden;
   margin-bottom: 0.5rem;
   width: 100%;
-  height: auto !important;
+  height: auto;
   min-height: 56px;
   display: flex;
   flex-direction: column;
@@ -134,8 +132,8 @@
   font-family: var(--font-heading);
   font-weight: 600;
   padding: 0.75rem 1.25rem;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--color-black);
+  color: var(--color-white);
   border: none;
   box-shadow: none;
   transition: color 0.3s ease;
@@ -149,15 +147,14 @@
 
 .locations-section .accordion-button:focus {
   box-shadow: none;
-  border-color: #c7b07180;
+  border-color: var(--color-gold-50);
 }
 
 .locations-section .accordion-button:not(.collapsed) {
-  color: #fff;
-  background-color: #000;
+  color: var(--color-white);
+  background-color: var(--color-black);
   box-shadow: none;
 }
-
 
 .locations-section .accordion-collapse {
   transition: height 0.35s ease;
@@ -176,9 +173,9 @@
 
 .locations-section .accordion-body {
   padding: 1rem 1.25rem;
-  color: var(--footer-text-light); /* ⚡ Performance: Static vs calculated opacity */
-  background-color: #000;
-  border-top: 1px solid var(--footer-border-subtle); /* 🎨 + Fixed: Missing 'solid' property */
+  color: var(--color-white-80);
+  background-color: var(--color-black);
+  border-top: 1px solid var(--color-white-05);
   flex-grow: 1;
 }
 
@@ -199,7 +196,7 @@
 }
 
 .surgeon-link {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   transition: all 0.2s ease;
   display: flex;
@@ -258,14 +255,14 @@
 }
 
 .copyright {
-  color: var(--footer-text-light); /* ⚡ 9x faster rendering on footer repaints */
+  color: var(--color-white-80);
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
 
 .disclaimer {
   font-size: 0.85rem;
-  color: var(--footer-text-subtle); /* 🎨 Semantic naming + performance */
+  color: var(--color-white-70);
   margin-bottom: 1rem;
 }
 
@@ -285,7 +282,7 @@
 }
 
 .footer-links a {
-  color: var(--footer-text-muted); /* 🚀 Hover performance: No runtime calculations */
+  color: var(--color-white-60);
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.85rem;

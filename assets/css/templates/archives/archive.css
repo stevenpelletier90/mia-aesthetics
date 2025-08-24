@@ -1,8 +1,8 @@
 /* Archive CSS */
 
 .post-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--color-gold-light);
+  border-bottom: 1px solid var(--shadow-subtle);
 }
 
 .post-header h1 {
@@ -48,15 +48,15 @@
 
 .page-indicator {
   font-weight: 500;
-  color: #495057;
+  color: var(--color-text-secondary);
 }
 
 .read-more-link {
-  color: #000;
+  color: var(--color-primary);
   text-decoration: none;
   font-weight: 500;
 }
 
 .read-more-link i {
-  color: #d4af37;
+  color: var(--color-gold);
 }

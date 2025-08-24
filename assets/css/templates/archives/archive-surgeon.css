@@ -1,6 +1,6 @@
 .post-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--color-gold-light);
+  border-bottom: 1px solid var(--shadow-subtle);
 }
 
 .post-header h1 {
@@ -18,9 +18,9 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  background: #f8f9fa;
+  background: var(--color-gold-light);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid #c7b07133;
+  border: 1px solid var(--color-gold)33;
 }
 
 .surgeon-img-container {
@@ -48,11 +48,11 @@
 }
 
 .surgeon-card h2.h5 {
-  color: #1b1b1b;
+  color: var(--color-primary);
 }
 
 .surgeon-card .location-link {
-  color: #6c757d;
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.2s ease;
 }

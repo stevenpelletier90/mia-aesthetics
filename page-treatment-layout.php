@@ -70,14 +70,7 @@ if ( $current_post instanceof WP_Post ) {
 					</div>
 					
 					<div class="col-lg-5 d-none d-lg-block">
-<div class="card shadow-sm consultation-card" role="complementary" aria-label="Free Virtual Consultation">
-							<div class="card-body p-4">
-								<h3 class="h4 text-center">Free Virtual Consultation</h3>
-<div class="gf-wrapper" aria-label="Free Virtual Consultation Form">
-		<?php gravity_form( '1', false, false, false, null, true ); ?>
-</div>
-							</div>
-						</div>
+						<?php get_template_part( 'components/consultation-form' ); ?>
 					</div>
 				</div>
 			</div>

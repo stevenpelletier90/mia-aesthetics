@@ -1,8 +1,8 @@
 /* Conditions Archive Template Styles */
 
 .post-header {
-  background-color: #f8f8f8;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+  background-color: var(--color-gold-light);
+  border-bottom: 1px solid var(--shadow-subtle);
 }
 
 .post-header h1 {
@@ -55,7 +55,7 @@
 .view-main-condition:hover {
   background-color: var(--color-primary);
   border-color: var(--color-primary);
-  color: #fff;
+  color: var(--color-white);
 }
 
 .view-main-condition i {
@@ -68,7 +68,7 @@
 }
 
 .condition-item {
-  background: #fff;
+  background: var(--color-white);
   border: 1px solid rgba(0, 0, 0, 0.06);
   border-left: 3px solid var(--color-gold);
   border-radius: 4px;

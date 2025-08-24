@@ -2,9 +2,9 @@
 
 /* Breadcrumb Wrapper */
 .surgeon-breadcrumb-wrapper {
-  background: #f8f9fa;
+  background: var(--color-gold-light);
   padding: 1rem 0;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--color-gold-light);
 }
 
 .surgeon-breadcrumb-wrapper .breadcrumb-nav {
@@ -43,7 +43,7 @@
 
 /* Professional Hero Section */
 .surgeon-hero {
-  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-white) 100%);
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
@@ -74,7 +74,7 @@
 }
 
 .surgeon-hero-image.surgeon-placeholder {
-  background: linear-gradient(135deg, #1b1b1b 0%, #333 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%);
   aspect-ratio: 4/5;
   border-radius: 20px;
   display: flex;
@@ -134,7 +134,7 @@
 
 .surgeon-hero .surgeon-location {
   font-size: 1.25rem;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -146,7 +146,7 @@
 }
 
 .surgeon-hero .surgeon-location a {
-  color: #666;
+  color: var(--color-text-secondary);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -165,7 +165,7 @@
 /* Main Content Area */
 .surgeon-content-area {
   padding: 4rem 0;
-  background: #fff;
+  background: var(--color-white);
 }
 
 .surgeon-main-column {
@@ -209,7 +209,7 @@
 .bio-content {
   font-size: 1.125rem;
   line-height: 1.8;
-  color: #333;
+  color: var(--color-primary);
 }
 
 .bio-content p {
@@ -303,7 +303,7 @@
   display: flex;
   gap: 1.5rem;
   padding: 2rem;
-  background: #f8f9fa;
+  background: var(--color-gold-light);
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
@@ -311,7 +311,7 @@
 
 .expertise-card:hover {
   transform: translateY(-5px);
-  background: #fff;
+  background: var(--color-white);
   border-color: var(--color-gold);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
@@ -320,7 +320,7 @@
   flex-shrink: 0;
   width: 50px;
   height: 50px;
-  background: rgba(200, 178, 115, 0.1);
+  background: var(--color-gold-10);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -340,7 +340,7 @@
 }
 
 .expertise-content p {
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
@@ -375,12 +375,12 @@
 }
 
 .sidebar-card {
-  background: #fff;
+  background: var(--color-white);
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid #e9ecef;
+  border: 1px solid var(--color-gold-light);
 }
 
 .sidebar-card-title {
@@ -409,11 +409,11 @@
 
 .surgeon-info-list li {
   padding: 0.75rem 0;
-  border-bottom: 1px solid #e9ecef;
+  border-bottom: 1px solid var(--color-gold-light);
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  color: #666;
+  color: var(--color-text-secondary);
 }
 
 .surgeon-info-list li:last-child {
@@ -450,7 +450,7 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  background: #f8f9fa;
+  background: var(--color-gold-light);
   border-radius: 8px;
   text-decoration: none;
   color: var(--color-primary);
@@ -459,7 +459,7 @@
 }
 
 .resource-link:hover {
-  background: #fff;
+  background: var(--color-white);
   border-color: var(--color-gold);
   text-decoration: none;
   color: var(--color-gold);
@@ -477,7 +477,7 @@
 }
 
 .resource-link i:last-child {
-  color: #999;
+  color: var(--color-text-secondary);
   font-size: 0.75rem;
   transition: transform 0.2s ease;
 }
@@ -488,7 +488,7 @@
 
 /* FAQ Section */
 .surgeon-faq-section {
-  background: #f8f9fa;
+  background: var(--color-gold-light);
   padding: 4rem 0;
 }
 

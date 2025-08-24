@@ -3,7 +3,7 @@
 /* Location Header (Hero) Styles */
 .location-header {
   background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
-  color: #fff;
+  color: var(--color-white);
   padding: 3rem 0;
   position: relative;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -17,7 +17,7 @@
 }
 
 .location-header p {
-  color: #fff;
+  color: var(--color-white);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
@@ -35,7 +35,7 @@
 }
 
 .location-detail {
-  color: #fff;
+  color: var(--color-white);
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
@@ -49,7 +49,7 @@
 }
 
 .location-phone {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: none;
   transition: color 0.3s ease;
 }
@@ -66,7 +66,7 @@
 }
 
 .location-map-link:hover {
-  color: #fff;
+  color: var(--color-white);
   text-decoration: underline;
 }
 
@@ -99,12 +99,12 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.5rem;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: var(--color-white);
+  box-shadow: 0 2px 8px var(--shadow-subtle);
 }
 
 .dept-breakdown .accordion-button {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-light) 100%);
   color: var(--color-primary);
   font-weight: 700;
   font-size: 1.25rem;
@@ -116,7 +116,7 @@
 
 .dept-breakdown .accordion-button:not(.collapsed) {
   background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
-  color: #fff;
+  color: var(--color-white);
   box-shadow: none;
 }
 
@@ -126,7 +126,7 @@
 
 .dept-breakdown .accordion-button:hover {
   background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
-  color: #fff;
+  color: var(--color-white);
 }
 
 .dept-breakdown .accordion-button:focus {
@@ -136,11 +136,11 @@
 
 .dept-breakdown .accordion-body {
   padding: 2rem 1.5rem;
-  background: #f8f9fa;
+  background: var(--color-gold-light);
 }
 
 .dept-breakdown .accordion-body .lead {
-  color: #666;
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 0;
@@ -171,7 +171,7 @@
 }
 
 .job-function-card {
-  background: #fff;
+  background: var(--color-white);
   border: 1px solid #e5e5e5 !important;
   transition: all 0.3s ease;
   height: 100%;
@@ -195,7 +195,7 @@
 }
 
 .job-function-description {
-  color: #666;
+  color: var(--color-text-secondary);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 0;
@@ -211,8 +211,8 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.5rem;
   overflow: hidden;
-  background: #fff;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  background: var(--color-white);
+  box-shadow: 0 2px 8px var(--shadow-subtle);
 }
 
 .page-template-page-careers-locations main .accordion-header {
@@ -220,7 +220,7 @@
 }
 
 .page-template-page-careers-locations main .accordion-button {
-  background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-light) 100%);
   color: var(--color-primary);
   font-weight: 700;
   font-size: 1.25rem;
@@ -232,7 +232,7 @@
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) {
   background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
-  color: #fff;
+  color: var(--color-white);
   box-shadow: none;
 }
 
@@ -242,7 +242,7 @@
 
 .page-template-page-careers-locations main .accordion-button:hover {
   background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
-  color: #fff;
+  color: var(--color-white);
 }
 
 .page-template-page-careers-locations main .accordion-button:focus {
@@ -252,11 +252,11 @@
 
 .page-template-page-careers-locations main .accordion-body {
   padding: 2rem 1.5rem;
-  background: #f8f9fa;
+  background: var(--color-gold-light);
 }
 
 .page-template-page-careers-locations main .accordion-body .lead {
-  color: #666;
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -264,7 +264,7 @@
 
 /* New Position Card Styles */
 .position-card-expanded {
-  background: #fff;
+  background: var(--color-white);
   border: 1px solid #e5e5e5;
   border-radius: 0.5rem;
   padding: 1.5rem;
@@ -310,7 +310,7 @@
 
 .position-description {
   font-size: 0.9rem;
-  color: #666;
+  color: var(--color-text-secondary);
   line-height: 1.6;
   margin: 0;
 }
@@ -322,7 +322,7 @@
 }
 
 .job-item {
-  background: #fff;
+  background: var(--color-white);
   border: 2px solid #e5e5e5 !important;
   transition: all 0.3s ease;
 }
@@ -345,7 +345,7 @@
 }
 
 .no-jobs-message {
-  background: #f8f9fa;
+  background: var(--color-gold-light);
   border: 2px dashed #dee2e6;
 }
 
@@ -363,7 +363,7 @@
 
 /* Benefits Section */
 .benefits-section {
-  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-white) 100%);
   padding: 5rem 0;
 }
 
@@ -403,7 +403,7 @@
 .benefits-subtitle {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: #666;
+  color: var(--color-text-secondary);
   margin: 0;
   text-align: left;
 }
@@ -417,8 +417,8 @@
 }
 
 .founders-quote {
-  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, rgba(200, 178, 115, 0.1) 100%);
-  border: 1px solid rgba(200, 178, 115, 0.2);
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--color-gold-10) 100%);
+  border: 1px solid var(--color-gold-20);
   border-radius: 16px;
   padding: 3rem;
   margin: 0;
@@ -435,7 +435,7 @@
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, rgba(200, 178, 115, 0.1) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--color-gold-10) 0%, transparent 70%);
   pointer-events: none;
 }
 
@@ -481,12 +481,12 @@
 }
 
 .benefit-card {
-  background: #fff;
+  background: var(--color-white);
   border: 1px solid #e5e5e5;
   border-radius: 12px;
   transition: all 0.3s ease;
   height: 100%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 8px var(--shadow-subtle);
 }
 
 .benefit-card:hover {
@@ -539,7 +539,7 @@
 .benefit-list li {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: #666;
+  color: var(--color-text-secondary);
   margin-bottom: 1rem;
   padding-left: 1.25rem;
   position: relative;
@@ -607,14 +607,14 @@
 }
 
 .video-play-button i {
-  color: #fff;
+  color: var(--color-white);
   font-size: 1.5rem;
   margin-left: 3px;
 }
 
 /* Team Section - Scoped to careers location template */
 .page-template-page-careers-locations .team-section {
-  background-color: #f8f9fa;
+  background-color: var(--color-gold-light);
 }
 
 .page-template-page-careers-locations .section-title {
@@ -632,8 +632,8 @@
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  border: 1px solid rgba(200, 178, 115, 0.2);
-  color: #fff;
+  border: 1px solid var(--color-gold-20);
+  color: var(--color-white);
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {
@@ -659,7 +659,7 @@
   font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 700;
-  color: #fff;
+  color: var(--color-white);
   margin-bottom: 0.5rem;
   line-height: 1.3;
 }
@@ -829,7 +829,7 @@
 
   /* Mobile surgeon card redesign - horizontal layout to save space */
   .page-template-page-careers-locations .team-section .surgeon-card {
-    background: #fff;
+    background: var(--color-white);
     border: 1px solid #e5e5e5;
     color: var(--color-primary);
     padding: 1rem;
@@ -872,13 +872,13 @@
   }
 
   .page-template-page-careers-locations .team-section .surgeon-card p {
-    color: #666;
+    color: var(--color-text-secondary);
     font-size: 0.85rem;
     margin-bottom: 0.75rem;
     font-style: normal;
   }
 
-  .page-template-page-careers-locations .team-section .surgeon-card .mia-button {
+  .page-template-page-careers-locations .team-section .surgeon-card .btn {
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
     align-self: flex-start;

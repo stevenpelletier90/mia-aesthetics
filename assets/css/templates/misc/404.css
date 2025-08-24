@@ -1,5 +1,5 @@
 .error-404 .post-header {
-  background-color: #f8f9fa;
+  background-color: var(--color-gold-light);
 }
 
 .error-404 .post-header h1 {
@@ -14,7 +14,7 @@
 }
 
 .error-404 .post-header p.lead {
-  color: #6c757d;
+  color: var(--color-text-secondary);
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
@@ -42,14 +42,14 @@
 .search-form-404 .search-field {
   width: 100%;
   padding: 0.75rem 1rem;
-  border: 2px solid #e9ecef;
+  border: 2px solid var(--color-gold-light);
   border-radius: 3px;
   font-size: 1rem;
   font-family: var(--font-body);
   transition:
     border-color 0.3s ease,
     box-shadow 0.3s ease;
-  background-color: #fff;
+  background-color: var(--color-white);
 }
 
 .search-form-404 .search-field:focus {
@@ -61,7 +61,7 @@
 .search-form-404 .search-submit {
   margin-top: 1rem;
   background-color: var(--color-gold);
-  color: #000;
+  color: var(--color-primary);
   border: 2px solid var(--color-gold);
   padding: 0.75rem 2rem;
   border-radius: 3px;

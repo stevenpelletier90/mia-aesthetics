@@ -67,8 +67,8 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: #fff;
-  border: 2px solid #fff;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-white);
   opacity: 0.7;
 }
 
@@ -82,7 +82,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  border-top: 2px solid #fff;
+  border-top: 2px solid var(--color-white);
 }
 
 .hero-box {
@@ -93,11 +93,11 @@
 }
 
 .hero-box-top {
-  border-right: 1px solid #fff;
+  border-right: 1px solid var(--color-white);
 }
 
 .hero-box-bottom {
-  border-left: 1px solid #fff;
+  border-left: 1px solid var(--color-white);
 }
 
 /* Box aspect ratio */
@@ -130,7 +130,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
+  background: var(--color-black-80);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,8 +143,8 @@
   font-family: var(--font-heading, "Montserrat", sans-serif);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
-  color: #fff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  color: var(--color-white);
+  text-shadow: 0 2px 4px var(--color-black-50);
   margin-bottom: 1rem;
   line-height: 1.2;
   text-transform: uppercase;
@@ -162,9 +162,5 @@
     margin-bottom: 0.75rem; /* More space for taller boxes */
   }
 
-  /* Make buttons smaller on mobile */
-  .hero-box .mia-button {
-    font-size: 0.875rem;
-    padding: 0.4rem 0.8rem;
-  }
+  /* Use btn btn-sm for smaller mobile buttons */
 }
