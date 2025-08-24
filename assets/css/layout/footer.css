@@ -158,23 +158,6 @@
   box-shadow: none;
 }
 
-.locations-section .accordion-button::after {
-  content: "\f067";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  background-image: none;
-  font-size: 0.8rem;
-  width: auto;
-  height: auto;
-  color: #fff;
-  transition: transform 0.35s ease;
-}
-
-.locations-section .accordion-button:not(.collapsed)::after {
-  content: "\f068";
-  transform: none;
-  color: #fff;
-}
 
 .locations-section .accordion-collapse {
   transition: height 0.35s ease;

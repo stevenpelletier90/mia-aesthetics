@@ -276,20 +276,6 @@
   border-color: transparent;
 }
 
-.accordion-button::after {
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  content: "\f078";
-  background-image: none;
-  transition: transform 0.3s ease;
-  color: var(--color-gold);
-}
-
-.accordion-button:not(.collapsed)::after {
-  transform: rotate(180deg);
-  content: "\f078";
-  color: var(--color-gold);
-}
 
 .accordion-body {
   padding: 1.5rem;

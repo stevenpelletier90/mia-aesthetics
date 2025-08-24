@@ -320,23 +320,6 @@
   position: relative;
 }
 
-.consultation-card .gform_wrapper .ginput_container_select::after {
-  content: "\f078";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  position: absolute;
-  right: 1rem;
-  top: 50%;
-  transform: translateY(-50%);
-  color: white;
-  pointer-events: none;
-  font-size: 10px;
-  transition: transform 0.2s ease;
-}
-
-.consultation-card .gform_wrapper .ginput_container_select.dropdown-open::after {
-  transform: translateY(-50%) rotate(180deg);
-}
 
 .consultation-card .gform_wrapper select option {
   background-color: #fff;
@@ -406,17 +389,6 @@
   border-color: var(--color-gold);
 }
 
-.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked::after {
-  content: "\f00c";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  color: #000;
-  font-size: 12px;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
 
 .consultation-card .gform_wrapper .gfield_checkbox label {
   font-size: 14px;
@@ -449,24 +421,11 @@
   width: 100% !important;
 }
 
-.consultation-card .gform_wrapper .gform_footer .gform_button::after {
-  content: "\f061";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  margin-left: var(--spacing-sm);
-  font-size: 0.85em;
-  transition: transform 0.3s ease;
-}
-
 .consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus) {
   color: var(--color-primary);
   background-color: var(--color-gold);
   border-color: var(--color-gold);
   box-shadow: var(--shadow-md);
-}
-
-.consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus)::after {
-  /* Arrow movement removed */
 }
 
 .consultation-card .gform_wrapper .gform_footer {

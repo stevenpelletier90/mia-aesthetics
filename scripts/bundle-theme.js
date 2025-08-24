@@ -22,15 +22,49 @@ const includePatterns = [
   "components/**/*",
   "inc/**/*",
 
-  // Assets (CSS, JS, fonts, data)
+  // Custom assets (CSS, JS, fonts, data)
   "assets/css/**/*",
   "assets/js/**/*",
   "assets/fonts/**/*",
   "assets/data/**/*",
+];
 
-  // Third-party assets
-  "assets/bootstrap/**/*",
-  "assets/fontawesome/**/*",
+// Node modules assets to copy (only what we need)
+const nodeModulesAssets = [
+  // Bootstrap
+  {
+    source: "node_modules/bootstrap/dist/css/bootstrap.min.css",
+    dest: "assets/bootstrap/css/bootstrap.min.css"
+  },
+  {
+    source: "node_modules/bootstrap/dist/css/bootstrap.min.css.map",
+    dest: "assets/bootstrap/css/bootstrap.min.css.map"
+  },
+  {
+    source: "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js",
+    dest: "assets/bootstrap/js/bootstrap.bundle.min.js"
+  },
+  {
+    source: "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map",
+    dest: "assets/bootstrap/js/bootstrap.bundle.min.js.map"
+  },
+  // Font Awesome
+  {
+    source: "node_modules/@fortawesome/fontawesome-free/css/all.min.css",
+    dest: "assets/fontawesome/css/all.min.css"
+  },
+  {
+    source: "node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2",
+    dest: "assets/fontawesome/webfonts/fa-brands-400.woff2"
+  },
+  {
+    source: "node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2",
+    dest: "assets/fontawesome/webfonts/fa-regular-400.woff2"
+  },
+  {
+    source: "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2",
+    dest: "assets/fontawesome/webfonts/fa-solid-900.woff2"
+  }
 ];
 
 // Files and directories to exclude
@@ -51,6 +85,9 @@ const excludePatterns = [
   "style-guide.html",
   "mcpreadme.md",
   "CLAUDE.md",
+  // Exclude old static asset directories (now using npm)
+  "assets/bootstrap/**/*",
+  "assets/fontawesome/**/*",
 ];
 
 function isExcluded(filePath) {
@@ -143,6 +180,26 @@ function bundleTheme() {
 
   // Create theme zip if needed
   console.log(`\n✅ Successfully bundled ${copiedCount} files!`);
+  // Copy node modules assets
+  console.log("\n📦 Copying npm dependencies...");
+  let nodeAssetsCount = 0;
+  nodeModulesAssets.forEach((asset) => {
+    const sourcePath = path.join(projectRoot, asset.source);
+    const destPath = path.join(outputDir, themeName, asset.dest);
+    
+    if (fs.existsSync(sourcePath)) {
+      try {
+        copyFileSync(sourcePath, destPath);
+        nodeAssetsCount++;
+        console.log(`   ✓ ${asset.dest}`);
+      } catch (error) {
+        console.error(`   ✗ Failed to copy ${asset.source}:`, error.message);
+      }
+    } else {
+      console.warn(`   ⚠ Source file not found: ${asset.source}`);
+    }
+  });
+
   console.log(`📁 Theme bundle created at: ${path.join(outputDir, themeName)}`);
   console.log("\n🎯 Next steps:");
   console.log(`   1. Navigate to: ${outputDir}`);
@@ -158,6 +215,7 @@ function bundleTheme() {
   console.log(`   • ${phpFiles} PHP template files`);
   console.log(`   • ${cssFiles} CSS files (including all template-specific styles)`);
   console.log(`   • ${jsFiles} JavaScript files`);
+  console.log(`   • ${nodeAssetsCount} npm dependency files (Bootstrap + Font Awesome)`);
   console.log(`   • Font files, images, and other assets`);
   console.log(`   • WordPress theme documentation`);
 }

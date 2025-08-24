@@ -1,0 +1,248 @@
+/**
+ * Consultation Form Component
+ * Gravity Forms styling for consultation forms across templates
+ * No Font Awesome pseudo-elements - uses native browser dropdowns
+ */
+
+.consultation-card .gform_wrapper {
+  padding: 0 !important;
+  background: transparent !important;
+  border: none !important;
+  max-width: none;
+  margin: 0;
+}
+
+.consultation-card .gform_wrapper .gfield_label {
+  font-weight: 600;
+  margin-bottom: var(--spacing-xs);
+  color: #fff;
+  font-size: 16px;
+}
+
+/* Form Footer Spacing */
+.gform-footer.gform_footer.top_label {
+  margin-top: var(--spacing-md);
+}
+
+.consultation-card
+  .gform_wrapper
+  .gform_footer
+  .gform_button.button.gform-theme-button {
+  margin-top: var(--spacing-sm);
+}
+
+.consultation-card .gform_wrapper .gform_required_legend {
+  display: none;
+}
+
+.consultation-card .gform_wrapper .gform_fields {
+  padding: 0;
+  margin: 0;
+  border: none;
+}
+
+/* Field Spacing */
+.consultation-card .gform_wrapper .gfield {
+  margin: 0 0 var(--spacing-md) 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+}
+
+/* Complex Fields (Name) */
+.consultation-card .gform_wrapper .ginput_complex.ginput_container_name {
+  display: flex;
+  gap: var(--spacing-sm);
+}
+
+.consultation-card .gform_wrapper .ginput_complex.ginput_container_name span {
+  flex: 1;
+}
+
+/* Checkbox Styling */
+.consultation-card .gform_wrapper .gfield_checkbox {
+  margin: var(--spacing-md) 0;
+}
+
+.consultation-card .gform_wrapper .gform_footer {
+  padding: 0;
+  margin-top: var(--spacing-lg);
+  border: none;
+  background: transparent;
+}
+
+.consultation-card
+  .gform_wrapper
+  .gform_footer
+  .gform_button.button.gform-theme-button {
+  width: 100%;
+  margin: 0;
+}
+
+/* Select Dropdown Styling */
+.consultation-card .gform_wrapper select {
+  width: 100% !important;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-base);
+  color: #fff;
+  font-size: 16px;
+  appearance: none;
+  cursor: pointer;
+}
+
+.consultation-card .gform_wrapper .ginput_container_select {
+  position: relative;
+}
+
+.consultation-card .gform_wrapper select option {
+  background-color: #fff;
+  color: #000;
+  padding: 8px 10px;
+}
+
+.consultation-card .gform_wrapper select:focus {
+  border-color: var(--color-gold);
+  outline: none;
+}
+
+/* Textarea Styling */
+.consultation-card .gform_wrapper textarea {
+  width: 100% !important;
+  min-height: 100px;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-base);
+  color: #fff;
+  font-size: 16px;
+  resize: vertical;
+}
+
+/* Input Focus States */
+.consultation-card .gform_wrapper :is(input, select, textarea):focus {
+  border-color: var(--color-gold);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.2);
+}
+
+/* Placeholder Styling */
+.consultation-card .gform_wrapper :is(input, textarea)::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* Checkbox Field Styling */
+.consultation-card .gform_wrapper .gfield_checkbox {
+  margin: var(--spacing-md) 0;
+}
+
+.consultation-card .gform_wrapper .gfield_checkbox .gchoice {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
+  margin-bottom: var(--spacing-xs);
+}
+
+.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  margin-top: 2px;
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 3px;
+  cursor: pointer;
+  appearance: none;
+  position: relative;
+  flex-shrink: 0;
+}
+
+.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked {
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+.consultation-card .gform_wrapper .gfield_checkbox label {
+  font-size: 14px;
+  color: #fff;
+  margin: 0;
+  cursor: pointer;
+}
+
+.consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:hover {
+  border-color: var(--color-gold);
+}
+
+/* Submit Button Styling */
+.consultation-card .gform_wrapper .gform_footer .gform_button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  line-height: 1.5;
+  color: #fff;
+  background-color: transparent;
+  border: 2px solid #fff;
+  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-base);
+  padding: var(--spacing-md) var(--spacing-lg);
+  font-size: 16px;
+  cursor: pointer;
+  width: 100% !important;
+}
+
+.consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus) {
+  color: var(--color-primary);
+  background-color: var(--color-gold);
+  border-color: var(--color-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.consultation-card .gform_wrapper .gform_footer {
+  margin-top: var(--spacing-lg);
+  padding-top: var(--spacing-sm);
+  text-align: center;
+}
+
+/* Text Input Styling */
+.consultation-card .gform_wrapper input[type="text"],
+.consultation-card .gform_wrapper input[type="email"],
+.consultation-card .gform_wrapper input[type="tel"],
+.consultation-card .gform_wrapper input[type="number"],
+.consultation-card .gform_wrapper input[type="url"],
+.consultation-card .gform_wrapper select {
+  width: 100% !important;
+  padding: var(--spacing-sm) var(--spacing-md);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-radius: var(--radius-base);
+  color: #fff;
+  font-size: 16px;
+  transition: all 0.3s ease;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .consultation-card .gform_wrapper .gform_fields {
+    padding: 0;
+  }
+
+  .consultation-card .gform_wrapper .gfield {
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .consultation-card .gform_wrapper .gform_footer .gform_button {
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 14px;
+  }
+
+  .consultation-card .gform_wrapper :is(input, select) {
+    font-size: 16px; /* Prevent zoom on iOS */
+  }
+
+  .consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+  }
+}

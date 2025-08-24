@@ -484,17 +484,6 @@ header h1 {
   border-color: var(--color-gold);
 }
 
-.single-case .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked::after {
-  content: "\f00c";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: #000;
-  font-size: 10px;
-}
 
 .single-case .gform_wrapper .gfield_checkbox label {
   font-size: 14px;
@@ -524,22 +513,10 @@ header h1 {
   transition: all 0.2s ease;
 }
 
-.single-case .gform_wrapper .gform_footer .gform_button::after {
-  content: "\f061";
-  font-family: "Font Awesome 6 Free";
-  font-weight: 900;
-  transition: transform 0.2s ease;
-}
-
 .single-case .gform_wrapper .gform_footer .gform_button:hover,
 .single-case .gform_wrapper .gform_footer .gform_button:focus {
   background-color: var(--color-gold);
   color: var(--color-primary);
-}
-
-.single-case .gform_wrapper .gform_footer .gform_button:hover::after,
-.single-case .gform_wrapper .gform_footer .gform_button:focus::after {
-  transform: translateX(5px);
 }
 
 .single-case .gform_wrapper .gform_footer {
