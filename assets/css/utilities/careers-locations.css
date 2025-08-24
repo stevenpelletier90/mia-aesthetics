@@ -2,7 +2,7 @@
 
 /* Location Header (Hero) Styles */
 .location-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
   color: var(--color-white);
   padding: 3rem 0;
   position: relative;
@@ -115,7 +115,7 @@
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
   color: var(--color-white);
   box-shadow: none;
 }
@@ -125,7 +125,7 @@
 }
 
 .dept-breakdown .accordion-button:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
   color: var(--color-white);
 }
 
@@ -172,7 +172,7 @@
 
 .job-function-card {
   background: var(--color-white);
-  border: 1px solid #e5e5e5 !important;
+  border: 1px solid var(--color-gold-light) !important;
   transition: all 0.3s ease;
   height: 100%;
 }
@@ -231,7 +231,7 @@
 }
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
   color: var(--color-white);
   box-shadow: none;
 }
@@ -241,7 +241,7 @@
 }
 
 .page-template-page-careers-locations main .accordion-button:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
   color: var(--color-white);
 }
 
@@ -265,7 +265,7 @@
 /* New Position Card Styles */
 .position-card-expanded {
   background: var(--color-white);
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-gold-light);
   border-radius: 0.5rem;
   padding: 1.5rem;
   height: 100%;
@@ -323,7 +323,7 @@
 
 .job-item {
   background: var(--color-white);
-  border: 2px solid #e5e5e5 !important;
+  border: 2px solid var(--color-gold-light) !important;
   transition: all 0.3s ease;
 }
 
@@ -482,7 +482,7 @@
 
 .benefit-card {
   background: var(--color-white);
-  border: 1px solid #e5e5e5;
+  border: 1px solid var(--color-gold-light);
   border-radius: 12px;
   transition: all 0.3s ease;
   height: 100%;
@@ -625,7 +625,7 @@
 }
 
 .page-template-page-careers-locations .surgeon-card {
-  background: linear-gradient(135deg, var(--color-primary) 0%, #000 100%);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
   border-radius: 12px;
   padding: 2rem 1.5rem;
   text-align: center;
@@ -830,7 +830,7 @@
   /* Mobile surgeon card redesign - horizontal layout to save space */
   .page-template-page-careers-locations .team-section .surgeon-card {
     background: var(--color-white);
-    border: 1px solid #e5e5e5;
+    border: 1px solid var(--color-gold-light);
     color: var(--color-primary);
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
