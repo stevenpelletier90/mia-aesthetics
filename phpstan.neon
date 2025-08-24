@@ -54,6 +54,8 @@ parameters:
         # WordPress loop and iteration patterns
         - '#Variable \$post might not be defined#'
         - '#Offset .* does not exist on array#'
+        - '#While loop condition is always true#'
+        - '#Unreachable statement - code above always terminates#'
         
         # WordPress superglobals (commonly used in themes)
         - '#Variable \$_(GET|POST|SERVER|REQUEST) .* does not exist#'

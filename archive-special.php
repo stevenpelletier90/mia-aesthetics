@@ -49,42 +49,53 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 				// Build optimized single query with custom ordering.
 				$query_args = array(
 					'post_type'              => 'special',
-					'posts_per_page'         => -1,
+					'posts_per_page'         => 50, // Limit to reasonable number instead of -1.
 					'post_status'            => 'publish',
 					// Performance optimizations.
 					'no_found_rows'          => true,
-					'update_post_meta_cache' => true,  // We need meta for sticky check.
-					'update_post_term_cache' => true,  // We need terms for language filtering.
-					// Custom ordering: sticky posts first, then by date.
-					'meta_query'             => array(
-						'sticky_clause' => array(
-							'key'     => 'is_sticky',
-							'compare' => 'EXISTS',
-						),
-					),
+					'update_post_meta_cache' => false, // Only enable if actually needed.
+					'update_post_term_cache' => false, // Only enable if actually needed.
+					// More efficient ordering using menu_order for sticky posts.
 					'orderby'                => array(
-						'sticky_clause' => 'DESC',  // Sticky posts first.
-						'date'          => 'DESC',   // Then by date.
+						'menu_order' => 'DESC',  // Use menu_order instead of meta_query.
+						'date'       => 'DESC',  // Then by date.
 					),
 				);
 
-				// Add language filtering if specified.
-				if ( 'english' === $current_language ) {
-					$query_args['tax_query'] = array(
-						array(
-							'taxonomy' => 'special-category',
-							'field'    => 'slug',
-							'terms'    => 'english-specials',
-						),
-					);
-				} elseif ( 'spanish' === $current_language ) {
-					$query_args['tax_query'] = array(
-						array(
-							'taxonomy' => 'special-category',
-							'field'    => 'slug',
-							'terms'    => 'spanish-specials',
-						),
-					);
+				// Add language filtering using high-performance post__in approach.
+				if ( in_array( $current_language, array( 'english', 'spanish' ), true ) ) {
+					$language_term = ( 'english' === $current_language ) ? 'english-specials' : 'spanish-specials';
+
+					// Get post IDs directly from taxonomy - much faster than tax_query.
+					$term_cache_key = 'special_term_ids_' . $language_term;
+					$post_ids       = get_transient( $term_cache_key );
+
+					if ( false === $post_ids ) {
+						// Validate taxonomy exists before querying.
+						if ( taxonomy_exists( 'special-category' ) ) {
+							$language_term_obj = get_term_by( 'slug', $language_term, 'special-category' );
+							if ( $language_term_obj instanceof WP_Term ) {
+								// Direct taxonomy lookup - bypasses expensive JOINs.
+								$post_ids = get_objects_in_term( $language_term_obj->term_id, 'special-category' );
+								$post_ids = is_array( $post_ids ) ? array_map( 'intval', $post_ids ) : array();
+
+								// Cache term->post relationships for 30 minutes.
+								set_transient( $term_cache_key, $post_ids, 30 * MINUTE_IN_SECONDS );
+							} else {
+								$post_ids = array();
+							}
+						} else {
+							$post_ids = array();
+						}
+					}
+
+					// Use post__in for indexed primary key lookup (much faster).
+					if ( ! empty( $post_ids ) ) {
+						$query_args['post__in'] = $post_ids;
+					} else {
+						// No posts found for this language.
+						$query_args['post__in'] = array( 0 ); // Returns no results.
+					}
 				}
 
 				$specials_query = new WP_Query( $query_args );
@@ -111,8 +122,9 @@ $current_language = isset( $_GET['lang'] ) ? sanitize_text_field( wp_unslash( $_
 					// Display all specials (sticky first due to custom ordering).
 					foreach ( $specials_data['posts'] as $special_post ) :
 						setup_postdata( $special_post );
-						$is_sticky  = get_post_meta( get_the_ID(), 'is_sticky', true );
-						$is_spanish = has_term( 'spanish-specials', 'special-category' );
+						$post_id = get_the_ID();
+						$is_sticky  = $post_id !== false ? (bool) get_post_meta( $post_id, 'is_sticky', true ) : false;
+						$is_spanish = (bool) has_term( 'spanish-specials', 'special-category' );
 						?>
 
 							<div class="col">

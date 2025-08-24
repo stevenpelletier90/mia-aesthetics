@@ -188,8 +188,9 @@ add_filter( 'wp_check_filetype_and_ext', 'mia_aesthetics_check_svg_filetype', 10
  * This ensures the optimized queries always serve fresh content.
  *
  * @param int $post_id The post ID being modified.
+ * @return void
  */
-function mia_clear_specials_cache( $post_id ) {
+function mia_clear_specials_cache( $post_id ): void {
 	if ( 'special' === get_post_type( $post_id ) ) {
 		delete_transient( 'specials_archive_english' );
 		delete_transient( 'specials_archive_spanish' );

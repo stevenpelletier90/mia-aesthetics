@@ -43,24 +43,59 @@ if ( ! $mia_current_term instanceof WP_Term ) {
 	<section class="py-5">
 		<div class="container">
 			<?php
-			// Custom query to order posts by title alphabetically.
-			$term_slug     = $mia_current_term->slug;
-			$ordered_posts = new WP_Query(
-				array(
-					'post_type'      => 'case',
-					'posts_per_page' => 12,
-					'paged'          => get_query_var( 'paged' ),
-					'tax_query'      => array(
+			// High-performance approach using post__in instead of tax_query.
+			$term_slug = sanitize_title( $mia_current_term->slug );
+			$cache_key = 'case_category_' . $term_slug . '_page_' . get_query_var( 'paged', 1 );
+
+			$ordered_posts = get_transient( $cache_key );
+			if ( false === $ordered_posts ) {
+				// Get post IDs directly from taxonomy - much faster than tax_query JOINs.
+				$term_ids_cache_key = 'case_term_ids_' . $term_slug;
+				$post_ids           = get_transient( $term_ids_cache_key );
+
+				if ( false === $post_ids ) {
+					// Validate taxonomy exists and get term.
+					if ( taxonomy_exists( 'case-category' ) ) {
+						$category_term = get_term_by( 'slug', $term_slug, 'case-category' );
+						if ( $category_term instanceof WP_Term ) {
+							// Direct taxonomy lookup - bypasses expensive JOINs.
+							$post_ids = get_objects_in_term( $category_term->term_id, 'case-category' );
+							$post_ids = is_array( $post_ids ) ? array_map( 'intval', $post_ids ) : array();
+
+							// Cache term->post relationships for 30 minutes.
+							set_transient( $term_ids_cache_key, $post_ids, 30 * MINUTE_IN_SECONDS );
+						} else {
+							$post_ids = array();
+						}
+					} else {
+						$post_ids = array();
+					}
+				}
+
+				if ( ! empty( $post_ids ) ) {
+					$ordered_posts = new WP_Query(
 						array(
-							'taxonomy' => 'case-category',
-							'field'    => 'slug',
-							'terms'    => $term_slug,
-						),
-					),
-					'orderby'        => 'title',
-					'order'          => 'ASC',
-				)
-			);
+							'post_type'              => 'case',
+							'posts_per_page'         => 12,
+							'paged'                  => get_query_var( 'paged' ),
+							// Performance optimizations.
+							'no_found_rows'          => false, // Need for pagination.
+							'update_post_meta_cache' => false, // Only if meta needed.
+							'update_post_term_cache' => false, // Only if terms needed.
+							// Use post__in for indexed primary key lookup (much faster).
+							'post__in'               => $post_ids,
+							'orderby'                => 'title',
+							'order'                  => 'ASC',
+						)
+					);
+				} else {
+					// Handle invalid term or no posts gracefully.
+					$ordered_posts = new WP_Query( array( 'post__in' => array( 0 ) ) );
+				}
+
+				// Cache for 10 minutes.
+				set_transient( $cache_key, $ordered_posts, 10 * MINUTE_IN_SECONDS );
+			}
 
 			if ( $ordered_posts->have_posts() ) :
 				?>
