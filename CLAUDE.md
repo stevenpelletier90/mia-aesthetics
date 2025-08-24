@@ -164,3 +164,14 @@ All buttons include responsive padding using clamp() and smooth icon animations.
 - Custom post types are managed externally (likely via plugin or ACF)
 - File modifications automatically bust cache via versioning system
 - **Style Guide**: Available at `/style-guide.html` for design system reference
+
+# CRITICAL TEMPLATE VERIFICATION RULES
+
+## HTML Template Content Exclusions
+**IMPORTANT**: When verifying HTML template content accuracy, the following sections should NEVER be flagged as missing content because they are handled by PHP templates:
+
+- **FAQ sections** - Loaded dynamically via PHP templates, NOT in HTML templates
+- **Pricing information** - Handled dynamically by PHP, NOT in HTML templates  
+- **H1 headings** - Managed by page layout PHP templates, NOT in HTML templates
+
+These sections are intentionally excluded from HTML templates and are NOT missing content.
