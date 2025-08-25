@@ -4,7 +4,7 @@
 }
 
 .navbar {
-  background: linear-gradient(to bottom, var(--color-primary), var(--color-black));
+  background: linear-gradient(to bottom, var(--mia-black), var(--mia-black));
 }
 
 .navbar-toggler {
@@ -33,9 +33,9 @@
 }
 
 .header-btn {
-  color: var(--color-white);
+  color: var(--mia-white);
   background-color: transparent;
-  border: 2px solid var(--color-gold);
+  border: 2px solid var(--mia-gold);
   padding: 0.5rem 1.25rem;
   font-weight: 600;
   font-size: 0.9rem;
@@ -47,8 +47,8 @@
 }
 
 .header-btn:is(:hover, :focus) {
-  background-color: var(--color-gold);
-  color: var(--color-black);
+  background-color: var(--mia-gold);
+  color: var(--mia-black);
   text-decoration: none;
 }
 
@@ -69,41 +69,41 @@
 }
 
 .site-header .navbar-nav .nav-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
 /* Simplified dropdown styling with modern CSS */
 .dropdown-item:is(:hover, :focus) {
   background-color: transparent;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: underline;
 }
 
 .dropdown-item:is(:active, .active) {
   background-color: transparent;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: underline;
 }
 
 /* Mega menu title styling */
 .mega-menu-title:is(:hover, :focus),
 .mega-menu .col-12 a:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
 .navbar .offcanvas {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
 }
 
 .offcanvas .nav-link {
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 .offcanvas .nav-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 @media (min-width: 1200px) {
@@ -147,14 +147,14 @@
   }
 
   .dropdown-menu.mega-menu {
-    border-top: 3px solid var(--color-gold);
-    box-shadow: 0 6px 12px var(--color-black-20);
+    border-top: 3px solid var(--mia-gold);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
     left: 0;
     right: 0;
   }
 
   .mega-menu-title {
-    color: var(--color-primary);
+    color: var(--mia-black);
     font-weight: 600;
     font-size: 1.1rem;
     display: inline-block;
@@ -163,20 +163,20 @@
   }
 
   .mega-menu-title:hover {
-    color: var(--color-text-primary);
+    color: var(--mia-gray-dark);
     text-decoration: none;
   }
 
   .mega-menu-title .fa-arrow-right {
     font-size: 0.85rem;
     margin-left: 0.5rem;
-    color: var(--color-gold);
+    color: var(--mia-gold);
   }
 
   .mega-menu .dropdown-header {
     padding: 0.5rem 0;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid var(--color-black-10);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     font-size: 1.1rem;
     font-family: var(--font-body);
     font-weight: 600;
@@ -185,12 +185,12 @@
   .mega-menu .dropdown-header a {
     text-decoration: none;
     font-weight: 600;
-    color: var(--color-text-primary);
+    color: var(--mia-gray-dark);
     font-size: 1.1rem;
   }
 
   .mega-menu .dropdown-header a:hover {
-    color: var(--color-gold);
+    color: var(--mia-gold);
     text-decoration: underline;
   }
 
@@ -206,19 +206,19 @@
   }
 
   .navbar-nav .mega-menu .bg-light {
-    background-color: var(--color-gold-10);
-    border: 1px solid var(--color-gold-20);
+    background-color: var(--mia-gold-10);
+    border: 1px solid var(--mia-gold-20);
   }
 
   .mega-menu .btn-outline-dark {
-    color: var(--color-gold);
-    border-color: var(--color-gold);
+    color: var(--mia-gold);
+    border-color: var(--mia-gold);
   }
 
   .mega-menu .btn-outline-dark:hover {
-    background-color: var(--color-gold);
-    border-color: var(--color-gold);
-    color: var(--color-primary);
+    background-color: var(--mia-gold);
+    border-color: var(--mia-gold);
+    color: var(--mia-black);
   }
 
   .navbar-nav .nav-item {
@@ -358,7 +358,7 @@
     background-color: transparent;
     margin-left: 1rem;
     border: none;
-    border-left: 2px solid var(--color-gold);
+    border-left: 2px solid var(--mia-gold);
     box-shadow: none;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
@@ -366,7 +366,7 @@
   }
 
   .offcanvas .dropdown-item {
-    color: var(--color-white);
+    color: var(--mia-white);
     padding: 0.75rem 1rem;
     font-size: 1.1rem;
   }
@@ -381,12 +381,12 @@
   }
 
   .offcanvas .dropdown-divider {
-    border-top: 1px solid var(--color-white-10);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
     margin: 0.5rem 0;
   }
 
   .offcanvas .dropdown-item.fw-bold {
-    color: var(--color-gold);
+    color: var(--mia-gold);
   }
 
   .d-sm-block.d-xl-none .header-btn {

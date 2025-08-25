@@ -5,26 +5,26 @@
 
 /* Card Base Styling */
 .consultation-card {
-  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  color: var(--mia-white);
 }
 
 .consultation-card :is(h3, strong, p, h2) {
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 /* Button Styling */
 .consultation-card .btn-primary {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
+  background-color: var(--mia-gold);
+  border-color: var(--mia-gold);
+  color: var(--mia-black);
   font-weight: var(--font-semibold);
 }
 
 .consultation-card .btn-primary:hover {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  color: var(--color-primary);
+  background-color: var(--mia-gold);
+  border-color: var(--mia-gold);
+  color: var(--mia-black);
 }
 
 /* Gravity Forms Wrapper Reset */
@@ -90,10 +90,10 @@
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid var(--color-white-30);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  background-color: var(--color-black-20);
-  color: var(--color-white);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--mia-white);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -105,10 +105,10 @@
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid var(--color-white-30);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
-  background-color: var(--color-black-20);
-  color: var(--color-white);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--mia-white);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -120,9 +120,9 @@
   padding: 0.625rem 0.75rem;
   padding-right: 2.5rem;
   position: relative;
-  background-color: var(--color-black-20);
-  color: var(--color-white);
-  border: 1px solid var(--color-white-30);
+  background-color: rgba(0, 0, 0, 0.2);
+  color: var(--mia-white);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   border-radius: 4px;
   background-image: none;
   text-overflow: ellipsis;
@@ -135,22 +135,22 @@
 }
 
 .consultation-card .gform_wrapper select option {
-  background-color: var(--color-white);
-  color: var(--color-black);
+  background-color: var(--mia-white);
+  color: var(--mia-black);
   padding: 8px 10px;
 }
 
 /* Focus States */
 .consultation-card .gform_wrapper :is(input, select, textarea):focus {
   outline: none;
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 2px var(--color-gold-30);
-  background-color: var(--color-black-40);
+  border-color: var(--mia-gold);
+  box-shadow: 0 0 0 2px var(--mia-gold-30);
+  background-color: rgba(0, 0, 0, 0.4);
 }
 
 /* Placeholders */
 .consultation-card .gform_wrapper :is(input, textarea)::placeholder {
-  color: var(--color-white-60);
+  color: rgba(255, 255, 255, 0.6);
   opacity: 1;
 }
 
@@ -175,8 +175,8 @@
 .consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"] {
   width: 18px;
   height: 18px;
-  border: 2px solid var(--color-white-60);
-  border: 2px solid var(--color-white-30);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border: 2px solid rgba(255, 255, 255, 0.3);
   border-radius: 3px;
   margin-right: 10px;
   margin-top: 2px;
@@ -189,18 +189,18 @@
 }
 
 .consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:checked {
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
+  background-color: var(--mia-gold);
+  border-color: var(--mia-gold);
 }
 
 .consultation-card .gform_wrapper .gfield_checkbox input[type="checkbox"]:hover {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
 }
 
 .consultation-card .gform_wrapper .gfield_checkbox label {
   font-size: 14px;
-  color: var(--color-white);
-  color: var(--color-white-90);
+  color: var(--mia-white);
+  color: rgba(255, 255, 255, 0.9);
   line-height: 1.4;
   margin: 0;
   cursor: pointer;
@@ -214,12 +214,12 @@
   gap: 0.5rem;
   font-weight: 600;
   line-height: 1.5;
-  color: var(--color-white);
-  background-color: var(--color-white);
-  color: var(--color-primary);
-  border: 2px solid var(--color-white);
+  color: var(--mia-white);
+  background-color: var(--mia-white);
+  color: var(--mia-black);
+  border: 2px solid var(--mia-white);
   border: none;
-  box-shadow: 0 2px 4px var(--color-black-20);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
   padding: 0.625rem 1.5rem;
   padding: 0.875rem 1.5rem;
   font-size: 15px;
@@ -235,10 +235,10 @@
 }
 
 .consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus) {
-  color: var(--color-primary);
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
-  box-shadow: 0 4px 10px var(--color-black-30);
+  color: var(--mia-black);
+  background-color: var(--mia-gold);
+  border-color: var(--mia-gold);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 
 /* Footer Styling */

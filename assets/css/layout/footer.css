@@ -1,11 +1,11 @@
 .site-footer {
-  background: linear-gradient(to right, var(--color-black), var(--color-primary));
-  color: var(--color-white);
+  background: linear-gradient(to right, var(--mia-black), var(--mia-black));
+  color: var(--mia-white);
   padding-top: 4rem;
   padding-bottom: 5rem;
   position: relative;
   font-family: var(--font-body);
-  border-top: 1px solid var(--color-gold);
+  border-top: 1px solid var(--mia-gold);
 }
 
 .wide-container {
@@ -22,7 +22,7 @@
   letter-spacing: 1px;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .footer-columns {
@@ -42,7 +42,7 @@
 }
 
 .footer-menu a {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: none;
   transition: all 0.3s ease;
   display: inline-block;
@@ -50,7 +50,7 @@
 }
 
 .footer-menu a:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: underline;
 }
 
@@ -67,15 +67,15 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: var(--color-white-10);
-  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: var(--mia-white);
   transition: all 0.3s ease;
   text-decoration: none;
 }
 
 .social-icon:hover {
-  background-color: var(--color-gold);
-  color: var(--color-black);
+  background-color: var(--mia-gold);
+  color: var(--mia-black);
   text-decoration: none;
 }
 
@@ -92,7 +92,7 @@
 .footer-divider {
   border: 0;
   height: 1px;
-  background: var(--color-white-20);
+  background: rgba(255, 255, 255, 0.2);
   width: 100%;
   margin: 0;
 }
@@ -116,8 +116,8 @@
 }
 
 .locations-section .accordion-item {
-  background-color: var(--color-black);
-  border: 1px solid var(--color-white-10);
+  background-color: var(--mia-black);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-DEFAULT);
   overflow: hidden;
   margin-bottom: 0.5rem;
@@ -132,8 +132,8 @@
   font-family: var(--font-heading);
   font-weight: 600;
   padding: 0.75rem 1.25rem;
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
   border: none;
   box-shadow: none;
   transition: color 0.3s ease;
@@ -142,17 +142,17 @@
 }
 
 .locations-section .accordion-button:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .locations-section .accordion-button:focus {
   box-shadow: none;
-  border-color: var(--color-gold-50);
+  border-color: rgba(200, 178, 115, 0.5);
 }
 
 .locations-section .accordion-button:not(.collapsed) {
-  color: var(--color-white);
-  background-color: var(--color-black);
+  color: var(--mia-white);
+  background-color: var(--mia-black);
   box-shadow: none;
 }
 
@@ -173,14 +173,14 @@
 
 .locations-section .accordion-body {
   padding: 1rem 1.25rem;
-  color: var(--color-white-80);
-  background-color: var(--color-black);
-  border-top: 1px solid var(--color-white-05);
+  color: rgba(255, 255, 255, 0.8);
+  background-color: var(--mia-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
   flex-grow: 1;
 }
 
 .surgeons-list h6 {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
 }
@@ -196,7 +196,7 @@
 }
 
 .surgeon-link {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: none;
   transition: all 0.2s ease;
   display: flex;
@@ -207,7 +207,7 @@
 }
 
 .surgeon-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
@@ -224,16 +224,16 @@
 
 .surgeon-link:hover .surgeon-arrow {
   opacity: 1;
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 /* Styles for location links in the footer */
 .location-link .surgeon-link {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .location-link .surgeon-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
@@ -243,7 +243,7 @@
 
 .location-link .surgeon-link:hover .surgeon-arrow {
   opacity: 1;
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .footer-bottom {
@@ -255,14 +255,14 @@
 }
 
 .copyright {
-  color: var(--color-white-80);
+  color: rgba(255, 255, 255, 0.8);
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
 
 .disclaimer {
   font-size: 0.85rem;
-  color: var(--color-white-70);
+  color: rgba(255, 255, 255, 0.7);
   margin-bottom: 1rem;
 }
 
@@ -282,7 +282,7 @@
 }
 
 .footer-links a {
-  color: var(--color-white-60);
+  color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.3s ease;
   font-size: 0.85rem;
@@ -290,7 +290,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: underline;
 }
 

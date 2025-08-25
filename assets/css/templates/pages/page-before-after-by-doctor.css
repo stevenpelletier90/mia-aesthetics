@@ -10,7 +10,7 @@
 
 /* Hero styles */
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -40,7 +40,7 @@
 
 /* Enhance dropdown focus state */
 #doctorSelect:focus {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
   box-shadow: 0 0 0 0.2rem rgba(200, 178, 115, 0.25);
 }
 
@@ -86,14 +86,14 @@
 }
 
 #lightboxModal .modal-content {
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
   border: none;
 }
 
 #lightboxModal .modal-body {
   padding: 40px; /* Reduced padding - arrows closer to image */
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
 }
 
 /* Carousel image styling */

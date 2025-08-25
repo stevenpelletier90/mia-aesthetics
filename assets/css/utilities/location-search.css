@@ -22,7 +22,7 @@
   width: 100%;
   padding: 1rem 3rem 1rem 1.5rem;
   font-size: 1.1rem;
-  border: 2px solid var(--color-gold-light);
+  border: 2px solid var(--mia-gold-light);
   border-radius: 50px;
   outline: none;
   transition: all 0.3s ease;
@@ -31,8 +31,8 @@
 }
 
 #location-search:focus {
-  border-color: var(--color-gold);
-  box-shadow: 0 0 0 3px var(--color-gold-10);
+  border-color: var(--mia-gold);
+  box-shadow: 0 0 0 3px var(--mia-gold-10);
 }
 
 .search-icon {
@@ -40,7 +40,7 @@
   right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 1.2rem;
   pointer-events: none;
 }
@@ -56,8 +56,8 @@
 .spinner {
   width: 20px;
   height: 20px;
-  border: 2px solid var(--color-gold-light);
-  border-top: 2px solid var(--color-gold);
+  border: 2px solid var(--mia-gold-light);
+  border-top: 2px solid var(--mia-gold);
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -78,8 +78,8 @@
   top: 100%;
   left: 0;
   right: 0;
-  background: var(--color-primary);
-  border: 1px solid var(--color-gold-light);
+  background: var(--mia-black);
+  border: 1px solid var(--mia-gold-light);
   border-radius: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
   z-index: 9999;
@@ -92,7 +92,7 @@
   padding: 1rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   cursor: pointer;
-  color: var(--color-white);
+  color: var(--mia-white);
   transition: background-color 0.2s ease;
 }
 
@@ -108,13 +108,13 @@
 /* Override global dropdown-item hover styles - remove text decoration */
 .location-search-widget #search-dropdown .dropdown-item:is(:hover, :focus) {
   background-color: rgba(255, 255, 255, 0.05);
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: none !important;
 }
 
 .location-search-widget #search-dropdown .dropdown-item h4 {
   margin: 0 0 0.25rem 0;
-  color: var(--color-white);
+  color: var(--mia-white);
   font-size: 1rem;
   font-weight: 600;
   font-family: var(--font-heading);
@@ -132,8 +132,8 @@
 }
 
 .location-search-widget #search-dropdown .dropdown-item .location-distance {
-  background-color: var(--color-gold);
-  color: var(--color-primary);
+  background-color: var(--mia-gold);
+  color: var(--mia-black);
   font-size: 0.85rem;
   font-weight: 600;
   padding: 0.25rem 0.75rem;

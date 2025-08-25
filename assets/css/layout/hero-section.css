@@ -67,8 +67,8 @@
   width: 12px;
   height: 12px;
   border-radius: 50%;
-  background-color: var(--color-white);
-  border: 2px solid var(--color-white);
+  background-color: var(--mia-white);
+  border: 2px solid var(--mia-white);
   opacity: 0.7;
 }
 
@@ -82,7 +82,7 @@
   display: flex;
   flex-direction: row;
   width: 100%;
-  border-top: 2px solid var(--color-white);
+  border-top: 2px solid var(--mia-white);
 }
 
 .hero-box {
@@ -93,11 +93,11 @@
 }
 
 .hero-box-top {
-  border-right: 1px solid var(--color-white);
+  border-right: 1px solid var(--mia-white);
 }
 
 .hero-box-bottom {
-  border-left: 1px solid var(--color-white);
+  border-left: 1px solid var(--mia-white);
 }
 
 /* Box aspect ratio */
@@ -130,7 +130,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: var(--color-black-80);
+  background: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -143,8 +143,8 @@
   font-family: var(--font-heading, "Montserrat", sans-serif);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
-  color: var(--color-white);
-  text-shadow: 0 2px 4px var(--color-black-50);
+  color: var(--mia-white);
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
   margin-bottom: 1rem;
   line-height: 1.2;
   text-transform: uppercase;

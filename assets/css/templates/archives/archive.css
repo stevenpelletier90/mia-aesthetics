@@ -1,7 +1,7 @@
 /* Archive CSS */
 
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid var(--shadow-subtle);
 }
 
@@ -29,7 +29,7 @@
 }
 
 .page-subheading {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   margin-bottom: 1.5rem;
 }
 
@@ -48,15 +48,15 @@
 
 .page-indicator {
   font-weight: 500;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
 }
 
 .read-more-link {
-  color: var(--color-primary);
+  color: var(--mia-black);
   text-decoration: none;
   font-weight: 500;
 }
 
 .read-more-link i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }

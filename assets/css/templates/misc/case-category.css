@@ -2,7 +2,7 @@
 
 /* Post header styling to match single pages */
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid var(--shadow-subtle);
 }
 
@@ -31,7 +31,7 @@
 }
 
 .page-subheading {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 
   /* font-size removed: use base or utility class */
   margin-bottom: 1.5rem;
@@ -47,7 +47,7 @@
 
 /* Taxonomy description styling */
 .taxonomy-description {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 1.1rem;
   line-height: 1.6;
 }

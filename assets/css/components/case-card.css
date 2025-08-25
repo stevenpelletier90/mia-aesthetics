@@ -8,9 +8,9 @@
 }
 
 .case-card-inner {
-  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   border-radius: 12px;
-  border: 2px solid var(--color-gold);
+  border: 2px solid var(--mia-gold);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -38,7 +38,7 @@
 }
 
 .case-image-link:focus {
-  outline: 3px solid var(--color-gold);
+  outline: 3px solid var(--mia-gold);
   outline-offset: 2px;
 }
 
@@ -74,14 +74,14 @@
 }
 
 .case-title-link {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .case-title-link:hover,
 .case-title-link:focus {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
@@ -96,7 +96,7 @@
   align-items: center;
   margin-bottom: 0.875rem;
   font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   line-height: 1.4;
 }
 
@@ -105,7 +105,7 @@
 }
 
 .case-meta-item i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   width: 18px;
   margin-right: 0.75rem;
   font-size: 1rem;
@@ -115,7 +115,7 @@
 /* Surgeon and Location Links - Consistent styling */
 .case-surgeon-link,
 .case-location-link {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -125,14 +125,14 @@
 .case-surgeon-link:focus,
 .case-location-link:hover,
 .case-location-link:focus {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: none;
   transform: none;
 }
 
 /* Procedure Text (not linked) - More subdued */
 .case-procedure {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-weight: 400;
   font-style: italic;
 }
@@ -148,9 +148,9 @@
 /* Mobile Vertical Layout - Light theme with proper landscape image handling */
 @media (max-width: 768px) {
   .case-card-inner {
-    background: var(--color-white);
+    background: var(--mia-white);
     flex-direction: column;
-    border: 2px solid var(--color-gold);
+    border: 2px solid var(--mia-gold);
     border-radius: 12px;
     overflow: hidden;
   }
@@ -175,12 +175,12 @@
 
   /* Light theme text colors */
   .case-title-link {
-    color: var(--color-primary);
+    color: var(--mia-black);
   }
 
   .case-title-link:hover,
   .case-title-link:focus {
-    color: var(--color-gold);
+    color: var(--mia-gold);
   }
 
   .case-card-title {
@@ -196,17 +196,17 @@
 
   .case-meta-item {
     font-size: 0.875rem;
-    color: var(--color-text-secondary);
+    color: var(--mia-gray-muted);
     margin-bottom: 0.5rem;
   }
 
   .case-meta-item i {
-    color: var(--color-gold);
+    color: var(--mia-gold);
   }
 
   .case-surgeon-link,
   .case-location-link {
-    color: var(--color-primary);
+    color: var(--mia-black);
     font-weight: 600;
   }
 
@@ -214,12 +214,12 @@
   .case-surgeon-link:focus,
   .case-location-link:hover,
   .case-location-link:focus {
-    color: var(--color-gold);
+    color: var(--mia-gold);
     transform: none;
   }
 
   .case-procedure {
-    color: var(--color-text-secondary);
+    color: var(--mia-gray-muted);
     font-style: italic;
   }
 

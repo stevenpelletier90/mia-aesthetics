@@ -1,17 +1,17 @@
 .post-header {
-  background-color: var(--color-bg-light);
-  border-bottom: 1px solid var(--color-black-05);
+  background-color: var(--mia-gold-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .single-case .consent-trigger {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: underline;
   font-size: var(--font-sm);
   transition: color 0.2s ease;
 }
 
 .single-case .consent-trigger:hover {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: underline;
 }
 
@@ -40,8 +40,8 @@ header h1 {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
   padding: var(--space-1) var(--space-2);
   margin: var(--space-1);
 }
@@ -50,15 +50,15 @@ header h1 {
   position: absolute;
   top: 0;
   left: 0;
-  background-color: var(--color-gold);
-  color: var(--color-black);
+  background-color: var(--mia-gold);
+  color: var(--mia-black);
   padding: var(--space-1) var(--space-2);
   margin: var(--space-1);
 }
 
 .surgeon-info {
   background-color: transparent;
-  color: var(--color-black);
+  color: var(--mia-black);
   padding: var(--space-4);
   border-radius: var(--radius-DEFAULT);
   height: 100%;
@@ -66,7 +66,7 @@ header h1 {
 
 .location-info {
   background-color: transparent;
-  color: var(--color-black);
+  color: var(--mia-black);
   padding: var(--space-4);
   border-radius: var(--radius-DEFAULT);
   height: 100%;
@@ -74,7 +74,7 @@ header h1 {
 
 .case-surgeon-arrow-link,
 .case-location-arrow-link {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 0.95rem;
   transition: all 0.2s ease;
   display: inline-block;
@@ -89,7 +89,7 @@ header h1 {
   content: "›";
   position: absolute;
   left: 0;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-weight: 600;
   opacity: 0.6;
   transition: all 0.2s ease;
@@ -97,7 +97,7 @@ header h1 {
 
 .case-surgeon-arrow-link:hover,
 .case-location-arrow-link:hover {
-  color: var(--color-primary);
+  color: var(--mia-black);
   padding-left: 20px;
   text-decoration: none;
 }
@@ -119,7 +119,7 @@ header h1 {
  * Bootstrap list-group borders/padding.
  */
 .case-procedure-link {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 0.95rem;
   transition: all 0.2s ease;
   display: inline-block;
@@ -133,14 +133,14 @@ header h1 {
   content: "›";
   position: absolute;
   left: 0;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-weight: 600;
   opacity: 0.6;
   transition: all 0.2s ease;
 }
 
 .case-procedure-link:hover {
-  color: var(--color-primary);
+  color: var(--mia-black);
   padding-left: 20px;
   text-decoration: none;
 }
@@ -166,17 +166,17 @@ header h1 {
   font-weight: 600;
   transition: all 0.2s ease;
   text-decoration: none;
-  border: 2px solid var(--color-black);
+  border: 2px solid var(--mia-black);
   border-radius: var(--radius-DEFAULT);
   background-color: transparent;
-  color: var(--color-black);
+  color: var(--mia-black);
   margin-top: 0.5rem;
 }
 
 .case-surgeon-link:hover,
 .case-location-link:hover {
-  background-color: var(--color-black);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
   text-decoration: none;
 }
 
@@ -190,12 +190,12 @@ header h1 {
 .case-surgeon-link:hover i,
 .case-location-link:hover i {
   transform: translateX(3px);
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 .patient-info-card {
   padding: 1rem;
-  border: 2px solid var(--color-border-light);
+  border: 2px solid var(--mia-gold-light);
   border-radius: var(--radius-DEFAULT);
   height: 100%;
   background-color: transparent;
@@ -211,18 +211,18 @@ header h1 {
 }
 
 .patient-info-card-link:hover {
-  border-color: var(--color-gold);
-  background-color: rgba(var(--color-gold-rgb), 0.05);
+  border-color: var(--mia-gold);
+  background-color: rgba(200, 178, 115, 0.05);
   color: inherit;
   transform: translateY(-2px);
-  box-shadow: 0 4px 12px var(--color-black-10);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 .patient-info-arrow {
   position: absolute;
   top: 0.75rem;
   right: 0.75rem;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-size: 0.875rem;
   opacity: 0.7;
   transition: all 0.2s ease;
@@ -253,14 +253,14 @@ header h1 {
 }
 
 #imageModal .modal-content {
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
   border: none;
 }
 
 #imageModal .modal-body {
   padding: 40px;
   position: relative;
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
 }
 
 #caseCarousel img {
@@ -274,7 +274,7 @@ header h1 {
 
 #caseCarousel .carousel-control-prev,
 #caseCarousel .carousel-control-next {
-  background-color: var(--color-black-50);
+  background-color: rgba(0, 0, 0, 0.5);
   width: 50px;
   height: 50px;
   top: 50%;
@@ -285,7 +285,7 @@ header h1 {
 
 #caseCarousel .carousel-control-prev:hover,
 #caseCarousel .carousel-control-next:hover {
-  background-color: var(--color-black-70);
+  background-color: rgba(27, 27, 27, 0.7);
   opacity: 1;
 }
 
@@ -348,15 +348,15 @@ header h1 {
 /* Related Cases Section */
 
 .related-case-item {
-  border: 1px solid var(--color-black-10);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
   transition: all 0.2s ease;
-  background: var(--color-white);
+  background: var(--mia-white);
 }
 
 .related-case-item:hover {
-  border-color: var(--color-gold);
-  box-shadow: 0 2px 12px var(--color-black-10);
+  border-color: var(--mia-gold);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
   transform: translateY(-1px);
 }
 
@@ -375,13 +375,13 @@ header h1 {
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: var(--color-gold);
+  background: var(--mia-gold);
   border-radius: 50%;
   flex-shrink: 0;
 }
 
 .related-case-number span {
-  color: var(--color-black);
+  color: var(--mia-black);
   font-weight: 600;
   font-size: 0.9rem;
 }
@@ -391,7 +391,7 @@ header h1 {
 }
 
 .related-case-title {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-weight: 600;
   font-size: 1.1rem;
   margin-bottom: 0.25rem;
@@ -399,13 +399,13 @@ header h1 {
 }
 
 .related-case-meta {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 0.9rem;
   font-weight: 400;
 }
 
 .related-case-arrow {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   opacity: 0.7;
   transition: all 0.2s ease;
 }

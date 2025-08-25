@@ -2,9 +2,9 @@
 
 /* Breadcrumb Wrapper */
 .surgeon-breadcrumb-wrapper {
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
   padding: 1rem 0;
-  border-bottom: 1px solid var(--color-gold-light);
+  border-bottom: 1px solid var(--mia-gold-light);
 }
 
 .surgeon-breadcrumb-wrapper .breadcrumb-nav {
@@ -43,7 +43,7 @@
 
 /* Professional Hero Section */
 .surgeon-hero {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-white) 100%);
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
   padding: 4rem 0;
   position: relative;
   overflow: hidden;
@@ -74,7 +74,7 @@
 }
 
 .surgeon-hero-image.surgeon-placeholder {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   aspect-ratio: 4/5;
   border-radius: 20px;
   display: flex;
@@ -99,7 +99,7 @@
   right: -10px;
   width: 100px;
   height: 100px;
-  background: var(--color-gold);
+  background: var(--mia-gold);
   border-radius: 50%;
   z-index: -1;
   opacity: 0.2;
@@ -111,8 +111,8 @@
 
 .surgeon-badge {
   display: inline-block;
-  background: var(--color-primary);
-  color: var(--color-gold);
+  background: var(--mia-black);
+  color: var(--mia-gold);
   padding: 0.5rem 1.5rem;
   border-radius: 30px;
   font-size: 0.875rem;
@@ -120,21 +120,21 @@
   text-transform: uppercase;
   letter-spacing: 1px;
   margin-bottom: 1rem;
-  border: 1px solid var(--color-gold);
+  border: 1px solid var(--mia-gold);
   box-shadow: 0 2px 8px rgba(27, 27, 27, 0.1);
 }
 
 .surgeon-hero .surgeon-name {
   font-size: 3.5rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
 
 .surgeon-hero .surgeon-location {
   font-size: 1.25rem;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   margin-bottom: 2rem;
   display: flex;
   align-items: center;
@@ -142,17 +142,17 @@
 }
 
 .surgeon-hero .surgeon-location i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .surgeon-hero .surgeon-location a {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .surgeon-hero .surgeon-location a:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
@@ -165,7 +165,7 @@
 /* Main Content Area */
 .surgeon-content-area {
   padding: 4rem 0;
-  background: var(--color-white);
+  background: var(--mia-white);
 }
 
 .surgeon-main-column {
@@ -176,7 +176,7 @@
 .section-title {
   font-size: 2rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 2rem;
   position: relative;
   padding-bottom: 1rem;
@@ -189,7 +189,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background: var(--color-gold);
+  background: var(--mia-gold);
 }
 
 .section-title.text-center {
@@ -209,7 +209,7 @@
 .bio-content {
   font-size: 1.125rem;
   line-height: 1.8;
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 .bio-content p {
@@ -218,7 +218,7 @@
 
 .bio-content h3 {
   font-size: 1.5rem;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
@@ -262,30 +262,30 @@
   transform: translate(-50%, -50%);
   width: 80px;
   height: 80px;
-  background-color: var(--color-primary);
+  background-color: var(--mia-black);
   border-radius: 50%;
   display: flex;
   justify-content: center;
   align-items: center;
   transition: all 0.3s ease;
-  border: 3px solid var(--color-gold);
+  border: 3px solid var(--mia-gold);
   cursor: pointer;
   opacity: 0.9;
 }
 
 .video-play-button i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-size: 28px;
   margin-left: 5px;
 }
 
 .video-thumbnail:hover .video-play-button {
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
   transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-thumbnail:hover .video-play-button i {
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 /* Expertise Section */
@@ -303,7 +303,7 @@
   display: flex;
   gap: 1.5rem;
   padding: 2rem;
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
   border-radius: 12px;
   transition: all 0.3s ease;
   border: 1px solid transparent;
@@ -311,8 +311,8 @@
 
 .expertise-card:hover {
   transform: translateY(-5px);
-  background: var(--color-white);
-  border-color: var(--color-gold);
+  background: var(--mia-white);
+  border-color: var(--mia-gold);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -320,7 +320,7 @@
   flex-shrink: 0;
   width: 50px;
   height: 50px;
-  background: var(--color-gold-10);
+  background: var(--mia-gold-10);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -328,25 +328,25 @@
 }
 
 .expertise-icon i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-size: 1.5rem;
 }
 
 .expertise-content h3 {
   font-size: 1.25rem;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 0.75rem;
   font-weight: 600;
 }
 
 .expertise-content p {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   margin-bottom: 1rem;
   line-height: 1.6;
 }
 
 .expertise-link {
-  color: var(--color-primary);
+  color: var(--mia-black);
   text-decoration: none;
   font-weight: 600;
   display: inline-flex;
@@ -356,7 +356,7 @@
 }
 
 .expertise-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .expertise-link i {
@@ -375,17 +375,17 @@
 }
 
 .sidebar-card {
-  background: var(--color-white);
+  background: var(--mia-white);
   border-radius: 12px;
   padding: 2rem;
   margin-bottom: 2rem;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-  border: 1px solid var(--color-gold-light);
+  border: 1px solid var(--mia-gold-light);
 }
 
 .sidebar-card-title {
   font-size: 1.25rem;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 1.5rem;
   font-weight: 700;
   position: relative;
@@ -398,7 +398,7 @@
   left: 0;
   width: 30px;
   height: 2px;
-  background: var(--color-gold);
+  background: var(--mia-gold);
 }
 
 .surgeon-info-list {
@@ -409,11 +409,11 @@
 
 .surgeon-info-list li {
   padding: 0.75rem 0;
-  border-bottom: 1px solid var(--color-gold-light);
+  border-bottom: 1px solid var(--mia-gold-light);
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
 }
 
 .surgeon-info-list li:last-child {
@@ -421,7 +421,7 @@
 }
 
 .surgeon-info-list i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   width: 20px;
   text-align: center;
   flex-shrink: 0;
@@ -429,13 +429,13 @@
 }
 
 .surgeon-info-list a {
-  color: var(--color-primary);
+  color: var(--mia-black);
   text-decoration: none;
   font-weight: 500;
 }
 
 .surgeon-info-list a:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: underline;
 }
 
@@ -450,24 +450,24 @@
   display: flex;
   align-items: center;
   padding: 1rem;
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
   border-radius: 8px;
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--mia-black);
   transition: all 0.2s ease;
   border: 1px solid transparent;
 }
 
 .resource-link:hover {
-  background: var(--color-white);
-  border-color: var(--color-gold);
+  background: var(--mia-white);
+  border-color: var(--mia-gold);
   text-decoration: none;
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .resource-link i:first-child {
   width: 20px;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   margin-right: 1rem;
 }
 
@@ -477,7 +477,7 @@
 }
 
 .resource-link i:last-child {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 0.75rem;
   transition: transform 0.2s ease;
 }
@@ -488,7 +488,7 @@
 
 /* FAQ Section */
 .surgeon-faq-section {
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
   padding: 4rem 0;
 }
 

@@ -2,28 +2,28 @@
 
 /* Location Header (Hero) Styles */
 .location-header {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  color: var(--mia-white);
   padding: 3rem 0;
   position: relative;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .location-header h1 {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-weight: 700;
   margin-bottom: 1.5rem;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .location-header p {
-  color: var(--color-white);
+  color: var(--mia-white);
   font-size: 1.1rem;
   margin-bottom: 1.5rem;
 }
 
 .location-intro {
-  border-left: 3px solid var(--color-gold);
+  border-left: 3px solid var(--mia-gold);
   padding-left: 1rem;
 }
 
@@ -35,38 +35,38 @@
 }
 
 .location-detail {
-  color: var(--color-white);
+  color: var(--mia-white);
   display: flex;
   align-items: center;
   margin-bottom: 1rem;
 }
 
 .location-icon {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   margin-right: 0.75rem;
   font-size: 1.2rem;
   filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
 }
 
 .location-phone {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .location-phone:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .location-map-link {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
   font-weight: 500;
   transition: all 0.3s ease;
 }
 
 .location-map-link:hover {
-  color: var(--color-white);
+  color: var(--mia-white);
   text-decoration: underline;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .dept-breakdown h3 {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
@@ -91,7 +91,7 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
 }
 
 /* Department Accordion Styles */
@@ -99,13 +99,13 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.5rem;
   overflow: hidden;
-  background: var(--color-white);
+  background: var(--mia-white);
   box-shadow: 0 2px 8px var(--shadow-subtle);
 }
 
 .dept-breakdown .accordion-button {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-light) 100%);
-  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
+  color: var(--mia-black);
   font-weight: 700;
   font-size: 1.25rem;
   padding: 1.25rem 1.5rem;
@@ -115,18 +115,18 @@
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  color: var(--mia-white);
   box-shadow: none;
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .dept-breakdown .accordion-button:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  color: var(--mia-white);
 }
 
 .dept-breakdown .accordion-button:focus {
@@ -136,11 +136,11 @@
 
 .dept-breakdown .accordion-body {
   padding: 2rem 1.5rem;
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
 }
 
 .dept-breakdown .accordion-body .lead {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 0;
@@ -152,7 +152,7 @@
 }
 
 .job-functions h3 {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-weight: 700;
   font-size: 1.75rem;
   margin-bottom: 1.5rem;
@@ -167,18 +167,18 @@
   left: 0;
   width: 60px;
   height: 3px;
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
 }
 
 .job-function-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-gold-light) !important;
+  background: var(--mia-white);
+  border: 1px solid var(--mia-gold-light) !important;
   transition: all 0.3s ease;
   height: 100%;
 }
 
 .job-function-card:hover {
-  border-color: var(--color-gold) !important;
+  border-color: var(--mia-gold) !important;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -186,16 +186,16 @@
 .job-function-title {
   font-size: 1.2rem;
   font-weight: 600;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 1rem;
 }
 
 .job-function-card:hover .job-function-title {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .job-function-description {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 0;
@@ -211,7 +211,7 @@
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.5rem;
   overflow: hidden;
-  background: var(--color-white);
+  background: var(--mia-white);
   box-shadow: 0 2px 8px var(--shadow-subtle);
 }
 
@@ -220,8 +220,8 @@
 }
 
 .page-template-page-careers-locations main .accordion-button {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-gold-light) 100%);
-  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
+  color: var(--mia-black);
   font-weight: 700;
   font-size: 1.25rem;
   padding: 1.25rem 1.5rem;
@@ -231,18 +231,18 @@
 }
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  color: var(--mia-white);
   box-shadow: none;
 }
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .page-template-page-careers-locations main .accordion-button:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
-  color: var(--color-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  color: var(--mia-white);
 }
 
 .page-template-page-careers-locations main .accordion-button:focus {
@@ -252,11 +252,11 @@
 
 .page-template-page-careers-locations main .accordion-body {
   padding: 2rem 1.5rem;
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
 }
 
 .page-template-page-careers-locations main .accordion-body .lead {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 2rem;
@@ -264,8 +264,8 @@
 
 /* New Position Card Styles */
 .position-card-expanded {
-  background: var(--color-white);
-  border: 1px solid var(--color-gold-light);
+  background: var(--mia-white);
+  border: 1px solid var(--mia-gold-light);
   border-radius: 0.5rem;
   padding: 1.5rem;
   height: 100%;
@@ -281,13 +281,13 @@
   left: 0;
   width: 4px;
   height: 100%;
-  background: var(--color-gold);
+  background: var(--mia-gold);
   transform: translateX(-100%);
   transition: transform 0.3s ease;
 }
 
 .position-card-expanded:hover {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
@@ -299,18 +299,18 @@
 .position-title-expanded {
   font-size: 1.1rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 0.75rem;
   transition: color 0.3s ease;
 }
 
 .position-card-expanded:hover .position-title-expanded {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .position-description {
   font-size: 0.9rem;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   line-height: 1.6;
   margin: 0;
 }
@@ -322,19 +322,19 @@
 }
 
 .job-item {
-  background: var(--color-white);
-  border: 2px solid var(--color-gold-light) !important;
+  background: var(--mia-white);
+  border: 2px solid var(--mia-gold-light) !important;
   transition: all 0.3s ease;
 }
 
 .job-item:hover {
-  border-color: var(--color-gold) !important;
+  border-color: var(--mia-gold) !important;
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
 }
 
 .job-item h4 {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-weight: 600;
   margin-bottom: 0.75rem;
 }
@@ -345,25 +345,25 @@
 }
 
 .no-jobs-message {
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
   border: 2px dashed #dee2e6;
 }
 
 .no-jobs-message i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   opacity: 0.6;
 }
 
 /* Icons in Accordion Headers - Scoped */
 .page-template-page-careers-locations main .accordion-button i {
   font-size: 1.25rem;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   transition: color 0.3s ease;
 }
 
 /* Benefits Section */
 .benefits-section {
-  background: linear-gradient(135deg, var(--color-gold-light) 0%, var(--color-white) 100%);
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
   padding: 5rem 0;
 }
 
@@ -378,7 +378,7 @@
 }
 
 .benefits-header .section-tagline {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-weight: 600;
   font-size: 0.95rem;
   letter-spacing: 0.5px;
@@ -387,7 +387,7 @@
 }
 
 .benefits-title {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-weight: 700;
   font-size: clamp(2.5rem, 4vw, 3.5rem);
   margin-bottom: 1.5rem;
@@ -403,7 +403,7 @@
 .benefits-subtitle {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   margin: 0;
   text-align: left;
 }
@@ -417,8 +417,8 @@
 }
 
 .founders-quote {
-  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--color-gold-10) 100%);
-  border: 1px solid var(--color-gold-20);
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--mia-gold-10) 100%);
+  border: 1px solid var(--mia-gold-20);
   border-radius: 16px;
   padding: 3rem;
   margin: 0;
@@ -435,13 +435,13 @@
   right: -50%;
   width: 200%;
   height: 200%;
-  background: radial-gradient(circle, var(--color-gold-10) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--mia-gold-10) 0%, transparent 70%);
   pointer-events: none;
 }
 
 .quote-icon {
   font-size: 2.5rem;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   opacity: 0.3;
   margin-bottom: 1rem;
   line-height: 1;
@@ -450,7 +450,7 @@
 .quote-text {
   font-size: 1.25rem;
   line-height: 1.8;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 2rem;
   font-weight: 500;
   font-style: italic;
@@ -469,20 +469,20 @@
   display: inline-block;
   width: 40px;
   height: 2px;
-  background: var(--color-gold);
+  background: var(--mia-gold);
 }
 
 .attribution-text {
   font-size: 1rem;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-weight: 700;
   letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
 .benefit-card {
-  background: var(--color-white);
-  border: 1px solid var(--color-gold-light);
+  background: var(--mia-white);
+  border: 1px solid var(--mia-gold-light);
   border-radius: 12px;
   transition: all 0.3s ease;
   height: 100%;
@@ -490,7 +490,7 @@
 }
 
 .benefit-card:hover {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
   transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
 }
@@ -503,14 +503,14 @@
   justify-content: center;
   margin: 0 auto;
   border-radius: 50%;
-  background: var(--color-gold-light);
-  border: 2px solid var(--color-gold-20);
-  box-shadow: 0 4px 15px var(--color-gold-20);
+  background: var(--mia-gold-light);
+  border: 2px solid var(--mia-gold-20);
+  box-shadow: 0 4px 15px var(--mia-gold-20);
 }
 
 .benefit-icon i {
   font-size: 1.75rem;
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 /* SVG icons for benefits section */
@@ -526,7 +526,7 @@
 .benefit-title {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 1.25rem;
 }
 
@@ -539,7 +539,7 @@
 .benefit-list li {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   margin-bottom: 1rem;
   padding-left: 1.25rem;
   position: relative;
@@ -549,7 +549,7 @@
   content: "✓";
   position: absolute;
   left: 0;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-weight: 700;
   font-size: 1.1rem;
 }
@@ -602,38 +602,38 @@
 }
 
 .video-play-button:hover {
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
   transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-play-button i {
-  color: var(--color-white);
+  color: var(--mia-white);
   font-size: 1.5rem;
   margin-left: 3px;
 }
 
 /* Team Section - Scoped to careers location template */
 .page-template-page-careers-locations .team-section {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
 }
 
 .page-template-page-careers-locations .section-title {
   font-family: var(--font-heading);
   font-weight: 700;
-  color: var(--color-primary);
+  color: var(--mia-black);
   margin-bottom: 3rem;
 }
 
 .page-template-page-careers-locations .surgeon-card {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary)100%);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   border-radius: 12px;
   padding: 2rem 1.5rem;
   text-align: center;
   transition:
     transform 0.3s ease,
     box-shadow 0.3s ease;
-  border: 1px solid var(--color-gold-20);
-  color: var(--color-white);
+  border: 1px solid var(--mia-gold-20);
+  color: var(--mia-white);
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {
@@ -646,7 +646,7 @@
   height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--color-gold);
+  border: 3px solid var(--mia-gold);
   margin-bottom: 1.5rem;
   display: block;
   margin-left: auto;
@@ -659,7 +659,7 @@
   font-family: var(--font-heading);
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--color-white);
+  color: var(--mia-white);
   margin-bottom: 0.5rem;
   line-height: 1.3;
 }
@@ -829,9 +829,9 @@
 
   /* Mobile surgeon card redesign - horizontal layout to save space */
   .page-template-page-careers-locations .team-section .surgeon-card {
-    background: var(--color-white);
-    border: 1px solid var(--color-gold-light);
-    color: var(--color-primary);
+    background: var(--mia-white);
+    border: 1px solid var(--mia-gold-light);
+    color: var(--mia-black);
     padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
     display: flex;
@@ -841,7 +841,7 @@
   }
 
   .page-template-page-careers-locations .team-section .surgeon-card:hover {
-    border-color: var(--color-gold);
+    border-color: var(--mia-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
   }
@@ -849,7 +849,7 @@
   .page-template-page-careers-locations .team-section .surgeon-card img {
     width: 100px;
     height: 100px;
-    border: 2px solid var(--color-gold);
+    border: 2px solid var(--mia-gold);
     margin-bottom: 0;
     margin-right: 1.25rem;
     flex-shrink: 0;
@@ -866,13 +866,13 @@
 
   .page-template-page-careers-locations .team-section .surgeon-card h3 {
     font-size: 1.1rem;
-    color: var(--color-primary);
+    color: var(--mia-black);
     margin-bottom: 0.25rem;
     line-height: 1.3;
   }
 
   .page-template-page-careers-locations .team-section .surgeon-card p {
-    color: var(--color-text-secondary);
+    color: var(--mia-gray-muted);
     font-size: 0.85rem;
     margin-bottom: 0.75rem;
     font-style: normal;

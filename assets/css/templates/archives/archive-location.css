@@ -1,5 +1,5 @@
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid var(--shadow-subtle);
 }
 
@@ -14,7 +14,7 @@
 }
 
 .location-archive-section .lead {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   max-width: 800px;
 }
 
@@ -22,9 +22,9 @@
 .location-card {
   display: flex;
   flex-direction: column;
-  background: var(--color-white);
-  border: 1px solid var(--color-primary)
-  color: var(--color-text-body)
+  background: var(--mia-white);
+  border: 1px solid var(--mia-black);
+  color: var(--mia-gray-dark);
 }
 
 /* Image at top of card */
@@ -39,43 +39,43 @@
   position: relative;
   z-index: 2;
   background: none;
-  color: var(--color-text-body)
+  color: var(--mia-gray-dark);
   padding: 1.75rem 1.5rem 1.25rem;
   text-shadow: none;
 }
 
 .location-title-link {
-  color: var(--color-text-body)
+  color: var(--mia-gray-dark);
   font-weight: 700;
   text-shadow: none;
 }
 
 .location-title-link:hover,
 .location-title-link:focus {
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 .location-detail {
   /* font-size removed: use base or utility class */
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   text-shadow: none;
   margin-bottom: 0.75rem;
 }
 
 .location-icon {
-  color: var(--color-primary);
+  color: var(--mia-black);
   width: 16px;
   text-align: center;
 }
 
 .location-phone {
-  color: var(--color-primary);
+  color: var(--mia-black);
   transition: color 0.2s ease;
   font-weight: 500;
 }
 
 .location-phone:hover {
-  color: var(--color-primary);
+  color: var(--mia-black);
   text-decoration: underline;
 }
 
@@ -91,9 +91,9 @@
 .location-cta-buttons .btn {
   padding: 0.5rem 1rem;
   font-weight: 600;
-  color: var(--color-primary);
-  background-color: var(--color-gold);
-  border-color: var(--color-gold);
+  color: var(--mia-black);
+  background-color: var(--mia-gold);
+  border-color: var(--mia-gold);
   width: fit-content;
   text-align: left;
   display: inline-block;
@@ -107,9 +107,9 @@
 
 .location-cta-buttons .btn:hover,
 .location-cta-buttons .btn:focus {
-  color: var(--color-gold);
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--mia-gold);
+  background-color: var(--mia-black);
+  border-color: var(--mia-black);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
@@ -128,7 +128,7 @@
 
 .location-list-item {
   padding: 1.25rem 0;
-  border-bottom: 1px solid var(--color-gold-light);
+  border-bottom: 1px solid var(--mia-gold-light);
 }
 
 .location-list-item:first-child {
@@ -147,17 +147,17 @@
 }
 
 .location-list-item h3 a {
-  color: var(--color-text-body)
+  color: var(--mia-gray-dark);
   transition: color 0.2s ease;
 }
 
 .location-list-item h3 a:hover {
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 .location-list-item .text-muted {
   font-size: 0.875rem;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
 }
 
 .location-list-item .location-action .btn {
@@ -169,13 +169,13 @@
 }
 
 .location-list-item .location-action .btn-outline-primary {
-  color: var(--color-primary);
-  border-color: var(--color-primary);
+  color: var(--mia-black);
+  border-color: var(--mia-black);
 }
 
 .location-list-item .location-action .btn-outline-primary:hover {
-  background-color: var(--color-primary);
-  border-color: var(--color-primary);
+  background-color: var(--mia-black);
+  border-color: var(--mia-black);
   color: white;
 }
 
@@ -197,16 +197,16 @@
 }
 
 .location-icon {
-  color: var(--color-primary);
+  color: var(--mia-black);
   width: 16px;
   text-align: center;
 }
 
 .location-phone {
-  color: var(--color-primary);
+  color: var(--mia-black);
   transition: color 0.2s ease;
 }
 
 .location-phone:hover {
-  color: var(--color-primary);
+  color: var(--mia-black);
 }

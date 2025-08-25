@@ -1,5 +1,5 @@
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -27,7 +27,7 @@
 }
 
 .page-subheading {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   margin-bottom: 1.5rem;
 }
 

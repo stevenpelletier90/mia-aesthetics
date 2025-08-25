@@ -9,7 +9,7 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, var(--color-black-60), rgba(27, 27, 27, 0.5));
+  background: linear-gradient(to right, rgba(27, 27, 27, 0.6), rgba(27, 27, 27, 0.5));
   z-index: 1;
 }
 
@@ -20,14 +20,14 @@
 
 .treatment-header h1,
 .treatment-header .pricing-info {
-  color: var(--color-white);
+  color: var(--mia-white);
   font-family: var(--font-heading);
 }
 
 .treatment-header h1 {
   font-weight: var(--font-bold);
-  color: var(--color-white);
-  text-shadow: 2px 2px 4px var(--color-black-80);
+  color: var(--mia-white);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   font-size: clamp(2.5rem, 5vw, 62px);
   letter-spacing: var(--tracking-tight);
 }
@@ -54,16 +54,16 @@
 }
 
 .pricing-info h2 {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-size: clamp(1.5rem, 4vw, 2.5rem);
   font-weight: var(--font-bold);
-  text-shadow: 2px 2px 4px var(--color-black-80);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   margin-bottom: var(--space-2);
 }
 
 .pricing-info small {
-  color: var(--color-white);
-  text-shadow: 1px 1px 2px var(--color-black-80);
+  color: var(--mia-white);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
   font-size: clamp(0.75rem, 2vw, 0.875rem);
   opacity: 0.9;
 }
@@ -82,52 +82,52 @@
 }
 
 .results-resources-section {
-  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   padding-block: var(--space-8);
-  border-block: 1px solid var(--color-white-10);
+  border-block: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .results-resources-section .badge-after {
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
 }
 
 .results-resources-section .list-group-item {
-  background-color: var(--color-white-10);
-  border: 1px solid var(--color-white-20);
-  color: var(--color-white);
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--mia-white);
   margin-bottom: var(--space-2);
   border-radius: var(--radius-DEFAULT);
 }
 
 .results-resources-section .list-group-item:is(:hover, :focus) {
-  background-color: var(--color-gold-20);
-  border-color: var(--color-gold-40);
-  color: var(--color-white);
+  background-color: var(--mia-gold-20);
+  border-color: rgba(200, 178, 115, 0.4);
+  color: var(--mia-white);
   text-decoration: none;
 }
 
 .results-resources-section .list-group-item strong {
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 .results-resources-section .list-group-item .text-muted {
-  color: var(--color-white-70);
+  color: rgba(255, 255, 255, 0.7);
 }
 
 .results-resources-section .list-group-item i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .results-disclaimer-text {
-  color: var(--color-white);
+  color: var(--mia-white);
   opacity: 0.8;
 }
 
 .before-after-card {
-  background: var(--color-white);
+  background: var(--mia-white);
   border-radius: var(--radius-DEFAULT);
   overflow: hidden;
-  border: 1px solid var(--color-black-10);
+  border: 1px solid rgba(0, 0, 0, 0.1);
   transition: border-color all var(--duration-200) var(--ease-in-out);
   display: flex;
   flex-direction: column;
@@ -142,7 +142,7 @@
 }
 
 .before-after-card:hover {
-  border-color: var(--color-gold-30);
+  border-color: var(--mia-gold-30);
 }
 
 .procedure-section {
@@ -150,7 +150,7 @@
 }
 
 .procedure-section h2 {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-family: var(--font-heading);
   font-weight: var(--font-bold);
   line-height: var(--leading-tight);
@@ -159,7 +159,7 @@
 }
 
 .procedure-section h3 {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-family: var(--font-heading);
   font-weight: var(--font-semibold);
   margin-bottom: var(--space-4);
@@ -191,8 +191,8 @@
 }
 
 .procedure-note {
-  background-color: var(--color-bg-light);
-  border-left: 4px solid var(--color-gold);
+  background-color: var(--mia-gold-light);
+  border-left: 4px solid var(--mia-gold);
   padding: var(--space-4);
   margin: var(--space-6) 0;
 }
@@ -206,35 +206,35 @@
 }
 
 .procedure-steps {
-  background: var(--color-gold-10);
-  border: 1px solid var(--color-gold-20);
+  background: var(--mia-gold-10);
+  border: 1px solid var(--mia-gold-20);
 }
 
 .bg-dark,
 .procedure-overview.bg-dark,
 .recovery-overview.bg-dark,
 .candidacy-overview.bg-dark {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
 }
 
 .bg-dark p,
 .bg-dark li,
 .bg-dark span:not(.text-gold) {
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 .bg-gradient-subtle {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-black) 100%);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
 }
 
 .text-gradient {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-gold) 100%);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-gold) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 .highlight-card {
@@ -248,12 +248,12 @@
 }
 
 .customization-note {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-black) 100%);
-  border: 1px solid var(--color-gold-30);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+  border: 1px solid var(--mia-gold-30);
 }
 
 .about-procedure-section {
-  background: linear-gradient(135deg, var(--color-white) 0%, var(--color-bg-light) 100%);
+  background: linear-gradient(135deg, var(--mia-white) 0%, var(--mia-gold-light) 100%);
 }
 
 .implant-types-section {
@@ -266,7 +266,7 @@
 }
 
 .implant-card:hover {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
   box-shadow: var(--shadow-2xl);
 }
 
@@ -279,12 +279,12 @@
 }
 
 .border-hover {
-  border: 2px solid var(--color-border-light);
+  border: 2px solid var(--mia-gold-light);
   transition: all var(--duration-300) var(--ease-in-out);
 }
 
 .border-hover:hover {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
 }
 
 .letter-spacing-1 {
@@ -333,8 +333,8 @@
 
   .text-gradient {
     background: none;
-    color: var(--color-gold);
-    -webkit-text-fill-color: var(--color-gold);
+    color: var(--mia-gold);
+    -webkit-text-fill-color: var(--mia-gold);
   }
 
   .procedure-section {

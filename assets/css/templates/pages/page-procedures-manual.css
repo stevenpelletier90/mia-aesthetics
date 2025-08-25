@@ -2,7 +2,7 @@
 
 /* Post Header Styling (consistent with other templates) */
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
@@ -20,7 +20,7 @@
 /* Page content section styling */
 .page-content-section {
   padding: 4rem 0;
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
 }
 
 .page-content-section .entry-content {
@@ -30,7 +30,7 @@
 
 /* Procedure Cards - Same as procedures-listing for consistency */
 .procedure-card {
-  background: var(--color-white);
+  background: var(--mia-white);
   border-radius: 8px;
   overflow: hidden;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
@@ -102,13 +102,13 @@ figure.procedure-image {
 }
 
 .procedure-title a {
-  color: var(--color-primary);
+  color: var(--mia-black);
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .procedure-title a:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 /* Excerpt removed - no longer needed */

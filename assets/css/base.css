@@ -23,33 +23,30 @@
    ============================================== */
 
 :root {
-  /* Official Brand Colors */
-  --color-primary: #1b1b1b; /* Eerie Black */
-  --color-gold: #c8b273; /* Rich Gold */
-  --color-gold-dark: #be9e42; /* Darker Gold */
-  --color-gold-light: #f9f5ee; /* Light/Creme Gold */
-  --color-black: #000000; /* Black */
-  --color-white: #ffffff; /* White */
+  /* Mia Aesthetics Brand Colors - Design System */
+  --mia-black: #1b1b1b; /* Primary Brand Black */
+  --mia-gold: #c8b273; /* Primary Brand Gold */
+  --mia-gold-dark: #be9e42; /* Dark Gold Variant */
+  --mia-gold-light: #f9f5ee; /* Light Gold/Cream */
+  --mia-white: #ffffff; /* Pure White */
+  --mia-gray-dark: #222; /* Dark Gray for body text */
+  --mia-gray-muted: #666; /* Muted Gray for secondary text */
 
-  /* Color Variations */
-  --color-gold-10: rgba(200, 178, 115, 0.1);
-  --color-gold-20: rgba(200, 178, 115, 0.2);
-  --color-gold-30: rgba(200, 178, 115, 0.3);
-
-  /* Essential Text Colors */
-  --color-text-body: #222;
-  --color-text-secondary: #666;
+  /* Gold Opacity Variants */
+  --mia-gold-10: rgba(200, 178, 115, 0.1);
+  --mia-gold-20: rgba(200, 178, 115, 0.2);
+  --mia-gold-30: rgba(200, 178, 115, 0.3);
 
   /* Link Colors */
-  --color-link: #0066cc;
-  --color-link-visited: #551a8b;
-  --color-link-hover: #004499;
+  --mia-link: #0066cc;
+  --mia-link-visited: #551a8b;
+  --mia-link-hover: #004499;
 
-  /* Bootstrap Override Variables */
-  --bs-primary: var(--color-gold);
+  /* Bootstrap Override Variables - Match Brand Theme */
+  --bs-primary: var(--mia-gold);
   --bs-primary-rgb: 200, 178, 115;
-  --bs-secondary: var(--color-black);
-  --bs-secondary-rgb: 0, 0, 0;
+  --bs-secondary: var(--mia-black);
+  --bs-secondary-rgb: 27, 27, 27;
 
   /* Typography */
   --font-heading: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -216,7 +213,7 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: var(--color-black);
+  color: var(--mia-black);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -243,7 +240,7 @@ h6,
     sans-serif;
   font-weight: 700;
   line-height: 1.25;
-  color: var(--color-black);
+  color: var(--mia-black);
   margin-top: 0;
   letter-spacing: -0.025em;
 }
@@ -251,7 +248,6 @@ h6,
 h1,
 .h1 {
   font-size: clamp(2rem, 3vw, 3.5rem);
-  line-height: 1;
   margin-bottom: 2rem;
   letter-spacing: -0.05em;
 }
@@ -351,7 +347,7 @@ p {
   line-height: 1.5;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   margin-bottom: 0.5rem;
 }
 
@@ -367,7 +363,7 @@ p {
   line-height: 1.5;
   letter-spacing: 0.05em;
   text-transform: uppercase;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   margin-bottom: 0.25rem;
 }
 
@@ -389,7 +385,7 @@ p {
   font-size: clamp(2.25rem, 8vw, 3.75rem);
   font-weight: 800;
   line-height: 1;
-  color: var(--color-gold);
+  color: var(--mia-gold);
   font-style: italic;
 }
 
@@ -403,21 +399,21 @@ p {
   font-size: 0.875rem;
   font-weight: 600;
   line-height: 1.375;
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   text-transform: uppercase;
   letter-spacing: 0.025em;
 }
 
 /* Links */
 a {
-  color: var(--color-black);
+  color: var(--mia-black);
   text-decoration: none;
   transition: color 0.2s ease-in-out;
 }
 
 a:hover,
 a:focus {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 /* Content area links */
@@ -425,7 +421,7 @@ a:focus {
 .entry-content a,
 .post-content a,
 .procedure-section a {
-  color: #0066cc;
+  color: var(--mia-link);
   text-decoration: underline;
 }
 
@@ -437,7 +433,7 @@ a:focus {
 .post-content a:focus,
 .procedure-section a:hover,
 .procedure-section a:focus {
-  color: #004499;
+  color: var(--mia-link-hover);
   text-decoration-thickness: 2px;
 }
 
@@ -460,14 +456,14 @@ li {
 
 /* Text Selection */
 ::selection {
-  background-color: var(--color-gold);
-  color: var(--color-white);
+  background-color: var(--mia-gold);
+  color: var(--mia-white);
   text-shadow: none;
 }
 
 ::-moz-selection {
-  background-color: var(--color-gold);
-  color: var(--color-white);
+  background-color: var(--mia-gold);
+  color: var(--mia-white);
   text-shadow: none;
 }
 
@@ -477,7 +473,7 @@ li {
 
 /* Text Color Utilities - Brand Override */
 .text-secondary {
-  color: var(--color-black) !important;
+  color: var(--mia-black) !important;
 }
 
 /* ==============================================
@@ -520,26 +516,26 @@ li {
 
 /* Primary - Gold Button */
 .btn-primary {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
 }
 .btn-primary:hover {
-  background-color: var(--color-gold-dark) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-gold-dark) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
 }
 .btn-primary:focus,
 .btn-primary:focus-visible {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-black) !important;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3) !important;
 }
 .btn-primary:active {
-  background-color: var(--color-gold-dark) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-gold-dark) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 .btn-primary:disabled {
@@ -550,26 +546,26 @@ li {
 
 /* Secondary - Black Button */
 .btn-secondary {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-white) !important;
 }
 .btn-secondary:hover {
-  background-color: var(--color-gold-dark) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-gold-dark) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
 }
 .btn-secondary:focus,
 .btn-secondary:focus-visible {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
 }
 .btn-secondary:active {
-  background-color: var(--color-gold-dark) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-gold-dark) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 .btn-secondary:disabled {
@@ -581,25 +577,25 @@ li {
 /* Outline Primary - Gold Border */
 .btn-outline-primary {
   background-color: transparent !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-gold-dark) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-gold-dark) !important;
 }
 .btn-outline-primary:hover {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
 }
 .btn-outline-primary:focus,
 .btn-outline-primary:focus-visible {
   background-color: transparent !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-gold-dark) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-gold-dark) !important;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3) !important;
 }
 .btn-outline-primary:active {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 .btn-outline-primary:disabled {
@@ -611,25 +607,25 @@ li {
 /* Outline Secondary - Black Border */
 .btn-outline-secondary {
   background-color: transparent !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-black) !important;
 }
 .btn-outline-secondary:hover {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-white) !important;
 }
 .btn-outline-secondary:focus,
 .btn-outline-secondary:focus-visible {
   background-color: transparent !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-black) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-black) !important;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
 }
 .btn-outline-secondary:active {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-white) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 .btn-outline-secondary:disabled {
@@ -643,24 +639,24 @@ li {
   background: rgba(255, 255, 255, 0.1) !important;
   backdrop-filter: blur(10px) !important;
   border-color: rgba(255, 255, 255, 0.2) !important;
-  color: var(--color-white) !important;
+  color: var(--mia-white) !important;
 }
 .btn-blur:hover {
   background: rgba(255, 255, 255, 0.2) !important;
   border-color: rgba(255, 255, 255, 0.3) !important;
-  color: var(--color-white) !important;
+  color: var(--mia-white) !important;
 }
 .btn-blur:focus,
 .btn-blur:focus-visible {
   background: rgba(255, 255, 255, 0.1) !important;
   border-color: rgba(255, 255, 255, 0.4) !important;
-  color: var(--color-white) !important;
+  color: var(--mia-white) !important;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.2) !important;
 }
 .btn-blur:active {
   background: rgba(255, 255, 255, 0.3) !important;
   border-color: rgba(255, 255, 255, 0.4) !important;
-  color: var(--color-white) !important;
+  color: var(--mia-white) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 .btn-blur:disabled {
@@ -671,26 +667,26 @@ li {
 
 /* Gradient Button */
 .btn-gradient {
-  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-white) !important;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-white) !important;
 }
 .btn-gradient:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-black) 100%) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-gold) !important;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-gold) !important;
 }
 .btn-gradient:focus,
 .btn-gradient:focus-visible {
-  background: linear-gradient(135deg, var(--color-black) 0%, var(--color-primary) 100%) !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3) !important;
 }
 .btn-gradient:active {
   background: linear-gradient(135deg, #0d0d0d 0%, #101010 100%) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-gold) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 .btn-gradient:disabled {
@@ -702,25 +698,25 @@ li {
 /* Outline Primary Alt - Gold Border with Black Text */
 .btn-outline-primary-alt {
   background-color: transparent !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
 }
 .btn-outline-primary-alt:hover {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
 }
 .btn-outline-primary-alt:focus,
 .btn-outline-primary-alt:focus-visible {
   background-color: transparent !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-black) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-black) !important;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3) !important;
 }
 .btn-outline-primary-alt:active {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 .btn-outline-primary-alt:disabled {
@@ -732,25 +728,25 @@ li {
 /* Outline Secondary Alt - Black Border with White Text */
 .btn-outline-secondary-alt {
   background-color: transparent !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-white) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-white) !important;
 }
 .btn-outline-secondary-alt:hover {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-white) !important;
 }
 .btn-outline-secondary-alt:focus,
 .btn-outline-secondary-alt:focus-visible {
   background-color: transparent !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
   box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3) !important;
 }
 .btn-outline-secondary-alt:active {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-white) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-white) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 .btn-outline-secondary-alt:disabled {
@@ -762,25 +758,25 @@ li {
 /* Outline Primary Alt 2 - Gold Border with White Text */
 .btn-outline-primary-alt2 {
   background-color: transparent !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-white) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-white) !important;
 }
 .btn-outline-primary-alt2:hover {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
 }
 .btn-outline-primary-alt2:focus,
 .btn-outline-primary-alt2:focus-visible {
   background-color: transparent !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-white) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-white) !important;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3) !important;
 }
 .btn-outline-primary-alt2:active {
-  background-color: var(--color-gold) !important;
-  border-color: var(--color-gold) !important;
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold) !important;
+  color: var(--mia-black) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1) !important;
 }
 .btn-outline-primary-alt2:disabled {
@@ -792,25 +788,25 @@ li {
 /* Outline Secondary Alt 2 - Black Border with Gold Text */
 .btn-outline-secondary-alt2 {
   background-color: transparent !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-gold) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-gold) !important;
 }
 .btn-outline-secondary-alt2:hover {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-gold) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-gold) !important;
 }
 .btn-outline-secondary-alt2:focus,
 .btn-outline-secondary-alt2:focus-visible {
   background-color: transparent !important;
-  border-color: var(--color-gold-dark) !important;
-  color: var(--color-gold) !important;
+  border-color: var(--mia-gold-dark) !important;
+  color: var(--mia-gold) !important;
   box-shadow: 0 0 0 3px rgba(200, 178, 115, 0.3) !important;
 }
 .btn-outline-secondary-alt2:active {
-  background-color: var(--color-black) !important;
-  border-color: var(--color-black) !important;
-  color: var(--color-gold) !important;
+  background-color: var(--mia-black) !important;
+  border-color: var(--mia-black) !important;
+  color: var(--mia-gold) !important;
   box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
 }
 .btn-outline-secondary-alt2:disabled {
@@ -831,7 +827,6 @@ li {
   transform: translateX(-4px);
 }
 
-
 /* ==============================================
    CARD COMPONENT SYSTEM
    ============================================== */
@@ -839,7 +834,7 @@ li {
 .card {
   display: flex;
   flex-direction: column;
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
   border: var(--card-border);
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
@@ -881,7 +876,7 @@ li {
 .card-subtitle {
   font-size: var(--font-sm);
   font-weight: var(--font-medium);
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   text-transform: uppercase;
   letter-spacing: var(--tracking-wide);
   margin-bottom: var(--space-2);
@@ -950,7 +945,7 @@ li {
 
 .case-card .overlay-content {
   text-align: center;
-  color: var(--color-white);
+  color: var(--mia-white);
   padding: var(--space-6);
 }
 
@@ -1042,15 +1037,15 @@ li {
 
 /* Override Bootstrap's primary color utilities */
 .bg-primary {
-  background-color: var(--color-gold) !important;
+  background-color: var(--mia-gold) !important;
 }
 
 .text-primary {
-  color: var(--color-gold) !important;
+  color: var(--mia-gold) !important;
 }
 
 .border-primary {
-  border-color: var(--color-gold) !important;
+  border-color: var(--mia-gold) !important;
 }
 
 /* ==============================================
@@ -1130,33 +1125,33 @@ li {
 
 /* Brand Colors */
 .text-gold {
-  color: var(--color-gold) !important;
+  color: var(--mia-gold) !important;
 }
 .text-gold-dark {
-  color: var(--color-gold-dark) !important;
+  color: var(--mia-gold-dark) !important;
 }
 .text-tertiary {
-  color: var(--color-text-secondary) !important;
+  color: var(--mia-gray-muted) !important;
 }
 .text-inverse {
-  color: var(--color-white) !important;
+  color: var(--mia-white) !important;
 }
 
 .bg-gold {
-  background-color: var(--color-gold) !important;
+  background-color: var(--mia-gold) !important;
 }
 .bg-gold-light {
-  background-color: var(--color-gold-light) !important;
+  background-color: var(--mia-gold-light) !important;
 }
 .bg-gray-50 {
   background-color: #f8f9fa !important;
 }
 
 .border-gold {
-  border-color: var(--color-gold) !important;
+  border-color: var(--mia-gold) !important;
 }
 .border-left-gold {
-  border-left: 4px solid var(--color-gold) !important;
+  border-left: 4px solid var(--mia-gold) !important;
 }
 
 /* Shadows */
@@ -1211,7 +1206,7 @@ li {
 .breadcrumb-nav {
   padding: var(--space-3) 0;
   font-family: var(--font-body);
-  background: var(--color-white);
+  background: var(--mia-white);
 }
 
 .breadcrumb-nav a {
@@ -1221,7 +1216,7 @@ li {
 
 .breadcrumb-nav a:hover,
 .breadcrumb-nav a:focus {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .breadcrumb-nav .breadcrumb_last {
@@ -1252,7 +1247,7 @@ li {
   bottom: 0;
   width: 80px;
   height: 3px;
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
 }
 
 .accordion-item {
@@ -1264,12 +1259,12 @@ li {
 }
 
 .accordion-item:hover {
-  border-color: var(--color-gold-30);
+  border-color: var(--mia-gold-30);
 }
 
 .accordion-button {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
   font-weight: var(--font-medium);
   padding: var(--space-5);
   border-radius: var(--radius-md);
@@ -1278,20 +1273,20 @@ li {
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: var(--color-primary);
-  color: var(--color-gold);
+  background-color: var(--mia-black);
+  color: var(--mia-gold);
   box-shadow: none;
 }
 
 .accordion-body {
   padding: var(--space-6);
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
   color: var(--bs-secondary-color);
   line-height: var(--leading-relaxed);
 }
 
 .accordion-body a {
-  color: #0066cc;
+  color: var(--mia-link);
   text-decoration: none;
   font-weight: var(--font-medium);
   transition: color var(--duration-200) var(--ease-out);
@@ -1299,7 +1294,7 @@ li {
 
 .accordion-body a:hover,
 .accordion-body a:focus {
-  color: #004499;
+  color: var(--mia-link-hover);
   text-decoration: underline;
 }
 
@@ -1325,8 +1320,8 @@ li {
   top: 0;
   left: 0;
   padding: var(--space-2) var(--space-4);
-  background: var(--color-gold);
-  color: var(--color-black);
+  background: var(--mia-gold);
+  color: var(--mia-black);
   z-index: var(--z-tooltip);
   transform: translateY(-100%);
   transition: transform var(--duration-300) var(--ease-out);
@@ -1339,7 +1334,7 @@ li {
 
 /* Focus Ring */
 .focus-ring:focus {
-  outline: 2px solid var(--color-gold) !important;
+  outline: 2px solid var(--mia-gold) !important;
   outline-offset: 2px !important;
 }
 
@@ -1392,6 +1387,102 @@ li {
    ACCESSIBILITY & PREFERENCES
    ============================================== */
 
+/* ==============================================
+   MIA BRAND UTILITY CLASSES - STANDARDIZED
+   ============================================== */
+
+/* Mia Text Colors */
+.text-mia-black {
+  color: var(--mia-black) !important;
+}
+.text-mia-gold {
+  color: var(--mia-gold) !important;
+}
+.text-mia-gold-dark {
+  color: var(--mia-gold-dark) !important;
+}
+.text-mia-white {
+  color: var(--mia-white) !important;
+}
+.text-mia-gray-dark {
+  color: var(--mia-gray-dark) !important;
+}
+.text-mia-gray-muted {
+  color: var(--mia-gray-muted) !important;
+}
+.text-mia-link {
+  color: var(--mia-link) !important;
+}
+.text-mia-link-hover {
+  color: var(--mia-link-hover) !important;
+}
+
+/* Mia Background Colors */
+.bg-mia-black {
+  background-color: var(--mia-black) !important;
+}
+.bg-mia-gold {
+  background-color: var(--mia-gold) !important;
+}
+.bg-mia-gold-dark {
+  background-color: var(--mia-gold-dark) !important;
+}
+.bg-mia-gold-light {
+  background-color: var(--mia-gold-light) !important;
+}
+.bg-mia-white {
+  background-color: var(--mia-white) !important;
+}
+
+/* Mia Border Colors */
+.border-mia-black {
+  border-color: var(--mia-black) !important;
+}
+.border-mia-gold {
+  border-color: var(--mia-gold) !important;
+}
+.border-mia-gold-dark {
+  border-color: var(--mia-gold-dark) !important;
+}
+.border-mia-gold-light {
+  border-color: var(--mia-gold-light) !important;
+}
+
+/* Legacy Brand Classes (for backward compatibility) */
+.text-brand-primary {
+  color: var(--mia-black) !important;
+}
+.text-brand-gold {
+  color: var(--mia-gold) !important;
+}
+.text-brand-gold-dark {
+  color: var(--mia-gold-dark) !important;
+}
+.text-brand-muted {
+  color: var(--mia-gray-muted) !important;
+}
+
+.bg-brand-primary {
+  background-color: var(--mia-black) !important;
+}
+.bg-brand-gold {
+  background-color: var(--mia-gold) !important;
+}
+.bg-brand-gold-light {
+  background-color: var(--mia-gold-light) !important;
+}
+
+.border-brand-gold {
+  border-color: var(--mia-gold) !important;
+}
+.border-brand-primary {
+  border-color: var(--mia-black) !important;
+}
+
+/* ==============================================
+   ACCESSIBILITY & MOTION
+   ============================================== */
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;
@@ -1425,7 +1516,7 @@ li {
   body {
     font-size: 12pt;
     line-height: 1.4;
-    color: var(--color-primary);
+    color: var(--mia-black);
   }
 
   h1,
@@ -1435,11 +1526,11 @@ li {
   h5,
   h6 {
     page-break-after: avoid;
-    color: var(--color-primary);
+    color: var(--mia-black);
   }
 
-  .text-gold,
-  .text-gold-dark {
-    color: var(--color-primary)!important;
+  .text-brand-gold,
+  .text-brand-gold-dark {
+    color: var(--mia-black) !important;
   }
 }

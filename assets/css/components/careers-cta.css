@@ -29,10 +29,10 @@
 /* Mobile version - with background blur and custom styling */
 @media (max-width: 576px) {
   .careers-cta-container {
-    background: var(--color-black-70);
+    background: rgba(27, 27, 27, 0.7);
     backdrop-filter: blur(8px);
     -webkit-backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px var(--color-black-30);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     z-index: var(--z-index-mobile-cta);
   }
 

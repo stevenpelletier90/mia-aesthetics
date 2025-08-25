@@ -16,6 +16,6 @@
 
 /* Hero styles – mirror generic page template (_page.css) */
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }

@@ -1,5 +1,5 @@
 .post-header {
-  background-color: var(--color-gold-light);
+  background-color: var(--mia-gold-light);
   border-bottom: 1px solid var(--shadow-subtle);
 }
 
@@ -18,9 +18,9 @@
   position: relative;
   overflow: hidden;
   border-radius: 0.5rem;
-  background: var(--color-gold-light);
+  background: var(--mia-gold-light);
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-  border: 1px solid var(--color-gold)33;
+  border: 1px solid var(--mia-gold) 33;
 }
 
 .surgeon-img-container {
@@ -37,7 +37,7 @@
   height: var(--container-size);
   border-radius: 50%;
   object-fit: cover;
-  border: 3px solid var(--color-gold);
+  border: 3px solid var(--mia-gold);
   background: linear-gradient(135deg, #f1f3ff 0%, #f8f6ff 100%);
   padding: 3px;
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
@@ -48,17 +48,17 @@
 }
 
 .surgeon-card h2.h5 {
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 .surgeon-card .location-link {
-  color: var(--color-text-secondary);
+  color: var(--mia-gray-muted);
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 .surgeon-card .location-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
@@ -67,12 +67,12 @@
   font-weight: 500;
   white-space: nowrap;
   text-decoration: none;
-  color: var(--color-primary);
+  color: var(--mia-black);
   transition: color 0.2s ease;
 }
 
 .surgeon-bio-link:hover {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
 }
 
@@ -93,7 +93,7 @@
   }
 
   .surgeon-archive-headshot {
-    border: 2px solid var(--color-gold);
+    border: 2px solid var(--mia-gold);
   }
 
   .surgeon-card .card-body {

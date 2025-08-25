@@ -1,30 +1,30 @@
 .post-header {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
   padding: var(--space-8) 0;
 }
 
 .post-header h1 {
-  color: var(--color-white);
+  color: var(--mia-white);
   font-weight: var(--font-semibold);
   margin-bottom: var(--space-6);
 }
 
 .post-header .lead {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 
   /* font-size removed: use base or utility class */
   font-weight: var(--font-normal);
 }
 
 .post-meta {
-  color: var(--color-white-80) !important;
+  color: rgba(255, 255, 255, 0.8) !important;
 
   /* font-size removed: use base or utility class */
 }
 
 .post-meta i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 }
 
 .content {
@@ -47,21 +47,21 @@
 }
 
 .content blockquote {
-  border-left: 4px solid var(--color-gold);
+  border-left: 4px solid var(--mia-gold);
   padding-left: var(--space-6);
   margin-left: 0;
   font-style: italic;
-  color: var(--color-text-primary);
+  color: var(--mia-gray-dark);
 }
 
 /* FAQ/Accordion body link styles */
 .accordion-body a {
-  color: var(--color-link);
+  color: var(--mia-gold);
 }
 
 .accordion-body a:hover,
 .accordion-body a:focus {
-  color: var(--color-link-hover); /* deeper shade or brand-friendly dark blue */
+  color: var(--mia-gold-dark); /* deeper shade or brand-friendly dark blue */
   text-decoration-thickness: 2px;
 }
 
@@ -77,13 +77,13 @@
   bottom: 0;
   width: 50px;
   height: 2px;
-  background-color: var(--color-gold);
+  background-color: var(--mia-gold);
 }
 
 .related-topics a[href*="tag"] {
   display: inline-block;
-  background-color: var(--color-bg-light);
-  color: var(--color-primary) !important;
+  background-color: var(--mia-gold-light);
+  color: var(--mia-black) !important;
   padding: var(--space-1) var(--space-3);
   border-radius: 30px;
   margin-right: var(--space-2);
@@ -95,8 +95,8 @@
 }
 
 .related-topics a[href*="tag"]:hover {
-  background-color: var(--color-gold);
-  color: var(--color-black) !important;
+  background-color: var(--mia-gold);
+  color: var(--mia-black) !important;
 }
 
 .sidebar {
@@ -108,14 +108,14 @@
   border-radius: var(--radius-lg);
   overflow: hidden;
   transition: border-color 0.2s;
-  border: 1px solid var(--color-border-medium);
+  border: 1px solid var(--mia-gold);
   box-shadow: none;
-  background: var(--color-white);
+  background: var(--mia-white);
   margin-bottom: var(--space-8);
 }
 
 .sidebar .card:hover {
-  border-color: var(--color-gold);
+  border-color: var(--mia-gold);
   box-shadow: none;
 }
 
@@ -126,10 +126,10 @@
 .sidebar .h5 {
   font-weight: var(--font-bold);
   margin-bottom: var(--space-5);
-  color: var(--color-primary);
+  color: var(--mia-black);
   letter-spacing: 0.01em;
   font-family: var(--font-heading);
-  border-left: 4px solid var(--color-gold);
+  border-left: 4px solid var(--mia-gold);
   padding-left: var(--space-3);
 }
 
@@ -139,7 +139,7 @@
 
 .sidebar .list-unstyled li {
   padding: var(--space-3) 0;
-  border-bottom: 1px solid var(--color-border-light);
+  border-bottom: 1px solid var(--mia-gold-light);
   display: flex;
   align-items: center;
   gap: var(--space-2);
@@ -150,7 +150,7 @@
 }
 
 .sidebar .list-unstyled a {
-  color: var(--color-primary);
+  color: var(--mia-black);
   font-weight: var(--font-medium);
 
   /* font-size removed: use base or utility class */
@@ -166,13 +166,13 @@
 }
 
 .sidebar .list-unstyled a:hover {
-  color: var(--color-gold);
-  background: var(--color-bg-light);
+  color: var(--mia-gold);
+  background: var(--mia-gold-light);
   text-decoration: none;
 }
 
 .sidebar .list-unstyled i {
-  color: var(--color-gold);
+  color: var(--mia-gold);
 
   /* font-size removed: use base or utility class */
   min-width: 1.5em;
@@ -182,13 +182,13 @@
 .sidebar .h6 {
   font-weight: 600;
   line-height: 1.4;
-  color: var(--color-primary);
+  color: var(--mia-black);
 }
 
 .sidebar .img-fluid {
   border-radius: 6px;
   transition: opacity 0.2s;
-  box-shadow: 0 2px 8px var(--color-black-10);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .sidebar .img-fluid:hover {
@@ -196,7 +196,7 @@
 }
 
 .sidebar .text-muted {
-  color: var(--color-text-secondary) !important;
+  color: var(--mia-gray-muted) !important;
 
   /* font-size removed: use base or utility class */
 }
@@ -242,12 +242,12 @@
   border: none;
   border-radius: 6px;
   overflow: hidden;
-  box-shadow: 0 2px 5px var(--color-black-05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease;
 }
 
 .accordion-item:hover {
-  box-shadow: 0 5px 15px var(--color-black-10);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .accordion-header {
@@ -255,8 +255,8 @@
 }
 
 .accordion-button {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--mia-black);
+  color: var(--mia-white);
   font-weight: var(--font-medium);
   padding: 1.25rem;
   border-radius: 6px;
@@ -266,8 +266,8 @@
 }
 
 .accordion-button:not(.collapsed) {
-  background-color: var(--color-primary);
-  color: var(--color-gold);
+  background-color: var(--mia-black);
+  color: var(--mia-gold);
   box-shadow: none;
 }
 
@@ -278,8 +278,8 @@
 
 .accordion-body {
   padding: var(--space-6);
-  background-color: var(--color-white);
-  color: var(--color-text-primary);
+  background-color: var(--mia-white);
+  color: var(--mia-gray-dark);
   line-height: 1.6;
 }
 

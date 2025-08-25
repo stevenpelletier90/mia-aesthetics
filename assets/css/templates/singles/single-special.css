@@ -2,7 +2,12 @@
 
 /* Page Background */
 body.single-special {
-  background: radial-gradient(circle at top left, var(--color-primary) 0%, var(--color-black) 50%, var(--color-primary) 100%);
+  background: radial-gradient(
+    circle at top left,
+    var(--mia-black) 0%,
+    var(--mia-black) 50%,
+    var(--mia-black) 100%
+  );
   min-height: 100vh;
 }
 
@@ -24,13 +29,13 @@ body.single-special {
   width: 100%;
   max-width: 100%;
   aspect-ratio: 6/1; /* Creates a 6:1 ratio for 1200x200 images */
-  background: linear-gradient(45deg, var(--color-primary), var(--color-black));
+  background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
   border-radius: var(--radius-DEFAULT);
   margin-bottom: var(--space-4);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--color-white);
+  color: var(--mia-white);
   font-size: 18px;
   overflow: hidden;
   position: relative;
@@ -57,7 +62,7 @@ body.single-special {
 /* Content Area Styling */
 .single-special .main-content {
   padding: var(--space-8) 0;
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 .single-special .main-content > * + * {
@@ -68,7 +73,7 @@ body.single-special {
 .special-disclaimer {
   margin-top: var(--space-4);
   font-size: var(--font-sm);
-  color: var(--color-white-80);
+  color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
 }
 
@@ -81,7 +86,7 @@ body.single-special {
 }
 
 a.consent-trigger {
-  color: var(--color-gold);
+  color: var(--mia-gold);
   text-decoration: none;
   font-weight: 600;
   display: inline-block;
@@ -98,12 +103,12 @@ a.consent-trigger::after {
   height: 1px;
   bottom: 0;
   left: 0;
-  background-color: var(--color-white);
+  background-color: var(--mia-white);
   transition: all var(--duration-300) var(--ease-in-out);
 }
 
 a.consent-trigger:hover {
-  color: var(--color-white);
+  color: var(--mia-white);
 }
 
 a.consent-trigger:hover::after {
