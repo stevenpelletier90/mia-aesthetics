@@ -252,9 +252,6 @@
   border: 1px solid var(--mia-gold-30);
 }
 
-.about-procedure-section {
-  background: linear-gradient(135deg, var(--mia-white) 0%, var(--mia-gold-light) 100%);
-}
 
 .implant-types-section {
   margin: var(--space-16) 0;

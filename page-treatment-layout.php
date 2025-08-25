@@ -179,7 +179,7 @@ if ( $current_post instanceof WP_Post ) {
 												<i class="fa-solid fa-stethoscope fs-4 flex-shrink-0" aria-hidden="true"></i>
 												<span>
 													<strong>Related: <?php the_title(); ?></strong><br>
-													<small class="text-muted">Learn about this complementary procedure</small>
+													<small class="text-white">Learn about this complementary procedure</small>
 												</span>
 											</a>
 											<?php
@@ -194,7 +194,7 @@ if ( $current_post instanceof WP_Post ) {
 									<i class="fa-solid fa-plane fs-4 flex-shrink-0" aria-hidden="true"></i>
 									<span>
 										<strong>Out‑of‑Town Patients</strong><br>
-										<small class="text-muted">Travel info & accommodation details</small>
+										<small class="text-white">Travel info & accommodation details</small>
 									</span>
 								</a>
 
@@ -203,7 +203,7 @@ if ( $current_post instanceof WP_Post ) {
 									<i class="fa-solid fa-calculator fs-4 flex-shrink-0" aria-hidden="true"></i>
 									<span>
 										<strong>BMI Calculator</strong><br>
-										<small class="text-muted">Calculate your BMI before booking</small>
+										<small class="text-white">Calculate your BMI before booking</small>
 									</span>
 								</a>
 							</nav>

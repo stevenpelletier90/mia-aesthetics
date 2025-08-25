@@ -141,7 +141,28 @@
   flex-shrink: 0;
 }
 
+.locations-section .accordion-button::after {
+  content: '\f078';
+  font-family: 'Font Awesome 7 Free';
+  font-weight: 900;
+  background-image: none;
+  color: var(--mia-white);
+  transition: all 0.3s ease;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.locations-section .accordion-button:not(.collapsed)::after {
+  transform: rotate(180deg);
+}
+
 .locations-section .accordion-button:hover {
+  color: var(--mia-gold);
+}
+
+.locations-section .accordion-button:hover::after {
   color: var(--mia-gold);
 }
 
@@ -195,7 +216,7 @@
   text-decoration: none;
 }
 
-.surgeon-link {
+.locations-section .accordion-body a.surgeon-link {
   color: var(--mia-white);
   text-decoration: none;
   transition: all 0.2s ease;
@@ -204,44 +225,50 @@
   align-items: center;
   padding: 0.25rem 0;
   font-size: 0.9rem;
+  font-weight: normal;
 }
 
-.surgeon-link:hover {
+.locations-section .accordion-body a.surgeon-link:hover {
   color: var(--mia-gold);
   text-decoration: none;
 }
 
-.surgeon-link:hover span {
+.locations-section .accordion-body a.surgeon-link:hover span {
   text-decoration: underline;
 }
 
-.surgeon-arrow {
+.locations-section .accordion-body a.surgeon-link .surgeon-arrow {
   font-size: 0.8rem;
   opacity: 0.7;
   margin-left: 0.5rem;
   transition: all 0.2s ease;
+  color: var(--mia-white);
 }
 
-.surgeon-link:hover .surgeon-arrow {
+.locations-section .accordion-body a.surgeon-link:hover .surgeon-arrow {
   opacity: 1;
   color: var(--mia-gold);
 }
 
 /* Styles for location links in the footer */
-.location-link .surgeon-link {
+.location-link a.surgeon-link {
   color: var(--mia-gold);
 }
 
-.location-link .surgeon-link:hover {
+.location-link a.surgeon-link:hover {
   color: var(--mia-gold);
   text-decoration: none;
 }
 
-.location-link .surgeon-link:hover span {
+.location-link a.surgeon-link:hover span {
   text-decoration: underline;
 }
 
-.location-link .surgeon-link:hover .surgeon-arrow {
+.location-link a.surgeon-link .surgeon-arrow {
+  color: var(--mia-gold);
+}
+
+.location-link a.surgeon-link:hover .surgeon-arrow {
   opacity: 1;
   color: var(--mia-gold);
 }
