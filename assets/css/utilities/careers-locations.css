@@ -500,7 +500,8 @@
 }
 
 .benefit-svg-icon {
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
+    brightness(90%) contrast(86%);
   height: 80px;
   object-fit: contain;
   width: 80px;
@@ -612,7 +613,9 @@
   color: var(--mia-white);
   padding: 32px 24px;
   text-align: center;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {

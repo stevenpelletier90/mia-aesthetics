@@ -11,13 +11,17 @@ document.addEventListener("DOMContentLoaded", function () {
     languageButtons.forEach((button) => {
       button.addEventListener("click", function () {
         const lang = this.getAttribute("data-lang");
-        const currentUrl = new URL(window.location.href);
+        
+        // Update button states
+        languageButtons.forEach((btn) => {
+          btn.classList.remove("btn-primary", "active");
+          btn.classList.add("btn-outline-primary");
+        });
+        
+        this.classList.remove("btn-outline-primary");
+        this.classList.add("btn-primary", "active");
 
-        // Update URL parameter
-        currentUrl.searchParams.set("lang", lang);
-
-        // Redirect to updated URL
-        window.location.href = currentUrl.toString();
+        // Custom content switching will be handled by your implementation
       });
     });
   }

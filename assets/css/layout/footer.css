@@ -142,8 +142,8 @@
 }
 
 .locations-section .accordion-button::after {
-  content: '\f078';
-  font-family: 'Font Awesome 7 Free';
+  content: "\f078";
+  font-family: "Font Awesome 7 Free";
   font-weight: 900;
   background-image: none;
   color: var(--mia-white);

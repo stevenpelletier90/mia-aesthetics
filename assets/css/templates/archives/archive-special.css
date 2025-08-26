@@ -136,10 +136,38 @@
   transition: all 0.3s ease;
 }
 
+.specials-language-toggle .btn:hover {
+  background: rgba(200, 178, 115, 0.1);
+  transform: translateY(-1px);
+}
+
 .specials-language-toggle .btn.active {
   background: var(--mia-gold);
   color: var(--mia-white);
   transform: scale(1.05);
+}
+
+.specials-language-toggle .btn.active:hover {
+  background: var(--mia-gold);
+  transform: scale(1.05) translateY(-1px);
+}
+
+/* Smooth transitions for language switching */
+.special-item {
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.special-item[style*="display: none"] {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+/* Ensure proper display for visible items */
+.special-item:not([style*="display: none"]) {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 .sticky-special {

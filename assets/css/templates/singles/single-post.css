@@ -146,7 +146,9 @@
   gap: 8px;
   padding: 0.15rem 0.25rem;
   text-decoration: none;
-  transition: color 0.2s, background 0.2s;
+  transition:
+    color 0.2s,
+    background 0.2s;
 }
 
 .sidebar .list-unstyled a:hover {

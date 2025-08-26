@@ -639,7 +639,7 @@ function render_desktop_before_after_menu(): void {
 					</div>
 					<ul class="list-unstyled">
 						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>">Results by Surgeon</a></li>
-						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>">Patient Videos</a></li>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>">Patient Testimonials</a></li>
 					</ul>
 				</div>
 			</div>
@@ -665,7 +665,7 @@ function render_mobile_before_after_menu(): void {
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>">Lipo 360</a></li>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/mommy-makeover/' ) ); ?>">Mommy Makeover</a></li>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); ?>">Tummy Tuck</a></li>
-		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>">Patient Videos</a></li>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>">Patient Testimonials</a></li>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>">Results by Surgeon</a></li>
 	</ul>
 	<?php
