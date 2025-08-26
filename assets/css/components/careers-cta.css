@@ -6,7 +6,7 @@
     background: transparent;
     z-index: var(--z-index-mobile-cta);
     justify-content: flex-end;
-    padding-right: var(--space-8);
+    padding-right: 32px;
   }
 
   .careers-cta-btn {
@@ -16,7 +16,7 @@
   }
 
   .careers-cta-btn .fa-arrow-right {
-    margin-left: var(--space-2);
+    margin-left: 8px;
     font-size: 0.8em;
     transition: transform 0.2s ease;
   }
@@ -43,7 +43,7 @@
   }
 
   .careers-cta-btn .fa-arrow-right {
-    margin-left: var(--space-2);
+    margin-left: 8px;
     font-size: 0.8em;
     transition: transform 0.2s ease;
   }

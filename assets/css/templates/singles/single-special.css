@@ -14,7 +14,7 @@ body.single-special {
 /* Special container to avoid Bootstrap's container breakpoints */
 .special-container {
   width: 100%;
-  padding: var(--space-12) 15px;
+  padding: 48px 15px;
 }
 
 /* Special content wrapper for smooth scaling */
@@ -30,8 +30,8 @@ body.single-special {
   max-width: 100%;
   aspect-ratio: 6/1; /* Creates a 6:1 ratio for 1200x200 images */
   background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
-  border-radius: var(--radius-DEFAULT);
-  margin-bottom: var(--space-4);
+  border-radius: 4px;
+  margin-bottom: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -61,18 +61,18 @@ body.single-special {
 
 /* Content Area Styling */
 .single-special .main-content {
-  padding: var(--space-8) 0;
+  padding: 32px 0;
   color: var(--mia-white);
 }
 
 .single-special .main-content > * + * {
-  margin-top: var(--space-10);
+  margin-top: 40px;
 }
 
 /* Special Disclaimer */
 .special-disclaimer {
-  margin-top: var(--space-4);
-  font-size: var(--font-sm);
+  margin-top: 16px;
+  font-size: 14px;
   color: rgba(255, 255, 255, 0.8);
   line-height: 1.5;
 }
@@ -83,34 +83,4 @@ body.single-special {
 
 .special-disclaimer p:last-child {
   margin-bottom: 0;
-}
-
-a.consent-trigger {
-  color: var(--mia-gold);
-  text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  margin-top: var(--space-2);
-  position: relative;
-  padding-bottom: 2px;
-  transition: all var(--duration-300) var(--ease-in-out);
-}
-
-a.consent-trigger::after {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 1px;
-  bottom: 0;
-  left: 0;
-  background-color: var(--mia-white);
-  transition: all var(--duration-300) var(--ease-in-out);
-}
-
-a.consent-trigger:hover {
-  color: var(--mia-white);
-}
-
-a.consent-trigger:hover::after {
-  width: 100%;
 }

@@ -1,13 +1,3 @@
-/**
- * Location Search Component Styles - Careers Version
- *
- * Styles for the careers location search widget
- * Shows career location pages with full geographical names
- *
- * @package Mia_Aesthetics
- */
-
-/* Search Widget - designed to work within existing containers */
 .location-search-widget.location-search-careers {
   max-width: 600px;
   margin: 0 auto;
@@ -73,7 +63,6 @@
   }
 }
 
-/* Search Dropdown */
 #search-dropdown-careers {
   position: absolute;
   top: 100%;
@@ -106,7 +95,6 @@
   background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Override global dropdown-item hover styles - remove text decoration */
 .location-search-careers #search-dropdown-careers .dropdown-item:is(:hover, :focus) {
   background-color: rgba(255, 255, 255, 0.05);
   color: var(--mia-white);
@@ -153,7 +141,6 @@
   font-family: var(--font-body);
 }
 
-/* Loading Skeleton */
 .location-search-careers .loading-skeleton {
   display: none;
   padding: 0;
@@ -220,7 +207,6 @@
   }
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .location-search-widget.location-search-careers {
     margin: 0;

@@ -1,5 +1,3 @@
-/* Careers Landing Page Styles */
-
 .careers-hero {
   padding: 5rem 0;
   background: var(--mia-gold-light);
@@ -22,6 +20,7 @@
   object-fit: cover;
   object-position: center;
   transition: transform 0.3s ease;
+  will-change: transform;
 }
 
 .careers-hero__image:hover {
@@ -57,92 +56,12 @@
   padding: 4rem 0;
 }
 
-/* Responsive Design */
-@media (max-width: 991.98px) {
-  .careers-hero {
-    padding: 3rem 0;
-  }
-
-  .careers-hero__content {
-    padding-right: 0;
-    margin-bottom: 2rem;
-    text-align: center;
-  }
-
-  .careers-hero__title {
-    margin-bottom: 1.5rem;
-  }
-
-  .careers-hero__text {
-    margin-bottom: 1.5rem;
-  }
-
-  .careers-hero__cta {
-    margin-top: 1.5rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .careers-hero {
-    padding: 2rem 0;
-  }
-
-  .careers-hero__content {
-    text-align: center;
-  }
-
-  .careers-hero__title {
-    font-size: clamp(1.75rem, 4vw, 2.5rem);
-  }
-
-  .careers-hero__text p {
-    font-size: clamp(1rem, 2vw, 1.125rem);
-  }
-
-  .careers-hero__image-container {
-    margin-top: 2rem;
-  }
-}
-
-/* Accessibility Improvements */
-@media (prefers-reduced-motion: reduce) {
-  .careers-hero__btn {
-    transition: none;
-  }
-
-  .careers-hero__btn:hover {
-    transform: none;
-  }
-}
-
-/* Print Styles */
-@media print {
-  .careers-hero {
-    min-height: auto;
-    background: white;
-    color: black;
-  }
-
-  .careers-hero__overlay,
-  .careers-hero__background {
-    display: none;
-  }
-
-  .careers-hero__title,
-  .careers-hero__text p {
-    color: black;
-    text-shadow: none;
-  }
-}
-
-/* Trusted Excellence Section Styles */
 .stats-section {
   padding: 5rem 0;
   background-color: var(--mia-black);
   color: var(--mia-white);
 }
 
-/* Shared Section Tagline Styles */
 .section-tagline {
   font-size: 1.1rem;
   font-weight: 500;
@@ -176,7 +95,6 @@
   background-color: var(--mia-gold);
 }
 
-/* Core Values Section Styles */
 .core-values-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
@@ -237,8 +155,8 @@
 
 .value-card:hover {
   border-color: var(--mia-gold);
-  transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 .value-icon {
@@ -258,7 +176,6 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
-  /* Use primary gold color for better contrast against light gold background */
   filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
     brightness(90%) contrast(86%);
 }
@@ -278,61 +195,6 @@
   margin: 0;
 }
 
-/* Responsive Design */
-@media (max-width: 991.98px) {
-  .core-values-section {
-    padding: 4rem 0;
-  }
-
-  .core-values__header {
-    margin-bottom: 3rem;
-  }
-
-  .values-grid {
-    gap: 2rem;
-    margin-top: 2rem;
-  }
-
-  .value-card {
-    padding: 2.5rem 2rem;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .values-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .value-card {
-    padding: 2rem 1.5rem;
-  }
-
-  .value-icon {
-    width: 90px;
-    height: 90px;
-    font-size: 1.75rem;
-  }
-
-  .value-icon {
-    width: 120px;
-    height: 120px;
-  }
-
-  .value-svg-icon {
-    width: 70px;
-    height: 70px;
-  }
-}
-
-/* Animation on scroll */
 .value-card {
   opacity: 0;
   transform: translateY(30px);
@@ -344,7 +206,6 @@
   transform: translateY(0);
 }
 
-/* MIA Foundation Parallax Section */
 .foundation-parallax {
   position: relative;
   min-height: 80vh;
@@ -362,7 +223,10 @@
 .foundation-parallax::before {
   content: "";
   position: absolute;
-  inset: 0 0 0 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   background: linear-gradient(135deg, rgba(27, 27, 27, 0.8) 0%, rgba(27, 27, 27, 0.6) 100%);
   z-index: 1;
 }
@@ -402,38 +266,6 @@
   margin-top: 3rem;
 }
 
-/* Responsive adjustments for parallax */
-@media (max-width: 768px) {
-  .foundation-parallax {
-    min-height: 60vh;
-    background-attachment: scroll;
-  }
-
-  .foundation-content {
-    padding: 2rem 1rem;
-  }
-
-  .foundation-content h2 {
-    margin-bottom: 1.5rem;
-  }
-
-  .foundation-content p {
-    margin-bottom: 2rem;
-  }
-
-  .foundation-cta {
-    margin-top: 2rem;
-  }
-}
-
-/* Accessibility - disable parallax for users who prefer reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .foundation-parallax {
-    background-attachment: scroll;
-  }
-}
-
-/* Find Location Section */
 .find-location-section {
   padding: 6rem 0;
   background: var(--mia-gold-light);
@@ -462,36 +294,18 @@
   text-wrap: balance;
 }
 
-/* Responsive */
-@media (max-width: 767.98px) {
-  .find-location-section {
-    padding: 4rem 0;
-  }
-
-  .locations-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
-
-  .location-card {
-    padding: 1.5rem;
-  }
-}
-
-/* Benefits Section */
 .benefits-section {
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
   padding: 5rem 0;
 }
 
-/* Two-column top content layout */
 .benefits-top-content {
   margin-bottom: 4rem;
 }
 
 .benefits-header {
-  text-align: left;
   padding-right: 3rem;
+  text-align: left;
 }
 
 .benefits-header .section-tagline {
@@ -525,7 +339,6 @@
   text-align: left;
 }
 
-/* Founders Quote Styling */
 .founders-quote-wrapper {
   height: 100%;
   display: flex;
@@ -608,8 +421,8 @@
 
 .benefit-card:hover {
   border-color: var(--mia-gold);
-  transform: translateY(-5px);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 .benefit-icon {
@@ -630,12 +443,10 @@
   color: var(--mia-gold);
 }
 
-/* SVG icons for benefits section */
 .benefit-svg-icon {
   width: 80px;
   height: 80px;
   object-fit: contain;
-  /* Use primary gold color for better contrast against light gold background */
   filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
     brightness(90%) contrast(86%);
 }
@@ -671,120 +482,15 @@
   font-size: 1.1rem;
 }
 
-/* Mobile Responsive */
-@media (max-width: 991.98px) {
-  .benefits-top-content {
-    margin-bottom: 3rem;
-  }
-
-  .benefits-header {
-    padding-right: 0;
-    margin-bottom: 2rem;
-  }
-
-  .founders-quote-wrapper {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 768px) {
-  .benefits-section {
-    padding: 3rem 0;
-  }
-
-  .benefits-top-content {
-    margin-bottom: 2.5rem;
-  }
-
-  .benefits-header {
-    text-align: center;
-    margin-bottom: 2rem;
-  }
-
-  .benefits-title {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-  .benefits-subtitle {
-    text-align: center;
-  }
-
-  .founders-quote-wrapper {
-    padding: 0;
-  }
-
-  .founders-quote {
-    padding: 2rem;
-    margin: 0;
-  }
-
-  .quote-icon {
-    font-size: 2rem;
-  }
-
-  .quote-text {
-    font-size: 1.1rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .attribution-line {
-    width: 30px;
-  }
-
-  .attribution-text {
-    font-size: 0.9rem;
-  }
-
-  .benefit-card {
-    margin-bottom: 2rem;
-  }
-
-  .benefit-icon {
-    width: 60px;
-    height: 60px;
-  }
-
-  .benefit-icon i {
-    font-size: 1.5rem;
-  }
-
-  .benefit-icon {
-    width: 120px;
-    height: 120px;
-  }
-
-  .benefit-svg-icon {
-    width: 70px;
-    height: 70px;
-  }
-
-  .benefit-title {
-    font-size: 1.2rem;
-  }
-
-  .benefit-list li {
-    font-size: 0.9rem;
-  }
-}
-
-/* Testimonials Section */
 .testimonials-section {
   padding: 6rem 0;
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
   position: relative;
 }
 
-/* Wider container on desktop for better arrow spacing */
 .testimonials-section .container {
   max-width: 1400px;
   position: relative;
-}
-
-@media (min-width: 1200px) {
-  .testimonials-section .container {
-    max-width: 1500px;
-  }
 }
 
 .testimonials-section::before {
@@ -818,7 +524,6 @@
   line-height: 1.6;
 }
 
-/* Carousel Custom Styling */
 #testimonialsCarousel {
   margin-bottom: 3rem;
   position: relative;
@@ -829,7 +534,6 @@
   transition: transform 0.4s ease-in-out;
 }
 
-/* Ensure faster carousel transitions */
 #testimonialsCarousel.carousel.slide .carousel-item {
   transition: transform 0.4s ease-in-out;
 }
@@ -871,6 +575,7 @@
   flex-grow: 1;
   display: -webkit-box;
   -webkit-line-clamp: 6;
+  line-clamp: 6;
   -webkit-box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -913,7 +618,6 @@
   margin-bottom: 0;
 }
 
-/* Carousel Controls Custom Styling */
 #testimonialsCarousel .carousel-control-prev,
 #testimonialsCarousel .carousel-control-next {
   width: auto;
@@ -950,7 +654,6 @@
   transition: all 0.3s ease;
 }
 
-/* Carousel Indicators Custom Styling */
 #testimonialsCarousel .carousel-indicators {
   position: static;
   margin-top: 2rem;
@@ -978,215 +681,6 @@
   border-color: var(--mia-gold);
 }
 
-/* Large tablet/small desktop: Prevent arrow overflow */
-@media (max-width: 1199.98px) and (min-width: 992px) {
-  #testimonialsCarousel .carousel-control-prev {
-    left: 5px;
-  }
-
-  #testimonialsCarousel .carousel-control-next {
-    right: 5px;
-  }
-}
-
-/* Tablet: Two testimonials per slide (handled by JavaScript) */
-@media (max-width: 991.98px) and (min-width: 768px) {
-  /* Ensure proper spacing for 2-column layout */
-  .testimonials-section .carousel-item .col-md-6 {
-    padding: 0 1rem;
-  }
-
-  /* Adjust testimonial card sizing for tablet */
-  .testimonial-card {
-    min-height: 350px;
-    height: 100%;
-  }
-
-  .testimonial-quote {
-    -webkit-line-clamp: 5;
-    font-size: 1rem;
-  }
-
-  /* Position arrows safely inside viewport - prevent overflow */
-  #testimonialsCarousel .carousel-control-prev {
-    left: 15px;
-    top: 50%;
-  }
-
-  #testimonialsCarousel .carousel-control-next {
-    right: 15px;
-    top: 50%;
-  }
-
-  /* Tablet indicators styling */
-  .carousel-indicators {
-    margin-top: 1.5rem !important;
-  }
-
-  .carousel-indicators [data-bs-target] {
-    width: 10px !important;
-    height: 10px !important;
-    margin: 0 0.3rem !important;
-  }
-}
-
-/* Mobile: One testimonial per slide (handled by JavaScript) */
-@media (max-width: 767.98px) {
-  /* Ensure full width for mobile testimonials */
-  .testimonials-section .carousel-item .col-12 {
-    padding: 0 1rem;
-    max-width: 100%;
-  }
-
-  /* Single testimonial centering on mobile */
-  .testimonials-section .carousel-item .col-12.d-flex {
-    justify-content: center;
-  }
-
-  /* Ensure carousel items maintain consistent height */
-  #testimonialsCarousel .carousel-item {
-    min-height: 350px;
-  }
-
-  /* Adjust testimonial card sizing for mobile */
-  .testimonial-card {
-    min-height: 280px;
-    height: 100%;
-    margin-bottom: 1rem;
-  }
-
-  .testimonial-content {
-    padding: 1.5rem;
-    min-height: 280px;
-  }
-
-  .testimonial-quote {
-    -webkit-line-clamp: 4;
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-  }
-
-  /* Make indicators more mobile-friendly */
-  .carousel-indicators {
-    margin-top: 1.5rem !important;
-    justify-content: center;
-  }
-
-  .carousel-indicators [data-bs-target] {
-    width: 8px !important;
-    height: 8px !important;
-    margin: 0 0.2rem !important;
-  }
-
-  /* Ensure carousel arrows are easily accessible */
-  #testimonialsCarousel .carousel-control-prev,
-  #testimonialsCarousel .carousel-control-next {
-    width: 50px;
-  }
-}
-
-/* Responsive Design */
-@media (max-width: 991.98px) {
-  .testimonials-section {
-    padding: 4rem 0;
-  }
-
-  .testimonials-header {
-    margin-bottom: 3rem;
-  }
-
-  .testimonial-card {
-    padding: 1.5rem;
-    height: 320px;
-  }
-
-  .testimonial-quote {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .testimonials-section {
-    padding: 3rem 0;
-  }
-
-  .testimonial-card {
-    padding: 1.5rem 1rem;
-    height: 320px;
-  }
-
-  .testimonial-quote {
-    font-size: 0.95rem;
-    margin-bottom: 1.5rem;
-  }
-
-  .testimonial-author {
-    margin-bottom: 0.75rem;
-  }
-
-  .testimonial-stars {
-    margin-top: 0.5rem;
-  }
-
-  .author-name {
-    font-size: 1.1rem;
-  }
-
-  .author-role {
-    font-size: 0.9rem;
-  }
-
-  .author-location {
-    font-size: 0.85rem;
-  }
-
-  .carousel-control-prev-icon,
-  .carousel-control-next-icon {
-    width: 2.5rem;
-    height: 2.5rem;
-  }
-
-  .carousel-indicators [data-bs-target] {
-    width: 10px;
-    height: 10px;
-  }
-
-  #testimonialsCarousel .carousel-control-prev {
-    left: 5px;
-    top: 60%;
-  }
-
-  #testimonialsCarousel .carousel-control-next {
-    right: 5px;
-    top: 60%;
-  }
-
-  #testimonialsCarousel .carousel-control-prev-icon,
-  #testimonialsCarousel .carousel-control-next-icon {
-    width: 2rem;
-    height: 2rem;
-  }
-}
-
-/* Simple fade animation */
-.testimonials-section .testimonial-card {
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
-
-/* Accessibility - Reduced motion */
-@media (prefers-reduced-motion: reduce) {
-  .testimonials-section .testimonial-card {
-    transition: none;
-    opacity: 1;
-  }
-
-  #testimonialsCarousel .carousel-item {
-    transition: none;
-  }
-}
-
-/* Custom Careers Footer */
 .careers-footer {
   background: linear-gradient(135deg, var(--mia-black) 0%, #2a2a2a 100%);
   color: var(--mia-white);
@@ -1284,7 +778,6 @@
   font-size: 1rem;
 }
 
-/* Footer Bottom */
 .careers-footer .footer-bottom {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
   margin-top: 3rem;
@@ -1357,102 +850,6 @@
   text-decoration: underline;
 }
 
-/* Responsive Design */
-@media (max-width: 991.98px) {
-  .careers-footer {
-    padding: 3rem 0 1.5rem;
-  }
-
-  .careers-footer .social-links {
-    justify-content: center;
-    margin-top: 1rem;
-  }
-
-  .careers-footer .footer-bottom {
-    text-align: center;
-  }
-
-  .careers-footer .footer-logo {
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .careers-footer {
-    padding: 2.5rem 0 1rem;
-  }
-
-  /* Left align all footer content on mobile */
-  .careers-footer .footer-column {
-    text-align: left;
-    margin-bottom: 2.5rem;
-  }
-
-  /* Remove decorative line under headings for cleaner mobile look */
-  .careers-footer .footer-heading {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
-  .careers-footer .footer-heading::after {
-    display: none;
-  }
-
-  .careers-footer .footer-text {
-    font-size: 0.95rem;
-    text-align: left;
-  }
-
-  /* Improve contact info layout */
-  .careers-footer .contact-info {
-    margin-top: 0.5rem;
-  }
-
-  .careers-footer .contact-link {
-    font-size: 1rem;
-  }
-
-  /* Footer bottom adjustments */
-  .careers-footer .footer-bottom {
-    border-top: 1px solid var(--mia-gold-20);
-    padding-top: 1.5rem;
-  }
-
-  /* Logo and social links layout */
-  .careers-footer .footer-logo {
-    text-align: left;
-    margin-bottom: 1.5rem;
-  }
-
-  .careers-footer .social-links {
-    justify-content: flex-start;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
-  }
-
-  .careers-footer .social-link {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
-  }
-
-  /* Copyright section */
-  .careers-footer .copyright {
-    text-align: left;
-  }
-
-  .careers-footer .copyright p {
-    font-size: 0.85rem;
-    line-height: 1.5;
-  }
-
-  /* Remove horizontal divider on mobile for cleaner look */
-  .careers-footer .footer-divider {
-    display: none;
-  }
-}
-
-/* Legal Links Section */
 .careers-footer .legal-links {
   display: flex;
   flex-wrap: wrap;
@@ -1486,8 +883,454 @@
   font-style: italic;
 }
 
-/* Mobile responsive for legal links */
+@media (min-width: 1200px) {
+  .testimonials-section .container {
+    max-width: 1500px;
+  }
+}
+
+@media (max-width: 1199.98px) and (min-width: 992px) {
+  #testimonialsCarousel .carousel-control-prev {
+    left: 5px;
+  }
+
+  #testimonialsCarousel .carousel-control-next {
+    right: 5px;
+  }
+}
+
+@media (max-width: 991.98px) {
+  .careers-hero {
+    padding: 3rem 0;
+  }
+
+  .careers-hero__content {
+    padding-right: 0;
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .careers-hero__title {
+    margin-bottom: 1.5rem;
+  }
+
+  .careers-hero__text {
+    margin-bottom: 1.5rem;
+  }
+
+  .careers-hero__cta {
+    margin-top: 1.5rem;
+  }
+
+  .core-values-section {
+    padding: 4rem 0;
+  }
+
+  .core-values__header {
+    margin-bottom: 3rem;
+  }
+
+  .values-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  .value-card {
+    padding: 2.5rem 2rem;
+  }
+
+  .benefits-top-content {
+    margin-bottom: 3rem;
+  }
+
+  .benefits-header {
+    padding-right: 0;
+    margin-bottom: 2rem;
+  }
+
+  .founders-quote-wrapper {
+    padding-left: 0;
+  }
+
+  .testimonials-section {
+    padding: 4rem 0;
+  }
+
+  .testimonials-header {
+    margin-bottom: 3rem;
+  }
+
+  .testimonial-quote {
+    font-size: 1rem;
+  }
+
+  .careers-footer {
+    padding: 3rem 0 1.5rem;
+  }
+
+  .careers-footer .social-links {
+    justify-content: center;
+    margin-top: 1rem;
+  }
+
+  .careers-footer .footer-bottom {
+    text-align: center;
+  }
+
+  .careers-footer .footer-logo {
+    margin-bottom: 1rem;
+  }
+}
+
+@media (max-width: 991.98px) and (min-width: 768px) {
+  .testimonials-section .carousel-item .col-md-6 {
+    padding: 0 1rem;
+  }
+
+  .testimonial-card {
+    min-height: 350px;
+    height: 100%;
+  }
+
+  .testimonial-quote {
+    -webkit-line-clamp: 5;
+    line-clamp: 5;
+    font-size: 1rem;
+  }
+
+  #testimonialsCarousel .carousel-control-prev {
+    left: 15px;
+    top: 50%;
+  }
+
+  #testimonialsCarousel .carousel-control-next {
+    right: 15px;
+    top: 50%;
+  }
+
+  .carousel-indicators {
+    margin-top: 1.5rem !important;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 10px !important;
+    height: 10px !important;
+    margin: 0 0.3rem !important;
+  }
+}
+
 @media (max-width: 767.98px) {
+  .careers-hero {
+    padding: 2rem 0;
+  }
+
+  .careers-hero__content {
+    text-align: center;
+  }
+
+  .careers-hero__title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .careers-hero__text p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+  }
+
+  .careers-hero__image-container {
+    margin-top: 2rem;
+  }
+
+  .values-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .value-card {
+    padding: 2rem 1.5rem;
+  }
+
+  .value-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .value-svg-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .foundation-parallax {
+    min-height: 60vh;
+    background-attachment: scroll;
+  }
+
+  .foundation-content {
+    padding: 2rem 1rem;
+  }
+
+  .foundation-content h2 {
+    margin-bottom: 1.5rem;
+  }
+
+  .foundation-content p {
+    margin-bottom: 2rem;
+  }
+
+  .foundation-cta {
+    margin-top: 2rem;
+  }
+
+  .find-location-section {
+    padding: 4rem 0;
+  }
+
+  .locations-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  .location-card {
+    padding: 1.5rem;
+  }
+
+  .benefits-section {
+    padding: 3rem 0;
+  }
+
+  .benefits-top-content {
+    margin-bottom: 2.5rem;
+  }
+
+  .benefits-header {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .benefits-title {
+    font-size: 2rem;
+    text-align: center;
+  }
+
+  .benefits-subtitle {
+    text-align: center;
+  }
+
+  .founders-quote-wrapper {
+    padding: 0;
+  }
+
+  .founders-quote {
+    padding: 2rem;
+    margin: 0;
+  }
+
+  .quote-icon {
+    font-size: 2rem;
+  }
+
+  .quote-text {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .attribution-line {
+    width: 30px;
+  }
+
+  .attribution-text {
+    font-size: 0.9rem;
+  }
+
+  .benefit-card {
+    margin-bottom: 2rem;
+  }
+
+  .benefit-icon {
+    width: 120px;
+    height: 120px;
+  }
+
+  .benefit-icon i {
+    font-size: 1.5rem;
+  }
+
+  .benefit-svg-icon {
+    width: 70px;
+    height: 70px;
+  }
+
+  .benefit-title {
+    font-size: 1.2rem;
+  }
+
+  .benefit-list li {
+    font-size: 0.9rem;
+  }
+
+  .testimonials-section {
+    padding: 3rem 0;
+  }
+
+  .testimonials-section .carousel-item .col-12 {
+    padding: 0 1rem;
+    max-width: 100%;
+  }
+
+  .testimonials-section .carousel-item .col-12.d-flex {
+    justify-content: center;
+  }
+
+  #testimonialsCarousel .carousel-item {
+    min-height: 350px;
+  }
+
+  .testimonial-card {
+    min-height: 280px;
+    height: 100%;
+    margin-bottom: 1rem;
+    padding: 1.5rem 1rem;
+    height: 320px;
+  }
+
+  .testimonial-content {
+    padding: 1.5rem;
+    min-height: 280px;
+  }
+
+  .testimonial-quote {
+    -webkit-line-clamp: 4;
+    line-clamp: 4;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-author {
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial-stars {
+    margin-top: 0.5rem;
+  }
+
+  .author-name {
+    font-size: 1.1rem;
+  }
+
+  .author-role {
+    font-size: 0.9rem;
+  }
+
+  .author-location {
+    font-size: 0.85rem;
+  }
+
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .carousel-indicators {
+    margin-top: 1.5rem !important;
+    justify-content: center;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 8px !important;
+    height: 8px !important;
+    margin: 0 0.2rem !important;
+    width: 10px;
+    height: 10px;
+  }
+
+  #testimonialsCarousel .carousel-control-prev {
+    left: 5px;
+    top: 60%;
+  }
+
+  #testimonialsCarousel .carousel-control-next {
+    right: 5px;
+    top: 60%;
+  }
+
+  #testimonialsCarousel .carousel-control-prev-icon,
+  #testimonialsCarousel .carousel-control-next-icon {
+    width: 2rem;
+    height: 2rem;
+  }
+
+  #testimonialsCarousel .carousel-control-prev,
+  #testimonialsCarousel .carousel-control-next {
+    width: 50px;
+  }
+
+  .careers-footer {
+    padding: 2.5rem 0 1rem;
+  }
+
+  .careers-footer .footer-column {
+    text-align: left;
+    margin-bottom: 2.5rem;
+  }
+
+  .careers-footer .footer-heading {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+  }
+
+  .careers-footer .footer-heading::after {
+    display: none;
+  }
+
+  .careers-footer .footer-text {
+    font-size: 0.95rem;
+    text-align: left;
+  }
+
+  .careers-footer .contact-info {
+    margin-top: 0.5rem;
+  }
+
+  .careers-footer .contact-link {
+    font-size: 1rem;
+  }
+
+  .careers-footer .footer-bottom {
+    border-top: 1px solid var(--mia-gold-20);
+    padding-top: 1.5rem;
+  }
+
+  .careers-footer .footer-logo {
+    text-align: left;
+    margin-bottom: 1.5rem;
+  }
+
+  .careers-footer .social-links {
+    justify-content: flex-start;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .careers-footer .social-link {
+    width: 35px;
+    height: 35px;
+    font-size: 1rem;
+  }
+
+  .careers-footer .copyright {
+    text-align: left;
+  }
+
+  .careers-footer .copyright p {
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  .careers-footer .footer-divider {
+    display: none;
+  }
+
   .careers-footer .legal-links {
     flex-direction: column;
     gap: 0.75rem;
@@ -1506,5 +1349,51 @@
   .careers-footer .disclaimer {
     font-size: 0.8rem;
     margin-bottom: 1rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .careers-hero__image,
+  .value-card,
+  .benefit-card,
+  .testimonial-card {
+    transition: none;
+  }
+
+  .careers-hero__image:hover,
+  .value-card:hover,
+  .benefit-card:hover {
+    transform: none;
+  }
+
+  .foundation-parallax {
+    background-attachment: scroll;
+  }
+
+  .testimonials-section .testimonial-card {
+    transition: none;
+  }
+
+  #testimonialsCarousel .carousel-item {
+    transition: none;
+  }
+}
+
+@media print {
+  .careers-hero {
+    min-height: auto;
+    background: white;
+    color: black;
+  }
+
+  .careers-hero__overlay,
+  .careers-hero__background {
+    display: none;
+  }
+
+  .careers-hero__title,
+  .careers-hero__text p {
+    color: black;
+    text-shadow: none;
   }
 }

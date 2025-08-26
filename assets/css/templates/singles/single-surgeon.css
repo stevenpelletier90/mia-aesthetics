@@ -616,10 +616,6 @@
   }
 }
 
-/* Smooth scrolling */
-html {
-  scroll-behavior: smooth;
-}
 
 body.single-surgeon {
   overflow: hidden auto;

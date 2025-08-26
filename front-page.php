@@ -86,63 +86,6 @@ require __DIR__ . '/hero-section.php';
 	</div>
 </section>
 
-<!-- How Payments Work Section -->
-<section class="how-payments-work-section py-5">
-	<div class="container">
-	<div class="row justify-content-center">
-		<!-- Centered Content -->
-		<div class="col-xl-10 col-lg-11">
-		<div class="text-center mb-4">
-			<h2 class="how-payments-heading mb-2">How Payments Work</h2>
-			<h3 class="how-payments-subheading mb-4">at Mia Aesthetics</h3>
-		</div>
-		<div class="row row-cols-1 row-cols-md-2 g-4">
-			<div class="col">
-				<div class="payment-step-card">
-				<h3 class="mb-3">1. Research Surgeons</h3>
-				<ul class="mb-0 ps-3">
-					<li>Choose from over 25 experienced surgeons</li>
-					<li>Review surgeon bios on our website</li>
-					<li>Browse our before and after photos</li>
-				</ul>
-				</div>
-			</div>
-			<div class="col">
-				<div class="payment-step-card">
-				<h3 class="mb-3">2. Check Specials</h3>
-				<ul class="mb-0 ps-3">
-					<li>Contact a sales coordinator for specials</li>
-					<li>New surgeons often offer reduced rates</li>
-					<li>Keep an eye on seasonal specials</li>
-				</ul>
-				</div>
-			</div>
-			<div class="col">
-				<div class="payment-step-card">
-				<h3 class="mb-3">3. Lock in Your Price</h3>
-				<ul class="mb-0 ps-3">
-					<li>Call us to secure a special price</li>
-					<li>Booking fee required to lock in price</li>
-					<li>Price valid for 12 months</li>
-				</ul>
-				</div>
-			</div>
-			<div class="col">
-				<div class="payment-step-card">
-				<h3 class="mb-3">4. Complete Payments</h3>
-				<ul class="mb-0 ps-3">
-					<li>Pay at your own pace</li>
-					<li>Contact your patient concierge</li>
-					<li>Ask for contract extensions if needed</li>
-				</ul>
-				</div>
-			</div>
-			</div>
-		</div>
-		</div>
-	</div>
-	</div>
-</section>
 
 <!-- Video Background Section -->
 <section class="video-background-section position-relative overflow-hidden">

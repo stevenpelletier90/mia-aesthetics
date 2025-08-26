@@ -15,13 +15,13 @@
 }
 
 .post-header h1 {
-  font-size: var(--font-5xl);
-  font-weight: var(--font-bold);
+  font-size: 48px;
+  font-weight: 700;
 }
 
 @media (min-width: 992px) {
   .post-header h1 {
-    font-size: var(--font-6xl);
+    font-size: 60px;
   }
 }
 
@@ -29,7 +29,7 @@
 
 /* Increase spacing between heading and dropdown */
 #doctors-gallery h1 {
-  margin-bottom: var(--space-10);
+  margin-bottom: 40px;
 }
 
 /* Style the dropdown to be larger and more prominent */
@@ -46,22 +46,22 @@
 
 /* Add more spacing between dropdown and doctor name */
 .gallery h2 {
-  margin-top: var(--space-8);
-  margin-bottom: var(--space-8);
+  margin-top: 32px;
+  margin-bottom: 32px;
 }
 
 /* Desktop-specific adjustments */
 @media (min-width: 768px) {
   #doctorSelect {
     min-width: 250px;
-    padding: var(--space-3) var(--space-5);
-    font-size: var(--font-lg);
+    padding: 12px 20px;
+    font-size: 18px;
   }
 
   /* Extra spacing for doctor name on desktop */
   .gallery h2 {
-    margin-top: var(--space-10);
-    margin-bottom: var(--space-10);
+    margin-top: 40px;
+    margin-bottom: 40px;
   }
 }
 
@@ -82,7 +82,7 @@
 /* Modal styling */
 #lightboxModal .modal-dialog {
   max-width: 900px; /* Slightly wider */
-  margin: var(--space-7) auto;
+  margin: 28px auto;
 }
 
 #lightboxModal .modal-content {

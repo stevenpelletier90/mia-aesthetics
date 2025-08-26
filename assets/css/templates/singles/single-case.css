@@ -6,7 +6,7 @@
 .single-case .consent-trigger {
   color: var(--mia-gold);
   text-decoration: underline;
-  font-size: var(--font-sm);
+  font-size: 14px;
   transition: color 0.2s ease;
 }
 
@@ -16,7 +16,7 @@
 }
 
 .post-header h1 {
-  font-weight: var(--font-bold);
+  font-weight: 700;
   margin-bottom: 0;
   font-size: clamp(2rem, 4vw, 3.5rem);
   text-align: center;
@@ -33,7 +33,7 @@
 }
 
 header h1 {
-  margin-bottom: var(--space-6);
+  margin-bottom: 24px;
 }
 
 .before-label {
@@ -42,8 +42,8 @@ header h1 {
   left: 0;
   background-color: var(--mia-black);
   color: var(--mia-white);
-  padding: var(--space-1) var(--space-2);
-  margin: var(--space-1);
+  padding: 4px 8px;
+  margin: 4px;
 }
 
 .after-label {
@@ -52,23 +52,23 @@ header h1 {
   left: 0;
   background-color: var(--mia-gold);
   color: var(--mia-black);
-  padding: var(--space-1) var(--space-2);
-  margin: var(--space-1);
+  padding: 4px 8px;
+  margin: 4px;
 }
 
 .surgeon-info {
   background-color: transparent;
   color: var(--mia-black);
-  padding: var(--space-4);
-  border-radius: var(--radius-DEFAULT);
+  padding: 16px;
+  border-radius: 4px;
   height: 100%;
 }
 
 .location-info {
   background-color: transparent;
   color: var(--mia-black);
-  padding: var(--space-4);
-  border-radius: var(--radius-DEFAULT);
+  padding: 16px;
+  border-radius: 4px;
   height: 100%;
 }
 
@@ -167,7 +167,7 @@ header h1 {
   transition: all 0.2s ease;
   text-decoration: none;
   border: 2px solid var(--mia-black);
-  border-radius: var(--radius-DEFAULT);
+  border-radius: 4px;
   background-color: transparent;
   color: var(--mia-black);
   margin-top: 0.5rem;
@@ -196,7 +196,7 @@ header h1 {
 .patient-info-card {
   padding: 1rem;
   border: 2px solid var(--mia-gold-light);
-  border-radius: var(--radius-DEFAULT);
+  border-radius: 4px;
   height: 100%;
   background-color: transparent;
   position: relative;
@@ -240,16 +240,16 @@ header h1 {
 }
 
 .case-background {
-  margin-bottom: var(--space-6);
+  margin-bottom: 24px;
 }
 
 .case-content {
-  margin-top: var(--space-8);
+  margin-top: 32px;
 }
 
 #imageModal .modal-dialog {
   max-width: 900px;
-  margin: var(--space-7) auto;
+  margin: 28px auto;
 }
 
 #imageModal .modal-content {

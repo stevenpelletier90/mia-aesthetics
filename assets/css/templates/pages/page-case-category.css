@@ -1,10 +1,3 @@
-/*  _case-category-page.css
-	Custom styles for "Case Category Page" template
-	Keep minimal; extend as needed without affecting global styles
---------------------------------------------------------------------- */
-
-/* Case Card Component styles are handled via WordPress dependency system */
-
 .post-header h1 {
   font-size: clamp(1.75rem, 4vw, 3rem);
   font-weight: 700;
@@ -14,7 +7,6 @@
   margin-top: 0;
 }
 
-/* Hero styles – mirror generic page template (_page.css) */
 .post-header {
   background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);

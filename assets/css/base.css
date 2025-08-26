@@ -53,125 +53,6 @@
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
 
-  /* Font Size Scale */
-  --font-xs: 0.75rem; /* 12px */
-  --font-sm: 0.875rem; /* 14px */
-  --font-base: 1rem; /* 16px */
-  --font-lg: 1.125rem; /* 18px */
-  --font-xl: 1.25rem; /* 20px */
-  --font-2xl: 1.5rem; /* 24px */
-  --font-3xl: 1.875rem; /* 30px */
-  --font-4xl: 2.25rem; /* 36px */
-  --font-5xl: 3rem; /* 48px */
-  --font-6xl: 3.75rem; /* 60px */
-  --font-7xl: 4.5rem; /* 72px */
-
-  /* Line Heights */
-  --leading-none: 1;
-  --leading-tight: 1.25;
-  --leading-snug: 1.375;
-  --leading-normal: 1.5;
-  --leading-relaxed: 1.625;
-  --leading-loose: 2;
-
-  /* Font Weights */
-  --font-thin: 100;
-  --font-light: 300;
-  --font-normal: 400;
-  --font-medium: 500;
-  --font-semibold: 600;
-  --font-bold: 700;
-  --font-extrabold: 800;
-  --font-black: 900;
-
-  /* Letter Spacing */
-  --tracking-tighter: -0.05em;
-  --tracking-tight: -0.025em;
-  --tracking-normal: 0em;
-  --tracking-wide: 0.025em;
-  --tracking-wider: 0.05em;
-  --tracking-widest: 0.1em;
-
-  /* Spacing Scale - Base unit: 0.25rem (4px) */
-  --space-0: 0;
-  --space-px: 1px;
-  --space-0-5: 0.125rem; /* 2px */
-  --space-1: 0.25rem; /* 4px */
-  --space-1-5: 0.375rem; /* 6px */
-  --space-2: 0.5rem; /* 8px */
-  --space-2-5: 0.625rem; /* 10px */
-  --space-3: 0.75rem; /* 12px */
-  --space-3-5: 0.875rem; /* 14px */
-  --space-4: 1rem; /* 16px */
-  --space-5: 1.25rem; /* 20px */
-  --space-6: 1.5rem; /* 24px */
-  --space-7: 1.75rem; /* 28px */
-  --space-8: 2rem; /* 32px */
-  --space-9: 2.25rem; /* 36px */
-  --space-10: 2.5rem; /* 40px */
-  --space-12: 3rem; /* 48px */
-  --space-14: 3.5rem; /* 56px */
-  --space-16: 4rem; /* 64px */
-  --space-20: 5rem; /* 80px */
-  --space-24: 6rem; /* 96px */
-  --space-28: 7rem; /* 112px */
-  --space-32: 8rem; /* 128px */
-  --space-40: 10rem; /* 160px */
-  --space-48: 12rem; /* 192px */
-  --space-64: 16rem; /* 256px */
-  --space-80: 20rem; /* 320px */
-  --space-96: 24rem; /* 384px */
-
-  /* Border Radius */
-  --radius-none: 0px;
-  --radius-sm: 0.125rem; /* 2px */
-  --radius-DEFAULT: 0.25rem; /* 4px */
-  --radius-md: 0.375rem; /* 6px */
-  --radius-lg: 0.5rem; /* 8px */
-  --radius-xl: 0.75rem; /* 12px */
-  --radius-2xl: 1rem; /* 16px */
-  --radius-3xl: 1.5rem; /* 24px */
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-DEFAULT: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-  --shadow-2xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-  --shadow-inner: inset 0 2px 4px 0 rgba(0, 0, 0, 0.06);
-  --shadow-none: 0 0 #0000;
-
-  /* Transitions */
-  --duration-75: 75ms;
-  --duration-100: 100ms;
-  --duration-150: 150ms;
-  --duration-200: 200ms;
-  --duration-300: 300ms;
-  --duration-500: 500ms;
-  --duration-700: 700ms;
-  --duration-1000: 1000ms;
-
-  --ease-linear: linear;
-  --ease-in: cubic-bezier(0.4, 0, 1, 1);
-  --ease-out: cubic-bezier(0, 0, 0.2, 1);
-  --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
-
-  /* Component Variables */
-  --btn-height-sm: 32px;
-  --btn-height-md: 40px;
-  --btn-height-lg: 48px;
-  --btn-padding-x-sm: var(--space-3);
-  --btn-padding-x-md: var(--space-4);
-  --btn-padding-x-lg: var(--space-6);
-  --btn-border-width: 2px;
-  --btn-transition: all var(--duration-200) var(--ease-in-out);
-
-  --card-padding: var(--space-6);
-  --card-radius: var(--radius-lg);
-  --card-shadow: var(--shadow-md);
-  --card-border: 1px solid #dee2e6;
 
   /* Z-Index Scale */
   --z-0: 0;
@@ -839,16 +720,16 @@ li {
   border-radius: var(--card-radius);
   box-shadow: var(--card-shadow);
   overflow: hidden;
-  transition: all var(--duration-300) var(--ease-out);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
   position: relative;
 }
 
 .card:hover {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
 }
 
 .card-header {
-  padding: var(--space-4) var(--space-6);
+  padding: 16px 24px;
   border-bottom: 1px solid #dee2e6;
   background-color: #f8f9fa;
 }
@@ -859,34 +740,34 @@ li {
 }
 
 .card-footer {
-  padding: var(--space-4) var(--space-6);
+  padding: 16px 24px;
   border-top: 1px solid #dee2e6;
   background-color: #f8f9fa;
   margin-top: auto;
 }
 
 .card-title {
-  font-size: var(--font-xl);
-  font-weight: var(--font-bold);
-  line-height: var(--leading-tight);
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.25;
   color: var(--bs-body-color);
-  margin-bottom: var(--space-3);
+  margin-bottom: 12px;
 }
 
 .card-subtitle {
-  font-size: var(--font-sm);
-  font-weight: var(--font-medium);
+  font-size: 14px;
+  font-weight: 500;
   color: var(--mia-gray-muted);
   text-transform: uppercase;
-  letter-spacing: var(--tracking-wide);
-  margin-bottom: var(--space-2);
+  letter-spacing: 0.025em;
+  margin-bottom: 8px;
 }
 
 .card-text {
-  font-size: var(--font-base);
-  line-height: var(--leading-relaxed);
+  font-size: 16px;
+  line-height: 1.625;
   color: var(--bs-secondary-color);
-  margin-bottom: var(--space-4);
+  margin-bottom: 16px;
 }
 
 .card-text:last-child {
@@ -908,17 +789,17 @@ li {
 
 /* Card Variants */
 .card-elevated {
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
   border: none;
 }
 
 .card-elevated:hover {
-  box-shadow: var(--shadow-xl);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 
 .case-card {
   overflow: hidden;
-  transition: all var(--duration-300) var(--ease-out);
+  transition: all 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .case-card .card-img-container {
@@ -936,7 +817,7 @@ li {
   align-items: center;
   justify-content: center;
   opacity: 0;
-  transition: opacity var(--duration-300) var(--ease-out);
+  transition: opacity 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .case-card:hover .card-overlay {
@@ -946,7 +827,7 @@ li {
 .case-card .overlay-content {
   text-align: center;
   color: var(--mia-white);
-  padding: var(--space-6);
+  padding: 24px;
 }
 
 /* ==============================================
@@ -955,18 +836,18 @@ li {
 
 /* Sections */
 .section {
-  padding-top: var(--space-20);
-  padding-bottom: var(--space-20);
+  padding-top: 80px;
+  padding-bottom: 80px;
 }
 
 .section-sm {
-  padding-top: var(--space-12);
-  padding-bottom: var(--space-12);
+  padding-top: 48px;
+  padding-bottom: 48px;
 }
 
 .section-lg {
-  padding-top: var(--space-32);
-  padding-bottom: var(--space-32);
+  padding-top: 128px;
+  padding-bottom: 128px;
 }
 
 /* Hero Layouts */
@@ -988,7 +869,7 @@ li {
   z-index: 2;
   text-align: center;
   max-width: 800px;
-  padding: var(--space-8);
+  padding: 32px;
 }
 
 .hero-bg {
@@ -1014,7 +895,7 @@ li {
 /* Grid System */
 .grid {
   display: grid;
-  gap: var(--space-6);
+  gap: 24px;
 }
 
 .grid-auto {
@@ -1054,73 +935,73 @@ li {
 
 /* Extended Spacing (beyond Bootstrap's 0-5) */
 .mb-6 {
-  margin-bottom: var(--space-6) !important;
+  margin-bottom: 24px !important;
 }
 .mb-7 {
-  margin-bottom: var(--space-7) !important;
+  margin-bottom: 28px !important;
 }
 .mb-8 {
-  margin-bottom: var(--space-8) !important;
+  margin-bottom: 32px !important;
 }
 .mb-10 {
-  margin-bottom: var(--space-10) !important;
+  margin-bottom: 40px !important;
 }
 .mb-12 {
-  margin-bottom: var(--space-12) !important;
+  margin-bottom: 48px !important;
 }
 .mb-16 {
-  margin-bottom: var(--space-16) !important;
+  margin-bottom: 64px !important;
 }
 .mb-20 {
-  margin-bottom: var(--space-20) !important;
+  margin-bottom: 80px !important;
 }
 .mb-24 {
-  margin-bottom: var(--space-24) !important;
+  margin-bottom: 96px !important;
 }
 
 .p-6 {
-  padding: var(--space-6) !important;
+  padding: 24px !important;
 }
 .p-8 {
-  padding: var(--space-8) !important;
+  padding: 32px !important;
 }
 .p-10 {
-  padding: var(--space-10) !important;
+  padding: 40px !important;
 }
 .py-6 {
-  padding-top: var(--space-6) !important;
-  padding-bottom: var(--space-6) !important;
+  padding-top: 24px !important;
+  padding-bottom: 24px !important;
 }
 .py-8 {
-  padding-top: var(--space-8) !important;
-  padding-bottom: var(--space-8) !important;
+  padding-top: 32px !important;
+  padding-bottom: 32px !important;
 }
 .px-6 {
-  padding-left: var(--space-6) !important;
-  padding-right: var(--space-6) !important;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
 }
 
 /* Extended Font Sizes (beyond Bootstrap's .fs-*) */
 .text-xs {
-  font-size: var(--font-xs);
+  font-size: 12px;
 }
 .text-2xl {
-  font-size: var(--font-2xl);
+  font-size: 24px;
 }
 .text-3xl {
-  font-size: var(--font-3xl);
+  font-size: 30px;
 }
 .text-4xl {
-  font-size: var(--font-4xl);
+  font-size: 36px;
 }
 .text-5xl {
-  font-size: var(--font-5xl);
+  font-size: 48px;
 }
 .text-6xl {
-  font-size: var(--font-6xl);
+  font-size: 60px;
 }
 .text-7xl {
-  font-size: var(--font-7xl);
+  font-size: 72px;
 }
 
 /* Brand Colors */
@@ -1156,10 +1037,10 @@ li {
 
 /* Shadows */
 .shadow-lg {
-  box-shadow: var(--shadow-lg) !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05) !important;
 }
 .shadow-xl {
-  box-shadow: var(--shadow-xl) !important;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04) !important;
 }
 .shadow-gold {
   box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3) !important;
@@ -1167,16 +1048,16 @@ li {
 
 /* Letter Spacing (Bootstrap doesn't have these) */
 .ls-tight {
-  letter-spacing: var(--tracking-tight);
+  letter-spacing: -0.025em;
 }
 .ls-wide {
-  letter-spacing: var(--tracking-wide);
+  letter-spacing: 0.025em;
 }
 .ls-wider {
-  letter-spacing: var(--tracking-wider);
+  letter-spacing: 0.05em;
 }
 .ls-widest {
-  letter-spacing: var(--tracking-widest);
+  letter-spacing: 0.1em;
 }
 
 /* Aspect Ratios */
@@ -1204,7 +1085,7 @@ li {
 
 /* Breadcrumb Navigation */
 .breadcrumb-nav {
-  padding: var(--space-3) 0;
+  padding: 12px 0;
   font-family: var(--font-body);
   background: var(--mia-white);
 }
@@ -1226,17 +1107,17 @@ li {
 /* FAQ Components */
 .faq-container {
   background-color: #f8f9fa;
-  border-radius: var(--radius-lg);
-  padding: var(--space-8);
-  box-shadow: var(--shadow-md);
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
 .faqs-section h2 {
   color: var(--bs-body-color);
-  font-weight: var(--font-semibold);
+  font-weight: 600;
   position: relative;
-  padding-bottom: var(--space-4);
-  margin-bottom: var(--space-6);
+  padding-bottom: 16px;
+  margin-bottom: 24px;
   font-family: var(--font-heading);
 }
 
@@ -1251,11 +1132,11 @@ li {
 }
 
 .accordion-item {
-  margin-bottom: var(--space-4);
+  margin-bottom: 16px;
   border: 1px solid #dee2e6;
-  border-radius: var(--radius-DEFAULT);
+  border-radius: 4px;
   overflow: hidden;
-  transition: border-color var(--duration-200) var(--ease-out);
+  transition: border-color 200ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .accordion-item:hover {
@@ -1265,9 +1146,9 @@ li {
 .accordion-button {
   background-color: var(--mia-black);
   color: var(--mia-white);
-  font-weight: var(--font-medium);
-  padding: var(--space-5);
-  border-radius: var(--radius-md);
+  font-weight: 500;
+  padding: 20px;
+  border-radius: 6px;
   box-shadow: none;
   font-family: var(--font-heading);
 }
@@ -1279,17 +1160,17 @@ li {
 }
 
 .accordion-body {
-  padding: var(--space-6);
+  padding: 24px;
   background-color: var(--mia-white);
   color: var(--bs-secondary-color);
-  line-height: var(--leading-relaxed);
+  line-height: 1.625;
 }
 
 .accordion-body a {
   color: var(--mia-link);
   text-decoration: none;
-  font-weight: var(--font-medium);
-  transition: color var(--duration-200) var(--ease-out);
+  font-weight: 500;
+  transition: color 200ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .accordion-body a:hover,
@@ -1319,12 +1200,12 @@ li {
   position: absolute;
   top: 0;
   left: 0;
-  padding: var(--space-2) var(--space-4);
+  padding: 8px 16px;
   background: var(--mia-gold);
   color: var(--mia-black);
   z-index: var(--z-tooltip);
   transform: translateY(-100%);
-  transition: transform var(--duration-300) var(--ease-out);
+  transition: transform 300ms cubic-bezier(0, 0, 0.2, 1);
 }
 
 .skip-link:focus,
@@ -1344,17 +1225,17 @@ li {
 
 @media (max-width: 768px) {
   .section {
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-16);
+    padding-top: 64px;
+    padding-bottom: 64px;
   }
 
   .section-lg {
-    padding-top: var(--space-20);
-    padding-bottom: var(--space-20);
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 
   .hero-content {
-    padding: var(--space-6) var(--space-4);
+    padding: 24px 16px;
   }
 
   .grid-2,
@@ -1364,21 +1245,21 @@ li {
   }
 
   .faq-container {
-    padding: var(--space-6);
+    padding: 24px;
   }
 
   .card-body {
-    padding: var(--space-4);
+    padding: 16px;
   }
 }
 
 @media (max-width: 480px) {
   .grid {
-    gap: var(--space-4);
+    gap: 16px;
   }
 
   .btn-lg {
-    font-size: var(--font-base);
+    font-size: 16px;
     min-height: var(--btn-height-md);
   }
 }
