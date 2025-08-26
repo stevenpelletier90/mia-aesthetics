@@ -204,7 +204,7 @@
 </footer>
 
 <?php
-// Add consultation CTA based on ACF settings.
+// Add consultation CTA.
 if ( should_show_consultation_cta() ) {
 	require get_template_directory() . '/components/consultation-cta.php';
 }

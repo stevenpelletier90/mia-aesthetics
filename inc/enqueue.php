@@ -176,6 +176,10 @@ function mia_get_template_mappings(): array {
 			'css' => 'templates/singles/single-special.css',
 			'js'  => 'templates/singles/single-special.js',
 		),
+		'single-fat-transfer'         => array(
+			'css' => 'templates/pages/page-condition-layout.css',
+			'js'  => 'templates/pages/page-condition-layout.js',
+		),
 
 		// Archive Templates.
 		'archive-case'                => array(
@@ -336,7 +340,7 @@ function mia_enqueue_assets(): void {
 	mia_register_asset( 'style', 'mia-location-search-careers', '/css/utilities/location-search-careers.css', array( 'mia-base' ) );
 	mia_register_asset( 'script', 'mia-location-search-careers', '/js/utilities/location-search-careers.js', array() );
 
-	// Register CTA component assets (loaded conditionally).
+	// Register CTA component assets.
 	mia_register_asset( 'style', 'mia-consultation-cta', '/css/components/consultation-cta.css', array( 'mia-base' ) );
 	mia_register_asset( 'style', 'mia-careers-cta', '/css/components/careers-cta.css', array( 'mia-base' ) );
 
@@ -382,22 +386,21 @@ function mia_enqueue_assets(): void {
 	}
 
 	// ------------------------ CTA Component Loading -------------------------.
-	// Load consultation CTA for all pages except careers pages
-	if ( ! is_page_template( 'page-careers.php' ) && ! is_page_template( 'page-careers-locations.php' ) &&
-		! is_page( 'careers' ) && ! is_page( 'careers-locations' ) ) {
-		wp_enqueue_style( 'mia-consultation-cta' );
-	}
-
 	// Load careers CTA for careers pages only.
 	if ( is_page_template( 'page-careers.php' ) || is_page_template( 'page-careers-locations.php' ) ||
 		is_page( 'careers' ) || is_page( 'careers-locations' ) ) {
 		wp_enqueue_style( 'mia-careers-cta' );
 	}
 
+	// Load consultation form for templates that use it.
+	if ( is_page_template( 'page-treatment-layout.php' ) || is_singular( 'special' ) ) {
+		wp_enqueue_style( 'mia-consultation-form' );
+	}
+
 	// ------------------------ Enqueue registered ---------------------------.
 	foreach ( wp_styles()->registered as $h => $_ ) {
 		// Skip assets loaded on-demand by components.
-		$skip_assets = array( 'mia-location-search', 'mia-location-search-careers', 'mia-consultation-cta', 'mia-careers-cta', 'mia-case-card' );
+		$skip_assets = array( 'mia-location-search', 'mia-location-search-careers', 'mia-careers-cta', 'mia-case-card', 'mia-consultation-form' );
 		if ( ( str_starts_with( $h, 'mia-' ) || in_array( $h, array( 'mia-fonts', 'mia-bootstrap', 'mia-base', 'mia-fontawesome' ), true ) ) && ! in_array( $h, $skip_assets, true ) ) {
 			wp_enqueue_style( $h );
 		}

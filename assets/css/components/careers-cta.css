@@ -1,6 +1,3 @@
-/* Careers Apply Sticky CTA Component */
-
-/* Desktop version - clean, no background */
 @media (min-width: 577px) {
   .careers-cta-container {
     background: transparent;
@@ -12,7 +9,6 @@
   .careers-cta-btn {
     min-width: 200px;
     max-width: 280px;
-    /* All other styling should use utility classes: btn btn-primary, text-base, py-3 px-5 */
   }
 
   .careers-cta-btn .fa-arrow-right {
@@ -26,7 +22,6 @@
   }
 }
 
-/* Mobile version - with background blur and custom styling */
 @media (max-width: 576px) {
   .careers-cta-container {
     background: rgba(27, 27, 27, 0.7);
@@ -39,7 +34,6 @@
   .careers-cta-btn {
     min-width: 70%;
     max-width: 260px;
-    /* Use btn btn-outline-primary-alt2 classes in HTML - no custom styles needed */
   }
 
   .careers-cta-btn .fa-arrow-right {
