@@ -1,19 +1,18 @@
 .post-header {
   background-color: var(--mia-gold-light);
-  border-bottom: 1px solid var(--shadow-subtle);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .post-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 0;
-  font-size: clamp(2rem, 4vw, 3.5rem);
 }
 
 .post-header .lead {
   font-size: clamp(1rem, 4vw, 1.25rem);
 }
-
-/* Page content styles */
 .page-content {
   padding: 2rem 0;
 }
@@ -23,6 +22,7 @@
 }
 
 .page-header h1 {
+  font-family: var(--font-heading);
   font-weight: 700;
   margin-bottom: 0.5rem;
 }

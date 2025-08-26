@@ -1,6 +1,3 @@
-/* Non-Surgical Archive Styles - Updated to match procedure templates */
-
-/* Post Header Styling (consistent with other templates) */
 .post-header {
   background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -17,12 +14,10 @@
   margin-bottom: 0;
 }
 
-/* Main section spacing */
 .procedures-listing-section {
   padding: 4rem 0;
 }
 
-/* Procedure Cards - Same as procedure templates for consistency */
 .procedure-card {
   background: var(--mia-white);
   border-radius: 8px;
@@ -41,7 +36,6 @@
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
-/* Animation states */
 .procedure-card.animate-ready {
   opacity: 0;
   transform: translateY(20px);
@@ -55,7 +49,6 @@
   transform: translateY(0);
 }
 
-/* Procedure Images */
 figure.procedure-image {
   position: relative;
   overflow: hidden;
@@ -79,7 +72,6 @@ figure.procedure-image {
   height: 100%;
 }
 
-/* Procedure Content */
 .procedure-content {
   padding: 1.5rem;
   flex-grow: 1;
@@ -105,7 +97,6 @@ figure.procedure-image {
   color: var(--mia-gold);
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
   .procedures-listing-section {
     padding: 3rem 0;

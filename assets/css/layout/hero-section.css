@@ -1,95 +1,41 @@
-/* ===== HERO SECTION - SIMPLE RESPONSIVE LAYOUT ===== */
-
-/*
- * RECOMMENDED IMAGE SIZES FOR GRAPHICS TEAM:
- *
- * Wide Desktop Carousel Images: 2560x800 (3.2:1 ratio) - for screens 1921px+
- * Desktop Carousel Images: 1920x600 (3.2:1 ratio) - for 768px-1920px
- * Mobile Carousel Images: 800x600 (4:3 ratio) - for screens under 768px
- * Box Images: 600x240 (2.5:1 ratio) - desktop, 600x720 (5:6 ratio) - mobile
- */
-
-/* Hero section container */
 .hero-section {
+  overflow: hidden;
   position: relative;
   width: 100%;
-  overflow: hidden;
 }
 
-/* Container that holds everything */
 .hero-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-/* Carousel with aspect ratio */
 .hero-carousel {
-  width: 100%;
-  position: relative;
+  aspect-ratio: 2560/800;
   overflow: hidden;
-  aspect-ratio: 2560/800; /* Desktop aspect ratio - slightly taller */
-}
-
-/* Mobile: Taller aspect ratio */
-@media (max-width: 767px) {
-  .hero-carousel {
-    aspect-ratio: 4/3; /* More square for mobile */
-  }
-}
-
-/* Bootstrap carousel positioning */
-.hero-carousel .carousel {
+  position: relative;
   width: 100%;
-  height: 100%;
 }
 
-.hero-carousel .carousel-inner,
-.hero-carousel .carousel-item {
-  width: 100%;
-  height: 100%;
-}
-
-/* Images fill container */
 .hero-carousel img {
-  width: 100%;
   height: 100%;
   object-fit: cover;
   object-position: center;
+  width: 100%;
 }
 
-/* Carousel controls */
-.carousel-indicators {
-  bottom: 2rem;
-}
-
-.carousel-indicators [data-bs-target] {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  background-color: var(--mia-white);
-  border: 2px solid var(--mia-white);
-  opacity: 0.7;
-}
-
-.carousel-indicators .active {
-  opacity: 1;
-  transform: scale(1.2);
-}
-
-/* Bottom boxes section */
 .hero-sidebar {
+  border-top: 2px solid var(--mia-white);
   display: flex;
   flex-direction: row;
   width: 100%;
-  border-top: 2px solid var(--mia-white);
 }
 
 .hero-box {
   flex: 1;
-  width: 50%;
-  position: relative;
   overflow: hidden;
+  position: relative;
+  width: 50%;
 }
 
 .hero-box-top {
@@ -100,67 +46,64 @@
   border-left: 1px solid var(--mia-white);
 }
 
-/* Box aspect ratio */
 .hero-box::before {
   content: "";
   display: block;
-  padding-top: 40%; /* 2.5:1 aspect ratio for desktop - shorter to offset taller carousel */
-}
-
-/* Mobile: Taller boxes */
-@media (max-width: 767px) {
-  .hero-box::before {
-    padding-top: 120%; /* 5:6 aspect ratio for mobile - slightly shorter */
-  }
+  padding-top: 40%;
 }
 
 .hero-box-image {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
   height: 100%;
+  left: 0;
   object-fit: cover;
   object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .hero-box-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+  align-items: center;
   background: rgba(0, 0, 0, 0.8);
   display: flex;
   flex-direction: column;
+  height: 100%;
   justify-content: center;
-  align-items: center;
+  left: 0;
   padding: 2rem;
+  position: absolute;
   text-align: center;
+  top: 0;
+  width: 100%;
 }
 
 .hero-box-heading {
-  font-family: var(--font-heading, "Montserrat", sans-serif);
+  color: var(--mia-white);
+  font-family: var(--font-heading);
   font-size: clamp(1.75rem, 3.5vw, 2.5rem);
   font-weight: 700;
-  color: var(--mia-white);
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-  margin-bottom: 1rem;
-  line-height: 1.2;
-  text-transform: uppercase;
   letter-spacing: -0.5px;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 
-/* Mobile adjustments */
 @media (max-width: 767px) {
+  .hero-carousel {
+    aspect-ratio: 4/3;
+  }
+
+  .hero-box::before {
+    padding-top: 120%;
+  }
+
   .hero-box-overlay {
-    padding: 1.5rem 1rem; /* More padding for taller boxes */
+    padding: 1.5rem 1rem;
   }
 
   .hero-box-heading {
     font-size: clamp(1.25rem, 4.5vw, 1.75rem);
-    margin-bottom: 0.75rem; /* More space for taller boxes */
+    margin-bottom: 0.75rem;
   }
-
-  /* Use btn btn-sm for smaller mobile buttons */
 }

@@ -1,11 +1,11 @@
-/* Conditions Archive Template Styles */
-
 .post-header {
   background-color: var(--mia-gold-light);
-  border-bottom: 1px solid var(--shadow-subtle);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 .post-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 3.5rem);
   font-weight: 700;
   margin-bottom: 0;
 }
@@ -81,8 +81,6 @@
   border-color: var(--mia-gold);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.08);
 }
-
-/* Removed standalone styling for consistency */
 
 .condition-link {
   display: flex;

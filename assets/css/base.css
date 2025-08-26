@@ -32,15 +32,16 @@
   --mia-gray-dark: #222; /* Dark Gray for body text */
   --mia-gray-muted: #666; /* Muted Gray for secondary text */
 
+  /* Link Colors */
+  --mia-link: #0066cc;
+  --mia-link-visited: #551a8b;
+  --mia-link-hover: #004499;
+
   /* Gold Opacity Variants */
   --mia-gold-10: rgba(200, 178, 115, 0.1);
   --mia-gold-20: rgba(200, 178, 115, 0.2);
   --mia-gold-30: rgba(200, 178, 115, 0.3);
 
-  /* Link Colors */
-  --mia-link: #0066cc;
-  --mia-link-visited: #551a8b;
-  --mia-link-hover: #004499;
 
   /* Bootstrap Override Variables - Match Brand Theme */
   --bs-primary: var(--mia-gold);
@@ -51,28 +52,12 @@
   /* Typography */
   --font-heading: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-mono: "SF Mono", Monaco, "Cascadia Code", "Roboto Mono", Consolas, monospace;
 
 
   /* Z-Index Scale */
-  --z-0: 0;
-  --z-10: 10;
-  --z-20: 20;
-  --z-30: 30;
-  --z-40: 40;
-  --z-50: 50;
-  --z-auto: auto;
-  --z-dropdown: 1000;
   --z-sticky: 1020;
-  --z-fixed: 1030;
-  --z-modal-backdrop: 1040;
-  --z-modal: 1050;
-  --z-popover: 1060;
   --z-tooltip: 1070;
   --z-header: 9999;
-
-  /* WordPress/Legacy Support */
-  --navbar-height: 80px;
 }
 
 /* ==============================================

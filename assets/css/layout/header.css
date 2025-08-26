@@ -1,4 +1,3 @@
-/* Header uses z-index variables defined in base.css */
 .site-header {
   z-index: var(--z-header);
 }
@@ -73,7 +72,6 @@
   text-decoration: none;
 }
 
-/* Simplified dropdown styling with modern CSS */
 .dropdown-item:is(:hover, :focus) {
   background-color: transparent;
   color: var(--mia-gold);
@@ -86,7 +84,6 @@
   text-decoration: underline;
 }
 
-/* Mega menu title styling */
 .mega-menu-title:is(:hover, :focus),
 .mega-menu .col-12 a:hover {
   color: var(--mia-gold);
@@ -123,13 +120,11 @@
     position: static;
   }
 
-  /* Make logo bigger like mobile view */
   .navbar-brand img {
     height: 40px;
     width: auto;
   }
 
-  /* Desktop layout: Logo left, Menu and Button inline until mobile */
   .offcanvas-body .d-flex {
     justify-content: flex-start;
     align-items: center;
@@ -247,7 +242,6 @@
   }
 }
 
-/* Fix overflow in 1620-1630px range and maintain nav font size from 1600px down */
 @media (max-width: 1700px) {
   .navbar-nav .nav-link {
     font-size: 0.75rem !important;
@@ -319,7 +313,6 @@
   }
 }
 
-/* Extra large desktop (1600px+) */
 @media (min-width: 1600px) {
   .navbar-nav .nav-item {
     margin: 0 0.2rem;
@@ -338,7 +331,6 @@
 }
 
 @media (max-width: 1199.98px) {
-  /* Reset desktop layout for mobile */
   .offcanvas-body .d-flex {
     justify-content: flex-start;
   }
