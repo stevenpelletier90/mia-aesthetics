@@ -35,6 +35,60 @@ get_header();
 	<main class="specials-grid py-5">
 		<div class="container">
 
+			<!-- Sticky/Featured Specials - Always Visible -->
+			<div class="featured-specials-section mb-5">
+				<div class="row">
+					<!-- Skinny Shot Special -->
+					<div class="col-lg-6 col-md-6 mb-4">
+						<div class="special-card sticky-special">
+							<div class="featured-badge">
+								<span>Featured</span>
+							</div>
+							<div class="special-card-image">
+								<a href="/weight-loss/">
+									<img src="/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg" alt="Skinny Shot Special" class="img-fluid">
+								</a>
+							</div>
+							<div class="special-card-body">
+								<h3 class="special-card-title">
+									<a href="/weight-loss/">Skinny Shot Special</a>
+								</h3>
+								<div class="special-card-excerpt">
+									<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
+								</div>
+								<a href="/weight-loss/" class="btn btn-primary">
+									Learn More <i class="fas fa-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+					<!-- J-Plasma Special -->
+					<div class="col-lg-6 col-md-6 mb-4">
+						<div class="special-card sticky-special">
+							<div class="featured-badge">
+								<span>Featured</span>
+							</div>
+							<div class="special-card-image">
+								<a href="/non-surgical/j-plasma-skin-tightening/">
+									<img src="/wp-content/uploads/2025/08/J-Plasma-1200x630px.jpg" alt="J-Plasma Skin Tightening Special" class="img-fluid">
+								</a>
+							</div>
+							<div class="special-card-body">
+								<h3 class="special-card-title">
+									<a href="/non-surgical/j-plasma-skin-tightening/">J-Plasma Skin Tightening</a>
+								</h3>
+								<div class="special-card-excerpt">
+									<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
+								</div>
+								<a href="/non-surgical/j-plasma-skin-tightening/" class="btn btn-primary">
+									Learn More <i class="fas fa-arrow-right"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
 			<?php
 			// Query all specials
 			$specials_args = array(
@@ -48,7 +102,7 @@ get_header();
 
 			if ( $specials_query->have_posts() ) :
 				?>
-				<!-- Category 1 Specials (English/Default) -->
+				<!-- English Specials -->
 				<div id="english-specials" class="specials-content">
 					<div class="row">
 						<?php
@@ -57,25 +111,24 @@ get_header();
 							
 							// Get the special categories for this post
 							$categories = get_the_terms( get_the_ID(), 'special-category' );
-							$has_category = false;
+							$is_english = false;
 							
 							if ( $categories && ! is_wp_error( $categories ) ) {
-								// If post has any category, check if it's category 2
+								// Check if this special has the english-specials category
 								foreach ( $categories as $category ) {
-									$has_category = true;
-									break;
-								}
-								// Check if this belongs to category 2 (spanish, español, espanol, or category-2)
-								foreach ( $categories as $category ) {
-									if ( in_array( $category->slug, array( 'spanish', 'español', 'espanol', 'category-2' ), true ) ) {
-										continue 2; // Skip this post in category 1 section
+									if ( 'english-specials' === $category->slug ) {
+										$is_english = true;
+										break;
 									}
 								}
 							}
 							
-							// Display posts with no category or category-1/english
+							// Only show English specials in this section
+							if ( ! $is_english ) {
+								continue;
+							}
 							?>
-							<div class="col-lg-4 col-md-6 mb-4 special-item" data-category="category-1">
+							<div class="col-lg-6 col-md-6 mb-4 special-item" data-category="category-1">
 								<div class="special-card">
 									<?php if ( has_post_thumbnail() ) : ?>
 										<div class="special-card-image">
@@ -103,11 +156,11 @@ get_header();
 					</div>
 				</div>
 
-				<!-- Category 2 Specials (Spanish/Secondary) -->
+				<!-- Spanish Specials -->
 				<div id="spanish-specials" class="specials-content" style="display: none;">
 					<div class="row">
 						<?php
-						// Reset the query to loop through again for category 2 specials
+						// Reset the query to loop through again for Spanish specials
 						$specials_query->rewind_posts();
 						
 						while ( $specials_query->have_posts() ) :
@@ -115,24 +168,24 @@ get_header();
 							
 							// Get the special categories for this post
 							$categories = get_the_terms( get_the_ID(), 'special-category' );
-							$is_category_2 = false;
+							$is_spanish = false;
 							
 							if ( $categories && ! is_wp_error( $categories ) ) {
+								// Check if this special has the spanish-specials category
 								foreach ( $categories as $category ) {
-									// Check if this belongs to category 2
-									if ( in_array( $category->slug, array( 'spanish', 'español', 'espanol', 'category-2' ), true ) ) {
-										$is_category_2 = true;
+									if ( 'spanish-specials' === $category->slug ) {
+										$is_spanish = true;
 										break;
 									}
 								}
 							}
 							
-							// Only show category 2 specials in this section
-							if ( ! $is_category_2 ) {
+							// Only show Spanish specials in this section
+							if ( ! $is_spanish ) {
 								continue;
 							}
 							?>
-							<div class="col-lg-4 col-md-6 mb-4 special-item" data-category="category-2">
+							<div class="col-lg-6 col-md-6 mb-4 special-item" data-category="category-2">
 								<div class="special-card">
 									<?php if ( has_post_thumbnail() ) : ?>
 										<div class="special-card-image">

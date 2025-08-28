@@ -31,12 +31,6 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition: all 0.3s ease;
-}
-
-.special-card:hover {
-  box-shadow: 0 8px 25px rgba(27, 27, 27, 0.15);
-  transform: translateY(-4px);
 }
 
 .special-card-image {
@@ -48,12 +42,7 @@
 .special-card-image img {
   height: 100%;
   object-fit: cover;
-  transition: transform 0.4s ease;
   width: 100%;
-}
-
-.special-card:hover .special-card-image img {
-  transform: scale(1.05);
 }
 
 .special-card-image a {
@@ -84,12 +73,12 @@
 .special-card-title a {
   color: var(--mia-black);
   text-decoration: none;
-  transition: color 0.2s ease;
 }
 
 .special-card-title a:hover,
 .special-card-title a:focus {
   color: var(--mia-gold);
+  text-decoration: underline;
 }
 
 .special-card-excerpt {
@@ -133,45 +122,41 @@
   font-size: 0.95rem;
   font-weight: 500;
   padding: 0.625rem 1.5rem;
-  transition: all 0.3s ease;
 }
 
 .specials-language-toggle .btn:hover {
   background: rgba(200, 178, 115, 0.1);
-  transform: translateY(-1px);
 }
 
 .specials-language-toggle .btn.active {
   background: var(--mia-gold);
   color: var(--mia-white);
-  transform: scale(1.05);
 }
 
 .specials-language-toggle .btn.active:hover {
   background: var(--mia-gold);
-  transform: scale(1.05) translateY(-1px);
 }
 
 /* Smooth transitions for language switching */
 .special-item {
-  transition:
-    opacity 0.3s ease,
-    transform 0.3s ease;
+  transition: opacity 0.3s ease;
 }
 
 .special-item[style*="display: none"] {
   opacity: 0;
-  transform: translateY(10px);
 }
 
 /* Ensure proper display for visible items */
 .special-item:not([style*="display: none"]) {
   opacity: 1;
-  transform: translateY(0);
+}
+
+.featured-specials-section {
+  border-bottom: 2px solid var(--mia-gold-light);
+  padding-bottom: 2rem;
 }
 
 .sticky-special {
-  animation: fadeInUp 0.6s ease;
   border: 2px solid var(--mia-gold);
   position: relative;
 }
@@ -208,16 +193,6 @@
   letter-spacing: 0.5px;
 }
 
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 
 @keyframes pulse {
   0% {
@@ -231,13 +206,9 @@
   }
 }
 
-.sticky-special.animate-in {
-  animation: fadeInUp 0.6s ease forwards;
-}
 
 .sticky-special:hover {
-  box-shadow: 0 12px 35px var(--mia-gold-30);
-  transform: translateY(-6px);
+  box-shadow: 0 4px 15px var(--mia-gold-30);
 }
 
 .sticky-special .special-card-title a {
