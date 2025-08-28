@@ -4,8 +4,10 @@
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Language toggle functionality
+  // Category toggle functionality
   const languageButtons = document.querySelectorAll(".specials-language-toggle .btn");
+  const englishSpecials = document.getElementById("english-specials");
+  const spanishSpecials = document.getElementById("spanish-specials");
 
   if (languageButtons.length > 0) {
     languageButtons.forEach((button) => {
@@ -21,7 +23,24 @@ document.addEventListener("DOMContentLoaded", function () {
         this.classList.remove("btn-outline-primary");
         this.classList.add("btn-primary", "active");
 
-        // Custom content switching will be handled by your implementation
+        // Toggle content based on selection
+        if (lang === "english") {
+          // Show category 1 (English/Default)
+          if (englishSpecials) {
+            englishSpecials.style.display = "block";
+          }
+          if (spanishSpecials) {
+            spanishSpecials.style.display = "none";
+          }
+        } else if (lang === "spanish") {
+          // Show category 2 (Spanish/Secondary)
+          if (englishSpecials) {
+            englishSpecials.style.display = "none";
+          }
+          if (spanishSpecials) {
+            spanishSpecials.style.display = "block";
+          }
+        }
       });
     });
   }

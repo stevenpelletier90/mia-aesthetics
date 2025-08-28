@@ -162,6 +162,12 @@
   flex-wrap: wrap;
 }
 
+/* Mobile Gallery Button Styling */
+.surgeon-gallery-mobile {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
 /* Main Content Area */
 .surgeon-content-area {
   padding: 4rem 0;
@@ -529,6 +535,13 @@
 
   .surgeon-hero-actions {
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .surgeon-gallery-mobile {
+    margin-top: 1rem;
+    max-width: 280px;
   }
 
   .surgeon-main-column {

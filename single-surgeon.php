@@ -71,16 +71,25 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						?>
 						
 						<!-- Quick Actions -->
-						<?php
-						$instagram_url = get_field( 'instagram_url' );
-						if ( null !== $instagram_url && '' !== $instagram_url ) :
-							?>
 						<div class="surgeon-hero-actions">
-							<a href="<?php echo esc_url( $instagram_url ); ?>" class="btn btn-primary" target="_blank" rel="noopener">
+							<?php
+							$instagram_url = get_field( 'instagram_url' );
+							if ( null !== $instagram_url && '' !== $instagram_url ) :
+								?>
+							<a href="<?php echo esc_url( $instagram_url ); ?>" class="btn btn-outline-primary-alt" target="_blank" rel="noopener">
 								<i class="fab fa-instagram"></i> Follow Dr. <?php echo esc_html( $last_name ); ?>
 							</a>
+							<?php endif; ?>
+							
+							<!-- Mobile Gallery Link -->
+							<?php
+							$doctor_slug = get_post_field( 'post_name', get_post() );
+							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . urlencode( $doctor_slug );
+							?>
+							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-primary surgeon-gallery-mobile d-lg-none">
+								<i class="fas fa-images"></i> View Before & After Gallery
+							</a>
 						</div>
-						<?php endif; ?>
 					</div>
 				</div>
 			</div>
@@ -190,7 +199,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				</div>
 
 				<!-- Sidebar Column -->
-				<div class="col-lg-4">
+				<div class="col-lg-4 d-none d-lg-block">
 					<div class="surgeon-sidebar">
 						<!-- Quick Info Card -->
 						<div class="sidebar-card">
@@ -204,7 +213,11 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 								<?php endif; ?>
 								<li>
 									<i class="fas fa-images"></i>
-									<span><a href="/before-after-gallery/">View Before & After Gallery</a></span>
+									<?php
+									$doctor_slug = get_post_field( 'post_name', get_post() );
+									$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . urlencode( $doctor_slug );
+									?>
+									<span><a href="<?php echo esc_url( $gallery_url ); ?>">View Before & After Gallery</a></span>
 								</li>
 							</ul>
 						</div>

@@ -39,35 +39,27 @@
     text-decoration: none;
   }
 
-  /* 3. Submit button – styled to match base.css btn-primary */
+  /* 3. Submit button – extend base.css btn-primary styles */
   #gform_submit_button_9 {
-    display: inline-block;
-    font-family: var(--font-body);
-    font-variation-settings:
-      "wght" 500,
-      "wdth" 100,
-      "slnt" 0;
-    line-height: 1.5;
-    color: var(--mia-black);
-    background-color: var(--mia-gold);
-    border: 2px solid var(--mia-gold);
-    padding: clamp(0.6rem, 0.5rem + 0.5vw, 0.9rem) clamp(1.5rem, 1rem + 2vw, 2.5rem);
-    font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem);
-    border-radius: 4px;
-    cursor: pointer;
+    /* Inherit all btn-primary styles from base.css */
+    background-color: var(--mia-gold) !important;
+    border-color: var(--mia-gold) !important;
+    color: var(--mia-black) !important;
+    border-width: 2px !important;
+    border-radius: 4px !important;
+    padding: clamp(0.6rem, 0.5rem + 0.5vw, 0.9rem) clamp(1.5rem, 1rem + 2vw, 2.5rem) !important;
+    font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem) !important;
+    font-weight: 500 !important;
+    font-family: var(--font-body) !important;
     text-transform: capitalize;
-    transition:
-      color 0.2s ease,
-      background-color 0.2s ease,
-      border-color 0.2s ease,
-      box-shadow 0.2s ease;
+    transition: all 0.2s ease !important;
   }
+  
   #gform_submit_button_9:hover,
   #gform_submit_button_9:focus {
-    color: var(--mia-white);
-    background-color: var(--mia-gold-dark);
-    border-color: var(--mia-gold-dark);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    background-color: var(--mia-gold-dark) !important;
+    border-color: var(--mia-gold-dark) !important;
+    color: var(--mia-white) !important;
     text-decoration: none;
   }
 
