@@ -54,7 +54,6 @@ get_header(); ?>
 							<h2 class="h4 mb-3">Body Cases</h2>
 							<p class="card-text text-muted mb-3">See real transformations from our body contouring and sculpting procedures.</p>
 							<ul class="list-unstyled case-links">
-								<li><a href="/before-after/arm/" class="text-decoration-none">Arm Lift Cases</a></li>
 								<li><a href="/before-after/bbl/" class="text-decoration-none">Brazilian Butt Lift (BBL) Cases</a></li>
 								<li><a href="/before-after/lipo-360/" class="text-decoration-none">Lipo 360 Results</a></li>
 								<li><a href="/before-after/mommy-makeover/" class="text-decoration-none">Mommy Makeover Cases</a></li>

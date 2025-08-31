@@ -623,7 +623,6 @@ function render_desktop_before_after_menu(): void {
 						<span class="text-dark fw-bold">By Procedure</span>
 					</div>
 					<ul class="list-unstyled">
-						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/arm/' ) ); ?>">Arm Lift</a></li>
 						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>">Brazilian Butt Lift (BBL)</a></li>
 						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); ?>">Breast Augmentation</a></li>
 						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); ?>">Breast Lift</a></li>
@@ -657,7 +656,6 @@ function render_mobile_before_after_menu(): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>">View All Before & After</a></li>
-		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/arm/' ) ); ?>">Arm Lift</a></li>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>">Brazilian Butt Lift (BBL)</a></li>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); ?>">Breast Augmentation</a></li>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); ?>">Breast Lift</a></li>
