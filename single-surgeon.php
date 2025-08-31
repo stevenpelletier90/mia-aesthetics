@@ -84,7 +84,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							<!-- Mobile Gallery Link -->
 							<?php
 							$doctor_slug = get_post_field( 'post_name', get_post() );
-							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . urlencode( $doctor_slug );
+							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
 							?>
 							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-primary surgeon-gallery-mobile d-lg-none">
 								<i class="fas fa-images"></i> View Before & After Gallery
@@ -215,7 +215,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 									<i class="fas fa-images"></i>
 									<?php
 									$doctor_slug = get_post_field( 'post_name', get_post() );
-									$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . urlencode( $doctor_slug );
+									$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
 									?>
 									<span><a href="<?php echo esc_url( $gallery_url ); ?>">View Before & After Gallery</a></span>
 								</li>

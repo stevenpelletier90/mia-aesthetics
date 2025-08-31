@@ -90,11 +90,14 @@ get_header();
 			</div>
 
 			<?php
-			// Query all specials
+			// Query all specials.
 			$specials_args = array(
 				'post_type'      => 'special',
 				'posts_per_page' => -1,
-				'orderby'        => array( 'menu_order' => 'ASC', 'date' => 'DESC' ),
+				'orderby'        => array(
+					'menu_order' => 'ASC',
+					'date'       => 'DESC',
+				),
 				'post_status'    => 'publish',
 			);
 
@@ -108,13 +111,13 @@ get_header();
 						<?php
 						while ( $specials_query->have_posts() ) :
 							$specials_query->the_post();
-							
-							// Get the special categories for this post
+
+							// Get the special categories for this post.
 							$categories = get_the_terms( get_the_ID(), 'special-category' );
 							$is_english = false;
-							
+
 							if ( $categories && ! is_wp_error( $categories ) ) {
-								// Check if this special has the english-specials category
+								// Check if this special has the english-specials category.
 								foreach ( $categories as $category ) {
 									if ( 'english-specials' === $category->slug ) {
 										$is_english = true;
@@ -122,8 +125,8 @@ get_header();
 									}
 								}
 							}
-							
-							// Only show English specials in this section
+
+							// Only show English specials in this section.
 							if ( ! $is_english ) {
 								continue;
 							}
@@ -160,18 +163,18 @@ get_header();
 				<div id="spanish-specials" class="specials-content" style="display: none;">
 					<div class="row">
 						<?php
-						// Reset the query to loop through again for Spanish specials
+						// Reset the query to loop through again for Spanish specials.
 						$specials_query->rewind_posts();
-						
+
 						while ( $specials_query->have_posts() ) :
 							$specials_query->the_post();
-							
-							// Get the special categories for this post
+
+							// Get the special categories for this post.
 							$categories = get_the_terms( get_the_ID(), 'special-category' );
 							$is_spanish = false;
-							
+
 							if ( $categories && ! is_wp_error( $categories ) ) {
-								// Check if this special has the spanish-specials category
+								// Check if this special has the spanish-specials category.
 								foreach ( $categories as $category ) {
 									if ( 'spanish-specials' === $category->slug ) {
 										$is_spanish = true;
@@ -179,8 +182,8 @@ get_header();
 									}
 								}
 							}
-							
-							// Only show Spanish specials in this section
+
+							// Only show Spanish specials in this section.
 							if ( ! $is_spanish ) {
 								continue;
 							}

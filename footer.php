@@ -7,7 +7,6 @@
 
 ?>
 <!-- footer.php -->
-</div><!-- .site-content -->
 <footer class="site-footer">
 	<div class="container-fluid wide-container">
 		<div class="footer-columns">     
@@ -212,4 +211,5 @@ if ( should_show_consultation_cta() ) {
 
 <?php wp_footer(); ?>
 
+</body>
 </html>

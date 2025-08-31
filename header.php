@@ -20,7 +20,7 @@
 </head>
 <body <?php body_class(); ?>
 <?php
-if ( ! is_singular( 'surgeon' ) ) :
+if ( is_singular( 'surgeon' ) ) :
 	?>
 	data-bs-spy="scroll" data-bs-target="#surgeon-tabs" data-bs-offset="120"<?php endif; ?>>
 <?php wp_body_open(); ?>
