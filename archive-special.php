@@ -113,10 +113,11 @@ get_header();
 							$specials_query->the_post();
 
 							// Get the special categories for this post.
-							$categories = get_the_terms( get_the_ID(), 'special-category' );
+							$post_id = get_the_ID();
+							$categories = ( false !== $post_id ) ? get_the_terms( $post_id, 'special-category' ) : false;
 							$is_english = false;
 
-							if ( $categories && ! is_wp_error( $categories ) ) {
+							if ( is_array( $categories ) ) {
 								// Check if this special has the english-specials category.
 								foreach ( $categories as $category ) {
 									if ( 'english-specials' === $category->slug ) {
@@ -170,10 +171,11 @@ get_header();
 							$specials_query->the_post();
 
 							// Get the special categories for this post.
-							$categories = get_the_terms( get_the_ID(), 'special-category' );
+							$post_id = get_the_ID();
+							$categories = ( false !== $post_id ) ? get_the_terms( $post_id, 'special-category' ) : false;
 							$is_spanish = false;
 
-							if ( $categories && ! is_wp_error( $categories ) ) {
+							if ( is_array( $categories ) ) {
 								// Check if this special has the spanish-specials category.
 								foreach ( $categories as $category ) {
 									if ( 'spanish-specials' === $category->slug ) {
