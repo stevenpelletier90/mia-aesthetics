@@ -64,7 +64,10 @@ require_once get_template_directory() . '/inc/enqueue.php';
  * @return array<string, string> Modified mime types with SVG support.
  */
 function mia_aesthetics_allow_svg_uploads( $mimes ) {
-	$mimes['svg'] = 'image/svg+xml';
+	// Only allow SVG uploads for administrators for security.
+	if ( current_user_can( 'manage_options' ) ) {
+		$mimes['svg'] = 'image/svg+xml';
+	}
 	return $mimes;
 }
 

@@ -72,98 +72,58 @@
 			<h2 class="footer-heading mb-3">Locations & Surgeons</h2>
 			<div class="accordion" id="locationsAccordion">
 				<?php
-				// Direct query for locations.
-				$locations_query = new WP_Query(
-					array(
-						'post_type'      => 'location',
-						'posts_per_page' => -1,
-						'orderby'        => 'title',
-						'order'          => 'ASC',
-						'post_parent'    => 0,
-					)
-				);
+				// Use cached footer locations to eliminate N+1 queries.
+				$footer_locations = mia_get_footer_locations();
 
-				if ( $locations_query->have_posts() ) :
+				if ( ! empty( $footer_locations ) ) :
 					$location_index = 0;
-					while ( $locations_query->have_posts() ) :
-						$locations_query->the_post();
-						$location_id    = get_the_ID();
-						$location_title = get_the_title();
-						$location_url   = get_permalink();
+					foreach ( $footer_locations as $location ) :
 						++$location_index;
 
-						// Skip if no permalink available.
-						if ( false === $location_url ) {
+						// Skip if no URL available.
+						if ( empty( $location['url'] ) ) {
 							continue;
 						}
 						?>
 				<div class="accordion-item">
-					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( (string) $location_id ); ?>">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo esc_attr( (string) $location_id ); ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo esc_attr( (string) $location_id ); ?>" aria-describedby="location-description-<?php echo esc_attr( (string) $location_id ); ?>">
-							<?php echo esc_html( $location_title ); ?>
+					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( (string) $location['id'] ); ?>">
+						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo esc_attr( (string) $location['id'] ); ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo esc_attr( (string) $location['id'] ); ?>" aria-describedby="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
+							<?php echo esc_html( $location['title'] ); ?>
 						</button>
 					</h2>
-					<div id="location-collapse-<?php echo esc_attr( (string) $location_id ); ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo esc_attr( (string) $location_id ); ?>">
-						<div class="accordion-body" id="location-description-<?php echo esc_attr( (string) $location_id ); ?>">
+					<div id="location-collapse-<?php echo esc_attr( (string) $location['id'] ); ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
+						<div class="accordion-body" id="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
 							<!-- Location Link -->
 							<div class="location-link mb-3">
-								<a href="<?php echo esc_url( $location_url ); ?>" class="surgeon-link">
-									<span>View <?php echo esc_html( $location_title ); ?> Location</span>
+								<a href="<?php echo esc_url( $location['url'] ); ?>" class="surgeon-link">
+									<span>View <?php echo esc_html( $location['title'] ); ?> Location</span>
 									<i class="fas fa-arrow-right surgeon-arrow" aria-hidden="true"></i>
 								</a>
 							</div>
 							
-							<?php
-							// Direct query for surgeons at this location.
-							$surgeons_query = new WP_Query(
-								array(
-									'post_type'      => 'surgeon',
-									'posts_per_page' => -1,
-									// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
-									'meta_query'     => array(
-										array(
-											'key'     => 'surgeon_location',
-											'value'   => $location_id,
-											'compare' => '=',
-										),
-									),
-								)
-							);
-
-							if ( $surgeons_query->have_posts() ) :
-								?>
+							<?php if ( ! empty( $location['surgeons'] ) ) : ?>
 								<div class="surgeons-list">
 									<ul class="list-unstyled">
-										<?php
-										while ( $surgeons_query->have_posts() ) :
-											$surgeons_query->the_post();
-											$surgeon_permalink = get_permalink();
-											if ( false !== $surgeon_permalink ) :
-												?>
+										<?php foreach ( $location['surgeons'] as $surgeon ) : ?>
+											<?php if ( ! empty( $surgeon['url'] ) ) : ?>
 											<li class="mb-2">
-												<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-link">
-													<span><?php echo esc_html( get_the_title() ); ?></span>
+												<a href="<?php echo esc_url( $surgeon['url'] ); ?>" class="surgeon-link">
+													<span><?php echo esc_html( $surgeon['title'] ); ?></span>
 													<i class="fas fa-arrow-right surgeon-arrow" aria-hidden="true"></i>
 												</a>
 											</li>
-												<?php
-										endif; // End if permalink check.
-										endwhile;
-										?>
+											<?php endif; ?>
+										<?php endforeach; ?>
 									</ul>
 								</div>
 							<?php else : ?>
 								<p class="mb-0">No surgeons currently listed for this location.</p>
-								<?php
-							endif;
-							wp_reset_postdata();
-							?>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
 						<?php
-					endwhile;
-					wp_reset_postdata();
+					endforeach;
 				else :
 					?>
 					<p>No locations found.</p>

@@ -105,7 +105,7 @@ if ( is_singular( 'surgeon' ) ) :
 				</li>
 				<!-- Patient Portal Dropdown -->
 				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-describedby="patient-portal-menu">
+					<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-controls="patient-portal-menu">
 					Patient Portal
 					</a>
 					<ul class="dropdown-menu" aria-labelledby="patient-portal-dropdown" id="patient-portal-menu">

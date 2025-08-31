@@ -19,10 +19,6 @@ if ( ! defined( 'ABSPATH' ) ) {
  * Constants
  * ---------------------------------------------------------------------------
  */
-if ( ! defined( 'MIA_ASSET_HASH_LEN' ) ) {
-	// Length of the MD5 hash used for cache‑busting (e.g. main.1a2b3c4d.js).
-	define( 'MIA_ASSET_HASH_LEN', 8 );
-}
 
 /**
  * Register a style or script with automatic file‑hash versioning.
@@ -368,8 +364,10 @@ function mia_enqueue_assets(): void {
 				mia_register_asset( 'style', 'mia-hero-section', '/css/layout/hero-section.css', array( 'mia-base', 'mia-bootstrap' ) );
 				$css_deps[] = 'mia-hero-section';
 
-				// Add Glide.js for video carousel (JavaScript only - CSS handled by theme).
-				wp_enqueue_script( 'glide-js', 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js', array(), '3.6.0', true );
+				// Add Glide.js for video carousel.
+				mia_register_asset( 'style', 'mia-glide', '/glide/css/glide.core.min.css', array( 'mia-base' ) );
+				mia_register_asset( 'script', 'mia-glide', '/glide/js/glide.min.js', array() );
+				$css_deps[] = 'mia-glide';
 			}
 
 			// Add case card component dependency for templates that actually use the component.
@@ -472,7 +470,6 @@ function mia_get_primary_script_handle() {
  */
 function mia_resource_hints( $hints, $relation_type ) {
 	if ( 'dns-prefetch' === $relation_type ) {
-		$hints[] = '//fonts.googleapis.com';
 		$hints[] = '//www.google-analytics.com';
 		// Additional hint for CDN if Font Awesome is served externally.
 	}

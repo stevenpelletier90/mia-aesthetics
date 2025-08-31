@@ -64,6 +64,15 @@ const nodeModulesAssets = [
   {
     source: "node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2",
     dest: "assets/fontawesome/webfonts/fa-solid-900.woff2"
+  },
+  // Glide.js
+  {
+    source: "node_modules/@glidejs/glide/dist/css/glide.core.min.css",
+    dest: "assets/glide/css/glide.core.min.css"
+  },
+  {
+    source: "node_modules/@glidejs/glide/dist/glide.min.js",
+    dest: "assets/glide/js/glide.min.js"
   }
 ];
 
