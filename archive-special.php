@@ -114,7 +114,7 @@ get_header();
 
 							// Get the special categories for this post.
 							$current_post_id = get_the_ID();
-							$categories      = ( false !== $current_post_id ) ? get_the_terms( $current_post_id, 'special-category' ) : false;
+							$categories      = false !== $current_post_id ? get_the_terms( $current_post_id, 'special-category' ) : false;
 							$is_english      = false;
 
 							if ( is_array( $categories ) ) {

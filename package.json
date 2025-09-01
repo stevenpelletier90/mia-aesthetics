@@ -9,12 +9,14 @@
     "lint:js": "eslint assets/js/**/*.js",
     "lint:css": "prettier --check \"assets/css/**/*.css\"",
     "lint:php": "composer run-script phpcs",
+    "qa:fe": "npm run lint:js && npm run lint:css && npm run format:check",
     "lint:fix": "npm run lint:js:fix && npm run format:css",
     "lint:js:fix": "eslint assets/js/**/*.js --fix",
     "format": "prettier --write \"assets/**/*.{css,js}\"",
     "format:css": "prettier --write \"assets/css/**/*.css\"",
     "format:js": "prettier --write \"assets/js/**/*.js\"",
     "format:check": "prettier --check \"assets/**/*.{css,js}\"",
+    "qa:all": "npm run qa:fe && composer qa",
     "minify:css": "postcss assets/css/**/*.css --dir assets/css/min --ext .min.css",
     "minify:css:test": "postcss assets/css/base.css -o assets/css/base.min.css",
     "bundle": "node scripts/bundle-theme.js",
@@ -32,9 +34,6 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.0",
     "@glidejs/glide": "^3.7.1",
-    "axios": "^1.11.0",
-    "bootstrap": "^5.3.7",
-    "cheerio": "^1.1.2",
-    "playwright": "^1.55.0"
+    "bootstrap": "^5.3.8"
   }
 }

@@ -29,9 +29,8 @@ get_header(); ?>
 				if ( have_posts() ) :
 					while ( have_posts() ) :
 						the_post();
-						$procedure_title      = get_the_title();
-						$procedure_excerpt    = get_the_excerpt();
-						$procedure_link       = get_permalink();
+							$procedure_title  = get_the_title();
+							$procedure_link   = get_permalink();
 						$non_surgical_post_id = get_the_ID();
 
 						// Skip if no valid post ID.

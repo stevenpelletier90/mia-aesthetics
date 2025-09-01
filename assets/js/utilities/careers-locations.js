@@ -117,7 +117,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
-  // Handle CTA button clicks  
+  // Handle CTA button clicks
   const ctaButtons = document.querySelectorAll(".btn");
 
   ctaButtons.forEach((button) => {

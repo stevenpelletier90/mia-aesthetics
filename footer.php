@@ -75,7 +75,7 @@
 				// Use cached footer locations to eliminate N+1 queries.
 				$footer_locations = mia_get_footer_locations();
 
-				if ( ! empty( $footer_locations ) ) :
+				if ( count( $footer_locations ) > 0 ) :
 					foreach ( $footer_locations as $location ) :
 
 						// Skip if no URL available.

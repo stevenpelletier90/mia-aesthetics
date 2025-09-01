@@ -422,9 +422,9 @@ function render_desktop_locations_menu( $locations ): void {
 
 					echo '<div class="col-md-3 mb-3"><ul class="list-unstyled">';
 					foreach ( $locations as $location ) :
-						$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-						$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-						$menu_label   = ( isset( $location['state'] ) && '' !== $location['state'] ) ? $display_city . ', ' . $abbr : $display_city;
+						$display_city   = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
+						$abbr           = mia_aesthetics_get_state_abbr( $location['state'] );
+							$menu_label = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
 
 						echo '<li><a class="dropdown-item py-1" href="' . esc_url( $location['url'] ) . '">' . esc_html( $menu_label ) . '</a></li>';
 						++$location_count;
@@ -463,9 +463,9 @@ function render_mobile_locations_menu( $locations ): void {
 		<?php
 		if ( array() !== $locations ) :
 			foreach ( $locations as $location ) :
-				$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-				$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-				$menu_label   = ( isset( $location['state'] ) && '' !== $location['state'] ) ? $display_city . ', ' . $abbr : $display_city;
+				$display_city       = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
+				$abbr               = mia_aesthetics_get_state_abbr( $location['state'] );
+						$menu_label = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
 				?>
 				<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
 				<?php

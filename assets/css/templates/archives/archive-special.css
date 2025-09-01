@@ -193,7 +193,6 @@
   letter-spacing: 0.5px;
 }
 
-
 @keyframes pulse {
   0% {
     box-shadow: 0 2px 8px var(--mia-gold-30);
@@ -205,7 +204,6 @@
     box-shadow: 0 2px 8px var(--mia-gold-30);
   }
 }
-
 
 .sticky-special:hover {
   box-shadow: 0 4px 15px var(--mia-gold-30);

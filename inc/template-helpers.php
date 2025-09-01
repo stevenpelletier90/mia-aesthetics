@@ -435,9 +435,9 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	>
 		<?php if ( $show_heading ) : ?>
 			<?php
-			$section_title = ( ! isset( $faq_section['title'] ) || '' === $faq_section['title'] )
-				? 'Frequently Asked Questions'
-				: $faq_section['title'];
+				$section_title = ! isset( $faq_section['title'] ) || '' === $faq_section['title']
+					? 'Frequently Asked Questions'
+					: $faq_section['title'];
 			?>
 			<h2 id="faq-heading-<?php echo esc_attr( (string) get_the_ID() ); ?>" class="mb-4">
 				<?php echo esc_html( $section_title ); ?>

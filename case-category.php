@@ -72,7 +72,7 @@ if ( ! $mia_current_term instanceof WP_Term ) {
 					}
 				}
 
-				if ( ! empty( $post_ids ) ) {
+				if ( is_array( $post_ids ) && count( $post_ids ) > 0 ) {
 					$ordered_posts = new WP_Query(
 						array(
 							'post_type'              => 'case',
@@ -82,7 +82,7 @@ if ( ! $mia_current_term instanceof WP_Term ) {
 							'no_found_rows'          => false, // Need for pagination.
 							'update_post_meta_cache' => false, // Only if meta needed.
 							'update_post_term_cache' => false, // Only if terms needed.
-							// Use post__in for indexed primary key lookup (much faster).
+						// Use post__in for indexed primary key lookup (much faster).
 							'post__in'               => $post_ids,
 							'orderby'                => 'title',
 							'order'                  => 'ASC',

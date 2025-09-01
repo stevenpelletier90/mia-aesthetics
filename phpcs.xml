@@ -26,6 +26,10 @@
     <!-- Use WordPress coding standards -->
     <rule ref="WordPress"/>
 
+    <!-- PHP cross-version compatibility (targeting supported runtime range) -->
+    <config name="testVersion" value="8.1-8.3"/>
+    <rule ref="PHPCompatibility"/>
+
     <!-- Allow for theme specific customizations -->
     <rule ref="WordPress.Files.FileName.InvalidClassFileName">
         <exclude-pattern>*/inc/*</exclude-pattern>

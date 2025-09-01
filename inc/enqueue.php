@@ -58,14 +58,13 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 /**
  * Get template mappings for CSS enqueuing
  *
- * @return array<string, array<string, string>>
+ * Note: Keys include '404' which PHP treats as integer key at runtime,
+ * so allow int|string for top-level keys.
+ *
+ * @return array<int|string, array<string, string>>
  */
 function mia_get_template_mappings(): array {
-	/**
-	 * Template mappings array.
-	 *
-	 * @var array<string, array<string, string>>
-	 */
+	// Template mappings array.
 	return array(
 		// Page Templates (available for selection).
 		'page-blank-canvas'           => array(

@@ -19,7 +19,7 @@ function get_social_media_url( $platform ) {
 	$field_name = $platform . '_url';
 	$url        = get_field( $field_name, 'option' );
 
-	return ! empty( $url ) ? $url : false;
+		return null !== $url && false !== $url && '' !== $url ? $url : false;
 }
 
 /**

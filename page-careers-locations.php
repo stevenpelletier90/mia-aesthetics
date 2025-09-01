@@ -105,7 +105,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 						);
 						$mia_aesthetics_hours_rows = array();
 						// Use business hours from linked location if available.
-						$mia_aesthetics_hours_field_location = ( null !== $mia_aesthetics_linked_location ) ? $mia_aesthetics_linked_location->ID : false;
+							$mia_aesthetics_hours_field_location = null !== $mia_aesthetics_linked_location ? $mia_aesthetics_linked_location->ID : false;
 						if ( have_rows( 'business_hours', $mia_aesthetics_hours_field_location ) ) {
 							while ( have_rows( 'business_hours', $mia_aesthetics_hours_field_location ) ) :
 								the_row();
