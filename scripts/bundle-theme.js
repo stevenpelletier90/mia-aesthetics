@@ -87,6 +87,7 @@ const excludePatterns = [
   "composer.lock",
   "phpcs.xml",
   "phpstan.neon",
+  ".php-cs-fixer.php",
   "postcss.config.js",
   "eslint.config.js",
   ".git/**/*",
@@ -94,6 +95,7 @@ const excludePatterns = [
   "style-guide.html",
   "mcpreadme.md",
   "CLAUDE.md",
+  "AGENTS.md",
   // Exclude old static asset directories (now using npm)
   "assets/bootstrap/**/*",
   "assets/fontawesome/**/*",
