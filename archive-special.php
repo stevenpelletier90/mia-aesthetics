@@ -113,9 +113,9 @@ get_header();
 							$specials_query->the_post();
 
 							// Get the special categories for this post.
-							$post_id = get_the_ID();
-							$categories = ( false !== $post_id ) ? get_the_terms( $post_id, 'special-category' ) : false;
-							$is_english = false;
+							$current_post_id = get_the_ID();
+							$categories      = ( false !== $current_post_id ) ? get_the_terms( $current_post_id, 'special-category' ) : false;
+							$is_english      = false;
 
 							if ( is_array( $categories ) ) {
 								// Check if this special has the english-specials category.
@@ -171,9 +171,9 @@ get_header();
 							$specials_query->the_post();
 
 							// Get the special categories for this post.
-							$post_id = get_the_ID();
-							$categories = ( false !== $post_id ) ? get_the_terms( $post_id, 'special-category' ) : false;
-							$is_spanish = false;
+							$current_post_id = get_the_ID();
+							$categories      = ( false !== $current_post_id ) ? get_the_terms( $current_post_id, 'special-category' ) : false;
+							$is_spanish      = false;
 
 							if ( is_array( $categories ) ) {
 								// Check if this special has the spanish-specials category.

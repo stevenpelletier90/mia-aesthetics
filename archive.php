@@ -82,44 +82,46 @@ get_header(); ?>
 					<div class="col">
 						<nav aria-label="Page navigation">
 							<?php
-							global $wp_query;
-
 							// Don't display pagination if there's only one page.
-							if ( $wp_query->max_num_pages > 1 ) :
+							if ( $GLOBALS['wp_query']->max_num_pages > 1 ) :
 
 								// Get current page.
 								$current_page = max( 1, get_query_var( 'paged' ) );
 
-								// Get total pages.
-								$total_pages = $wp_query->max_num_pages;
+									// Get total pages.
+									$total_pages = $GLOBALS['wp_query']->max_num_pages;
 
 								echo '<div class="d-flex justify-content-between align-items-center pagination-container">';
 
 								// Previous button.
 								if ( $current_page > 1 ) {
-									echo mia_button(
-										'Previous',
-										get_pagenum_link( $current_page - 1 ),
-										array(
-											'variant'    => 'outline-primary',
-											'icon'       => 'fas fa-chevron-left',
-											'icon_position' => 'before',
-											'attributes' => array( 'aria-label' => 'Previous page' ),
+									echo wp_kses_post(
+										mia_button(
+											'Previous',
+											get_pagenum_link( $current_page - 1 ),
+											array(
+												'variant' => 'outline-primary',
+												'icon'    => 'fas fa-chevron-left',
+												'icon_position' => 'before',
+												'attributes' => array( 'aria-label' => 'Previous page' ),
+											)
 										)
 									);
 								} else {
-									echo mia_button(
-										'Previous',
-										'#',
-										array(
-											'variant'    => 'outline-primary',
-											'icon'       => 'fas fa-chevron-left',
-											'icon_position' => 'before',
-											'class'      => 'disabled',
-											'attributes' => array(
-												'aria-label' => 'Previous page',
-												'disabled' => 'disabled',
-											),
+									echo wp_kses_post(
+										mia_button(
+											'Previous',
+											'#',
+											array(
+												'variant' => 'outline-primary',
+												'icon'    => 'fas fa-chevron-left',
+												'icon_position' => 'before',
+												'class'   => 'disabled',
+												'attributes' => array(
+													'aria-label' => 'Previous page',
+													'disabled' => 'disabled',
+												),
+											)
 										)
 									);
 								}
@@ -129,27 +131,31 @@ get_header(); ?>
 
 								// Next button.
 								if ( $current_page < $total_pages ) {
-									echo mia_button(
-										'Next',
-										get_pagenum_link( $current_page + 1 ),
-										array(
-											'variant'    => 'outline-primary',
-											'icon'       => 'fas fa-chevron-right',
-											'attributes' => array( 'aria-label' => 'Next page' ),
+									echo wp_kses_post(
+										mia_button(
+											'Next',
+											get_pagenum_link( $current_page + 1 ),
+											array(
+												'variant' => 'outline-primary',
+												'icon'    => 'fas fa-chevron-right',
+												'attributes' => array( 'aria-label' => 'Next page' ),
+											)
 										)
 									);
 								} else {
-									echo mia_button(
-										'Next',
-										'#',
-										array(
-											'variant'    => 'outline-primary',
-											'icon'       => 'fas fa-chevron-right',
-											'class'      => 'disabled',
-											'attributes' => array(
-												'aria-label' => 'Next page',
-												'disabled' => 'disabled',
-											),
+									echo wp_kses_post(
+										mia_button(
+											'Next',
+											'#',
+											array(
+												'variant' => 'outline-primary',
+												'icon'    => 'fas fa-chevron-right',
+												'class'   => 'disabled',
+												'attributes' => array(
+													'aria-label' => 'Next page',
+													'disabled' => 'disabled',
+												),
+											)
 										)
 									);
 								}

@@ -31,7 +31,7 @@ class Schema_Loader {
 		Organization_Schema::init();
 
 		// Register custom schema pieces with Yoast.
-		add_filter( 'wpseo_schema_graph_pieces', array( __CLASS__, 'register_schema_pieces' ), 11, 2 );
+		add_filter( 'wpseo_schema_graph_pieces', array( self::class, 'register_schema_pieces' ), 11, 2 );
 	}
 
 	/**

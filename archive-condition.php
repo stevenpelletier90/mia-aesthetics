@@ -30,11 +30,15 @@ get_header(); ?>
 			// Get all parent conditions (no parent).
 			$mia_aesthetics_parent_conditions = new WP_Query(
 				array(
-					'post_type'      => 'condition',
-					'post_parent'    => 0,
-					'posts_per_page' => -1,
-					'orderby'        => 'title',
-					'order'          => 'ASC',
+					'post_type'              => 'condition',
+					'post_parent'            => 0,
+					'posts_per_page'         => -1,
+					'orderby'                => 'title',
+					'order'                  => 'ASC',
+					// Performance optimizations.
+					'update_post_meta_cache' => false, // We don't read meta in the loop.
+					'update_post_term_cache' => false, // We don't render terms in the loop.
+					'no_found_rows'          => true,  // Skip count query.
 				)
 			);
 
@@ -49,11 +53,15 @@ get_header(); ?>
 						// Get child conditions for this parent.
 						$mia_aesthetics_child_conditions = new WP_Query(
 							array(
-								'post_type'      => 'condition',
-								'post_parent'    => $mia_aesthetics_parent_id,
-								'posts_per_page' => -1,
-								'orderby'        => 'title',
-								'order'          => 'ASC',
+								'post_type'              => 'condition',
+								'post_parent'            => $mia_aesthetics_parent_id,
+								'posts_per_page'         => -1,
+								'orderby'                => 'title',
+								'order'                  => 'ASC',
+								// Performance optimizations.
+								'update_post_meta_cache' => false, // We don't read meta in the loop.
+								'update_post_term_cache' => false, // We don't render terms in the loop.
+								'no_found_rows'          => true,  // Skip count query.
 							)
 						);
 

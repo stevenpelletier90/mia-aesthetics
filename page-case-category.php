@@ -40,7 +40,7 @@ get_header();
 	 * ----------------------------------------------------------------
 	 */
 	$current_post_id = get_the_ID();
-	$term_ids        = ( 0 !== $current_post_id && false !== $current_post_id ) ? wp_get_post_terms( $current_post_id, 'case-category', array( 'fields' => 'ids' ) ) : array();
+	$term_ids        = 0 !== $current_post_id && false !== $current_post_id ? wp_get_post_terms( $current_post_id, 'case-category', array( 'fields' => 'ids' ) ) : array();
 
 	if ( ! is_array( $term_ids ) || count( $term_ids ) === 0 ) {
 		$case_query = null; // No grid.

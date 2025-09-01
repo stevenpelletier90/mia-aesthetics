@@ -25,8 +25,7 @@ get_header(); ?>
 						?>
 					</h1>
 					<?php
-					global $wp_query;
-					$total_results = $wp_query->found_posts;
+					$total_results = $GLOBALS['wp_query']->found_posts;
 					if ( $total_results > 0 ) {
 						printf(
 							'<p class="lead mb-0">Found %d %s matching your search.</p>',

@@ -22,7 +22,7 @@ use Mia_Aesthetics\Schema\Schema_Loader;
  */
 add_action(
 	'after_setup_theme',
-	function () {
+	static function (): void {
 		Schema_Loader::init();
 	}
 );

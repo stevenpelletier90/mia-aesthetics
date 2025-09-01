@@ -72,13 +72,11 @@ get_header();
 					foreach ( $manual_procedures as $procedure_data ) :
 							// Handle both simple ID arrays and complex arrays with custom data.
 						if ( is_numeric( $procedure_data ) ) {
-							$procedure_id   = $procedure_data;
-							$custom_title   = '';
-							$custom_excerpt = '';
+							$procedure_id = $procedure_data;
+							$custom_title = '';
 						} else {
-							$procedure_id   = isset( $procedure_data['post_id'] ) ? $procedure_data['post_id'] : ( isset( $procedure_data['procedure'] ) ? $procedure_data['procedure'] : 0 );
-							$custom_title   = isset( $procedure_data['custom_title'] ) ? $procedure_data['custom_title'] : '';
-							$custom_excerpt = isset( $procedure_data['custom_excerpt'] ) ? $procedure_data['custom_excerpt'] : '';
+							$procedure_id = isset( $procedure_data['post_id'] ) ? $procedure_data['post_id'] : ( isset( $procedure_data['procedure'] ) ? $procedure_data['procedure'] : 0 );
+							$custom_title = isset( $procedure_data['custom_title'] ) ? $procedure_data['custom_title'] : '';
 						}
 
 						if ( null === $procedure_id || 0 === $procedure_id ) {
@@ -93,8 +91,7 @@ get_header();
 							setup_postdata( $procedure );
 
 							// Use custom or default values.
-							$procedure_title    = ( '' !== $custom_title ) ? $custom_title : get_the_title( $procedure_id );
-							$procedure_excerpt  = ( '' !== $custom_excerpt ) ? $custom_excerpt : get_the_excerpt( $procedure_id );
+							$procedure_title    = '' !== $custom_title ? $custom_title : get_the_title( $procedure_id );
 							$procedure_link_raw = get_permalink( $procedure_id );
 							$procedure_link     = false !== $procedure_link_raw ? $procedure_link_raw : '#';
 							$procedure_image    = get_the_post_thumbnail(

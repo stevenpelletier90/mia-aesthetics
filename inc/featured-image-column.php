@@ -48,7 +48,7 @@ function mia_featured_image_columns_init(): void {
 			// 2. Render each cell.
 			add_action(
 				sprintf( 'manage_%s_posts_custom_column', $type ),
-				static function ( $column, $post_id ) {
+				static function ( $column, $post_id ): void {
 					if ( 'thumb' !== $column ) {
 						return;
 					}
@@ -80,7 +80,7 @@ function mia_featured_image_columns_init(): void {
 			// 3. Make sortable.
 			add_filter(
 				sprintf( 'manage_edit-%s_sortable_columns', $type ),
-				static fn( $cols ) => $cols + array( 'thumb' => 'has_thumb' )
+				static fn ( $cols ) => $cols + array( 'thumb' => 'has_thumb' )
 			);
 		}
 	}
@@ -88,7 +88,7 @@ function mia_featured_image_columns_init(): void {
 	// 4. Alter main query when the user clicks to sort.
 	add_action(
 		'pre_get_posts',
-		static function ( $q ) {
+		static function ( $q ): void {
 			if ( ! is_admin() || ! $q->is_main_query() ) {
 				return;
 			}
@@ -108,17 +108,17 @@ function mia_featured_image_columns_init(): void {
 	 * ------------------------------------------------------------------
 	 */
 	$screen_ids = array_map(
-		static fn( $pt ) => 'edit-' . $pt,
+		static fn ( $pt ) => 'edit-' . $pt,
 		array_filter(
 			get_post_types( array( 'public' => true ) ),
-			static fn( $pt ) => post_type_supports( $pt, 'thumbnail' )
+			static fn ( $pt ) => post_type_supports( $pt, 'thumbnail' )
 		)
 	);
 
 	foreach ( $screen_ids as $screen ) {
 		add_filter(
 			'bulk_actions-' . $screen,
-			static fn( $acts ) => $acts + array( 'remove_thumb' => __( 'Remove Featured Image', 'mia-aesthetics' ) )
+			static fn ( $acts ) => $acts + array( 'remove_thumb' => __( 'Remove Featured Image', 'mia-aesthetics' ) )
 		);
 
 		add_filter(
@@ -148,7 +148,7 @@ function mia_featured_image_columns_init(): void {
 
 	add_action(
 		'admin_notices',
-		static function () {
+		static function (): void {
 			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- This is admin notice display only, no actions taken
 			if ( ! isset( $_GET['thumbs_removed'] ) || '' === $_GET['thumbs_removed'] || ! current_user_can( 'edit_posts' ) ) {
 				return;
@@ -177,7 +177,7 @@ function mia_featured_image_columns_init(): void {
 	 */
 	add_action(
 		'admin_enqueue_scripts',
-		static function ( $hook ) {
+		static function ( $hook ): void {
 			if ( 'edit.php' === $hook ) {
 				wp_add_inline_style(
 					'dashicons',

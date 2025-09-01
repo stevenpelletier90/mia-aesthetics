@@ -28,7 +28,7 @@ function get_social_media_url( $platform ) {
  * @param string $class_name CSS class for the links (default: 'social-icon').
  * @return void
  */
-function mia_social_media_links( $class_name = 'social-icon' ) {
+function mia_social_media_links( $class_name = 'social-icon' ): void {
 	$platforms = array(
 		'facebook'  => array(
 			'label' => 'Facebook',

@@ -59,15 +59,17 @@ function mia_aesthetics_the_logo( $args = array() ): void {
 		'height'        => '50',
 		'width'         => '200',
 		'class'         => 'd-inline-block',
-		'alt'           => get_bloginfo( 'name' ) . ' Logo',
+		/* translators: %s: Site name. */
+		'alt'           => sprintf( __( '%s Logo', 'mia-aesthetics' ), get_bloginfo( 'name' ) ),
 		'fetchpriority' => false,
 		'loading'       => false,
 		'link'          => true,
 		'link_class'    => 'navbar-brand',
-		'aria_label'    => 'Homepage',
+		'aria_label'    => esc_attr__( 'Homepage', 'mia-aesthetics' ),
 	);
 
-	$args     = wp_parse_args( $args, $defaults );
+		// Allow 3rd-parties to customize logo defaults/args.
+		$args = apply_filters( 'mia_aesthetics_logo_args', wp_parse_args( $args, $defaults ) );
 	$logo_url = mia_aesthetics_get_logo_url();
 
 	// Build logo HTML.
@@ -273,7 +275,8 @@ function mia_responsive_image( $filename, $args = array() ): void {
 		'subdir'  => '',
 	);
 
-	$args = wp_parse_args( $args, $defaults );
+	// Allow overriding social links defaults via filter.
+	$args = apply_filters( 'mia_social_links_args', wp_parse_args( $args, $defaults ) );
 
 	// Handle attachment ID.
 	if ( is_numeric( $filename ) ) {
@@ -410,7 +413,7 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 	// Filter out empty FAQs and check if we have any valid ones.
 	$valid_faqs = array_filter(
 		$faqs,
-		function ( $faq ) {
+		static function ( $faq ) {
 			return isset( $faq['question'] ) && '' !== $faq['question'] && isset( $faq['answer'] ) && '' !== $faq['answer'];
 		}
 	);
@@ -453,7 +456,6 @@ function mia_aesthetics_display_faqs( $show_heading = true ) {
 				$item_id     = 'faq-' . get_the_ID() . '-' . $index;
 				$heading_id  = 'heading-' . $item_id;
 				$collapse_id = 'collapse-' . $item_id;
-				$is_first    = ( 0 === $index );
 				?>
 				<div class="accordion-item">
 					<h3 class="accordion-header" id="<?php echo esc_attr( $heading_id ); ?>">
@@ -620,7 +622,7 @@ function mia_social_links( $args = array() ): void {
  *
  * @return void
  */
-function mia_aesthetics_breadcrumbs() {
+function mia_aesthetics_breadcrumbs(): void {
 	if ( ! function_exists( 'yoast_breadcrumb' ) ) {
 		return;
 	}
@@ -633,9 +635,11 @@ function mia_aesthetics_breadcrumbs() {
 	}
 
 	// Standard wrapper for consistency & accessibility.
-	echo '<nav aria-label="Breadcrumb" class="breadcrumb-nav">';
-	echo '<div class="container">';
-	echo '<span class="visually-hidden">You are here:</span>';
+	$nav_class       = apply_filters( 'mia_aesthetics_breadcrumbs_nav_class', 'breadcrumb-nav' );
+	$container_class = apply_filters( 'mia_aesthetics_breadcrumbs_container_class', 'container' );
+	echo '<nav aria-label="' . esc_attr__( 'Breadcrumb', 'mia-aesthetics' ) . '" class="' . esc_attr( $nav_class ) . '">';
+	echo '<div class="' . esc_attr( $container_class ) . '">';
+	echo '<span class="visually-hidden">' . esc_html__( 'You are here:', 'mia-aesthetics' ) . '</span>';
 	echo wp_kses_post( $breadcrumbs );
 	echo '</div></nav>';
 }
@@ -651,11 +655,17 @@ function mia_aesthetics_breadcrumbs() {
  * @return array<int, string> Modified array of body classes.
  */
 function mia_template_body_classes( $classes ) {
-	// Add class for pages with gallery shortcode.
+	// Add class for pages with gallery shortcode (filterable list of shortcodes).
 	if ( is_page() ) {
-		global $post;
-		if ( $post && has_shortcode( $post->post_content, 'gallery' ) ) {
-			$classes[] = 'has-gallery';
+		$shortcodes = apply_filters( 'mia_gallery_body_class_shortcodes', array( 'gallery' ) );
+		$post_obj   = get_post();
+		if ( $post_obj instanceof WP_Post && is_array( $shortcodes ) && array() !== $shortcodes ) {
+			foreach ( $shortcodes as $shortcode ) {
+				if ( is_string( $shortcode ) && '' !== $shortcode && has_shortcode( (string) $post_obj->post_content, $shortcode ) ) {
+					$classes[] = 'has-gallery';
+					break;
+				}
+			}
 		}
 	}
 
@@ -698,9 +708,9 @@ function mia_get_hero_title() {
 		$page_for_posts = get_option( 'page_for_posts' );
 		if ( false !== $page_for_posts && is_numeric( $page_for_posts ) ) {
 			$title = get_the_title( (int) $page_for_posts );
-			return false !== $title ? $title : 'Blog';
+			return false !== $title ? $title : esc_html__( 'Blog', 'mia-aesthetics' );
 		}
-		return 'Blog';
+		return esc_html__( 'Blog', 'mia-aesthetics' );
 	}
 
 	if ( is_archive() ) {
@@ -708,11 +718,12 @@ function mia_get_hero_title() {
 	}
 
 	if ( is_search() ) {
-		return sprintf( 'Search Results for: %s', get_search_query() );
+		/* translators: %s: Search query. */
+		return sprintf( esc_html__( 'Search Results for: %s', 'mia-aesthetics' ), get_search_query() );
 	}
 
 	if ( is_404() ) {
-		return 'Page Not Found';
+		return esc_html__( 'Page Not Found', 'mia-aesthetics' );
 	}
 
 	return get_the_title();
@@ -732,4 +743,3 @@ if ( ! function_exists( 'mia_aesthetics_display_page_faqs' ) ) {
 		return mia_aesthetics_display_faqs( $show_heading );
 	}
 }
-

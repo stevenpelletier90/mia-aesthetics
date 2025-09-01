@@ -236,19 +236,23 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 			<h2 class="section-title text-center mb-5">Our <?php echo esc_html( get_the_title() ); ?> Team</h2>
 			<div class="row g-4 justify-content-center">
 				<?php
-				$args     = array(
-					'post_type'      => 'surgeon',
-					'posts_per_page' => -1,
-					'orderby'        => 'menu_order',
-					'order'          => 'ASC',
+				$args = array(
+					'post_type'              => 'surgeon',
+					'posts_per_page'         => -1,
+					'orderby'                => 'menu_order',
+					'order'                  => 'ASC',
 					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
-					'meta_query'     => array(
+					'meta_query'             => array(
 						array(
 							'key'     => 'surgeon_location',
 							'value'   => (int) get_the_ID(),
 							'compare' => '=',
 						),
 					),
+					// Performance optimizations.
+					'update_post_meta_cache' => true,  // We read meta (surgeon_headshot) in the loop.
+					'update_post_term_cache' => false, // We don't render terms in the loop.
+					'no_found_rows'          => true,  // Skip count query.
 				);
 				$surgeons = new WP_Query( $args );
 

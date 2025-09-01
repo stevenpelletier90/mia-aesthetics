@@ -121,9 +121,8 @@ get_header();
 					while ( have_posts() ) :
 						the_post();
 						// Get location data.
-						$location_address   = get_field( 'location_address' );
-						$phone_number       = get_field( 'phone_number' );
-						$location_maps_link = get_field( 'location_maps_link' );
+						$location_address = get_field( 'location_address' );
+						$phone_number     = get_field( 'phone_number' );
 						?>
 <div class="col-md-6 col-lg-4">
 						<?php

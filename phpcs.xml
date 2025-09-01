@@ -31,15 +31,13 @@
         <exclude-pattern>*/inc/*</exclude-pattern>
     </rule>
     
-    <!-- ACF Pro specific escaping functions -->
+    <!-- Custom theme functions that handle escaping internally -->
     <rule ref="WordPress.Security.EscapeOutput">
         <properties>
             <property name="customAutoEscapedFunctions" type="array">
-                <!-- ACF functions that auto-escape -->
-                <element value="the_field"/>
-                <element value="the_sub_field"/>
                 <!-- Custom theme functions that handle escaping internally -->
                 <element value="mia_button"/>
+                <!-- Note: Removed the_field/the_sub_field as they don't auto-escape -->
             </property>
         </properties>
     </rule>

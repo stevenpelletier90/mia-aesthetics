@@ -101,8 +101,7 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 					require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
 				}
 				WP_Filesystem();
-				global $wp_filesystem;
-				$svg = $wp_filesystem->get_contents( $path );
+				$svg = $GLOBALS['wp_filesystem']->get_contents( $path );
 				if ( false !== $svg ) {
 					$xml = simplexml_load_string( $svg );
 					if ( false !== $xml ) {
@@ -168,7 +167,8 @@ add_filter( 'wp_prepare_attachment_for_js', 'mia_aesthetics_fix_svg_display', 10
  * @return array<string, mixed> Modified file data array.
  */
 function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {
-	global $wp_filetype;
+	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	unset( $file );
 	if ( isset( $data['ext'] ) && '' !== $data['ext'] && isset( $data['type'] ) && '' !== $data['type'] ) {
 		return $data;
 	}

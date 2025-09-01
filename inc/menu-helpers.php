@@ -101,7 +101,7 @@ function mia_get_all_menu_data(): array {
 			if ( array() !== $all_data['surgeons'] ) {
 				usort(
 					$all_data['surgeons'],
-					function ( $a, $b ) {
+					static function ( $a, $b ) {
 						return strcasecmp( $a['last_name'], $b['last_name'] );
 					}
 				);
@@ -676,7 +676,6 @@ function render_mobile_before_after_menu(): void {
  * @return void
  */
 function render_non_surgical_menu( bool $is_mobile = false ): void {
-	$procedures     = get_non_surgical_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">

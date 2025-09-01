@@ -146,33 +146,82 @@ class Surgeon_Schema {
 	 * @return string The surgeon image URL.
 	 */
 	private function get_image( $surgeon_id ) {
-		// Prioritize featured image first for surgeon profiles.
-		if ( has_post_thumbnail( $surgeon_id ) ) {
-			$featured_image = get_the_post_thumbnail_url( $surgeon_id, 'full' );
-			if ( false !== $featured_image ) {
-				return $featured_image;
-			}
+		$featured_image = $this->get_featured_image( $surgeon_id );
+		if ( null !== $featured_image ) {
+			return $featured_image;
 		}
 
-		// Fall back to video thumbnail from video_details group.
-		$video_details = get_field( 'video_details', $surgeon_id );
-		if ( null !== $video_details ) {
-			// Use custom thumbnail if available.
-			if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
-				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-				if ( false !== $custom_thumbnail ) {
-					return $custom_thumbnail;
-				}
-			}
-
-			// Fall back to YouTube thumbnail if video_id exists.
-			if ( isset( $video_details['video_id'] ) && '' !== $video_details['video_id'] ) {
-				return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
-			}
+		$video_image = $this->get_video_image( $surgeon_id );
+		if ( null !== $video_image ) {
+			return $video_image;
 		}
 
 		// Default logo as last resort.
 		return get_template_directory_uri() . '/assets/images/mia-logo.png';
+	}
+
+	/**
+	 * Get featured image URL
+	 *
+	 * @param int $surgeon_id The surgeon post ID.
+	 * @return string|null
+	 */
+	private function get_featured_image( $surgeon_id ) {
+		if ( ! has_post_thumbnail( $surgeon_id ) ) {
+			return null;
+		}
+
+		$featured_image = get_the_post_thumbnail_url( $surgeon_id, 'full' );
+		return false !== $featured_image ? $featured_image : null;
+	}
+
+	/**
+	 * Get video-based image (custom thumbnail or YouTube thumbnail)
+	 *
+	 * @param int $surgeon_id The surgeon post ID.
+	 * @return string|null
+	 */
+	private function get_video_image( $surgeon_id ) {
+		$video_details = get_field( 'video_details', $surgeon_id );
+		if ( null === $video_details ) {
+			return null;
+		}
+
+		$custom_thumbnail = $this->get_video_custom_thumbnail( $video_details );
+		if ( null !== $custom_thumbnail ) {
+			return $custom_thumbnail;
+		}
+
+		return $this->get_youtube_thumbnail( $video_details );
+	}
+
+	/**
+	 * Get custom video thumbnail
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @return string|null
+	 */
+	private function get_video_custom_thumbnail( $video_details ) {
+		if ( ! isset( $video_details['video_thumbnail'] ) || '' === $video_details['video_thumbnail'] ) {
+			return null;
+		}
+
+		$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
+		return false !== $custom_thumbnail ? $custom_thumbnail : null;
+	}
+
+	/**
+	 * Get YouTube thumbnail
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @return string|null
+	 */
+	private function get_youtube_thumbnail( $video_details ) {
+		if ( ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
+			return null;
+		}
+
+		return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
 	}
 
 	/**
@@ -189,21 +238,13 @@ class Surgeon_Schema {
 		}
 
 		$video_id          = $video_details['video_id'];
-		$video_title       = ( ! isset( $video_details['video_title'] ) || '' === $video_details['video_title'] ) ? 'Dr. ' . get_the_title() . ' - Featured Video' : $video_details['video_title'];
-		$video_description = ( ! isset( $video_details['video_description'] ) || '' === $video_details['video_description'] ) ? 'Learn more about Dr. ' . get_the_title() . ' at Mia Aesthetics' : $video_details['video_description'];
+		$video_title       = $this->get_video_title( $video_details );
+		$video_description = $this->get_video_description( $video_details );
+		$thumbnail_url     = $this->get_video_thumbnail_url( $video_details, $video_id );
 
 		// Generate YouTube URLs from video ID.
 		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
 		$embed_url = 'https://www.youtube.com/embed/' . $video_id;
-
-		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
-		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
-		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
-			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-			if ( false !== $custom_thumbnail ) {
-				$thumbnail_url = $custom_thumbnail;
-			}
-		}
 
 		return array(
 			'@type'        => 'VideoObject',
@@ -239,5 +280,53 @@ class Surgeon_Schema {
 		}
 
 		return $specialties;
+	}
+
+	/**
+	 * Get video title with fallback
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @return string
+	 */
+	private function get_video_title( $video_details ) {
+		if ( isset( $video_details['video_title'] ) && '' !== $video_details['video_title'] ) {
+			return $video_details['video_title'];
+		}
+
+		return 'Dr. ' . get_the_title() . ' - Featured Video';
+	}
+
+	/**
+	 * Get video description with fallback
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @return string
+	 */
+	private function get_video_description( $video_details ) {
+		if ( isset( $video_details['video_description'] ) && '' !== $video_details['video_description'] ) {
+			return $video_details['video_description'];
+		}
+
+		return 'Learn more about Dr. ' . get_the_title() . ' at Mia Aesthetics';
+	}
+
+	/**
+	 * Get video thumbnail URL
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @param string               $video_id Video ID.
+	 * @return string
+	 */
+	private function get_video_thumbnail_url( $video_details, $video_id ) {
+		// Use custom thumbnail if available.
+		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
+			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
+			if ( false !== $custom_thumbnail ) {
+				return $custom_thumbnail;
+			}
+		}
+
+		// Fall back to YouTube thumbnail.
+		return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 	}
 }

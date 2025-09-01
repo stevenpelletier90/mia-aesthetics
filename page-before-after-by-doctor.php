@@ -56,8 +56,7 @@ get_header();
 				 */
 				require_once ABSPATH . 'wp-admin/includes/file.php';
 				WP_Filesystem();
-				global $wp_filesystem;
-				$json = $wp_filesystem->get_contents( $gallery_json_path );
+				$json = $GLOBALS['wp_filesystem']->get_contents( $gallery_json_path );
 				if ( false !== $json ) {
 					$gallery_data = json_decode( $json, true );
 				}
@@ -117,8 +116,7 @@ if ( file_exists( $gallery_json_path ) ) {
 	 */
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	WP_Filesystem();
-	global $wp_filesystem;
-	$json = $wp_filesystem->get_contents( $gallery_json_path );
+	$json = $GLOBALS['wp_filesystem']->get_contents( $gallery_json_path );
 	if ( false !== $json ) {
 		$gallery_data = json_decode( $json, true );
 	}

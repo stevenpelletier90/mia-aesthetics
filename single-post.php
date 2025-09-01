@@ -67,7 +67,7 @@ get_header(); ?>
 						if ( is_array( $tags ) && count( $tags ) > 0 ) :
 							?>
 							<div class="related-topics mb-5">
-								<h2 class="h5 mb-3">Related Topics</h2>
+								<h2 class="h5 mb-3"><?php esc_html_e( 'Related Topics', 'mia-aesthetics' ); ?></h2>
 								<?php foreach ( $tags as $post_tag ) : ?>
 									<a href="<?php echo esc_url( get_tag_link( $post_tag->term_id ) ); ?>" class="text-decoration-none me-2 text-primary">#<?php echo esc_html( $post_tag->name ); ?></a>
 								<?php endforeach; ?>
@@ -78,7 +78,7 @@ get_header(); ?>
 					<div class="col-lg-4 sidebar">
 						<div class="card mb-4">
 							<div class="card-body">
-								<h2 class="h5 mb-3">Patient Resources</h2>
+								<h2 class="h5 mb-3"><?php esc_html_e( 'Patient Resources', 'mia-aesthetics' ); ?></h2>
 								<ul class="list-unstyled">
 									<li class="mb-2">
 										<a href="/before-after/" class="text-decoration-none">
@@ -116,6 +116,10 @@ get_header(); ?>
 									'post__not_in'   => array( get_the_ID() ),
 									'posts_per_page' => 3,
 									'orderby'        => 'rand',
+									// Performance optimizations.
+									'update_post_meta_cache' => false, // We don't read meta in the loop.
+									'update_post_term_cache' => false, // We don't render terms in the loop.
+									'no_found_rows'  => true,  // Skip count query.
 								)
 							);
 
@@ -123,7 +127,7 @@ get_header(); ?>
 								?>
 								<div class="card mb-4">
 									<div class="card-body">
-										<h2 class="h5 mb-3">Related Articles</h2>
+										<h2 class="h5 mb-3"><?php esc_html_e( 'Related Articles', 'mia-aesthetics' ); ?></h2>
 										<?php
 										while ( $related_posts->have_posts() ) :
 											$related_posts->the_post();

@@ -74,16 +74,14 @@ get_header(); ?>
 					<div class="col">
 						<nav aria-label="Page navigation">
 							<?php
-							global $wp_query;
-
 							// Don't display pagination if there's only one page.
-							if ( $wp_query->max_num_pages > 1 ) :
+							if ( $GLOBALS['wp_query']->max_num_pages > 1 ) :
 
 								// Get current page.
 								$current_page = max( 1, get_query_var( 'paged' ) );
 
-								// Get total pages.
-								$total_pages = $wp_query->max_num_pages;
+									// Get total pages.
+									$total_pages = $GLOBALS['wp_query']->max_num_pages;
 
 								echo '<div class="d-flex justify-content-between align-items-center pagination-container">';
 									// Previous button.

@@ -150,33 +150,82 @@ class Clinic_Schema {
 	 * @return string
 	 */
 	private function get_image( $loc_id ) {
-		// Prioritize featured image first for business listings.
-		if ( has_post_thumbnail( $loc_id ) ) {
-			$featured_image = get_the_post_thumbnail_url( $loc_id, 'full' );
-			if ( false !== $featured_image ) {
-				return $featured_image;
-			}
+		$featured_image = $this->get_featured_image( $loc_id );
+		if ( null !== $featured_image ) {
+			return $featured_image;
 		}
 
-		// Fall back to video thumbnail from video_details group.
-		$video_details = get_field( 'video_details', $loc_id );
-		if ( is_array( $video_details ) ) {
-			// Use custom thumbnail if available.
-			if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
-				$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-				if ( false !== $custom_thumbnail ) {
-					return $custom_thumbnail;
-				}
-			}
-
-			// Fall back to YouTube thumbnail if video_id exists.
-			if ( isset( $video_details['video_id'] ) && '' !== $video_details['video_id'] ) {
-				return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
-			}
+		$video_image = $this->get_video_image( $loc_id );
+		if ( null !== $video_image ) {
+			return $video_image;
 		}
 
 		// Default logo as last resort.
 		return get_template_directory_uri() . '/assets/images/mia-logo.png';
+	}
+
+	/**
+	 * Get featured image URL
+	 *
+	 * @param int $loc_id The location post ID.
+	 * @return string|null
+	 */
+	private function get_featured_image( $loc_id ) {
+		if ( ! has_post_thumbnail( $loc_id ) ) {
+			return null;
+		}
+
+		$featured_image = get_the_post_thumbnail_url( $loc_id, 'full' );
+		return false !== $featured_image ? $featured_image : null;
+	}
+
+	/**
+	 * Get video-based image (custom thumbnail or YouTube thumbnail)
+	 *
+	 * @param int $loc_id The location post ID.
+	 * @return string|null
+	 */
+	private function get_video_image( $loc_id ) {
+		$video_details = get_field( 'video_details', $loc_id );
+		if ( ! is_array( $video_details ) ) {
+			return null;
+		}
+
+		$custom_thumbnail = $this->get_video_custom_thumbnail( $video_details );
+		if ( null !== $custom_thumbnail ) {
+			return $custom_thumbnail;
+		}
+
+		return $this->get_youtube_thumbnail( $video_details );
+	}
+
+	/**
+	 * Get custom video thumbnail
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @return string|null
+	 */
+	private function get_video_custom_thumbnail( $video_details ) {
+		if ( ! isset( $video_details['video_thumbnail'] ) || '' === $video_details['video_thumbnail'] ) {
+			return null;
+		}
+
+		$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
+		return false !== $custom_thumbnail ? $custom_thumbnail : null;
+	}
+
+	/**
+	 * Get YouTube thumbnail
+	 *
+	 * @param array<string, mixed> $video_details Video details from ACF.
+	 * @return string|null
+	 */
+	private function get_youtube_thumbnail( $video_details ) {
+		if ( ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
+			return null;
+		}
+
+		return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_details['video_id'] );
 	}
 
 	/**
@@ -325,82 +374,117 @@ class Clinic_Schema {
 	 * @return array<string, string>
 	 */
 	private function convert_to_24_hour( $matches ) {
-		$opens  = '';
-		$closes = '';
-
-		// Handle different match patterns.
+		// Determine which pattern we matched based on match count and content.
 		if ( count( $matches ) >= 7 && isset( $matches[2] ) && isset( $matches[5] ) ) {
-			// Pattern: "9:00 AM - 5:00 PM" (has minutes).
-			$open_hour   = intval( $matches[1] );
-			$open_min    = $matches[2];
-			$open_period = strtoupper( $matches[3] ?? '' );
-
-			$close_hour   = intval( $matches[4] );
-			$close_min    = $matches[5];
-			$close_period = strtoupper( $matches[6] ?? '' );
-
-			// Convert to 24-hour.
-			if ( 'PM' === $open_period && 12 !== $open_hour ) {
-				$open_hour += 12;
-			}
-
-			if ( 'AM' === $open_period && 12 === $open_hour ) {
-				$open_hour = 0;
-			}
-
-			if ( 'PM' === $close_period && 12 !== $close_hour ) {
-				$close_hour += 12;
-			}
-
-			if ( 'AM' === $close_period && 12 === $close_hour ) {
-				$close_hour = 0;
-			}
-
-			$opens  = sprintf( '%02d:%s', $open_hour, $open_min );
-			$closes = sprintf( '%02d:%s', $close_hour, $close_min );
-
-		} elseif ( count( $matches ) >= 5 && isset( $matches[2] ) && isset( $matches[4] ) && is_numeric( $matches[2] ) ) {
-			// Pattern: "09:00-17:00" (24-hour format with minutes).
-			$opens  = sprintf( '%02d:%s', intval( $matches[1] ), $matches[2] );
-			$closes = sprintf( '%02d:%s', intval( $matches[3] ), $matches[4] );
-
-		} elseif ( count( $matches ) >= 5 && isset( $matches[2] ) && isset( $matches[4] ) ) {
-			// Pattern: "9AM-5PM" (hour only with AM/PM).
-			$open_hour    = intval( $matches[1] );
-			$open_period  = strtoupper( $matches[2] );
-			$close_hour   = intval( $matches[3] );
-			$close_period = strtoupper( $matches[4] );
-
-			// Convert to 24-hour.
-			if ( 'PM' === $open_period && 12 !== $open_hour ) {
-				$open_hour += 12;
-			}
-
-			if ( 'AM' === $open_period && 12 === $open_hour ) {
-				$open_hour = 0;
-			}
-
-			if ( 'PM' === $close_period && 12 !== $close_hour ) {
-				$close_hour += 12;
-			}
-
-			if ( 'AM' === $close_period && 12 === $close_hour ) {
-				$close_hour = 0;
-			}
-
-			$opens  = sprintf( '%02d:00', $open_hour );
-			$closes = sprintf( '%02d:00', $close_hour );
-
-		} elseif ( count( $matches ) >= 3 ) {
-			// Pattern: "9-17" (24-hour format, hour only).
-			$opens  = sprintf( '%02d:00', intval( $matches[1] ) );
-			$closes = sprintf( '%02d:00', intval( $matches[2] ) );
+			return $this->convert_ampm_with_minutes( $matches );
 		}
 
+		if ( count( $matches ) >= 5 && isset( $matches[2] ) && isset( $matches[4] ) && is_numeric( $matches[2] ) ) {
+			return $this->convert_24hour_with_minutes( $matches );
+		}
+
+		if ( count( $matches ) >= 5 && isset( $matches[2] ) && isset( $matches[4] ) ) {
+			return $this->convert_ampm_hour_only( $matches );
+		}
+
+		if ( count( $matches ) >= 3 ) {
+			return $this->convert_24hour_hour_only( $matches );
+		}
+
+			return array(
+				'opens'  => '',
+				'closes' => '',
+			);
+	}
+
+	/**
+	 * Convert AM/PM format with minutes (e.g., "9:00 AM - 5:00 PM")
+	 *
+	 * @param array<int, string> $matches Regex matches.
+	 * @return array<string, string>
+	 */
+	private function convert_ampm_with_minutes( $matches ) {
+		$open_hour   = intval( $matches[1] );
+		$open_min    = $matches[2];
+		$open_period = strtoupper( $matches[3] ?? '' );
+
+		$close_hour   = intval( $matches[4] );
+		$close_min    = $matches[5];
+		$close_period = strtoupper( $matches[6] ?? '' );
+
+		$open_hour_24  = $this->convert_hour_to_24( $open_hour, $open_period );
+		$close_hour_24 = $this->convert_hour_to_24( $close_hour, $close_period );
+
 		return array(
-			'opens'  => $opens,
-			'closes' => $closes,
+			'opens'  => sprintf( '%02d:%s', $open_hour_24, $open_min ),
+			'closes' => sprintf( '%02d:%s', $close_hour_24, $close_min ),
 		);
+	}
+
+	/**
+	 * Convert 24-hour format with minutes (e.g., "09:00-17:00")
+	 *
+	 * @param array<int, string> $matches Regex matches.
+	 * @return array<string, string>
+	 */
+	private function convert_24hour_with_minutes( $matches ) {
+		return array(
+			'opens'  => sprintf( '%02d:%s', intval( $matches[1] ), $matches[2] ),
+			'closes' => sprintf( '%02d:%s', intval( $matches[3] ), $matches[4] ),
+		);
+	}
+
+	/**
+	 * Convert AM/PM format hour only (e.g., "9AM-5PM")
+	 *
+	 * @param array<int, string> $matches Regex matches.
+	 * @return array<string, string>
+	 */
+	private function convert_ampm_hour_only( $matches ) {
+		$open_hour    = intval( $matches[1] );
+		$open_period  = strtoupper( $matches[2] );
+		$close_hour   = intval( $matches[3] );
+		$close_period = strtoupper( $matches[4] );
+
+		$open_hour_24  = $this->convert_hour_to_24( $open_hour, $open_period );
+		$close_hour_24 = $this->convert_hour_to_24( $close_hour, $close_period );
+
+		return array(
+			'opens'  => sprintf( '%02d:00', $open_hour_24 ),
+			'closes' => sprintf( '%02d:00', $close_hour_24 ),
+		);
+	}
+
+	/**
+	 * Convert 24-hour format hour only (e.g., "9-17")
+	 *
+	 * @param array<int, string> $matches Regex matches.
+	 * @return array<string, string>
+	 */
+	private function convert_24hour_hour_only( $matches ) {
+		return array(
+			'opens'  => sprintf( '%02d:00', intval( $matches[1] ) ),
+			'closes' => sprintf( '%02d:00', intval( $matches[2] ) ),
+		);
+	}
+
+	/**
+	 * Convert 12-hour to 24-hour format
+	 *
+	 * @param int    $hour   The hour (1-12).
+	 * @param string $period AM or PM.
+	 * @return int The hour in 24-hour format.
+	 */
+	private function convert_hour_to_24( $hour, $period ) {
+		if ( 'PM' === $period && 12 !== $hour ) {
+			return $hour + 12;
+		}
+
+		if ( 'AM' === $period && 12 === $hour ) {
+			return 0;
+		}
+
+		return $hour;
 	}
 
 	/**
@@ -436,7 +520,7 @@ class Clinic_Schema {
 		);
 
 		return array_map(
-			function ( $service ) {
+			static function ( $service ) {
 				return array(
 					'@type'         => 'MedicalProcedure',
 					'name'          => $service,
@@ -494,7 +578,7 @@ class Clinic_Schema {
 		}
 
 		return array_map(
-			function ( $surgeon ) {
+			static function ( $surgeon ) {
 				return array( '@id' => get_permalink( $surgeon->ID ) . '#physician' );
 			},
 			$surgeons
@@ -515,8 +599,8 @@ class Clinic_Schema {
 		}
 
 		$video_id          = $video_details['video_id'];
-		$video_title       = ( ! isset( $video_details['video_title'] ) || '' === $video_details['video_title'] ) ? get_the_title() . ' - Featured Video' : $video_details['video_title'];
-		$video_description = ( ! isset( $video_details['video_description'] ) || '' === $video_details['video_description'] ) ? 'Learn more about Mia Aesthetics ' . get_the_title() . ' location' : $video_details['video_description'];
+		$video_title       = ! isset( $video_details['video_title'] ) || '' === $video_details['video_title'] ? get_the_title() . ' - Featured Video' : $video_details['video_title'];
+		$video_description = ! isset( $video_details['video_description'] ) || '' === $video_details['video_description'] ? 'Learn more about Mia Aesthetics ' . get_the_title() . ' location' : $video_details['video_description'];
 
 		// Generate YouTube URLs from video ID.
 		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;

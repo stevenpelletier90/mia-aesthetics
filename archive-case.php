@@ -109,13 +109,15 @@ get_header(); ?>
 					<h2 class="h3 mb-3">Browse Results by Surgeon</h2>
 					<p class="lead text-muted mb-4">Explore transformations organized by our expert surgical team members to see their specialized work and artistic approach.</p>
 					<?php
-					echo mia_button(
-						'View Results by Surgeon',
-						'/before-after/before-after-by-doctor/',
-						array(
-							'variant' => 'primary',
-							'size'    => 'lg',
-							'icon'    => 'fas fa-arrow-right',
+					echo wp_kses_post(
+						mia_button(
+							'View Results by Surgeon',
+							'/before-after/before-after-by-doctor/',
+							array(
+								'variant' => 'primary',
+								'size'    => 'lg',
+								'icon'    => 'fas fa-arrow-right',
+							)
 						)
 					);
 					?>

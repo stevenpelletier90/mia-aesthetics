@@ -14,68 +14,115 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
+ * Get archive query configuration for post types
+ *
+ * @return array<string, array<string, mixed>>
+ */
+function mia_get_archive_configurations(): array {
+	return array(
+		'location'     => array(
+			'posts_per_page' => -1,
+			'post_parent'    => 0,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+		),
+		'surgeon'      => array(
+			'posts_per_page' => -1,
+			'orderby'        => 'menu_order',
+			'order'          => 'ASC',
+		),
+		'procedure'    => array(
+			'posts_per_page' => -1,
+			'post_parent'    => 0,
+			'orderby'        => 'menu_order title',
+			'order'          => 'ASC',
+		),
+		'case'         => array(
+			'posts_per_page' => -1,
+			'orderby'        => 'date',
+			'order'          => 'DESC',
+		),
+		'condition'    => array(
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+		),
+		'special'      => array(
+			'posts_per_page' => 6,
+			'orderby'        => 'menu_order date',
+			'order'          => 'DESC',
+		),
+		'non-surgical' => array(
+			'posts_per_page' => -1,
+			'orderby'        => 'menu_order title',
+			'order'          => 'ASC',
+		),
+	);
+}
+
+/**
  * Modify main queries for custom post type archives
  *
  * @param WP_Query $query The WP_Query object.
  * @return void
  */
-function mia_modify_archive_queries( $query ) {
+function mia_modify_archive_queries( $query ): void {
 	// Only modify main queries on the frontend.
 	if ( is_admin() || ! $query->is_main_query() ) {
 		return;
 	}
 
-	// Location archive modifications.
-	if ( is_post_type_archive( 'location' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all locations.
-		$query->set( 'post_parent', 0 );          // Only top-level locations.
-		$query->set( 'orderby', 'title' );        // Alphabetical order.
-		$query->set( 'order', 'ASC' );
-	} elseif ( is_post_type_archive( 'surgeon' ) ) {
-		// Surgeon archive modifications.
-		$query->set( 'posts_per_page', -1 );      // Show all surgeons.
-		$query->set( 'orderby', 'menu_order' );   // Manual order.
-		$query->set( 'order', 'ASC' );
-	} elseif ( is_post_type_archive( 'procedure' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all procedures.
-		$query->set( 'post_parent', 0 );          // Only top-level procedures.
-		$query->set( 'orderby', 'menu_order title' ); // Manual order, then alphabetical.
-		$query->set( 'order', 'ASC' );
-	} elseif ( is_post_type_archive( 'case' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all cases.
-		$query->set( 'orderby', 'date' );         // Most recent first.
-		$query->set( 'order', 'DESC' );
-	} elseif ( is_post_type_archive( 'condition' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all conditions.
-		$query->set( 'orderby', 'title' );        // Alphabetical order.
-		$query->set( 'order', 'ASC' );
-	} elseif ( is_post_type_archive( 'special' ) ) {
-		$query->set( 'posts_per_page', 6 );       // Paginate specials.
-		$query->set( 'orderby', 'menu_order date' ); // Manual order, then date.
-		$query->set( 'order', 'DESC' );
+	$configurations = mia_get_archive_configurations();
 
-		// Only show active specials.
-		$query->set(
-			'meta_query',
-			array(
-				'relation' => 'OR',
-				array(
-					'key'     => 'special_end_date',
-					'value'   => gmdate( 'Y-m-d' ),
-					'compare' => '>=',
-					'type'    => 'DATE',
-				),
-				array(
-					'key'     => 'special_end_date',
-					'compare' => 'NOT EXISTS',
-				),
-			)
-		);
-	} elseif ( is_post_type_archive( 'non-surgical' ) ) {
-		$query->set( 'posts_per_page', -1 );      // Show all non-surgical.
-		$query->set( 'orderby', 'menu_order title' ); // Manual order, then alphabetical.
-		$query->set( 'order', 'ASC' );
+	foreach ( $configurations as $post_type => $config ) {
+		if ( is_post_type_archive( $post_type ) ) {
+			mia_apply_archive_config( $query, $config );
+
+			// Special handling for specials archive.
+			if ( 'special' === $post_type ) {
+				mia_apply_special_archive_meta_query( $query );
+			}
+			break;
+		}
 	}
+}
+
+/**
+ * Apply archive configuration to query
+ *
+ * @param WP_Query             $query  The WP_Query object.
+ * @param array<string, mixed> $config Archive configuration.
+ * @return void
+ */
+function mia_apply_archive_config( $query, $config ): void {
+	foreach ( $config as $key => $value ) {
+		$query->set( $key, $value );
+	}
+}
+
+/**
+ * Apply special archive meta query for active specials
+ *
+ * @param WP_Query $query The WP_Query object.
+ * @return void
+ */
+function mia_apply_special_archive_meta_query( $query ): void {
+	$query->set(
+		'meta_query',
+		array(
+			'relation' => 'OR',
+			array(
+				'key'     => 'special_end_date',
+				'value'   => gmdate( 'Y-m-d' ),
+				'compare' => '>=',
+				'type'    => 'DATE',
+			),
+			array(
+				'key'     => 'special_end_date',
+				'compare' => 'NOT EXISTS',
+			),
+		)
+	);
 }
 
 add_action( 'pre_get_posts', 'mia_modify_archive_queries' );
@@ -172,28 +219,39 @@ function mia_excerpt_more( $more ) {
 		return $more;
 	}
 
-	return '...';
+	return esc_html__( '…', 'mia-aesthetics' );
 }
 
 add_filter( 'excerpt_more', 'mia_excerpt_more' );
 
 /**
- * Remove protected/private prefixes from titles
+ * Use native title format filters to remove Protected/Private prefixes
  *
- * @param string $title The post title.
- * @return string
+ * @param string $format The current title format.
+ * @return string Title format without prefixes.
  */
-function mia_remove_title_prefixes( $title ) {
-	// Remove "Protected: " prefix.
-	$title = str_replace( 'Protected: ', '', $title );
-
-	// Remove "Private: " prefix.
-	$title = str_replace( 'Private: ', '', $title );
-
-	return $title;
+function mia_protected_title_format( $format ) {
+	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	unset( $format );
+	// Always return the raw title without the default "Protected: " prefix.
+	return '%s';
 }
 
-add_filter( 'the_title', 'mia_remove_title_prefixes' );
+add_filter( 'protected_title_format', 'mia_protected_title_format' );
+
+/**
+ * Remove Private prefix via native filter.
+ *
+ * @param string $format The current title format.
+ * @return string Title format without prefixes.
+ */
+function mia_private_title_format( $format ) {
+	// phpcs:ignore Generic.CodeAnalysis.UnusedFunctionParameter.FoundAfterLastUsed
+	unset( $format );
+	return '%s';
+}
+
+add_filter( 'private_title_format', 'mia_private_title_format' );
 
 /**
  * Modify search query to include custom post types
@@ -201,7 +259,7 @@ add_filter( 'the_title', 'mia_remove_title_prefixes' );
  * @param WP_Query $query The WP_Query instance.
  * @return void
  */
-function mia_search_filter( $query ) {
+function mia_search_filter( $query ): void {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
 		// Include relevant post types in search.
 		$searchable_types = array(
@@ -229,7 +287,7 @@ add_action( 'pre_get_posts', 'mia_search_filter' );
  * @param WP_Query $query The WP_Query instance.
  * @return void
  */
-function mia_exclude_pages_from_search( $query ) {
+function mia_exclude_pages_from_search( $query ): void {
 	if ( ! is_admin() && $query->is_main_query() && $query->is_search() ) {
 		// Get cached excluded page IDs.
 		$cache_key   = 'mia_excluded_search_pages';
@@ -293,39 +351,35 @@ add_filter( 'query_vars', 'mia_add_query_vars' );
  * @param WP_Query $query The WP_Query instance.
  * @return void
  */
-function mia_handle_custom_queries( $query ) {
+function mia_handle_custom_queries( $query ): void {
 	if ( ! is_admin() && $query->is_main_query() ) {
 		// Filter surgeons by location.
-		if ( '' !== get_query_var( 'surgeon_location' ) ) {
-			$location_id = intval( get_query_var( 'surgeon_location' ) );
+		$raw_location = $query->get( 'surgeon_location' );
+		if ( '' !== $raw_location ) {
+			$location_id = intval( $raw_location );
 			if ( 0 !== $location_id ) {
-				$query->set(
-					'meta_query',
-					array(
-						array(
-							'key'     => 'surgeon_location',
-							'value'   => $location_id,
-							'compare' => '=',
-						),
-					)
+				$meta_query   = (array) $query->get( 'meta_query' );
+				$meta_query[] = array(
+					'key'     => 'surgeon_location',
+					'value'   => $location_id,
+					'compare' => '=',
 				);
+				$query->set( 'meta_query', $meta_query );
 			}
 		}
 
 		// Filter procedures by type.
-		if ( '' !== get_query_var( 'procedure_type' ) ) {
-			$procedure_type = sanitize_text_field( get_query_var( 'procedure_type' ) );
+		$raw_procedure_type = $query->get( 'procedure_type' );
+		if ( '' !== $raw_procedure_type ) {
+			$procedure_type = sanitize_text_field( $raw_procedure_type );
 			if ( '' !== $procedure_type ) {
-				$query->set(
-					'meta_query',
-					array(
-						array(
-							'key'     => 'procedure_type',
-							'value'   => $procedure_type,
-							'compare' => '=',
-						),
-					)
+				$meta_query   = (array) $query->get( 'meta_query' );
+				$meta_query[] = array(
+					'key'     => 'procedure_type',
+					'value'   => $procedure_type,
+					'compare' => '=',
 				);
+				$query->set( 'meta_query', $meta_query );
 			}
 		}
 	}
@@ -339,11 +393,11 @@ add_action( 'pre_get_posts', 'mia_handle_custom_queries' );
  * @param WP_Query $query The WP_Query instance.
  * @return void
  */
-function mia_optimize_queries( $query ) {
+function mia_optimize_queries( $query ): void {
 	if ( ! is_admin() && $query->is_main_query() ) {
 		// Remove unnecessary meta cache on archives that don't use meta fields.
 		if ( is_post_type_archive() ) {
-			$post_type = get_query_var( 'post_type' );
+			$post_type = $query->get( 'post_type' );
 
 			// Post types that don't need meta cache in archives.
 			$no_meta_types = array( 'surgeon', 'procedure', 'condition' );
@@ -359,7 +413,7 @@ function mia_optimize_queries( $query ) {
 
 		// Optimize found_rows calculation when not needed.
 		if ( is_post_type_archive() && ! is_paged() ) {
-			$post_type = get_query_var( 'post_type' );
+			$post_type = $query->get( 'post_type' );
 			// Archives that show all items don't need found_rows.
 			$no_pagination_types = array( 'location', 'surgeon', 'procedure', 'condition', 'non-surgical' );
 			if ( in_array( $post_type, $no_pagination_types, true ) ) {
@@ -397,10 +451,10 @@ add_action( 'init', 'mia_pagination_rewrite_rules' );
  * @param WP_Query $query The WP_Query instance.
  * @return void
  */
-function mia_fix_pagination( $query ) {
-	if ( ! is_admin() && $query->is_main_query() && is_post_type_archive( array( 'special' ) ) ) {
+function mia_fix_pagination( $query ): void {
+	if ( ! is_admin() && $query->is_main_query() && ( $query->is_post_type_archive( 'special' ) || in_array( 'special', (array) $query->get( 'post_type' ), true ) ) ) {
 		if ( 0 !== (int) get_query_var( 'paged' ) ) {
-				$query->set( 'paged', get_query_var( 'paged' ) );
+			$query->set( 'paged', get_query_var( 'paged' ) );
 		} elseif ( 0 !== (int) get_query_var( 'page' ) ) {
 			$query->set( 'paged', get_query_var( 'page' ) );
 		}
@@ -494,7 +548,7 @@ function mia_get_non_surgical_by_category() {
  * @param int $post_id The post ID being updated.
  * @return void
  */
-function mia_clear_query_caches( $post_id ) {
+function mia_clear_query_caches( $post_id ): void {
 	$post_type = get_post_type( $post_id );
 
 	// Clear non-surgical grouping cache.

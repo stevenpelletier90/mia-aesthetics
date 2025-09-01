@@ -76,12 +76,10 @@
 				$footer_locations = mia_get_footer_locations();
 
 				if ( ! empty( $footer_locations ) ) :
-					$location_index = 0;
 					foreach ( $footer_locations as $location ) :
-						++$location_index;
 
 						// Skip if no URL available.
-						if ( empty( $location['url'] ) ) {
+						if ( ! isset( $location['url'] ) || '' === $location['url'] ) {
 							continue;
 						}
 						?>
@@ -101,11 +99,11 @@
 								</a>
 							</div>
 							
-							<?php if ( ! empty( $location['surgeons'] ) ) : ?>
+							<?php if ( isset( $location['surgeons'] ) && count( $location['surgeons'] ) > 0 ) : ?>
 								<div class="surgeons-list">
 									<ul class="list-unstyled">
 										<?php foreach ( $location['surgeons'] as $surgeon ) : ?>
-											<?php if ( ! empty( $surgeon['url'] ) ) : ?>
+											<?php if ( isset( $surgeon['url'] ) && '' !== $surgeon['url'] ) : ?>
 											<li class="mb-2">
 												<a href="<?php echo esc_url( $surgeon['url'] ); ?>" class="surgeon-link">
 													<span><?php echo esc_html( $surgeon['title'] ); ?></span>

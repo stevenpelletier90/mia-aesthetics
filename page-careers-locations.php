@@ -566,12 +566,10 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 				if ( null !== $mia_aesthetics_main_location ) {
 					// We have a linked location, use its ID to find surgeons.
 					$mia_aesthetics_location_id_for_surgeons = $mia_aesthetics_main_location->ID;
-					$mia_aesthetics_location_name            = $mia_aesthetics_main_location->post_title;
 				} else {
 					// No linked location - this shouldn't happen in production.
 					// but we'll handle it gracefully.
 					$mia_aesthetics_location_id_for_surgeons = 0; // This will return no surgeons.
-					$mia_aesthetics_location_name            = get_the_title();
 				}
 
 				$mia_aesthetics_args = array(

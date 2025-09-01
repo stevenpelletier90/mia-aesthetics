@@ -8,8 +8,6 @@
  * @package Mia_Aesthetics
  */
 
-global $post;
-
 get_header(); ?>
 
 <main>
@@ -57,33 +55,37 @@ get_header(); ?>
 						<div class="row g-3">
 							<?php if ( null !== $before_photo ) : ?>
 							<div class="col-6">
-								<div class="position-relative case-image-container">
+								<button type="button" 
+									class="position-relative case-image-container border-0 p-0 bg-transparent w-100"
+									data-bs-toggle="modal"
+									data-bs-target="#imageModal"
+									data-bs-image="<?php echo esc_url( $before_photo['url'] ); ?>"
+									data-bs-title="Before Treatment"
+									aria-label="View before treatment image for <?php echo esc_attr( get_the_title() ); ?>">
 									<img src="<?php echo esc_url( $before_photo['sizes']['medium_large'] ?? $before_photo['url'] ); ?>"
 										class="img-fluid rounded cursor-pointer"
 										alt="Before Treatment – <?php echo esc_attr( get_the_title() ); ?>"
-										loading="lazy"
-										data-bs-toggle="modal"
-										data-bs-target="#imageModal"
-										data-bs-image="<?php echo esc_url( $before_photo['url'] ); ?>"
-										data-bs-title="Before Treatment">
+										loading="lazy">
 									<span class="before-label">Before</span>
-								</div>
+								</button>
 							</div>
 							<?php endif; ?>
 
 							<?php if ( null !== $after_photo ) : ?>
 							<div class="col-6">
-								<div class="position-relative case-image-container">
+								<button type="button" 
+									class="position-relative case-image-container border-0 p-0 bg-transparent w-100"
+									data-bs-toggle="modal"
+									data-bs-target="#imageModal"
+									data-bs-image="<?php echo esc_url( $after_photo['url'] ); ?>"
+									data-bs-title="After Treatment"
+									aria-label="View after treatment image for <?php echo esc_attr( get_the_title() ); ?>">
 									<img src="<?php echo esc_url( $after_photo['sizes']['medium_large'] ?? $after_photo['url'] ); ?>"
 										class="img-fluid rounded cursor-pointer"
 										alt="After Treatment – <?php echo esc_attr( get_the_title() ); ?>"
-										loading="lazy"
-										data-bs-toggle="modal"
-										data-bs-target="#imageModal"
-										data-bs-image="<?php echo esc_url( $after_photo['url'] ); ?>"
-										data-bs-title="After Treatment">
+										loading="lazy">
 									<span class="after-label">After</span>
-								</div>
+								</button>
 							</div>
 							<?php endif; ?>
 						</div>
@@ -267,23 +269,24 @@ get_header(); ?>
 	// Get related cases based on case-category taxonomy.
 	$case_post_id = get_the_ID();
 	if ( false === $case_post_id ) {
-		return;
+		// Avoid aborting the entire template; skip related section gracefully.
+		$case_post_id = 0;
 	}
 
 	$current_category_terms = wp_get_post_terms( $case_post_id, 'case-category' );
 
 	// Handle WP_Error or empty results.
 	if ( is_wp_error( $current_category_terms ) || ! is_array( $current_category_terms ) || 0 === count( $current_category_terms ) ) {
-		return;
+		// No valid terms — skip related cases without exiting the template.
+		$current_category_terms = array();
 	}
 
-	// Filter out broad parent categories, use only specific categories.
+	// Filter out broad parent categories, use only specific child categories.
 	$specific_category_ids = array();
-	$excluded_parent_names = array( 'Body', 'Breast', 'Face' ); // Add other broad parent category names here.
 
 	foreach ( $current_category_terms as $category_term ) {
-		// Skip if it's a known broad parent category.
-		if ( ! in_array( $category_term->name, $excluded_parent_names, true ) ) {
+		// Use only child categories (those with a parent), skip top-level parent categories.
+		if ( 0 !== $category_term->parent ) {
 			$specific_category_ids[] = $category_term->term_id;
 		}
 	}
@@ -292,15 +295,14 @@ get_header(); ?>
 		// Query using only the most specific categories (exclude top-level parent cases).
 		$related_cases = new WP_Query(
 			array(
-				'post_type'           => 'case',
-				'post_status'         => 'publish',
-				'post__not_in'        => array( get_the_ID() ),
-				'post_parent__not_in' => array( 0 ), // Exclude top-level cases.
-				'posts_per_page'      => 4,
-				'orderby'             => 'date',
-				'order'               => 'DESC',
+				'post_type'              => 'case',
+				'post_status'            => 'publish',
+				'post__not_in'           => array( get_the_ID() ),
+				'posts_per_page'         => 4,
+				'orderby'                => 'date',
+				'order'                  => 'DESC',
 				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-				'tax_query'           => array(
+				'tax_query'              => array(
 					array(
 						'taxonomy' => 'case-category',
 						'field'    => 'term_id',
@@ -308,6 +310,11 @@ get_header(); ?>
 						'operator' => 'IN',
 					),
 				),
+				// Performance optimizations.
+				'update_post_meta_cache' => false, // We don't read meta in the loop.
+				'update_post_term_cache' => true,  // We render terms in the loop.
+				'no_found_rows'          => true,  // Skip count query.
+				'ignore_sticky_posts'    => true,  // Ignore sticky posts.
 			)
 		);
 
@@ -379,13 +386,13 @@ get_header(); ?>
 					<div class="carousel-inner">
 						<?php if ( null !== $before_photo ) : ?>
 						<div class="carousel-item active">
-							<img src="<?php echo esc_url( $before_photo['url'] ); ?>" class="d-block w-100" alt="Before Treatment">
+							<img src="<?php echo esc_url( $before_photo['url'] ); ?>" class="d-block w-100" alt="Before Treatment – <?php echo esc_attr( get_the_title() ); ?>">
 						</div>
 						<?php endif; ?>
 
 						<?php if ( null !== $after_photo ) : ?>
 						<div class="carousel-item<?php echo null === $before_photo ? ' active' : ''; ?>">
-							<img src="<?php echo esc_url( $after_photo['url'] ); ?>" class="d-block w-100" alt="After Treatment">
+							<img src="<?php echo esc_url( $after_photo['url'] ); ?>" class="d-block w-100" alt="After Treatment – <?php echo esc_attr( get_the_title() ); ?>">
 						</div>
 						<?php endif; ?>
 					</div>

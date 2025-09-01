@@ -24,7 +24,7 @@ class Organization_Schema {
 	 * @return void
 	 */
 	public static function init(): void {
-		add_filter( 'wpseo_schema_organization', array( __CLASS__, 'enhance_organization_schema' ), 11, 2 );
+		add_filter( 'wpseo_schema_organization', array( self::class, 'enhance_organization_schema' ), 11, 2 );
 	}
 
 	/**

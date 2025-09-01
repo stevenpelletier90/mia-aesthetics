@@ -12,8 +12,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-
-
 /**
  * Locate and normalise video data stored in various ACF fields.
  *

@@ -157,7 +157,7 @@ if ( $current_post instanceof WP_Post ) {
 								$mia_aesthetics_related_procedures = get_field( 'related_procedures' );
 								if ( is_array( $mia_aesthetics_related_procedures ) && count( $mia_aesthetics_related_procedures ) > 0 ) :
 									$mia_aesthetics_related_ids   = array_map(
-										function ( $p ) {
+										static function ( $p ) {
 											return is_object( $p ) && property_exists( $p, 'ID' ) ? $p->ID : (int) $p;
 										},
 										$mia_aesthetics_related_procedures

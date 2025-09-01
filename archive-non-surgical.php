@@ -85,10 +85,9 @@ get_header(); ?>
 					$weight_loss_post = get_post( 233 );
 					if ( $weight_loss_post instanceof WP_Post && 'publish' === $weight_loss_post->post_status ) :
 						setup_postdata( $weight_loss_post );
-						$procedure_title   = get_the_title( 233 );
-						$procedure_excerpt = get_the_excerpt( 233 );
-						$procedure_link    = get_permalink( 233 );
-						$procedure_image   = get_the_post_thumbnail(
+						$procedure_title = get_the_title( 233 );
+						$procedure_link  = get_permalink( 233 );
+						$procedure_image = get_the_post_thumbnail(
 							233,
 							'medium_large',
 							array(
