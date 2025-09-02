@@ -12,7 +12,7 @@ $full_name  = get_the_title();
 $name_parts = explode( ' ', $full_name );
 $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_name;
 ?>
-<main tabindex="0">
+<main id="primary" tabindex="0">
 <div class="surgeon-breadcrumb-wrapper">
 	<div class="surgeon-fluid-container">
 		<?php mia_aesthetics_breadcrumbs(); ?>

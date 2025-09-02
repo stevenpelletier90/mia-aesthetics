@@ -9,7 +9,7 @@
 get_header();
 ?>
 
-<main>
+<main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
 
 	<!-- Archive Header -->

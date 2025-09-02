@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<main data-bs-spy="scroll" data-bs-target="#tableOfContents" data-bs-offset="100" data-bs-smooth-scroll="true">
+<main id="primary" data-bs-spy="scroll" data-bs-target="#tableOfContents" data-bs-offset="100" data-bs-smooth-scroll="true">
 <?php mia_aesthetics_breadcrumbs(); ?>
 	<?php
 	while ( have_posts() ) :

@@ -7,10 +7,6 @@
  */
 
 get_header();
-
-?>
-<a href="#main-content" class="visually-hidden-focusable skip-link">Skip to main content</a>
-<?php
 $current_post           = get_queried_object();
 $mia_aesthetics_hero_id = false;
 
@@ -18,7 +14,7 @@ if ( $current_post instanceof WP_Post ) {
 	$mia_aesthetics_hero_id = get_post_thumbnail_id( $current_post );
 }
 ?>
-<main id="main-content" role="main">
+<main id="primary" role="main">
 <?php mia_aesthetics_breadcrumbs(); ?>
 
 	<?php

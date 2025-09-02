@@ -33,9 +33,9 @@ This theme is hosted on **WP Engine**, which provides several advantages and con
 - [x] **CSS Architecture Optimization**: Analyzed and optimized file structure for performance
 - [x] **Editor Parity**: Editor now loads `assets/css/theme.css` for accurate WYSIWYG
 - [x] **theme.json (Minimal Tokens)**: Added brand palette, fonts, spacing, and base text/heading/link styles
-- [x] **Global Skip Link**: Added universal skip link in `header.php` after `wp_body_open()`
+- [x] **Global Skip Link**: Added universal skip link in `header.php` after `wp_body_open()`; standardized `id="primary"` on all `<main>` wrappers (removed per-template skip links)
 - [x] **Google Maps Non‑Blocking**: `async` + `defer` added in location search components
-- [x] **Active Menu States (Phase 1)**: Top-level nav highlights with `aria-current` + ancestor class across desktop and mobile
+- [x] **Active Menu States (Phase 1-2)**: Exact item highlighting in mega menus/mobile + top-level aria states (visual ancestor disabled)
 - [x] **Accessibility Icons**: Added `aria-hidden="true"` to 185 decorative FontAwesome icons across 30 files
 
 ## 🔥 High Priority (Critical Impact)
@@ -256,13 +256,13 @@ Implementation notes:
 - [x] Add `aria-hidden="true"` to decorative icons consistently ✅  
 - [ ] Consider hybrid approach for mega menu (wp_nav_menu + custom logic)
 
-Implementation details (Phase 1):
+Implementation details (Phase 1-2):
 
 - Added helpers in `inc/menu-helpers.php`:
   - `mia_aesthetics_is_current_section()` – section-level highlighting
   - `mia_aesthetics_is_current_url()` – exact page highlighting
-- Wired into top-level renderers (both desktop + mobile) and `Financing`/`Specials` links
-- Styling: subtle underline for `[aria-current="page"]` and `.current-menu-ancestor` (no color change)
+- Wired into top-level renderers (desktop + mobile), `Financing`/`Specials`, and all child items across Procedures, Locations, Surgeons, Before & After, Non‑Surgical
+- Styling: subtle underline for `[aria-current="page"]` only; ancestor highlight is accessibility‑only. Added transition on nav links.
 
 ## ⚡ Performance Enhancements
 

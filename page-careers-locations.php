@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 get_header();
 ?>
 
-<main>
+<main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
 
 	<section class="location-header py-5">

@@ -12,7 +12,7 @@
 get_header();
 ?>
 
-<main id="main-content" role="main" tabindex="-1">
+<main id="primary" role="main" tabindex="-1">
 <?php mia_aesthetics_breadcrumbs(); ?>
 
 	<!-- Page Hero / Title ----------------------------------------->

@@ -13,7 +13,7 @@
 
 get_header(); ?>
 
-<main>
+<main id="primary">
 	<?php
 	while ( have_posts() ) :
 		the_post();

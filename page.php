@@ -14,7 +14,7 @@
 
 get_header(); ?>
 
-<main>
+<main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
 	<?php
 	while ( have_posts() ) :

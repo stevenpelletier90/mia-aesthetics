@@ -10,7 +10,7 @@
 
 // Prevent direct access to this file.
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 /**
@@ -20,15 +20,16 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @return string
  */
 function mia_aesthetics_normalize_path( $url ): string {
-    if ( '' === $url ) {
-        return '';
-    }
+	if ( '' === $url ) {
+		return '';
+	}
 
-    $parsed = wp_parse_url( $url );
-    $path   = isset( $parsed['path'] ) ? (string) $parsed['path'] : (string) $url;
-    $path   = strtok( $path, '?#' );
-    $path   = wp_normalize_path( strtolower( rtrim( $path, '/' ) ) );
-    return '' === $path ? '/' : $path;
+	$parsed = wp_parse_url( $url );
+	$path   = isset( $parsed['path'] ) ? (string) $parsed['path'] : (string) $url;
+	$path   = strtok( $path, '?#' );
+	$path   = false !== $path ? $path : '';
+	$path   = wp_normalize_path( strtolower( rtrim( $path, '/' ) ) );
+	return '' === $path ? '/' : $path;
 }
 
 /**
@@ -38,10 +39,10 @@ function mia_aesthetics_normalize_path( $url ): string {
  * @return bool
  */
 function mia_aesthetics_is_current_url( string $url ): bool {
-    $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-    $current = mia_aesthetics_normalize_path( $req_uri );
-    $target  = mia_aesthetics_normalize_path( $url );
-    return $current === $target;
+	$req_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	$current = mia_aesthetics_normalize_path( $req_uri );
+	$target  = mia_aesthetics_normalize_path( $url );
+	return $current === $target;
 }
 
 /**
@@ -51,61 +52,61 @@ function mia_aesthetics_is_current_url( string $url ): bool {
  * @return bool
  */
 function mia_aesthetics_is_current_section( string $menu_slug ): bool {
-    $menu_slug = strtolower( $menu_slug );
+	$menu_slug = strtolower( $menu_slug );
 
-    switch ( $menu_slug ) {
-        case 'procedures':
-            if ( is_post_type_archive( 'procedure' ) || is_singular( 'procedure' ) ) {
-                return true;
-            }
-            break;
-        case 'non-surgical':
-            if ( is_post_type_archive( 'non-surgical' ) || is_singular( 'non-surgical' ) ) {
-                return true;
-            }
-            break;
-        case 'locations':
-            if ( is_post_type_archive( 'location' ) || is_singular( 'location' ) ) {
-                return true;
-            }
-            break;
-        case 'surgeons':
-            if ( is_post_type_archive( 'surgeon' ) || is_singular( 'surgeon' ) ) {
-                return true;
-            }
-            break;
-        case 'specials':
-            if ( is_post_type_archive( 'special' ) || is_singular( 'special' ) ) {
-                return true;
-            }
-            break;
-        // before-after and financing are pages only; URL fallback below.
-        default:
-            break;
-    }
+	switch ( $menu_slug ) {
+		case 'procedures':
+			if ( is_post_type_archive( 'procedure' ) || is_singular( 'procedure' ) ) {
+				return true;
+			}
+			break;
+		case 'non-surgical':
+			if ( is_post_type_archive( 'non-surgical' ) || is_singular( 'non-surgical' ) ) {
+				return true;
+			}
+			break;
+		case 'locations':
+			if ( is_post_type_archive( 'location' ) || is_singular( 'location' ) ) {
+				return true;
+			}
+			break;
+		case 'surgeons':
+			if ( is_post_type_archive( 'surgeon' ) || is_singular( 'surgeon' ) ) {
+				return true;
+			}
+			break;
+		case 'specials':
+			if ( is_post_type_archive( 'special' ) || is_singular( 'special' ) ) {
+				return true;
+			}
+			break;
+		// before-after and financing are pages only; URL fallback below.
+		default:
+			break;
+	}
 
-    $req_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
-    $current = mia_aesthetics_normalize_path( $req_uri );
+	$req_uri = isset( $_SERVER['REQUEST_URI'] ) ? (string) wp_unslash( $_SERVER['REQUEST_URI'] ) : '/'; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+	$current = mia_aesthetics_normalize_path( $req_uri );
 
-    $patterns = array(
-        'procedures'   => array( '/cosmetic-plastic-surgery', '/non-surgical' ),
-        'non-surgical' => array( '/non-surgical' ),
-        'locations'    => array( '/locations' ),
-        'surgeons'     => array( '/plastic-surgeons', '/surgeon' ),
-        'before-after' => array( '/before-after' ),
-        'specials'     => array( '/specials' ),
-        'financing'    => array( '/financing' ),
-    );
+	$patterns = array(
+		'procedures'   => array( '/cosmetic-plastic-surgery', '/non-surgical' ),
+		'non-surgical' => array( '/non-surgical' ),
+		'locations'    => array( '/locations' ),
+		'surgeons'     => array( '/plastic-surgeons', '/surgeon' ),
+		'before-after' => array( '/before-after' ),
+		'specials'     => array( '/specials' ),
+		'financing'    => array( '/financing' ),
+	);
 
-    if ( isset( $patterns[ $menu_slug ] ) ) {
-        foreach ( $patterns[ $menu_slug ] as $prefix ) {
-            if ( 0 === strpos( $current, mia_aesthetics_normalize_path( $prefix ) ) ) {
-                return true;
-            }
-        }
-    }
+	if ( isset( $patterns[ $menu_slug ] ) ) {
+		foreach ( $patterns[ $menu_slug ] as $prefix ) {
+			if ( 0 === strpos( $current, mia_aesthetics_normalize_path( $prefix ) ) ) {
+				return true;
+			}
+		}
+	}
 
-    return false;
+	return false;
 }
 
 /**
@@ -385,15 +386,15 @@ add_action( 'untrash_post', 'mia_clear_footer_locations_cache' );
  * @return void
  */
 function render_procedures_menu( $procedures, $is_mobile = false ): void {
-    $dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
-    $is_section     = mia_aesthetics_is_current_section( 'procedures' );
-    $is_exact       = mia_aesthetics_is_current_url( $procedures['url'] );
-    ?>
-    <li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
-        <a class="nav-link dropdown-toggle" href="<?php echo esc_url( $procedures['url'] ); ?>" 
-            role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
-            <?php echo esc_html( $procedures['title'] ); ?>
-        </a>
+	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
+	$is_section     = mia_aesthetics_is_current_section( 'procedures' );
+	$is_exact       = mia_aesthetics_is_current_url( $procedures['url'] );
+	?>
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( $procedures['url'] ); ?>" 
+			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
+			<?php echo esc_html( $procedures['title'] ); ?>
+		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php render_mobile_procedures_menu( $procedures ); ?>
 		<?php else : ?>
@@ -584,16 +585,16 @@ function render_mobile_locations_menu( $locations ): void {
  * @return void
  */
 function render_surgeons_menu( bool $is_mobile = false ): void {
-    $surgeons       = get_surgeons_direct();
-    $dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
-    $is_section     = mia_aesthetics_is_current_section( 'surgeons' );
-    $is_exact       = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) );
-    ?>
-    <li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
-        <a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" 
-            role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current=\"page\"' : ''; ?>>
-            Surgeons
-        </a>
+	$surgeons       = get_surgeons_direct();
+	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
+	$is_section     = mia_aesthetics_is_current_section( 'surgeons' );
+	$is_exact       = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) );
+	?>
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" 
+			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
+			Surgeons
+		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php render_mobile_surgeons_menu( $surgeons ); ?>
 		<?php else : ?>
@@ -659,21 +660,21 @@ function render_desktop_surgeons_menu( $surgeons ): void {
  * @return void
  */
 function render_mobile_surgeons_menu( $surgeons ): void {
-    ?>
-    <ul class="dropdown-menu">
-        <?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Surgeons</a></li>
-        <?php
-        if ( array() !== $surgeons ) :
-            foreach ( $surgeons as $surgeon ) :
-                ?>
-                <?php $is_exact_surgeon = mia_aesthetics_is_current_url( $surgeon['url'] ); ?>
-                <li><a class="dropdown-item" href="<?php echo esc_url( $surgeon['url'] ); ?>" <?php echo $is_exact_surgeon ? 'aria-current="page"' : ''; ?>><?php echo esc_html( $surgeon['name'] ); ?></a></li>
-                <?php
-            endforeach;
-        else :
-            ?>
-            <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>">View Our Surgeons</a></li>
+	?>
+	<ul class="dropdown-menu">
+		<?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Surgeons</a></li>
+		<?php
+		if ( array() !== $surgeons ) :
+			foreach ( $surgeons as $surgeon ) :
+				?>
+				<?php $is_exact_surgeon = mia_aesthetics_is_current_url( $surgeon['url'] ); ?>
+				<li><a class="dropdown-item" href="<?php echo esc_url( $surgeon['url'] ); ?>" <?php echo $is_exact_surgeon ? 'aria-current="page"' : ''; ?>><?php echo esc_html( $surgeon['name'] ); ?></a></li>
+				<?php
+			endforeach;
+		else :
+			?>
+			<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>">View Our Surgeons</a></li>
 			<?php
 		endif;
 		?>
@@ -710,52 +711,52 @@ function render_before_after_menu( bool $is_mobile = false ): void {
  * @return void
  */
 function render_desktop_before_after_menu(): void {
-    ?>
-    <div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
-                    <a class="mega-menu-title" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Before & After <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 mb-3">
-                    <div class="dropdown-header">
-                        <span class="text-dark fw-bold">By Procedure</span>
-                    </div>
-                    <ul class="list-unstyled">
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Augmentation</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-lift/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Lift</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-reduction/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-reduction/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Reduction</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/lipo-360/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Lipo 360</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/mommy-makeover/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/mommy-makeover/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Mommy Makeover</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/tummy-tuck/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Tummy Tuck</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-6 mb-3">
-                    <div class="dropdown-header">
-                        <span class="text-dark fw-bold">By Category</span>
-                    </div>
-                    <ul class="list-unstyled">
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/patient-journeys/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Patient Testimonials</a></li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php
+	?>
+	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mb-3">
+					<?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
+					<a class="mega-menu-title" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Before & After <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-6 mb-3">
+					<div class="dropdown-header">
+						<span class="text-dark fw-bold">By Procedure</span>
+					</div>
+					<ul class="list-unstyled">
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Augmentation</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-lift/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Lift</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-reduction/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/breast-reduction/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Reduction</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/lipo-360/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Lipo 360</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/mommy-makeover/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/mommy-makeover/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Mommy Makeover</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/tummy-tuck/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Tummy Tuck</a></li>
+					</ul>
+				</div>
+				<div class="col-md-6 mb-3">
+					<div class="dropdown-header">
+						<span class="text-dark fw-bold">By Category</span>
+					</div>
+					<ul class="list-unstyled">
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/patient-journeys/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Patient Testimonials</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php
 }
 
 /**
@@ -764,30 +765,30 @@ function render_desktop_before_after_menu(): void {
  * @return void
  */
 function render_mobile_before_after_menu(): void {
-    ?>
-    <ul class="dropdown-menu">
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>View All Before & After</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Augmentation</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-lift/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Lift</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-reduction/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-reduction/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Reduction</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/lipo-360/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Lipo 360</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/mommy-makeover/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/mommy-makeover/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Mommy Makeover</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/tummy-tuck/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Tummy Tuck</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/patient-journeys/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Patient Testimonials</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
-    </ul>
-    <?php
+	?>
+	<ul class="dropdown-menu">
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>View All Before & After</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Augmentation</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-lift/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Lift</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-reduction/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/breast-reduction/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Breast Reduction</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/lipo-360/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Lipo 360</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/mommy-makeover/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/mommy-makeover/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Mommy Makeover</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/tummy-tuck/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Tummy Tuck</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/patient-journeys/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Patient Testimonials</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
+	</ul>
+	<?php
 }
 
 /**
@@ -797,15 +798,15 @@ function render_mobile_before_after_menu(): void {
  * @return void
  */
 function render_non_surgical_menu( bool $is_mobile = false ): void {
-    $dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
-    $is_section     = mia_aesthetics_is_current_section( 'non-surgical' );
-    $is_exact       = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) );
-    ?>
-    <li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
-        <a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" 
-            role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
-            Non-Surgical
-        </a>
+	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
+	$is_section     = mia_aesthetics_is_current_section( 'non-surgical' );
+	$is_exact       = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) );
+	?>
+	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" 
+			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
+			Non-Surgical
+		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php render_mobile_non_surgical_menu(); ?>
 		<?php else : ?>
@@ -821,31 +822,31 @@ function render_non_surgical_menu( bool $is_mobile = false ): void {
  * @return void
  */
 function render_desktop_non_surgical_menu(): void {
-    ?>
-    <div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
-        <div class="container">
-            <div class="row">
-                <div class="col-12 mb-3">
-                    <?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) ); ?>
-                    <a class="mega-menu-title" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); }" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Non-Surgical Procedures <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 mb-3">
-                    <ul class="list-unstyled">
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>J-Plasma</a></li>
-                        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/weight-loss/' ) ); ?>
-                        <li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/weight-loss/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Weight Loss</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-3 mb-3"></div>
-                <div class="col-md-3 mb-3"></div>
-                <div class="col-md-3 mb-3"></div>
-            </div>
-        </div>
-    </div>
-    <?php
+	?>
+	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
+		<div class="container">
+			<div class="row">
+				<div class="col-12 mb-3">
+					<?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) ); ?>
+					<a class="mega-menu-title" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Non-Surgical Procedures <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+				</div>
+			</div>
+			<div class="row">
+				<div class="col-md-3 mb-3">
+					<ul class="list-unstyled">
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>J-Plasma</a></li>
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/weight-loss/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Weight Loss</a></li>
+					</ul>
+				</div>
+				<div class="col-md-3 mb-3"></div>
+				<div class="col-md-3 mb-3"></div>
+				<div class="col-md-3 mb-3"></div>
+			</div>
+		</div>
+	</div>
+	<?php
 }
 
 /**
@@ -854,14 +855,14 @@ function render_desktop_non_surgical_menu(): void {
  * @return void
  */
 function render_mobile_non_surgical_menu(): void {
-    ?>
-    <ul class="dropdown-menu">
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>View All Non-Surgical</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>J-Plasma</a></li>
-        <?php $is_exact = mia_aesthetics_is_current_url( home_url( '/weight-loss/' ) ); ?>
-        <li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/weight-loss/' ) ); }" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Weight Loss</a></li>
-    </ul>
-    <?php
+	?>
+	<ul class="dropdown-menu">
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>View All Non-Surgical</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>J-Plasma</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/weight-loss/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Weight Loss</a></li>
+	</ul>
+	<?php
 }

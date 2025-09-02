@@ -12,7 +12,7 @@
 get_header();
 ?>
 
-<main>
+<main id="primary">
 	<!-- Breadcrumbs ---------------------------------------------------->
 <?php mia_aesthetics_breadcrumbs(); ?>
 

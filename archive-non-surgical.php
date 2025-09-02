@@ -8,7 +8,7 @@
 
 get_header(); ?>
 
-<main>    
+<main id="primary">    
 	<!-- Archive Header -->
 	<section class="post-header py-5">
 		<div class="container">

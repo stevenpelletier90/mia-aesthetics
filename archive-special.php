@@ -32,7 +32,7 @@ get_header();
 	</div>
 
 	<!-- 3. Specials Archive Grid -->
-	<main class="specials-grid py-5">
+	<main id="primary" class="specials-grid py-5">
 		<div class="container">
 
 			<!-- Sticky/Featured Specials - Always Visible -->

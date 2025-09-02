@@ -7,9 +7,7 @@
 
 get_header(); ?>
 
-<a href="#main-content" class="visually-hidden-focusable skip-link">Skip to main content</a>
-
-<main id="main-content" role="main">
+<main id="primary" role="main">
 	<?php
 	while ( have_posts() ) :
 		the_post();

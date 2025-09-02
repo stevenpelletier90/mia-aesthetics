@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<main>
+<main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
 	
 	<section class="post-header py-5">

@@ -15,7 +15,7 @@ if ( ! $mia_current_term instanceof WP_Term ) {
 	return;
 }
 ?>
-<main>
+<main id="primary">
 	
 	<?php mia_aesthetics_breadcrumbs(); ?>
 	<!-- Archive Header -->

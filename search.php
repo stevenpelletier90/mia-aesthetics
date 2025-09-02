@@ -7,7 +7,7 @@
 
 get_header(); ?>
 
-<main class="search-results">
+<main id="primary" class="search-results">
 <?php mia_aesthetics_breadcrumbs(); ?>
 	
 	<!-- Page Header -->
