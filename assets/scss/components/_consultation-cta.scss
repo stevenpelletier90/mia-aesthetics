@@ -1,0 +1,18 @@
+// ====================================
+// Mia Aesthetics - Consultation CTA Component
+// ====================================
+
+// Consultation CTA specific styling will be migrated from
+// assets/css/components/consultation-cta.css when that component is converted
+// For now, basic styling to ensure no conflicts
+
+.consultation-cta {
+  background-color: $mia-gold-light;
+  padding: clamp(2rem, 4vw, 4rem);
+  border-radius: 0.5rem;
+  text-align: center;
+  
+  .btn {
+    margin-top: 1rem;
+  }
+}

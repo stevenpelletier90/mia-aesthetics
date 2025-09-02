@@ -34,16 +34,16 @@ get_header(); ?>
 						<h2 id="overview">Overview</h2>
 						<div class="overview-content">
 							<div class="overview-item">
-								<i class="fa-solid fa-check-circle overview-check"></i>
+								<i class="fa-solid fa-check-circle overview-check" aria-hidden="true"></i>
 								Fat transfer is a popular procedure as it uses your own body fat to augment problem areas, 
 								making it an all-natural enhancement tactic.
 							</div>
 							<div class="overview-item">
-								<i class="fa-solid fa-check-circle overview-check"></i>
+								<i class="fa-solid fa-check-circle overview-check" aria-hidden="true"></i>
 								The places on your body where you can utilize fat augmentation are almost endless and include your face, thighs, hips, and breasts.
 							</div>
 							<div class="overview-item">
-								<i class="fa-solid fa-check-circle overview-check"></i>
+								<i class="fa-solid fa-check-circle overview-check" aria-hidden="true"></i>
 								Implants and dermal fillers can sometimes provide very similar results, but fillers lack the permanence of a fat transfer, and implants require installing man-made material into the body.
 							</div>
 						</div>

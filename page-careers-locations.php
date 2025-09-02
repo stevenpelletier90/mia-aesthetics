@@ -223,7 +223,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="accordion-item mb-3">
 								<h2 class="accordion-header" id="headingOutpatient">
 									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOutpatient" aria-expanded="false" aria-controls="collapseOutpatient">
-										<i class="fas fa-hospital-user me-3"></i>
+										<i class="fas fa-hospital-user me-3" aria-hidden="true"></i>
 										Positions at our Outpatient Surgical Centers
 									</button>
 								</h2>
@@ -345,7 +345,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="accordion-item mb-3">
 								<h2 class="accordion-header" id="headingTraining">
 									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTraining" aria-expanded="false" aria-controls="collapseTraining">
-										<i class="fas fa-chalkboard-teacher me-3"></i>
+										<i class="fas fa-chalkboard-teacher me-3" aria-hidden="true"></i>
 										Training Positions
 									</button>
 								</h2>
@@ -376,7 +376,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="accordion-item mb-3">
 								<h2 class="accordion-header" id="headingCX">
 									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseCX" aria-expanded="false" aria-controls="collapseCX">
-										<i class="fas fa-headset me-3"></i>
+										<i class="fas fa-headset me-3" aria-hidden="true"></i>
 										CX Center of Excellence
 									</button>
 								</h2>
@@ -421,7 +421,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="accordion-item mb-3">
 								<h2 class="accordion-header" id="headingPeople">
 									<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePeople" aria-expanded="false" aria-controls="collapsePeople">
-										<i class="fas fa-users-cog me-3"></i>
+										<i class="fas fa-users-cog me-3" aria-hidden="true"></i>
 										People Leader Positions
 									</button>
 								</h2>
@@ -468,7 +468,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 									<div class="founders-quote-wrapper">
 										<blockquote class="founders-quote">
 											<div class="quote-icon">
-												<i class="fas fa-quote-left"></i>
+												<i class="fas fa-quote-left" aria-hidden="true"></i>
 											</div>
 											<p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
 											<footer class="quote-attribution">
@@ -544,7 +544,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 						<!-- Benefits CTA -->
 						<div class="text-center mt-5">
 							<a href="/careers" class="btn btn-primary btn-lg">
-								Join Our Team <i class="fa-solid fa-arrow-right"></i>
+								Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 							</a>
 						</div>
 					</section>
@@ -618,7 +618,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 									<p>Plastic Surgeon</p>
 									<?php $surgeon_permalink = get_permalink(); ?>
 									<a href="<?php echo esc_url( false !== $surgeon_permalink ? $surgeon_permalink : '#' ); ?>" class="btn btn-primary btn-sm">
-										View Profile <i class="fa-solid fa-arrow-right"></i>
+										View Profile <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 									</a>
 								</div>
 							</div>

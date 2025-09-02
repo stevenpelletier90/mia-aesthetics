@@ -97,11 +97,11 @@ if ( is_singular( 'surgeon' ) ) :
 					render_before_after_menu( false ); // desktop.
 					render_before_after_menu( true );  // mobile.
 				?>
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo esc_url( home_url( '/financing/' ) ); ?>">Financing</a>
+				<li class="nav-item <?php echo mia_aesthetics_is_current_section( 'financing' ) ? 'current-menu-ancestor' : ''; ?>">
+					<a class="nav-link" href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" <?php echo mia_aesthetics_is_current_url( home_url( '/financing/' ) ) ? 'aria-current="page"' : ''; ?>>Financing</a>
 				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="<?php echo esc_url( home_url( '/specials/' ) ); ?>">Specials</a>
+				<li class="nav-item <?php echo mia_aesthetics_is_current_section( 'specials' ) ? 'current-menu-ancestor' : ''; ?>">
+					<a class="nav-link" href="<?php echo esc_url( home_url( '/specials/' ) ); ?>" <?php echo mia_aesthetics_is_current_url( home_url( '/specials/' ) ) ? 'aria-current="page"' : ''; ?>>Specials</a>
 				</li>
 				<!-- Patient Portal Dropdown -->
 				<li class="nav-item dropdown">

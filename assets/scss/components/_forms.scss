@@ -1,0 +1,46 @@
+// ====================================
+// Mia Aesthetics - Form Components
+// ====================================
+
+// Form controls styling (extends Bootstrap)
+.form-control {
+  &:focus {
+    border-color: $mia-gold;
+    box-shadow: 0 0 0 0.2rem rgba($mia-gold, 0.25);
+  }
+}
+
+.form-select {
+  &:focus {
+    border-color: $mia-gold;
+    box-shadow: 0 0 0 0.2rem rgba($mia-gold, 0.25);
+  }
+}
+
+// Custom form styling
+.form-floating {
+  .form-control:focus ~ label {
+    color: $mia-gold;
+  }
+}
+
+// Form validation
+.was-validated .form-control:valid,
+.form-control.is-valid {
+  border-color: $success;
+  
+  &:focus {
+    border-color: $success;
+    box-shadow: 0 0 0 0.2rem rgba($success, 0.25);
+  }
+}
+
+.was-validated .form-control:invalid,
+.form-control.is-invalid {
+  border-color: $danger;
+  
+  &:focus {
+    border-color: $danger;
+    box-shadow: 0 0 0 0.2rem rgba($danger, 0.25);
+  }
+}

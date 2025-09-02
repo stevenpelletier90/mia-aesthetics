@@ -198,7 +198,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 								<h3 class="cta-card__title">Explore <?php echo esc_html( str_replace( 'Mia Aesthetics', '', get_the_title() ) ); ?></h3>
 								<p class="cta-card__text">Discover the best of our city while you're here for your procedure.</p>
 								<a href="#" class="btn btn-primary btn-sm">
-									City Guide <i class="fa-solid fa-arrow-right"></i>
+									City Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
 						</div>
@@ -209,7 +209,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 								<h3 class="cta-card__title">Financing Options</h3>
 								<p class="cta-card__text">Learn about our flexible payment plans and financing solutions.</p>
 								<a href="/financing" class="btn btn-secondary btn-sm">
-									Learn More <i class="fa-solid fa-arrow-right"></i>
+									Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
 						</div>
@@ -220,7 +220,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 								<h3 class="cta-card__title">Our Procedures</h3>
 								<p class="cta-card__text">Browse our complete range of plastic surgery and aesthetic treatments.</p>
 								<a href="/procedures" class="btn btn-outline-primary btn-sm">
-									View All <i class="fa-solid fa-arrow-right"></i>
+									View All <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
 						</div>
@@ -285,7 +285,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 									<h3><?php the_title(); ?></h3>
 									<p>Plastic Surgeon</p>
 									<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm">
-										View Profile <i class="fa-solid fa-arrow-right"></i>
+										View Profile <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 									</a>
 								</div>
 							</div>

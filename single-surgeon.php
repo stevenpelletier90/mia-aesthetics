@@ -38,7 +38,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 					<?php else : ?>
 						<div class="surgeon-hero-image surgeon-placeholder">
 							<div class="placeholder-content">
-								<i class="fa-solid fa-user-doctor"></i>
+								<i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
 							</div>
 							<div class="surgeon-image-accent"></div>
 						</div>
@@ -64,7 +64,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							if ( false !== $location_title && false !== $location_url ) {
 								$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title );
 								?>
-						<p class="surgeon-location"><i class="fas fa-map-marker-alt"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></p>
+						<p class="surgeon-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></p>
 								<?php
 							}
 						endif;
@@ -77,7 +77,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							if ( null !== $instagram_url && '' !== $instagram_url ) :
 								?>
 							<a href="<?php echo esc_url( $instagram_url ); ?>" class="btn btn-outline-primary-alt" target="_blank" rel="noopener">
-								<i class="fab fa-instagram"></i> Follow Dr. <?php echo esc_html( $last_name ); ?>
+								<i class="fab fa-instagram" aria-hidden="true"></i> Follow Dr. <?php echo esc_html( $last_name ); ?>
 							</a>
 							<?php endif; ?>
 							
@@ -87,7 +87,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
 							?>
 							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-primary surgeon-gallery-mobile d-lg-none">
-								<i class="fas fa-images"></i> View Before & After Gallery
+								<i class="fas fa-images" aria-hidden="true"></i> View Before & After Gallery
 							</a>
 						</div>
 					</div>
@@ -141,7 +141,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 									<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
 										<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="Video thumbnail" class="img-fluid">
 										<button class="video-play-button" aria-label="Play video">
-											<i class="fa-solid fa-play"></i>
+											<i class="fa-solid fa-play" aria-hidden="true"></i>
 										</button>
 									</div>
 									<?php else : ?>
@@ -169,7 +169,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 								<?php foreach ( $specialties as $specialty ) : ?>
 									<div class="expertise-card">
 										<div class="expertise-icon">
-											<i class="fas fa-check-circle"></i>
+											<i class="fas fa-check-circle" aria-hidden="true"></i>
 										</div>
 										<div class="expertise-content">
 											<h3><?php echo esc_html( get_the_title( $specialty->ID ) ); ?></h3>
@@ -186,7 +186,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 											if ( false !== $specialty_permalink ) :
 												?>
 											<a href="<?php echo esc_url( $specialty_permalink ); ?>" class="expertise-link">
-												Learn More <i class="fa-solid fa-arrow-right"></i>
+												Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 											</a>
 											<?php endif; ?>
 										</div>
@@ -207,12 +207,12 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							<ul class="surgeon-info-list">
 								<?php if ( null !== $location && '' !== $location && false !== $location_url ) : ?>
 								<li>
-									<i class="fas fa-map-marker-alt"></i>
+									<i class="fas fa-map-marker-alt" aria-hidden="true"></i>
 									<span>Located at <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></span>
 								</li>
 								<?php endif; ?>
 								<li>
-									<i class="fas fa-images"></i>
+									<i class="fas fa-images" aria-hidden="true"></i>
 									<?php
 									$doctor_slug = get_post_field( 'post_name', get_post() );
 									$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
@@ -226,19 +226,19 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							<h3 class="sidebar-card-title">Patient Resources</h3>
 							<div class="resource-links">
 								<a href="https://miaaesthetics.com/patient-resources/surgical-journey/" class="resource-link">
-									<i class="fas fa-route"></i>
+									<i class="fas fa-route" aria-hidden="true"></i>
 									<span>Your Surgical Journey</span>
-									<i class="fas fa-chevron-right"></i>
+									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 								<a href="https://miaaesthetics.com/out-of-town-patients/" class="resource-link">
-									<i class="fas fa-plane"></i>
+									<i class="fas fa-plane" aria-hidden="true"></i>
 									<span>Out of Town Patients</span>
-									<i class="fas fa-chevron-right"></i>
+									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 								<a href="https://miaaesthetics.com/financing/" class="resource-link">
-									<i class="fas fa-credit-card"></i>
+									<i class="fas fa-credit-card" aria-hidden="true"></i>
 									<span>Financing Options</span>
-									<i class="fas fa-chevron-right"></i>
+									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 							</div>
 						</div>

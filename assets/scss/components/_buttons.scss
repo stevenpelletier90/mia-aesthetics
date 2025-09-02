@@ -1,0 +1,172 @@
+// ====================================
+// Mia Aesthetics - Button System (10 Variants)
+// ====================================
+// 
+// Replaces all !important overrides from base.css with proper Bootstrap theming.
+// All button styling is now controlled via Bootstrap variables in _variables.scss.
+
+// Button icon styling
+.btn {
+  // FontAwesome icon sizing and spacing
+  .fa-solid,
+  .fa-regular, 
+  .fa-light {
+    font-size: 0.85em;
+    margin-right: 0.5rem;
+  }
+  
+  // Arrow icons (right alignment)
+  .fa-arrow-right,
+  .fa-arrow-left {
+    margin-right: 0;
+    margin-left: 0.5rem;
+  }
+  
+  // Smooth transitions
+  transition: all 0.15s ease-in-out;
+}
+
+// Button variant 5: Blur/Glassmorphism effect
+.btn-blur {
+  @include glassmorphism(rgba(255, 255, 255, 0.1), 10px);
+  color: $mia-white;
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  
+  &:hover {
+    @include glassmorphism(rgba(255, 255, 255, 0.2), 15px);
+    border-color: rgba(255, 255, 255, 0.4);
+    color: $mia-white;
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(255, 255, 255, 0.25);
+  }
+}
+
+// Button variant 6: Gradient effect  
+.btn-gradient {
+  background: linear-gradient(135deg, $mia-black 0%, darken($mia-black, 10%) 100%);
+  border: 2px solid $mia-gold;
+  color: $mia-white;
+  
+  &:hover {
+    background: linear-gradient(135deg, $mia-gold-dark 0%, $mia-gold 100%);
+    color: $mia-black;
+    border-color: $mia-gold;
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba($mia-gold, 0.25);
+  }
+}
+
+// Alternative outline variants (better contrast)
+// Variant 7: Gold border, black text (light backgrounds)
+.btn-outline-primary-alt {
+  @include mia-button-variant(
+    $mia-black, 
+    transparent, 
+    $mia-gold,
+    $mia-gold,
+    $mia-gold,
+    $mia-black
+  );
+}
+
+// Variant 8: Black border, white text (dark backgrounds)
+.btn-outline-secondary-alt {
+  @include mia-button-variant(
+    $mia-white,
+    transparent,
+    $mia-black,
+    $mia-black,
+    $mia-black,  
+    $mia-white
+  );
+}
+
+// Variant 9: Gold border, white text (dark backgrounds)
+.btn-outline-primary-alt2 {
+  @include mia-button-variant(
+    $mia-white,
+    transparent,
+    $mia-gold,
+    $mia-gold,
+    $mia-gold,
+    $mia-black
+  );
+}
+
+// Variant 10: Black border, gold text (light backgrounds)
+.btn-outline-secondary-alt2 {
+  @include mia-button-variant(
+    $mia-gold,
+    transparent,
+    $mia-black,
+    $mia-black,
+    $mia-black,
+    $mia-gold
+  );
+}
+
+// Header CTA button (used in navigation)
+.header-btn,
+.desktop-cta {
+  @extend .btn;
+  @extend .btn-primary;
+  font-weight: 500;
+  white-space: nowrap;
+  
+  // Icon spacing for CTA buttons
+  .fa-arrow-right {
+    margin-left: 0.5rem;
+    transition: transform 0.2s ease;
+  }
+  
+  &:hover .fa-arrow-right {
+    transform: translateX(2px);
+  }
+}
+
+// Button size responsive improvements
+@media (max-width: 576px) {
+  .btn {
+    width: 100%;
+    margin-bottom: 0.5rem;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+  
+  .btn-group .btn {
+    width: auto;
+    margin-bottom: 0;
+  }
+}
+
+// Button loading state
+.btn-loading {
+  position: relative;
+  color: transparent !important;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    width: 1rem;
+    height: 1rem;
+    top: 50%;
+    left: 50%;
+    margin-left: -0.5rem;
+    margin-top: -0.5rem;
+    border: 2px solid transparent;
+    border-top-color: currentColor;
+    border-radius: 50%;
+    animation: btn-loading-spinner 0.6s linear infinite;
+  }
+}
+
+@keyframes btn-loading-spinner {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

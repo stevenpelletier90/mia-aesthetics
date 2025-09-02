@@ -27,7 +27,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		placeholder="Search by city, state, or zip code..."
 		autocomplete="off"
 	/>
-	<div class="search-icon"><i class="fas fa-search"></i></div>
+	<div class="search-icon"><i class="fas fa-search" aria-hidden="true"></i></div>
 	<div id="loading-spinner" class="loading-spinner" style="display: none">
 		<div class="spinner"></div>
 	</div>

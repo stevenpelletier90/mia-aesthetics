@@ -75,7 +75,7 @@ get_header(); ?>
 									</h2>
 									<a href="<?php the_permalink(); ?>"
 										class="view-main-condition btn btn-sm btn-outline-primary">
-										<i class="fa-solid fa-external-link me-1"></i>
+										<i class="fa-solid fa-external-link me-1" aria-hidden="true"></i>
 										View Main Page
 									</a>
 								</div>
@@ -92,7 +92,7 @@ get_header(); ?>
 												<div class="condition-item">
 													<a href="<?php the_permalink(); ?>" class="condition-link">
 														<span class="condition-name"><?php the_title(); ?></span>
-														<i class="fa-solid fa-arrow-right"></i>
+														<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 													</a>
 												</div>
 											</div>
@@ -108,7 +108,7 @@ get_header(); ?>
 											<div class="condition-item standalone">
 												<a href="<?php the_permalink(); ?>" class="condition-link">
 													<span class="condition-name"><?php the_title(); ?></span>
-													<i class="fa-solid fa-arrow-right"></i>
+													<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 												</a>
 											</div>
 										</div>

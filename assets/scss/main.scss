@@ -1,0 +1,38 @@
+/*!
+ * Mia Aesthetics Custom Bootstrap Build
+ * ====================================
+ * 
+ * Custom Bootstrap 5 build with Mia Aesthetics branding and theme customization.
+ * Eliminates !important overrides by configuring Bootstrap variables directly.
+ * 
+ * @package Mia_Aesthetics
+ * @version 3.0.0
+ */
+
+// 1. Abstracts - Variables, functions, and mixins
+@import "abstracts/variables";
+@import "abstracts/functions";
+@import "abstracts/mixins";
+
+// 2. Bootstrap - Configured with our custom variables
+@import "vendors/bootstrap";
+
+// 3. Base - Reset, typography, and foundational styles
+@import "base/reset";
+@import "base/typography";
+@import "base/custom-properties";
+
+// 4. Layout - Header, footer, and page structure
+@import "layout/header";
+@import "layout/footer";
+
+// 5. Components - Reusable UI components
+@import "components/buttons";
+@import "components/forms";
+@import "components/cards";
+@import "components/consultation-cta";
+
+// 6. Utilities - Helper classes and overrides
+@import "utilities/spacing";
+@import "utilities/colors";
+@import "utilities/responsive";

@@ -341,7 +341,7 @@ get_header(); ?>
 											<span class="related-case-meta">Case Study</span>
 										</div>
 										<div class="related-case-arrow">
-											<i class="fas fa-arrow-right"></i>
+											<i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</div>
 									</a>
 								</div>

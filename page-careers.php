@@ -246,7 +246,7 @@ get_header(); ?>
 			<div class="founders-quote-wrapper">
 			<blockquote class="founders-quote">
 				<div class="quote-icon">
-				<i class="fas fa-quote-left"></i>
+				<i class="fas fa-quote-left" aria-hidden="true"></i>
 				</div>
 				<p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
 				<footer class="quote-attribution">
@@ -322,7 +322,7 @@ get_header(); ?>
 	<!-- Benefits CTA -->
 	<div class="text-center mt-5">
 		<a href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-		Join Our Team <i class="fa-solid fa-arrow-right"></i>
+		Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 		</a>
 	</div>
 	</div>
@@ -354,11 +354,11 @@ get_header(); ?>
 					<p class="author-location">Tampa Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -374,11 +374,11 @@ get_header(); ?>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -394,11 +394,11 @@ get_header(); ?>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -420,11 +420,11 @@ get_header(); ?>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -440,11 +440,11 @@ get_header(); ?>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -460,11 +460,11 @@ get_header(); ?>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -486,11 +486,11 @@ get_header(); ?>
 					<p class="author-location">Austin Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -506,11 +506,11 @@ get_header(); ?>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -526,11 +526,11 @@ get_header(); ?>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -552,11 +552,11 @@ get_header(); ?>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
-					<i class="fas fa-star"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
+					<i class="fas fa-star" aria-hidden="true"></i>
 					</div>
 				</div>
 				</div>
@@ -587,7 +587,7 @@ get_header(); ?>
 	<!-- Testimonials CTA -->
 	<div class="text-center mt-5">
 		<a href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
-		Join Our Team <i class="fa-solid fa-arrow-right"></i>
+		Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 		</a>
 	</div>
 	</div>
@@ -620,7 +620,7 @@ get_header(); ?>
 			</div>
 			<div class="contact-item">
 				<a href="mailto:maggie@miaaesthetics.com" class="contact-link">
-				<i class="fas fa-envelope"></i> maggie@miaaesthetics.com
+				<i class="fas fa-envelope" aria-hidden="true"></i> maggie@miaaesthetics.com
 				</a>
 			</div>
 			<div class="contact-item mt-3">
@@ -639,10 +639,10 @@ get_header(); ?>
 			</p>
 			<div class="footer-links">
 			<a href="<?php echo esc_url( home_url( '/locations/' ) ); ?>" class="footer-link">
-				<i class="fas fa-map-marker-alt"></i> Our Locations
+				<i class="fas fa-map-marker-alt" aria-hidden="true"></i> Our Locations
 			</a>
 			<a href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" class="footer-link">
-				<i class="fas fa-user-md"></i> Meet Our Team
+				<i class="fas fa-user-md" aria-hidden="true"></i> Meet Our Team
 			</a>
 			</div>
 		</div>

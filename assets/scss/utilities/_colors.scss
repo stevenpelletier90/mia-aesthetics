@@ -1,0 +1,61 @@
+// ====================================
+// Mia Aesthetics - Color Utilities
+// ====================================
+// 
+// Replaces !important color overrides from base.css
+
+// Text color utilities (override Bootstrap defaults)
+.text-secondary {
+  color: $mia-black; // Remove !important by proper override
+}
+
+.text-primary {
+  color: $mia-gold;
+}
+
+.text-gold {
+  color: $mia-gold;
+}
+
+.text-muted {
+  color: $mia-gray-muted;
+}
+
+// Background color utilities
+.bg-gold {
+  background-color: $mia-gold;
+}
+
+.bg-gold-light {
+  background-color: $mia-gold-light;
+}
+
+.bg-mia-black {
+  background-color: $mia-black;
+}
+
+// Border color utilities
+.border-gold {
+  border-color: $mia-gold;
+}
+
+.border-mia-black {
+  border-color: $mia-black;
+}
+
+// Opacity variants
+.text-gold-muted {
+  color: mia-opacity($mia-gold, 0.7);
+}
+
+.bg-gold-10 {
+  background-color: mia-opacity($mia-gold, 0.1);
+}
+
+.bg-gold-20 {
+  background-color: mia-opacity($mia-gold, 0.2);
+}
+
+.bg-gold-30 {
+  background-color: mia-opacity($mia-gold, 0.3);
+}

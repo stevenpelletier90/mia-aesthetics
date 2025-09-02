@@ -34,6 +34,19 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 	$base_uri = trailingslashit( get_template_directory_uri() ) . 'assets';
 	$base_dir = trailingslashit( get_template_directory() ) . 'assets';
 
+	// In production mode, try to use minified version if available.
+	if ( ! WP_DEBUG && ! str_contains( $path, '.min.' ) ) {
+		$extension     = 'style' === $type ? '.css' : '.js';
+		$min_extension = 'style' === $type ? '.min.css' : '.min.js';
+		$min_path      = str_replace( $extension, $min_extension, $path );
+		$min_file      = wp_normalize_path( $base_dir . $min_path );
+
+		// Use minified version if it exists.
+		if ( file_exists( $min_file ) ) {
+			$path = $min_path;
+		}
+	}
+
 	$src  = $base_uri . $path;
 	$file = wp_normalize_path( $base_dir . $path );
 
@@ -48,6 +61,45 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 		wp_register_script( $handle, $src, $deps, $ver, $footer );
 		wp_script_add_data( $handle, 'strategy', 'defer' ); // Non‑critical JS → defer.
 	}
+}
+
+/**
+ * Register Glide.js assets with CDN fallback
+ *
+ * @return void
+ */
+function mia_register_glide_assets(): void {
+	$base_uri = trailingslashit( get_template_directory_uri() ) . 'assets';
+	$base_dir = trailingslashit( get_template_directory() ) . 'assets';
+
+	// Check for local Glide.js files.
+	$glide_css_file = wp_normalize_path( $base_dir . '/glide/css/glide.core.min.css' );
+	$glide_js_file  = wp_normalize_path( $base_dir . '/glide/js/glide.min.js' );
+
+	// Register CSS (local or CDN fallback).
+	if ( file_exists( $glide_css_file ) ) {
+		// Use local file with versioning.
+		$css_ver = (string) filemtime( $glide_css_file );
+		$css_src = $base_uri . '/glide/css/glide.core.min.css';
+	} else {
+		// Fallback to CDN.
+		$css_ver = '3.6.0';
+		$css_src = 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/css/glide.core.min.css';
+	}
+	wp_register_style( 'mia-glide', $css_src, array( 'mia-theme' ), $css_ver );
+
+	// Register JS (local or CDN fallback).
+	if ( file_exists( $glide_js_file ) ) {
+		// Use local file with versioning.
+		$js_ver = (string) filemtime( $glide_js_file );
+		$js_src = $base_uri . '/glide/js/glide.min.js';
+	} else {
+		// Fallback to CDN.
+		$js_ver = '3.6.0';
+		$js_src = 'https://cdnjs.cloudflare.com/ajax/libs/Glide.js/3.6.0/glide.min.js';
+	}
+	wp_register_script( 'mia-glide', $js_src, array(), $js_ver, true );
+	wp_script_add_data( 'mia-glide', 'strategy', 'defer' );
 }
 
 /**
@@ -322,28 +374,29 @@ function mia_detect_template_key(): string {
 function mia_enqueue_assets(): void {
 	// ------------------------ Critical/global assets -----------------------.
 	mia_register_asset( 'style', 'mia-fonts', '/css/fonts.css' );
-	mia_register_asset( 'style', 'mia-bootstrap', '/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ) );
-	mia_register_asset( 'style', 'mia-base', '/css/base.css', array( 'mia-bootstrap' ) );
 
-	mia_register_asset( 'style', 'mia-fontawesome', '/fontawesome/css/all.min.css', array( 'mia-base' ) );
-	mia_register_asset( 'style', 'mia-header', '/css/layout/header.css', array( 'mia-base', 'mia-bootstrap' ) );
-	mia_register_asset( 'style', 'mia-footer', '/css/layout/footer.css', array( 'mia-base', 'mia-bootstrap' ) );
+	// Custom Bootstrap theme (replaces bootstrap.min.css + base.css).
+	mia_register_asset( 'style', 'mia-theme', '/css/theme.css', array( 'mia-fonts' ) );
+
+	mia_register_asset( 'style', 'mia-fontawesome', '/fontawesome/css/all.min.css', array( 'mia-theme' ) );
+	mia_register_asset( 'style', 'mia-header', '/css/layout/header.css', array( 'mia-theme' ) );
+	mia_register_asset( 'style', 'mia-footer', '/css/layout/footer.css', array( 'mia-theme' ) );
 
 	// Register location search assets (loaded on demand).
-	mia_register_asset( 'style', 'mia-location-search', '/css/utilities/location-search.css', array( 'mia-base' ) );
+	mia_register_asset( 'style', 'mia-location-search', '/css/utilities/location-search.css', array( 'mia-theme' ) );
 	mia_register_asset( 'script', 'mia-location-search', '/js/utilities/location-search.js', array() );
-	mia_register_asset( 'style', 'mia-location-search-careers', '/css/utilities/location-search-careers.css', array( 'mia-base' ) );
+	mia_register_asset( 'style', 'mia-location-search-careers', '/css/utilities/location-search-careers.css', array( 'mia-theme' ) );
 	mia_register_asset( 'script', 'mia-location-search-careers', '/js/utilities/location-search-careers.js', array() );
 
 	// Register CTA component assets.
-	mia_register_asset( 'style', 'mia-consultation-cta', '/css/components/consultation-cta.css', array( 'mia-base' ) );
-	mia_register_asset( 'style', 'mia-careers-cta', '/css/components/careers-cta.css', array( 'mia-base' ) );
+	mia_register_asset( 'style', 'mia-consultation-cta', '/css/components/consultation-cta.css', array( 'mia-theme' ) );
+	mia_register_asset( 'style', 'mia-careers-cta', '/css/components/careers-cta.css', array( 'mia-theme' ) );
 
 	// Register case card component (loaded on demand by case-related templates).
-	mia_register_asset( 'style', 'mia-case-card', '/css/components/case-card.css', array( 'mia-base' ) );
+	mia_register_asset( 'style', 'mia-case-card', '/css/components/case-card.css', array( 'mia-theme' ) );
 
 	// Register consultation form component (loads globally for any consultation forms).
-	mia_register_asset( 'style', 'mia-consultation-form', '/css/components/consultation-form.css', array( 'mia-base' ) );
+	mia_register_asset( 'style', 'mia-consultation-form', '/css/components/consultation-form.css', array( 'mia-theme' ) );
 
 	mia_register_asset( 'script', 'mia-bootstrap', '/bootstrap/js/bootstrap.bundle.min.js' ); // no jQuery.
 	mia_register_asset( 'script', 'mia-header', '/js/layout/header.js', array( 'mia-bootstrap' ) );
@@ -356,16 +409,15 @@ function mia_enqueue_assets(): void {
 		$template = $templates[ $template_key ];
 
 		if ( isset( $template['css'] ) && '' !== $template['css'] ) {
-			$css_deps = array( 'mia-base', 'mia-header', 'mia-footer' );
+			$css_deps = array( 'mia-theme', 'mia-header', 'mia-footer' );
 
 			// Add hero section CSS dependency for front page.
 			if ( 'front-page' === $template_key ) {
-				mia_register_asset( 'style', 'mia-hero-section', '/css/layout/hero-section.css', array( 'mia-base', 'mia-bootstrap' ) );
+				mia_register_asset( 'style', 'mia-hero-section', '/css/layout/hero-section.css', array( 'mia-theme' ) );
 				$css_deps[] = 'mia-hero-section';
 
-				// Add Glide.js for video carousel.
-				mia_register_asset( 'style', 'mia-glide', '/glide/css/glide.core.min.css', array( 'mia-base' ) );
-				mia_register_asset( 'script', 'mia-glide', '/glide/js/glide.min.js', array() );
+				// Add Glide.js for video carousel with CDN fallback.
+				mia_register_glide_assets();
 				$css_deps[] = 'mia-glide';
 			}
 
@@ -398,7 +450,7 @@ function mia_enqueue_assets(): void {
 	foreach ( wp_styles()->registered as $h => $_ ) {
 		// Skip assets loaded on-demand by components.
 		$skip_assets = array( 'mia-location-search', 'mia-location-search-careers', 'mia-careers-cta', 'mia-case-card', 'mia-consultation-form' );
-		if ( ( str_starts_with( $h, 'mia-' ) || in_array( $h, array( 'mia-fonts', 'mia-bootstrap', 'mia-base', 'mia-fontawesome' ), true ) ) && ! in_array( $h, $skip_assets, true ) ) {
+		if ( ( str_starts_with( $h, 'mia-' ) || in_array( $h, array( 'mia-fonts', 'mia-bootstrap', 'mia-theme', 'mia-fontawesome' ), true ) ) && ! in_array( $h, $skip_assets, true ) ) {
 			wp_enqueue_style( $h );
 		}
 	}

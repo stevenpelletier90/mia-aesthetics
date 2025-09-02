@@ -48,7 +48,7 @@ get_header();
 								</div>
 								<div class="card-footer bg-white border-top-0">
 									<a href="<?php the_permalink(); ?>" class="read-more-link">
-										Read Full Article: <?php the_title(); ?> <i class="fas fa-arrow-right"></i>
+										Read Full Article: <?php the_title(); ?> <i class="fas fa-arrow-right" aria-hidden="true"></i>
 									</a>
 								</div>
 							</div>
@@ -65,7 +65,7 @@ get_header();
 				<div class="row">
 					<div class="col text-center py-5">
 						<div class="alert alert-info">
-							<i class="fas fa-info-circle me-2"></i> No posts found in this category.
+							<i class="fas fa-info-circle me-2" aria-hidden="true"></i> No posts found in this category.
 						</div>
 					</div>
 				</div>

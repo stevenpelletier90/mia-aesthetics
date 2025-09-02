@@ -1,0 +1,44 @@
+// ====================================
+// Mia Aesthetics - Spacing Utilities
+// ====================================
+
+// Golden ratio spacing utilities
+.mb-golden {
+  @include golden-spacing();
+}
+
+.mt-golden {
+  @include golden-spacing();
+  margin-bottom: 0;
+  margin-top: calc(1rem * 1.618);
+}
+
+// Responsive spacing utilities
+.py-responsive {
+  padding-top: clamp(1rem, 2vw, 3rem);
+  padding-bottom: clamp(1rem, 2vw, 3rem);
+}
+
+.px-responsive {
+  padding-left: clamp(1rem, 3vw, 2rem);
+  padding-right: clamp(1rem, 3vw, 2rem);
+}
+
+.my-responsive {
+  margin-top: clamp(1rem, 2vw, 3rem);
+  margin-bottom: clamp(1rem, 2vw, 3rem);
+}
+
+.mx-responsive {
+  margin-left: clamp(1rem, 3vw, 2rem);
+  margin-right: clamp(1rem, 3vw, 2rem);
+}
+
+// Section spacing
+.section-padding {
+  padding: clamp(2rem, 4vw, 4rem) 0;
+}
+
+.hero-padding {
+  padding: clamp(3rem, 6vw, 6rem) 0;
+}

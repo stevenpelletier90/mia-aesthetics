@@ -120,7 +120,7 @@ if ( ! $mia_current_term instanceof WP_Term ) {
 									
 									<div class="mt-auto pt-3">
 										<a href="<?php the_permalink(); ?>" class="btn btn-outline-primary">
-											View Case <i class="fa-solid fa-arrow-right"></i>
+											View Case <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>
 								</div>

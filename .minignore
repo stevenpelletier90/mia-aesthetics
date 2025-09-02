@@ -1,0 +1,5 @@
+# Ignore minified assets and source maps from linting/formatting
+**/*.min.css
+**/*.min.js
+**/*.min.css.map
+**/*.min.js.map

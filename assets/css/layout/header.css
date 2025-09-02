@@ -18,6 +18,7 @@
   font-size: clamp(0.6rem, 1.2vw, 0.85rem);
   font-weight: 600;
   text-decoration: none;
+  transition: text-decoration-thickness 0.2s ease;
 }
 
 .navbar .btn {
@@ -101,6 +102,19 @@
 
 .offcanvas .nav-link:hover {
   color: var(--mia-gold);
+}
+
+/* Accessible active state: subtle underline on exact current page only */
+.navbar .nav-link[aria-current="page"] {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 2px;
+}
+
+/* In dark navbar/offcanvas, use a visible underline color without changing text color */
+.navbar-dark .nav-link[aria-current="page"],
+.offcanvas .nav-link[aria-current="page"] {
+  text-decoration-color: rgba(255, 255, 255, 0.85);
 }
 
 @media (min-width: 1200px) {

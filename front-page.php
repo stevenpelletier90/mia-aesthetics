@@ -133,7 +133,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="procedure-tabs-shell d-none d-md-flex align-items-center">
 			<!-- Arrow – Previous -->
 			<button class="procedure-nav-arrow prev-arrow me-2" type="button" aria-label="Previous procedure category">
-			<i class="fa-solid fa-chevron-left"></i>
+			<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
 			</button>
 
 			<!-- Scrollable tab strip -->
@@ -167,7 +167,7 @@ require __DIR__ . '/hero-section.php';
 
 			<!-- Arrow – Next -->
 			<button class="procedure-nav-arrow next-arrow ms-2" type="button" aria-label="Next procedure category">
-			<i class="fa-solid fa-chevron-right"></i>
+			<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
 			</button>
 		</div>
 
@@ -216,29 +216,29 @@ require __DIR__ . '/hero-section.php';
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/body/awake-liposuction/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Awake Lipo
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Awake Lipo
 					</a>
 					<a href="/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Brazilian Butt Lift (BBL)
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Brazilian Butt Lift (BBL)
 					</a>
 					<a href="/cosmetic-plastic-surgery/body/lipo-360/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Lipo 360
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Lipo 360
 					</a>
 				</div>
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/body/mommy-makeover/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Mommy Makeover
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Mommy Makeover
 					</a>
 					<a href="/cosmetic-plastic-surgery/body/tummy-tuck/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Tummy Tuck
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Tummy Tuck
 					</a>
 					<a href="/cosmetic-plastic-surgery/body/arm-lift/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Arm Lift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Arm Lift
 					</a>
 				</div>
 				</div>
 				<a href="/cosmetic-plastic-surgery/body/" class="procedure-link">
-				<i class="fa-solid fa-arrow-right"></i> View All Body Procedures
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Body Procedures
 				</a>
 			</div>
 			</div>
@@ -277,26 +277,26 @@ require __DIR__ . '/hero-section.php';
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/breast/augmentation-implants/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Breast Augmentation
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Augmentation
 					</a>
 					<a href="/cosmetic-plastic-surgery/breast/lift/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Breast Lift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Lift
 					</a>
 					<a href="/cosmetic-plastic-surgery/breast/reduction/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Breast Reduction
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Reduction
 					</a>
 				</div>
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/breast/implant-revision-surgery/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Breast Implant Revision
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Implant Revision
 					</a>                  
 					<a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Male Breast Procedures
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Breast Procedures
 					</a>
 				</div>
 				</div>
 				<a href="/cosmetic-plastic-surgery/breast/" class="procedure-link">
-				<i class="fa-solid fa-arrow-right"></i> View All Breast Procedures
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Breast Procedures
 				</a>
 			</div>
 			</div>
@@ -335,29 +335,29 @@ require __DIR__ . '/hero-section.php';
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/face/brow-lift/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Brow Lift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Brow Lift
 					</a>
 					<a href="/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Buccal Fat Removal
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Buccal Fat Removal
 					</a>
 					<a href="/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Eyelid Lift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Eyelid Lift
 					</a>
 				</div>
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/face/facelift/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Facelift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Facelift
 					</a>
 					<a href="/cosmetic-plastic-surgery/face/mini-facelift/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Mini Facelift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Mini Facelift
 					</a>
 					<a href="/cosmetic-plastic-surgery/face/neck-lift/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Neck Lift
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Neck Lift
 					</a>
 				</div>
 				</div>
 				<a href="/cosmetic-plastic-surgery/face/" class="procedure-link">
-				<i class="fa-solid fa-arrow-right"></i> View All Facial Procedures
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Facial Procedures
 				</a>
 			</div>
 			</div>
@@ -397,15 +397,15 @@ require __DIR__ . '/hero-section.php';
 		
 				<div class="col-md-6">
 				<a href="/non-surgical/j-plasma-skin-tightening/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> J-Plasma
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> J-Plasma
 					</a>
 					<a href="/weight-loss/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Weight Loss
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Weight Loss
 					</a>
 				</div>
 				</div>
 				<a href="/non-surgical/" class="procedure-link">
-				<i class="fa-solid fa-arrow-right"></i> View All Non-Surgical Treatments
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Non-Surgical Treatments
 				</a>
 			</div>
 			</div>
@@ -444,25 +444,25 @@ require __DIR__ . '/hero-section.php';
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/body/male-bbl/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Male Brazilian Butt Lift (BBL)
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Brazilian Butt Lift (BBL)
 					</a>
 					<a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Male Breast Procedures
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Breast Procedures
 					</a>
 				 
 				</div>
 				<div class="col-md-6">
 				<a href="/cosmetic-plastic-surgery/body/male-liposuction/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Male Liposuction
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Liposuction
 					</a>
 					<a href="/cosmetic-plastic-surgery/body/male-tummy-tuck/" class="procedure-link">
-					<i class="fa-solid fa-arrow-right"></i> Male Tummy Tuck
+					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Tummy Tuck
 					</a>
 			   
 				</div>
 				</div>
 				<a href="/cosmetic-plastic-surgery/men/" class="procedure-link">
-				<i class="fa-solid fa-arrow-right"></i> View All Men's Procedures
+				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Men's Procedures
 				</a>
 			</div>
 			</div>
@@ -490,7 +490,7 @@ require __DIR__ . '/hero-section.php';
 			<h2 class="section-heading text-white mb-2">The Mia Aesthetics Foundation</h2>
 			<h3 class="section-subheading mb-4">Gives Back</h3>
 			<p class="text-white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
-			<a href="/mia-foundation/" class="btn btn-outline-secondary-alt" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right"></i></a>
+			<a href="/mia-foundation/" class="btn btn-outline-secondary-alt" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
 		</div>
 	</div>

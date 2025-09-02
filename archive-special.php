@@ -16,7 +16,7 @@ get_header();
 			<h1 class="display-4 fw-bold">Current Specials</h1>
 			<p class="lead mb-4">Limited-time offers on your favorite treatments</p>
 			<a href="/free-virtual-consultation/" class="btn btn-primary btn-lg">
-				Free Virtual Consultation <i class="fas fa-arrow-right"></i>
+				Free Virtual Consultation <i class="fas fa-arrow-right" aria-hidden="true"></i>
 			</a>
 		</div>
 	</header>
@@ -57,7 +57,7 @@ get_header();
 									<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
 								</div>
 								<a href="/weight-loss/" class="btn btn-primary">
-									Learn More <i class="fas fa-arrow-right"></i>
+									Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
 						</div>
@@ -81,7 +81,7 @@ get_header();
 									<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
 								</div>
 								<a href="/non-surgical/j-plasma-skin-tightening/" class="btn btn-primary">
-									Learn More <i class="fas fa-arrow-right"></i>
+									Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
 						</div>
@@ -151,7 +151,7 @@ get_header();
 											</div>
 										<?php endif; ?>
 										<a href="<?php the_permalink(); ?>" class="btn btn-primary">
-											Learn More <i class="fas fa-arrow-right"></i>
+											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>
 								</div>
@@ -209,7 +209,7 @@ get_header();
 											</div>
 										<?php endif; ?>
 										<a href="<?php the_permalink(); ?>" class="btn btn-primary">
-											Learn More <i class="fas fa-arrow-right"></i>
+											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>
 								</div>

@@ -12,11 +12,15 @@ const projectRoot = path.resolve(__dirname, "..");
 const themeName = "mia-aesthetics";
 const outputDir = path.join(projectRoot, "theme-bundle");
 
+// CLI flags
+const DEV_COPY = process.argv.includes("--dev-copy");
+
 // Files and directories to include in the WordPress theme bundle
 const includePatterns = [
   // Core WordPress theme files
   "*.php",
   "style.css",
+  "theme.json",
 
   // Template and component files
   "components/**/*",
@@ -161,6 +165,29 @@ function getAllFiles(dirPath, arrayOfFiles = [], relativePath = "") {
   return arrayOfFiles;
 }
 
+function copyNodeAssets(targetRoot) {
+  console.log("\n📦 Copying npm dependencies...");
+  let nodeAssetsCount = 0;
+  nodeModulesAssets.forEach((asset) => {
+    const sourcePath = path.join(projectRoot, asset.source);
+    const destPath = path.join(targetRoot, asset.dest);
+
+    if (fs.existsSync(sourcePath)) {
+      try {
+        copyFileSync(sourcePath, destPath);
+        nodeAssetsCount++;
+        console.log(`   ✓ ${path.relative(targetRoot, destPath)}`);
+      } catch (error) {
+        console.error(`   ✗ Failed to copy ${asset.source}:`, error.message);
+      }
+    } else {
+      console.warn(`   ⚠ Source file not found: ${asset.source}`);
+    }
+  });
+  console.log(`   → Copied ${nodeAssetsCount} dependency files.`);
+  return nodeAssetsCount;
+}
+
 function bundleTheme() {
   console.log("🚀 Starting WordPress theme bundle process...");
 
@@ -191,25 +218,8 @@ function bundleTheme() {
 
   // Create theme zip if needed
   console.log(`\n✅ Successfully bundled ${copiedCount} files!`);
-  // Copy node modules assets
-  console.log("\n📦 Copying npm dependencies...");
-  let nodeAssetsCount = 0;
-  nodeModulesAssets.forEach((asset) => {
-    const sourcePath = path.join(projectRoot, asset.source);
-    const destPath = path.join(outputDir, themeName, asset.dest);
-    
-    if (fs.existsSync(sourcePath)) {
-      try {
-        copyFileSync(sourcePath, destPath);
-        nodeAssetsCount++;
-        console.log(`   ✓ ${asset.dest}`);
-      } catch (error) {
-        console.error(`   ✗ Failed to copy ${asset.source}:`, error.message);
-      }
-    } else {
-      console.warn(`   ⚠ Source file not found: ${asset.source}`);
-    }
-  });
+  // Copy node modules assets into bundle
+  const nodeAssetsCount = copyNodeAssets(path.join(outputDir, themeName));
 
   console.log(`📁 Theme bundle created at: ${path.join(outputDir, themeName)}`);
   console.log("\n🎯 Next steps:");
@@ -232,4 +242,11 @@ function bundleTheme() {
 }
 
 // Run the bundle process
-bundleTheme();
+if (DEV_COPY) {
+  console.log("🛠️  Dev copy mode: Copying vendor assets into working directory (assets/)...");
+  // Copy straight into the project root assets folder
+  copyNodeAssets(projectRoot);
+  console.log("\n✅ Dev assets ready under ./assets (bootstrap, fontawesome, glide).\n");
+} else {
+  bundleTheme();
+}

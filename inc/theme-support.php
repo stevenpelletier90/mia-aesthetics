@@ -54,8 +54,9 @@ function mia_setup(): void {
 	add_theme_support( 'custom-spacing' );
 	add_theme_support( 'editor-styles' );
 	add_theme_support( 'wp-block-styles' );
-	add_theme_support( 'disable-custom-colors' );
-	add_theme_support( 'disable-custom-font-sizes' );
+	add_theme_support( 'appearance-tools' );
+	add_theme_support( 'border' );
+	add_theme_support( 'link-color' );
 
 	/* ---- Yoast SEO ---------------------------------------------------- */
 	if ( function_exists( 'yoast_breadcrumb' ) ) {
@@ -99,8 +100,7 @@ function mia_editor_styles(): void {
 	add_editor_style(
 		array(
 			'assets/css/fonts.css',
-			'assets/css/base.css',
-			'assets/bootstrap/css/bootstrap.min.css',
+			'assets/css/theme.css',
 		)
 	);
 }
