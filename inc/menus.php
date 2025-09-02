@@ -188,9 +188,9 @@ function mia_aesthetics_render_menu( $type = 'desktop' ): void {
 
 	foreach ( $menu as $key => $section ) {
 		if ( 'procedures' === $key ) {
-			render_procedures_menu( $section, $is_mobile );
+			mia_aesthetics_render_procedures_menu( $section, $is_mobile );
 		} elseif ( 'non-surgical' === $key ) {
-			render_non_surgical_menu( $is_mobile );
+			mia_aesthetics_render_non_surgical_menu( $is_mobile );
 		}
 
 		// Add other menu sections here as needed.

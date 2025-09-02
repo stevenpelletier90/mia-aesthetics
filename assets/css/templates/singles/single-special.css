@@ -1,34 +1,23 @@
-/* Custom properties removed - now using base.css variables */
-
-/* Page Background */
 body.single-special {
-  background: radial-gradient(
-    circle at top left,
-    var(--mia-black) 0%,
-    var(--mia-black) 50%,
-    var(--mia-black) 100%
-  );
+  background: radial-gradient(circle at top left, var(--mia-black) 0%, var(--mia-black) 50%, var(--mia-black) 100%);
   min-height: 100vh;
 }
 
-/* Special container to avoid Bootstrap's container breakpoints */
 .special-container {
   width: 100%;
   padding: 48px 15px;
 }
 
-/* Special content wrapper for smooth scaling */
 .special-content-wrapper {
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
 }
 
-/* Hero Image Container */
 .special-hero-image {
   width: 100%;
   max-width: 100%;
-  aspect-ratio: 6/1; /* Creates a 6:1 ratio for 1200x200 images */
+  aspect-ratio: 6/1;
   background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
   border-radius: 4px;
   margin-bottom: 16px;
@@ -41,13 +30,11 @@ body.single-special {
   position: relative;
 }
 
-/* Remove overlay when image is present */
 .special-hero-image:has(img) {
   opacity: 1;
   background: transparent;
 }
 
-/* Only show overlay/placeholder styling when no image */
 .special-hero-image:not(:has(img)) {
   opacity: 0.7;
 }
@@ -59,7 +46,6 @@ body.single-special {
   object-position: center;
 }
 
-/* Content Area Styling */
 .single-special .main-content {
   padding: 32px 0;
   color: var(--mia-white);
@@ -69,7 +55,6 @@ body.single-special {
   margin-top: 40px;
 }
 
-/* Special Disclaimer */
 .special-disclaimer {
   margin-top: 16px;
   font-size: 14px;
@@ -84,3 +69,5 @@ body.single-special {
 .special-disclaimer p:last-child {
   margin-bottom: 0;
 }
+
+/*# sourceMappingURL=single-special.css.map */

@@ -1,6 +1,3 @@
-/* Single Surgeon Template - Professional Medical Bio Design */
-
-/* Breadcrumb Wrapper */
 .surgeon-breadcrumb-wrapper {
   background: var(--mia-gold-light);
   padding: 1rem 0;
@@ -19,7 +16,6 @@
   padding: 0;
 }
 
-/* Fluid Container */
 .surgeon-fluid-container {
   width: 100%;
   padding-right: 2rem;
@@ -34,14 +30,11 @@
     padding-left: 4rem;
   }
 }
-
 @media (min-width: 1600px) {
   .surgeon-fluid-container {
     max-width: 1600px;
   }
 }
-
-/* Professional Hero Section */
 .surgeon-hero {
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
   padding: 4rem 0;
@@ -162,13 +155,11 @@
   flex-wrap: wrap;
 }
 
-/* Mobile Gallery Button Styling */
 .surgeon-gallery-mobile {
   margin-top: 0.5rem;
   width: 100%;
 }
 
-/* Main Content Area */
 .surgeon-content-area {
   padding: 4rem 0;
   background: var(--mia-white);
@@ -178,7 +169,6 @@
   padding-right: 3rem;
 }
 
-/* Section Styling */
 .section-title {
   font-size: 2rem;
   font-weight: 700;
@@ -207,7 +197,6 @@
   transform: translateX(-50%);
 }
 
-/* Bio Section */
 .surgeon-bio-section {
   margin-bottom: 4rem;
 }
@@ -229,7 +218,6 @@
   margin-bottom: 1rem;
 }
 
-/* Video Section */
 .surgeon-video-section {
   margin-bottom: 4rem;
 }
@@ -294,7 +282,6 @@
   color: var(--mia-black);
 }
 
-/* Expertise Section */
 .surgeon-expertise-section {
   margin-bottom: 4rem;
 }
@@ -374,7 +361,6 @@
   transform: translateX(3px);
 }
 
-/* Sidebar */
 .surgeon-sidebar {
   position: sticky;
   top: 100px;
@@ -445,7 +431,6 @@
   text-decoration: underline;
 }
 
-/* Resource Links */
 .resource-links {
   display: flex;
   flex-direction: column;
@@ -492,143 +477,114 @@
   transform: translateX(3px);
 }
 
-/* FAQ Section */
 .surgeon-faq-section {
   background: var(--mia-gold-light);
   padding: 4rem 0;
 }
 
-/* Mobile Responsive */
 @media (max-width: 1199px) {
   .surgeon-fluid-container {
     padding-right: 1.5rem;
     padding-left: 1.5rem;
   }
-
   .surgeon-hero-content {
     padding-left: 2rem;
   }
-
   .surgeon-main-column {
     padding-right: 2rem;
   }
 }
-
 @media (max-width: 991px) {
   .surgeon-hero {
     padding: 3rem 0;
   }
-
   .surgeon-hero-content {
     padding-left: 0;
     padding-top: 2rem;
     text-align: center;
   }
-
   .surgeon-hero .surgeon-name {
     font-size: 2.5rem;
   }
-
   .surgeon-hero .surgeon-location {
     justify-content: center;
   }
-
   .surgeon-hero-actions {
     justify-content: center;
     flex-direction: column;
     align-items: center;
   }
-
   .surgeon-gallery-mobile {
     margin-top: 1rem;
     max-width: 280px;
   }
-
   .surgeon-main-column {
     padding-right: 0;
     margin-bottom: 3rem;
   }
-
   .surgeon-sidebar {
     position: static;
   }
-
   .surgeon-fluid-container {
     padding-right: 1rem;
     padding-left: 1rem;
   }
 }
-
 @media (max-width: 767px) {
   .surgeon-hero .surgeon-name {
     font-size: 2rem;
   }
-
   .surgeon-hero .surgeon-location {
     font-size: 1rem;
   }
-
   .section-title {
     font-size: 1.5rem;
     margin-bottom: 1.5rem;
   }
-
   .expertise-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .expertise-card {
     flex-direction: column;
     text-align: center;
     padding: 1.5rem;
   }
-
-  /* Consistent mobile spacing - 2rem standard */
   .surgeon-content-area {
     padding: 2rem 0;
   }
-
   .surgeon-bio-section {
     margin-bottom: 2rem;
   }
-
   .surgeon-video-section {
     margin-bottom: 2rem;
   }
-
   .surgeon-expertise-section {
     margin-bottom: 2rem;
   }
-
   .surgeon-faq-section {
     padding: 2rem 0;
   }
-
   .sidebar-card {
     margin-bottom: 1.5rem;
     padding: 1.5rem;
   }
-
-  /* Reorder sections on mobile */
   .surgeon-main-column {
     display: flex;
     flex-direction: column;
   }
-
   .surgeon-bio-section {
     order: 2;
   }
-
   .surgeon-video-section {
     order: 1;
   }
-
   .surgeon-expertise-section {
     order: 3;
   }
 }
-
 body.single-surgeon {
   overflow: hidden auto;
 }
+
+/*# sourceMappingURL=single-surgeon.css.map */

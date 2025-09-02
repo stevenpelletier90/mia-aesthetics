@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .careers-hero {
   padding: 5rem 0;
   background: var(--mia-gold-light);
@@ -176,8 +177,7 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
 .value-title {
@@ -447,8 +447,7 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
 .benefit-title {
@@ -888,303 +887,236 @@
     max-width: 1500px;
   }
 }
-
 @media (max-width: 1199.98px) and (min-width: 992px) {
   #testimonialsCarousel .carousel-control-prev {
     left: 5px;
   }
-
   #testimonialsCarousel .carousel-control-next {
     right: 5px;
   }
 }
-
 @media (max-width: 991.98px) {
   .careers-hero {
     padding: 3rem 0;
   }
-
   .careers-hero__content {
     padding-right: 0;
     margin-bottom: 2rem;
     text-align: center;
   }
-
   .careers-hero__title {
     margin-bottom: 1.5rem;
   }
-
   .careers-hero__text {
     margin-bottom: 1.5rem;
   }
-
   .careers-hero__cta {
     margin-top: 1.5rem;
   }
-
   .core-values-section {
     padding: 4rem 0;
   }
-
   .core-values__header {
     margin-bottom: 3rem;
   }
-
   .values-grid {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     margin-top: 2rem;
   }
-
   .value-card {
     padding: 2.5rem 2rem;
   }
-
   .benefits-top-content {
     margin-bottom: 3rem;
   }
-
   .benefits-header {
     padding-right: 0;
     margin-bottom: 2rem;
   }
-
   .founders-quote-wrapper {
     padding-left: 0;
   }
-
   .testimonials-section {
     padding: 4rem 0;
   }
-
   .testimonials-header {
     margin-bottom: 3rem;
   }
-
   .testimonial-quote {
     font-size: 1rem;
   }
-
   .careers-footer {
     padding: 3rem 0 1.5rem;
   }
-
   .careers-footer .social-links {
     justify-content: center;
     margin-top: 1rem;
   }
-
   .careers-footer .footer-bottom {
     text-align: center;
   }
-
   .careers-footer .footer-logo {
     margin-bottom: 1rem;
   }
 }
-
 @media (max-width: 991.98px) and (min-width: 768px) {
   .testimonials-section .carousel-item .col-md-6 {
     padding: 0 1rem;
   }
-
   .testimonial-card {
     min-height: 350px;
     height: 100%;
   }
-
   .testimonial-quote {
     -webkit-line-clamp: 5;
     line-clamp: 5;
     font-size: 1rem;
   }
-
   #testimonialsCarousel .carousel-control-prev {
     left: 15px;
     top: 50%;
   }
-
   #testimonialsCarousel .carousel-control-next {
     right: 15px;
     top: 50%;
   }
-
   .carousel-indicators {
     margin-top: 1.5rem !important;
   }
-
   .carousel-indicators [data-bs-target] {
     width: 10px !important;
     height: 10px !important;
     margin: 0 0.3rem !important;
   }
 }
-
 @media (max-width: 767.98px) {
   .careers-hero {
     padding: 2rem 0;
   }
-
   .careers-hero__content {
     text-align: center;
   }
-
   .careers-hero__title {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
   }
-
   .careers-hero__text p {
     font-size: clamp(1rem, 2vw, 1.125rem);
   }
-
   .careers-hero__image-container {
     margin-top: 2rem;
   }
-
   .values-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .value-card {
     padding: 2rem 1.5rem;
   }
-
   .value-icon {
     width: 120px;
     height: 120px;
   }
-
   .value-svg-icon {
     width: 70px;
     height: 70px;
   }
-
   .foundation-parallax {
     min-height: 60vh;
     background-attachment: scroll;
   }
-
   .foundation-content {
     padding: 2rem 1rem;
   }
-
   .foundation-content h2 {
     margin-bottom: 1.5rem;
   }
-
   .foundation-content p {
     margin-bottom: 2rem;
   }
-
   .foundation-cta {
     margin-top: 2rem;
   }
-
   .find-location-section {
     padding: 4rem 0;
   }
-
   .locations-grid {
     grid-template-columns: 1fr;
     gap: 1.5rem;
   }
-
   .location-card {
     padding: 1.5rem;
   }
-
   .benefits-section {
     padding: 3rem 0;
   }
-
   .benefits-top-content {
     margin-bottom: 2.5rem;
   }
-
   .benefits-header {
     text-align: center;
     margin-bottom: 2rem;
   }
-
   .benefits-title {
     font-size: 2rem;
     text-align: center;
   }
-
   .benefits-subtitle {
     text-align: center;
   }
-
   .founders-quote-wrapper {
     padding: 0;
   }
-
   .founders-quote {
     padding: 2rem;
     margin: 0;
   }
-
   .quote-icon {
     font-size: 2rem;
   }
-
   .quote-text {
     font-size: 1.1rem;
     margin-bottom: 1.5rem;
   }
-
   .attribution-line {
     width: 30px;
   }
-
   .attribution-text {
     font-size: 0.9rem;
   }
-
   .benefit-card {
     margin-bottom: 2rem;
   }
-
   .benefit-icon {
     width: 120px;
     height: 120px;
   }
-
   .benefit-icon i {
     font-size: 1.5rem;
   }
-
   .benefit-svg-icon {
     width: 70px;
     height: 70px;
   }
-
   .benefit-title {
     font-size: 1.2rem;
   }
-
   .benefit-list li {
     font-size: 0.9rem;
   }
-
   .testimonials-section {
     padding: 3rem 0;
   }
-
   .testimonials-section .carousel-item .col-12 {
     padding: 0 1rem;
     max-width: 100%;
   }
-
   .testimonials-section .carousel-item .col-12.d-flex {
     justify-content: center;
   }
-
   #testimonialsCarousel .carousel-item {
     min-height: 350px;
   }
-
   .testimonial-card {
     min-height: 280px;
     height: 100%;
@@ -1192,50 +1124,40 @@
     padding: 1.5rem 1rem;
     height: 320px;
   }
-
   .testimonial-content {
     padding: 1.5rem;
     min-height: 280px;
   }
-
   .testimonial-quote {
     -webkit-line-clamp: 4;
     line-clamp: 4;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
   }
-
   .testimonial-author {
     margin-bottom: 0.75rem;
   }
-
   .testimonial-stars {
     margin-top: 0.5rem;
   }
-
   .author-name {
     font-size: 1.1rem;
   }
-
   .author-role {
     font-size: 0.9rem;
   }
-
   .author-location {
     font-size: 0.85rem;
   }
-
   .carousel-control-prev-icon,
   .carousel-control-next-icon {
     width: 2.5rem;
     height: 2.5rem;
   }
-
   .carousel-indicators {
     margin-top: 1.5rem !important;
     justify-content: center;
   }
-
   .carousel-indicators [data-bs-target] {
     width: 8px !important;
     height: 8px !important;
@@ -1243,115 +1165,92 @@
     width: 10px;
     height: 10px;
   }
-
   #testimonialsCarousel .carousel-control-prev {
     left: 5px;
     top: 60%;
   }
-
   #testimonialsCarousel .carousel-control-next {
     right: 5px;
     top: 60%;
   }
-
   #testimonialsCarousel .carousel-control-prev-icon,
   #testimonialsCarousel .carousel-control-next-icon {
     width: 2rem;
     height: 2rem;
   }
-
   #testimonialsCarousel .carousel-control-prev,
   #testimonialsCarousel .carousel-control-next {
     width: 50px;
   }
-
   .careers-footer {
     padding: 2.5rem 0 1rem;
   }
-
   .careers-footer .footer-column {
     text-align: left;
     margin-bottom: 2.5rem;
   }
-
   .careers-footer .footer-heading {
     font-size: 1.3rem;
     margin-bottom: 1rem;
   }
-
   .careers-footer .footer-heading::after {
     display: none;
   }
-
   .careers-footer .footer-text {
     font-size: 0.95rem;
     text-align: left;
   }
-
   .careers-footer .contact-info {
     margin-top: 0.5rem;
   }
-
   .careers-footer .contact-link {
     font-size: 1rem;
   }
-
   .careers-footer .footer-bottom {
     border-top: 1px solid var(--mia-gold-20);
     padding-top: 1.5rem;
   }
-
   .careers-footer .footer-logo {
     text-align: left;
     margin-bottom: 1.5rem;
   }
-
   .careers-footer .social-links {
     justify-content: flex-start;
     margin-top: 0;
     margin-bottom: 1.5rem;
   }
-
   .careers-footer .social-link {
     width: 35px;
     height: 35px;
     font-size: 1rem;
   }
-
   .careers-footer .copyright {
     text-align: left;
   }
-
   .careers-footer .copyright p {
     font-size: 0.85rem;
     line-height: 1.5;
   }
-
   .careers-footer .footer-divider {
     display: none;
   }
-
   .careers-footer .legal-links {
     flex-direction: column;
     gap: 0.75rem;
     align-items: flex-start;
   }
-
   .careers-footer .link-separator {
     display: none;
   }
-
   .careers-footer .legal-links a {
     font-size: 0.9rem;
     padding: 0.25rem 0;
   }
-
   .careers-footer .disclaimer {
     font-size: 0.8rem;
     margin-bottom: 1rem;
   }
 }
-
 @media (prefers-reduced-motion: reduce) {
   .careers-hero__image,
   .value-card,
@@ -1359,41 +1258,36 @@
   .testimonial-card {
     transition: none;
   }
-
   .careers-hero__image:hover,
   .value-card:hover,
   .benefit-card:hover {
     transform: none;
   }
-
   .foundation-parallax {
     background-attachment: scroll;
   }
-
   .testimonials-section .testimonial-card {
     transition: none;
   }
-
   #testimonialsCarousel .carousel-item {
     transition: none;
   }
 }
-
 @media print {
   .careers-hero {
     min-height: auto;
     background: white;
     color: black;
   }
-
   .careers-hero__overlay,
   .careers-hero__background {
     display: none;
   }
-
   .careers-hero__title,
   .careers-hero__text p {
     color: black;
     text-shadow: none;
   }
 }
+
+/*# sourceMappingURL=page-careers.css.map */

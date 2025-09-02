@@ -24,6 +24,7 @@ if ( is_singular( 'surgeon' ) ) :
 	?>
 	data-bs-spy="scroll" data-bs-target="#surgeon-tabs" data-bs-offset="120"<?php endif; ?>>
 <?php wp_body_open(); ?>
+<a href="#primary" class="skip-link">Skip to content</a>
 
 <header class="position-sticky site-header top-0">
 	<nav class="navbar navbar-expand-xl navbar-dark" id="primary-navigation" aria-label="Main navigation">
@@ -73,29 +74,29 @@ if ( is_singular( 'surgeon' ) ) :
 				<!-- Procedures Menu - Desktop (using refactored functions) -->
 				<?php
 				$menu_structure = mia_aesthetics_get_menu_structure();
-				render_procedures_menu( $menu_structure['procedures'], false );
+				mia_aesthetics_render_procedures_menu( $menu_structure['procedures'], false );
 				?>
 				<!-- Procedures Menu - Mobile (using refactored functions) -->
-				<?php render_procedures_menu( $menu_structure['procedures'], true ); ?>
+				<?php mia_aesthetics_render_procedures_menu( $menu_structure['procedures'], true ); ?>
 				<!-- Non-Surgical Menu (using refactored functions) -->
 				<?php
-					render_non_surgical_menu( false ); // desktop.
-					render_non_surgical_menu( true );  // mobile.
+					mia_aesthetics_render_non_surgical_menu( false ); // desktop.
+					mia_aesthetics_render_non_surgical_menu( true );  // mobile.
 				?>
 				<!-- Locations Menu (using refactored functions) -->
 				<?php
-					render_locations_menu( false ); // desktop.
-					render_locations_menu( true );  // mobile.
+					mia_aesthetics_render_locations_menu( false ); // desktop.
+					mia_aesthetics_render_locations_menu( true );  // mobile.
 				?>
 				<!-- Surgeons Menu (using refactored functions) -->
 				<?php
-					render_surgeons_menu( false ); // desktop.
-					render_surgeons_menu( true );  // mobile.
+					mia_aesthetics_render_surgeons_menu( false ); // desktop.
+					mia_aesthetics_render_surgeons_menu( true );  // mobile.
 				?>
 				<!-- Before & After Menu (using refactored functions) -->
 				<?php
-					render_before_after_menu( false ); // desktop.
-					render_before_after_menu( true );  // mobile.
+					mia_aesthetics_render_before_after_menu( false ); // desktop.
+					mia_aesthetics_render_before_after_menu( true );  // mobile.
 				?>
 				<li class="nav-item <?php echo mia_aesthetics_is_current_section( 'financing' ) ? 'current-menu-ancestor' : ''; ?>">
 					<a class="nav-link" href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" <?php echo mia_aesthetics_is_current_url( home_url( '/financing/' ) ) ? 'aria-current="page"' : ''; ?>>Financing</a>

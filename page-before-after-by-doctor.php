@@ -36,7 +36,7 @@ get_header();
 			<option value="">Choose a Surgeon</option>
 			<?php
 			// Get surgeons dynamically from the surgeon custom post type.
-			$surgeons = get_surgeons_direct();
+			$surgeons = mia_aesthetics_get_surgeons_direct();
 
 			// Debug: Output surgeon data as HTML comment for troubleshooting.
 			$surgeons_json = wp_json_encode( $surgeons );
@@ -161,7 +161,7 @@ if ( is_array( $gallery_data ) && count( $gallery_data ) > 0 ) :
 
 	// Add "Coming Soon" galleries for surgeons without data.
 	// Get all surgeons to find those without galleries.
-	$all_surgeons = get_surgeons_direct();
+	$all_surgeons = mia_aesthetics_get_surgeons_direct();
 	foreach ( $all_surgeons as $surgeon ) {
 		// Parse surgeon name to get slug.
 		$name_parts      = explode( ',', $surgeon['name'] );

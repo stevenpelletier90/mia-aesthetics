@@ -128,7 +128,7 @@ function mia_get_template_mappings(): array {
 			'js'  => 'templates/pages/page-hero-canvas.js',
 		),
 		'page-hero-canvas-no-bc'      => array(
-			'css' => 'templates/pages/page-hero-canvas-no-bc.css',
+			'css' => 'templates/pages/page-hero-canvas.css', // Shared CSS with page-hero-canvas.
 			'js'  => 'templates/pages/page-hero-canvas-no-bc.js',
 		),
 		'page-no-bc'                  => array(
@@ -373,14 +373,12 @@ function mia_detect_template_key(): string {
  */
 function mia_enqueue_assets(): void {
 	// ------------------------ Critical/global assets -----------------------.
-	mia_register_asset( 'style', 'mia-fonts', '/css/fonts.css' );
-
-	// Custom Bootstrap theme (replaces bootstrap.min.css + base.css).
-	mia_register_asset( 'style', 'mia-theme', '/css/theme.css', array( 'mia-fonts' ) );
+	// Custom Bootstrap theme (includes fonts, base styles, components).
+	// Fonts now included in theme.css via SCSS.
+	mia_register_asset( 'style', 'mia-theme', '/css/theme.css' );
 
 	mia_register_asset( 'style', 'mia-fontawesome', '/fontawesome/css/all.min.css', array( 'mia-theme' ) );
-	mia_register_asset( 'style', 'mia-header', '/css/layout/header.css', array( 'mia-theme' ) );
-	mia_register_asset( 'style', 'mia-footer', '/css/layout/footer.css', array( 'mia-theme' ) );
+	// Header, footer, consultation-cta now included in theme.css via SCSS.
 
 	// Register location search assets (loaded on demand).
 	mia_register_asset( 'style', 'mia-location-search', '/css/utilities/location-search.css', array( 'mia-theme' ) );
@@ -389,7 +387,7 @@ function mia_enqueue_assets(): void {
 	mia_register_asset( 'script', 'mia-location-search-careers', '/js/utilities/location-search-careers.js', array() );
 
 	// Register CTA component assets.
-	mia_register_asset( 'style', 'mia-consultation-cta', '/css/components/consultation-cta.css', array( 'mia-theme' ) );
+	// consultation-cta now included in theme.css via SCSS.
 	mia_register_asset( 'style', 'mia-careers-cta', '/css/components/careers-cta.css', array( 'mia-theme' ) );
 
 	// Register case card component (loaded on demand by case-related templates).
@@ -409,7 +407,7 @@ function mia_enqueue_assets(): void {
 		$template = $templates[ $template_key ];
 
 		if ( isset( $template['css'] ) && '' !== $template['css'] ) {
-			$css_deps = array( 'mia-theme', 'mia-header', 'mia-footer' );
+			$css_deps = array( 'mia-theme' ); // Header/footer assets are consolidated into theme.css.
 
 			// Add hero section CSS dependency for front page.
 			if ( 'front-page' === $template_key ) {

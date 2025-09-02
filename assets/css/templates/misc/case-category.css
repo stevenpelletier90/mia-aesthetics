@@ -13,6 +13,7 @@
 .post-header .lead {
   font-size: clamp(1rem, 4vw, 1.25rem);
 }
+
 .page-content {
   padding: 2rem 0;
 }
@@ -45,3 +46,5 @@
   font-size: 1.1rem;
   line-height: 1.6;
 }
+
+/*# sourceMappingURL=case-category.css.map */

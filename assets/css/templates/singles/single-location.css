@@ -243,15 +243,12 @@
   color: var(--mia-gray-muted);
 }
 
-/* Surgeon Cards */
 .surgeon-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   border-radius: 12px;
   padding: 2rem 1.5rem;
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   border: 1px solid var(--mia-gold-20);
   color: var(--mia-white);
 }
@@ -298,9 +295,7 @@
     height: 140px;
   }
 }
-
 @media (max-width: 767px) {
-  /* Mobile surgeon card redesign - horizontal layout to save space */
   .team-section .surgeon-card {
     background: var(--mia-white);
     border: 1px solid var(--mia-gold-light);
@@ -312,13 +307,11 @@
     text-align: left;
     min-height: 120px;
   }
-
   .team-section .surgeon-card:hover {
     border-color: var(--mia-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
   }
-
   .team-section .surgeon-card img {
     width: 100px;
     height: 100px;
@@ -327,7 +320,6 @@
     margin-right: 1.25rem;
     flex-shrink: 0;
   }
-
   .team-section .surgeon-card .surgeon-info {
     flex: 1;
     display: flex;
@@ -336,21 +328,18 @@
     text-align: left;
     height: 100%;
   }
-
   .team-section .surgeon-card h3 {
     font-size: 1.1rem;
     color: var(--mia-black);
     margin-bottom: 0.25rem;
     line-height: 1.3;
   }
-
   .team-section .surgeon-card p {
     color: var(--mia-gray-muted);
     font-size: 0.85rem;
     margin-bottom: 0.75rem;
     font-style: normal;
   }
-
   .team-section .surgeon-card .btn {
     font-size: 0.75rem;
     padding: 0.4rem 0.8rem;
@@ -359,3 +348,5 @@
     width: auto;
   }
 }
+
+/*# sourceMappingURL=single-location.css.map */

@@ -95,11 +95,7 @@
   text-align: left;
   display: inline-block;
   border-radius: 3px;
-  transition:
-    color 0.2s ease,
-    background-color 0.2s ease,
-    border-color 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .location-cta-buttons .btn:hover,
@@ -179,18 +175,15 @@
   .location-card-img-top {
     height: 140px;
   }
-
   .location-content {
-    padding: 1rem !important;
+    padding: 1rem;
   }
 }
-
 @media (min-width: 992px) {
   .location-card-img-top {
     height: 240px;
   }
 }
-
 .location-icon {
   color: var(--mia-black);
   width: 16px;
@@ -205,3 +198,5 @@
 .location-phone:hover {
   color: var(--mia-black);
 }
+
+/*# sourceMappingURL=archive-location.css.map */

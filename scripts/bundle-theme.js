@@ -100,6 +100,9 @@ const excludePatterns = [
   "mcpreadme.md",
   "CLAUDE.md",
   "AGENTS.md",
+  // Exclude SCSS source files (only compiled CSS should be bundled)
+  "assets/scss/**/*",
+  
   // Exclude old static asset directories (now using npm)
   "assets/bootstrap/**/*",
   "assets/fontawesome/**/*",

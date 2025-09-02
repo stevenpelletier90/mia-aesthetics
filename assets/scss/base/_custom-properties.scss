@@ -1,9 +1,11 @@
 // ====================================
 // Mia Aesthetics CSS Custom Properties
 // ====================================
-// 
+//
 // Output Sass variables as CSS custom properties for runtime use
 // in component files and JavaScript
+@use "../abstracts/index" as *;
+@use "sass:color";
 
 :root {
   // Mia Aesthetics Brand Colors - Design System
@@ -27,9 +29,9 @@
 
   // Bootstrap Override Variables - Match Brand Theme
   --bs-primary: var(--mia-gold);
-  --bs-primary-rgb: #{red($mia-gold)}, #{green($mia-gold)}, #{blue($mia-gold)};
+  --bs-primary-rgb: #{color.red($mia-gold)}, #{color.green($mia-gold)}, #{color.blue($mia-gold)};
   --bs-secondary: var(--mia-black);
-  --bs-secondary-rgb: #{red($mia-black)}, #{green($mia-black)}, #{blue($mia-black)};
+  --bs-secondary-rgb: #{color.red($mia-black)}, #{color.green($mia-black)}, #{color.blue($mia-black)};
 
   // Typography
   --font-heading: #{$headings-font-family};

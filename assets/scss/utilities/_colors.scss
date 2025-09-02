@@ -1,8 +1,9 @@
 // ====================================
 // Mia Aesthetics - Color Utilities
 // ====================================
-// 
+//
 // Replaces !important color overrides from base.css
+@use "../abstracts/index" as *;
 
 // Text color utilities (override Bootstrap defaults)
 .text-secondary {

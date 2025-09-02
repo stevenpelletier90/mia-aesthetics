@@ -92,26 +92,24 @@
   .surgeon-img-container {
     --container-size: 100px;
   }
-
   .surgeon-archive-headshot {
     border: 2px solid var(--mia-gold);
   }
-
   .surgeon-card .card-body {
     display: flex;
     flex-direction: row;
     text-align: left;
     align-items: center;
   }
-
   .surgeon-img-container {
-    margin-right: 1rem !important;
+    margin-right: 1rem;
     margin-bottom: 0;
   }
-
   .surgeon-info {
     display: flex;
     flex-direction: column;
     justify-content: center;
   }
 }
+
+/*# sourceMappingURL=archive-surgeon.css.map */

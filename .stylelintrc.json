@@ -1,0 +1,51 @@
+{
+  "extends": ["stylelint-config-standard-scss"],
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "max-nesting-depth": 3,
+    "selector-max-id": 0,
+    "declaration-block-no-duplicate-properties": true,
+    "no-duplicate-selectors": true,
+    "no-descending-specificity": true,
+    "color-hex-length": "short",
+    "color-function-notation": "modern",
+    "alpha-value-notation": "percentage",
+    "function-url-quotes": "always",
+    "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
+    "scss/comment-no-empty": true,
+    "scss/no-global-function-names": true,
+    "scss/at-import-no-partial-leading-underscore": true,
+    "scss/at-import-partial-extension": null,
+    "scss/at-mixin-argumentless-call-parentheses": "never",
+    "scss/dollar-variable-empty-line-before": ["always", {
+      "except": ["first-nested", "after-comment", "after-dollar-variable"]
+    }],
+    "order/properties-order": [
+      "position",
+      "top",
+      "right",
+      "bottom", 
+      "left",
+      "z-index",
+      "display",
+      "flex-direction",
+      "justify-content",
+      "align-items",
+      "width",
+      "height",
+      "margin",
+      "padding",
+      "background",
+      "color",
+      "font-family",
+      "font-size",
+      "font-weight",
+      "line-height",
+      "text-align",
+      "border",
+      "border-radius",
+      "transition",
+      "transform"
+    ]
+  }
+}

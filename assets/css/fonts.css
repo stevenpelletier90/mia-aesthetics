@@ -1,5 +1,3 @@
-/* Local Font Declarations */
-
 /* Montserrat Variable Font for Headings */
 @font-face {
   font-family: Montserrat;
@@ -8,7 +6,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: Montserrat;
   src: url(../fonts/Montserrat-Italic-VariableFont_wght.woff2) format("woff2-variations");
@@ -16,7 +13,6 @@
   font-style: italic;
   font-display: swap;
 }
-
 /* Inter Variable Font for Body Text */
 @font-face {
   font-family: Inter;
@@ -26,7 +22,6 @@
   font-style: normal;
   font-display: swap;
 }
-
 @font-face {
   font-family: Inter;
   src: url(../fonts/Inter-Italic-VariableFont_opsz,wght.woff2) format("woff2-variations");
@@ -35,3 +30,5 @@
   font-style: italic;
   font-display: swap;
 }
+
+/*# sourceMappingURL=fonts.css.map */

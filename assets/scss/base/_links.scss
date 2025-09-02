@@ -1,0 +1,22 @@
+// =============================================================================
+// Global Link Styles
+// Source of truth for anchor colors and decoration
+// =============================================================================
+@use "../abstracts/index" as *;
+
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+a:hover,
+a:focus {
+  color: $link-hover-color;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+// Keep visited style aligned to brand (avoid default purple)
+a:visited {
+  color: $link-color;
+}

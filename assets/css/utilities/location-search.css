@@ -57,12 +57,10 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
-
 /* Search Dropdown */
 .search-dropdown {
   position: absolute;
@@ -100,7 +98,7 @@
 .location-search-widget #search-dropdown .dropdown-item:is(:hover, :focus) {
   background-color: rgba(255, 255, 255, 0.05);
   color: var(--mia-white);
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 .location-search-widget #search-dropdown .dropdown-item h4 {
@@ -132,7 +130,7 @@
   display: inline-block;
   margin: 0.25rem 0.5rem 0.25rem 0;
   font-family: var(--font-body);
-  text-decoration: none !important;
+  text-decoration: none;
 }
 
 .search-dropdown .no-results {
@@ -162,12 +160,7 @@
 .skeleton-title,
 .skeleton-address,
 .skeleton-distance {
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0.1) 25%,
-    rgba(255, 255, 255, 0.2) 50%,
-    rgba(255, 255, 255, 0.1) 75%
-  );
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
   border-radius: 4px;
   animation: shimmer 1.5s infinite;
 }
@@ -193,75 +186,62 @@
   0% {
     background-position: -200% 0;
   }
-
   100% {
     background-position: 200% 0;
   }
 }
-
 @keyframes pulse {
-  0%,
-  100% {
+  0%, 100% {
     opacity: 1;
   }
-
   50% {
     opacity: 0.7;
   }
 }
-
 /* Responsive Design */
 @media (max-width: 768px) {
   .location-search-widget {
     margin: 0;
   }
-
   #location-search {
     font-size: 1rem;
     padding: 0.875rem 2.5rem 0.875rem 1.25rem;
   }
-
   .search-dropdown {
     position: static;
     margin-top: 1rem;
     border-radius: 8px;
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
   }
-
   .search-dropdown .dropdown-item {
     padding: 1rem;
   }
-
   .search-dropdown .dropdown-item h4 {
     font-size: 1rem;
   }
-
   .search-dropdown .dropdown-item .location-address {
     font-size: 0.9rem;
     margin-bottom: 0.5rem;
   }
-
   .search-dropdown .dropdown-item .location-distance {
     font-size: 0.8rem;
     padding: 0.2rem 0.6rem;
   }
 }
-
 @media (max-width: 480px) {
   .search-dropdown .dropdown-item {
     padding: 0.875rem;
   }
-
   .search-dropdown .dropdown-item h4 {
     font-size: 0.95rem;
   }
-
   .search-dropdown .dropdown-item .location-address {
     font-size: 0.85rem;
   }
-
   .search-dropdown .dropdown-item .location-distance {
     font-size: 0.75rem;
     padding: 0.15rem 0.5rem;
   }
 }
+
+/*# sourceMappingURL=location-search.css.map */

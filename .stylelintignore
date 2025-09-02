@@ -1,0 +1,4 @@
+assets/css/**
+theme-bundle/**
+vendor/**
+node_modules/**

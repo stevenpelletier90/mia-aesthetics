@@ -1,0 +1,37 @@
+// ====================================
+// Mia Aesthetics - FAQ Components
+// ====================================
+
+.faq-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 32px;
+  box-shadow: 
+    0 4px 6px -1px rgba(0, 0, 0, 0.1),
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.faqs-section {
+  h2 {
+    color: var(--bs-body-color);
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 16px;
+    margin-bottom: 24px;
+    font-family: var(--font-heading);
+    
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 80px;
+      height: 3px;
+      background-color: var(--mia-gold);
+    }
+  }
+}
+
+.accordion-item {
+  margin-bottom: 16px;
+}

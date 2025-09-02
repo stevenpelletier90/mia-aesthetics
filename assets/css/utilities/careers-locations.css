@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .location-header {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -166,13 +167,13 @@
 
 .job-function-card {
   background: var(--mia-white);
-  border: 1px solid var(--mia-gold-light) !important;
+  border: 1px solid var(--mia-gold-light);
   height: 100%;
   transition: all 0.3s ease;
 }
 
 .job-function-card:hover {
-  border-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
 }
@@ -319,12 +320,12 @@
 
 .job-item {
   background: var(--mia-white);
-  border: 2px solid var(--mia-gold-light) !important;
+  border: 2px solid var(--mia-gold-light);
   transition: all 0.3s ease;
 }
 
 .job-item:hover {
-  border-color: var(--mia-gold) !important;
+  border-color: var(--mia-gold);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
   transform: translateY(-3px);
 }
@@ -500,8 +501,7 @@
 }
 
 .benefit-svg-icon {
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
   height: 80px;
   object-fit: contain;
   width: 80px;
@@ -613,9 +613,7 @@
   color: var(--mia-white);
   padding: 32px 24px;
   text-align: center;
-  transition:
-    transform 0.3s ease,
-    box-shadow 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {
@@ -658,155 +656,121 @@
     width: 140px;
   }
 }
-
 @media (max-width: 991.98px) {
   .benefits-top-content {
     margin-bottom: 48px;
   }
-
   .benefits-header {
     margin-bottom: 32px;
     padding-right: 0;
   }
-
   .founders-quote-wrapper {
     padding-left: 0;
   }
 }
-
 @media (max-width: 768px) {
   .location-header {
     padding: 32px 0;
   }
-
   .dept-breakdown h3,
   .job-functions h3 {
     font-size: 1.5rem;
   }
-
   .dept-breakdown .accordion-button {
     font-size: 1.1rem;
     padding: 16px;
   }
-
   .dept-breakdown .accordion-button i {
     font-size: 16px;
-    margin-right: 8px !important;
+    margin-right: 8px;
   }
-
   .dept-breakdown .accordion-body {
     padding: 24px 16px;
   }
-
   .job-function-title {
     font-size: 1.1rem;
   }
-
   .job-function-description {
     font-size: 0.9rem;
   }
-
   .page-template-page-careers-locations main .accordion-button {
     font-size: 1.1rem;
     padding: 16px;
   }
-
   .page-template-page-careers-locations main .accordion-button i {
     font-size: 16px;
-    margin-right: 8px !important;
+    margin-right: 8px;
   }
-
   .page-template-page-careers-locations main .accordion-body {
     padding: 24px 16px;
   }
-
   .position-card-expanded {
     padding: 20px;
   }
-
   .benefits-section {
     padding: 48px 0;
   }
-
   .benefits-top-content {
     margin-bottom: 40px;
   }
-
   .benefits-header {
     margin-bottom: 32px;
     padding-right: 0;
     text-align: center;
   }
-
   .benefits-title {
     font-size: 32px;
     text-align: center;
   }
-
   .benefits-subtitle {
     text-align: center;
   }
-
   .founders-quote-wrapper {
     padding: 0;
   }
-
   .founders-quote {
     margin: 0;
     padding: 32px;
   }
-
   .quote-icon {
     font-size: 32px;
   }
-
   .quote-text {
     font-size: 1.1rem;
     margin-bottom: 24px;
   }
-
   .attribution-line {
     width: 30px;
   }
-
   .attribution-text {
     font-size: 0.9rem;
   }
-
   .benefit-card {
     margin-bottom: 32px;
   }
-
   .benefit-icon {
     height: 120px;
     width: 120px;
   }
-
   .benefit-icon i {
     font-size: 1.5rem;
   }
-
   .benefit-svg-icon {
     height: 70px;
     width: 70px;
   }
-
   .benefit-title {
     font-size: 1.2rem;
   }
-
   .benefit-list li {
     font-size: 0.9rem;
   }
-
   .position-title-expanded {
     font-size: 16px;
   }
-
   .position-description {
     font-size: 0.85rem;
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card {
     align-items: center;
     background: var(--mia-white);
@@ -818,13 +782,11 @@
     padding: 16px;
     text-align: left;
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card:hover {
     border-color: var(--mia-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
     transform: translateY(-2px);
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card img {
     border: 2px solid var(--mia-gold);
     flex-shrink: 0;
@@ -832,7 +794,6 @@
     margin: 0 20px 0 0;
     width: 100px;
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card .surgeon-info {
     display: flex;
     flex: 1;
@@ -841,21 +802,18 @@
     justify-content: center;
     text-align: left;
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card h3 {
     color: var(--mia-black);
     font-size: 1.1rem;
     line-height: 1.3;
     margin-bottom: 4px;
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card p {
     color: var(--mia-gray-muted);
     font-size: 0.85rem;
     font-style: normal;
     margin-bottom: 12px;
   }
-
   .page-template-page-careers-locations .team-section .surgeon-card .btn {
     align-self: flex-start;
     font-size: 0.75rem;
@@ -864,3 +822,5 @@
     width: auto;
   }
 }
+
+/*# sourceMappingURL=careers-locations.css.map */

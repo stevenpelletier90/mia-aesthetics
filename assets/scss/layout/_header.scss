@@ -1,6 +1,7 @@
 // ====================================
 // Mia Aesthetics - Header Layout
 // ====================================
+@use "../abstracts/index" as *;
 
 // Site header
 .site-header {
@@ -8,12 +9,12 @@
   position: sticky;
   top: 0;
   z-index: 1030; // Above Bootstrap components but below modals
-  
+
   .navbar {
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
   }
-  
+
   .navbar-brand {
     img {
       height: 40px;
@@ -29,19 +30,19 @@
     padding: 0.5rem 1rem;
     border-radius: 0.25rem;
     transition: all 0.15s ease-in-out;
-    
+
     &:hover,
     &:focus {
       background-color: rgba($mia-gold, 0.1);
       color: $mia-gold;
     }
   }
-  
+
   .dropdown-menu {
     border: none;
     box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
     border-radius: 0.375rem;
-    
+
     .dropdown-item {
       &:hover,
       &:focus {
@@ -55,11 +56,11 @@
 // Mobile navigation (offcanvas)
 .offcanvas {
   background-color: $mia-black;
-  
+
   .offcanvas-header {
     border-bottom: 1px solid rgba($mia-gold, 0.2);
   }
-  
+
   .btn-close {
     filter: invert(1) grayscale(100%) brightness(200%);
   }
@@ -68,7 +69,7 @@
 // CTA button specific styling
 .header-btn {
   white-space: nowrap;
-  
+
   @media (max-width: 1199.98px) {
     font-size: 0.875rem;
     padding: 0.4rem 1rem;

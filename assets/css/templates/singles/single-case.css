@@ -1,3 +1,4 @@
+@charset "UTF-8";
 .post-header {
   background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -108,16 +109,6 @@ header h1 {
   transform: translateX(3px);
 }
 
-/* -------------------------------------------------
- * Unified arrow-link styling for additional sections
- * -------------------------------------------------
- * Re-use the same visual treatment applied to
- * “Performed by” and “Location” so that
- * “Procedure Performed” and
- * “Treatment & Recovery Resources” look identical.
- * We also minimise visual clutter by stripping
- * Bootstrap list-group borders/padding.
- */
 .case-procedure-link {
   color: var(--mia-gray-muted);
   font-size: 0.95rem;
@@ -150,11 +141,8 @@ header h1 {
   transform: translateX(3px);
 }
 
-/* Hide the redundant icon that was previously
- * used for these links to avoid duplicate arrows.
- */
 .case-procedure-link i {
-  display: none !important;
+  display: none;
 }
 
 .case-surgeon-link,
@@ -179,8 +167,6 @@ header h1 {
   color: var(--mia-white);
   text-decoration: none;
 }
-
-/* NOTE: These links could use existing button classes: btn btn-outline-secondary d-flex justify-content-between align-items-center mt-2 */
 
 .case-surgeon-link i,
 .case-location-link i {
@@ -232,8 +218,6 @@ header h1 {
   opacity: 1;
   transform: translateX(3px);
 }
-
-/* Remove conflicting styles - use unified arrow link styling */
 
 .cursor-pointer {
   cursor: pointer;
@@ -307,46 +291,34 @@ header h1 {
   .single-case .col-xl-7 {
     padding-right: 3rem;
   }
-
   .single-case .col-xl-5 {
     padding-left: 2rem;
   }
 }
-
 @media (min-width: 1200px) {
   .col-lg-8 {
     padding-right: 30px;
   }
-
   .col-lg-4 {
     padding-left: 30px;
   }
 }
-
 @media (max-width: 1199px) {
   .case-image-container {
     max-width: 100%;
   }
-
   .treatment-recovery-links {
     margin-bottom: 3rem;
   }
-
   .patient-info-card {
     padding: 0.75rem;
   }
 }
-
-/* Empty media query removed - @media (max-width: 767px) */
-
 @media (max-width: 576px) {
   .col-lg-8 h2.h4 {
     font-size: 1.15rem;
   }
 }
-
-/* Related Cases Section */
-
 .related-case-item {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 6px;
@@ -419,13 +391,13 @@ header h1 {
   .related-case-link {
     padding: 1rem;
   }
-
   .related-case-number {
     width: 36px;
     height: 36px;
   }
-
   .related-case-title {
     font-size: 1rem;
   }
 }
+
+/*# sourceMappingURL=single-case.css.map */

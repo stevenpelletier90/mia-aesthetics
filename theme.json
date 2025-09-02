@@ -56,14 +56,6 @@
       "lineHeight": "1.6"
     },
     "elements": {
-      "link": {
-        "color": { "text": "var(--wp--preset--color--mia-gold)" },
-        "typography": { "textDecoration": "none" },
-        ":hover": {
-          "color": { "text": "var(--wp--preset--color--mia-gold-dark)" },
-          "typography": { "textDecoration": "underline" }
-        }
-      },
       "heading": {
         "color": { "text": "var(--wp--preset--color--mia-black)" },
         "typography": {

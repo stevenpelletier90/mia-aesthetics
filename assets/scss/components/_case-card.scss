@@ -1,0 +1,234 @@
+// ====================================
+// Mia Aesthetics - Case Card Component
+// ====================================
+
+.case-card {
+  height: 100%;
+
+  &-inner {
+    background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
+    border-radius: 12px;
+    border: 2px solid var(--mia-gold);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: none;
+
+    &:hover {
+      transform: none;
+    }
+  }
+
+  &-image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 8/3;
+  }
+
+  &-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: none;
+  }
+
+  &-body {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  &-title {
+    font-family: var(--font-heading);
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    line-height: 1.3;
+  }
+
+  &-meta {
+    margin-bottom: 1.5rem;
+    flex-grow: 1;
+  }
+
+  &-action {
+    margin-top: auto;
+    padding-top: 1rem;
+  }
+}
+
+.case-image-link {
+  display: block;
+  width: 100%;
+  height: 100%;
+
+  &:focus {
+    outline: 3px solid var(--mia-gold);
+    outline-offset: 2px;
+  }
+
+  &:hover .case-card-img {
+    transform: none;
+  }
+}
+
+.case-title-link {
+  color: var(--mia-white);
+  text-decoration: none;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--mia-gold);
+    text-decoration: none;
+  }
+}
+
+.case-meta-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.875rem;
+  font-size: 0.9rem;
+  color: var(--mia-gray-muted);
+  line-height: 1.4;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  i {
+    color: var(--mia-gold);
+    width: 18px;
+    margin-right: 0.75rem;
+    font-size: 1rem;
+    flex-shrink: 0;
+  }
+}
+
+.case-surgeon-link,
+.case-location-link {
+  color: var(--mia-gold);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.2s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--mia-white);
+    text-decoration: none;
+    transform: none;
+  }
+}
+
+.case-procedure {
+  color: var(--mia-gray-muted);
+  font-weight: 400;
+  font-style: italic;
+}
+
+// Mobile responsive styles
+@media (max-width: 768px) {
+  .case-card {
+    &-inner {
+      background: var(--mia-white);
+      flex-direction: column;
+      border: 2px solid var(--mia-gold);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    &-image {
+      width: 100%;
+      aspect-ratio: 8/3;
+      border-radius: 0;
+    }
+
+    &-img {
+      object-position: center center;
+      object-fit: cover;
+    }
+
+    &-body {
+      padding: 1.25rem;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    &-title {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+
+    &-meta {
+      margin-bottom: 1rem;
+      flex-grow: 1;
+    }
+
+    &-action {
+      padding-top: 0.75rem;
+    }
+  }
+
+  .case-title-link {
+    color: var(--mia-black);
+
+    &:hover,
+    &:focus {
+      color: var(--mia-gold);
+    }
+  }
+
+  .case-meta-item {
+    font-size: 0.875rem;
+    color: var(--mia-gray-muted);
+    margin-bottom: 0.5rem;
+
+    i {
+      color: var(--mia-gold);
+    }
+  }
+
+  .case-surgeon-link,
+  .case-location-link {
+    color: var(--mia-black);
+    font-weight: 600;
+
+    &:hover,
+    &:focus {
+      color: var(--mia-gold);
+      transform: none;
+    }
+  }
+
+  .case-procedure {
+    color: var(--mia-gray-muted);
+    font-style: italic;
+  }
+}
+
+@media (max-width: 576px) {
+  .case-card {
+    &-body {
+      padding: 1rem;
+    }
+
+    &-title {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    &-meta {
+      margin-bottom: 0.75rem;
+    }
+  }
+
+  .case-meta-item {
+    font-size: 0.85rem;
+    margin-bottom: 0.4rem;
+  }
+}

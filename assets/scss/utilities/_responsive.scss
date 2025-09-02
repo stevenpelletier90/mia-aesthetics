@@ -4,11 +4,21 @@
 
 // Responsive display utilities (extend Bootstrap)
 @media (max-width: 575.98px) {
-  .d-xs-none { display: none !important; }
-  .d-xs-inline { display: inline !important; }
-  .d-xs-inline-block { display: inline-block !important; }
-  .d-xs-block { display: block !important; }
-  .d-xs-flex { display: flex !important; }
+  .d-xs-none {
+    display: none !important;
+  }
+  .d-xs-inline {
+    display: inline !important;
+  }
+  .d-xs-inline-block {
+    display: inline-block !important;
+  }
+  .d-xs-block {
+    display: block !important;
+  }
+  .d-xs-flex {
+    display: flex !important;
+  }
 }
 
 // Container fluid with max-width
@@ -33,7 +43,7 @@
 // Responsive visibility
 .visible-mobile {
   display: none;
-  
+
   @media (max-width: 767.98px) {
     display: block;
   }
@@ -41,7 +51,7 @@
 
 .visible-desktop {
   display: none;
-  
+
   @media (min-width: 768px) {
     display: block;
   }

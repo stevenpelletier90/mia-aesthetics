@@ -10,16 +10,16 @@
  */
 
 // 1. Abstracts - Variables, functions, and mixins
-@import "abstracts/variables";
-@import "abstracts/functions";
-@import "abstracts/mixins";
+@use "abstracts/index" as *;
 
 // 2. Bootstrap - Configured with our custom variables
 @import "vendors/bootstrap";
 
 // 3. Base - Reset, typography, and foundational styles
+@import "base/fonts";
 @import "base/reset";
 @import "base/typography";
+@import "base/links";
 @import "base/custom-properties";
 
 // 4. Layout - Header, footer, and page structure
@@ -31,8 +31,11 @@
 @import "components/forms";
 @import "components/cards";
 @import "components/consultation-cta";
+@import "components/breadcrumbs";
+@import "components/faq";
 
 // 6. Utilities - Helper classes and overrides
 @import "utilities/spacing";
 @import "utilities/colors";
 @import "utilities/responsive";
+@import "utilities/accessibility";

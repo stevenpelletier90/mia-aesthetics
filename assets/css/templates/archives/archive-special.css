@@ -137,7 +137,6 @@
   background: var(--mia-gold);
 }
 
-/* Smooth transitions for language switching */
 .special-item {
   transition: opacity 0.3s ease;
 }
@@ -146,7 +145,6 @@
   opacity: 0;
 }
 
-/* Ensure proper display for visible items */
 .special-item:not([style*="display: none"]) {
   opacity: 1;
 }
@@ -204,7 +202,6 @@
     box-shadow: 0 2px 8px var(--mia-gold-30);
   }
 }
-
 .sticky-special:hover {
   box-shadow: 0 4px 15px var(--mia-gold-30);
 }
@@ -228,78 +225,61 @@
   .specials-hero {
     padding: 3rem 1.5rem;
   }
-
   .specials-hero h1 {
     font-size: 2rem;
   }
-
   .specials-hero .lead {
     font-size: 1.125rem;
   }
-
   .specials-grid {
     padding: 3rem 0;
   }
 }
-
 @media (max-width: 768px) {
   .specials-hero {
     padding: 2.5rem 1rem;
   }
-
   .specials-hero h1 {
     font-size: 1.75rem;
   }
-
   .specials-hero .lead {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
-
   .specials-grid {
     padding: 2.5rem 0;
   }
-
   .special-card-body {
     padding: 1.25rem;
   }
-
   .special-card-title {
     font-size: 1.125rem;
   }
-
   .special-card-excerpt {
     font-size: 0.9rem;
   }
 }
-
 @media (max-width: 576px) {
   .specials-hero {
     padding: 2rem 1rem;
   }
-
   .specials-hero h1 {
     font-size: 1.5rem;
   }
-
   .specials-grid .row {
     margin: 0 -0.5rem;
   }
-
   .specials-grid .col {
     margin-bottom: 1.5rem;
     padding: 0 0.5rem;
   }
-
   .special-card-body {
     padding: 1rem;
   }
-
   .specials-language-toggle .btn {
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
   }
-
   .featured-badge {
     font-size: 0.75rem;
     padding: 0.25rem 0.75rem;
@@ -307,3 +287,5 @@
     top: 0.5rem;
   }
 }
+
+/*# sourceMappingURL=archive-special.css.map */

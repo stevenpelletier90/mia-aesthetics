@@ -215,7 +215,7 @@ function mia_get_all_menu_data(): array {
  *
  * @return array<int, mixed>
  */
-function get_locations_direct(): array {
+function mia_aesthetics_get_locations_direct(): array {
 	$all_data = mia_get_all_menu_data();
 	return $all_data['locations'];
 }
@@ -225,7 +225,7 @@ function get_locations_direct(): array {
  *
  * @return array<int, mixed>
  */
-function get_non_surgical_direct(): array {
+function mia_aesthetics_get_non_surgical_direct(): array {
 	$all_data = mia_get_all_menu_data();
 	return $all_data['non_surgical'];
 }
@@ -235,7 +235,7 @@ function get_non_surgical_direct(): array {
  *
  * @return array<int, mixed>
  */
-function get_surgeons_direct(): array {
+function mia_aesthetics_get_surgeons_direct(): array {
 	$all_data = mia_get_all_menu_data();
 	return $all_data['surgeons'];
 }
@@ -385,7 +385,7 @@ add_action( 'untrash_post', 'mia_clear_footer_locations_cache' );
  * @param bool                 $is_mobile  Whether to render mobile version.
  * @return void
  */
-function render_procedures_menu( $procedures, $is_mobile = false ): void {
+function mia_aesthetics_render_procedures_menu( $procedures, $is_mobile = false ): void {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	$is_section     = mia_aesthetics_is_current_section( 'procedures' );
 	$is_exact       = mia_aesthetics_is_current_url( $procedures['url'] );
@@ -396,9 +396,9 @@ function render_procedures_menu( $procedures, $is_mobile = false ): void {
 			<?php echo esc_html( $procedures['title'] ); ?>
 		</a>
 		<?php if ( $is_mobile ) : ?>
-			<?php render_mobile_procedures_menu( $procedures ); ?>
+			<?php mia_aesthetics_render_mobile_procedures_menu( $procedures ); ?>
 		<?php else : ?>
-			<?php render_desktop_procedures_menu( $procedures ); ?>
+			<?php mia_aesthetics_render_desktop_procedures_menu( $procedures ); ?>
 		<?php endif; ?>
 	</li>
 	<?php
@@ -410,7 +410,7 @@ function render_procedures_menu( $procedures, $is_mobile = false ): void {
  * @param array<string, mixed> $procedures Array of procedure data.
  * @return void
  */
-function render_desktop_procedures_menu( $procedures ): void {
+function mia_aesthetics_render_desktop_procedures_menu( $procedures ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -448,7 +448,7 @@ function render_desktop_procedures_menu( $procedures ): void {
  * @param array<string, mixed> $procedures Array of procedure data.
  * @return void
  */
-function render_mobile_procedures_menu( $procedures ): void {
+function mia_aesthetics_render_mobile_procedures_menu( $procedures ): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( $procedures['url'] ); ?>">View All Procedures</a></li>
@@ -477,8 +477,8 @@ function render_mobile_procedures_menu( $procedures ): void {
  * @param bool $is_mobile Whether to render mobile version.
  * @return void
  */
-function render_locations_menu( bool $is_mobile = false ): void {
-	$locations      = get_locations_direct();
+function mia_aesthetics_render_locations_menu( bool $is_mobile = false ): void {
+	$locations      = mia_aesthetics_get_locations_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
@@ -487,9 +487,9 @@ function render_locations_menu( bool $is_mobile = false ): void {
 			Locations
 		</a>
 		<?php if ( $is_mobile ) : ?>
-			<?php render_mobile_locations_menu( $locations ); ?>
+			<?php mia_aesthetics_render_mobile_locations_menu( $locations ); ?>
 		<?php else : ?>
-			<?php render_desktop_locations_menu( $locations ); ?>
+			<?php mia_aesthetics_render_desktop_locations_menu( $locations ); ?>
 		<?php endif; ?>
 	</li>
 	<?php
@@ -501,7 +501,7 @@ function render_locations_menu( bool $is_mobile = false ): void {
  * @param array<int, mixed> $locations Array of location data.
  * @return void
  */
-function render_desktop_locations_menu( $locations ): void {
+function mia_aesthetics_render_desktop_locations_menu( $locations ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -554,7 +554,7 @@ function render_desktop_locations_menu( $locations ): void {
  * @param array<int, mixed> $locations Array of location data.
  * @return void
  */
-function render_mobile_locations_menu( $locations ): void {
+function mia_aesthetics_render_mobile_locations_menu( $locations ): void {
 	?>
 	<ul class="dropdown-menu">
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">View All Locations</a></li>
@@ -584,8 +584,8 @@ function render_mobile_locations_menu( $locations ): void {
  * @param bool $is_mobile Whether to render mobile version.
  * @return void
  */
-function render_surgeons_menu( bool $is_mobile = false ): void {
-	$surgeons       = get_surgeons_direct();
+function mia_aesthetics_render_surgeons_menu( bool $is_mobile = false ): void {
+	$surgeons       = mia_aesthetics_get_surgeons_direct();
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	$is_section     = mia_aesthetics_is_current_section( 'surgeons' );
 	$is_exact       = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) );
@@ -596,9 +596,9 @@ function render_surgeons_menu( bool $is_mobile = false ): void {
 			Surgeons
 		</a>
 		<?php if ( $is_mobile ) : ?>
-			<?php render_mobile_surgeons_menu( $surgeons ); ?>
+			<?php mia_aesthetics_render_mobile_surgeons_menu( $surgeons ); ?>
 		<?php else : ?>
-			<?php render_desktop_surgeons_menu( $surgeons ); ?>
+			<?php mia_aesthetics_render_desktop_surgeons_menu( $surgeons ); ?>
 		<?php endif; ?>
 	</li>
 	<?php
@@ -610,7 +610,7 @@ function render_surgeons_menu( bool $is_mobile = false ): void {
  * @param array<int, mixed> $surgeons Array of surgeon data.
  * @return void
  */
-function render_desktop_surgeons_menu( $surgeons ): void {
+function mia_aesthetics_render_desktop_surgeons_menu( $surgeons ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -659,7 +659,7 @@ function render_desktop_surgeons_menu( $surgeons ): void {
  * @param array<int, mixed> $surgeons Array of surgeon data.
  * @return void
  */
-function render_mobile_surgeons_menu( $surgeons ): void {
+function mia_aesthetics_render_mobile_surgeons_menu( $surgeons ): void {
 	?>
 	<ul class="dropdown-menu">
 		<?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) ); ?>
@@ -688,7 +688,7 @@ function render_mobile_surgeons_menu( $surgeons ): void {
  * @param bool $is_mobile Whether to render mobile version.
  * @return void
  */
-function render_before_after_menu( bool $is_mobile = false ): void {
+function mia_aesthetics_render_before_after_menu( bool $is_mobile = false ): void {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
@@ -697,9 +697,9 @@ function render_before_after_menu( bool $is_mobile = false ): void {
 			Before & After
 		</a>
 		<?php if ( $is_mobile ) : ?>
-			<?php render_mobile_before_after_menu(); ?>
+			<?php mia_aesthetics_render_mobile_before_after_menu(); ?>
 		<?php else : ?>
-			<?php render_desktop_before_after_menu(); ?>
+			<?php mia_aesthetics_render_desktop_before_after_menu(); ?>
 		<?php endif; ?>
 	</li>
 	<?php
@@ -710,7 +710,7 @@ function render_before_after_menu( bool $is_mobile = false ): void {
  *
  * @return void
  */
-function render_desktop_before_after_menu(): void {
+function mia_aesthetics_render_desktop_before_after_menu(): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -764,7 +764,7 @@ function render_desktop_before_after_menu(): void {
  *
  * @return void
  */
-function render_mobile_before_after_menu(): void {
+function mia_aesthetics_render_mobile_before_after_menu(): void {
 	?>
 	<ul class="dropdown-menu">
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
@@ -797,7 +797,7 @@ function render_mobile_before_after_menu(): void {
  * @param bool $is_mobile Whether to render mobile version.
  * @return void
  */
-function render_non_surgical_menu( bool $is_mobile = false ): void {
+function mia_aesthetics_render_non_surgical_menu( bool $is_mobile = false ): void {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'position-static d-none d-xl-block';
 	$is_section     = mia_aesthetics_is_current_section( 'non-surgical' );
 	$is_exact       = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) );
@@ -808,9 +808,9 @@ function render_non_surgical_menu( bool $is_mobile = false ): void {
 			Non-Surgical
 		</a>
 		<?php if ( $is_mobile ) : ?>
-			<?php render_mobile_non_surgical_menu(); ?>
+			<?php mia_aesthetics_render_mobile_non_surgical_menu(); ?>
 		<?php else : ?>
-			<?php render_desktop_non_surgical_menu(); ?>
+			<?php mia_aesthetics_render_desktop_non_surgical_menu(); ?>
 		<?php endif; ?>
 	</li>
 	<?php
@@ -821,7 +821,7 @@ function render_non_surgical_menu( bool $is_mobile = false ): void {
  *
  * @return void
  */
-function render_desktop_non_surgical_menu(): void {
+function mia_aesthetics_render_desktop_non_surgical_menu(): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
@@ -854,7 +854,7 @@ function render_desktop_non_surgical_menu(): void {
  *
  * @return void
  */
-function render_mobile_non_surgical_menu(): void {
+function mia_aesthetics_render_mobile_non_surgical_menu(): void {
 	?>
 	<ul class="dropdown-menu">
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) ); ?>

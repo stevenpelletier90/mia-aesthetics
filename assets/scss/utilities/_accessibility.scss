@@ -1,0 +1,38 @@
+// ====================================
+// Mia Aesthetics - Accessibility Utilities
+// ====================================
+@use "../abstracts/index" as *;
+
+// Skip to content link for keyboard navigation (WCAG 2.1 AA)
+.skip-link {
+  // Use the sr-only mixin to hide by default
+  @include sr-only;
+  
+  // Make visible when focused for keyboard users
+  &:focus {
+    position: fixed !important;
+    top: 10px;
+    left: 10px;
+    z-index: 9999;
+    padding: 0.75rem 1.5rem;
+    background-color: $mia-black;
+    color: $mia-white;
+    text-decoration: none;
+    border: 2px solid $mia-gold;
+    border-radius: 0.25rem;
+    width: auto !important;
+    height: auto !important;
+    clip: auto !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    margin: 0 !important;
+    
+    // Add transition for smooth appearance
+    transition: opacity 0.15s ease-in-out;
+    
+    &:hover {
+      background-color: $mia-gold;
+      color: $mia-black;
+    }
+  }
+}

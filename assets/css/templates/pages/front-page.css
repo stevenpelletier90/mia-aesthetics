@@ -1,10 +1,3 @@
-/* =============================================================================
-   Front Page Styles
-   ============================================================================= */
-
-/* About Section
-   ========================================================================== */
-
 .about-section {
   padding: 96px 0;
   margin-top: 0;
@@ -39,9 +32,6 @@
   margin: 0 auto 32px;
   max-width: 800px;
 }
-
-/* Stats Grid
-   ========================================================================== */
 
 .stats-grid {
   display: grid;
@@ -94,9 +84,6 @@
   text-transform: uppercase;
 }
 
-/* Excellence Section
-   ========================================================================== */
-
 .excellence-section {
   background-color: var(--mia-black);
   padding: 96px 0;
@@ -139,9 +126,6 @@
   display: flex;
   gap: 16px;
 }
-
-/* Procedures Section
-   ========================================================================== */
 
 .procedures-section {
   padding: 96px 0;
@@ -293,9 +277,6 @@
   transition: none;
 }
 
-/* Video Background Section
-   ========================================================================== */
-
 .video-background-section {
   background-color: var(--mia-black);
   margin: 0;
@@ -321,12 +302,7 @@
 }
 
 .video-content-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.6) 50%, rgba(0, 0, 0, 0.4) 100%);
   padding: 48px 0;
   pointer-events: none;
   z-index: 1;
@@ -348,9 +324,6 @@
   opacity: 0.95;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
 }
-
-/* Foundation Section
-   ========================================================================== */
 
 .foundation-section {
   overflow: hidden;
@@ -403,9 +376,6 @@
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
-/* Common Section Styles
-   ========================================================================== */
-
 .section-heading {
   color: var(--mia-black);
   font-size: clamp(20px, 5vw, 30px);
@@ -423,32 +393,25 @@ h3.section-subheading {
   margin-bottom: 20px;
 }
 
-/* Media Queries
-   ========================================================================== */
-
 @media (min-width: 992px) {
   .about-section {
     padding: 8rem 0;
   }
-
   .about-section .row.align-items-center {
     margin-left: -20px;
     margin-right: -20px;
   }
-
-  .about-section .row.align-items-center > [class*="col-"] {
+  .about-section .row.align-items-center > [class*=col-] {
     padding-left: 20px;
     padding-right: 20px;
   }
 }
-
 @media (min-width: 1200px) {
   .procedure-tabs .nav-link {
     min-width: 160px;
     padding: 0.75rem 1.5rem;
   }
 }
-
 @media (min-width: 992px) and (max-width: 1199px) {
   .procedure-tabs .nav-link {
     font-size: 0.95rem;
@@ -456,35 +419,29 @@ h3.section-subheading {
     padding: 0.75rem 1rem;
   }
 }
-
 @media (min-width: 768px) and (max-width: 991px) {
   .procedure-tabs .nav-link {
     font-size: 0.875rem;
     min-width: 110px;
     padding: 0.75rem 0.625rem;
   }
-
   .procedure-tabs {
     margin: 0 50px;
   }
-
   .stats-section .display-5[data-count] {
     font-size: 2.5rem;
     min-width: 100%;
     white-space: nowrap;
     word-break: keep-all;
   }
-
   .stats-section .display-5[data-suffix=", 000 +"] {
     font-size: 2.25rem;
   }
 }
-
 @media (min-width: 768px) {
   .foundation-section {
     height: 600px;
   }
-
   .foundation-bg {
     background-attachment: fixed;
     background-position: center;
@@ -496,14 +453,8 @@ h3.section-subheading {
     width: 100%;
     z-index: 1;
   }
-
   .foundation-bg::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
     content: "";
     height: 100%;
     left: 0;
@@ -512,7 +463,6 @@ h3.section-subheading {
     width: 100%;
     z-index: 2;
   }
-
   .foundation-section .container {
     align-items: flex-end;
     display: flex;
@@ -523,84 +473,68 @@ h3.section-subheading {
     z-index: 3;
   }
 }
-
 @media (max-width: 1199.98px) {
   .procedures-section .row.align-items-center {
     flex-direction: column;
   }
-
   .procedures-section .row.align-items-center .col-lg-6 {
     width: 100%;
   }
-
   .procedures-section .row.align-items-center .col-lg-6.order-lg-2 {
     margin-bottom: 2rem;
     order: -1;
   }
 }
-
 @media (max-width: 991.98px) {
   .video-background-section {
     margin: 0;
   }
-
   .video-content-overlay h2 {
     font-size: 2.5rem;
   }
-
   .video-content-overlay p {
     font-size: 1.125rem;
   }
 }
-
 @media (max-width: 991px) {
   .stats-grid {
     gap: 24px;
     grid-template-columns: repeat(2, 1fr);
     max-width: 700px;
   }
-
   .section-heading {
     font-size: 2rem;
   }
-
   .section-subheading,
   h3.section-subheading {
     font-size: 1.1rem;
   }
-
   .procedures-section {
     padding: 4rem 0;
   }
-
   .foundation-content {
     background: transparent;
     padding: 3rem 2rem 2.5rem;
   }
-
   .about-section,
   .stats-section {
     padding: 4rem 0;
   }
-
   .about-content h1 {
     font-size: 2rem;
     margin-bottom: 1rem;
   }
-
   .about-content p {
     font-size: 1rem;
     margin-bottom: 1.5rem;
   }
 }
-
 @media (max-width: 767.98px) {
   .video-background-section {
     height: auto;
     margin: 0;
     padding: 0;
   }
-
   .video-container {
     aspect-ratio: 16/9;
     height: auto;
@@ -609,38 +543,27 @@ h3.section-subheading {
     width: 100%;
   }
 }
-
 @media (max-width: 767px) {
   .stat-box {
     min-height: 180px;
     padding: 32px 16px;
   }
-
   .section-heading {
     font-size: 1.75rem;
   }
-
   .section-subheading,
   h3.section-subheading {
     font-size: 1rem;
   }
-
   .procedures-section {
     padding: 3rem 0;
   }
-
   .foundation-section {
     height: auto;
     position: relative;
   }
-
   .foundation-section::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.5) 50%, rgba(0, 0, 0, 0.7) 100%);
     content: "";
     height: 100%;
     left: 0;
@@ -649,75 +572,63 @@ h3.section-subheading {
     width: 100%;
     z-index: 2;
   }
-
   .foundation-section .container {
     padding: 0;
     position: relative;
     z-index: 3;
   }
-
   .foundation-content {
     background: transparent;
     border-radius: 0;
     padding: 40px 24px 32px;
   }
-
   .foundation-section .section-heading {
     margin-top: 0;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
   }
-
   .foundation-section .section-subheading,
   .foundation-section h3.section-subheading {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   }
-
   .foundation-content p {
     color: var(--mia-white);
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
   }
-
   .stats-content {
     margin-bottom: 1.5rem;
     text-align: left;
   }
-
   .stats-content .d-flex {
     justify-content: flex-start;
   }
 }
-
 @media (max-width: 480px) {
   .stats-grid {
     gap: 16px;
     padding: 0 8px;
   }
-
   .stat-box {
     min-height: 160px;
     padding: 1.5rem 0.75rem;
   }
-
   .about-section,
   .stats-section {
     padding: 40px 0;
   }
-
   .about-content h1 {
     font-size: 1.75rem;
   }
-
   .foundation-content {
     background: transparent;
     padding: 32px 20px 24px;
   }
-
   .foundation-section .section-heading {
     font-size: 1.5rem;
   }
-
   .foundation-section .section-subheading {
     font-size: 1rem;
     margin-bottom: 1rem;
   }
 }
+
+/*# sourceMappingURL=front-page.css.map */

@@ -1,9 +1,12 @@
 // ====================================
 // Mia Aesthetics - Base Reset & Global Styles
 // ====================================
+@use "../abstracts/index" as *;
 
 // Box sizing reset
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 
@@ -53,16 +56,29 @@ img {
 }
 
 // Remove default margins on common elements
-h1, h2, h3, h4, h5, h6,
-p, blockquote, pre,
-dl, dd, ol, ul,
-figure, hr,
-fieldset, legend {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+dl,
+dd,
+ol,
+ul,
+figure,
+hr,
+fieldset,
+legend {
   margin: 0;
 }
 
 // List improvements
-ul, ol {
+ul,
+ol {
   padding: 0;
 }
 

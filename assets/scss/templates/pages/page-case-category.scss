@@ -1,0 +1,18 @@
+// =============================================================================
+// page-case-category Styles  
+// =============================================================================
+
+.post-header h1 {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 700;
+}
+
+#breadcrumbs + .post-header {
+  margin-top: 0;
+}
+
+.post-header {
+  background-color: var(--mia-gold-light);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}

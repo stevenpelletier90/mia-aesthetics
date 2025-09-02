@@ -109,30 +109,26 @@
   .search-results .post-header h1 {
     font-size: 1.8rem;
   }
-
   .search-results .card-img-top {
     height: 150px;
   }
-
   .search-results .card-body {
     padding: 1rem;
   }
-
   .search-results .no-results {
     padding: 2rem 1rem;
   }
 }
-
 @media (max-width: 576px) {
   .search-results .post-header h1 {
     font-size: 1.5rem;
   }
-
   .search-results .post-header p.lead {
     font-size: 1rem;
   }
-
   .search-results .card-body h2 {
     font-size: 1.1rem;
   }
 }
+
+/*# sourceMappingURL=search.css.map */

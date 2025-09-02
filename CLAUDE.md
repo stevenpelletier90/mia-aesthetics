@@ -29,13 +29,22 @@ composer run-script phpcbf  # Auto-fix PHP issues
 composer run-script phpstan
 ```
 
-### CSS Processing
+### SCSS & CSS Processing
 ```bash
+# Build global SCSS theme file
+npm run sass:build
+
+# Build individual SCSS components (directly to theme bundle)
+npm run sass:build:individual
+
+# Complete clean development build (recommended)
+npm run dev:clean
+
+# Legacy: Build individual SCSS to project directory
+npm run sass:build:legacy
+
 # Minify all CSS files
 npm run minify:css
-
-# Test minification on a single file
-npm run minify:css:test
 ```
 
 ### Formatting
@@ -99,10 +108,17 @@ Modular schema system in `/inc/schema/`:
 
 ## Important Files and Patterns
 
-### CSS Organization
-- Base styles: `/assets/css/base.css`
-- Template-specific styles: `/assets/css/[template-name].css`
-- Component styles: Named to match their purpose (e.g., `consultation-cta.css`)
+### SCSS Architecture (Clean Development Workflow)
+- **SCSS Sources**: `/assets/scss/` - Development source files with nesting, variables, mixins
+  - Global theme: `/assets/scss/main.scss` → `theme.css` 
+  - Components: `/assets/scss/components/_case-card.scss` → compiled directly to theme bundle
+  - Layout: `/assets/scss/layout/_hero-section.scss` → compiled directly to theme bundle
+- **Theme Bundle**: `/theme-bundle/mia-aesthetics/` - Final WordPress theme with compiled CSS
+- **Project Directory**: Clean - only SCSS sources, no intermediate CSS files
+
+### CSS Organization (Legacy/Template Files)
+- Template-specific styles: `/assets/css/templates/` - Still loaded conditionally per template
+- Component styles: Template-specific components that haven't been converted to SCSS
 
 ### JavaScript Organization
 - Template-specific scripts: `/assets/js/[template-name].js`
@@ -156,6 +172,32 @@ All buttons include responsive padding using clamp() and smooth icon animations.
 - **Brand colors**: Gold (#c8b273) and black (#000000) integration
 - **Accessibility**: Proper contrast ratios and focus states
 
+## Clean Development Workflow
+
+### Quick Start
+```bash
+# 1. Install dependencies
+npm install && composer install
+
+# 2. Make SCSS changes in /assets/scss/
+# 3. Build and bundle for development
+npm run dev:clean
+
+# 4. Use theme-bundle/mia-aesthetics/ as your WordPress theme
+```
+
+### SCSS Development Process
+1. **Edit SCSS sources**: `/assets/scss/components/_component-name.scss`
+2. **Compile & Bundle**: `npm run dev:clean` (builds theme.css + individual components + bundles)
+3. **Deploy**: Use `/theme-bundle/mia-aesthetics/` folder as your WordPress theme
+4. **Source Maps**: Debug SCSS sources in browser dev tools (not compiled CSS)
+
+### Key Converted Components (SCSS → Direct to Bundle)
+- `_hero-section.scss` - Front page hero layout
+- `_case-card.scss` - Before/after case displays  
+- `_careers-cta.scss` - Careers call-to-action styling
+- `_consultation-form.scss` - Gravity Forms consultation styling
+
 ## Development Notes
 
 - Always run `composer install` and `npm install` before starting development
@@ -164,6 +206,7 @@ All buttons include responsive padding using clamp() and smooth icon animations.
 - Custom post types are managed externally (likely via plugin or ACF)
 - File modifications automatically bust cache via versioning system
 - **Style Guide**: Available at `/style-guide.html` for design system reference
+- **Bundle excludes SCSS**: Only compiled CSS files are included in WordPress theme bundle
 
 # CRITICAL TEMPLATE VERIFICATION RULES
 

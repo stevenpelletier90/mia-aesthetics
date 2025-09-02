@@ -1,14 +1,3 @@
-/* Page Template: page-before-after-by-doctor.php */
-
-/* Styles specific to before/after by doctor page template */
-
-/* Gallery CSS for Before & After by Doctor
-	- Only loaded on the /before-after/before-after-by-doctor/ page template.
-	- Uses Bootstrap 5.3 utilities where possible.
-	- Minimal custom styles to let Bootstrap handle the modal display.
-*/
-
-/* Hero styles */
 .post-header {
   background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -24,48 +13,36 @@
     font-size: 60px;
   }
 }
-
-/* ================= Dropdown & Doctor Name Spacing ================= */
-
-/* Increase spacing between heading and dropdown */
 #doctors-gallery h1 {
   margin-bottom: 40px;
 }
 
-/* Style the dropdown to be larger and more prominent */
 #doctorSelect {
   min-width: 250px;
   max-width: 300px;
 }
 
-/* Enhance dropdown focus state */
 #doctorSelect:focus {
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 0.2rem rgba(200, 178, 115, 0.25);
 }
 
-/* Add more spacing between dropdown and doctor name */
 .gallery h2 {
   margin-top: 32px;
   margin-bottom: 32px;
 }
 
-/* Desktop-specific adjustments */
 @media (min-width: 768px) {
   #doctorSelect {
     min-width: 250px;
     padding: 12px 20px;
     font-size: 18px;
   }
-
-  /* Extra spacing for doctor name on desktop */
   .gallery h2 {
     margin-top: 40px;
     margin-bottom: 40px;
   }
 }
-
-/* Gallery image hover effect */
 #doctors-gallery .gallery img {
   transition: transform 0.25s ease;
 }
@@ -74,14 +51,12 @@
   transform: scale(1.04);
 }
 
-/* Gallery button styling - ensure clickable */
 #doctors-gallery .gallery button {
   cursor: pointer;
 }
 
-/* Modal styling */
 #lightboxModal .modal-dialog {
-  max-width: 900px; /* Slightly wider */
+  max-width: 900px;
   margin: 28px auto;
 }
 
@@ -91,14 +66,13 @@
 }
 
 #lightboxModal .modal-body {
-  padding: 40px; /* Reduced padding - arrows closer to image */
+  padding: 40px;
   position: relative;
   background-color: var(--mia-white);
 }
 
-/* Carousel image styling */
 #galleryCarousel img {
-  max-height: 70vh; /* Reduced to prevent scrolling */
+  max-height: 70vh;
   width: auto;
   height: auto;
   object-fit: contain;
@@ -106,7 +80,6 @@
   margin: 0 auto;
 }
 
-/* Carousel control arrows - dark background for visibility */
 #galleryCarousel .carousel-control-prev,
 #galleryCarousel .carousel-control-next {
   background-color: rgba(0, 0, 0, 0.5);
@@ -132,37 +105,32 @@
   right: 10px;
 }
 
-/* Center the arrow icons */
 #galleryCarousel .carousel-control-prev-icon,
 #galleryCarousel .carousel-control-next-icon {
   width: 20px;
   height: 20px;
 }
 
-/* Mobile-specific arrow positioning - closer to image edges */
 @media (max-width: 767px) {
   #lightboxModal .modal-body {
-    padding: 20px; /* Reduced padding on mobile */
+    padding: 20px;
   }
-
   #galleryCarousel .carousel-control-prev {
-    left: -5px; /* Move closer to left edge */
+    left: -5px;
   }
-
   #galleryCarousel .carousel-control-next {
-    right: -5px; /* Move closer to right edge */
+    right: -5px;
   }
-
-  /* Smaller arrows on mobile for better touch targets */
   #galleryCarousel .carousel-control-prev,
   #galleryCarousel .carousel-control-next {
     width: 40px;
     height: 40px;
   }
-
   #galleryCarousel .carousel-control-prev-icon,
   #galleryCarousel .carousel-control-next-icon {
     width: 16px;
     height: 16px;
   }
 }
+
+/*# sourceMappingURL=page-before-after-by-doctor.css.map */
