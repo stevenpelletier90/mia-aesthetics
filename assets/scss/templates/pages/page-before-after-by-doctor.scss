@@ -1,13 +1,6 @@
 // =============================================================================
-// page-before-after-by-doctor Styles  
+// page-before-after-by-doctor Styles
 // =============================================================================
-
-
-
-
-
-
-
 
 .post-header {
   background-color: var(--mia-gold-light);
@@ -25,31 +18,26 @@
   }
 }
 
-// ================= Dropdown & Doctor Name Spacing ================= 
-
+// ================= Dropdown & Doctor Name Spacing =================
 
 #doctors-gallery h1 {
   margin-bottom: 40px;
 }
-
 
 #doctorSelect {
   min-width: 250px;
   max-width: 300px;
 }
 
-
 #doctorSelect:focus {
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 0.2rem rgba(200, 178, 115, 0.25);
 }
 
-
 .gallery h2 {
   margin-top: 32px;
   margin-bottom: 32px;
 }
-
 
 @media (min-width: 768px) {
   #doctorSelect {
@@ -58,13 +46,11 @@
     font-size: 18px;
   }
 
-  
   .gallery h2 {
     margin-top: 40px;
     margin-bottom: 40px;
   }
 }
-
 
 #doctors-gallery .gallery img {
   transition: transform 0.25s ease;
@@ -74,14 +60,12 @@
   transform: scale(1.04);
 }
 
-
 #doctors-gallery .gallery button {
   cursor: pointer;
 }
 
-
 #lightboxModal .modal-dialog {
-  max-width: 900px; 
+  max-width: 900px;
   margin: 28px auto;
 }
 
@@ -91,21 +75,19 @@
 }
 
 #lightboxModal .modal-body {
-  padding: 40px; 
+  padding: 40px;
   position: relative;
   background-color: var(--mia-white);
 }
 
-
 #galleryCarousel img {
-  max-height: 70vh; 
+  max-height: 70vh;
   width: auto;
   height: auto;
   object-fit: contain;
   display: block;
   margin: 0 auto;
 }
-
 
 #galleryCarousel .carousel-control-prev,
 #galleryCarousel .carousel-control-next {
@@ -132,28 +114,25 @@
   right: 10px;
 }
 
-
 #galleryCarousel .carousel-control-prev-icon,
 #galleryCarousel .carousel-control-next-icon {
   width: 20px;
   height: 20px;
 }
 
-
 @media (max-width: 767px) {
   #lightboxModal .modal-body {
-    padding: 20px; 
+    padding: 20px;
   }
 
   #galleryCarousel .carousel-control-prev {
-    left: -5px; 
+    left: -5px;
   }
 
   #galleryCarousel .carousel-control-next {
-    right: -5px; 
+    right: -5px;
   }
 
-  
   #galleryCarousel .carousel-control-prev,
   #galleryCarousel .carousel-control-next {
     width: 40px;

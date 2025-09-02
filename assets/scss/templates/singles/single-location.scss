@@ -1,5 +1,5 @@
 // =============================================================================
-// single-location Styles  
+// single-location Styles
 // =============================================================================
 
 .location-header {
@@ -247,7 +247,6 @@
   color: var(--mia-gray-muted);
 }
 
-
 .surgeon-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   border-radius: 12px;
@@ -304,7 +303,6 @@
 }
 
 @media (max-width: 767px) {
-  
   .team-section .surgeon-card {
     background: var(--mia-white);
     border: 1px solid var(--mia-gold-light);

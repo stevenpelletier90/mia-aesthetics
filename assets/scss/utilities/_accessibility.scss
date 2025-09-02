@@ -7,7 +7,7 @@
 .skip-link {
   // Use the sr-only mixin to hide by default
   @include sr-only;
-  
+
   // Make visible when focused for keyboard users
   &:focus {
     position: fixed !important;
@@ -26,10 +26,10 @@
     overflow: visible !important;
     white-space: normal !important;
     margin: 0 !important;
-    
+
     // Add transition for smooth appearance
     transition: opacity 0.15s ease-in-out;
-    
+
     &:hover {
       background-color: $mia-gold;
       color: $mia-black;

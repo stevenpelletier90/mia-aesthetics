@@ -5,11 +5,11 @@
 
 // Golden ratio spacing utilities
 .mb-golden {
-  @include golden-spacing();
+  @include golden-spacing;
 }
 
 .mt-golden {
-  @include golden-spacing();
+  @include golden-spacing;
   margin-bottom: 0;
   margin-top: calc(1rem * 1.618);
 }

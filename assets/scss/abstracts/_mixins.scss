@@ -44,7 +44,6 @@
 @mixin glassmorphism($background: rgba(255, 255, 255, 0.1), $blur: 10px) {
   background: $background;
   backdrop-filter: blur($blur);
-  -webkit-backdrop-filter: blur($blur);
 }
 
 // Golden ratio spacing mixin

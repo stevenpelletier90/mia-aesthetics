@@ -1,9 +1,6 @@
 // =============================================================================
-// single-surgeon Styles  
+// single-surgeon Styles
 // =============================================================================
-
-
-
 
 .surgeon-breadcrumb-wrapper {
   background: var(--mia-gold-light);
@@ -22,7 +19,6 @@
   margin: 0;
   padding: 0;
 }
-
 
 .surgeon-fluid-container {
   width: 100%;
@@ -44,7 +40,6 @@
     max-width: 1600px;
   }
 }
-
 
 .surgeon-hero {
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
@@ -166,12 +161,10 @@
   flex-wrap: wrap;
 }
 
-
 .surgeon-gallery-mobile {
   margin-top: 0.5rem;
   width: 100%;
 }
-
 
 .surgeon-content-area {
   padding: 4rem 0;
@@ -181,7 +174,6 @@
 .surgeon-main-column {
   padding-right: 3rem;
 }
-
 
 .section-title {
   font-size: 2rem;
@@ -211,7 +203,6 @@
   transform: translateX(-50%);
 }
 
-
 .surgeon-bio-section {
   margin-bottom: 4rem;
 }
@@ -232,7 +223,6 @@
   margin-top: 2rem;
   margin-bottom: 1rem;
 }
-
 
 .surgeon-video-section {
   margin-bottom: 4rem;
@@ -297,7 +287,6 @@
 .video-thumbnail:hover .video-play-button i {
   color: var(--mia-black);
 }
-
 
 .surgeon-expertise-section {
   margin-bottom: 4rem;
@@ -378,7 +367,6 @@
   transform: translateX(3px);
 }
 
-
 .surgeon-sidebar {
   position: sticky;
   top: 100px;
@@ -449,7 +437,6 @@
   text-decoration: underline;
 }
 
-
 .resource-links {
   display: flex;
   flex-direction: column;
@@ -496,12 +483,10 @@
   transform: translateX(3px);
 }
 
-
 .surgeon-faq-section {
   background: var(--mia-gold-light);
   padding: 4rem 0;
 }
-
 
 @media (max-width: 1199px) {
   .surgeon-fluid-container {
@@ -588,7 +573,6 @@
     padding: 1.5rem;
   }
 
-  
   .surgeon-content-area {
     padding: 2rem 0;
   }
@@ -614,7 +598,6 @@
     padding: 1.5rem;
   }
 
-  
   .surgeon-main-column {
     display: flex;
     flex-direction: column;

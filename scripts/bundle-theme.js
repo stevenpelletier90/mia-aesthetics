@@ -14,6 +14,7 @@ const outputDir = path.join(projectRoot, "theme-bundle");
 
 // CLI flags
 const DEV_COPY = process.argv.includes("--dev-copy");
+const WITH_MAPS = process.argv.includes("--with-maps");
 
 // Files and directories to include in the WordPress theme bundle
 const includePatterns = [
@@ -118,6 +119,23 @@ function isExcluded(filePath) {
 
 function shouldInclude(filePath) {
   if (isExcluded(filePath)) return false;
+
+  // Prefer minified runtime assets in the bundle; include a small set of editor CSS
+  // - CSS: include only *.min.css except keep theme.css and fonts.css for editor styles
+  // - JS: include only *.min.js
+  // - Always exclude source maps
+  if (filePath.startsWith("assets/")) {
+    if (!WITH_MAPS && filePath.endsWith(".map")) return false;
+    if (filePath.startsWith("assets/css/")) {
+      const keepEditorCss = filePath === "assets/css/theme.css" || filePath === "assets/css/fonts.css";
+      const isMinCss = filePath.endsWith(".min.css");
+      if (!keepEditorCss && !isMinCss) return false;
+    }
+    if (filePath.startsWith("assets/js/")) {
+      const isMinJs = filePath.endsWith(".min.js");
+      if (!isMinJs) return false;
+    }
+  }
 
   return includePatterns.some((pattern) => {
     // Handle different pattern types
@@ -242,6 +260,11 @@ function bundleTheme() {
   console.log(`   • ${nodeAssetsCount} npm dependency files (Bootstrap + Font Awesome)`);
   console.log(`   • Font files, images, and other assets`);
   console.log(`   • WordPress theme documentation`);
+  if (WITH_MAPS) {
+    console.log("\n🗺  Source maps included (because --with-maps was passed)");
+  } else {
+    console.log("\n🗜  Source maps excluded (default). Add --with-maps to include them.");
+  }
 }
 
 // Run the bundle process

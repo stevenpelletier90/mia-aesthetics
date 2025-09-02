@@ -1,5 +1,5 @@
 // =============================================================================
-// single-case Styles  
+// single-case Styles
 // =============================================================================
 
 .post-header {
@@ -112,7 +112,6 @@ header h1 {
   transform: translateX(3px);
 }
 
-
 .case-procedure-link {
   color: var(--mia-gray-muted);
   font-size: 0.95rem;
@@ -145,7 +144,6 @@ header h1 {
   transform: translateX(3px);
 }
 
-
 .case-procedure-link i {
   display: none;
 }
@@ -172,8 +170,6 @@ header h1 {
   color: var(--mia-white);
   text-decoration: none;
 }
-
-
 
 .case-surgeon-link i,
 .case-location-link i {
@@ -225,8 +221,6 @@ header h1 {
   opacity: 1;
   transform: translateX(3px);
 }
-
-
 
 .cursor-pointer {
   cursor: pointer;
@@ -330,15 +324,11 @@ header h1 {
   }
 }
 
-
-
 @media (max-width: 576px) {
   .col-lg-8 h2.h4 {
     font-size: 1.15rem;
   }
 }
-
-
 
 .related-case-item {
   border: 1px solid rgba(0, 0, 0, 0.1);

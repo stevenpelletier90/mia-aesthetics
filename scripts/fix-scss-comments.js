@@ -17,10 +17,10 @@ const scssDir = path.join(projectRoot, 'assets', 'scss', 'templates');
 
 function fixScssComments(content) {
   // Remove duplicate headers
-  content = content.replace(/^\/\/ =+\s*\n\/\/ .+ Styles\s*\n\/\/ =+\s*\n\n\/\/ =+[\s\S]*?\n   .+\s*\n   =+\s*\n\n/m, '');
+  content = content.replace(/^\/\/ =+\s*\n\/\/ .+ Styles\s*\n\/\/ =+\s*\n\n\/\/ =+[\s\S]*?\n\s{3}.+\s*\n\s{3}=+\s*\n\n/m, '');
   
   // Fix CSS comments to SCSS comments
-  content = content.replace(/\/\* (.+)\n   =+\s*\*\//g, '// $1\n// ' + '='.repeat(50));
+  content = content.replace(/\/\* (.+)\n\s{3}=+\s*\*\//g, '// $1\n// ' + '='.repeat(50));
   
   // Remove any remaining CSS block comments in headers
   content = content.replace(/\/\*[\s\S]*?\*\//g, '');

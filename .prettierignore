@@ -9,10 +9,15 @@ wp-includes/
 # Build output
 dist/
 build/
+theme-bundle/
+
+# Compiled assets
+assets/css/
 
 # Minified files
 *.min.css
 *.min.js
+*.map
 
 # Bootstrap and FontAwesome
 assets/bootstrap/
@@ -24,4 +29,3 @@ wp-content/cache/
 
 # Other
 .git/
-*.md

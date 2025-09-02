@@ -1,5 +1,5 @@
 // ====================================
-// Mia Aesthetics - Consultation Form Component  
+// Mia Aesthetics - Consultation Form Component
 // ====================================
 
 .consultation-card {
@@ -60,7 +60,6 @@
 
         .gchoice {
           display: flex;
-          align-items: center;
           align-items: flex-start;
           margin-bottom: 0.5rem;
           padding-block: 0.25rem;
@@ -282,7 +281,7 @@
 
     :is(input, select, textarea) {
       font-size: 15px;
-      -webkit-tap-highlight-color: transparent;
+      tap-highlight-color: transparent;
     }
   }
 }

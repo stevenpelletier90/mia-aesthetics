@@ -31,7 +31,8 @@
   --bs-primary: var(--mia-gold);
   --bs-primary-rgb: #{color.red($mia-gold)}, #{color.green($mia-gold)}, #{color.blue($mia-gold)};
   --bs-secondary: var(--mia-black);
-  --bs-secondary-rgb: #{color.red($mia-black)}, #{color.green($mia-black)}, #{color.blue($mia-black)};
+  --bs-secondary-rgb:
+    #{color.red($mia-black)}, #{color.green($mia-black)}, #{color.blue($mia-black)};
 
   // Typography
   --font-heading: #{$headings-font-family};

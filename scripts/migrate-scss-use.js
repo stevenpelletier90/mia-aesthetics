@@ -14,7 +14,6 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, "..");
 const scssRoot = path.join(projectRoot, "assets", "scss");
-const abstractsIndex = path.join(scssRoot, "abstracts", "_index.scss");
 
 function listScssFiles(dir) {
   const out = [];
@@ -95,4 +94,3 @@ function migrate() {
 }
 
 migrate();
-

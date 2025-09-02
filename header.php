@@ -42,7 +42,7 @@ if ( is_singular( 'surgeon' ) ) :
 		?>
 		<!-- Medium Mobile CTA - Only visible on medium mobile devices -->
 		<div class="d-none d-sm-block d-xl-none mx-auto">
-			<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="header-btn" aria-label="Schedule free virtual consultation">
+			<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="btn btn-primary header-btn" aria-label="Schedule free virtual consultation">
 			Free Virtual Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 			</a>
 		</div>
@@ -127,7 +127,7 @@ if ( is_singular( 'surgeon' ) ) :
 		</div>
 		<!-- Right Side Items -->
 		<div class="d-none d-xl-block">
-			<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="header-btn desktop-cta" aria-label="Schedule free virtual consultation">
+			<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="btn btn-primary header-btn desktop-cta" aria-label="Schedule free virtual consultation">
 			Free Virtual Consultation <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 			</a>
 		</div>

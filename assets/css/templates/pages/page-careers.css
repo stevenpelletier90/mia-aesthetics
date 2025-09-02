@@ -223,10 +223,7 @@
 .foundation-parallax::before {
   content: "";
   position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  inset: 0;
   background: linear-gradient(135deg, rgba(27, 27, 27, 0.8) 0%, rgba(27, 27, 27, 0.6) 100%);
   z-index: 1;
 }
@@ -573,9 +570,8 @@
   font-style: italic;
   flex-grow: 1;
   display: -webkit-box;
-  -webkit-line-clamp: 6;
   line-clamp: 6;
-  -webkit-box-orient: vertical;
+  box-orient: vertical;
   overflow: hidden;
   text-overflow: ellipsis;
   text-align: left;
@@ -969,7 +965,6 @@
     height: 100%;
   }
   .testimonial-quote {
-    -webkit-line-clamp: 5;
     line-clamp: 5;
     font-size: 1rem;
   }
@@ -1119,7 +1114,6 @@
   }
   .testimonial-card {
     min-height: 280px;
-    height: 100%;
     margin-bottom: 1rem;
     padding: 1.5rem 1rem;
     height: 320px;
@@ -1129,7 +1123,6 @@
     min-height: 280px;
   }
   .testimonial-quote {
-    -webkit-line-clamp: 4;
     line-clamp: 4;
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
@@ -1162,8 +1155,6 @@
     width: 8px !important;
     height: 8px !important;
     margin: 0 0.2rem !important;
-    width: 10px;
-    height: 10px;
   }
   #testimonialsCarousel .carousel-control-prev {
     left: 5px;

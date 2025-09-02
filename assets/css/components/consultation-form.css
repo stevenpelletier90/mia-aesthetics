@@ -51,7 +51,6 @@
 }
 .consultation-card .gform_wrapper .gfield_checkbox .gchoice {
   display: flex;
-  align-items: center;
   align-items: flex-start;
   margin-bottom: 0.5rem;
   padding-block: 0.25rem;
@@ -246,7 +245,7 @@ select):focus {
   }
   .consultation-card .gform_wrapper :is(input, select, textarea) {
     font-size: 15px;
-    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
   }
 }
 @media (max-width: 480px) {

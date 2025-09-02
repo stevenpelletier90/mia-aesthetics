@@ -4,8 +4,10 @@ import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
 import postcss from "postcss";
+import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
 import { minify } from "terser";
+import { Buffer } from "node:buffer";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -16,7 +18,7 @@ const assetsDir = path.join(projectRoot, "assets");
 const excludeDirs = ["bootstrap", "fontawesome", "glide"];
 
 // Statistics tracking
-let stats = {
+const stats = {
   css: { processed: 0, skipped: 0, totalSaved: 0 },
   js: { processed: 0, skipped: 0, totalSaved: 0 }
 };
@@ -74,7 +76,18 @@ async function minifyCSS() {
   console.log("\n🎨 Minifying CSS files...\n");
   
   const cssFiles = getAllFiles(path.join(assetsDir, "css"), ".css");
-  const processor = postcss([cssnano({ preset: "default" })]);
+  const processor = postcss([
+    autoprefixer({
+      grid: true,
+      overrideBrowserslist: [
+        "> 0.2%",
+        "last 3 versions", 
+        "not dead",
+        "not IE 11"
+      ]
+    }),
+    cssnano({ preset: "default" })
+  ]);
   
   for (const file of cssFiles) {
     const relativePath = path.relative(projectRoot, file);

@@ -1,5 +1,5 @@
 // =============================================================================
-// page-treatment-layout Styles  
+// page-treatment-layout Styles
 // =============================================================================
 
 .treatment-header {
@@ -236,11 +236,9 @@
 
 .text-gradient {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-gold) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
   background-clip: text;
   color: transparent;
-  color: var(--mia-black);
+  fallback-color: var(--mia-black);
 }
 
 .highlight-card {
@@ -338,7 +336,6 @@
   .text-gradient {
     background: none;
     color: var(--mia-gold);
-    -webkit-text-fill-color: var(--mia-gold);
   }
 
   .procedure-section {

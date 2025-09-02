@@ -99,8 +99,6 @@
 // Header CTA button (used in navigation)
 .header-btn,
 .desktop-cta {
-  @extend .btn;
-  @extend .btn-primary;
   font-weight: 500;
   white-space: nowrap;
 
