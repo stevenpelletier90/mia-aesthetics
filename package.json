@@ -9,24 +9,21 @@
     "lint:js": "eslint assets/js/**/*.js --ignore-pattern '**/*.min.js' --no-warn-ignored",
     "lint:css": "stylelint \"assets/css/**/*.css\" --ignore-path .stylelintignore",
     "lint:php": "composer run-script phpcs && composer run-script phpstan",
-    "qa:fe": "npm run lint:js && npm run lint:css && npm run format:check",
     "lint:fix": "npm run lint:js:fix && npm run lint:css:fix && npm run format",
     "lint:js:fix": "eslint assets/js/**/*.js --fix --ignore-pattern '**/*.min.js' --no-warn-ignored",
     "lint:css:fix": "stylelint \"assets/css/**/*.css\" --fix --ignore-path .stylelintignore",
     "format": "prettier --write \"assets/**/*.{css,js}\"",
-    "format:js": "prettier --write \"assets/js/**/*.js\"",
     "format:check": "prettier --check \"assets/**/*.{css,js}\"",
+    "qa:fe": "npm run lint:js && npm run lint:css && npm run format:check",
     "qa:all": "npm run qa:fe && composer qa",
     "minify:css": "node scripts/minify-assets.js css",
     "minify:js": "node scripts/minify-assets.js js",
     "minify:all": "node scripts/minify-assets.js all",
+    "purge:preview": "node scripts/minify-assets.js --preview-purge",
     "build:assets": "npm run minify:all",
-    "build:production": "NODE_ENV=production npm run lint && npm run format && npm run build:assets && npm run bundle",
+    "build:production": "npm run lint && npm run format && NODE_ENV=production npm run build:assets && npm run bundle",
     "bundle": "node scripts/bundle-theme.js",
-    "bundle:clean": "npm run lint && npm run format && npm run bundle",
-    "dev:clean": "npm run bundle",
-    "setup:assets": "node scripts/bundle-theme.js --dev-copy",
-    "setup": "npm run setup:assets",
+    "dev:build": "npm run lint && npm run format && npm run build:assets && npm run bundle",
     "debug:assets": "node scripts/scan-missing-assets.js"
   },
   "devDependencies": {
@@ -48,5 +45,11 @@
     "@fortawesome/fontawesome-free": "^7.0.1",
     "@glidejs/glide": "^3.7.1",
     "bootstrap": "^5.3.8"
-  }
+  },
+  "browserslist": [
+    "> 0.2%",
+    "last 3 versions",
+    "not dead",
+    "not IE 11"
+  ]
 }

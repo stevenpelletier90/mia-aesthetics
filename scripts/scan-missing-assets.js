@@ -59,7 +59,6 @@ sourceAssets.forEach(file => {
 
 // Find missing assets
 const missing = [];
-const sourceOnly = [];
 const bundleOnly = [];
 
 sourceAssets.forEach(file => {

@@ -38,10 +38,35 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 	$base_uri = trailingslashit( get_template_directory_uri() ) . 'assets';
 	$base_dir = trailingslashit( get_template_directory() ) . 'assets';
 
-	$src  = $base_uri . $path;
-	$file = wp_normalize_path( $base_dir . $path );
+	$requested_path = $path;
 
-	// Fail silently if file doesn't exist in production.
+	// Prefer minified assets when SCRIPT_DEBUG is disabled and a .min variant exists.
+	// Respect explicit .min files passed in ($path already contains .min) and vendor assets.
+	$is_min_explicit = ( false !== strpos( $requested_path, '.min.' ) );
+	$is_debug        = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+
+	if ( ! $is_min_explicit && ! $is_debug ) {
+		if ( 'style' === $type && str_ends_with( $requested_path, '.css' ) ) {
+			$maybe_min = preg_replace( '/\.css$/', '.min.css', $requested_path );
+			if ( is_string( $maybe_min ) ) {
+				$maybe_min_file = wp_normalize_path( $base_dir . $maybe_min );
+				if ( file_exists( $maybe_min_file ) ) {
+					$requested_path = $maybe_min;
+				}
+			}
+		} elseif ( 'script' === $type && str_ends_with( $requested_path, '.js' ) ) {
+			$maybe_min = preg_replace( '/\.js$/', '.min.js', $requested_path );
+			if ( is_string( $maybe_min ) ) {
+				$maybe_min_file = wp_normalize_path( $base_dir . $maybe_min );
+				if ( file_exists( $maybe_min_file ) ) {
+					$requested_path = $maybe_min;
+				}
+			}
+		}
+	}
+
+	$src  = $base_uri . $requested_path;
+	$file = wp_normalize_path( $base_dir . $requested_path );
 
 	// Use file modification time for versioning—lighter than computing an MD5 hash on every request.
 	$ver = file_exists( $file ) ? (string) filemtime( $file ) : null;
