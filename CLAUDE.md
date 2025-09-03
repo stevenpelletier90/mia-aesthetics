@@ -11,12 +11,11 @@ This is a custom WordPress theme for Mia Aesthetics, a medical aesthetics clinic
 ### Primary Build Commands
 
 ```bash
-# Complete asset build (SCSS → CSS → minification)
+# Complete asset build (CSS minification)
 npm run build:assets
 
 # Bundle theme for WordPress deployment
 npm run bundle
-npm run bundle -- --with-maps  # Include source maps
 
 # Full production build with QA
 npm run build:production
@@ -28,7 +27,7 @@ npm run dev:clean
 ### Quality Assurance
 
 ```bash
-# Run all frontend QA (JS, SCSS, Prettier)
+# Run all frontend QA (JS, CSS, Prettier)
 npm run qa:fe
 
 # Run all QA (frontend + PHP)
@@ -41,14 +40,6 @@ composer qa
 ### Individual Asset Processing
 
 ```bash
-# SCSS compilation
-npm run sass:build          # Main theme SCSS → theme.css
-npm run sass:build:individual # Component SCSS → individual CSS
-npm run sass:build:templates  # Template-specific SCSS → CSS
-
-# PostCSS processing (autoprefixer + cssnano)
-npm run postcss:theme       # Process main theme.css
-
 # Asset minification with PostCSS pipeline
 npm run minify:css         # Minify CSS with autoprefixer
 npm run minify:js          # Minify JavaScript with Terser
@@ -62,14 +53,9 @@ npm run minify:all         # Minify both CSS and JS
 npm run lint:js
 npm run lint:js:fix
 
-# SCSS/CSS
-npm run lint:scss
-npm run lint:scss:fix
-npm run lint:scss:prettier
-
 # Formatting
-npm run format              # Format all assets
-npm run format:scss         # Format SCSS only
+npm run format              # Format all assets (CSS + JS)
+npm run format:js           # Format JavaScript only  
 npm run format:check        # Check formatting without changes
 
 # PHP (via Composer)
@@ -140,38 +126,39 @@ Modular schema system in `/inc/schema/`:
 
 ## Important Files and Patterns
 
-### Modern SCSS Architecture (@use System)
+### CSS-Only Architecture
 
-- **SCSS Sources**: `/assets/scss/` - Modern SCSS with `@use` syntax (no more `@import`)
-  - **Main theme**: `/assets/scss/main.scss` → `assets/css/theme.css` (then PostCSS → `theme.min.css`)
-  - **Individual components**: `/assets/scss/components/_case-card.scss` → `assets/css/components/case-card.css`
-  - **Template files**: `/assets/scss/templates/**/*.scss` → `assets/css/templates/**/*.css`
-  - **Modular structure**: Abstracts, base, layout, components, utilities, vendors
+- **CSS Sources**: `/assets/css/` - Direct CSS files with modular organization
+  - **Base styles**: `base.css`, `theme.css`, `fonts.css` - Core theme styling
+  - **Layout components**: `/assets/css/layout/` - Header, footer, hero sections
+  - **UI components**: `/assets/css/components/` - Reusable UI components (case-card, FAQ, forms, CTAs)
+  - **Template files**: `/assets/css/templates/` - Page-specific, archive, and single post styles
+  - **Utility styles**: `/assets/css/utilities/` - Helper classes and specialized functionality
 - **Theme Bundle**: `/theme-bundle/mia-aesthetics/` - Production WordPress theme
-- **Project Directory**: Clean SCSS sources only, compiled CSS in `/assets/css/`
+- **Project Directory**: Individual CSS files edited directly, minified versions generated automatically
 
-### Build Pipeline (PostCSS Integration)
+### Build Pipeline (CSS Minification)
 
-- **Theme CSS**: Uses PostCSS pipeline (autoprefixer + cssnano) via `postcss.config.js`
-- **Template CSS**: Uses minify-assets.js with same PostCSS configuration for consistency
-- **Source Maps**: Available in development, optional for production bundles
+- **CSS Processing**: Direct CSS minification using PostCSS pipeline (autoprefixer + cssnano)
+- **Individual Files**: Each CSS file minified separately via `minify-assets.js` script
 - **Vendor Prefixes**: Automatically added via autoprefixer (supports >0.2%, last 3 versions)
 - **Minification**: cssnano with default preset for optimal compression
+- **No Compilation**: CSS files edited directly, no preprocessing step required
 
 ### Asset Management
 
-- **Conditional Loading**: Template-specific CSS/JS loaded based on current page template
+- **Conditional Loading**: Individual CSS files loaded based on current page template via `/inc/enqueue.php`
 - **Versioning**: File modification time-based cache busting
 - **Exclusions**: Vendor assets (bootstrap, fontawesome, glide) excluded from minification
-- **Bundle Optimization**: Minified assets only (except theme.css/fonts.css for editor parity)
+- **Individual Files**: Each template and component has its own CSS file for optimal performance
+- **Bundle Optimization**: Minified CSS files generated for production use
 
 ### Code Quality Configuration
 
-- **Stylelint**: Streamlined configuration with many rules set to null for reduced noise
 - **ESLint**: Modern JavaScript linting with Prettier integration
 - **PHPCS**: WordPress coding standards (PHP 8.4 compatible)
 - **PHPStan**: Level 7 static analysis for WordPress
-- **Prettier**: Scoped to sources only via `.prettierignore` (excludes compiled assets)
+- **Prettier**: CSS and JavaScript formatting with `.prettierignore` (excludes minified assets)
 
 ### JavaScript Organization
 
@@ -236,35 +223,35 @@ All buttons include responsive padding using clamp() and smooth icon animations.
 # 1. Install dependencies
 npm install && composer install
 
-# 2. Make changes in /assets/scss/ (uses modern @use syntax)
+# 2. Make changes in /assets/css/ (direct CSS editing)
 # 3. Build and bundle for development
 npm run dev:clean
 
 # 4. Deploy /theme-bundle/mia-aesthetics/ as your WordPress theme
 ```
 
-### Modern SCSS Development Process
+### CSS-Only Development Process
 
-1. **Edit SCSS sources**: `/assets/scss/` using `@use` syntax (no more `@import`)
-2. **Build assets**: `npm run build:assets` (SCSS → CSS → PostCSS → minification)
+1. **Edit CSS files**: `/assets/css/` - Edit individual CSS files directly (no preprocessing)
+2. **Build assets**: `npm run build:assets` (CSS minification with PostCSS autoprefixer)
 3. **Bundle theme**: `npm run bundle` (copies to `/theme-bundle/mia-aesthetics/`)
 4. **Quality check**: `npm run qa:all` (linting, formatting, PHP analysis)
 5. **Deploy**: Use bundled theme folder for WordPress installation
 
 ### Key Build Pipeline Features
 
-- **PostCSS Integration**: Unified autoprefixer + cssnano across all CSS
-- **Source Maps**: Available for debugging SCSS sources in browser dev tools
+- **PostCSS Integration**: Unified autoprefixer + cssnano across all CSS files
+- **Direct Editing**: No compilation step - edit CSS files directly in `/assets/css/`
 - **Vendor Exclusions**: Bootstrap, FontAwesome, and Glide.js assets preserved
-- **Editor Parity**: Unminified theme.css and fonts.css maintained for block editor
-- **Lean Bundles**: Only minified assets included by default (use `--with-maps` for source maps)
+- **Individual Files**: Each component and template has its own CSS file for optimal loading
+- **Lean Bundles**: Minified assets generated for production use
 
-### Fully Converted Components (Production Ready)
+### CSS-Only Architecture (Production Ready)
 
-- All SCSS files modernized with `@use` syntax
-- All components compile to optimized CSS with autoprefixer
+- All CSS files organized modularly (base, layout, components, templates, utilities)
+- Individual CSS files optimized with autoprefixer and minification
 - Complete build pipeline with PostCSS integration
-- Streamlined linting configuration (reduced noise)
+- Streamlined development workflow with direct CSS editing
 - Function prefixing completed (`mia_aesthetics_*`)
 - Accessibility implementation with skip links
 - 100% PHPCS/PHPStan compliance at highest levels
@@ -280,29 +267,29 @@ npm run dev:clean
 - **Style Guide**: Available at `/style-guide.html` for design system reference
 - **Editor Integration**: Block editor loads theme styles for WYSIWYG parity
 
-## Recent Modernization (v3.0.0)
+## Recent Simplification (v4.0.0)
 
-### SCSS Modernization
+### CSS-Only Migration
 
-- **Dart Sass Migration**: All SCSS files updated to use modern `@use` syntax instead of deprecated `@import`
-- **Modular Architecture**: Clean separation of abstracts, base, layout, components, utilities, and vendors
-- **Bootstrap Integration**: Custom Bootstrap build configured with Mia Aesthetics variables
-- **No Import Warnings**: Theme sources modernized (Bootstrap still emits upstream deprecation warnings)
+- **SCSS Removal**: Reverted from SCSS back to direct CSS editing for simpler workflow
+- **Modular CSS**: Individual CSS files organized by function (base, layout, components, templates, utilities)
+- **Bootstrap Integration**: Uses pre-compiled Bootstrap CSS with custom overrides
+- **Direct Editing**: No preprocessing step - edit CSS files directly in `/assets/css/`
 
-### Build Pipeline Refinements
+### Build Pipeline Simplification
 
-- **PostCSS Integration**: Unified autoprefixer + cssnano configuration across all CSS processing
-- **Script Consolidation**: `minify-assets.js` mirrors `postcss.config.js` for consistency
-- **Eliminated Artifacts**: Removed double-minification and vendor prefix sed hacks from previous pipeline
-- **Bundle Optimization**: Ships only minified assets by default with optional source maps
-- **Vendor Prefix Automation**: Automatic vendor prefix generation (no manual prefix management)
+- **PostCSS Integration**: Unified autoprefixer + cssnano configuration for CSS minification only
+- **Script Consolidation**: `minify-assets.js` handles both CSS and JS minification consistently
+- **Eliminated Compilation**: Removed SCSS compilation step for faster development workflow
+- **Individual File Processing**: Each CSS file minified separately for optimal loading
+- **Vendor Prefix Automation**: Automatic vendor prefix generation via autoprefixer
 
 ### Configuration Streamlining
 
-- **Stylelint Noise Reduction**: Many rules set to null to focus on critical issues
-- **Prettier Scoping**: Added `.prettierignore` to exclude compiled assets from formatting
-- **Dependency Cleanup**: Removed unused npm packages (postcss-import, stylelint-order)
-- **PHP 8.4 Support**: Updated PHPCS configuration for latest PHP compatibility
+- **Reduced Dependencies**: Removed SCSS-related packages and configuration
+- **Prettier Scoping**: Added `.prettierignore` to exclude minified assets from formatting
+- **Simplified Workflow**: Direct CSS editing with minification-only build process  
+- **PHP 8.4 Support**: Maintained PHPCS configuration for latest PHP compatibility
 
 ### Quality Assurance Excellence
 
@@ -310,6 +297,57 @@ npm run dev:clean
 - **Function Prefixing**: All functions properly prefixed with `mia_aesthetics_*`
 - **Accessibility Compliance**: Skip links with focus-visible styles implemented
 - **Performance Optimized**: Conditional enqueuing, proper caching, lean asset bundles
+
+## Technical Reference Documentation
+
+Quick reference links for all packages and technologies used in this project:
+
+### WordPress Core Documentation
+
+- **[Template Hierarchy](https://developer.wordpress.org/themes/basics/template-hierarchy/)** - WordPress template file structure and naming
+- **[Template Partials](https://developer.wordpress.org/themes/basics/template-files/#template-partials)** - Header, footer, and component organization
+- **[Coding Standards](https://developer.wordpress.org/coding-standards/)** - WordPress PHP, CSS, and JavaScript standards
+- **[Theme Development](https://developer.wordpress.org/themes/)** - Complete theme development guide
+- **[Function Reference](https://developer.wordpress.org/reference/)** - WordPress core functions and hooks
+- **[Enqueuing Scripts & Styles](https://developer.wordpress.org/themes/basics/including-css-javascript/)** - Asset loading best practices
+
+### Frontend Frameworks
+
+- **[Bootstrap 5 Documentation](https://getbootstrap.com/docs/5.3/)** - Components, utilities, and grid system
+- **[Bootstrap 5 Components](https://getbootstrap.com/docs/5.3/components/)** - UI components (navbar, dropdown, offcanvas, etc.)
+- **[Bootstrap 5 Utilities](https://getbootstrap.com/docs/5.3/utilities/)** - Spacing, positioning, and layout utilities
+- **[FontAwesome Icons](https://fontawesome.com/icons)** - Icon library and usage examples
+- **[Glide.js Documentation](https://glidejs.com/)** - Carousel/slider component documentation
+
+### Build Tools & Processing
+
+- **[PostCSS Documentation](https://postcss.org/)** - CSS processing and plugin system
+- **[Autoprefixer](https://github.com/postcss/autoprefixer)** - Automatic vendor prefix generation
+- **[CSSNano](https://cssnano.co/)** - CSS optimization and minification
+- **[PurgeCSS](https://purgecss.com/)** - Remove unused CSS for production builds
+- **[Terser](https://terser.org/)** - JavaScript minification and optimization
+
+### Development Tools
+
+- **[ESLint](https://eslint.org/)** - JavaScript linting and code quality
+- **[Stylelint](https://stylelint.io/)** - CSS linting and style guide enforcement
+- **[Prettier](https://prettier.io/)** - Code formatting for CSS and JavaScript
+- **[PHP CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer)** - PHP code standards checking
+- **[PHPStan](https://phpstan.org/)** - PHP static analysis tool
+
+### Content Management
+
+- **[Advanced Custom Fields](https://www.advancedcustomfields.com/resources/)** - Custom field management and templating
+- **[ACF Field Types](https://www.advancedcustomfields.com/resources/field-types/)** - Available field types and usage
+- **[Schema.org](https://schema.org/)** - Structured data markup standards
+- **[JSON-LD](https://json-ld.org/)** - Linked data format for SEO
+
+### Web Standards & Performance
+
+- **[Web Content Accessibility Guidelines (WCAG)](https://www.w3.org/WAI/WCAG21/quickref/)** - Accessibility standards
+- **[MDN CSS Reference](https://developer.mozilla.org/en-US/docs/Web/CSS)** - CSS properties and modern features
+- **[MDN JavaScript Reference](https://developer.mozilla.org/en-US/docs/Web/JavaScript)** - Modern JavaScript features and APIs
+- **[Can I Use](https://caniuse.com/)** - Browser compatibility tables
 
 ## CRITICAL TEMPLATE VERIFICATION RULES
 
@@ -332,5 +370,5 @@ NEVER proactively create documentation files (\*.md) or README files. Only creat
 
 ---
 
-**Last Updated**: September 2025 - v3.0.0 Production Release
-**Status**: 100% Complete - All requirements implemented and optimized
+**Last Updated**: September 2025 - v4.0.0 CSS-Only Release
+**Status**: 100% Complete - Simplified CSS-only workflow, all requirements implemented and optimized

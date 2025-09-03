@@ -1,4 +1,17 @@
-assets/css/**
+# Minified files
+**/*.min.css
+**/*.map
+
+# Vendor dependencies
+**/node_modules/**
+**/vendor/**
+**/bootstrap/**
+**/fontawesome/**
+**/glide/**
+
+# Bundle output
 theme-bundle/**
-vendor/**
-node_modules/**
+
+# Compiled theme.css (large Bootstrap compilation)
+assets/css/theme.css
+assets/css/theme.min.css
