@@ -100,7 +100,6 @@ function mia_editor_styles(): void {
 	add_editor_style(
 		array(
 			'assets/css/fonts.css',
-			'assets/css/theme.css',
 		)
 	);
 }

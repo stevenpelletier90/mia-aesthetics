@@ -19,9 +19,8 @@ assets/css/
 *.min.js
 *.map
 
-# Bootstrap and FontAwesome
-assets/bootstrap/
-assets/fontawesome/
+# Vendor assets
+assets/vendor/
 
 # Cache and logs
 *.log

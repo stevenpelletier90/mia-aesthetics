@@ -627,6 +627,11 @@ function mia_aesthetics_breadcrumbs(): void {
 		return;
 	}
 
+	// Check breadcrumb display logic (same pattern as CTA system).
+	if ( ! mia_should_show_breadcrumbs() ) {
+		return;
+	}
+
 	// Yoast outputs breadcrumb trail as string.
 	$breadcrumbs = yoast_breadcrumb( '', '', false );
 
@@ -642,6 +647,47 @@ function mia_aesthetics_breadcrumbs(): void {
 	echo '<span class="visually-hidden">' . esc_html__( 'You are here:', 'mia-aesthetics' ) . '</span>';
 	echo wp_kses_post( $breadcrumbs );
 	echo '</div></nav>';
+}
+
+/**
+ * Determines if breadcrumbs should be displayed based on ACF settings.
+ *
+ * Follows the same pattern as CTA display logic:
+ * 1. Check individual override field
+ * 2. If 'default', check theme options for post type
+ * 3. If 'show'/'hide', use that setting
+ *
+ * @return bool True if breadcrumbs should be shown, false otherwise.
+ */
+function mia_should_show_breadcrumbs(): bool {
+	if ( ! function_exists( 'get_field' ) ) {
+		return true; // Default to showing if ACF not available.
+	}
+
+	// Check individual override first.
+	$override = get_field( 'breadcrumb_display_override' );
+
+	if ( 'show' === $override ) {
+		return true;
+	}
+
+	if ( 'hide' === $override ) {
+		return false;
+	}
+
+	// If 'default' or empty, check theme options by post type.
+	$post_type  = get_post_type();
+	$field_name = $post_type . '_show_breadcrumbs';
+
+	// Get from theme options (breadcrumb_defaults group).
+	$defaults = get_field( 'breadcrumb_defaults', 'options' );
+
+	if ( is_array( $defaults ) && isset( $defaults[ $field_name ] ) ) {
+		return (bool) $defaults[ $field_name ];
+	}
+
+	// Final fallback - show breadcrumbs by default.
+	return true;
 }
 
 /**

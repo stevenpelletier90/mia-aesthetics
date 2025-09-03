@@ -5,9 +5,7 @@
 # Vendor dependencies
 **/node_modules/**
 **/vendor/**
-**/bootstrap/**
-**/fontawesome/**
-**/glide/**
+assets/vendor/**
 
 # Bundle output
 theme-bundle/**

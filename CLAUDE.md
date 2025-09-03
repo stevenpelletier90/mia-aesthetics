@@ -27,7 +27,7 @@ npm run build:production
 Individual asset tasks
 
 ```bash
-npm run minify:css    # CSS (Autoprefixer + cssnano; PurgeCSS in production)
+npm run minify:css    # CSS (Autoprefixer + cssnano)
 npm run minify:js     # JS (Terser + source maps)
 npm run minify:all    # Both
 npm run bundle        # Build WordPress theme folder → theme-bundle/mia-aesthetics/
@@ -86,7 +86,6 @@ Browserslist
   - PostCSS: <https://postcss.org/>
   - Autoprefixer: <https://github.com/postcss/autoprefixer>
   - CSSNano: <https://cssnano.co/>
-  - PurgeCSS: <https://purgecss.com/>
   - Terser: <https://terser.org/>
 - Dev Tooling
   - ESLint: <https://eslint.org/>
@@ -197,4 +196,4 @@ Never flag these as missing from static HTML templates; they’re injected by PH
 
 ---
 
-Last Updated: September 2025 — PurgeCSS + centralized browserslist; consolidated to single CLAUDE.md
+Last Updated: September 2025 — Simplified structure + centralized browserslist; consolidated to single CLAUDE.md

@@ -8,11 +8,14 @@ theme-bundle/
 *.min.css
 *.map
 
-# Exception: Keep essential Bootstrap and FontAwesome files
-!assets/bootstrap/**/*.min.js
-!assets/bootstrap/**/*.min.css
-!assets/bootstrap/**/*.map
-!assets/fontawesome/**/*.min.css
+# Exceptions: Keep vendor runtime assets copied from npm
+!assets/vendor/bootstrap/**/*.min.js
+!assets/vendor/bootstrap/**/*.min.css
+!assets/vendor/bootstrap/**/*.map
+!assets/vendor/fontawesome/**/*.min.css
+!assets/vendor/fontawesome/**/*.map
+!assets/vendor/glide/**/*.min.js
+!assets/vendor/glide/**/*.min.css
 
 # Environment files
 .env

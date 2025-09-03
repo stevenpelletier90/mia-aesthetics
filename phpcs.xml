@@ -12,8 +12,7 @@
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
     <exclude-pattern>*/theme-bundle/*</exclude-pattern>
-    <exclude-pattern>*/assets/bootstrap/*</exclude-pattern>
-    <exclude-pattern>*/assets/fontawesome/*</exclude-pattern>
+    <exclude-pattern>*/assets/vendor/*</exclude-pattern>
     <exclude-pattern>*/.claude/*</exclude-pattern>
     
     <!-- Show progress and use colors -->
