@@ -128,12 +128,16 @@ function shouldInclude(filePath) {
     if (!WITH_MAPS && filePath.endsWith(".map")) return false;
     if (filePath.startsWith("assets/css/")) {
       const keepEditorCss = filePath === "assets/css/theme.css" || filePath === "assets/css/fonts.css";
+      const keepComponentCss = filePath.includes("/components/") || filePath.includes("/templates/") || filePath.includes("/layout/") || filePath.includes("/utilities/");
       const isMinCss = filePath.endsWith(".min.css");
-      if (!keepEditorCss && !isMinCss) return false;
+      // Keep editor CSS, minified CSS, and component/template CSS for debug mode
+      if (!keepEditorCss && !isMinCss && !keepComponentCss) return false;
     }
     if (filePath.startsWith("assets/js/")) {
+      const keepComponentJs = filePath.includes("/components/") || filePath.includes("/templates/") || filePath.includes("/layout/") || filePath.includes("/utilities/");
       const isMinJs = filePath.endsWith(".min.js");
-      if (!isMinJs) return false;
+      // Keep minified JS and component/template/layout/utility JS for debug mode
+      if (!isMinJs && !keepComponentJs) return false;
     }
   }
 

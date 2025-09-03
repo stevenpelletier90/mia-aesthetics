@@ -22,9 +22,7 @@
 @use "base/links";
 @use "base/custom-properties";
 
-// 4. Layout - Header, footer, and page structure
-@use "layout/header";
-@use "layout/footer";
+// 4. Layout - (moved to separate CSS builds for modularity)
 
 // 5. Components - Reusable UI components
 @use "components/buttons";
