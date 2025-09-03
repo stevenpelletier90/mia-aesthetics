@@ -19,7 +19,6 @@
     "minify:css": "node scripts/minify-assets.js css",
     "minify:js": "node scripts/minify-assets.js js",
     "minify:all": "node scripts/minify-assets.js all",
-    "purge:preview": "node scripts/minify-assets.js --preview-purge",
     "build:assets": "npm run minify:all",
     "build:production": "npm run lint && npm run format && NODE_ENV=production npm run build:assets && npm run bundle",
     "bundle": "node scripts/bundle-theme.js",
@@ -27,7 +26,6 @@
     "debug:assets": "node scripts/scan-missing-assets.js"
   },
   "devDependencies": {
-    "@fullhuman/postcss-purgecss": "^7.0.2",
     "autoprefixer": "^10.4.21",
     "cssnano": "^7.1.1",
     "cssnano-preset-default": "^7.0.9",

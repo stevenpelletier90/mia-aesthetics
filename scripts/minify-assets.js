@@ -6,7 +6,6 @@ import { fileURLToPath } from "url";
 import postcss from "postcss";
 import autoprefixer from "autoprefixer";
 import cssnano from "cssnano";
-import { PurgeCSS } from "purgecss";
 import { minify } from "terser";
 import { Buffer } from "node:buffer";
 
@@ -71,13 +70,12 @@ function formatBytes(bytes) {
 }
 
 /**
- * Minify CSS files using PostCSS, PurgeCSS (production), and cssnano with source maps
+ * Minify CSS files using PostCSS and cssnano with source maps
  */
 async function minifyCSS() {
   console.log("\n🎨 Minifying CSS files...\n");
   
   const cssFiles = getAllFiles(path.join(assetsDir, "css"), ".css");
-  const isProduction = process.env.NODE_ENV === 'production';
   
   const processor = postcss([
     autoprefixer({
@@ -92,48 +90,9 @@ async function minifyCSS() {
     const mapPath = outputPath + ".map";
     
     try {
-      let css = fs.readFileSync(file, "utf8");
+      const css = fs.readFileSync(file, "utf8");
       const originalSize = Buffer.byteLength(css);
       
-      // Apply PurgeCSS in production only
-      if (isProduction) {
-        const purgeCSSResult = await new PurgeCSS().purge({
-          content: [
-            path.join(projectRoot, '**/*.php'),
-            path.join(assetsDir, 'js/**/*.js'),
-            path.join(projectRoot, 'html-templates/**/*.html')
-          ],
-          css: [{ raw: css }],
-          safelist: [
-            // WordPress classes
-            /^wp-/,
-            /^has-/,
-            /^is-/,
-            /^post-/,
-            /^page-/,
-            /^single-/,
-            /^archive-/,
-            /^admin-/,
-            
-            // Bootstrap JavaScript classes
-            /^bs-/,
-            /^data-bs-/,
-            'active', 'show', 'collapse', 'collapsed', 'collapsing',
-            'fade', 'modal-backdrop', 'offcanvas-backdrop',
-            
-            // Navigation states
-            'current-menu-item', 'current-menu-ancestor', 'current-page-ancestor',
-            
-            // Common state classes
-            'loading', 'disabled', 'visible', 'hidden'
-          ]
-        });
-        
-        if (purgeCSSResult && purgeCSSResult.length > 0) {
-          css = purgeCSSResult[0].css;
-          console.log(`   🧹 PurgeCSS applied to ${relativePath}`);
-        }
-      }
       
       const result = await processor.process(css, { 
         from: file, 
@@ -156,11 +115,7 @@ async function minifyCSS() {
       
       console.log(`   ✓ ${relativePath}`);
       console.log(`     ${formatBytes(originalSize)} → ${formatBytes(minifiedSize)} (${percent}% reduction)`);
-      if (isProduction) {
-        console.log(`     🧹 PurgeCSS + autoprefixer + minification applied`);
-      } else {
-        console.log(`     🔧 Autoprefixer + minification applied (PurgeCSS skipped in dev)`);
-      }
+      console.log(`     🔧 Autoprefixer + minification applied`);
       
       stats.css.processed++;
       stats.css.totalSaved += saved;
@@ -238,124 +193,17 @@ async function minifyJS() {
   stats.js.skipped = allJsFiles.length - jsFiles.length;
 }
 
-/**
- * Preview what PurgeCSS would remove (dry run)
- */
-async function previewPurgeCSS() {
-  console.log("\n🧹 PurgeCSS Preview Mode - Analyzing what would be removed...\n");
-  
-  const cssFiles = getAllFiles(path.join(assetsDir, "css"), ".css");
-  let totalOriginal = 0;
-  let totalAfterPurge = 0;
-  let significantFiles = [];
-  
-  for (const file of cssFiles) {
-    const relativePath = path.relative(projectRoot, file);
-    
-    try {
-      const css = fs.readFileSync(file, "utf8");
-      const originalSize = Buffer.byteLength(css);
-      totalOriginal += originalSize;
-      
-      // Apply PurgeCSS
-      const purgeCSSResult = await new PurgeCSS().purge({
-        content: [
-          path.join(projectRoot, '**/*.php'),
-          path.join(assetsDir, 'js/**/*.js'),
-          path.join(projectRoot, 'html-templates/**/*.html')
-        ],
-        css: [{ raw: css }],
-        safelist: [
-          // WordPress classes
-          /^wp-/,
-          /^has-/,
-          /^is-/,
-          /^post-/,
-          /^page-/,
-          /^single-/,
-          /^archive-/,
-          /^admin-/,
-          
-          // Bootstrap JavaScript classes
-          /^bs-/,
-          /^data-bs-/,
-          'active', 'show', 'collapse', 'collapsed', 'collapsing',
-          'fade', 'modal-backdrop', 'offcanvas-backdrop',
-          
-          // Navigation states
-          'current-menu-item', 'current-menu-ancestor', 'current-page-ancestor',
-          
-          // Common state classes
-          'loading', 'disabled', 'visible', 'hidden'
-        ]
-      });
-      
-      if (purgeCSSResult && purgeCSSResult.length > 0) {
-        const purgedSize = Buffer.byteLength(purgeCSSResult[0].css);
-        totalAfterPurge += purgedSize;
-        const saved = originalSize - purgedSize;
-        const percent = ((saved / originalSize) * 100).toFixed(1);
-        
-        // Flag significant removals (>30% or >5KB saved)
-        if (percent > 30 || saved > 5120) {
-          significantFiles.push({
-            file: relativePath,
-            originalSize,
-            purgedSize,
-            saved,
-            percent: parseFloat(percent)
-          });
-        }
-        
-        console.log(`   ${relativePath}`);
-        console.log(`     ${formatBytes(originalSize)} → ${formatBytes(purgedSize)} (${percent}% reduction)`);
-        
-        if (percent > 50) {
-          console.log(`     ⚠️  SIGNIFICANT removal - review carefully`);
-        }
-      }
-      
-    } catch (error) {
-      console.error(`   ✗ Failed to analyze ${relativePath}:`, error.message);
-    }
-  }
-  
-  console.log("\n📊 PurgeCSS Preview Summary:");
-  console.log(`   Total before: ${formatBytes(totalOriginal)}`);
-  console.log(`   Total after:  ${formatBytes(totalAfterPurge)}`);
-  console.log(`   Total saved:  ${formatBytes(totalOriginal - totalAfterPurge)} (${((totalOriginal - totalAfterPurge) / totalOriginal * 100).toFixed(1)}%)`);
-  
-  if (significantFiles.length > 0) {
-    console.log(`\n⚠️  Files with significant removals (>30% or >5KB):`);
-    significantFiles.sort((a, b) => b.percent - a.percent);
-    significantFiles.forEach(file => {
-      console.log(`   • ${file.file}: ${file.percent}% (${formatBytes(file.saved)} saved)`);
-    });
-    
-    console.log(`\n💡 Recommendations:`);
-    console.log(`   • Review significant removals to ensure no important styles are lost`);
-    console.log(`   • Test pages that use these styles after PurgeCSS`);
-    console.log(`   • Add classes to safelist if needed`);
-  }
-  
-  console.log(`\n🚀 Ready for production? Run: NODE_ENV=production npm run build:production`);
-}
 
 /**
  * Main execution
  */
 async function main() {
   const mode = process.argv[2] || "all";
-  const isPreview = process.argv.includes("--preview-purge");
-  
-  if (isPreview) {
-    await previewPurgeCSS();
-    return;
-  }
   
   console.log("🚀 Starting asset minification...");
   console.log(`   Mode: ${mode}`);
   console.log(`   Excluding: ${excludeDirs.join(", ")}`);
+  console.log(`   PurgeCSS: Disabled (keeping Stylelint)`);
   
   if (mode === "css" || mode === "all") {
     await minifyCSS();
@@ -379,7 +227,7 @@ async function main() {
     console.log(`     • Total saved: ${formatBytes(stats.js.totalSaved)}`);
   }
   
-  console.log("\n✅ Minification complete!");
+  console.log("\n✅ Minification complete! (PurgeCSS disabled)");
 }
 
 // Run the script

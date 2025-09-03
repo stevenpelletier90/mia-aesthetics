@@ -43,7 +43,8 @@ function mia_register_asset( $type, $handle, $path, $deps = array(), $footer = t
 	// Prefer minified assets when SCRIPT_DEBUG is disabled and a .min variant exists.
 	// Respect explicit .min files passed in ($path already contains .min) and vendor assets.
 	$is_min_explicit = ( false !== strpos( $requested_path, '.min.' ) );
-	$is_debug        = defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG;
+	// Treat either SCRIPT_DEBUG or WP_DEBUG as a signal to prefer non‑min assets in development.
+	$is_debug = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) || ( defined( 'WP_DEBUG' ) && WP_DEBUG );
 
 	if ( ! $is_min_explicit && ! $is_debug ) {
 		if ( 'style' === $type && str_ends_with( $requested_path, '.css' ) ) {

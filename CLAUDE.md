@@ -6,7 +6,7 @@ This is the single, canonical project document for the Mia Aesthetics WordPress 
 
 - Custom WordPress theme using Bootstrap 5 and ACF
 - CSS-only workflow (no SCSS); modular CSS per template/component
-- Production-optimized: PurgeCSS + cssnano + Autoprefixer, centralized browserslist, minified runtime bundles
+- Production-optimized: cssnano + Autoprefixer, centralized browserslist, minified runtime bundles
 
 ## Build & QA Commands
 
@@ -17,13 +17,10 @@ npm run qa:fe
 # Full QA (Frontend + PHP: PHPCS + PHPStan)
 npm run qa:all
 
-# Preview PurgeCSS impact (dry run)
-npm run purge:preview
-
-# Development build (no PurgeCSS for easier debugging)
+# Development build
 npm run dev:build
 
-# Production build (lint/format → PurgeCSS+minify → bundle)
+# Production build (lint/format → minify → bundle)
 npm run build:production
 ```
 
@@ -40,8 +37,7 @@ npm run bundle        # Build WordPress theme folder → theme-bundle/mia-aesthe
 
 - Sources live under `assets/css/` (base, layout, components, templates, utilities)
 - Build script: `scripts/minify-assets.js`
-  - Development: Autoprefixer + cssnano
-  - Production: PurgeCSS (with WordPress/Bootstrap safelist) → Autoprefixer → cssnano
+  - Processing: Autoprefixer + cssnano
   - Excludes vendor directories: `assets/bootstrap/`, `assets/fontawesome/`, `assets/glide/`
   - Emits `.min.css` and `.min.css.map` per file
 - JavaScript minified via Terser with source maps to `.min.js` and `.min.js.map`
@@ -76,6 +72,38 @@ Browserslist
 - PHPCS: `phpcs.xml` (WordPress Coding Standards + PHPCompatibility for PHP 8.4)
 - PHPStan: `phpstan.neon` (level 7 with WP/ACF/Yoast stubs)
 
+## Technical Reference Documentation
+
+- WordPress
+  - Template Hierarchy: <https://developer.wordpress.org/themes/basics/template-hierarchy/>
+  - Including CSS/JS: <https://developer.wordpress.org/themes/basics/including-css-javascript/>
+  - Coding Standards: <https://developer.wordpress.org/coding-standards/>
+- Frontend Frameworks
+  - Bootstrap 5: <https://getbootstrap.com/docs/5.3/>
+  - FontAwesome Icons: <https://fontawesome.com/icons>
+  - Glide.js: <https://glidejs.com/>
+- Build Tools & Processing
+  - PostCSS: <https://postcss.org/>
+  - Autoprefixer: <https://github.com/postcss/autoprefixer>
+  - CSSNano: <https://cssnano.co/>
+  - PurgeCSS: <https://purgecss.com/>
+  - Terser: <https://terser.org/>
+- Dev Tooling
+  - ESLint: <https://eslint.org/>
+  - Stylelint: <https://stylelint.io/>
+  - Prettier: <https://prettier.io/>
+  - PHP CodeSniffer: <https://github.com/squizlabs/PHP_CodeSniffer>
+  - PHPStan: <https://phpstan.org/>
+- Content & SEO
+  - Advanced Custom Fields: <https://www.advancedcustomfields.com/resources/>
+  - Schema.org: <https://schema.org/>
+  - JSON‑LD: <https://json-ld.org/>
+- Web Standards
+  - WCAG: <https://www.w3.org/WAI/WCAG21/quickref/>
+  - MDN CSS: <https://developer.mozilla.org/en-US/docs/Web/CSS>
+  - MDN JavaScript: <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
+  - Can I Use: <https://caniuse.com/>
+
 ## Architecture & Key Systems
 
 - Root templates: `page-*.php`, `single-*.php`, `archive-*.php`
@@ -86,15 +114,71 @@ Browserslist
 
 ## Performance & Accessibility
 
-- PurgeCSS: production-only; comprehensive safelist for WordPress and Bootstrap dynamic classes
+- Stylelint: ensures CSS code quality and consistency
 - Conditional enqueuing: loads the minimum CSS/JS per context
 - Optional next steps: trim Bootstrap surface, subset Font Awesome, preload key WOFF2 fonts
 - Accessibility: skip link present; focus-visible styles in base CSS
 
+## MCP Quick Start (Claude Code)
+
+Model Context Protocol (MCP) servers help Claude Code index your project and run utilities. These optional commands configure common servers.
+
+Scopes
+
+- Local (default): current project only
+- Project: shared via `.mcp.json`
+- User: available across all projects on the machine
+
+Filesystem Server
+
+```bash
+# WSL/Bash (local)
+claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem "."
+
+# Windows PowerShell (local)
+claude mcp add filesystem -- cmd /c -- npx -y @modelcontextprotocol/server-filesystem "."
+```
+
+Git Server
+
+```bash
+# WSL/Bash
+claude mcp add git -- uvx mcp-server-git
+
+# Windows PowerShell
+claude mcp add git -- cmd /c -- uvx mcp-server-git
+```
+
+Puppeteer (optional) and Sequential Thinking
+
+```bash
+# WSL/Bash
+claude mcp add puppeteer -- npx -y @modelcontextprotocol/server-puppeteer
+claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking
+
+# Windows PowerShell
+claude mcp add puppeteer -- cmd /c -- npx -y @modelcontextprotocol/server-puppeteer
+claude mcp add sequential-thinking -- cmd /c -- npx -y @modelcontextprotocol/server-sequential-thinking
+```
+
+Management
+
+```bash
+claude mcp list
+claude mcp get <server>
+claude mcp remove <server>
+```
+
+Notes
+
+- PowerShell typically needs the `cmd /c --` wrapper before `npx`/`uvx`
+- Use project scope (`-s project`) to share configs via `.mcp.json`
+- Security: only add MCP servers you trust
+
 ## Troubleshooting
 
 - CSS not updating: edit in `assets/css/`, run `npm run minify:css`, purge caches
-- Dev vs Prod: use `npm run dev:build` to skip PurgeCSS during local debugging
+- Dev vs Prod: both use the same minification process (no PurgeCSS)
 - Missing bundle assets: run `npm run build:assets` before `npm run bundle`
 
 ## CRITICAL TEMPLATE VERIFICATION RULES

@@ -23,12 +23,7 @@ if ( is_singular( 'surgeon' ) ) {
 	$body_data_attrs = ' data-bs-spy="scroll" data-bs-target="#surgeon-tabs" data-bs-offset="120"';
 }
 ?>
-<body 
-<?php
-body_class();
-echo esc_attr( $body_data_attrs );
-?>
->
+<body <?php body_class(); ?><?php echo is_singular( 'surgeon' ) ? ' data-bs-spy="scroll" data-bs-target="#surgeon-tabs" data-bs-offset="120"' : ''; ?>>
 <?php wp_body_open(); ?>
 <a href="#primary" class="skip-link">Skip to content</a>
 
@@ -45,6 +40,13 @@ echo esc_attr( $body_data_attrs );
 				)
 			);
 			?>
+
+			<!-- Tablet/Mobile CTA - Only visible on medium mobile devices -->
+			<div class="d-none d-sm-block d-xl-none mx-auto">
+				<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="header-btn" aria-label="Schedule free virtual consultation">
+					<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+				</a>
+			</div>
 
 			<!-- Desktop navigation -->
 			<ul class="navbar-nav d-none d-xl-flex ms-auto" role="list">
@@ -73,9 +75,11 @@ echo esc_attr( $body_data_attrs );
 			</ul>
 
 			<!-- Desktop CTA Button -->
-			<a class="btn btn-outline-primary d-none d-xl-block ms-3" href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" aria-label="Schedule free virtual consultation">
-				<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-			</a>
+			<div class="d-none d-xl-block">
+				<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="header-btn desktop-cta" aria-label="Schedule free virtual consultation">
+					<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+				</a>
+			</div>
 
 			<!-- Mobile menu toggle -->
 			<button class="navbar-toggler d-xl-none ms-auto" type="button" data-bs-toggle="offcanvas" data-bs-target="#siteMenu" aria-controls="siteMenu" aria-expanded="false" aria-label="Open menu">
@@ -115,7 +119,7 @@ echo esc_attr( $body_data_attrs );
 						<li class="nav-item"><a class="nav-link" href="https://shop.miaaesthetics.com/" target="_blank" rel="noopener"><?php esc_html_e( 'Shop', 'mia-aesthetics' ); ?></a></li>
 					</ul>
 
-					<a class="btn btn-outline-primary w-100" href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" aria-label="Schedule free virtual consultation">
+					<a class="header-btn w-100" href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" aria-label="Schedule free virtual consultation">
 						<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 					</a>
 				</div>
