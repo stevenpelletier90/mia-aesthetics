@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		autocomplete="off"
 	/>
 	<div class="search-icon"><i class="fas fa-search" aria-hidden="true"></i></div>
-	<div id="loading-spinner-careers" class="loading-spinner" style="display: none">
+	<div id="loading-spinner-careers" class="loading-spinner hidden">
 		<div class="spinner"></div>
 	</div>
 	</div>

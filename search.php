@@ -20,7 +20,7 @@ get_header(); ?>
 						printf(
 							// translators: %s is the search query entered by the user.
 							esc_html__( 'Search Results for: %s', 'mia-aesthetics' ),
-							'<span style="color: var(--color-gold);">' . esc_html( get_search_query() ) . '</span>'
+							'<span class="text-color-gold">' . esc_html( get_search_query() ) . '</span>'
 						);
 						?>
 					</h1>

@@ -1,3 +1,8 @@
+/* Video Sidebar Styles */
+.sidebar-section.border-radius-none {
+  border-radius: 0;
+}
+
 .location-header {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   color: var(--mia-white);

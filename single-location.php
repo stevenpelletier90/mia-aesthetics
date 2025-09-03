@@ -153,7 +153,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 
 					<!-- Video container - only show if we have video ID and thumbnail -->
 					<?php if ( '' !== $video_id && '' !== $thumbnail_url ) : ?>
-					<div class="sidebar-section" style="border-radius: 0;">
+					<div class="sidebar-section border-radius-none">
 						<div class="ratio ratio-16x9">
 							<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
 								<img 

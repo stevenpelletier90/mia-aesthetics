@@ -476,7 +476,7 @@ require __DIR__ . '/hero-section.php';
 <!-- Foundation Section with Fixed Background (Desktop) / Regular Image (Mobile) -->
 <section class="foundation-section">
 	<!-- Background image for desktop -->
-	<div class="foundation-bg d-none d-md-block" style="background-image: url('/wp-content/uploads/2025/04/miaf6.jpg');"></div>
+	<div class="foundation-bg d-none d-md-block"></div>
   
 	<!-- Regular image for mobile -->
 	<div class="foundation-mobile-img d-md-none">

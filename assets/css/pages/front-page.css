@@ -2,6 +2,14 @@
    Front Page Styles
    ============================================================================= */
 
+/* Foundation Section Background */
+.foundation-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: url('/wp-content/uploads/2025/04/miaf6.jpg');
+}
+
 /* About Section
    ========================================================================== */
 

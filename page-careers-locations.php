@@ -181,7 +181,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 
 					<!-- Video container - only show if we have video ID and thumbnail -->
 					<?php if ( '' !== $mia_aesthetics_video_id && '' !== $mia_aesthetics_thumbnail_url ) : ?>
-					<div class="sidebar-section" style="border-radius: 0;">
+					<div class="sidebar-section border-radius-none">
 						<div class="ratio ratio-16x9">
 							<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $mia_aesthetics_embed_url ); ?>">
 								<img 

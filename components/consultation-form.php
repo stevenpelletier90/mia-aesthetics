@@ -37,7 +37,7 @@ $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
 <div class="card shadow-sm consultation-card <?php echo esc_attr( $additional_classes ); ?>" 
 	role="complementary" 
 	aria-label="<?php echo esc_attr( $card_title ); ?>">
-	<div class="card-body">
+	<div class="card-body p-4">
 		<?php if ( $show_title ) : ?>
 			<h3 class="card-title text-center mb-4">
 				<?php echo esc_html( $card_title ); ?>

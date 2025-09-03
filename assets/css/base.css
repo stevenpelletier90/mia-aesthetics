@@ -42,6 +42,10 @@
   --mia-gold-20: rgba(200, 178, 115, 0.2);
   --mia-gold-30: rgba(200, 178, 115, 0.3);
 
+  /* Bootstrap Color Variables */
+  --bs-body-color: var(--mia-gray-dark);
+  --bs-secondary-color: var(--mia-gray-muted);
+
 
   /* Bootstrap Override Variables - Match Brand Theme */
   --bs-primary: var(--mia-gold);
@@ -58,6 +62,14 @@
   --z-sticky: 1020;
   --z-tooltip: 1070;
   --z-header: 9999;
+
+  /* Card System Variables */
+  --card-border: 1px solid #dee2e6;
+  --card-radius: 8px;
+  --card-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+
+  /* Button Heights */
+  --btn-height-md: 48px;
 }
 
 /* ==============================================
@@ -188,7 +200,7 @@ p {
   font-size: 1.25rem;
   font-weight: 400;
   line-height: 1.625;
-  color: #6c757d;
+  color: var(--mia-gray-muted);
   margin-bottom: 1.5rem;
 }
 
@@ -196,7 +208,7 @@ p {
   font-size: 1.5rem;
   font-weight: 300;
   line-height: 1.625;
-  color: #6c757d;
+  color: var(--mia-gray-muted);
   margin-bottom: 2rem;
 }
 
@@ -237,7 +249,7 @@ p {
   font-size: 0.875rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #6c757d;
+  color: var(--mia-gray-muted);
   margin-bottom: 0.5rem;
 }
 
@@ -720,7 +732,7 @@ li {
 }
 
 .card-body {
-  padding: var(--card-padding);
+  padding: 24px;
   flex: 1;
 }
 
@@ -1053,6 +1065,15 @@ li {
   aspect-ratio: 1/1;
 }
 
+/* Only keep truly global utility classes */
+.text-color-gold {
+  color: var(--mia-gold) !important;
+}
+
+.hidden {
+  display: none !important;
+}
+
 /* ==============================================
    WORDPRESS SPECIFIC STYLES
    ============================================== */
@@ -1314,36 +1335,6 @@ li {
   border-color: var(--mia-gold-light) !important;
 }
 
-/* Legacy Brand Classes (for backward compatibility) */
-.text-brand-primary {
-  color: var(--mia-black) !important;
-}
-.text-brand-gold {
-  color: var(--mia-gold) !important;
-}
-.text-brand-gold-dark {
-  color: var(--mia-gold-dark) !important;
-}
-.text-brand-muted {
-  color: var(--mia-gray-muted) !important;
-}
-
-.bg-brand-primary {
-  background-color: var(--mia-black) !important;
-}
-.bg-brand-gold {
-  background-color: var(--mia-gold) !important;
-}
-.bg-brand-gold-light {
-  background-color: var(--mia-gold-light) !important;
-}
-
-.border-brand-gold {
-  border-color: var(--mia-gold) !important;
-}
-.border-brand-primary {
-  border-color: var(--mia-black) !important;
-}
 
 /* ==============================================
    ACCESSIBILITY & MOTION
@@ -1395,8 +1386,8 @@ li {
     color: var(--mia-black);
   }
 
-  .text-brand-gold,
-  .text-brand-gold-dark {
+  .text-mia-gold,
+  .text-mia-gold-dark {
     color: var(--mia-black) !important;
   }
 }

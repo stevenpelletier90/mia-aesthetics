@@ -52,9 +52,9 @@ function mia_maybe_load_components(): void {
 	if ( 
 		strpos( $post_content, 'consultation-form' ) !== false || 
 		strpos( $post_content, 'gform' ) !== false ||
-		is_front_page() ||
 		is_page_template( 'page-condition-layout.php' ) ||
-		is_page_template( 'page-treatment-layout.php' )
+		is_page_template( 'page-treatment-layout.php' ) ||
+		is_singular( 'special' )
 	) {
 		wp_enqueue_style( 'mia-consultation-form', get_template_directory_uri() . '/assets/css/components/consultation-form.css', array( 'mia-base' ), $theme_version );
 	}
@@ -79,8 +79,25 @@ function mia_maybe_load_components(): void {
 		wp_enqueue_style( 'mia-case-card', get_template_directory_uri() . '/assets/css/components/case-card.css', array( 'mia-base' ), $theme_version );
 	}
 	
-	// Load FAQ component if page has FAQs
-	if ( strpos( $post_content, 'faq' ) !== false || strpos( $post_content, 'accordion' ) !== false ) {
+	// Load FAQ component if page has FAQs (check ACF field and templates)
+	$has_faq_content = false;
+	
+	// Check ACF FAQ section field if on singular post/page
+	if ( is_singular() && function_exists( 'get_field' ) ) {
+		$faq_section = get_field( 'faq_section' );
+		$has_faq_content = ! empty( $faq_section );
+	}
+	
+	// Check post content for FAQ/accordion strings
+	$has_faq_in_content = strpos( $post_content, 'faq' ) !== false || strpos( $post_content, 'accordion' ) !== false;
+	
+	// Check specific templates that have FAQ sections
+	$is_faq_template = is_post_type_archive( 'fat-transfer' ) || 
+					   is_singular( 'case' ) || 
+					   is_singular( 'surgeon' ) || 
+					   is_page_template( 'page-treatment-layout.php' );
+	
+	if ( $has_faq_content || $has_faq_in_content || $is_faq_template ) {
 		wp_enqueue_style( 'mia-faq', get_template_directory_uri() . '/assets/css/components/faq.css', array( 'mia-base' ), $theme_version );
 	}
 	
@@ -118,15 +135,15 @@ function mia_is_careers_page(): bool {
  */
 function mia_get_current_template_key(): string {
 	
-	// Check for page templates first
+	// Check for page templates first (on any post type, not just pages)
+	$template = get_page_template_slug();
+	if ( $template ) {
+		$template_name = basename( $template, '.php' );
+		return $template_name;
+	}
+	
+	// Check for page-specific conditions
 	if ( is_page() ) {
-		$template = get_page_template_slug();
-		
-		if ( $template ) {
-			$template_name = basename( $template, '.php' );
-			return $template_name;
-		}
-		
 		if ( is_front_page() ) {
 			return 'front-page';
 		}
@@ -258,48 +275,3 @@ function mia_load_template_assets(): void {
 
 add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
 
-/**
- * Debug function to show current template and enqueued assets
- */
-function mia_debug_template_assets(): void {
-	if ( ! current_user_can( 'manage_options' ) ) {
-		return;
-	}
-	
-	echo '<div style="background: #000; color: #0f0; padding: 20px; font-family: monospace; position: relative; z-index: 999999;">';
-	echo '<h3 style="color: #fff; margin: 0 0 10px 0;">📄 Current Template</h3>';
-	
-	// Get actual template key
-	$template_key = mia_get_current_template_key();
-	echo '<strong>Template Key:</strong> ' . esc_html( $template_key ) . '<br>';
-	
-	$page_template = get_page_template_slug();
-	echo '<strong>Page Template:</strong> ' . esc_html( $page_template ? $page_template : 'none' ) . '<br>';
-	echo '<strong>Post Type:</strong> ' . esc_html( get_post_type() ) . '<br>';
-	
-	echo '<h3 style="color: #fff; margin: 20px 0 10px 0;">🎯 Page Conditions</h3>';
-	echo '<strong>is_singular:</strong> ' . ( is_singular() ? 'true' : 'false' ) . '<br>';
-	echo '<strong>is_archive:</strong> ' . ( is_archive() ? 'true' : 'false' ) . '<br>';
-	echo '<strong>is_home:</strong> ' . ( is_home() ? 'true' : 'false' ) . '<br>';
-	echo '<strong>is_front_page:</strong> ' . ( is_front_page() ? 'true' : 'false' ) . '<br>';
-	
-	echo '<h3 style="color: #fff; margin: 20px 0 10px 0;">🎨 Enqueued Styles</h3>';
-	global $wp_styles;
-	if ( isset( $wp_styles->queue ) ) {
-		foreach ( $wp_styles->queue as $handle ) {
-			echo '• ' . esc_html( $handle ) . '<br>';
-		}
-	}
-	
-	echo '<h3 style="color: #fff; margin: 20px 0 10px 0;">📜 Enqueued Scripts</h3>';
-	global $wp_scripts;
-	if ( isset( $wp_scripts->queue ) ) {
-		foreach ( $wp_scripts->queue as $handle ) {
-			echo '• ' . esc_html( $handle ) . '<br>';
-		}
-	}
-	
-	echo '</div>';
-}
-
-add_action( 'wp_head', 'mia_debug_template_assets', 999 );

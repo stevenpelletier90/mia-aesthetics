@@ -161,7 +161,7 @@ get_header();
 				</div>
 
 				<!-- Spanish Specials -->
-				<div id="spanish-specials" class="specials-content" style="display: none;">
+				<div id="spanish-specials" class="specials-content hidden">
 					<div class="row">
 						<?php
 						// Reset the query to loop through again for Spanish specials.

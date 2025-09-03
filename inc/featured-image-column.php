@@ -9,6 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+/**
+ * Enqueue admin styles for featured image column
+ */
+function mia_admin_enqueue_styles(): void {
+	wp_enqueue_style( 'mia-admin', get_template_directory_uri() . '/assets/css/utilities/admin.css', array(), '1.0.0' );
+}
+add_action( 'admin_enqueue_scripts', 'mia_admin_enqueue_styles' );
+
 add_action( 'admin_init', 'mia_featured_image_columns_init' );
 
 /**
@@ -61,14 +69,14 @@ function mia_featured_image_columns_init(): void {
 								array( 40, 40 ),
 								false,
 								array(
-									'style'   => 'width:40px;height:40px;object-fit:cover;border-radius:4px;',
+									'class'   => 'admin-thumbnail',
 									'loading' => 'lazy',
 								)
 							)
 						);
 					} else {
 						printf(
-							'<span class="dashicons dashicons-format-image" style="opacity:.3;font-size:20px;" aria-hidden="true"></span><span class="screen-reader-text">%s</span>',
+							'<span class="dashicons dashicons-format-image opacity-30 font-size-20" aria-hidden="true"></span><span class="screen-reader-text">%s</span>',
 							esc_html__( 'No featured image set', 'mia-aesthetics' )
 						);
 					}

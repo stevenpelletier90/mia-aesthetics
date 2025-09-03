@@ -1,4 +1,10 @@
 @charset "UTF-8";
+
+/* Video Sidebar Styles */
+.sidebar-section.border-radius-none {
+  border-radius: 0;
+}
+
 .location-header {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-black) 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
