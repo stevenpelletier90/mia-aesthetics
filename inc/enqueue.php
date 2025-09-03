@@ -616,13 +616,10 @@ function mia_detect_template_key(): string {
  * @return void
  */
 function mia_enqueue_assets(): void {
-	// ------------------------ Core Assets (Always Load) -----------------------.
-	// These assets are needed on every page
-	mia_register_asset( 'style', 'mia-theme', '/css/theme.css' );
-	mia_register_asset( 'style', 'mia-header-layout', '/css/layout/header.css', array( 'mia-theme' ) );
-	mia_register_asset( 'style', 'mia-footer-layout', '/css/layout/footer.css', array( 'mia-theme' ) );
-	mia_register_asset( 'style', 'mia-consultation-cta', '/css/components/consultation-cta.css', array( 'mia-theme' ) );
-	mia_register_asset( 'style', 'mia-fontawesome', '/fontawesome/css/all.min.css', array( 'mia-theme' ) );
+    // ------------------------ Core Assets (Always Load) -----------------------.
+    // These assets are needed on every page
+    mia_register_asset( 'style', 'mia-theme', '/css/theme.css' );
+    mia_register_asset( 'style', 'mia-fontawesome', '/fontawesome/css/all.min.css', array( 'mia-theme' ) );
 	mia_register_asset( 'script', 'mia-bootstrap', '/bootstrap/js/bootstrap.bundle.min.js' );
 	mia_register_asset( 'script', 'mia-header', '/js/layout/header.js', array( 'mia-bootstrap' ) );
 	mia_register_asset( 'script', 'mia-footer', '/js/layout/footer.js', array( 'mia-bootstrap' ) );
@@ -630,9 +627,17 @@ function mia_enqueue_assets(): void {
 	// ------------------------ Template Detection -----------------------.
 	$template_key = mia_detect_template_key();
 
-	// ------------------------ Component Assets (Template-Specific) -----------------------.
-	// Register only the components needed by this specific template
-	mia_register_template_components( $template_key );
+    // ------------------------ Component Assets (Template-Specific) -----------------------.
+    // Register only the components needed by this specific template
+    mia_register_template_components( $template_key );
+
+    // Register Consultation CTA styles only when the CTA will be displayed,
+    // and only if it hasn't been registered by template components already.
+    if ( function_exists( 'should_show_consultation_cta' ) && should_show_consultation_cta() ) {
+        if ( ! wp_style_is( 'mia-consultation-cta', 'registered' ) ) {
+            mia_register_asset( 'style', 'mia-consultation-cta', '/css/components/consultation-cta.css', array( 'mia-theme' ) );
+        }
+    }
 
 	// ------------------------ Layout Assets (Template-Specific) -----------------------.
 	// Add hero section for front page only
