@@ -3,16 +3,35 @@
   "version": "3.0.0",
   "description": "Mia Aesthetics WordPress Theme",
   "private": true,
+  "type": "module",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.1",
     "@glidejs/glide": "^3.7.1",
     "bootstrap": "^5.3.8"
   },
   "devDependencies": {
+    "@eslint/js": "^9.35.0",
     "@fullhuman/postcss-purgecss": "^7.0.2",
-    "purgecss": "^7.0.2"
+    "autoprefixer": "^10.4.21",
+    "cssnano": "^7.1.1",
+    "eslint": "^9.35.0",
+    "glob": "^11.0.3",
+    "globals": "^16.3.0",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "prettier": "^3.6.2",
+    "purgecss": "^7.0.2",
+    "stylelint": "^16.24.0",
+    "stylelint-config-standard": "^39.0.0",
+    "terser": "^5.44.0"
   },
   "scripts": {
+    "build:css": "node scripts/build-css.js",
+    "build:js": "node scripts/build-js.js",
+    "build:vendor": "node scripts/build-vendor.js",
+    "build:all": "npm run build:vendor && npm run build:css && npm run build:js",
+    "bundle": "npm run build:all && node scripts/bundle-theme.js --clean",
+    "bundle:dev": "node scripts/bundle-theme.js --with-maps --clean",
     "purge:css": "purgecss --config ./purgecss.config.js --output ./assets/css-purged/"
   }
 }

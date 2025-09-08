@@ -6,48 +6,30 @@ This is the single, canonical project document for the Mia Aesthetics WordPress 
 
 - Custom WordPress theme using Bootstrap 5 and ACF
 - CSS-only workflow (no SCSS); modular CSS per template/component
-- Production-optimized: cssnano + Autoprefixer, centralized browserslist, minified runtime bundles
+- Build system was recently removed (scripts deleted in commit 0708c46)
+- Uses npm dependencies (Bootstrap, FontAwesome, Glide) via vendor assets
 
-## Build & QA Commands
-
-```bash
-# Frontend QA (ESLint + Stylelint + Prettier check)
-npm run qa:fe
-
-# Full QA (Frontend + PHP: PHPCS + PHPStan)
-npm run qa:all
-
-# Development build
-npm run dev:build
-
-# Production build (lint/format → minify → bundle)
-npm run build:production
-```
-
-Individual asset tasks
+## Available Commands
 
 ```bash
-npm run minify:css    # CSS (Autoprefixer + cssnano)
-npm run minify:js     # JS (Terser + source maps)
-npm run minify:all    # Both
-npm run bundle        # Build WordPress theme folder → theme-bundle/mia-aesthetics/
+# CSS Purging (only remaining script)
+npm run purge:css
 ```
 
-## CSS/JS Processing
+## Asset Structure
 
-- Sources live under `assets/css/` (base, layout, components, templates, utilities)
-- Build script: `scripts/minify-assets.js`
-  - Processing: Autoprefixer + cssnano
-  - Excludes vendor directories: `assets/bootstrap/`, `assets/fontawesome/`, `assets/glide/`
-  - Emits `.min.css` and `.min.css.map` per file
-- JavaScript minified via Terser with source maps to `.min.js` and `.min.js.map`
-- Source maps are excluded from bundle by default; include with `npm run bundle -- --with-maps`
+- CSS sources: `assets/css/` (base, layout, components, templates, utilities)
+- JavaScript sources: `assets/js/` (organized by template type)
+- Vendor assets: `assets/vendor/` (Bootstrap, FontAwesome, Glide from node_modules)
+- WordPress enqueuing handles .min file preference when available
 
-Browserslist
+## Bundling (Previously Available)
 
-- Centralized targets in `package.json` → `browserslist`
-  - `> 0.2%`, `last 3 versions`, `not dead`, `not IE 11`
-- PostCSS/Autoprefixer reads these automatically (no inline overrides)
+The theme previously had a `scripts/bundle-theme.js` script that:
+- Created `theme-bundle/mia-aesthetics/` for WordPress deployment
+- Copied theme files + curated vendor assets from node_modules
+- Provided easy drag-and-drop SFTP deployment
+- Was removed in commit 0708c46 along with minification scripts
 
 ## WordPress Asset Enqueue
 
@@ -56,13 +38,6 @@ Browserslist
 - Versioning: `filemtime`-based cache busting
 - Conditional loading: per-template CSS/JS mapped in `mia_get_template_mappings()` and loaded based on context (front-page, archives, singles, etc.)
 - Global assets: fonts, Bootstrap, base, header, footer; component CSS loaded on-demand
-
-## Bundling
-
-- Script: `scripts/bundle-theme.js`
-- Output: `theme-bundle/mia-aesthetics/` (ZIP this folder for WP upload)
-- Includes PHP templates, `inc/`, assets (prefers minified runtime), and curated vendor files from npm (Bootstrap, Font Awesome, Glide)
-- `--with-maps` flag includes source maps in the bundle (optional)
 
 ## Quality Standards
 
@@ -176,9 +151,8 @@ Notes
 
 ## Troubleshooting
 
-- CSS not updating: edit in `assets/css/`, run `npm run minify:css`, purge caches
-- Dev vs Prod: both use the same minification process (no PurgeCSS)
-- Missing bundle assets: run `npm run build:assets` before `npm run bundle`
+- CSS not updating: edit in `assets/css/`, purge browser caches
+- Build system was removed - restore `scripts/bundle-theme.js` from commit history if bundling needed
 
 ## CRITICAL TEMPLATE VERIFICATION RULES
 
@@ -196,4 +170,4 @@ Never flag these as missing from static HTML templates; they’re injected by PH
 
 ---
 
-Last Updated: September 2025 — Simplified structure + centralized browserslist; consolidated to single CLAUDE.md
+Last Updated: September 2025 — Updated to reflect current codebase state without build system

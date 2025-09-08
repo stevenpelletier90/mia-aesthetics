@@ -6,7 +6,9 @@ export default [
       "vendor/**",
       "node_modules/**", 
       "theme-bundle/**",
-      ".claude/**"
+      ".claude/**",
+      "**/*.min.js",
+      "assets/vendor/**"
     ]
   },
   js.configs.recommended,

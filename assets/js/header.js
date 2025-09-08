@@ -8,6 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   if (window.mia_config && window.mia_config.debug && window.mia_config.debug_info) {
     createDebugDisplay();
   }
+
+  // Prevent mega-menu dropdowns from closing when clicking on background area
+  initializeMegaMenus();
 });
 
 function createDebugDisplay() {
@@ -121,5 +124,21 @@ function createDebugDisplay() {
       }
       toggleButton.click();
     }
+  });
+}
+
+/**
+ * Initialize mega-menu dropdowns to prevent closing when clicking background
+ */
+function initializeMegaMenus() {
+  const megaMenus = document.querySelectorAll(".dropdown-menu.mega-menu");
+
+  megaMenus.forEach(function (menu) {
+    menu.addEventListener("click", function (event) {
+      // Only prevent closing if clicking on the menu background, not on links
+      if (event.target.tagName !== "A" && !event.target.closest("a")) {
+        event.stopPropagation();
+      }
+    });
   });
 }
