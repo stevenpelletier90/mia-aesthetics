@@ -36,31 +36,7 @@
   pointer-events: none;
 }
 
-/* Loading Spinner */
-.location-search-careers .loading-spinner {
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-
-.location-search-careers .spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--mia-gold-light);
-  border-top: 2px solid var(--mia-gold);
-  border-radius: 50%;
-  animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-}
+/* Loading Spinner styles moved to base.css for modular loading compatibility */
 #search-dropdown-careers {
   position: absolute;
   top: 100%;

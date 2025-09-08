@@ -18,10 +18,3 @@
   font-size: 20px !important;
 }
 
-/* Loading Spinners */
-.loading-spinner {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-}

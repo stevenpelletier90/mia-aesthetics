@@ -47,7 +47,7 @@
 .faqs-section .accordion .accordion-item .accordion-button::after {
   background-image: none;
   content: "\f107";
-  font-family: "Font Awesome 6 Free";
+  font-family: "Font Awesome 7 Free";
   font-weight: 900;
   font-size: 1.2rem;
   color: #c8b273;
