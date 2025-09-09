@@ -22,12 +22,6 @@ if ( ! defined( 'MIA_THEME_VERSION' ) ) {
  * Main enqueue function - coordinates all asset loading
  */
 function mia_enqueue_assets(): void {
-	$start_time = microtime( true );
-
-	if ( mia_is_debug_mode() ) {
-		mia_debug_log( '🎨 === MIA AESTHETICS ASSET LOADING START ===' );
-		mia_debug_log( '📄 Template: ' . mia_get_current_template_key() );
-	}
 
 	// Load global assets (always needed).
 	mia_enqueue_global_assets();
@@ -38,23 +32,13 @@ function mia_enqueue_assets(): void {
 	// Load conditional components (ACF-aware).
 	mia_enqueue_conditional_components();
 
-	if ( mia_is_debug_mode() ) {
-		$end_time  = microtime( true );
-		$load_time = round( ( $end_time - $start_time ) * 1000, 2 );
-		mia_debug_log( "⏱️ Asset loading completed in {$load_time}ms" );
-		mia_debug_log( '🎨 === MIA AESTHETICS ASSET LOADING END ===' );
-
-		// Hook to show debug info in footer for logged-in users.
-		if ( current_user_can( 'manage_options' ) ) {
-			add_action( 'wp_footer', 'mia_debug_output_assets', 999 );
-		}
-	}
 }
 
 /**
  * Enqueue global assets that are needed on every page
  */
 function mia_enqueue_global_assets(): void {
+	
 	// Global CSS - Foundation styles.
 	wp_enqueue_style( 'mia-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), MIA_THEME_VERSION );
 	wp_enqueue_style( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ), '5.3.8' );
@@ -67,6 +51,7 @@ function mia_enqueue_global_assets(): void {
 	wp_enqueue_script( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array(), '5.3.8', true );
 	wp_enqueue_script( 'mia-header', get_template_directory_uri() . '/assets/js/header.js', array( 'mia-bootstrap' ), MIA_THEME_VERSION, true );
 	wp_enqueue_script( 'mia-footer', get_template_directory_uri() . '/assets/js/footer.js', array(), MIA_THEME_VERSION, true );
+	
 }
 
 /**
@@ -210,7 +195,16 @@ function mia_is_careers_page(): bool {
  * Get current template identifier for debug
  */
 function mia_get_current_template_key(): string {
-	// Check for page templates first (on any post type, not just pages).
+	// Check for post type archives FIRST (before page templates)
+	// This prevents page templates from interfering with archive detection
+	$archive_types = array( 'case', 'condition', 'location', 'non-surgical', 'procedure', 'special', 'surgeon', 'fat-transfer' );
+	foreach ( $archive_types as $type ) {
+		if ( is_post_type_archive( $type ) ) {
+			return "archive-{$type}";
+		}
+	}
+	
+	// Check for page templates (on any post type, not just pages)
 	$template = get_page_template_slug();
 	if ( $template ) {
 		return basename( $template, '.php' );
@@ -236,13 +230,7 @@ function mia_get_current_template_key(): string {
 		}
 	}
 
-	// Custom post type archives.
-	$archive_types = array( 'case', 'condition', 'location', 'non-surgical', 'procedure', 'special', 'surgeon', 'fat-transfer' );
-	foreach ( $archive_types as $type ) {
-		if ( is_post_type_archive( $type ) ) {
-			return "archive-{$type}";
-		}
-	}
+	// (Archive checking moved to top of function to prevent page template interference)
 
 	// Taxonomy archives.
 	if ( is_tax( 'case_category' ) ) {
@@ -274,20 +262,13 @@ function mia_get_current_template_key(): string {
 function mia_enqueue_template_assets(): void {
 	$template_key = mia_get_current_template_key();
 
-	// Front page needs hero section styles and Glide.js.
+	// Front page needs hero section styles.
 	if ( is_front_page() ) {
 		wp_enqueue_style(
 			'mia-hero-section',
 			get_template_directory_uri() . '/assets/css/hero-section.css',
 			array( 'mia-base' ),
 			MIA_THEME_VERSION
-		);
-		wp_enqueue_script(
-			'mia-glide',
-			get_template_directory_uri() . '/assets/vendor/glide/js/glide.min.js',
-			array(),
-			'3.7.1',
-			true
 		);
 	}
 
@@ -305,21 +286,30 @@ function mia_load_template_files( string $template_key ): void {
 	// Get asset map for current template.
 	$asset_map = mia_get_template_asset_map();
 
-	// Load CSS for this template (always load CSS).
-	if ( isset( $asset_map[ $template_key ]['css'] ) ) {
+
+		// Load CSS for this template (always load CSS).
+		if ( isset( $asset_map[ $template_key ]['css'] ) ) {
+			$css_path = get_template_directory_uri() . '/assets/css/' . $asset_map[ $template_key ]['css'];
+			$css_file = get_template_directory() . '/assets/css/' . $asset_map[ $template_key ]['css'];
+		
+		
 		wp_enqueue_style(
 			'mia-' . $template_key,
-			get_template_directory_uri() . '/assets/' . $asset_map[ $template_key ]['css'],
+			$css_path,
 			array( 'mia-base' ),
 			MIA_THEME_VERSION
 		);
 	}
 
-	// Load JS for this template.
-	if ( isset( $asset_map[ $template_key ]['js'] ) ) {
+		// Load JS for this template.
+		if ( isset( $asset_map[ $template_key ]['js'] ) ) {
+			$js_path = get_template_directory_uri() . '/assets/js/' . $asset_map[ $template_key ]['js'];
+			$js_file = get_template_directory() . '/assets/js/' . $asset_map[ $template_key ]['js'];
+		
+		
 		wp_enqueue_script(
 			'mia-' . $template_key,
-			get_template_directory_uri() . '/assets/' . $asset_map[ $template_key ]['js'],
+			$js_path,
 			array( 'mia-bootstrap' ),
 			MIA_THEME_VERSION,
 			true
@@ -480,150 +470,6 @@ function mia_get_template_asset_map(): array {
 	);
 }
 
-/**
- * Debug Functions
- * =============================================================================
- */
-
-/**
- * Check if debug mode is enabled
- *
- * @return bool True if debug mode is enabled.
- */
-function mia_is_debug_mode(): bool {
-	return ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
-}
-
-/**
- * Log debug message to error log
- *
- * @param string $message The message to log.
- */
-function mia_debug_log( string $message ): void {
-	if ( mia_is_debug_mode() ) {
-		error_log( '[MIA THEME] ' . $message );
-	}
-}
-
-/**
- * Output debug asset information in footer for admins
- */
-function mia_debug_output_assets(): void {
-	global $wp_styles, $wp_scripts;
-
-	$mia_styles     = array();
-	$mia_scripts    = array();
-	$total_css_size = 0;
-	$total_js_size  = 0;
-
-	// Collect MIA theme assets.
-	foreach ( $wp_styles->done as $handle ) {
-		if ( strpos( $handle, 'mia-' ) === 0 ) {
-			$src             = $wp_styles->registered[ $handle ]->src ?? '';
-			$size            = mia_get_asset_size( $src );
-			$mia_styles[]    = array(
-				'handle' => $handle,
-				'src'    => $src,
-				'size'   => $size,
-			);
-			$total_css_size += $size;
-		}
-	}
-
-	foreach ( $wp_scripts->done as $handle ) {
-		if ( strpos( $handle, 'mia-' ) === 0 ) {
-			$src            = $wp_scripts->registered[ $handle ]->src ?? '';
-			$size           = mia_get_asset_size( $src );
-			$mia_scripts[]  = array(
-				'handle' => $handle,
-				'src'    => $src,
-				'size'   => $size,
-			);
-			$total_js_size += $size;
-		}
-	}
-
-	?>
-	<div id="mia-debug-assets" style="position: fixed; bottom: 10px; right: 10px; background: #1e1e1e; color: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 12px; max-width: 400px; max-height: 300px; overflow-y: auto; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-		<div style="font-weight: bold; margin-bottom: 10px; color: #00d4aa;">🎨 MIA Theme Assets Debug</div>
-		<div style="margin-bottom: 8px;">📄 <strong>Template:</strong> <?php echo esc_html( mia_get_current_template_key() ); ?></div>
-		
-		<div style="margin-bottom: 8px;">
-			<strong>📊 CSS Files (<?php echo count( $mia_styles ); ?>):</strong> 
-			<span style="color: #00d4aa;"><?php echo esc_html( mia_format_bytes( $total_css_size ) ); ?></span>
-		</div>
-		<?php foreach ( $mia_styles as $style ) : ?>
-			<div style="margin-left: 10px; font-size: 10px; color: #ccc;">
-				• <?php echo esc_html( $style['handle'] ); ?> 
-				<span style="color: #888;">(<?php echo esc_html( mia_format_bytes( $style['size'] ) ); ?>)</span>
-			</div>
-		<?php endforeach; ?>
-		
-		<div style="margin: 8px 0;">
-			<strong>⚡ JS Files (<?php echo count( $mia_scripts ); ?>):</strong> 
-			<span style="color: #00d4aa;"><?php echo esc_html( mia_format_bytes( $total_js_size ) ); ?></span>
-		</div>
-		<?php foreach ( $mia_scripts as $script ) : ?>
-			<div style="margin-left: 10px; font-size: 10px; color: #ccc;">
-				• <?php echo esc_html( $script['handle'] ); ?> 
-				<span style="color: #888;">(<?php echo esc_html( mia_format_bytes( $script['size'] ) ); ?>)</span>
-			</div>
-		<?php endforeach; ?>
-		
-		<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #444; font-size: 10px; color: #888;">
-			💾 Total: <?php echo esc_html( mia_format_bytes( $total_css_size + $total_js_size ) ); ?> | 
-			⏰ <?php echo esc_html( current_time( 'H:i:s' ) ); ?>
-		</div>
-		
-		<button onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 8px; background: none; border: none; color: #fff; cursor: pointer; font-size: 14px;">&times;</button>
-	</div>
-	<?php
-}
-
-/**
- * Get file size for an asset URL
- *
- * @param string $url The asset URL.
- * @return int File size in bytes, 0 if not found.
- */
-function mia_get_asset_size( string $url ): int {
-	if ( empty( $url ) ) {
-		return 0;
-	}
-
-	// Convert URL to local file path.
-	$upload_dir = wp_upload_dir();
-	$theme_url  = get_template_directory_uri();
-
-	if ( strpos( $url, $theme_url ) === 0 ) {
-		$file_path = str_replace( $theme_url, get_template_directory(), $url );
-		if ( file_exists( $file_path ) ) {
-			return filesize( $file_path );
-		}
-	}
-
-	return 0;
-}
-
-/**
- * Format bytes into human readable format
- *
- * @param int $bytes File size in bytes.
- * @return string Formatted file size.
- */
-function mia_format_bytes( int $bytes ): string {
-	if ( 0 === $bytes ) {
-		return '0 B';
-	}
-
-	$units = array( 'B', 'KB', 'MB', 'GB' );
-	$pow   = floor( ( $bytes ? log( $bytes ) : 0 ) / log( 1024 ) );
-	$pow   = min( $pow, count( $units ) - 1 );
-
-	$bytes /= pow( 1024, $pow );
-
-	return round( $bytes, 1 ) . ' ' . $units[ $pow ];
-}
 
 /**
  * Helper Functions

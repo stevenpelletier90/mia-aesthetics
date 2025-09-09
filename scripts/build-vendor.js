@@ -1,94 +1,91 @@
 #!/usr/bin/env node
+// Copies vendor assets from node_modules into assets/vendor
+// Safe to run repeatedly; creates directories if missing.
 
-import fs from 'fs/promises';
+import { promises as fs } from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
-const projectRoot = path.resolve(__dirname, '..');
+const root = process.cwd();
 
-// Vendor assets to copy from node_modules
-const vendorAssets = [
+const targets = [
   // Bootstrap
   {
-    source: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
-    dest: 'assets/vendor/bootstrap/css/bootstrap.min.css'
+    from: 'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    to: 'assets/vendor/bootstrap/css/bootstrap.min.css',
   },
   {
-    source: 'node_modules/bootstrap/dist/css/bootstrap.min.css.map',
-    dest: 'assets/vendor/bootstrap/css/bootstrap.min.css.map'
+    from: 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
+    to: 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js',
   },
-  {
-    source: 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js',
-    dest: 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js'
-  },
-  {
-    source: 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js.map',
-    dest: 'assets/vendor/bootstrap/js/bootstrap.bundle.min.js.map'
-  },
-  
+
   // Font Awesome
   {
-    source: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
-    dest: 'assets/vendor/fontawesome/css/all.min.css'
+    from: 'node_modules/@fortawesome/fontawesome-free/css/all.min.css',
+    to: 'assets/vendor/fontawesome/css/all.min.css',
   },
+  // Copy webfonts directory (all files)
   {
-    source: 'node_modules/@fortawesome/fontawesome-free/webfonts/fa-brands-400.woff2',
-    dest: 'assets/vendor/fontawesome/webfonts/fa-brands-400.woff2'
+    fromDir: 'node_modules/@fortawesome/fontawesome-free/webfonts',
+    toDir: 'assets/vendor/fontawesome/webfonts',
   },
-  {
-    source: 'node_modules/@fortawesome/fontawesome-free/webfonts/fa-regular-400.woff2',
-    dest: 'assets/vendor/fontawesome/webfonts/fa-regular-400.woff2'
-  },
-  {
-    source: 'node_modules/@fortawesome/fontawesome-free/webfonts/fa-solid-900.woff2',
-    dest: 'assets/vendor/fontawesome/webfonts/fa-solid-900.woff2'
-  },
-  {
-    source: 'node_modules/@fortawesome/fontawesome-free/webfonts/fa-v4compatibility.woff2',
-    dest: 'assets/vendor/fontawesome/webfonts/fa-v4compatibility.woff2'
-  },
-  
-  // Glide.js
-  {
-    source: 'node_modules/@glidejs/glide/dist/css/glide.core.min.css',
-    dest: 'assets/vendor/glide/css/glide.core.min.css'
-  },
-  {
-    source: 'node_modules/@glidejs/glide/dist/glide.min.js',
-    dest: 'assets/vendor/glide/js/glide.min.js'
-  }
+
+  // (Glide.js removed — not used)
 ];
 
-async function ensureDirectory(filePath) {
-  const dir = path.dirname(filePath);
+async function ensureDir(dir) {
   await fs.mkdir(dir, { recursive: true });
 }
 
-async function buildVendor() {
+async function copyFile(srcRel, destRel) {
+  const src = path.join(root, srcRel);
+  const dest = path.join(root, destRel);
   try {
-    console.log(`📦 Updating ${vendorAssets.length} vendor assets...`);
-
-    for (const asset of vendorAssets) {
-      const sourcePath = path.join(projectRoot, asset.source);
-      const destPath = path.join(projectRoot, asset.dest);
-
-      console.log(`   Copying: ${asset.source} → ${asset.dest}`);
-
-      try {
-        await ensureDirectory(destPath);
-        await fs.copyFile(sourcePath, destPath);
-      } catch (error) {
-        console.warn(`   ⚠️  Warning: Could not copy ${asset.source} (${error.message})`);
-      }
-    }
-
-    console.log('✅ Vendor build complete!');
-  } catch (error) {
-    console.error('❌ Vendor build failed:', error.message);
-    process.exit(1);
+    await ensureDir(path.dirname(dest));
+    await fs.copyFile(src, dest);
+    console.log(`✓ ${srcRel} -> ${destRel}`);
+  } catch (err) {
+    console.warn(`! Skipped ${srcRel}: ${err.code || err.message}`);
   }
 }
 
-buildVendor();
+async function copyDir(srcRel, destRel) {
+  const src = path.join(root, srcRel);
+  const dest = path.join(root, destRel);
+  try {
+    await ensureDir(dest);
+    const entries = await fs.readdir(src, { withFileTypes: true });
+    for (const entry of entries) {
+      const from = path.join(srcRel, entry.name);
+      const to = path.join(destRel, entry.name);
+      if (entry.isDirectory()) {
+        await copyDir(from, to);
+      } else if (entry.isFile()) {
+        await copyFile(from, to);
+      }
+    }
+    console.log(`✓ Copied directory ${srcRel} -> ${destRel}`);
+  } catch (err) {
+    console.warn(`! Skipped dir ${srcRel}: ${err.code || err.message}`);
+  }
+}
+
+async function run() {
+  for (const t of targets) {
+    if (t.from && t.to) {
+      // Optional files shouldn't fail the build
+      if (t.optional) {
+        try {
+          await copyFile(t.from, t.to);
+        } catch {
+          // ignore
+        }
+      } else {
+        await copyFile(t.from, t.to);
+      }
+    } else if (t.fromDir && t.toDir) {
+      await copyDir(t.fromDir, t.toDir);
+    }
+  }
+}
+
+run();

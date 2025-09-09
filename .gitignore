@@ -14,8 +14,6 @@ theme-bundle/
 !assets/vendor/bootstrap/**/*.map
 !assets/vendor/fontawesome/**/*.min.css
 !assets/vendor/fontawesome/**/*.map
-!assets/vendor/glide/**/*.min.js
-!assets/vendor/glide/**/*.min.css
 
 # Environment files
 .env

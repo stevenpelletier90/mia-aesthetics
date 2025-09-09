@@ -38,11 +38,6 @@ get_header();
 			// Get surgeons dynamically from the surgeon custom post type.
 			$surgeons = mia_aesthetics_get_surgeons_direct();
 
-			// Debug: Output surgeon data as HTML comment for troubleshooting.
-			$surgeons_json = wp_json_encode( $surgeons );
-			if ( false !== $surgeons_json ) {
-				echo '<!-- DEBUG Surgeons: ' . esc_html( $surgeons_json ) . ' -->';
-			}
 
 			// Load gallery data to check which surgeons have cases.
 			$gallery_json_path = get_template_directory() . '/assets/data/before-after-gallery.json';
@@ -123,8 +118,6 @@ if ( file_exists( $gallery_json_path ) ) {
 }
 
 if ( is_array( $gallery_data ) && count( $gallery_data ) > 0 ) :
-	// Debug: Output gallery keys for troubleshooting.
-	echo '<!-- DEBUG Gallery Keys: ' . esc_html( implode( ', ', array_keys( $gallery_data ) ) ) . ' -->';
 	foreach ( $gallery_data as $doctor_slug => $doctor ) :
 		?>
 		<article class="gallery d-none" data-doctor="<?php echo esc_attr( $doctor_slug ); ?>">

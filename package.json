@@ -6,7 +6,6 @@
   "type": "module",
   "dependencies": {
     "@fortawesome/fontawesome-free": "^7.0.1",
-    "@glidejs/glide": "^3.7.1",
     "bootstrap": "^5.3.8"
   },
   "devDependencies": {
