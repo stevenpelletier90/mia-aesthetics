@@ -6,14 +6,22 @@ This is the single, canonical project document for the Mia Aesthetics WordPress 
 
 - Custom WordPress theme using Bootstrap 5 and ACF
 - CSS-only workflow (no SCSS); modular CSS per template/component
-- Build system was recently removed (scripts deleted in commit 0708c46)
+- Full build system with CSS/JS processing and theme bundling
 - Uses npm dependencies (Bootstrap, FontAwesome, Glide) via vendor assets
 
 ## Available Commands
 
 ```bash
-# CSS Purging (only remaining script)
-npm run purge:css
+# Build commands
+npm run build:css      # Process and minify CSS files
+npm run build:js       # Process and minify JavaScript files  
+npm run build:vendor   # Copy vendor assets from node_modules
+npm run build:all      # Run all build commands
+npm run bundle         # Build and bundle theme for deployment
+npm run bundle:dev     # Bundle with source maps for development
+
+# CSS utilities
+npm run purge:css      # Remove unused CSS classes
 ```
 
 ## Asset Structure
@@ -23,13 +31,14 @@ npm run purge:css
 - Vendor assets: `assets/vendor/` (Bootstrap, FontAwesome, Glide from node_modules)
 - WordPress enqueuing handles .min file preference when available
 
-## Bundling (Previously Available)
+## Build System & Bundling
 
-The theme previously had a `scripts/bundle-theme.js` script that:
-- Created `theme-bundle/mia-aesthetics/` for WordPress deployment
-- Copied theme files + curated vendor assets from node_modules
-- Provided easy drag-and-drop SFTP deployment
-- Was removed in commit 0708c46 along with minification scripts
+The theme includes a complete build system via `scripts/` directory:
+- `build-css.js`: Processes CSS with PostCSS, autoprefixer, and minification
+- `build-js.js`: Minifies JavaScript with Terser
+- `build-vendor.js`: Copies vendor assets from node_modules to `assets/vendor/`
+- `bundle-theme.js`: Creates `theme-bundle/mia-aesthetics/` for WordPress deployment
+- Provides easy drag-and-drop SFTP deployment with curated vendor assets
 
 ## WordPress Asset Enqueue
 
@@ -151,8 +160,8 @@ Notes
 
 ## Troubleshooting
 
-- CSS not updating: edit in `assets/css/`, purge browser caches
-- Build system was removed - restore `scripts/bundle-theme.js` from commit history if bundling needed
+- CSS not updating: edit in `assets/css/`, run `npm run build:css`, purge browser caches
+- Build errors: check `scripts/` directory contains all build files
 
 ## CRITICAL TEMPLATE VERIFICATION RULES
 
@@ -170,4 +179,4 @@ Never flag these as missing from static HTML templates; they’re injected by PH
 
 ---
 
-Last Updated: September 2025 — Updated to reflect current codebase state without build system
+Last Updated: September 2025 — Updated to reflect current codebase state with active build system
