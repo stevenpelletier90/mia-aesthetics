@@ -1,6 +1,7 @@
 <?php
 /**
- * Simple Asset Enqueue for Mia Aesthetics Theme
+ * Professional WordPress Asset Enqueue System
+ * Following WordPress Core standards and best practices
  *
  * @package Mia_Aesthetics
  */
@@ -11,108 +12,186 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Enqueue all theme assets - simple version
+ * Theme constants for asset management
  */
-function mia_enqueue_assets(): void {
-	$theme_version = '3.0.0';
-
-	// Core assets - load on every page
-	wp_enqueue_style( 'mia-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), $theme_version );
-	wp_enqueue_style( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ), '5.3.8' );
-	wp_enqueue_style( 'mia-base', get_template_directory_uri() . '/assets/css/base.css', array( 'mia-bootstrap' ), $theme_version );
-	wp_enqueue_style( 'mia-fontawesome', get_template_directory_uri() . '/assets/vendor/fontawesome/css/all.min.css', array(), '7.0.1' );
-	wp_enqueue_style( 'mia-header', get_template_directory_uri() . '/assets/css/header.css', array( 'mia-base' ), $theme_version );
-	wp_enqueue_style( 'mia-footer', get_template_directory_uri() . '/assets/css/footer.css', array( 'mia-base' ), $theme_version );
-
-	wp_enqueue_script( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array(), '5.3.8', true );
-	wp_enqueue_script( 'mia-header', get_template_directory_uri() . '/assets/js/header.js', array( 'mia-bootstrap' ), $theme_version, true );
-	wp_enqueue_script( 'mia-footer', get_template_directory_uri() . '/assets/js/footer.js', array(), $theme_version, true );
-
-	// Components - load only when needed
-	mia_maybe_load_components();
-
-	// Load template-specific CSS/JS for current template
-	mia_load_template_assets();
+if ( ! defined( 'MIA_THEME_VERSION' ) ) {
+	define( 'MIA_THEME_VERSION', wp_get_theme()->get( 'Version' ) );
 }
 
 /**
- * Load components only when they're actually used
+ * Main enqueue function - coordinates all asset loading
  */
-function mia_maybe_load_components(): void {
-	$theme_version = '3.0.0';
+function mia_enqueue_assets(): void {
+	$start_time = microtime( true );
 
-	// Check page content for component usage
-	$post_content = '';
-	if ( is_singular() && have_posts() ) {
-		global $post;
-		$post_content = $post->post_content;
+	if ( mia_is_debug_mode() ) {
+		mia_debug_log( '🎨 === MIA AESTHETICS ASSET LOADING START ===' );
+		mia_debug_log( '📄 Template: ' . mia_get_current_template_key() );
 	}
 
-	// Load consultation form if page has forms or specific templates
-	if ( strpos( $post_content, 'consultation-form' ) !== false ||
-		strpos( $post_content, 'gform' ) !== false ||
-		is_page_template( 'page-condition-layout.php' ) ||
-		is_page_template( 'page-treatment-layout.php' ) ||
-		is_singular( 'special' )
-	) {
-		wp_enqueue_style( 'mia-consultation-form', get_template_directory_uri() . '/assets/css/components/consultation-form.css', array( 'mia-base' ), $theme_version );
+	// Load global assets (always needed).
+	mia_enqueue_global_assets();
+
+	// Load template-specific assets.
+	mia_enqueue_template_assets();
+
+	// Load conditional components (ACF-aware).
+	mia_enqueue_conditional_components();
+
+	if ( mia_is_debug_mode() ) {
+		$end_time  = microtime( true );
+		$load_time = round( ( $end_time - $start_time ) * 1000, 2 );
+		mia_debug_log( "⏱️ Asset loading completed in {$load_time}ms" );
+		mia_debug_log( '🎨 === MIA AESTHETICS ASSET LOADING END ===' );
+
+		// Hook to show debug info in footer for logged-in users.
+		if ( current_user_can( 'manage_options' ) ) {
+			add_action( 'wp_footer', 'mia_debug_output_assets', 999 );
+		}
+	}
+}
+
+/**
+ * Enqueue global assets that are needed on every page
+ */
+function mia_enqueue_global_assets(): void {
+	// Global CSS - Foundation styles.
+	wp_enqueue_style( 'mia-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), MIA_THEME_VERSION );
+	wp_enqueue_style( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ), '5.3.8' );
+	wp_enqueue_style( 'mia-base', get_template_directory_uri() . '/assets/css/base.css', array( 'mia-bootstrap' ), MIA_THEME_VERSION );
+	wp_enqueue_style( 'mia-fontawesome', get_template_directory_uri() . '/assets/vendor/fontawesome/css/all.min.css', array(), '7.0.1' );
+	wp_enqueue_style( 'mia-header', get_template_directory_uri() . '/assets/css/header.css', array( 'mia-base' ), MIA_THEME_VERSION );
+	wp_enqueue_style( 'mia-footer', get_template_directory_uri() . '/assets/css/footer.css', array( 'mia-base' ), MIA_THEME_VERSION );
+
+	// Global JS - Foundation scripts.
+	wp_enqueue_script( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array(), '5.3.8', true );
+	wp_enqueue_script( 'mia-header', get_template_directory_uri() . '/assets/js/header.js', array( 'mia-bootstrap' ), MIA_THEME_VERSION, true );
+	wp_enqueue_script( 'mia-footer', get_template_directory_uri() . '/assets/js/footer.js', array(), MIA_THEME_VERSION, true );
+}
+
+/**
+ * Enqueue conditional components - ACF-aware loading
+ */
+function mia_enqueue_conditional_components(): void {
+	// Consultation CTA - Load only when it will be displayed (ACF-aware).
+	if ( should_show_consultation_cta() ) {
+		mia_load_component_assets( 'consultation-cta' );
 	}
 
-	// Load consultation CTA (not on careers pages)
-	if ( ! mia_is_careers_page() ) {
-		wp_enqueue_style( 'mia-consultation-cta', get_template_directory_uri() . '/assets/css/components/consultation-cta.css', array( 'mia-base' ), $theme_version );
+	// Consultation Form - Load only on pages that have consultation forms.
+	if ( mia_has_consultation_form() ) {
+		mia_load_component_assets( 'consultation-form' );
 	}
 
-	// Load careers CTA (only on careers pages)
+	// Careers CTA - Load only on careers pages.
 	if ( mia_is_careers_page() ) {
-		wp_enqueue_style( 'mia-careers-cta', get_template_directory_uri() . '/assets/css/components/careers-cta.css', array( 'mia-base' ), $theme_version );
+		mia_load_component_assets( 'careers-cta' );
 	}
 
-	// Load case card component if page shows cases
-	if ( strpos( $post_content, 'case-card' ) !== false ||
+	// Case Card - Load only where cases are displayed.
+	if ( mia_needs_case_card() ) {
+		mia_load_component_assets( 'case-card' );
+	}
+
+	// Location Search Careers - Load on careers pages with location search.
+	if ( mia_needs_location_search_careers() ) {
+		mia_load_component_assets( 'location-search-careers' );
+		mia_enqueue_google_maps( 'initGoogleMapsCareers' );
+	}
+}
+
+/**
+ * Check if current page needs consultation form assets
+ */
+function mia_has_consultation_form(): bool {
+	// Check for pages with consultation form templates.
+	if ( is_page_template( 'page-condition-layout.php' ) ||
+		is_page_template( 'page-treatment-layout.php' ) ||
+		is_singular( 'special' ) ) {
+		return true;
+	}
+
+	// Check for ACF field that indicates a form is present.
+	if ( function_exists( 'get_field' ) && get_field( 'show_consultation_form' ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Check if current page needs case card component
+ */
+function mia_needs_case_card(): bool {
+	// Pages that display case listings.
+	if ( is_page_template( 'page-case-category.php' ) ||
 		is_post_type_archive( 'case' ) ||
-		is_singular( 'case' ) ||
-		is_front_page()
-	) {
-		wp_enqueue_style( 'mia-case-card', get_template_directory_uri() . '/assets/css/components/case-card.css', array( 'mia-base' ), $theme_version );
+		is_tax( 'case_category' ) ) {
+		return true;
 	}
 
-	// Load FAQ component if page has FAQs (check ACF field and templates)
-	$has_faq_content = false;
+	return false;
+}
 
-	// Check ACF FAQ section field if on singular post/page
-	if ( is_singular() && function_exists( 'get_field' ) ) {
-		$faq_section     = get_field( 'faq_section' );
-		$has_faq_content = ! empty( $faq_section );
+
+/**
+ * Check if current page needs location search careers component
+ */
+function mia_needs_location_search_careers(): bool {
+	// Currently only used on careers page.
+	if ( is_page_template( 'page-careers.php' ) ) {
+		return true;
 	}
 
-	// Check post content for FAQ/accordion strings
-	$has_faq_in_content = strpos( $post_content, 'faq' ) !== false || strpos( $post_content, 'accordion' ) !== false;
+	return false;
+}
 
-	// Check specific templates that have FAQ sections
-	$is_faq_template = is_post_type_archive( 'fat-transfer' ) ||
-						is_singular( 'case' ) ||
-						is_singular( 'surgeon' ) ||
-						is_page_template( 'page-treatment-layout.php' );
-
-	if ( $has_faq_content || $has_faq_in_content || $is_faq_template ) {
-		wp_enqueue_style( 'mia-faq', get_template_directory_uri() . '/assets/css/components/faq.css', array( 'mia-base' ), $theme_version );
+/**
+ * Enqueue Google Maps API with specified callback
+ *
+ * @param string $callback The JavaScript callback function name.
+ */
+function mia_enqueue_google_maps( string $callback ): void {
+	if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
+		$api_key = get_field( 'google_maps_api_key', 'option' );
+		if ( $api_key ) {
+			wp_register_script(
+				'google-maps',
+				'https://maps.googleapis.com/maps/api/js?key=' . esc_attr( $api_key ) . '&libraries=places&callback=' . esc_attr( $callback ),
+				array(), // Dependencies will be handled by individual components.
+				'3.60.0',
+				true
+			);
+		}
 	}
 
-	// Load location search components when needed
-	if ( strpos( $post_content, 'location-search' ) !== false ||
-		is_post_type_archive( 'location' ) ||
-		is_page_template( 'page-careers.php' )
-	) {
-		wp_enqueue_style( 'mia-location-search', get_template_directory_uri() . '/assets/css/components/location-search.css', array( 'mia-base' ), $theme_version );
-		wp_enqueue_script( 'mia-location-search', get_template_directory_uri() . '/assets/js/components/location-search.js', array(), $theme_version, true );
+	if ( ! wp_script_is( 'google-maps', 'enqueued' ) ) {
+		wp_enqueue_script( 'google-maps' );
 	}
+}
 
-	// Load careers location search specifically
-	if ( is_page_template( 'page-careers.php' ) || is_page_template( 'page-careers-locations.php' ) ) {
-		wp_enqueue_style( 'mia-location-search-careers', get_template_directory_uri() . '/assets/css/components/location-search-careers.css', array( 'mia-base' ), $theme_version );
-		wp_enqueue_script( 'mia-location-search-careers', get_template_directory_uri() . '/assets/js/components/location-search-careers.js', array(), $theme_version, true );
-	}
+/**
+ * Load component assets (CSS always, JS conditionally)
+ *
+ * @param string $component The component name to load assets for.
+ */
+function mia_load_component_assets( string $component ): void {
+	// Always load CSS (required for all components).
+	wp_enqueue_style(
+		"mia-{$component}",
+		get_template_directory_uri() . "/assets/css/components/{$component}.css",
+		array( 'mia-base' ),
+		MIA_THEME_VERSION
+	);
+
+	// Load JS (will fail gracefully if file doesn't exist).
+	wp_enqueue_script(
+		"mia-{$component}",
+		get_template_directory_uri() . "/assets/js/components/{$component}.js",
+		array(),
+		MIA_THEME_VERSION,
+		true
+	);
 }
 
 /**
@@ -131,98 +210,54 @@ function mia_is_careers_page(): bool {
  * Get current template identifier for debug
  */
 function mia_get_current_template_key(): string {
-
-	// Check for page templates first (on any post type, not just pages)
+	// Check for page templates first (on any post type, not just pages).
 	$template = get_page_template_slug();
 	if ( $template ) {
-		$template_name = basename( $template, '.php' );
-		return $template_name;
+		return basename( $template, '.php' );
 	}
 
-	// Check for page-specific conditions
-	if ( is_page() ) {
-		if ( is_front_page() ) {
-			return 'front-page';
+	// Check for front page first (special case).
+	if ( is_front_page() ) {
+		return 'front-page';
+	}
+
+	// Simple conditional checks.
+	$simple_checks = array(
+		'is_home'     => 'home',
+		'is_404'      => '404',
+		'is_search'   => 'search',
+		'is_category' => 'category',
+		'is_page'     => 'page',
+	);
+
+	foreach ( $simple_checks as $function => $template ) {
+		if ( call_user_func( $function ) ) {
+			return $template;
 		}
-
-		return 'page';
 	}
 
-	// Archives
-	if ( is_home() ) {
-		return 'home';
-	}
-	if ( is_404() ) {
-		return '404';
-	}
-	if ( is_search() ) {
-		return 'search';
-	}
-	if ( is_category() ) {
-		return 'category';
+	// Custom post type archives.
+	$archive_types = array( 'case', 'condition', 'location', 'non-surgical', 'procedure', 'special', 'surgeon', 'fat-transfer' );
+	foreach ( $archive_types as $type ) {
+		if ( is_post_type_archive( $type ) ) {
+			return "archive-{$type}";
+		}
 	}
 
-	// Custom post type archives
-	if ( is_post_type_archive( 'case' ) ) {
-		return 'archive-case';
-	}
-	if ( is_post_type_archive( 'condition' ) ) {
-		return 'archive-condition';
-	}
-	if ( is_post_type_archive( 'location' ) ) {
-		return 'archive-location';
-	}
-	if ( is_post_type_archive( 'non-surgical' ) ) {
-		return 'archive-non-surgical';
-	}
-	if ( is_post_type_archive( 'procedure' ) ) {
-		return 'archive-procedure';
-	}
-	if ( is_post_type_archive( 'special' ) ) {
-		return 'archive-special';
-	}
-	if ( is_post_type_archive( 'surgeon' ) ) {
-		return 'archive-surgeon';
-	}
-	if ( is_post_type_archive( 'fat-transfer' ) ) {
-		return 'archive-fat-transfer';
-	}
-
-	// Taxonomy archives
+	// Taxonomy archives.
 	if ( is_tax( 'case_category' ) ) {
 		return 'case-category';
 	}
 
-	// Singles
-	if ( is_singular( 'case' ) ) {
-		return 'single-case';
-	}
-	if ( is_singular( 'condition' ) ) {
-		return 'single-condition';
-	}
-	if ( is_singular( 'location' ) ) {
-		return 'single-location';
-	}
-	if ( is_singular( 'non-surgical' ) ) {
-		return 'single-non-surgical';
-	}
-	if ( is_singular( 'procedure' ) ) {
-		return 'single-procedure';
-	}
-	if ( is_singular( 'special' ) ) {
-		return 'single-special';
-	}
-	if ( is_singular( 'surgeon' ) ) {
-		return 'single-surgeon';
-	}
-	if ( is_singular( 'fat-transfer' ) ) {
-		return 'single-fat-transfer';
-	}
-	if ( is_singular( 'post' ) ) {
-		return 'single-post';
+	// Singles.
+	$single_types = array( 'case', 'condition', 'location', 'non-surgical', 'procedure', 'special', 'surgeon', 'fat-transfer', 'post' );
+	foreach ( $single_types as $type ) {
+		if ( is_singular( $type ) ) {
+			return "single-{$type}";
+		}
 	}
 
-	// Generic fallbacks
+	// Generic fallbacks.
 	if ( is_archive() ) {
 		return 'archive';
 	}
@@ -234,21 +269,70 @@ function mia_get_current_template_key(): string {
 }
 
 /**
- * Load template-specific CSS/JS based on current template
+ * Enqueue template-specific assets based on current page/template
  */
-function mia_load_template_assets(): void {
-	$theme_version = '3.0.0';
-	$template_key  = mia_get_current_template_key();
+function mia_enqueue_template_assets(): void {
+	$template_key = mia_get_current_template_key();
 
-	// Special handling for front page (hero section + glide)
+	// Front page needs hero section styles and Glide.js.
 	if ( is_front_page() ) {
-		wp_enqueue_style( 'mia-hero-section', get_template_directory_uri() . '/assets/css/hero-section.css', array( 'mia-base' ), $theme_version );
-		wp_enqueue_script( 'mia-glide', get_template_directory_uri() . '/assets/vendor/glide/js/glide.min.js', array(), '3.7.1', true );
+		wp_enqueue_style(
+			'mia-hero-section',
+			get_template_directory_uri() . '/assets/css/hero-section.css',
+			array( 'mia-base' ),
+			MIA_THEME_VERSION
+		);
+		wp_enqueue_script(
+			'mia-glide',
+			get_template_directory_uri() . '/assets/vendor/glide/js/glide.min.js',
+			array(),
+			'3.7.1',
+			true
+		);
 	}
 
-	// Map template keys to CSS/JS file paths
-	$asset_map = array(
-		// Pages
+	// Load template-specific CSS/JS files.
+	mia_load_template_files( $template_key );
+}
+
+
+/**
+ * Load template-specific CSS/JS files
+ *
+ * @param string $template_key The template identifier for asset lookup.
+ */
+function mia_load_template_files( string $template_key ): void {
+	// Get asset map for current template.
+	$asset_map = mia_get_template_asset_map();
+
+	// Load CSS for this template (always load CSS).
+	if ( isset( $asset_map[ $template_key ]['css'] ) ) {
+		wp_enqueue_style(
+			'mia-' . $template_key,
+			get_template_directory_uri() . '/assets/' . $asset_map[ $template_key ]['css'],
+			array( 'mia-base' ),
+			MIA_THEME_VERSION
+		);
+	}
+
+	// Load JS for this template.
+	if ( isset( $asset_map[ $template_key ]['js'] ) ) {
+		wp_enqueue_script(
+			'mia-' . $template_key,
+			get_template_directory_uri() . '/assets/' . $asset_map[ $template_key ]['js'],
+			array( 'mia-bootstrap' ),
+			MIA_THEME_VERSION,
+			true
+		);
+	}
+}
+
+/**
+ * Get template-to-asset mapping (clean, organized by category)
+ */
+function mia_get_template_asset_map(): array {
+	return array(
+		// Page Templates.
 		'front-page'                  => array(
 			'css' => 'pages/front-page.css',
 			'js'  => 'pages/front-page.js',
@@ -298,7 +382,7 @@ function mia_load_template_assets(): void {
 			'js'  => 'pages/page.js',
 		),
 
-		// Archives
+		// Archive Pages.
 		'404'                         => array(
 			'css' => 'archives/404.css',
 			'js'  => 'archives/404.js',
@@ -356,14 +440,14 @@ function mia_load_template_assets(): void {
 			'js'  => 'archives/index.js',
 		),
 
-		// Singles
+		// Single Post Types.
 		'single-case'                 => array(
 			'css' => 'singles/single-case.css',
 			'js'  => 'singles/single-case.js',
 		),
 		'single-condition'            => array(
-			'css' => 'singles/single-condition.css',
-			'js'  => 'singles/single-condition.js',
+			'css' => 'singles/single-case.css',
+			'js'  => 'singles/single-case.js',
 		),
 		'single-location'             => array(
 			'css' => 'singles/single-location.css',
@@ -372,11 +456,11 @@ function mia_load_template_assets(): void {
 		'single-non-surgical'         => array(
 			'css' => 'singles/single-case.css',
 			'js'  => 'singles/single-case.js',
-		), // Reuse
+		),
 		'single-procedure'            => array(
 			'css' => 'singles/single-case.css',
 			'js'  => 'singles/single-case.js',
-		), // Reuse
+		),
 		'single-special'              => array(
 			'css' => 'singles/single-special.css',
 			'js'  => 'singles/single-special.js',
@@ -388,39 +472,163 @@ function mia_load_template_assets(): void {
 		'single-fat-transfer'         => array(
 			'css' => 'singles/single-case.css',
 			'js'  => 'singles/single-case.js',
-		), // Reuse
+		),
 		'single-post'                 => array(
 			'css' => 'singles/single-post.css',
 			'js'  => 'singles/single-post.js',
 		),
 	);
+}
 
-	// Load CSS if file exists
-	if ( isset( $asset_map[ $template_key ]['css'] ) ) {
-		$css_path = get_template_directory() . '/assets/css/' . $asset_map[ $template_key ]['css'];
-		if ( file_exists( $css_path ) ) {
-			wp_enqueue_style(
-				'mia-' . $template_key,
-				get_template_directory_uri() . '/assets/css/' . $asset_map[ $template_key ]['css'],
-				array( 'mia-base' ),
-				$theme_version
-			);
-		}
-	}
+/**
+ * Debug Functions
+ * =============================================================================
+ */
 
-	// Load JS if file exists
-	if ( isset( $asset_map[ $template_key ]['js'] ) ) {
-		$js_path = get_template_directory() . '/assets/js/' . $asset_map[ $template_key ]['js'];
-		if ( file_exists( $js_path ) ) {
-			wp_enqueue_script(
-				'mia-' . $template_key,
-				get_template_directory_uri() . '/assets/js/' . $asset_map[ $template_key ]['js'],
-				array( 'mia-bootstrap' ),
-				$theme_version,
-				true
-			);
-		}
+/**
+ * Check if debug mode is enabled
+ *
+ * @return bool True if debug mode is enabled.
+ */
+function mia_is_debug_mode(): bool {
+	return ( defined( 'WP_DEBUG' ) && WP_DEBUG ) || ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG );
+}
+
+/**
+ * Log debug message to error log
+ *
+ * @param string $message The message to log.
+ */
+function mia_debug_log( string $message ): void {
+	if ( mia_is_debug_mode() ) {
+		error_log( '[MIA THEME] ' . $message );
 	}
 }
+
+/**
+ * Output debug asset information in footer for admins
+ */
+function mia_debug_output_assets(): void {
+	global $wp_styles, $wp_scripts;
+
+	$mia_styles     = array();
+	$mia_scripts    = array();
+	$total_css_size = 0;
+	$total_js_size  = 0;
+
+	// Collect MIA theme assets.
+	foreach ( $wp_styles->done as $handle ) {
+		if ( strpos( $handle, 'mia-' ) === 0 ) {
+			$src             = $wp_styles->registered[ $handle ]->src ?? '';
+			$size            = mia_get_asset_size( $src );
+			$mia_styles[]    = array(
+				'handle' => $handle,
+				'src'    => $src,
+				'size'   => $size,
+			);
+			$total_css_size += $size;
+		}
+	}
+
+	foreach ( $wp_scripts->done as $handle ) {
+		if ( strpos( $handle, 'mia-' ) === 0 ) {
+			$src            = $wp_scripts->registered[ $handle ]->src ?? '';
+			$size           = mia_get_asset_size( $src );
+			$mia_scripts[]  = array(
+				'handle' => $handle,
+				'src'    => $src,
+				'size'   => $size,
+			);
+			$total_js_size += $size;
+		}
+	}
+
+	?>
+	<div id="mia-debug-assets" style="position: fixed; bottom: 10px; right: 10px; background: #1e1e1e; color: #fff; padding: 15px; border-radius: 8px; font-family: monospace; font-size: 12px; max-width: 400px; max-height: 300px; overflow-y: auto; z-index: 9999; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
+		<div style="font-weight: bold; margin-bottom: 10px; color: #00d4aa;">🎨 MIA Theme Assets Debug</div>
+		<div style="margin-bottom: 8px;">📄 <strong>Template:</strong> <?php echo esc_html( mia_get_current_template_key() ); ?></div>
+		
+		<div style="margin-bottom: 8px;">
+			<strong>📊 CSS Files (<?php echo count( $mia_styles ); ?>):</strong> 
+			<span style="color: #00d4aa;"><?php echo esc_html( mia_format_bytes( $total_css_size ) ); ?></span>
+		</div>
+		<?php foreach ( $mia_styles as $style ) : ?>
+			<div style="margin-left: 10px; font-size: 10px; color: #ccc;">
+				• <?php echo esc_html( $style['handle'] ); ?> 
+				<span style="color: #888;">(<?php echo esc_html( mia_format_bytes( $style['size'] ) ); ?>)</span>
+			</div>
+		<?php endforeach; ?>
+		
+		<div style="margin: 8px 0;">
+			<strong>⚡ JS Files (<?php echo count( $mia_scripts ); ?>):</strong> 
+			<span style="color: #00d4aa;"><?php echo esc_html( mia_format_bytes( $total_js_size ) ); ?></span>
+		</div>
+		<?php foreach ( $mia_scripts as $script ) : ?>
+			<div style="margin-left: 10px; font-size: 10px; color: #ccc;">
+				• <?php echo esc_html( $script['handle'] ); ?> 
+				<span style="color: #888;">(<?php echo esc_html( mia_format_bytes( $script['size'] ) ); ?>)</span>
+			</div>
+		<?php endforeach; ?>
+		
+		<div style="margin-top: 8px; padding-top: 8px; border-top: 1px solid #444; font-size: 10px; color: #888;">
+			💾 Total: <?php echo esc_html( mia_format_bytes( $total_css_size + $total_js_size ) ); ?> | 
+			⏰ <?php echo esc_html( current_time( 'H:i:s' ) ); ?>
+		</div>
+		
+		<button onclick="this.parentElement.style.display='none'" style="position: absolute; top: 5px; right: 8px; background: none; border: none; color: #fff; cursor: pointer; font-size: 14px;">&times;</button>
+	</div>
+	<?php
+}
+
+/**
+ * Get file size for an asset URL
+ *
+ * @param string $url The asset URL.
+ * @return int File size in bytes, 0 if not found.
+ */
+function mia_get_asset_size( string $url ): int {
+	if ( empty( $url ) ) {
+		return 0;
+	}
+
+	// Convert URL to local file path.
+	$upload_dir = wp_upload_dir();
+	$theme_url  = get_template_directory_uri();
+
+	if ( strpos( $url, $theme_url ) === 0 ) {
+		$file_path = str_replace( $theme_url, get_template_directory(), $url );
+		if ( file_exists( $file_path ) ) {
+			return filesize( $file_path );
+		}
+	}
+
+	return 0;
+}
+
+/**
+ * Format bytes into human readable format
+ *
+ * @param int $bytes File size in bytes.
+ * @return string Formatted file size.
+ */
+function mia_format_bytes( int $bytes ): string {
+	if ( 0 === $bytes ) {
+		return '0 B';
+	}
+
+	$units = array( 'B', 'KB', 'MB', 'GB' );
+	$pow   = floor( ( $bytes ? log( $bytes ) : 0 ) / log( 1024 ) );
+	$pow   = min( $pow, count( $units ) - 1 );
+
+	$bytes /= pow( 1024, $pow );
+
+	return round( $bytes, 1 ) . ' ' . $units[ $pow ];
+}
+
+/**
+ * Helper Functions
+ * =============================================================================
+ */
+
 
 add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );

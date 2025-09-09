@@ -7,37 +7,11 @@
   z-index: var(--z-sticky);
 }
 
-.consultation-cta-btn {
-  min-width: 70%;
-  max-width: 260px;
-  /* Use btn btn-outline-primary-alt2 classes in HTML - colors/borders handled by base.css */
-  font-size: 0.95rem;
-  padding: 0.5rem 1rem;
-  font-weight: 600;
-  font-family: var(--font-heading);
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 3px;
-}
-
-.consultation-cta-btn .fa-arrow-right {
-  margin-left: 0.5rem;
-  font-size: 0.8em;
-  transition: transform 0.2s ease;
-}
-
-.consultation-cta-btn:hover .fa-arrow-right {
-  transform: translateX(3px);
-}
 
 /* Additional responsive styles for mobile */
 @media (max-width: 576px) {
   .consultation-cta-container {
     /* Ensure proper positioning on very small screens */
     padding: 0.75rem;
-  }
-
-  .consultation-cta-btn {
-    font-size: 0.9rem;
-    padding: 0.45rem 0.9rem;
   }
 }

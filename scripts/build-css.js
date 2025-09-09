@@ -1,13 +1,47 @@
 #!/usr/bin/env node
 
 import { glob } from 'glob';
-import { spawn } from 'child_process';
+import postcss from 'postcss';
+import autoprefixer from 'autoprefixer';
+import cssnano from 'cssnano';
+import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const projectRoot = path.resolve(__dirname, '..');
+
+// Create PostCSS processor with autoprefixer only (no minification)
+const processor = postcss([
+  autoprefixer({
+    grid: true
+  })
+]);
+
+async function processCSS(file) {
+  const inputPath = path.join(projectRoot, file);
+  const outputPath = path.join(projectRoot, file); // Process in-place
+  
+  try {
+    // Read the CSS file
+    const css = await fs.readFile(inputPath, 'utf8');
+    
+    // Process with PostCSS (autoprefixer only)
+    const result = await processor.process(css, {
+      from: inputPath,
+      to: outputPath
+    });
+    
+    // Write processed CSS back to same file
+    await fs.writeFile(outputPath, result.css);
+    
+    console.log(`   ✓ ${file}`);
+  } catch (error) {
+    console.error(`   ✗ ${file}: ${error.message}`);
+    throw error;
+  }
+}
 
 async function buildCSS() {
   try {
@@ -21,39 +55,16 @@ async function buildCSS() {
       ]
     });
 
-    console.log(`🎨 Building ${cssFiles.length} CSS files...`);
-
-    for (const file of cssFiles) {
-      const inputPath = path.join(projectRoot, file);
-      const outputPath = path.join(
-        projectRoot, 
-        file.replace('.css', '.min.css')
-      );
-
-      console.log(`   Processing: ${file}`);
-
-      await new Promise((resolve, reject) => {
-        const postcss = spawn('npx', [
-          'postcss',
-          inputPath,
-          '-o', outputPath,
-          '--config', path.join(projectRoot, 'postcss.config.js')
-        ], {
-          cwd: projectRoot,
-          stdio: ['pipe', 'pipe', 'inherit']
-        });
-
-        postcss.on('close', (code) => {
-          if (code === 0) {
-            resolve();
-          } else {
-            reject(new Error(`PostCSS failed with code ${code} for ${file}`));
-          }
-        });
-      });
+    console.log(`🎨 Processing ${cssFiles.length} CSS files with autoprefixer...`);
+    
+    // Process files in parallel batches of 5 for better performance
+    const batchSize = 5;
+    for (let i = 0; i < cssFiles.length; i += batchSize) {
+      const batch = cssFiles.slice(i, i + batchSize);
+      await Promise.all(batch.map(file => processCSS(file)));
     }
 
-    console.log('✅ CSS build complete!');
+    console.log('✅ CSS processing complete!');
   } catch (error) {
     console.error('❌ CSS build failed:', error.message);
     process.exit(1);

@@ -665,24 +665,28 @@ h3.section-subheading {
   }
 
   .foundation-content {
-    background: transparent;
-    border-radius: 0;
+    background: var(--mia-white);
+    border-radius: 8px;
     padding: 40px 24px 32px;
+    margin: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .foundation-section .section-heading {
     margin-top: 0;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    color: var(--mia-black);
+    text-shadow: none;
   }
 
   .foundation-section .section-subheading,
   .foundation-section h3.section-subheading {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    color: var(--mia-gold);
+    text-shadow: none;
   }
 
   .foundation-content p {
-    color: var(--mia-white);
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    color: var(--mia-gray-dark);
+    text-shadow: none;
   }
 
   .stats-content {
@@ -716,16 +720,23 @@ h3.section-subheading {
   }
 
   .foundation-content {
-    background: transparent;
+    background: var(--mia-white);
+    border-radius: 8px;
     padding: 32px 20px 24px;
+    margin: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
   .foundation-section .section-heading {
     font-size: 1.5rem;
+    color: var(--mia-black);
+    text-shadow: none;
   }
 
   .foundation-section .section-subheading {
     font-size: 1rem;
     margin-bottom: 1rem;
+    color: var(--mia-gold);
+    text-shadow: none;
   }
 }

@@ -190,6 +190,8 @@
   }
 
   .mega-menu .dropdown-item {
+    display: inline-block;
+    width: fit-content;
     padding: 0.25rem 0;
     font-size: 16px;
     font-family: var(--font-body);

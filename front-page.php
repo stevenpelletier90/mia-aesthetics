@@ -78,7 +78,7 @@ require __DIR__ . '/hero-section.php';
 			<p class="excellence-description">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
 			<a href="/locations/" class="btn btn-primary me-3" role="button">Our Locations</a>
-			<a href="/plastic-surgeons/" class="btn btn-secondary" role="button">Our Surgeons</a>
+			<a href="/plastic-surgeons/" class="btn btn-outline-primary-alt2" role="button">Our Surgeons</a>
 			</div>
 		</div>
 		</div>
@@ -490,7 +490,7 @@ require __DIR__ . '/hero-section.php';
 			<h2 class="section-heading text-white mb-2">The Mia Aesthetics Foundation</h2>
 			<h3 class="section-subheading mb-4">Gives Back</h3>
 			<p class="text-white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
-			<a href="/mia-foundation/" class="btn btn-outline-secondary-alt" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
 		</div>
 	</div>

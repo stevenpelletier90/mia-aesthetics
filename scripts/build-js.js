@@ -1,7 +1,6 @@
 #!/usr/bin/env node
 
 import { glob } from 'glob';
-import { minify } from 'terser';
 import fs from 'fs/promises';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -12,56 +11,32 @@ const projectRoot = path.resolve(__dirname, '..');
 
 async function buildJS() {
   try {
-    // Find all JS files (excluding vendor and already minified files)
+    // Find all JS files (excluding vendor files)
     const jsFiles = await glob('assets/js/**/*.js', {
       cwd: projectRoot,
       ignore: [
-        'assets/js/**/*.min.js',
         'assets/vendor/**/*'
       ]
     });
 
-    console.log(`📜 Building ${jsFiles.length} JS files...`);
+    console.log(`📜 Validating ${jsFiles.length} JS files...`);
 
     for (const file of jsFiles) {
       const inputPath = path.join(projectRoot, file);
-      const outputPath = path.join(
-        projectRoot, 
-        file.replace('.js', '.min.js')
-      );
-      const mapPath = outputPath + '.map';
 
       console.log(`   Processing: ${file}`);
 
-      const code = await fs.readFile(inputPath, 'utf8');
-      
-      const result = await minify(code, {
-        sourceMap: {
-          filename: path.basename(outputPath),
-          url: path.basename(mapPath)
-        },
-        compress: {
-          drop_console: false, // Keep console logs for debugging
-          drop_debugger: false
-        },
-        mangle: false, // Don't mangle names for better debugging
-        format: {
-          comments: /^!/
-        }
-      });
-
-      // Write minified file
-      await fs.writeFile(outputPath, result.code);
-      
-      // Write source map
-      if (result.map) {
-        await fs.writeFile(mapPath, result.map);
+      // Just validate the file exists and is readable
+      try {
+        await fs.access(inputPath, fs.constants.R_OK);
+      } catch (error) {
+        throw new Error(`Cannot read ${file}: ${error.message}`);
       }
     }
 
-    console.log('✅ JS build complete!');
+    console.log('✅ JS validation complete!');
   } catch (error) {
-    console.error('❌ JS build failed:', error.message);
+    console.error('❌ JS validation failed:', error.message);
     process.exit(1);
   }
 }
