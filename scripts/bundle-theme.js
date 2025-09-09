@@ -89,7 +89,7 @@ async function cleanBundle() {
     try {
       await fs.rm(bundleDir, { recursive: true, force: true });
       console.log(`🧹 Cleaned ${bundleDir}`);
-    } catch (error) {
+    } catch {
       // Directory might not exist, that's fine
     }
   }

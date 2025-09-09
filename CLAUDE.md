@@ -14,7 +14,7 @@ This is the single, canonical project document for the Mia Aesthetics WordPress 
 ```bash
 # Build commands
 npm run build:css      # Process and minify CSS files
-npm run build:js       # Process and minify JavaScript files  
+npm run build:js       # Process and minify JavaScript files
 npm run build:vendor   # Copy vendor assets from node_modules
 npm run build:all      # Run all build commands
 npm run bundle         # Build and bundle theme for deployment
@@ -34,6 +34,7 @@ npm run purge:css      # Remove unused CSS classes
 ## Build System & Bundling
 
 The theme includes a complete build system via `scripts/` directory:
+
 - `build-css.js`: Processes CSS with PostCSS, autoprefixer, and minification
 - `build-js.js`: Minifies JavaScript with Terser
 - `build-vendor.js`: Copies vendor assets from node_modules to `assets/vendor/`
