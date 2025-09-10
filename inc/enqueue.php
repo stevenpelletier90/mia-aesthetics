@@ -31,14 +31,13 @@ function mia_enqueue_assets(): void {
 
 	// Load conditional components (ACF-aware).
 	mia_enqueue_conditional_components();
-
 }
 
 /**
  * Enqueue global assets that are needed on every page
  */
 function mia_enqueue_global_assets(): void {
-	
+
 	// Global CSS - Foundation styles.
 	wp_enqueue_style( 'mia-fonts', get_template_directory_uri() . '/assets/css/fonts.css', array(), MIA_THEME_VERSION );
 	wp_enqueue_style( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ), '5.3.8' );
@@ -51,7 +50,6 @@ function mia_enqueue_global_assets(): void {
 	wp_enqueue_script( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/js/bootstrap.bundle.min.js', array(), '5.3.8', true );
 	wp_enqueue_script( 'mia-header', get_template_directory_uri() . '/assets/js/header.js', array( 'mia-bootstrap' ), MIA_THEME_VERSION, true );
 	wp_enqueue_script( 'mia-footer', get_template_directory_uri() . '/assets/js/footer.js', array(), MIA_THEME_VERSION, true );
-	
 }
 
 /**
@@ -78,6 +76,11 @@ function mia_enqueue_conditional_components(): void {
 		mia_load_component_assets( 'case-card' );
 	}
 
+	// FAQ Component - Load where FAQs are displayed.
+	if ( mia_needs_faq() ) {
+		mia_load_component_assets( 'faq' );
+	}
+
 	// Location Search Careers - Load on careers pages with location search.
 	if ( mia_needs_location_search_careers() ) {
 		mia_load_component_assets( 'location-search-careers' );
@@ -97,7 +100,7 @@ function mia_has_consultation_form(): bool {
 	}
 
 	// Check for ACF field that indicates a form is present.
-	if ( function_exists( 'get_field' ) && get_field( 'show_consultation_form' ) ) {
+	if ( function_exists( 'get_field' ) && (bool) get_field( 'show_consultation_form' ) ) {
 		return true;
 	}
 
@@ -113,6 +116,29 @@ function mia_needs_case_card(): bool {
 		is_post_type_archive( 'case' ) ||
 		is_tax( 'case_category' ) ) {
 		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Check if current page needs FAQ component
+ */
+function mia_needs_faq(): bool {
+	// Check for ACF FAQ field that indicates FAQs are present.
+	if ( function_exists( 'get_field' ) ) {
+		$faq_section = get_field( 'faq_section' );
+
+		// Check if FAQ section exists and has valid FAQs.
+		if ( isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && ! empty( $faq_section['faqs'] ) ) {
+			// Check if at least one FAQ has both question and answer.
+			foreach ( $faq_section['faqs'] as $faq ) {
+				if ( isset( $faq['question'] ) && ! empty( $faq['question'] ) &&
+					isset( $faq['answer'] ) && ! empty( $faq['answer'] ) ) {
+					return true;
+				}
+			}
+		}
 	}
 
 	return false;
@@ -195,16 +221,16 @@ function mia_is_careers_page(): bool {
  * Get current template identifier for debug
  */
 function mia_get_current_template_key(): string {
-	// Check for post type archives FIRST (before page templates)
-	// This prevents page templates from interfering with archive detection
+	// Check for post type archives FIRST (before page templates).
+	// This prevents page templates from interfering with archive detection.
 	$archive_types = array( 'case', 'condition', 'location', 'non-surgical', 'procedure', 'special', 'surgeon', 'fat-transfer' );
 	foreach ( $archive_types as $type ) {
 		if ( is_post_type_archive( $type ) ) {
 			return "archive-{$type}";
 		}
 	}
-	
-	// Check for page templates (on any post type, not just pages)
+
+	// Check for page templates (on any post type, not just pages).
 	$template = get_page_template_slug();
 	if ( $template ) {
 		return basename( $template, '.php' );
@@ -218,15 +244,15 @@ function mia_get_current_template_key(): string {
 	// Simple conditional checks.
 	$simple_checks = array(
 		'is_home'     => 'home',
-		'is_404'      => '404',
+		'is_404'      => 'error-404',
 		'is_search'   => 'search',
 		'is_category' => 'category',
 		'is_page'     => 'page',
 	);
 
-	foreach ( $simple_checks as $function => $template ) {
+	foreach ( $simple_checks as $function => $template_key ) {
 		if ( call_user_func( $function ) ) {
-			return $template;
+			return $template_key;
 		}
 	}
 
@@ -286,13 +312,11 @@ function mia_load_template_files( string $template_key ): void {
 	// Get asset map for current template.
 	$asset_map = mia_get_template_asset_map();
 
-
 		// Load CSS for this template (always load CSS).
-		if ( isset( $asset_map[ $template_key ]['css'] ) ) {
-			$css_path = get_template_directory_uri() . '/assets/css/' . $asset_map[ $template_key ]['css'];
-			$css_file = get_template_directory() . '/assets/css/' . $asset_map[ $template_key ]['css'];
-		
-		
+	if ( isset( $asset_map[ $template_key ]['css'] ) ) {
+		$css_path = get_template_directory_uri() . '/assets/css/' . $asset_map[ $template_key ]['css'];
+		$css_file = get_template_directory() . '/assets/css/' . $asset_map[ $template_key ]['css'];
+
 		wp_enqueue_style(
 			'mia-' . $template_key,
 			$css_path,
@@ -302,11 +326,10 @@ function mia_load_template_files( string $template_key ): void {
 	}
 
 		// Load JS for this template.
-		if ( isset( $asset_map[ $template_key ]['js'] ) ) {
-			$js_path = get_template_directory_uri() . '/assets/js/' . $asset_map[ $template_key ]['js'];
-			$js_file = get_template_directory() . '/assets/js/' . $asset_map[ $template_key ]['js'];
-		
-		
+	if ( isset( $asset_map[ $template_key ]['js'] ) ) {
+		$js_path = get_template_directory_uri() . '/assets/js/' . $asset_map[ $template_key ]['js'];
+		$js_file = get_template_directory() . '/assets/js/' . $asset_map[ $template_key ]['js'];
+
 		wp_enqueue_script(
 			'mia-' . $template_key,
 			$js_path,
@@ -319,6 +342,8 @@ function mia_load_template_files( string $template_key ): void {
 
 /**
  * Get template-to-asset mapping (clean, organized by category)
+ *
+ * @return array<string, array<string, string>> Template-to-asset mapping with CSS/JS paths.
  */
 function mia_get_template_asset_map(): array {
 	return array(
@@ -373,7 +398,7 @@ function mia_get_template_asset_map(): array {
 		),
 
 		// Archive Pages.
-		'404'                         => array(
+		'error-404'                   => array(
 			'css' => 'archives/404.css',
 			'js'  => 'archives/404.js',
 		),

@@ -450,7 +450,7 @@ add_action( 'init', 'mia_pagination_rewrite_rules' );
  * Flush rewrites on theme switch to register custom rules.
  */
 function mia_flush_rewrites_on_switch(): void { // phpcs:ignore Squiz.Commenting.FunctionComment
-    flush_rewrite_rules();
+	flush_rewrite_rules();
 }
 
 add_action( 'after_switch_theme', 'mia_flush_rewrites_on_switch' );

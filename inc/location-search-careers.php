@@ -42,6 +42,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Location search careers assets are now handled by the centralized enqueue system in inc/enqueue.php
 // This component assumes the following are already enqueued:
 // - mia-location-search-careers (CSS)
-// - mia-location-search-careers (JS) 
-// - google-maps (JS with callback=initGoogleMapsCareers)
+// - mia-location-search-careers (JS)
+// - google-maps (JS with callback=initGoogleMapsCareers).
 ?>

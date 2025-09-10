@@ -477,10 +477,6 @@
   transform: translateX(3px);
 }
 
-.surgeon-faq-section {
-  background: var(--mia-gold-light);
-  padding: 4rem 0;
-}
 
 @media (max-width: 1199px) {
   .surgeon-fluid-container {
@@ -561,9 +557,6 @@
   }
   .surgeon-expertise-section {
     margin-bottom: 2rem;
-  }
-  .surgeon-faq-section {
-    padding: 2rem 0;
   }
   .sidebar-card {
     margin-bottom: 1.5rem;

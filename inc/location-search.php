@@ -42,6 +42,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 // Location search assets are now handled by the centralized enqueue system in inc/enqueue.php
 // This component assumes the following are already enqueued:
 // - mia-location-search (CSS)
-// - mia-location-search (JS) 
-// - google-maps (JS)
+// - mia-location-search (JS)
+// - google-maps (JS).
 ?>

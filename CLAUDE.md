@@ -70,11 +70,12 @@ Always approach tasks with the precision and attention to detail expected in med
 npm run build:vendor   # Copy vendor assets from node_modules
 npm run purge:css      # Remove unused CSS classes
 
-# Linting
-npm run lint:js        # Lint JavaScript files
+# Linting and Quality
+npm run lint:js        # Lint JavaScript files with ESLint
 npm run lint:css       # Lint CSS files with Stylelint
-npm run lint:php       # Lint PHP files
-npm run lint           # Run all linting
+npm run phpcs          # PHP CodeSniffer - check coding standards
+npm run phpcs:fix      # PHP CodeSniffer - automatically fix issues
+npm run phpstan        # PHPStan static analysis
 ```
 
 ## Asset Structure
@@ -315,7 +316,9 @@ $results = $wpdb->get_results($wpdb->prepare(
 
 - ESLint errors: run `npm run lint:js` to identify JavaScript issues
 - Stylelint errors: run `npm run lint:css` to check CSS standards
-- PHP issues: run `npm run lint:php` for WordPress coding standards
+- PHP coding standards: run `npm run phpcs` to check WordPress coding standards
+- PHP static analysis: run `npm run phpstan` to detect potential issues
+- Auto-fix PHP issues: run `npm run phpcs:fix` to automatically fix coding standard violations
 - Security vulnerabilities: regularly update dependencies, scan with security plugins
 
 ## CRITICAL TEMPLATE VERIFICATION RULES
@@ -341,7 +344,7 @@ Never flag these as missing from static HTML templates; they’re injected by PH
 1. **Planning**: Review wireframes, confirm requirements, check compliance needs
 2. **Development**: Follow WordPress coding standards, use version control
 3. **Testing**: Cross-browser testing, accessibility audit, performance check
-4. **Quality Assurance**: Run all linting (`npm run lint`), test forms, verify schema
+4. **Quality Assurance**: Run all linting (`npm run lint:js`, `npm run lint:css`, `npm run phpcs`, `npm run phpstan`), test forms, verify schema
 5. **Documentation**: Update comments, document new ACF fields, update CLAUDE.md if needed
 
 ### Task Approach Guidelines
