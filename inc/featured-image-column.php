@@ -10,10 +10,13 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 /**
- * Enqueue admin styles for featured image column
+ * Enqueue admin styles for featured image column only on post listing pages
  */
-function mia_admin_enqueue_styles(): void {
-	wp_enqueue_style( 'mia-admin', get_template_directory_uri() . '/assets/css/utilities/admin.css', array(), '1.0.0' );
+function mia_admin_enqueue_styles( $hook ): void {
+	// Only load admin CSS on post listing pages where featured image columns appear
+	if ( 'edit.php' === $hook ) {
+		wp_enqueue_style( 'mia-admin', get_template_directory_uri() . '/assets/css/utilities/admin.css', array(), '1.0.0' );
+	}
 }
 add_action( 'admin_enqueue_scripts', 'mia_admin_enqueue_styles' );
 

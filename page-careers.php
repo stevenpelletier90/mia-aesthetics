@@ -42,7 +42,7 @@ get_header(); ?>
 		<div class="col-lg-6">
 		<div class="careers-hero__image-container">
 			<img
-			src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/08/mia-career-hero.jpg"
+			src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/09/employees.jpg"
 			alt="Mia Aesthetics™ Team - Join Our Mission"
 			class="careers-hero__image img-fluid rounded"
 			/>

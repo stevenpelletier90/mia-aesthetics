@@ -27,7 +27,7 @@
     "property-no-unknown": [
       true,
       {
-        "ignoreProperties": ["fallback-color", "tap-highlight-color", "box-orient"]
+        "ignoreProperties": ["tap-highlight-color", "box-orient"]
       }
     ],
     "no-duplicate-selectors": null,

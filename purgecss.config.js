@@ -1,21 +1,25 @@
+import { fileURLToPath } from 'url';
+import { dirname, join } from 'path';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
 export default {
   content: [
     // WordPress templates
-    './*.php',
-    './components/**/*.php',
-    './inc/**/*.php',
-    './page-*.php',
-    './single-*.php',
-    './archive-*.php',
+    join(__dirname, '*.php'),
+    join(__dirname, 'components/**/*.php'),
+    join(__dirname, 'inc/**/*.php'),
+    join(__dirname, 'page-*.php'),
+    join(__dirname, 'single-*.php'),
+    join(__dirname, 'archive-*.php'),
+    join(__dirname, 'html-templates/**/*.html'),
     
     // JavaScript files
-    './assets/js/**/*.js',
-    
-    // Any other content files
-    './assets/css/**/*.css'
+    join(__dirname, 'assets/js/**/*.js')
   ],
   css: [
-    './assets/css/**/*.css'
+    join(__dirname, 'assets/css/**/*.css')
   ],
   // Safelist important classes that might be dynamically generated
   safelist: [

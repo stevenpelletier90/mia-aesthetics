@@ -25,14 +25,11 @@
     "terser": "^5.44.0"
   },
   "scripts": {
-    "process:css": "node scripts/build-css.js",
-    "validate:js": "node scripts/build-js.js", 
     "build:vendor": "node scripts/build-vendor.js",
-    "build": "npm run build:vendor && npm run process:css && npm run validate:js",
-    "bundle": "npm run build:vendor && node scripts/bundle-theme.js --clean",
     "purge:css": "purgecss --config ./purgecss.config.js --output ./assets/css-purged/",
     "lint:js": "eslint \"assets/js/**/*.js\" \"scripts/**/*.js\"",
+    "lint:css": "stylelint \"assets/css/**/*.css\"",
     "lint:php": "powershell \".\\vendor\\bin\\phpcs --standard=.\\phpcs.xml\"",
-    "lint": "npm run lint:js && npm run lint:php"
+    "lint": "npm run lint:js && npm run lint:css && npm run lint:php"
   }
 }
