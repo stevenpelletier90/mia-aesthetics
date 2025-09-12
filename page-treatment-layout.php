@@ -105,12 +105,22 @@ if ( $current_post instanceof WP_Post ) {
 										</div>
 									<?php endforeach; ?>
 								</div>
+							<?php else : ?>
+								<!-- No images available - show button to before/after page -->
+								<div class="text-center">
+									<p class="text-white mb-4">* Individual results may vary. All photos are of actual patients.</p>
+									<a href="/before-after/" class="btn btn-primary">
+										View Before &amp; After Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+									</a>
+								</div>
 							<?php endif; ?>
 							
-							<!-- Results Disclaimer -->
+							<?php if ( is_array( $mia_aesthetics_gallery_images ) && count( $mia_aesthetics_gallery_images ) > 0 ) : ?>
+							<!-- Results Disclaimer - only show when images are present -->
 							<div class="text-center mt-3">
 								<p class="small results-disclaimer-text mb-0">* Individual results may vary. All photos are of actual patients.</p>
 							</div>
+							<?php endif; ?>
 
 							<div class="text-center mt-4">
 								<?php

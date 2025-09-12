@@ -504,10 +504,6 @@
   .treatment-header .col-12 {
     padding-inline: 16px;
   }
-  .text-gradient {
-    background: none;
-    color: var(--mia-gold);
-  }
   .procedure-section {
     margin-bottom: 40px;
   }

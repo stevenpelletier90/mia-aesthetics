@@ -30,15 +30,7 @@
   text-transform: uppercase;
 }
 
-.about-content .about-heading {
-  color: var(--mia-black);
-  font-family: var(--font-heading);
-  font-size: clamp(24px, 6vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
-  margin-bottom: 24px;
-}
+/* About heading now uses theme's standard h1 styles */
 
 .about-content .about-description {
   color: var(--mia-gray-muted);
@@ -126,15 +118,7 @@
   text-transform: uppercase;
 }
 
-.excellence-heading {
-  color: var(--mia-white);
-  font-family: var(--font-heading);
-  font-size: clamp(24px, 6vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
-  margin-bottom: 24px;
-}
+/* Excellence heading now uses theme's standard h2 styles */
 
 .excellence-description {
   color: rgba(255, 255, 255, 0.8);
@@ -262,15 +246,7 @@
   box-shadow: 0 0 0 0.25rem var(--mia-gold-30);
 }
 
-.procedure-title {
-  color: var(--mia-black);
-  font-family: var(--font-heading);
-  font-size: clamp(24px, 6vw, 36px);
-  font-weight: 700;
-  letter-spacing: -0.025em;
-  line-height: 1.25;
-  margin-bottom: 24px;
-}
+/* Procedure titles now use theme's standard h3 styles */
 
 .procedure-links {
   display: flex;
@@ -397,39 +373,24 @@
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-.foundation-section .section-heading {
-  color: var(--mia-white);
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
+/* Foundation section h2 styling handled in media queries below */
 
-.foundation-section .section-subheading,
-.foundation-section h3.section-subheading {
+.foundation-tagline {
   color: var(--mia-gold);
-  font-size: 18px;
-  font-weight: 500;
-  line-height: 1.5;
+  font-family: var(--font-heading);
+  font-size: clamp(20px, 4vw, 28px);
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
 }
 
 /* Common Section Styles
    ========================================================================== */
 
-.section-heading {
-  color: var(--mia-black);
-  font-size: clamp(20px, 5vw, 30px);
-  font-weight: 700;
-  line-height: 1.375;
-  margin-bottom: 16px;
-}
+/* Section headings now use theme's standard h2 styles */
 
-.section-subheading,
-h3.section-subheading {
-  color: var(--mia-black);
-  font-size: clamp(16px, 3vw, 18px);
-  font-weight: 500;
-  line-height: 1.5;
-  margin-bottom: 20px;
-}
+/* Section subheadings now use tagline class */
 
 /* Media Queries
    ========================================================================== */
@@ -568,14 +529,9 @@ h3.section-subheading {
     max-width: 700px;
   }
 
-  .section-heading {
-    font-size: 2rem;
-  }
+  /* Section headings use theme's responsive h2 styles */
 
-  .section-subheading,
-  h3.section-subheading {
-    font-size: 1.1rem;
-  }
+  /* Subheadings now use tagline class with responsive sizing */
 
   .procedures-section {
     padding: 4rem 0;
@@ -624,14 +580,9 @@ h3.section-subheading {
     padding: 32px 16px;
   }
 
-  .section-heading {
-    font-size: 1.75rem;
-  }
+  /* Section headings use theme's responsive h2 styles */
 
-  .section-subheading,
-  h3.section-subheading {
-    font-size: 1rem;
-  }
+  /* Subheadings now use tagline class with responsive sizing */
 
   .procedures-section {
     padding: 3rem 0;
@@ -672,14 +623,13 @@ h3.section-subheading {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .foundation-section .section-heading {
+  .foundation-section h2 {
     margin-top: 0;
     color: var(--mia-black);
     text-shadow: none;
   }
 
-  .foundation-section .section-subheading,
-  .foundation-section h3.section-subheading {
+  .foundation-section .foundation-tagline {
     color: var(--mia-gold);
     text-shadow: none;
   }
@@ -727,13 +677,13 @@ h3.section-subheading {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
-  .foundation-section .section-heading {
+  .foundation-section h2 {
     font-size: 1.5rem;
     color: var(--mia-black);
     text-shadow: none;
   }
 
-  .foundation-section .section-subheading {
+  .foundation-section .foundation-tagline {
     font-size: 1rem;
     margin-bottom: 1rem;
     color: var(--mia-gold);
