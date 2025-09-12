@@ -21,7 +21,7 @@ if ( $current_post instanceof WP_Post ) {
 	while ( have_posts() ) :
 		the_post();
 		?>
-<section class="treatment-header py-5 position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
+<section class="treatment-hero position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
 			<?php if ( false !== $mia_aesthetics_hero_id ) : ?>
 				<picture class="hero-picture">
 					<?php
@@ -49,23 +49,23 @@ if ( $current_post instanceof WP_Post ) {
 				</picture>
 			<?php endif; ?>
 			
-			<div class="container">
-				<div class="row min-vh-50 d-flex align-items-center justify-content-center">
-					<div class="col-12 col-lg-7 mb-4 mb-lg-0 text-center text-lg-start">
-<h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
+			<div class="hero-content">
+				<div class="hero-inner">
+					<div class="hero-text">
+						<h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
 						<?php
 						// Try both price fields for flexibility.
 						$mia_aesthetics_procedure_price = get_field( 'procedure_price' ) ?? get_field( 'non_surgical_price' );
 						if ( null !== $mia_aesthetics_procedure_price && '' !== $mia_aesthetics_procedure_price ) :
 							?>
-							<div class="pricing-info mt-3">
-								<h2 class="h4 mb-1">Starting Price: <?php echo esc_html( $mia_aesthetics_procedure_price ); ?>*</h2>
+							<div class="pricing-info">
+								<h2>Starting Price: <?php echo esc_html( $mia_aesthetics_procedure_price ); ?>*</h2>
 								<small>* Pricing varies by surgeon</small>
 							</div>
 						<?php endif; ?>
 					</div>
 					
-					<div class="col-lg-5 d-none d-lg-block">
+					<div class="hero-form">
 						<?php get_template_part( 'components/consultation-form' ); ?>
 					</div>
 				</div>
@@ -77,88 +77,18 @@ if ( $current_post instanceof WP_Post ) {
 				<?php the_content(); ?>
 			</section>
 			
-			<section class="results-resources-section" aria-labelledby="results-heading" aria-describedby="results-description">
+			<section class="resources-featured-section py-5" aria-labelledby="resources-heading">
 				<div class="container">
-					<div class="row g-4 g-lg-5 align-items-start">
-						<div class="col-lg-7 mb-4 mb-lg-0">
-							<h2 id="results-heading" class="h3 fw-bold mb-4 text-white">Before &amp; After Results</h2>
-							<div id="results-description" class="sr-only">Patient before and after surgery results gallery</div>
-
-							<?php
-							$mia_aesthetics_gallery_images = get_field( 'gallery_images' );
-							if ( is_array( $mia_aesthetics_gallery_images ) && count( $mia_aesthetics_gallery_images ) > 0 ) :
-								?>
-								<div class="row g-4">
-									<?php foreach ( array_slice( $mia_aesthetics_gallery_images, 0, 2 ) as $mia_aesthetics_pair ) : ?>
-										<div class="col-6">
-											<div class="before-after-card h-100 overflow-hidden position-relative">
-<span class="badge bg-dark position-absolute top-0 start-0 m-2" aria-hidden="true"><?php echo esc_html( __( 'Before', 'mia-aesthetics' ) ); ?></span>
-												<?php echo wp_kses_post( mia_before_after_img( $mia_aesthetics_pair['before_image'], 'Before' ) ); ?>
-											</div>
-										</div>
-
-										<div class="col-6">
-											<div class="before-after-card h-100 overflow-hidden position-relative">
-<span class="badge text-dark position-absolute top-0 start-0 m-2 badge-after" aria-hidden="true"><?php echo esc_html( __( 'After', 'mia-aesthetics' ) ); ?></span>
-												<?php echo wp_kses_post( mia_before_after_img( $mia_aesthetics_pair['after_image'], 'After' ) ); ?>
-											</div>
-										</div>
-									<?php endforeach; ?>
-								</div>
-							<?php else : ?>
-								<!-- No images available - show button to before/after page -->
-								<div class="text-center">
-									<p class="text-white mb-4">* Individual results may vary. All photos are of actual patients.</p>
-									<a href="/before-after/" class="btn btn-primary">
-										View Before &amp; After Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-									</a>
-								</div>
-							<?php endif; ?>
-							
-							<?php if ( is_array( $mia_aesthetics_gallery_images ) && count( $mia_aesthetics_gallery_images ) > 0 ) : ?>
-							<!-- Results Disclaimer - only show when images are present -->
-							<div class="text-center mt-3">
-								<p class="small results-disclaimer-text mb-0">* Individual results may vary. All photos are of actual patients.</p>
-							</div>
-							<?php endif; ?>
-
-							<div class="text-center mt-4">
-								<?php
-								$mia_aesthetics_results_page = get_field( 'results_page' );
-								if ( null !== $mia_aesthetics_results_page ) :
-									// Handle different ACF Page Link return formats.
-									if ( is_array( $mia_aesthetics_results_page ) ) {
-										$mia_aesthetics_page_id  = $mia_aesthetics_results_page['ID'];
-										$mia_aesthetics_page_url = $mia_aesthetics_results_page['url'];
-									} elseif ( is_object( $mia_aesthetics_results_page ) && property_exists( $mia_aesthetics_results_page, 'ID' ) ) {
-										$mia_aesthetics_page_id  = $mia_aesthetics_results_page->ID;
-										$mia_aesthetics_page_url = get_permalink( $mia_aesthetics_page_id );
-									} elseif ( is_numeric( $mia_aesthetics_results_page ) ) {
-										$mia_aesthetics_page_id  = (int) $mia_aesthetics_results_page;
-										$mia_aesthetics_page_url = get_permalink( $mia_aesthetics_page_id );
-									} else {
-										// Assume it's already a URL.
-										$mia_aesthetics_page_id  = null;
-										$mia_aesthetics_page_url = $mia_aesthetics_results_page;
-									}
-
-									// Only show if it's not the current page.
-									if ( get_the_ID() !== $mia_aesthetics_page_id && '' !== $mia_aesthetics_page_url ) :
-										?>
-										<a href="<?php echo esc_url( $mia_aesthetics_page_url ); ?>" class="btn btn-primary">
-											View More Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-										</a>
-										<?php
-									endif;
-								endif;
-								?>
+					<div class="row">
+						<div class="col-12">
+							<div class="text-center mb-4">
+								<h2 id="resources-heading" class="h2 fw-bold mb-3 text-white">Additional Resources</h2>
+								<p class="text-white opacity-75">Helpful information and related procedures to support your journey</p>
 							</div>
 						</div>
-
-						<aside class="col-lg-5" aria-labelledby="resources-heading">
-							<h2 id="resources-heading" class="h3 fw-bold mb-4 text-white">Additional Resources</h2>
-
-							<nav class="list-group list-group-flush rounded-3" aria-label="Related resources">
+					</div>
+					
+					<div class="d-flex flex-wrap justify-content-center gap-3" aria-label="Related resources">
 								<?php
 								$mia_aesthetics_related_procedures = get_field( 'related_procedures' );
 								if ( is_array( $mia_aesthetics_related_procedures ) && count( $mia_aesthetics_related_procedures ) > 0 ) :
@@ -180,14 +110,14 @@ if ( $current_post instanceof WP_Post ) {
 										while ( $mia_aesthetics_related_query->have_posts() ) :
 											$mia_aesthetics_related_query->the_post();
 											?>
-											<a class="list-group-item list-group-item-action d-flex gap-3 py-3"
-												href="<?php the_permalink(); ?>">
-												<i class="fa-solid fa-stethoscope fs-4 flex-shrink-0" aria-hidden="true"></i>
-												<span>
-													<strong>Related: <?php the_title(); ?></strong><br>
-													<small class="text-white">Learn about this complementary procedure</small>
-												</span>
-											</a>
+							<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none" style="width: 300px; max-width: 100%;"
+								href="<?php the_permalink(); ?>">
+								<i class="fa-solid fa-stethoscope flex-shrink-0" aria-hidden="true"></i>
+								<div>
+									<strong>Related: <?php the_title(); ?></strong><br>
+									<small>Learn about this complementary procedure</small>
+								</div>
+							</a>
 											<?php
 										endwhile;
 										wp_reset_postdata();
@@ -195,25 +125,23 @@ if ( $current_post instanceof WP_Post ) {
 								endif;
 								?>
 
-								<a class="list-group-item list-group-item-action d-flex gap-3 py-3"
-									href="/out-of-town-patients/">
-									<i class="fa-solid fa-plane fs-4 flex-shrink-0" aria-hidden="true"></i>
-									<span>
-										<strong>Out‑of‑Town Patients</strong><br>
-										<small class="text-white">Travel info & accommodation details</small>
-									</span>
-								</a>
+						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none" style="width: 300px; max-width: 100%;"
+							href="/out-of-town-patients/">
+							<i class="fa-solid fa-plane flex-shrink-0" aria-hidden="true"></i>
+							<div>
+								<strong>Out‑of‑Town Patients</strong><br>
+								<small>Travel info & accommodation details</small>
+							</div>
+						</a>
 
-								<a class="list-group-item list-group-item-action d-flex gap-3 py-3"
-									href="/calculate-your-bmi/">
-									<i class="fa-solid fa-calculator fs-4 flex-shrink-0" aria-hidden="true"></i>
-									<span>
-										<strong>BMI Calculator</strong><br>
-										<small class="text-white">Calculate your BMI before booking</small>
-									</span>
-								</a>
-							</nav>
-						</aside>
+						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none" style="width: 300px; max-width: 100%;"
+							href="/calculate-your-bmi/">
+							<i class="fa-solid fa-calculator flex-shrink-0" aria-hidden="true"></i>
+							<div>
+								<strong>BMI Calculator</strong><br>
+								<small>Calculate your BMI before booking</small>
+							</div>
+						</a>
 					</div>
 				</div>
 			</section>
