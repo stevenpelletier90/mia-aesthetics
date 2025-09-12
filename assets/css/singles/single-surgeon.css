@@ -516,7 +516,6 @@
   }
   .surgeon-main-column {
     padding-right: 0;
-    margin-bottom: 3rem;
   }
   .surgeon-sidebar {
     position: static;
@@ -550,7 +549,7 @@
     padding: 2rem 0;
   }
   .surgeon-bio-section {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
   .surgeon-video-section {
     margin-bottom: 2rem;

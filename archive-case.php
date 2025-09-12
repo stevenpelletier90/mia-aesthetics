@@ -23,6 +23,30 @@ get_header(); ?>
 		</div>
 	</section>
 
+	<!-- Browse by Surgeon CTA -->
+	<section class="browse-by-surgeon py-5 bg-light">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-lg-8 text-center">
+					<h2 class="h3 mb-3">Browse Results by Surgeon</h2>
+					<p class="lead text-muted mb-4">Explore transformations organized by our expert surgical team members to see their specialized work and artistic approach.</p>
+					<?php
+					echo wp_kses_post(
+						mia_button(
+							'View Results by Surgeon',
+							'/before-after/before-after-by-doctor/',
+							array(
+								'variant' => 'primary',
+								'size'    => 'lg',
+								'icon'    => 'fas fa-arrow-right',
+							)
+						)
+					);
+					?>
+				</div>
+			</div>
+		</div>
+	</section>
 	<!-- Case Categories -->
 	<section class="case-categories py-5">
 		<div class="container">
@@ -100,32 +124,6 @@ get_header(); ?>
 			</div>
 		</div>
 	</section>
-
-	<!-- Browse by Surgeon CTA -->
-	<section class="browse-by-surgeon py-5 bg-light">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<h2 class="h3 mb-3">Browse Results by Surgeon</h2>
-					<p class="lead text-muted mb-4">Explore transformations organized by our expert surgical team members to see their specialized work and artistic approach.</p>
-					<?php
-					echo wp_kses_post(
-						mia_button(
-							'View Results by Surgeon',
-							'/before-after/before-after-by-doctor/',
-							array(
-								'variant' => 'primary',
-								'size'    => 'lg',
-								'icon'    => 'fas fa-arrow-right',
-							)
-						)
-					);
-					?>
-				</div>
-			</div>
-		</div>
-	</section>
-
 </main>
 
 <?php get_footer(); ?>

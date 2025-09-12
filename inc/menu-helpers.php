@@ -769,6 +769,8 @@ function mia_aesthetics_render_mobile_before_after_menu(): void {
 	<ul class="dropdown-menu">
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>View All Before & After</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>
@@ -785,8 +787,6 @@ function mia_aesthetics_render_mobile_before_after_menu(): void {
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Tummy Tuck</a></li>
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/patient-journeys/' ) ); ?>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/patient-journeys/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Patient Testimonials</a></li>
-		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
-		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
 	</ul>
 	<?php
 }

@@ -53,7 +53,7 @@
 	text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
 	font-size: clamp(2.5rem,5vw,62px);
 	letter-spacing: -0.025em;
-	margin: 0 0 1rem 0;
+	margin: 0 0 1rem;
 	text-align: left;
 }
 
@@ -61,7 +61,7 @@
 	color: var(--mia-white);
 	font-family: var(--font-heading);
 	font-weight: 600;
-	margin: 1.5rem 0 0 0;
+	margin: 1.5rem 0 0;
 	text-align: left;
 }
 
@@ -69,7 +69,7 @@
 	color: var(--mia-gold);
 	font-size: clamp(1.5rem, 3vw, 2rem);
 	font-weight: 600;
-	margin: 0 0 0.5rem 0;
+	margin: 0 0 0.5rem;
 }
 
 .treatment-hero .pricing-info small {
@@ -381,6 +381,18 @@
 
 .mommy-makeover-fixed-bg {
 	background: url('/wp-content/uploads/2025/09/mommy-makeover-outside.jpg') center center/cover fixed;
+}
+
+.labiaplasty-fixed-bg {
+	background: url('/wp-content/uploads/2025/09/woman-1.jpg') center center/cover fixed;
+}
+
+.mini-facelift-fixed-bg {
+	background: url('/wp-content/uploads/2025/09/faces-1.jpg') center center/cover fixed;
+}
+
+.neck-lift-fixed-bg {
+	background: url('/wp-content/uploads/2025/09/woman-background.jpg') center center/cover fixed;
 }
 
 .bbl-recovery-content-box {

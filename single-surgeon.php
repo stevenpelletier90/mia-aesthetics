@@ -199,10 +199,10 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				</div>
 
 				<!-- Sidebar Column -->
-				<div class="col-lg-4 d-none d-lg-block">
+				<div class="col-lg-4">
 					<div class="surgeon-sidebar">
 						<!-- Quick Info Card -->
-						<div class="sidebar-card">
+						<div class="sidebar-card d-none d-lg-block">
 							<h3 class="sidebar-card-title">Quick Information</h3>
 							<ul class="surgeon-info-list">
 								<?php if ( null !== $location && '' !== $location && false !== $location_url ) : ?>
