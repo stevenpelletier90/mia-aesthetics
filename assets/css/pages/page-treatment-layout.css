@@ -229,6 +229,135 @@
 	box-shadow: 0 8px 20px rgba(0,0,0,0.12);
 }
 
+.info-card {
+	background: var(--mia-white);
+	border: 1px solid var(--mia-gold);
+	border-radius: 12px;
+	padding: 2rem 1.5rem;
+	text-align: center;
+	transition: all 0.3s ease;
+	height: 100%;
+}
+
+.info-card:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(255,193,7,0.15);
+}
+
+.info-card .card-icon {
+	margin-bottom: 1rem;
+	font-size: 2.5rem;
+}
+
+.info-card h3 {
+	color: var(--mia-black);
+	margin-bottom: 1rem;
+	font-weight: 600;
+}
+
+.info-card p {
+	color: var(--mia-gray);
+	margin-bottom: 0;
+	line-height: 1.6;
+}
+
+/* Procedure Template Note Styles */
+.highlight-note {
+	background: linear-gradient(135deg, rgba(255,193,7,0.15) 0%, rgba(255,193,7,0.08) 100%);
+	border: 2px solid var(--mia-gold);
+	border-radius: 12px;
+	padding: 1.5rem;
+	margin: 1.5rem 0;
+	transition: all 0.3s ease;
+}
+
+.highlight-note:hover {
+	transform: translateY(-2px);
+	box-shadow: 0 6px 20px rgba(255,193,7,0.2);
+}
+
+.highlight-note p {
+	margin-bottom: 0;
+	color: var(--mia-black);
+	font-weight: 500;
+}
+
+.highlight-note i {
+	color: var(--mia-gold);
+	font-size: 1.25rem;
+	margin-right: 0.75rem;
+}
+
+.info-note {
+	background: linear-gradient(135deg, rgba(13,202,240,0.08) 0%, rgba(13,202,240,0.04) 100%);
+	border: 1px solid rgba(13,202,240,0.3);
+	border-radius: 8px;
+	padding: 1.25rem;
+	margin: 1rem 0;
+}
+
+.info-note p {
+	margin-bottom: 0;
+	color: var(--mia-black);
+}
+
+.info-note i {
+	color: #0dcaf0;
+	font-size: 1.1rem;
+	margin-right: 0.5rem;
+}
+
+.confidence-note {
+	background: linear-gradient(135deg, rgba(220,53,69,0.08) 0%, rgba(220,53,69,0.04) 100%);
+	border: 1px solid rgba(220,53,69,0.2);
+	border-radius: 8px;
+	padding: 1.25rem;
+	margin: 1rem 0;
+}
+
+.confidence-note p {
+	margin-bottom: 0;
+	color: var(--mia-black);
+	font-style: italic;
+}
+
+.confidence-note i {
+	color: #dc3545;
+	font-size: 1.1rem;
+	margin-right: 0.5rem;
+}
+
+.customization-note {
+	background: linear-gradient(135deg, rgba(111,66,193,0.08) 0%, rgba(111,66,193,0.04) 100%);
+	border: 1px solid rgba(111,66,193,0.2);
+	border-radius: 8px;
+	padding: 1.25rem;
+	margin: 1rem 0;
+}
+
+.customization-note p {
+	margin-bottom: 0;
+	color: var(--mia-black);
+}
+
+.customization-note i {
+	color: #6f42c1;
+	font-size: 1.1rem;
+	margin-right: 0.5rem;
+}
+
+.causes-info {
+	background: var(--mia-gold-light);
+	border-radius: 8px;
+	padding: 1.25rem;
+	margin: 1rem 0;
+}
+
+.causes-info p {
+	margin-bottom: 0;
+	color: var(--mia-black);
+}
+
 .treatment-area-card {
 	background: var(--mia-white);
 	border: 1px solid var(--mia-gold);
@@ -348,8 +477,51 @@
 	font-size: 1.25rem;
 }
 
+.procedure-hero {
+	background: var(--mia-gold-light);
+	position: relative;
+}
+
+.procedure-hero h2 {
+	color: var(--mia-black);
+	font-family: var(--font-heading);
+	font-weight: 700;
+	line-height: 1.25;
+	font-size: clamp(2rem,4vw,3rem);
+	margin-bottom: 1.5rem;
+}
+
+.procedure-intro-content {
+	padding-right: 2rem;
+}
+
+.procedure-intro-content .lead-text {
+	font-size: 1.125rem;
+	line-height: 1.6;
+	margin-bottom: 1.5rem;
+}
+
+.procedure-intro-content .lead-text p {
+	margin-bottom: 1rem;
+}
+
+.procedure-image-wrapper {
+	border-radius: 12px;
+	overflow: hidden;
+	box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+}
+
 .procedure-section {
 	position: relative;
+}
+
+.procedure-section h2 {
+	color: var(--mia-black);
+	font-family: var(--font-heading);
+	font-weight: 700;
+	line-height: 1.25;
+	font-size: clamp(1.75rem,4vw,2.5rem);
+	margin-bottom: 1.5rem;
 }
 
 .procedure-section .section-header h2 {
@@ -365,6 +537,17 @@
 	font-family: var(--font-heading);
 	font-weight: 600;
 	font-size: clamp(1.25rem,3vw,1.75rem);
+}
+
+.content-wrapper {
+	padding-left: 0;
+}
+
+.content-wrapper p {
+	font-size: 1.125rem;
+	line-height: 1.7;
+	color: var(--mia-black);
+	margin-bottom: 1.25rem;
 }
 
 .body-lift-fixed-bg {

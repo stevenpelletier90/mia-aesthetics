@@ -48,7 +48,7 @@
 			<source media="(max-width: 767px)" srcset="/wp-content/uploads/2025/08/results-Mob.jpg">
 			<img src="/wp-content/uploads/2025/08/results-desktop.jpg" 
 				class="hero-box-image" 
-				alt="Before & After Gallery">
+				alt="Before & After Gallery Results - Mia Aesthetics">
 		</picture>
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Before & After Gallery</div>
@@ -65,7 +65,7 @@
 			<source media="(max-width: 767px)" srcset="/wp-content/uploads/2025/08/financingbox-mobile.jpg">
 			<img src="/wp-content/uploads/2025/08/financing-1500x600px.jpg" 
 				class="hero-box-image" 
-				alt="Affordable Financing">
+				alt="Affordable Financing at Mia Aesthetics">
 		</picture>
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Affordable Financing</div>
