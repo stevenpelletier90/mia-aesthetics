@@ -21,7 +21,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="about-content text-center">
 			<p class="tagline mb-3">PROFESSIONAL CARE YOU CAN TRUST</p>
 			<h1 class="mb-4">About Mia Aesthetics</h1>
-			<p class="about-description mb-5">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
+			<p class="section-description mb-5">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
 		</div>
 		</div>
 	</div>
@@ -75,7 +75,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="excellence-content">
 			<p class="excellence-tagline">Our Commitment</p>
 			<h2 class="text-white">Trusted Surgical Excellence</h2>
-			<p class="excellence-description">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
+			<p class="section-description section-description--white">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
 			<a href="/locations/" class="btn btn-primary me-3" role="button">Our Locations</a>
 			<a href="/plastic-surgeons/" class="btn btn-outline-primary-alt2" role="button">Our Surgeons</a>
@@ -122,7 +122,7 @@ require __DIR__ . '/hero-section.php';
 	<div class="row mb-5 text-center">
 		<div class="col-12">
 		<h2>Our Procedures</h2>
-		<p class="lead">Discover the perfect procedure for your aesthetic goals</p>
+		<p class="section-description">Discover the perfect procedure for your aesthetic goals</p>
 		</div>
 	</div>
 
@@ -208,9 +208,9 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<h3 class="mb-3">Body Contouring</h3>
-			<p class="tagline mb-4">SCULPT YOUR IDEAL FIGURE</p>
-			<p class="mb-4">Our body contouring procedures help you achieve the silhouette you desire. Whether you're looking to remove excess fat, tighten loose skin, or enhance your curves, our specialists can help you reach your aesthetic goals.</p>
+			<p class="tagline mb-3">SCULPT YOUR IDEAL FIGURE</p>
+			<h3 class="mb-4">Body Contouring</h3>
+			<p class="section-description mb-4">Our body contouring procedures help you achieve the silhouette you desire. Whether you're looking to remove excess fat, tighten loose skin, or enhance your curves, our specialists can help you reach your aesthetic goals.</p>
 			
 			<div class="procedure-links mb-4">
 				<div class="row">
@@ -269,9 +269,9 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<h3 class="mb-3">Breast Enhancement</h3>
-			<p class="tagline mb-4">ACHIEVE YOUR DESIRED LOOK</p>
-			<p class="mb-4">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
+			<p class="tagline mb-3">ACHIEVE YOUR DESIRED LOOK</p>
+			<h3 class="mb-4">Breast Enhancement</h3>
+			<p class="section-description mb-4">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
 			
 			<div class="procedure-links mb-4">
 				<div class="row">
@@ -327,9 +327,9 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<h3 class="mb-3">Facial Rejuvenation</h3>
-			<p class="tagline mb-4">ENHANCE YOUR NATURAL BEAUTY</p>
-			<p class="mb-4">Our facial procedures are designed to enhance your natural features and restore youthful appearance. From facelifts to rhinoplasty, our board-certified surgeons use the latest techniques to deliver exceptional results.</p>
+			<p class="tagline mb-3">ENHANCE YOUR NATURAL BEAUTY</p>
+			<h3 class="mb-4">Facial Rejuvenation</h3>
+			<p class="section-description mb-4">Our facial procedures are designed to enhance your natural features and restore youthful appearance. From facelifts to rhinoplasty, our board-certified surgeons use the latest techniques to deliver exceptional results.</p>
 			
 			<div class="procedure-links mb-4">
 				<div class="row">
@@ -388,9 +388,9 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<h3 class="mb-3">Non-Surgical Treatments</h3>
-			<p class="tagline mb-4">REJUVENATE WITHOUT SURGERY</p>
-			<p class="mb-4">Our non-surgical treatments offer remarkable results with minimal downtime. From injectables to laser therapies, we provide a range of options to address your concerns without the need for surgery.</p>
+			<p class="tagline mb-3">REJUVENATE WITHOUT SURGERY</p>
+			<h3 class="mb-4">Non-Surgical Treatments</h3>
+			<p class="section-description mb-4">Our non-surgical treatments offer remarkable results with minimal downtime. From injectables to laser therapies, we provide a range of options to address your concerns without the need for surgery.</p>
 			
 			<div class="procedure-links mb-4">
 				<div class="row">
@@ -436,9 +436,9 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<h3 class="mb-3">Men's Procedures</h3>
-			<p class="tagline mb-4">TAILORED SOLUTIONS FOR MEN</p>
-			<p class="mb-4">Our men's procedures are specifically designed to address the unique concerns and aesthetic goals of our male patients. From body contouring to facial rejuvenation, we offer a range of treatments to help you look and feel your best.</p>
+			<p class="tagline mb-3">TAILORED SOLUTIONS FOR MEN</p>
+			<h3 class="mb-4">Men's Procedures</h3>
+			<p class="section-description mb-4">Our men's procedures are specifically designed to address the unique concerns and aesthetic goals of our male patients. From body contouring to facial rejuvenation, we offer a range of treatments to help you look and feel your best.</p>
 			
 			<div class="procedure-links mb-4">
 				<div class="row">
@@ -487,9 +487,9 @@ require __DIR__ . '/hero-section.php';
 	<div class="row">
 		<div class="col-12">
 		<div class="foundation-content text-center">
-			<h2 class="mb-2">The Mia Aesthetics Foundation</h2>
-			<p class="foundation-tagline mb-4">GIVES BACK</p>
-			<p class="mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+			<p class="foundation-tagline mb-3">GIVING BACK TO OUR COMMUNITY</p>
+			<h2 class="mb-4">The Mia Aesthetics Foundation</h2>
+			<p class="section-description section-description--white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
 			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
 		</div>

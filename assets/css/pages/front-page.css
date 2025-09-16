@@ -21,24 +21,20 @@
 }
 
 .about-content .tagline {
-  color: var(--mia-black);
+  color: var(--mia-white);
+  background-color: var(--mia-black);
+  padding: 8px 16px;
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   margin-bottom: 16px;
   text-transform: uppercase;
+  display: inline-block;
 }
 
 /* About heading now uses theme's standard h1 styles */
 
-.about-content .about-description {
-  color: var(--mia-gray-muted);
-  font-size: clamp(16px, 2.5vw, 18px);
-  line-height: 1.625;
-  margin: 0 auto 32px;
-  max-width: 800px;
-}
 
 /* Stats Grid
    ========================================================================== */
@@ -99,6 +95,8 @@
 
 .excellence-section {
   background-color: var(--mia-black);
+  border-top: 2px solid var(--mia-gold);
+  border-bottom: 2px solid var(--mia-gold);
   padding: 96px 0;
 }
 
@@ -111,7 +109,7 @@
 .excellence-tagline {
   color: var(--mia-gold);
   font-family: var(--font-heading);
-  font-size: 16px;
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   margin-bottom: 16px;
@@ -120,12 +118,6 @@
 
 /* Excellence heading now uses theme's standard h2 styles */
 
-.excellence-description {
-  color: rgba(255, 255, 255, 0.8);
-  font-size: clamp(16px, 2vw, 18px);
-  line-height: 1.625;
-  margin-bottom: 28px;
-}
 
 .excellence-buttons {
   display: flex;
@@ -261,6 +253,7 @@
   padding: 8px 0;
   text-decoration: none;
   transition: all 0.2s ease;
+  font-weight: 600;
 }
 
 .procedure-link i {
@@ -326,12 +319,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
 }
 
-.video-content-overlay p {
-  font-size: 18px;
-  line-height: 1.625;
-  opacity: 0.95;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.7);
-}
 
 /* Foundation Section
    ========================================================================== */
@@ -365,8 +352,9 @@
   z-index: 10;
 }
 
-.foundation-content p {
-  color: var(--mia-white);
+
+/* Foundation Section Special Styling */
+.foundation-content .section-description--white {
   margin-left: auto;
   margin-right: auto;
   max-width: 600px;
@@ -376,13 +364,15 @@
 /* Foundation section h2 styling handled in media queries below */
 
 .foundation-tagline {
-  color: var(--mia-gold);
+  color: var(--mia-white);
+  background-color: var(--mia-black);
+  padding: 8px 16px;
   font-family: var(--font-heading);
-  font-size: clamp(20px, 4vw, 28px);
+  font-size: 1rem;
   font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+  display: inline-block;
 }
 
 /* Common Section Styles
@@ -496,7 +486,7 @@
     color: var(--mia-white);
   }
 
-  .foundation-content p:not(.foundation-tagline) {
+  .foundation-content .section-description--white {
     color: var(--mia-white);
   }
 }
@@ -514,6 +504,11 @@
     margin-bottom: 2rem;
     order: -1;
   }
+
+  .procedures-section img {
+    width: 100%;
+    height: auto;
+  }
 }
 
 @media (max-width: 991.98px) {
@@ -525,9 +520,6 @@
     font-size: 2.5rem;
   }
 
-  .video-content-overlay p {
-    font-size: 1.125rem;
-  }
 }
 
 @media (max-width: 991px) {
@@ -561,7 +553,6 @@
   }
 
   .about-content p {
-    font-size: 1rem;
     margin-bottom: 1.5rem;
   }
 }
@@ -619,11 +610,11 @@
   }
 
   .foundation-section .foundation-tagline {
-    color: var(--mia-gold);
-    text-shadow: none;
+    color: var(--mia-white);
+    background-color: var(--mia-black);
   }
 
-  .foundation-content p {
+  .foundation-content .section-description--white {
     color: var(--mia-black);
     text-shadow: none;
   }
@@ -671,9 +662,17 @@
   }
 
   .foundation-section .foundation-tagline {
-    font-size: 1rem;
-    margin-bottom: 1rem;
-    color: var(--mia-gold);
-    text-shadow: none;
+    color: var(--mia-white);
+    background-color: var(--mia-black);
+  }
+
+  .about-content .tagline,
+  .excellence-tagline,
+  .foundation-tagline {
+    font-size: 12px;
+  }
+
+  .stat-number {
+    font-size: clamp(28px, 7vw, 40px);
   }
 }
