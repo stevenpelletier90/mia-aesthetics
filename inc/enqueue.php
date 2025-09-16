@@ -461,8 +461,8 @@ function mia_get_template_asset_map(): array {
 			'js'  => 'singles/single-case.js',
 		),
 		'single-condition'            => array(
-			'css' => 'singles/single-case.css',
-			'js'  => 'singles/single-case.js',
+			'css' => 'pages/page-condition-layout.css',
+			'js'  => 'pages/page-condition-layout.js',
 		),
 		'single-location'             => array(
 			'css' => 'singles/single-location.css',

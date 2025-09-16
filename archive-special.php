@@ -70,7 +70,7 @@ get_header();
 							</div>
 							<div class="special-card-image">
 								<a href="/non-surgical/j-plasma-skin-tightening/">
-									<img src="/wp-content/uploads/2025/08/J-Plasma-1200x630px.jpg" alt="J-Plasma Skin Tightening Special" class="img-fluid">
+									<img src="/wp-content/uploads/2025/09/j-plasma-promo.jpg" alt="J-Plasma Skin Tightening Special" class="img-fluid">
 								</a>
 							</div>
 							<div class="special-card-body">
