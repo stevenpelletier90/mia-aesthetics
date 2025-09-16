@@ -28,10 +28,10 @@
 			<picture>
 				<!-- Desktop/Widescreen: 768px+ (same 3.2:1 aspect ratio) -->
 				<source media="(min-width: 768px)" 
-					srcset="/wp-content/uploads/2025/08/Heat-Banner-Desktop.jpg 1920w, /wp-content/uploads/2025/08/Heat-Banner-WIDESCREEN.jpg 2560w"
+					srcset="/wp-content/uploads/2025/09/Fall-Web-Banner.jpg 1920w, /wp-content/uploads/2025/09/Fall-Banner-WIDESCREEN.jpg 2560w"
 					sizes="100vw">
 				<!-- Mobile fallback: up to 767px (800x600 - different aspect ratio) -->
-				<img src="/wp-content/uploads/2025/08/Heat-Banner-MOB.jpg" 
+				<img src="/wp-content/uploads/2025/09/Fall-Banner-MOB.jpg" 
 					class="d-block w-100" 
 					alt="Beat the Heat Summer Special" 
 					fetchpriority="high">

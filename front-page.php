@@ -487,9 +487,9 @@ require __DIR__ . '/hero-section.php';
 	<div class="row">
 		<div class="col-12">
 		<div class="foundation-content text-center">
-			<h2 class="text-white mb-2">The Mia Aesthetics Foundation</h2>
+			<h2 class="mb-2">The Mia Aesthetics Foundation</h2>
 			<p class="foundation-tagline mb-4">GIVES BACK</p>
-			<p class="text-white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+			<p class="mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
 			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
 		</div>
