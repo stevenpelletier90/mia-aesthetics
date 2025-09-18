@@ -9,15 +9,13 @@
 get_header(); ?>
 
 <main id="primary">
-<?php mia_aesthetics_breadcrumbs(); ?>
-	
-	<!-- Archive Header -->
+
+<!-- Archive Header -->
 	<section class="post-header py-5">
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="mb-2"><?php post_type_archive_title(); ?></h1>
-					<p class="lead mb-0">Meet our team of board-certified plastic surgeons dedicated to providing exceptional care and results.</p>
+					<h1 class="mb-2">Our Surgeons</h1>				
 				</div>
 			</div>
 		</div>
@@ -121,17 +119,6 @@ get_header(); ?>
 					</div>
 				</div>
 			<?php endif; ?>
-			
-			<!-- Introduction Text - Moved below the surgeon grid -->
-			<div class="row mt-5 pt-5 border-top">
-				<div class="col-lg-8">
-					<h2 class="mb-4"><?php esc_html_e( 'Expert Plastic Surgeons', 'mia-aesthetics' ); ?></h2>
-					<p class="mb-4">Our surgeons are leaders in the field of aesthetic plastic surgery, combining artistry and technical expertise to deliver beautiful, natural-looking results. Each surgeon brings unique specializations and approaches to help you achieve your aesthetic goals.</p>
-					
-					<h2 class="mb-4 mt-5"><?php esc_html_e( 'Comprehensive Care Approach', 'mia-aesthetics' ); ?></h2>
-					<p>At our practice, we believe in a patient-centered approach to care. Our board-certified surgeons work closely with you to understand your goals and develop a personalized treatment plan that addresses your specific needs. From the initial consultation through recovery, our team is committed to providing exceptional support and guidance at every step of your journey.</p>
-				</div>
-			</div>
 		</div>
 	</section>
 	
