@@ -620,15 +620,35 @@
 	position: relative;
 }
 
-.procedure-link-item {
+.procedure-links-section .row.g-3 {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 1rem;
+}
+
+.procedure-links-section .row.g-3 > * {
+	flex: 0 0 auto;
+	width: calc(50% - 0.5rem);
+	max-width: 300px;
+}
+
+@media (min-width: 992px) {
+	.procedure-links-section .row.g-3 > * {
+		width: calc(33.333% - 0.67rem);
+		max-width: 280px;
+	}
+}
+
+.procedure-section .procedure-link-item {
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
 	padding: 1rem 1.5rem;
-	background: var(--mia-white);
-	border: 1px solid rgba(218,165,32,0.2);
+	background: var(--mia-black);
+	border: 1px solid var(--mia-gold);
 	border-radius: 8px;
-	color: var(--mia-black);
+	color: var(--mia-white);
 	text-decoration: none;
 	transition: all 0.3s ease;
 	font-family: var(--font-heading);
@@ -637,37 +657,37 @@
 	line-height: 1.4;
 }
 
-.procedure-link-item:hover {
-	background: rgba(218,165,32,0.05);
+.procedure-section .procedure-link-item:hover {
+	background: rgba(27,27,27,0.8);
 	border-color: var(--mia-gold);
-	color: var(--mia-black);
+	color: var(--mia-white);
 	text-decoration: none;
 	transform: translateX(4px);
-	box-shadow: 0 2px 8px rgba(218,165,32,0.15);
+	box-shadow: 0 4px 12px rgba(200,178,115,0.3);
 }
 
-.procedure-link-item:focus {
+.procedure-section .procedure-link-item:focus {
 	outline: 2px solid var(--mia-gold);
 	outline-offset: 2px;
-	color: var(--mia-black);
+	color: var(--mia-white);
 	text-decoration: none;
 }
 
-.procedure-link-item .link-text {
+.procedure-section .procedure-link-item .link-text {
 	flex: 1;
 	margin: 0;
 	font-weight: 500;
 }
 
-.procedure-link-item .link-arrow {
+.procedure-section .procedure-link-item .link-arrow {
 	color: var(--mia-gold);
 	font-size: 0.875rem;
 	transition: transform 0.3s ease;
 	margin-left: 1rem;
-	opacity: 0.7;
+	opacity: 0.8;
 }
 
-.procedure-link-item:hover .link-arrow {
+.procedure-section .procedure-link-item:hover .link-arrow {
 	transform: translateX(4px);
 	opacity: 1;
 }
