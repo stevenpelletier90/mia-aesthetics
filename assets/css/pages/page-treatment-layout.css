@@ -615,22 +615,61 @@
 	font-weight: 600;
 }
 
-.bbl-link-card {
+/* Elegant Procedure Links Section */
+.procedure-links-section {
+	position: relative;
+}
+
+.procedure-link-item {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 1rem 1.5rem;
 	background: var(--mia-white);
-	border: 1px solid var(--mia-gold);
-	border-radius: 0.5rem;
-	transition: all 0.2s ease;
-}
-
-.bbl-link-card:hover {
-	transform: translateY(-2px);
-	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.bbl-link-card .card-title {
+	border: 1px solid rgba(218,165,32,0.2);
+	border-radius: 8px;
 	color: var(--mia-black);
+	text-decoration: none;
+	transition: all 0.3s ease;
 	font-family: var(--font-heading);
-	font-weight: 600;
+	font-weight: 500;
+	font-size: 1rem;
+	line-height: 1.4;
+}
+
+.procedure-link-item:hover {
+	background: rgba(218,165,32,0.05);
+	border-color: var(--mia-gold);
+	color: var(--mia-black);
+	text-decoration: none;
+	transform: translateX(4px);
+	box-shadow: 0 2px 8px rgba(218,165,32,0.15);
+}
+
+.procedure-link-item:focus {
+	outline: 2px solid var(--mia-gold);
+	outline-offset: 2px;
+	color: var(--mia-black);
+	text-decoration: none;
+}
+
+.procedure-link-item .link-text {
+	flex: 1;
+	margin: 0;
+	font-weight: 500;
+}
+
+.procedure-link-item .link-arrow {
+	color: var(--mia-gold);
+	font-size: 0.875rem;
+	transition: transform 0.3s ease;
+	margin-left: 1rem;
+	opacity: 0.7;
+}
+
+.procedure-link-item:hover .link-arrow {
+	transform: translateX(4px);
+	opacity: 1;
 }
 
 @media (max-width: 991.98px) {
