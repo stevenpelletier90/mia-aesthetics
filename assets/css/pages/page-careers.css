@@ -68,7 +68,6 @@
   font-weight: 500;
   color: var(--mia-gold);
   text-transform: uppercase;
-  letter-spacing: 2px;
   margin-bottom: 1rem;
 }
 
@@ -79,7 +78,6 @@
   color: var(--mia-white);
   line-height: 1.1;
   margin-bottom: 0;
-  letter-spacing: -0.5px;
 }
 
 .stats-content p {
@@ -125,7 +123,6 @@
   color: var(--mia-black);
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  letter-spacing: -1px;
 }
 
 .core-values__subtitle {
@@ -247,7 +244,6 @@
   margin-bottom: 2rem;
   line-height: 1.2;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  letter-spacing: -1px;
   color: var(--mia-white);
 }
 
@@ -278,7 +274,6 @@
   font-weight: 700;
   color: var(--mia-black);
   margin-bottom: 1.5rem;
-  letter-spacing: -1px;
 }
 
 .find-location__subtitle {
@@ -309,7 +304,6 @@
   color: var(--mia-gold);
   font-weight: 600;
   font-size: 0.95rem;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
   margin-bottom: 0.5rem;
 }
@@ -403,7 +397,6 @@
   font-size: 1rem;
   color: var(--mia-gold);
   font-weight: 700;
-  letter-spacing: 0.5px;
   text-transform: uppercase;
 }
 
@@ -509,7 +502,6 @@
   color: var(--mia-black);
   line-height: 1.1;
   margin-bottom: 1.5rem;
-  letter-spacing: -1px;
 }
 
 .testimonials-subtitle {

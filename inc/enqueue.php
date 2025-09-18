@@ -430,6 +430,10 @@ function mia_get_template_asset_map(): array {
 			'css' => 'archives/archive-surgeon.css',
 			'js'  => 'archives/archive-surgeon.js',
 		),
+		'archive-fat-transfer'        => array(
+			'css' => 'archives/archive-fat-transfer.css',
+			'js'  => 'archives/archive-fat-transfer.js',
+		),
 		'archive'                     => array(
 			'css' => 'archives/archive.css',
 			'js'  => 'archives/archive.js',

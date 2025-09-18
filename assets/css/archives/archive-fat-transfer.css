@@ -1,3 +1,5 @@
+/* Fat Transfer Archive Styles - Following condition layout pattern */
+
 .post-header {
   background-color: var(--mia-gold-light);
   border-bottom: 1px solid rgba(0, 0, 0, 0.05);
@@ -129,18 +131,19 @@ body.admin-bar .toc-container {
   .toc-container {
     display: none;
   }
-  .single-condition .overview-section {
+  .archive-fat-transfer .overview-section {
     margin-bottom: 1.5rem;
     padding: 1.5rem 1rem;
   }
-  .single-condition article {
+  .archive-fat-transfer article {
     padding-top: 1.5rem;
     padding-bottom: 2rem;
   }
-  .single-condition .post-header h1 {
+  .archive-fat-transfer .post-header h1 {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
   }
 }
+
 @media (min-width: 992px) {
   .toc-container {
     max-height: calc(100vh - 40px);

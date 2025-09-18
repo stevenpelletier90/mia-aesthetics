@@ -110,7 +110,6 @@
   color: var(--mia-black);
   font-family: var(--font-heading);
   font-weight: 700;
-  letter-spacing: 0.01em;
   margin-bottom: 20px;
   padding-left: 12px;
 }

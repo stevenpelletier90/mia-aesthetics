@@ -270,46 +270,6 @@ Location: `inc/schema/` (class-based JSON‑LD implementation)
 - High memory usage: review custom queries, check for infinite loops
 - Large CSS bundles: run `npm run purge:css` to remove unused classes
 
-**Development Workflow:**
-
-- Local development: use Local by Flywheel or XAMPP with WordPress
-- Version control: exclude `wp-config.php`, uploads directory, cache files
-- Staging deployment: test all ACF fields and custom post types
-- Production deployment: run linting, test forms, verify SSL certificates
-
-**Common WordPress Errors:**
-
-```php
-// Fix "Cannot modify header information" errors
-ob_start(); // Add to top of problematic files
-
-// Fix "Call to undefined function" errors
-if (function_exists('the_function_name')) {
-    the_function_name();
-}
-
-// Fix database errors in custom queries
-$results = $wpdb->get_results($wpdb->prepare(
-    "SELECT * FROM {$wpdb->posts} WHERE post_title = %s",
-    $search_term
-));
-```
-
-### Medical Website Specific Issues
-
-**Content & Compliance:**
-
-- Before/after images not loading: check file permissions, image optimization
-- Form submissions failing: verify nonces, check email configuration
-- Schema markup errors: use Google's Rich Results Test tool
-- Accessibility violations: run axe-core or WAVE accessibility checker
-
-**SEO & Schema Issues:**
-
-- Missing structured data: verify JSON-LD output in page source
-- Duplicate content: check canonical URLs, meta descriptions
-- Missing alt text: audit all procedure images and diagrams
-
 ### Code Quality Issues
 
 **Linting and Quality:**
@@ -356,7 +316,3 @@ Never flag these as missing from static HTML templates; they’re injected by PH
 - **Scope Management**: Do only what's requested; avoid scope creep
 - **File Preference**: Edit existing files rather than creating new ones
 - **Documentation**: This CLAUDE.md is the single canonical doc (create additional docs only if explicitly requested)
-
----
-
-**Last Updated**: January 2025 — Comprehensive update for AI-assisted development with medical aesthetics focus

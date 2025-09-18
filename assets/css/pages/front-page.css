@@ -2,677 +2,649 @@
    Front Page Styles
    ============================================================================= */
 
-/* Foundation Section Background */
-.foundation-bg {
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('/wp-content/uploads/2025/04/miaf6.jpg');
+/* =============================================================================
+   TYPOGRAPHY - HEADING SYSTEM
+   ============================================================================= */
+
+/* Clean Front Page Heading System */
+.page-heading {
+	font-size: 3.5rem; /* 56px */
 }
 
-/* About Section
-   ========================================================================== */
-
-.about-section {
-  padding: 96px 0;
-  margin-top: 0;
-  position: relative;
-  background-color: var(--mia-white);
+.section-heading {
+	font-size: 3rem; /* 48px */
 }
+
+/* =============================================================================
+   TAGLINES
+   ============================================================================= */
 
 .about-content .tagline {
-  color: var(--mia-white);
-  background-color: var(--mia-black);
-  padding: 8px 16px;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-  text-transform: uppercase;
-  display: inline-block;
-}
-
-/* About heading now uses theme's standard h1 styles */
-
-
-/* Stats Grid
-   ========================================================================== */
-
-.stats-grid {
-  display: grid;
-  gap: 32px;
-  grid-template-columns: repeat(4, 1fr);
-  margin: 0 auto;
-  max-width: 1200px;
-  padding: 0 16px;
-}
-
-.stat-box {
-  align-items: center;
-  background-color: var(--mia-gold-light);
-  border-radius: 8px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  min-height: 200px;
-  padding: 40px 24px;
-}
-
-.stat-number {
-  color: var(--mia-gold);
-  font-family: var(--font-heading);
-  font-size: clamp(24px, 6vw, 36px);
-  font-style: italic;
-  font-weight: 700;
-  line-height: 1.25;
-  margin-bottom: 16px;
-  white-space: nowrap;
-}
-
-.stat-number[data-suffix]::after {
-  content: attr(data-suffix);
-  opacity: 0;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.stat-number[data-suffix].counting-complete::after {
-  opacity: 1;
-}
-
-.stat-label {
-  color: var(--mia-gray-dark);
-  font-family: var(--font-heading);
-  font-size: clamp(14px, 2vw, 16px);
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  line-height: 1.375;
-  text-transform: uppercase;
-}
-
-/* Excellence Section
-   ========================================================================== */
-
-.excellence-section {
-  background-color: var(--mia-black);
-  border-top: 2px solid var(--mia-gold);
-  border-bottom: 2px solid var(--mia-gold);
-  padding: 96px 0;
-}
-
-.excellence-image img {
-  border-radius: 8px;
-  height: auto;
-  width: 100%;
+	color: var(--mia-white);
+	background-color: var(--mia-black);
+	padding: 8px 16px;
+	font-family: var(--font-heading);
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 16px;
+	text-transform: uppercase;
+	display: inline-block;
 }
 
 .excellence-tagline {
-  color: var(--mia-gold);
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  margin-bottom: 16px;
-  text-transform: uppercase;
+	color: var(--mia-gold);
+	font-family: var(--font-heading);
+	font-size: 1rem;
+	font-weight: 600;
+	margin-bottom: 16px;
+	text-transform: uppercase;
 }
 
-/* Excellence heading now uses theme's standard h2 styles */
+.foundation-tagline {
+	color: var(--mia-white);
+	background-color: var(--mia-black);
+	padding: 8px 16px;
+	font-family: var(--font-heading);
+	font-size: 1rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	display: inline-block;
+}
 
+/* =============================================================================
+   ABOUT SECTION
+   ============================================================================= */
+
+.about-section {
+	padding: 96px 0;
+	margin-top: 0;
+	position: relative;
+	background-color: var(--mia-white);
+}
+
+/* =============================================================================
+   STATS SECTION
+   ============================================================================= */
+
+.stats-grid {
+	display: grid;
+	gap: 32px;
+	grid-template-columns: repeat(4,1fr);
+	margin: 0 auto;
+	max-width: 1200px;
+	padding: 0 16px;
+}
+
+.stat-box {
+	align-items: center;
+	background-color: var(--mia-gold-light);
+	border-radius: 8px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	min-height: 200px;
+	padding: 40px 24px;
+}
+
+.stat-number {
+	color: var(--mia-gold);
+	font-family: var(--font-heading);
+	font-size: 2.25rem;
+	font-style: italic;
+	font-weight: 700;
+	line-height: 1.25;
+	margin-bottom: 16px;
+	white-space: nowrap;
+}
+
+.stat-number[data-suffix]::after {
+	content: attr(data-suffix);
+	opacity: 0;
+	transition: opacity 0.5s ease-in-out;
+}
+
+.stat-number[data-suffix].counting-complete::after {
+	opacity: 1;
+}
+
+.stat-label {
+	color: var(--mia-gray-dark);
+	font-family: var(--font-heading);
+	font-size: clamp(14px,2vw,16px);
+	font-weight: 600;
+	line-height: 1.375;
+	text-transform: uppercase;
+}
+
+/* =============================================================================
+   EXCELLENCE SECTION
+   ============================================================================= */
+
+.excellence-section {
+	background-color: var(--mia-black);
+	border-top: 2px solid var(--mia-gold);
+	border-bottom: 2px solid var(--mia-gold);
+	padding: 96px 0;
+}
+
+.excellence-image img {
+	border-radius: 8px;
+	height: auto;
+	width: 100%;
+}
 
 .excellence-buttons {
-  display: flex;
-  gap: 16px;
+	display: flex;
+	gap: 16px;
 }
 
-/* Procedures Section
-   ========================================================================== */
-
-.procedures-section {
-  padding: 96px 0;
-}
-
-.procedure-tabs-shell {
-  align-items: center;
-  display: flex;
-  justify-content: center;
-  margin-bottom: 32px;
-  max-width: 100%;
-  position: relative;
-}
-
-.procedure-tabs {
-  border-bottom: none;
-  flex-wrap: nowrap;
-  justify-content: center;
-  margin: 0 60px;
-  overflow-x: auto;
-  scrollbar-width: none;
-  -ms-overflow-style: none;
-}
-
-.procedure-tabs::-webkit-scrollbar {
-  display: none;
-}
-
-.procedure-tabs .nav-link {
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: var(--mia-black);
-  flex: 0 0 auto;
-  font-size: 16px;
-  font-weight: 600;
-  line-height: 1.5;
-  padding: 12px 20px;
-  text-align: center;
-  transition: all 0.2s ease;
-  white-space: nowrap;
-}
-
-.procedure-tabs .nav-link:hover {
-  background-color: var(--mia-gold-10);
-  border-color: transparent;
-}
-
-.procedure-tabs .nav-link.active {
-  background-color: var(--mia-gold);
-  border-color: var(--mia-gold);
-  color: var(--mia-black);
-}
-
-.procedure-nav-arrow {
-  align-items: center;
-  background: var(--mia-white);
-  border: 1px solid var(--mia-gold);
-  border-radius: 50%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  color: var(--mia-gold);
-  display: flex;
-  flex-shrink: 0;
-  height: 40px;
-  justify-content: center;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  transition: all 0.2s ease;
-  width: 40px;
-  z-index: 10;
-}
-
-.prev-arrow {
-  left: 0;
-}
-
-.next-arrow {
-  right: 0;
-}
-
-.procedure-nav-arrow:hover {
-  background-color: var(--mia-gold);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  color: var(--mia-white);
-}
-
-.procedure-nav-arrow:focus {
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
-}
-
-.procedure-nav-arrow:disabled {
-  cursor: not-allowed;
-  opacity: 0.3;
-}
-
-.procedure-nav-arrow i {
-  font-size: 1rem;
-}
-
-#procedureDropdown {
-  border-color: var(--mia-gold);
-  color: var(--mia-black);
-  font-family: var(--font-heading);
-  font-weight: 600;
-}
-
-#procedureDropdown:focus {
-  border-color: var(--mia-gold);
-  box-shadow: 0 0 0 0.25rem var(--mia-gold-30);
-}
-
-/* Procedure titles now use theme's standard h3 styles */
-
-.procedure-links {
-  display: flex;
-  flex-direction: column;
-}
-
-.procedure-link {
-  color: var(--mia-black);
-  display: block;
-  font-size: 16px;
-  line-height: 1.5;
-  padding: 8px 0;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  font-weight: 600;
-}
-
-.procedure-link i {
-  color: var(--mia-gold);
-  margin-right: 8px;
-}
-
-.procedure-link:hover {
-  color: var(--mia-gold);
-  text-decoration: none;
-}
-
-.tab-content img {
-  transition: none;
-}
-
-/* Video Background Section
-   ========================================================================== */
+/* =============================================================================
+   VIDEO BACKGROUND SECTION
+   ============================================================================= */
 
 .video-background-section {
-  background-color: var(--mia-black);
-  margin: 0;
-  padding: 0;
-  position: relative;
+	background-color: var(--mia-black);
+	margin: 0;
+	padding: 0;
+	position: relative;
 }
 
 .video-container {
-  background-color: var(--mia-black);
-  max-height: 60vh;
-  min-height: 50vh;
+	background-color: var(--mia-black);
+	max-height: 60vh;
+	min-height: 50vh;
 }
 
 .video-bg {
-  height: 100%;
-  left: 0;
-  object-fit: cover;
-  object-position: center;
-  pointer-events: none;
-  position: absolute;
-  top: 0;
-  width: 100%;
+	height: 100%;
+	left: 0;
+	object-fit: cover;
+	object-position: center;
+	pointer-events: none;
+	position: absolute;
+	top: 0;
+	width: 100%;
 }
 
 .video-content-overlay {
-  background: linear-gradient(
-    to bottom,
-    rgba(0, 0, 0, 0.4) 0%,
-    rgba(0, 0, 0, 0.6) 50%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
-  padding: 48px 0;
-  pointer-events: none;
-  z-index: 1;
+	background: linear-gradient( to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.6) 50%, rgba(0,0,0,0.4) 100% );
+	padding: 48px 0;
+	pointer-events: none;
+	z-index: 1;
 }
 
-.video-content-overlay a,
-.video-content-overlay button {
-  pointer-events: auto;
+.video-content-overlay a, .video-content-overlay button {
+	pointer-events: auto;
 }
 
 .video-content-overlay h2 {
-  letter-spacing: -1px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+	text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
+/* =============================================================================
+   PROCEDURES SECTION
+   ============================================================================= */
 
-/* Foundation Section
-   ========================================================================== */
+.procedures-section {
+	padding: 96px 0;
+}
+
+.procedure-tabs-shell {
+	align-items: center;
+	display: flex;
+	justify-content: center;
+	margin-bottom: 32px;
+	max-width: 100%;
+	position: relative;
+}
+
+.procedure-tabs {
+	border-bottom: none;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 60px;
+	overflow-x: auto;
+	scrollbar-width: none;
+	-ms-overflow-style: none;
+}
+
+.procedure-tabs::-webkit-scrollbar {
+	display: none;
+}
+
+.procedure-tabs .nav-link {
+	border: 1px solid transparent;
+	border-radius: 4px;
+	color: var(--mia-black);
+	flex: 0 0 auto;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 1.5;
+	padding: 12px 20px;
+	text-align: center;
+	transition: all 0.2s ease;
+	white-space: nowrap;
+}
+
+.procedure-tabs .nav-link:hover {
+	background-color: var(--mia-gold-10);
+	border-color: transparent;
+}
+
+.procedure-tabs .nav-link.active {
+	background-color: var(--mia-gold);
+	border-color: var(--mia-gold);
+	color: var(--mia-black);
+}
+
+.procedure-nav-arrow {
+	align-items: center;
+	background: var(--mia-white);
+	border: 1px solid var(--mia-gold);
+	border-radius: 50%;
+	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+	color: var(--mia-gold);
+	display: flex;
+	flex-shrink: 0;
+	height: 40px;
+	justify-content: center;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	transition: all 0.2s ease;
+	width: 40px;
+	z-index: 10;
+}
+
+.prev-arrow {
+	left: 0;
+}
+
+.next-arrow {
+	right: 0;
+}
+
+.procedure-nav-arrow:hover {
+	background-color: var(--mia-gold);
+	box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+	color: var(--mia-white);
+}
+
+.procedure-nav-arrow:focus {
+	outline: 2px solid var(--mia-gold);
+	outline-offset: 2px;
+}
+
+.procedure-nav-arrow:disabled {
+	cursor: not-allowed;
+	opacity: 0.3;
+}
+
+.procedure-nav-arrow i {
+	font-size: 1rem;
+}
+
+#procedureDropdown {
+	border-color: var(--mia-gold);
+	color: var(--mia-black);
+	font-family: var(--font-heading);
+	font-weight: 600;
+}
+
+#procedureDropdown:focus {
+	border-color: var(--mia-gold);
+	box-shadow: 0 0 0 0.25rem var(--mia-gold-30);
+}
+
+.procedure-links {
+	display: flex;
+	flex-direction: column;
+}
+
+.procedure-link {
+	color: var(--mia-black);
+	display: block;
+	font-size: 16px;
+	line-height: 1.5;
+	padding: 8px 0;
+	text-decoration: none;
+	transition: all 0.2s ease;
+	font-weight: 600;
+}
+
+.procedure-link i {
+	color: var(--mia-gold);
+	margin-right: 8px;
+}
+
+.procedure-link:hover {
+	color: var(--mia-gold);
+	text-decoration: none;
+}
+
+.tab-content img {
+	transition: none;
+}
+
+/* =============================================================================
+   FOUNDATION SECTION
+   ============================================================================= */
 
 .foundation-section {
-  overflow: hidden;
-  padding: 0;
-  position: relative;
+	overflow: hidden;
+	padding: 0;
+	position: relative;
+}
+
+.foundation-bg {
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-image: url('/wp-content/uploads/2025/04/miaf6.jpg');
 }
 
 .foundation-mobile-img {
-  display: block;
-  line-height: 0;
-  width: 100%;
+	display: block;
+	line-height: 0;
+	width: 100%;
 }
 
 .foundation-mobile-img img {
-  display: block;
-  width: 100%;
+	display: block;
+	width: 100%;
 }
 
 .foundation-content {
-  background: transparent;
-  border-radius: 0;
-  margin: 0 auto;
-  max-width: 100%;
-  padding: 3rem 3rem 2rem;
-  position: relative;
-  text-align: center;
-  width: 100%;
-  z-index: 10;
+	background: transparent;
+	border-radius: 0;
+	margin: 0 auto;
+	max-width: 100%;
+	padding: 3rem 3rem 2rem;
+	position: relative;
+	text-align: center;
+	width: 100%;
+	z-index: 10;
 }
 
-
-/* Foundation Section Special Styling */
 .foundation-content .section-description--white {
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 600px;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 600px;
+	text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
 }
 
-/* Foundation section h2 styling handled in media queries below */
-
-.foundation-tagline {
-  color: var(--mia-white);
-  background-color: var(--mia-black);
-  padding: 8px 16px;
-  font-family: var(--font-heading);
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  display: inline-block;
-}
-
-/* Common Section Styles
-   ========================================================================== */
-
-/* Section headings now use theme's standard h2 styles */
-
-/* Section subheadings now use tagline class */
-
-/* Media Queries
-   ========================================================================== */
+/* =============================================================================
+   MEDIA QUERIES - TABLET & DESKTOP
+   ============================================================================= */
 
 @media (min-width: 992px) {
-  .about-section {
-    padding: 8rem 0;
-  }
+	.about-section {
+		padding: 8rem 0;
+	}
 
-  .about-section .row.align-items-center {
-    margin-left: -20px;
-    margin-right: -20px;
-  }
+	.about-section .row.align-items-center {
+		margin-left: -20px;
+		margin-right: -20px;
+	}
 
-  .about-section .row.align-items-center > [class*="col-"] {
-    padding-left: 20px;
-    padding-right: 20px;
-  }
+	.about-section .row.align-items-center > [class*="col-"] {
+		padding-left: 20px;
+		padding-right: 20px;
+	}
 }
 
 @media (min-width: 1200px) {
-  .procedure-tabs .nav-link {
-    min-width: 160px;
-    padding: 0.75rem 1.5rem;
-  }
+	.procedure-tabs .nav-link {
+		min-width: 160px;
+		padding: 0.75rem 1.5rem;
+	}
 }
 
 @media (min-width: 992px) and (max-width: 1199px) {
-  .procedure-tabs .nav-link {
-    font-size: 0.95rem;
-    min-width: 140px;
-    padding: 0.75rem 1rem;
-  }
+	.procedure-tabs .nav-link {
+		font-size: 0.95rem;
+		min-width: 140px;
+		padding: 0.75rem 1rem;
+	}
 }
 
 @media (min-width: 768px) and (max-width: 991px) {
-  .procedure-tabs .nav-link {
-    font-size: 0.875rem;
-    min-width: 110px;
-    padding: 0.75rem 0.625rem;
-  }
+	.procedure-tabs .nav-link {
+		font-size: 0.875rem;
+		min-width: 110px;
+		padding: 0.75rem 0.625rem;
+	}
 
-  .procedure-tabs {
-    margin: 0 50px;
-  }
+	.procedure-tabs {
+		margin: 0 50px;
+	}
 
-  .stats-section .display-5[data-count] {
-    font-size: 2.5rem;
-    min-width: 100%;
-    white-space: nowrap;
-    word-break: keep-all;
-  }
+	.stats-section .display-5[data-count] {
+		font-size: 2.5rem;
+		min-width: 100%;
+		white-space: nowrap;
+		word-break: keep-all;
+	}
 
-  .stats-section .display-5[data-suffix=", 000 +"] {
-    font-size: 2.25rem;
-  }
+	.stats-section .display-5[data-suffix=", 000 +"] {
+		font-size: 2.25rem;
+	}
 }
 
 @media (min-width: 768px) {
-  .foundation-section {
-    height: 600px;
-  }
+	.foundation-section {
+		height: 600px;
+	}
 
-  .foundation-bg {
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 1;
-  }
+	.foundation-bg {
+		background-attachment: fixed;
+		background-position: center;
+		background-size: cover;
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 1;
+	}
 
-  .foundation-bg::after {
-    background: linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0.3) 0%,
-      rgba(0, 0, 0, 0.5) 50%,
-      rgba(0, 0, 0, 0.7) 100%
-    );
-    content: "";
-    height: 100%;
-    left: 0;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    z-index: 2;
-  }
+	.foundation-bg::after {
+		background: linear-gradient( to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.5) 50%, rgba(0,0,0,0.7) 100% );
+		content: "";
+		height: 100%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		width: 100%;
+		z-index: 2;
+	}
 
-  .foundation-section .container {
-    align-items: flex-end;
-    display: flex;
-    height: 100%;
-    justify-content: center;
-    padding-bottom: 48px;
-    position: relative;
-    z-index: 3;
-  }
+	.foundation-section .container {
+		align-items: flex-end;
+		display: flex;
+		height: 100%;
+		justify-content: center;
+		padding-bottom: 48px;
+		position: relative;
+		z-index: 3;
+	}
 
-  .foundation-section h2 {
-    color: var(--mia-white);
-  }
+	.foundation-section h2 {
+		color: var(--mia-white);
+	}
 
-  .foundation-content .section-description--white {
-    color: var(--mia-white);
-  }
+	.foundation-content .section-description--white {
+		color: var(--mia-white);
+	}
 }
 
 @media (max-width: 1199.98px) {
-  .procedures-section .row.align-items-center {
-    flex-direction: column;
-  }
+	.procedures-section .row.align-items-center {
+		flex-direction: column;
+	}
 
-  .procedures-section .row.align-items-center .col-lg-6 {
-    width: 100%;
-  }
+	.procedures-section .row.align-items-center .col-lg-6 {
+		width: 100%;
+	}
 
-  .procedures-section .row.align-items-center .col-lg-6.order-lg-2 {
-    margin-bottom: 2rem;
-    order: -1;
-  }
+	.procedures-section .row.align-items-center .col-lg-6.order-lg-2 {
+		margin-bottom: 2rem;
+		order: -1;
+	}
 
-  .procedures-section img {
-    width: 100%;
-    height: auto;
-  }
+	.procedures-section img {
+		width: 100%;
+		height: auto;
+	}
 }
 
 @media (max-width: 991.98px) {
-  .video-background-section {
-    margin: 0;
-  }
-
-  .video-content-overlay h2 {
-    font-size: 2.5rem;
-  }
-
+	.video-background-section {
+		margin: 0;
+	}
 }
 
 @media (max-width: 991px) {
-  .stats-grid {
-    gap: 24px;
-    grid-template-columns: repeat(2, 1fr);
-    max-width: 700px;
-  }
+	.stats-grid {
+		gap: 24px;
+		grid-template-columns: repeat(2,1fr);
+		max-width: 700px;
+	}
 
-  /* Section headings use theme's responsive h2 styles */
+	.procedures-section {
+		padding: 4rem 0;
+	}
 
-  /* Subheadings now use tagline class with responsive sizing */
+	.foundation-content {
+		background: transparent;
+		padding: 3rem 2rem 2.5rem;
+	}
 
-  .procedures-section {
-    padding: 4rem 0;
-  }
+	.about-section, .stats-section {
+		padding: 4rem 0;
+	}
 
-  .foundation-content {
-    background: transparent;
-    padding: 3rem 2rem 2.5rem;
-  }
-
-  .about-section,
-  .stats-section {
-    padding: 4rem 0;
-  }
-
-  .about-content h1 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-  }
-
-  .about-content p {
-    margin-bottom: 1.5rem;
-  }
+	.about-content p {
+		margin-bottom: 1.5rem;
+	}
 }
 
 @media (max-width: 767.98px) {
-  .video-background-section {
-    height: auto;
-    margin: 0;
-    padding: 0;
-  }
+	.video-background-section {
+		height: auto;
+		margin: 0;
+		padding: 0;
+	}
 
-  .video-container {
-    aspect-ratio: 16/9;
-    height: auto;
-    max-height: none;
-    min-height: auto;
-    width: 100%;
-  }
+	.video-container {
+		aspect-ratio: 16/9;
+		height: auto;
+		max-height: none;
+		min-height: auto;
+		width: 100%;
+	}
 }
 
 @media (max-width: 767px) {
-  .stat-box {
-    min-height: 180px;
-    padding: 32px 16px;
-  }
+	.stat-box {
+		min-height: 180px;
+		padding: 32px 16px;
+	}
 
-  /* Section headings use theme's responsive h2 styles */
+	.procedures-section {
+		padding: 3rem 0;
+	}
 
-  /* Subheadings now use tagline class with responsive sizing */
+	.foundation-section {
+		height: auto;
+		position: relative;
+	}
 
-  .procedures-section {
-    padding: 3rem 0;
-  }
+	.foundation-section .container {
+		padding: 0;
+	}
 
-  .foundation-section {
-    height: auto;
-    position: relative;
-  }
+	.foundation-content {
+		background: var(--mia-white);
+		padding: 40px 20px;
+		margin: 0;
+	}
 
+	.foundation-section h2 {
+		color: var(--mia-black);
+	}
 
-  .foundation-section .container {
-    padding: 0;
-  }
+	.foundation-section .foundation-tagline {
+		color: var(--mia-white);
+		background-color: var(--mia-black);
+	}
 
-  .foundation-content {
-    background: var(--mia-white);
-    padding: 40px 20px;
-    margin: 0;
-  }
+	.foundation-content .section-description--white {
+		color: var(--mia-black);
+		text-shadow: none;
+	}
 
-  .foundation-section h2 {
-    margin-top: 0;
-    color: var(--mia-black);
-    text-shadow: none;
-  }
+	.stats-content {
+		margin-bottom: 1.5rem;
+		text-align: left;
+	}
 
-  .foundation-section .foundation-tagline {
-    color: var(--mia-white);
-    background-color: var(--mia-black);
-  }
-
-  .foundation-content .section-description--white {
-    color: var(--mia-black);
-    text-shadow: none;
-  }
-
-  .stats-content {
-    margin-bottom: 1.5rem;
-    text-align: left;
-  }
-
-  .stats-content .d-flex {
-    justify-content: flex-start;
-  }
+	.stats-content .d-flex {
+		justify-content: flex-start;
+	}
 }
 
+/* =============================================================================
+   MEDIA QUERIES - MOBILE
+   ============================================================================= */
+
 @media (max-width: 480px) {
-  .stats-grid {
-    gap: 16px;
-    padding: 0 8px;
-  }
+	/* Mobile Typography */
+	.page-heading {
+		font-size: 2.5rem; /* 40px */
+	}
 
-  .stat-box {
-    min-height: 160px;
-    padding: 1.5rem 0.75rem;
-  }
+	.section-heading {
+		font-size: 2rem; /* 32px */
+	}
 
-  .about-section,
-  .stats-section {
-    padding: 40px 0;
-  }
+	/* Mobile Taglines */
+	.about-content .tagline, .excellence-tagline, .foundation-tagline {
+		font-size: 12px;
+	}
 
-  .about-content h1 {
-    font-size: 1.75rem;
-  }
+	/* Mobile Stats */
+	.stats-grid {
+		gap: 16px;
+		padding: 0 8px;
+	}
 
-  .foundation-content {
-    background: var(--mia-white);
-    padding: 32px 20px;
-    margin: 0;
-  }
+	.stat-box {
+		min-height: 160px;
+		padding: 1.5rem 0.75rem;
+	}
 
-  .foundation-section h2 {
-    font-size: 1.5rem;
-    color: var(--mia-black);
-    text-shadow: none;
-  }
+	.stat-number {
+		font-size: 2rem;
+	}
 
-  .foundation-section .foundation-tagline {
-    color: var(--mia-white);
-    background-color: var(--mia-black);
-  }
+	/* Mobile Section Spacing */
+	.about-section, .stats-section {
+		padding: 40px 0;
+	}
 
-  .about-content .tagline,
-  .excellence-tagline,
-  .foundation-tagline {
-    font-size: 12px;
-  }
+	.foundation-content {
+		background: var(--mia-white);
+		padding: 32px 20px;
+		margin: 0;
+	}
 
-  .stat-number {
-    font-size: clamp(28px, 7vw, 40px);
-  }
+	.foundation-section h2 {
+		color: var(--mia-black);
+	}
+
+	.foundation-section .foundation-tagline {
+		color: var(--mia-white);
+		background-color: var(--mia-black);
+	}
 }

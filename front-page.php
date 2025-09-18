@@ -20,7 +20,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="col-lg-10 col-xl-8">
 		<div class="about-content text-center">
 			<p class="tagline mb-3">PROFESSIONAL CARE YOU CAN TRUST</p>
-			<h1 class="mb-4">About Mia Aesthetics</h1>
+			<h1 class="mb-4 page-heading">About Mia Aesthetics</h1>
 			<p class="section-description mb-5">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
 		</div>
 		</div>
@@ -28,12 +28,12 @@ require __DIR__ . '/hero-section.php';
 	
 	<!-- Custom Statistics Grid -->
 	<div class="stats-grid">
-		<!-- Founded Year -->  
+		<!-- Founded Year -->
 		<div class="stat-box text-center">
 		<div class="stat-number" data-count="2017">0</div>
 		<div class="stat-label">YEAR<br>FOUNDED</div>
 		</div>
-	  
+
 		<!-- Expert Surgeons (Dynamic) -->
 		<div class="stat-box text-center">
 		<div class="stat-number" data-count="
@@ -44,13 +44,13 @@ require __DIR__ . '/hero-section.php';
 		">0</div>
 		<div class="stat-label">EXPERT<br>SURGEONS</div>
 		</div>
-	  
+
 		<!-- Clinic Locations (Dynamic) -->
 		<div class="stat-box text-center">
 		<div class="stat-number" data-count="<?php echo esc_attr( (string) $stats['locations'] ); ?>">0</div>
 		<div class="stat-label">CLINIC<br>LOCATIONS</div>
 		</div>
-	  
+
 		<!-- Satisfied Patients -->
 		<div class="stat-box text-center">
 		<div class="stat-number" data-count="150000" data-suffix="+">0</div>
@@ -74,7 +74,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="col-lg-6">
 		<div class="excellence-content">
 			<p class="excellence-tagline">Our Commitment</p>
-			<h2 class="text-white">Trusted Surgical Excellence</h2>
+			<h2 class="text-white section-heading">Trusted Surgical Excellence</h2>
 			<p class="section-description section-description--white">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
 			<a href="/locations/" class="btn btn-primary me-3" role="button">Our Locations</a>
@@ -107,7 +107,7 @@ require __DIR__ . '/hero-section.php';
 	<div class="container">
 		<div class="row justify-content-center">
 		<div class="col-lg-8 text-center">
-			<h2 class="text-white mb-4">Experience Excellence</h2>
+			<h2 class="text-white mb-4 section-heading">Experience Excellence</h2>
 			<p class="lead text-white mb-4">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
 			<a href="/consultation/" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
 		</div>
@@ -121,7 +121,7 @@ require __DIR__ . '/hero-section.php';
 	<div class="container">
 	<div class="row mb-5 text-center">
 		<div class="col-12">
-		<h2>Our Procedures</h2>
+		<h2 class="section-heading">Our Procedures</h2>
 		<p class="section-description">Discover the perfect procedure for your aesthetic goals</p>
 		</div>
 	</div>
@@ -209,7 +209,7 @@ require __DIR__ . '/hero-section.php';
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
 			<p class="tagline mb-3">SCULPT YOUR IDEAL FIGURE</p>
-			<h3 class="mb-4">Body Contouring</h3>
+			<h3 class="mb-4 section-heading">Body Contouring</h3>
 			<p class="section-description mb-4">Our body contouring procedures help you achieve the silhouette you desire. Whether you're looking to remove excess fat, tighten loose skin, or enhance your curves, our specialists can help you reach your aesthetic goals.</p>
 			
 			<div class="procedure-links mb-4">
@@ -270,7 +270,7 @@ require __DIR__ . '/hero-section.php';
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
 			<p class="tagline mb-3">ACHIEVE YOUR DESIRED LOOK</p>
-			<h3 class="mb-4">Breast Enhancement</h3>
+			<h3 class="mb-4 section-heading">Breast Enhancement</h3>
 			<p class="section-description mb-4">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
 			
 			<div class="procedure-links mb-4">
@@ -328,7 +328,7 @@ require __DIR__ . '/hero-section.php';
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
 			<p class="tagline mb-3">ENHANCE YOUR NATURAL BEAUTY</p>
-			<h3 class="mb-4">Facial Rejuvenation</h3>
+			<h3 class="mb-4 section-heading">Facial Rejuvenation</h3>
 			<p class="section-description mb-4">Our facial procedures are designed to enhance your natural features and restore youthful appearance. From facelifts to rhinoplasty, our board-certified surgeons use the latest techniques to deliver exceptional results.</p>
 			
 			<div class="procedure-links mb-4">
@@ -389,7 +389,7 @@ require __DIR__ . '/hero-section.php';
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
 			<p class="tagline mb-3">REJUVENATE WITHOUT SURGERY</p>
-			<h3 class="mb-4">Non-Surgical Treatments</h3>
+			<h3 class="mb-4 section-heading">Non-Surgical Treatments</h3>
 			<p class="section-description mb-4">Our non-surgical treatments offer remarkable results with minimal downtime. From injectables to laser therapies, we provide a range of options to address your concerns without the need for surgery.</p>
 			
 			<div class="procedure-links mb-4">
@@ -437,7 +437,7 @@ require __DIR__ . '/hero-section.php';
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
 			<p class="tagline mb-3">TAILORED SOLUTIONS FOR MEN</p>
-			<h3 class="mb-4">Men's Procedures</h3>
+			<h3 class="mb-4 section-heading">Men's Procedures</h3>
 			<p class="section-description mb-4">Our men's procedures are specifically designed to address the unique concerns and aesthetic goals of our male patients. From body contouring to facial rejuvenation, we offer a range of treatments to help you look and feel your best.</p>
 			
 			<div class="procedure-links mb-4">
@@ -488,7 +488,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="col-12">
 		<div class="foundation-content text-center">
 			<p class="foundation-tagline mb-3">GIVING BACK TO OUR COMMUNITY</p>
-			<h2 class="mb-4">The Mia Aesthetics Foundation</h2>
+			<h2 class="mb-4 section-heading">The Mia Aesthetics Foundation</h2>
 			<p class="section-description section-description--white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
 			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
