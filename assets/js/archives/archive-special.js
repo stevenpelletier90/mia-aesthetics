@@ -1,49 +1,11 @@
 /**
  * Archive Special JavaScript
- * Handles language toggle functionality
+ * Bootstrap 5 handles tab functionality natively
  */
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Category toggle functionality
-  const languageButtons = document.querySelectorAll(".specials-language-toggle .btn");
-  const englishSpecials = document.getElementById("english-specials");
-  const spanishSpecials = document.getElementById("spanish-specials");
-
-  if (languageButtons.length > 0) {
-    languageButtons.forEach((button) => {
-      button.addEventListener("click", function () {
-        const lang = this.getAttribute("data-lang");
-
-        // Update button states
-        languageButtons.forEach((btn) => {
-          btn.classList.remove("btn-primary", "active");
-          btn.classList.add("btn-outline-primary");
-        });
-
-        this.classList.remove("btn-outline-primary");
-        this.classList.add("btn-primary", "active");
-
-        // Toggle content based on selection
-        if (lang === "english") {
-          // Show category 1 (English/Default)
-          if (englishSpecials) {
-            englishSpecials.style.display = "block";
-          }
-          if (spanishSpecials) {
-            spanishSpecials.style.display = "none";
-          }
-        } else if (lang === "spanish") {
-          // Show category 2 (Spanish/Secondary)
-          if (englishSpecials) {
-            englishSpecials.style.display = "none";
-          }
-          if (spanishSpecials) {
-            spanishSpecials.style.display = "block";
-          }
-        }
-      });
-    });
-  }
+  // Tab functionality is now handled by Bootstrap 5 natively
+  // No custom JavaScript needed for language toggle
 
   // Smooth scroll for sticky specials
   const stickySpecials = document.querySelectorAll(".sticky-special");

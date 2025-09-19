@@ -24,10 +24,34 @@ get_header();
 	<!-- 2. Language Toggle -->
 	<div class="specials-language-toggle py-3">
 		<div class="container">
-			<div class="btn-group" role="group" aria-label="Language filter">
-				<button type="button" class="btn btn-primary active" data-lang="english" id="english-tab">English</button>
-				<button type="button" class="btn btn-outline-primary" data-lang="spanish" id="spanish-tab">Español</button>
-			</div>
+			<ul class="nav nav-tabs" id="specialsTabs" role="tablist">
+				<li class="nav-item" role="presentation">
+					<button
+						class="nav-link active"
+						id="english-tab"
+						data-bs-toggle="tab"
+						data-bs-target="#english-specials"
+						type="button"
+						role="tab"
+						aria-controls="english-specials"
+						aria-selected="true">
+						English
+					</button>
+				</li>
+				<li class="nav-item" role="presentation">
+					<button
+						class="nav-link"
+						id="spanish-tab"
+						data-bs-toggle="tab"
+						data-bs-target="#spanish-specials"
+						type="button"
+						role="tab"
+						aria-controls="spanish-specials"
+						aria-selected="false">
+						Español
+					</button>
+				</li>
+			</ul>
 		</div>
 	</div>
 
@@ -105,116 +129,118 @@ get_header();
 
 			if ( $specials_query->have_posts() ) :
 				?>
-				<!-- English Specials -->
-				<div id="english-specials" class="specials-content">
-					<div class="row">
-						<?php
-						while ( $specials_query->have_posts() ) :
-							$specials_query->the_post();
+				<div class="tab-content" id="specialsTabContent">
+					<!-- English Specials -->
+					<div class="tab-pane fade show active" id="english-specials" role="tabpanel" aria-labelledby="english-tab" tabindex="0">
+						<div class="row">
+							<?php
+							while ( $specials_query->have_posts() ) :
+								$specials_query->the_post();
 
-							// Get the special categories for this post.
-							$current_post_id = get_the_ID();
-							$categories      = false !== $current_post_id ? get_the_terms( $current_post_id, 'special-category' ) : false;
-							$is_english      = false;
+								// Get the special categories for this post.
+								$current_post_id = get_the_ID();
+								$categories      = false !== $current_post_id ? get_the_terms( $current_post_id, 'special-category' ) : false;
+								$is_english      = false;
 
-							if ( is_array( $categories ) ) {
-								// Check if this special has the english-specials category.
-								foreach ( $categories as $category ) {
-									if ( 'english-specials' === $category->slug ) {
-										$is_english = true;
-										break;
+								if ( is_array( $categories ) ) {
+									// Check if this special has the english-specials category.
+									foreach ( $categories as $category ) {
+										if ( 'english-specials' === $category->slug ) {
+											$is_english = true;
+											break;
+										}
 									}
 								}
-							}
 
-							// Only show English specials in this section.
-							if ( ! $is_english ) {
-								continue;
-							}
-							?>
-							<div class="col-lg-6 col-md-6 mb-4 special-item" data-category="category-1">
-								<div class="special-card">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<div class="special-card-image">
-											<a href="<?php the_permalink(); ?>">
-												<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
-											</a>
-										</div>
-									<?php endif; ?>
-									<div class="special-card-body">
-										<h3 class="special-card-title">
-											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										</h3>
-										<?php if ( has_excerpt() ) : ?>
-											<div class="special-card-excerpt">
-												<?php the_excerpt(); ?>
+								// Only show English specials in this section.
+								if ( ! $is_english ) {
+									continue;
+								}
+								?>
+								<div class="col-lg-6 col-md-6 mb-4 special-item" data-category="category-1">
+									<div class="special-card">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<div class="special-card-image">
+												<a href="<?php the_permalink(); ?>">
+													<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
+												</a>
 											</div>
 										<?php endif; ?>
-										<a href="<?php the_permalink(); ?>" class="btn btn-primary">
-											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-										</a>
+										<div class="special-card-body">
+											<h3 class="special-card-title">
+												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+											</h3>
+											<?php if ( has_excerpt() ) : ?>
+												<div class="special-card-excerpt">
+													<?php the_excerpt(); ?>
+												</div>
+											<?php endif; ?>
+											<a href="<?php the_permalink(); ?>" class="btn btn-primary">
+												Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-						<?php endwhile; ?>
+							<?php endwhile; ?>
+						</div>
 					</div>
-				</div>
 
-				<!-- Spanish Specials -->
-				<div id="spanish-specials" class="specials-content hidden">
-					<div class="row">
-						<?php
-						// Reset the query to loop through again for Spanish specials.
-						$specials_query->rewind_posts();
+					<!-- Spanish Specials -->
+					<div class="tab-pane fade" id="spanish-specials" role="tabpanel" aria-labelledby="spanish-tab" tabindex="0">
+						<div class="row">
+							<?php
+							// Reset the query to loop through again for Spanish specials.
+							$specials_query->rewind_posts();
 
-						while ( $specials_query->have_posts() ) :
-							$specials_query->the_post();
+							while ( $specials_query->have_posts() ) :
+								$specials_query->the_post();
 
-							// Get the special categories for this post.
-							$current_post_id = get_the_ID();
-							$categories      = ( false !== $current_post_id ) ? get_the_terms( $current_post_id, 'special-category' ) : false;
-							$is_spanish      = false;
+								// Get the special categories for this post.
+								$current_post_id = get_the_ID();
+								$categories      = ( false !== $current_post_id ) ? get_the_terms( $current_post_id, 'special-category' ) : false;
+								$is_spanish      = false;
 
-							if ( is_array( $categories ) ) {
-								// Check if this special has the spanish-specials category.
-								foreach ( $categories as $category ) {
-									if ( 'spanish-specials' === $category->slug ) {
-										$is_spanish = true;
-										break;
+								if ( is_array( $categories ) ) {
+									// Check if this special has the spanish-specials category.
+									foreach ( $categories as $category ) {
+										if ( 'spanish-specials' === $category->slug ) {
+											$is_spanish = true;
+											break;
+										}
 									}
 								}
-							}
 
-							// Only show Spanish specials in this section.
-							if ( ! $is_spanish ) {
-								continue;
-							}
-							?>
-							<div class="col-lg-6 col-md-6 mb-4 special-item" data-category="category-2">
-								<div class="special-card">
-									<?php if ( has_post_thumbnail() ) : ?>
-										<div class="special-card-image">
-											<a href="<?php the_permalink(); ?>">
-												<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
-											</a>
-										</div>
-									<?php endif; ?>
-									<div class="special-card-body">
-										<h3 class="special-card-title">
-											<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-										</h3>
-										<?php if ( has_excerpt() ) : ?>
-											<div class="special-card-excerpt">
-												<?php the_excerpt(); ?>
+								// Only show Spanish specials in this section.
+								if ( ! $is_spanish ) {
+									continue;
+								}
+								?>
+								<div class="col-lg-6 col-md-6 mb-4 special-item" data-category="category-2">
+									<div class="special-card">
+										<?php if ( has_post_thumbnail() ) : ?>
+											<div class="special-card-image">
+												<a href="<?php the_permalink(); ?>">
+													<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
+												</a>
 											</div>
 										<?php endif; ?>
-										<a href="<?php the_permalink(); ?>" class="btn btn-primary">
-											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-										</a>
+										<div class="special-card-body">
+											<h3 class="special-card-title">
+												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+											</h3>
+											<?php if ( has_excerpt() ) : ?>
+												<div class="special-card-excerpt">
+													<?php the_excerpt(); ?>
+												</div>
+											<?php endif; ?>
+											<a href="<?php the_permalink(); ?>" class="btn btn-primary">
+												Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+											</a>
+										</div>
 									</div>
 								</div>
-							</div>
-						<?php endwhile; ?>
+							<?php endwhile; ?>
+						</div>
 					</div>
 				</div>
 
