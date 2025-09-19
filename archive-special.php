@@ -59,60 +59,6 @@ get_header();
 	<main id="primary" class="specials-grid py-5">
 		<div class="container">
 
-			<!-- Sticky/Featured Specials - Always Visible -->
-			<div class="featured-specials-section mb-5">
-				<div class="row">
-					<!-- Skinny Shot Special -->
-					<div class="col-lg-6 col-md-6 mb-4">
-						<div class="special-card sticky-special">
-							<div class="featured-badge">
-								<span>Featured</span>
-							</div>
-							<div class="special-card-image">
-								<a href="/weight-loss/">
-									<img src="/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg" alt="Skinny Shot Special" class="img-fluid">
-								</a>
-							</div>
-							<div class="special-card-body">
-								<h3 class="special-card-title">
-									<a href="/weight-loss/">Skinny Shot Special</a>
-								</h3>
-								<div class="special-card-excerpt">
-									<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
-								</div>
-								<a href="/weight-loss/" class="btn btn-primary">
-									Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-					<!-- J-Plasma Special -->
-					<div class="col-lg-6 col-md-6 mb-4">
-						<div class="special-card sticky-special">
-							<div class="featured-badge">
-								<span>Featured</span>
-							</div>
-							<div class="special-card-image">
-								<a href="/non-surgical/j-plasma-skin-tightening/">
-									<img src="/wp-content/uploads/2025/09/j-plasma-promo.jpg" alt="J-Plasma Skin Tightening Special" class="img-fluid">
-								</a>
-							</div>
-							<div class="special-card-body">
-								<h3 class="special-card-title">
-									<a href="/non-surgical/j-plasma-skin-tightening/">J-Plasma Skin Tightening</a>
-								</h3>
-								<div class="special-card-excerpt">
-									<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
-								</div>
-								<a href="/non-surgical/j-plasma-skin-tightening/" class="btn btn-primary">
-									Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
 			<?php
 			// Query all specials.
 			$specials_args = array(
@@ -182,6 +128,50 @@ get_header();
 									</div>
 								</div>
 							<?php endwhile; ?>
+
+							<!-- Always Visible Specials - English Tab -->
+							<!-- Skinny Shot Special -->
+							<div class="col-lg-6 col-md-6 mb-4">
+								<div class="special-card">
+									<div class="special-card-image">
+										<a href="/weight-loss/">
+											<img src="/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg" alt="Skinny Shot Special" class="img-fluid">
+										</a>
+									</div>
+									<div class="special-card-body">
+										<h3 class="special-card-title">
+											<a href="/weight-loss/">Skinny Shot Special</a>
+										</h3>
+										<div class="special-card-excerpt">
+											<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
+										</div>
+										<a href="/weight-loss/" class="btn btn-primary">
+											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- J-Plasma Special -->
+							<div class="col-lg-6 col-md-6 mb-4">
+								<div class="special-card">
+									<div class="special-card-image">
+										<a href="/non-surgical/j-plasma-skin-tightening/">
+											<img src="/wp-content/uploads/2025/09/j-plasma-promo.jpg" alt="J-Plasma Skin Tightening Special" class="img-fluid">
+										</a>
+									</div>
+									<div class="special-card-body">
+										<h3 class="special-card-title">
+											<a href="/non-surgical/j-plasma-skin-tightening/">J-Plasma Skin Tightening</a>
+										</h3>
+										<div class="special-card-excerpt">
+											<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
+										</div>
+										<a href="/non-surgical/j-plasma-skin-tightening/" class="btn btn-primary">
+											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 
@@ -240,6 +230,50 @@ get_header();
 									</div>
 								</div>
 							<?php endwhile; ?>
+
+							<!-- Always Visible Specials - Spanish Tab -->
+							<!-- Skinny Shot Special -->
+							<div class="col-lg-6 col-md-6 mb-4">
+								<div class="special-card">
+									<div class="special-card-image">
+										<a href="/weight-loss/">
+											<img src="/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg" alt="Skinny Shot Special" class="img-fluid">
+										</a>
+									</div>
+									<div class="special-card-body">
+										<h3 class="special-card-title">
+											<a href="/weight-loss/">Skinny Shot Special</a>
+										</h3>
+										<div class="special-card-excerpt">
+											<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
+										</div>
+										<a href="/weight-loss/" class="btn btn-primary">
+											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+							</div>
+							<!-- J-Plasma Special -->
+							<div class="col-lg-6 col-md-6 mb-4">
+								<div class="special-card">
+									<div class="special-card-image">
+										<a href="/non-surgical/j-plasma-skin-tightening/">
+											<img src="/wp-content/uploads/2025/09/j-plasma-promo.jpg" alt="J-Plasma Skin Tightening Special" class="img-fluid">
+										</a>
+									</div>
+									<div class="special-card-body">
+										<h3 class="special-card-title">
+											<a href="/non-surgical/j-plasma-skin-tightening/">J-Plasma Skin Tightening</a>
+										</h3>
+										<div class="special-card-excerpt">
+											<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
+										</div>
+										<a href="/non-surgical/j-plasma-skin-tightening/" class="btn btn-primary">
+											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
+										</a>
+									</div>
+								</div>
+							</div>
 						</div>
 					</div>
 				</div>
