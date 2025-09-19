@@ -16,11 +16,18 @@
 }
 
 .case-category-card {
-  transition: box-shadow 0.3s ease;
+  background: linear-gradient(135deg, #1b1b1b 0%, #000000 100%);
+  border: 2px solid var(--mia-gold);
   border-radius: 0.25rem;
+  box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
   overflow: hidden;
-  border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  transition: all 0.3s ease;
+}
+
+.case-category-card:hover {
+  box-shadow: 0 10px 30px rgba(200, 178, 115, 0.2);
+  transform: translateY(-2px);
+  border-color: var(--mia-gold);
 }
 
 .category-image-container {
@@ -65,7 +72,13 @@
   padding: 1.5rem;
 }
 
+.case-category-card h2 {
+  color: var(--mia-white);
+  margin-bottom: 1rem;
+}
+
 .case-category-card .card-text {
+  color: var(--mia-white);
   font-size: 0.95rem;
   line-height: 1.5;
 }
@@ -81,32 +94,29 @@
 }
 
 .case-links a {
-  color: var(--mia-gray-muted);
+  color: var(--mia-white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: space-between;
   font-size: 0.9rem;
-  transition: all 0.2s ease;
-  display: inline-block;
   position: relative;
-  padding-left: 15px;
+  text-decoration: underline;
+  transition: all 0.2s ease;
+  width: 100%;
 }
 
-.case-links a::before {
-  content: "›";
-  position: absolute;
-  left: 0;
+.case-links a i {
   color: var(--mia-gold);
-  font-weight: 600;
-  opacity: 0.6;
-  transition: all 0.2s ease;
+  margin-left: 0.5rem;
+  transition: transform 0.2s ease;
 }
 
 .case-links a:hover {
-  color: var(--mia-black);
-  padding-left: 20px;
-  text-decoration: none;
+  color: var(--mia-gold);
+  text-decoration: underline;
 }
 
-.case-links a:hover::before {
-  opacity: 1;
+.case-links a:hover i {
   transform: translateX(3px);
 }
 

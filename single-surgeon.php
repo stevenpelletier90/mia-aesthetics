@@ -72,23 +72,23 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						
 						<!-- Quick Actions -->
 						<div class="surgeon-hero-actions">
-							<?php
-							$instagram_url = get_field( 'instagram_url' );
-							if ( null !== $instagram_url && '' !== $instagram_url ) :
-								?>
-							<a href="<?php echo esc_url( $instagram_url ); ?>" class="btn btn-outline-primary-alt" target="_blank" rel="noopener">
-								<i class="fab fa-instagram" aria-hidden="true"></i> Follow Dr. <?php echo esc_html( $last_name ); ?>
-							</a>
-							<?php endif; ?>
-							
 							<!-- Mobile Gallery Link -->
 							<?php
 							$doctor_slug = get_post_field( 'post_name', get_post() );
 							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
 							?>
-							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-primary surgeon-gallery-mobile d-lg-none">
-								<i class="fas fa-images" aria-hidden="true"></i> View Before & After Gallery
+							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-outline-primary-alt2 surgeon-gallery-mobile d-lg-none">
+								<i class="fas fa-images" aria-hidden="true"></i> View Before & Afters
 							</a>
+
+							<?php
+							$instagram_url = get_field( 'instagram_url' );
+							if ( null !== $instagram_url && '' !== $instagram_url ) :
+								?>
+							<a href="<?php echo esc_url( $instagram_url ); ?>" class="btn btn-outline-primary-alt2" target="_blank" rel="noopener">
+								<i class="fab fa-instagram" aria-hidden="true"></i> Follow Dr. <?php echo esc_html( $last_name ); ?>
+							</a>
+							<?php endif; ?>
 						</div>
 					</div>
 				</div>
