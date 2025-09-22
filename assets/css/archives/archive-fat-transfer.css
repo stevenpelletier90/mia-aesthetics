@@ -139,3 +139,95 @@ body.admin-bar .toc-container {
 		overflow-y: auto;
 	}
 }
+
+/* FAQ Accordion Styles - Copied from components/faq.css for hard-coded FAQs */
+.faq-container {
+	background-color: rgba(255,255,255,0.05);
+	border-radius: 0.5rem;
+	padding: 2rem;
+	box-shadow: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+}
+
+.faqs-section h2 {
+	color: #1b1b1b;
+	font-weight: 600;
+	position: relative;
+	padding-bottom: 1rem;
+	margin-bottom: 1.5rem;
+}
+
+.faqs-section h2::after {
+	content: "";
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	width: 80px;
+	height: 3px;
+	background-color: #c8b273;
+}
+
+.faqs-section .accordion .accordion-item {
+	margin-bottom: 1rem;
+	border: 1px solid rgba(27,27,27,0.1);
+	border-radius: 0.5rem;
+	overflow: hidden;
+}
+
+.faqs-section .accordion .accordion-item .accordion-button {
+	background-color: #ffffff;
+	color: #1b1b1b;
+	font-weight: 600;
+	padding: 1rem 1.5rem;
+	border: none;
+}
+
+.faqs-section .accordion .accordion-item .accordion-button:focus {
+	box-shadow: 0 0 0 0.25rem rgba(200,178,115,0.25);
+}
+
+.faqs-section .accordion .accordion-item .accordion-button:not(.collapsed) {
+	background-color: rgba(200,178,115,0.1);
+	color: #1b1b1b;
+}
+
+.faqs-section .accordion .accordion-item .accordion-button:not(.collapsed)::after {
+	filter: brightness(0.8);
+}
+
+.faqs-section .accordion .accordion-item .accordion-button::after {
+	background-image: none;
+	content: "\f107";
+	font-family: "Font Awesome 7 Free";
+	font-weight: 900;
+	font-size: 1.2rem;
+	color: #c8b273;
+	transition: transform 0.2s ease;
+}
+
+.faqs-section .accordion .accordion-item .accordion-button.collapsed::after {
+	transform: rotate(-90deg);
+}
+
+.faqs-section .accordion .accordion-item .accordion-body {
+	padding: 1.5rem;
+	background-color: #ffffff;
+	color: rgba(27,27,27,0.8);
+	line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+	.faq-container {
+		padding: 1.5rem;
+		border-radius: 0.25rem;
+	}
+
+	.faqs-section .accordion .accordion-item .accordion-button {
+		padding: 0.875rem 1rem;
+		font-size: 0.95rem;
+	}
+
+	.faqs-section .accordion .accordion-item .accordion-body {
+		padding: 1rem;
+		font-size: 0.9rem;
+	}
+}

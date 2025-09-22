@@ -26,7 +26,9 @@ a.consent-trigger:hover i {
 }
 
 a.consent-trigger i {
-  transition: transform 0.2s ease, color 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
   color: var(--mia-gold);
   text-decoration: none;
 }
@@ -439,7 +441,6 @@ a.consent-trigger:hover i {
   box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3);
 }
 
-
 /* Consent Modal Styling */
 .consent-modal {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
@@ -468,7 +469,11 @@ a.consent-trigger:hover i {
   }
 }
 
-/* Bootstrap Modal Backdrop Fix */
+/* Modal Z-Index Fix - Force it above everything */
 .modal-backdrop {
-  z-index: 1050;
+  z-index: 10000 !important;
+}
+
+.modal {
+  z-index: 10001 !important;
 }

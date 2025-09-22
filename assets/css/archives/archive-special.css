@@ -24,13 +24,20 @@
 }
 
 .special-card {
-  background: var(--mia-white);
-  border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border: 2px solid var(--mia-gold);
+  border-radius: 12px;
+  box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
   display: flex;
   flex-direction: column;
   height: 100%;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.special-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
 }
 
 .special-card-image {
@@ -71,18 +78,17 @@
 }
 
 .special-card-title a {
-  color: var(--mia-black);
+  color: var(--mia-white);
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
-.special-card-title a:hover,
-.special-card-title a:focus {
+.special-card-title a:hover {
   color: var(--mia-gold);
-  text-decoration: underline;
 }
 
 .special-card-excerpt {
-  color: var(--mia-gray-muted);
+  color: rgba(255, 255, 255, 0.8);
   flex-grow: 1;
   font-size: 0.95rem;
   line-height: 1.6;

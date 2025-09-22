@@ -1,448 +1,390 @@
 .site-footer {
-	background: linear-gradient(to right, var(--mia-black), var(--mia-black));
-	color: var(--mia-white);
-	padding-top: 4rem;
-	padding-bottom: 5rem;
-	position: relative;
-	font-family: var(--font-body);
-	border-top: 1px solid var(--mia-gold);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  color: var(--mia-white);
+  padding-top: 4rem;
+  padding-bottom: 5rem;
+  position: relative;
+  font-family: var(--font-body);
+  border-top: 1px solid var(--mia-gold);
 }
 
 .wide-container {
-	max-width: 1800px;
-	margin: 0 auto;
-	padding-left: 4rem;
-	padding-right: 4rem;
+  max-width: 1800px;
+  margin: 0 auto;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .footer-heading {
-	font-family: var(--font-heading);
-	font-size: 1rem;
-	font-weight: 600;
-	margin-bottom: 1.5rem;
-	text-transform: uppercase;
-	color: var(--mia-gold);
+  font-family: var(--font-heading);
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  text-transform: uppercase;
+  color: var(--mia-gold);
 }
 
 .footer-columns {
-	display: grid;
-	grid-template-columns: repeat(4,1fr);
-	gap: 2rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2rem;
 }
 
 .footer-menu {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .footer-menu li {
-	margin-bottom: 0.75rem;
+  margin-bottom: 0.75rem;
 }
 
 .footer-menu a {
-	color: var(--mia-white);
-	text-decoration: none;
-	transition: all 0.3s ease;
-	display: inline-block;
-	font-size: 0.95rem;
+  color: var(--mia-white);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-block;
+  font-size: 0.95rem;
 }
 
 .footer-menu a:hover {
-	color: var(--mia-gold);
-	text-decoration: underline;
-}
-
-.social-icons {
-	display: flex;
-	flex-wrap: wrap;
-	gap: 0.5rem;
-}
-
-.social-icon {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: 40px;
-	height: 40px;
-	border-radius: 50%;
-	background-color: rgba(255,255,255,0.1);
-	color: var(--mia-white);
-	transition: all 0.3s ease;
-	text-decoration: none;
-}
-
-.social-icon:hover {
-	background-color: var(--mia-gold);
-	color: var(--mia-black);
-	text-decoration: none;
-}
-
-.social-icon i {
-	font-size: 1.2rem;
+  color: var(--mia-gold);
+  text-decoration: underline;
 }
 
 .footer-divider-container {
-	width: 100%;
-	padding: 0;
-	margin: 2rem 0;
+  width: 100%;
+  padding: 0;
+  margin: 2rem 0;
 }
 
 .footer-divider {
-	border: 0;
-	height: 1px;
-	background: rgba(255,255,255,0.2);
-	width: 100%;
-	margin: 0;
+  border: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  width: 100%;
+  margin: 0;
 }
 
 .locations-section {
-	padding-top: 0;
-	margin-top: 0;
+  padding-top: 0;
+  margin-top: 0;
 }
 
 .locations-section h5.footer-heading {
-	padding-left: 0;
+  padding-left: 0;
 }
 
 .locations-section .accordion {
-	display: grid;
-	grid-template-columns: repeat(4,1fr);
-	gap: 1rem;
-	align-items: flex-start;
-	margin-top: 1rem;
-	padding: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  align-items: flex-start;
+  margin-top: 1rem;
+  padding: 0;
 }
 
 .locations-section .accordion-item {
-	background-color: var(--mia-black);
-	border: 1px solid rgba(255,255,255,0.1);
-	border-radius: var(--radius-DEFAULT);
-	overflow: hidden;
-	margin-bottom: 0.5rem;
-	width: 100%;
-	height: auto;
-	min-height: 56px;
-	display: flex;
-	flex-direction: column;
+  background-color: var(--mia-black);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-DEFAULT);
+  overflow: hidden;
+  margin-bottom: 0.5rem;
+  width: 100%;
+  height: auto;
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
 }
 
 .locations-section .accordion-button {
-	font-family: var(--font-heading);
-	font-weight: 600;
-	padding: 0.75rem 1.25rem;
-	background-color: var(--mia-black);
-	color: var(--mia-white);
-	border: none;
-	box-shadow: none;
-	transition: color 0.3s ease;
-	height: 56px;
-	flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--mia-black);
+  color: var(--mia-white);
+  border: none;
+  box-shadow: none;
+  transition: color 0.3s ease;
+  height: 56px;
+  flex-shrink: 0;
 }
 
 .locations-section .accordion-button::after {
-	content: '\f078';
-	font-family: 'Font Awesome 7 Free';
-	font-weight: 900;
-	background-image: none;
-	color: var(--mia-white);
-	transition: all 0.3s ease;
-	width: auto;
-	height: auto;
-	flex-shrink: 0;
-	margin-left: auto;
+  content: "\f078";
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  background-image: none;
+  color: var(--mia-white);
+  transition: all 0.3s ease;
+  width: auto;
+  height: auto;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .locations-section .accordion-button:not(.collapsed)::after {
-	transform: rotate(180deg);
+  transform: rotate(180deg);
 }
 
 .locations-section .accordion-button:hover {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .locations-section .accordion-button:hover::after {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .locations-section .accordion-button:focus {
-	box-shadow: none;
-	border-color: rgba(200,178,115,0.5);
+  box-shadow: none;
+  border-color: rgba(200, 178, 115, 0.5);
 }
 
 .locations-section .accordion-button:not(.collapsed) {
-	color: var(--mia-white);
-	background-color: var(--mia-black);
-	box-shadow: none;
+  color: var(--mia-white);
+  background-color: var(--mia-black);
+  box-shadow: none;
 }
 
 .locations-section .accordion-collapse {
-	transition: height 0.35s ease;
+  transition: height 0.35s ease;
 }
 
 .locations-section .accordion-collapse.collapsing {
-	height: 0;
-	overflow: hidden;
-	transition: height 0.35s ease;
+  height: 0;
+  overflow: hidden;
+  transition: height 0.35s ease;
 }
 
 .locations-section .accordion-collapse.show {
-	height: auto;
-	overflow: visible;
+  height: auto;
+  overflow: visible;
 }
 
 .locations-section .accordion-body {
-	padding: 1rem 1.25rem;
-	color: rgba(255,255,255,0.8);
-	background-color: var(--mia-black);
-	border-top: 1px solid rgba(255,255,255,0.05);
-	flex-grow: 1;
-}
-
-.surgeons-list h6 {
-	color: var(--mia-gold);
-	font-size: 0.9rem;
-	margin-bottom: 0.5rem;
-}
-
-.surgeons-list ul {
-	list-style: none;
-	padding: 0;
-	margin: 0;
+  padding: 1rem 1.25rem;
+  color: rgba(255, 255, 255, 0.8);
+  background-color: var(--mia-black);
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  flex-grow: 1;
 }
 
 .location-link a {
-	text-decoration: none;
+  text-decoration: none;
 }
 
 .locations-section .accordion-body a.surgeon-link {
-	color: var(--mia-white);
-	text-decoration: none;
-	transition: all 0.2s ease;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	padding: 0.25rem 0;
-	font-size: 0.9rem;
-	font-weight: normal;
+  color: var(--mia-white);
+  text-decoration: none;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  font-weight: normal;
 }
 
 .locations-section .accordion-body a.surgeon-link:hover {
-	color: var(--mia-gold);
-	text-decoration: none;
+  color: var(--mia-gold);
+  text-decoration: none;
 }
 
 .locations-section .accordion-body a.surgeon-link:hover span {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .locations-section .accordion-body a.surgeon-link .surgeon-arrow {
-	font-size: 0.8rem;
-	opacity: 0.7;
-	margin-left: 0.5rem;
-	transition: all 0.2s ease;
-	color: var(--mia-white);
+  font-size: 0.8rem;
+  opacity: 0.7;
+  margin-left: 0.5rem;
+  transition: all 0.2s ease;
+  color: var(--mia-white);
 }
 
 .locations-section .accordion-body a.surgeon-link:hover .surgeon-arrow {
-	opacity: 1;
-	color: var(--mia-gold);
+  opacity: 1;
+  color: var(--mia-gold);
 }
 
 .location-link a.surgeon-link {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .location-link a.surgeon-link:hover {
-	color: var(--mia-gold);
-	text-decoration: none;
+  color: var(--mia-gold);
+  text-decoration: none;
 }
 
 .location-link a.surgeon-link:hover span {
-	text-decoration: underline;
+  text-decoration: underline;
 }
 
 .location-link a.surgeon-link .surgeon-arrow {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .location-link a.surgeon-link:hover .surgeon-arrow {
-	opacity: 1;
-	color: var(--mia-gold);
+  opacity: 1;
+  color: var(--mia-gold);
 }
 
 .footer-bottom {
-	margin-top: 2rem;
-	padding-top: 2rem;
-	padding-bottom: 2rem;
-	font-size: 0.85rem;
-	text-align: center;
+  margin-top: 2rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  font-size: 0.85rem;
+  text-align: center;
 }
 
 .copyright {
-	color: rgba(255,255,255,0.8);
-	font-weight: 600;
-	margin-bottom: 0.75rem;
+  color: var(--mia-white);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
 }
 
 .disclaimer {
-	font-size: 0.85rem;
-	color: rgba(255,255,255,0.7);
-	margin-bottom: 1rem;
+  font-size: 0.85rem;
+  color: var(--mia-white);
+  margin-bottom: 1rem;
 }
 
 .footer-links {
-	list-style: none;
-	padding: 0;
-	margin: 0;
-	display: flex;
-	justify-content: center;
-	gap: 1.5rem;
-	flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 .footer-links li {
-	display: inline-block;
-	margin-bottom: 0.5rem;
+  display: inline-block;
+  margin-bottom: 0.5rem;
 }
 
 .footer-links a {
-	color: rgba(255,255,255,0.6);
-	text-decoration: none;
-	transition: color 0.3s ease;
-	font-size: 0.85rem;
-	padding: 0.25rem 0;
+  color: rgba(255, 255, 255, 0.6);
+  text-decoration: none;
+  transition: color 0.3s ease;
+  font-size: 0.85rem;
+  padding: 0.25rem 0;
 }
 
 .footer-links a:hover {
-	color: var(--mia-gold);
-	text-decoration: underline;
+  color: var(--mia-gold);
+  text-decoration: underline;
 }
 
 @media (max-width: 1800px) {
-	.wide-container {
-		padding-left: 1.5rem;
-		padding-right: 1.5rem;
-	}
+  .wide-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
 
 @media (max-width: 1200px) {
-	.footer-columns {
-		grid-template-columns: repeat(2,1fr);
-		gap: 2rem;
-	}
+  .footer-columns {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 992px) {
-	.locations-section .accordion {
-		grid-template-columns: repeat(3,1fr);
-	}
+  .locations-section .accordion {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 
 @media (max-width: 900px) {
-	.locations-section .accordion {
-		grid-template-columns: repeat(2,1fr);
-		gap: 1rem;
-	}
+  .locations-section .accordion {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 768px) {
-	.site-footer {
-		padding-bottom: 6rem;
-	}
+  .site-footer {
+    padding-bottom: 6rem;
+  }
 
-	.footer-columns {
-		grid-template-columns: 1fr;
-		gap: 2rem;
-	}
+  .footer-columns {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
 
-	.footer-column:first-child {
-		text-align: center;
-	}
+  .footer-column:first-child {
+    text-align: center;
+  }
 
-	.social-icons {
-		justify-content: center;
-	}
+  .locations-section {
+    margin-top: 2.5rem;
+    padding-top: 2.5rem;
+  }
 
-	.locations-section {
-		margin-top: 2.5rem;
-		padding-top: 2.5rem;
-	}
+  .locations-section .accordion {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
 
-	.locations-section .accordion {
-		grid-template-columns: 1fr;
-		gap: 0.75rem;
-	}
+  .locations-section .accordion-button {
+    font-size: 0.95rem;
+    padding: 0.6rem 1rem;
+  }
 
-	.locations-section .accordion-button {
-		font-size: 0.95rem;
-		padding: 0.6rem 1rem;
-	}
+  .locations-section .accordion-body {
+    padding: 0.75rem 1rem;
+  }
 
-	.locations-section .accordion-body {
-		padding: 0.75rem 1rem;
-	}
+  .surgeons-list h6 {
+    font-size: 0.85rem;
+  }
 
-	.surgeons-list h6 {
-		font-size: 0.85rem;
-	}
+  .surgeon-link {
+    font-size: 0.9rem;
+  }
 
-	.surgeon-link {
-		font-size: 0.9rem;
-	}
-
-	.footer-links {
-		gap: 1rem;
-	}
+  .footer-links {
+    gap: 1rem;
+  }
 }
 
 @media (max-width: 480px) {
-	.site-footer {
-		padding-bottom: 7rem;
-	}
+  .site-footer {
+    padding-bottom: 7rem;
+  }
 
-	.wide-container {
-		padding-left: 1rem;
-		padding-right: 1rem;
-	}
+  .wide-container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
 
-	.social-icons {
-		gap: 0.25rem;
-	}
+  .locations-section .accordion-button {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.75rem;
+  }
 
-	.social-icon {
-		width: 36px;
-		height: 36px;
-	}
+  .locations-section .accordion-body {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
 
-	.social-icon i {
-		font-size: 1rem;
-	}
+  .surgeon-arrow {
+    font-size: 0.7rem;
+  }
 
-	.locations-section .accordion-button {
-		font-size: 0.9rem;
-		padding: 0.5rem 0.75rem;
-	}
+  .footer-links {
+    gap: 0.75rem;
+    justify-content: center;
+  }
 
-	.locations-section .accordion-body {
-		padding: 0.75rem;
-		font-size: 0.9rem;
-	}
+  .footer-links li {
+    margin: 0 0.25rem 0.5rem;
+  }
 
-	.surgeon-arrow {
-		font-size: 0.7rem;
-	}
-
-	.footer-links {
-		gap: 0.75rem;
-		justify-content: center;
-	}
-
-	.footer-links li {
-		margin: 0 0.25rem 0.5rem;
-	}
-
-	.footer-links a {
-		font-size: 0.8rem;
-	}
+  .footer-links a {
+    font-size: 0.8rem;
+  }
 }
