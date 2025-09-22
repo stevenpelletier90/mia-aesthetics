@@ -12,6 +12,7 @@
 	color: var(--mia-white);
 	overflow: hidden;
 	transition: box-shadow 0.3s ease, transform 0.2s ease;
+	height: 100%;
 }
 
 .location-card:hover {
@@ -33,6 +34,9 @@
 	color: var(--mia-white);
 	padding: 1.75rem 1.5rem 1.25rem;
 	text-shadow: none;
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
 }
 
 .location-title-link {
@@ -70,41 +74,15 @@
 }
 
 .location-cta-buttons {
-	margin-top: 1rem;
+	margin-top: auto;
 	margin-bottom: 0;
 	display: flex;
 	flex-direction: column;
 	gap: 0.5rem;
 }
 
-.location-cta-buttons .btn {
-	padding: 0.5rem 1rem;
-	font-weight: 600;
-	color: var(--mia-black);
-	background-color: var(--mia-gold);
-	border-color: var(--mia-gold);
-	width: fit-content;
-	text-align: left;
-	display: inline-block;
-	border-radius: 6px;
-	transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
-}
 
-.location-cta-buttons .btn:hover, .location-cta-buttons .btn:focus {
-	color: var(--mia-gold);
-	background-color: transparent;
-	border-color: var(--mia-gold);
-	box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3);
-	transform: translateY(-1px);
-}
 
-.location-cta-buttons .btn i {
-	transition: transform 0.2s ease;
-}
-
-.location-cta-buttons .btn:hover i {
-	transform: translateX(3px);
-}
 
 .location-mobile-list {
 	padding: 0;
@@ -144,24 +122,6 @@
 	color: var(--mia-gray-muted);
 }
 
-.location-list-item .location-action .btn {
-	padding: 0.375rem 0.75rem;
-	font-size: 0.875rem;
-	font-weight: 600;
-	border-radius: 3px;
-	white-space: nowrap;
-}
-
-.location-list-item .location-action .btn-outline-primary {
-	color: var(--mia-black);
-	border-color: var(--mia-black);
-}
-
-.location-list-item .location-action .btn-outline-primary:hover {
-	background-color: var(--mia-black);
-	border-color: var(--mia-black);
-	color: white;
-}
 
 .location-phone {
 	color: var(--mia-gold);
@@ -180,10 +140,50 @@
 	.location-content {
 		padding: 1rem;
 	}
+
+	/* Mobile phone number styling */
+	.location-mobile-list .location-phone {
+		color: var(--mia-black);
+		text-decoration: none;
+		transition: color 0.2s ease;
+	}
+
+	.location-mobile-list .location-phone .fas {
+		color: var(--mia-gold);
+		transition: color 0.2s ease;
+	}
+
+	.location-mobile-list .location-phone .phone-number {
+		border-bottom: 2px dotted var(--mia-gold);
+		transition: border-bottom-color 0.2s ease;
+	}
+
+	.location-mobile-list .location-phone:hover {
+		color: var(--mia-gold);
+	}
+
+	.location-mobile-list .location-phone:hover .fas {
+		color: var(--mia-black);
+	}
+
+	.location-mobile-list .location-phone:hover .phone-number {
+		border-bottom-color: var(--mia-black);
+	}
 }
 
 @media (min-width: 992px) {
 	.location-card-img-top {
 		height: 240px;
+	}
+
+
+	/* Equal height cards on desktop */
+	.location-cards-container .row {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
+	.location-cards-container .col {
+		display: flex;
 	}
 }

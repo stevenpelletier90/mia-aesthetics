@@ -3,8 +3,9 @@
 }
 
 .procedure-card {
-	background: var(--mia-white);
-	border-radius: 8px;
+	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+	border: 2px solid var(--mia-gold);
+	border-radius: 12px;
 	overflow: hidden;
 	box-shadow: 0 4px 20px rgba(0,0,0,0.08);
 	transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -15,7 +16,7 @@
 
 .procedure-card:hover {
 	transform: translateY(-8px);
-	box-shadow: 0 8px 30px rgba(0,0,0,0.12);
+	box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
 }
 
 .procedure-card.animate-ready {
@@ -58,6 +59,7 @@ figure.procedure-image {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	color: var(--mia-white);
 }
 
 .procedure-title {
@@ -68,7 +70,7 @@ figure.procedure-image {
 }
 
 .procedure-title a {
-	color: var(--mia-black);
+	color: var(--mia-white);
 	text-decoration: none;
 	transition: color 0.3s ease;
 }

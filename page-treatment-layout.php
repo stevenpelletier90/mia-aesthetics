@@ -76,13 +76,13 @@ if ( $current_post instanceof WP_Post ) {
 			<section class="main-content">
 				<?php the_content(); ?>
 			</section>
-			
-			<section class="resources-featured-section py-5" aria-labelledby="resources-heading">
+
+			<aside class="resources-featured-section py-5" aria-labelledby="resources-heading">
 				<div class="container">
 					<div class="row">
 						<div class="col-12">
 							<div class="text-center mb-4">
-								<h2 id="resources-heading" class="h2 fw-bold mb-3 text-white">Additional Resources</h2>
+								<h3 id="resources-heading" class="h3 fw-bold mb-3 text-white">Additional Resources</h3>
 								<p class="text-white opacity-75">Helpful information and related procedures to support your journey</p>
 							</div>
 						</div>
@@ -115,7 +115,7 @@ if ( $current_post instanceof WP_Post ) {
 								<i class="fa-solid fa-stethoscope flex-shrink-0" aria-hidden="true"></i>
 								<div>
 									<strong>Related: <?php the_title(); ?></strong><br>
-									<small>Learn about this complementary procedure</small>
+									<span class="description">Learn about this complementary procedure</span>
 								</div>
 							</a>
 											<?php
@@ -130,7 +130,7 @@ if ( $current_post instanceof WP_Post ) {
 							<i class="fa-solid fa-plane flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>Out‑of‑Town Patients</strong><br>
-								<small>Travel info & accommodation details</small>
+								<span class="description">Travel info & accommodation details</span>
 							</div>
 						</a>
 
@@ -139,12 +139,12 @@ if ( $current_post instanceof WP_Post ) {
 							<i class="fa-solid fa-calculator flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>BMI Calculator</strong><br>
-								<small>Calculate your BMI before booking</small>
+								<span class="description">Calculate your BMI before booking</span>
 							</div>
 						</a>
 					</div>
 				</div>
-			</section>
+			</aside>
 
 			<?php
 			$mia_aesthetics_faq_section = get_field( 'faq_section' );

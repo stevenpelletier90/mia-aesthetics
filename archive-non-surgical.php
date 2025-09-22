@@ -70,8 +70,8 @@ get_header(); ?>
 											<?php echo esc_html( $procedure_title ); ?>
 										</a>
 									</h3>
-									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-outline-primary btn-sm" role="button">
-										Learn More
+									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary">
+										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 								</div>
 							</article>
@@ -118,8 +118,8 @@ get_header(); ?>
 											<?php echo esc_html( $procedure_title ); ?>
 										</a>
 									</h3>
-									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-outline-primary btn-sm" role="button">
-										Learn More
+									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary">
+										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 								</div>
 							</article>

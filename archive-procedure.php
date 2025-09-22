@@ -25,7 +25,7 @@ get_header(); ?>
 
 	<!-- Procedure Categories -->
 	<section class="procedure-categories py-5">
-		<div class="container">
+		<div class="container-fluid px-4">
 			<div class="row g-4">
 				<!-- Body Procedures -->
 				<div class="col-xl-3 col-lg-6 col-md-6 col-12">
@@ -65,7 +65,7 @@ get_header(); ?>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/arm-lift/' ) ); ?>" class="text-decoration-none">Arm Lift</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/thigh-lift/' ) ); ?>" class="text-decoration-none">Thigh Lift</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/labiaplasty-labia-reduction-vaginal-rejuvenation/' ) ); ?>" class="text-decoration-none">Vaginal Rejuvenation</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>" class="text-decoration-none"><strong>View All Body Procedures</strong></a></li>
+								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>" class="btn btn-primary btn-sm">View All Body Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -102,7 +102,7 @@ get_header(); ?>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/reduction/' ) ); ?>" class="text-decoration-none">Breast Reduction</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/lift/' ) ); ?>" class="text-decoration-none">Breast Lift</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/implant-revision-surgery/' ) ); ?>" class="text-decoration-none">Breast Implant Revision</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/' ) ); ?>" class="text-decoration-none"><strong>View All Breast Procedures</strong></a></li>
+								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/' ) ); ?>" class="btn btn-primary btn-sm">View All Breast Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -144,7 +144,7 @@ get_header(); ?>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/' ) ); ?>" class="text-decoration-none">Neck Lift</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/' ) ); ?>" class="text-decoration-none">Otoplasty</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/nose-job-rhinoplasty/' ) ); ?>" class="text-decoration-none">Rhinoplasty</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/' ) ); ?>" class="text-decoration-none"><strong>View All Face Procedures</strong></a></li>
+								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/' ) ); ?>" class="btn btn-primary btn-sm">View All Face Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>
@@ -181,7 +181,7 @@ get_header(); ?>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>" class="text-decoration-none">Male Breast Procedures</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-liposuction/' ) ); ?>" class="text-decoration-none">Male Liposuction</a></li>
 								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-tummy-tuck/' ) ); ?>" class="text-decoration-none">Male Tummy Tuck</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="text-decoration-none"><strong>View All Male Procedures</strong></a></li>
+								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="btn btn-primary btn-sm">View All Male Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
 							</ul>
 						</div>
 					</div>

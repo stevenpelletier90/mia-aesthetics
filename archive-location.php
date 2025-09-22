@@ -17,7 +17,7 @@ get_header();
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1 class="mb-2"><?php post_type_archive_title(); ?></h1>
+					<h1 class="mb-2">Our Locations</h1>
 					<p class="lead mb-0">Find a Mia Aesthetics location near you and schedule your consultation today.</p>
 				</div>
 			</div>
@@ -93,7 +93,7 @@ get_header();
 									<?php if ( '' !== $phone_number ) : ?>
 										<p class="mb-0">
 											<a href="tel:<?php echo esc_attr( $phone_number ); ?>" class="location-phone text-decoration-none">
-												<i class="fas fa-phone me-1" aria-hidden="true"></i><?php echo esc_html( $phone_number ); ?>
+												<i class="fas fa-phone me-1" aria-hidden="true"></i><span class="phone-number"><?php echo esc_html( $phone_number ); ?></span>
 											</a>
 										</p>
 									<?php endif; ?>
@@ -103,8 +103,8 @@ get_header();
 									$location_view_permalink = get_permalink();
 									if ( false !== $location_view_permalink ) :
 										?>
-									<a href="<?php echo esc_url( $location_view_permalink ); ?>" class="btn btn-sm btn-outline-primary">
-										View <i class="fas fa-chevron-right ms-1" aria-hidden="true"></i>
+									<a href="<?php echo esc_url( $location_view_permalink ); ?>" class="btn btn-sm btn-primary">
+										View <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 									<?php endif; ?>
 								</div>
@@ -145,7 +145,7 @@ get_header();
 		<?php endif; ?>
 		<div class="location-content p-4">
 			<h2 class="h4 mb-3">
-				<a href="<?php the_permalink(); ?>" class="text-decoration-none text-dark location-title-link">
+				<a href="<?php the_permalink(); ?>" class="text-decoration-none location-title-link">
 						<?php echo esc_html( get_the_title() ); ?>
 				</a>
 			</h2>
@@ -202,9 +202,10 @@ get_header();
 						</div>
 					</div>
 				<?php endif; ?>
-			</div>            <div class="location-cta-buttons">
-				<a href="<?php the_permalink(); ?>" class="btn btn-primary" role="button">
-					View Location <i class="fas fa-arrow-right" aria-hidden="true"></i>
+			</div>
+			<div class="location-cta-buttons">
+				<a href="<?php the_permalink(); ?>" class="btn btn-primary">
+					View Location <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 				</a>
 			</div>
 		</div>
