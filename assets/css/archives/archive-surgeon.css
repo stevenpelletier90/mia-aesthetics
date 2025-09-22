@@ -2,10 +2,15 @@
 	height: 100%;
 	position: relative;
 	overflow: hidden;
-	border-radius: 0.5rem;
-	background: var(--mia-gold-light);
-	box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-	border: 1px solid var(--mia-gold) 33;
+	border-radius: 8px;
+	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+	box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
+	border: 2px solid var(--mia-gold);
+	transition: all 0.3s ease;
+}
+
+.surgeon-card:hover {
+	box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
 }
 
 .surgeon-img-container {
@@ -20,11 +25,11 @@
 .surgeon-archive-headshot {
 	width: var(--container-size);
 	height: var(--container-size);
-	border-radius: 50%;
+	border-radius: 4px;
 	object-fit: cover;
-	border: 3px solid var(--mia-gold);
-	background: linear-gradient(135deg,#f1f3ff 0%,#f8f6ff 100%);
-	padding: 3px;
+	border: 1px solid var(--mia-gold);
+	background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
+	padding: 0;
 	box-shadow: 0 6px 12px rgba(0,0,0,0.2);
 }
 
@@ -33,11 +38,22 @@
 }
 
 .surgeon-card h2.h5 {
-	color: var(--mia-black);
+	color: var(--mia-white);
+	font-weight: 600;
+}
+
+.surgeon-name-link {
+	color: var(--mia-white);
+	text-decoration: none;
+	transition: color 0.3s ease;
+}
+
+.surgeon-name-link:hover {
+	color: var(--mia-gold);
 }
 
 .surgeon-card .location-link {
-	color: var(--mia-gray-muted);
+	color: var(--mia-white);
 	text-decoration: none;
 	transition: color 0.2s ease;
 }
@@ -48,28 +64,41 @@
 }
 
 .surgeon-bio-link {
-	position: relative;
+	color: var(--mia-white);
+	font-size: 0.9rem;
 	font-weight: 600;
-	white-space: nowrap;
+	transition: all 0.2s ease;
+	display: inline-flex;
+	align-items: center;
 	text-decoration: none;
-	color: var(--mia-black);
-	transition: color 0.2s ease;
+	padding-bottom: 2px;
+}
+
+.surgeon-bio-link span {
+	border-bottom: 2px dotted var(--mia-gold);
+	transition: border-bottom-color 0.2s ease;
 }
 
 .surgeon-bio-link:hover {
 	color: var(--mia-gold);
-	text-decoration: none;
 }
 
-.surgeon-bio-link i {
-	margin-left: 8px;
-	position: relative;
-	top: -1px;
-	transition: transform 0.2s ease;
+.surgeon-bio-link:hover span {
+	border-bottom-color: var(--mia-white);
 }
 
 .surgeon-bio-link:hover i {
-	transform: translateX(3px);
+	transform: translateX(4px);
+}
+
+.surgeon-bio-link i {
+	transition: transform 0.2s ease, color 0.2s ease;
+	color: var(--mia-gold);
+	text-decoration: none;
+}
+
+.surgeon-bio-link:hover i {
+	color: var(--mia-white);
 }
 
 @media (max-width: 767.98px) {

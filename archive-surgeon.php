@@ -69,22 +69,22 @@ get_header(); ?>
 										if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
 											echo wp_get_attachment_image(
 												(int) $headshot_id,
-												'thumbnail', // Use thumbnail size for circular image.
+												'thumbnail', // Use thumbnail size for square image.
 												false,
 												array(
-													'class' => 'surgeon-archive-headshot rounded-circle', // Add classes for styling.
+													'class' => 'surgeon-archive-headshot', // Add classes for styling.
 													'alt' => get_the_title() . ' Headshot',
 												)
 											);
 											// Fallback to post thumbnail if headshot field is empty but thumbnail exists.
 										elseif ( has_post_thumbnail() ) :
-											the_post_thumbnail( 'thumbnail', array( 'class' => 'surgeon-archive-headshot rounded-circle' ) );
+											the_post_thumbnail( 'thumbnail', array( 'class' => 'surgeon-archive-headshot' ) );
 										endif;
 										?>
 									</div>
 									<div class="surgeon-info d-flex flex-column justify-content-center">
-										<h2 class="h5 mb-1"> 
-											<?php the_title(); ?>
+										<h2 class="h5 mb-1">
+											<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-name-link"><?php the_title(); ?></a>
 										</h2>
 										
 										<?php if ( '' !== $location_title && '' !== $location_id ) : ?>
@@ -104,7 +104,7 @@ get_header(); ?>
 										$surgeon_permalink = get_permalink();
 										if ( false !== $surgeon_permalink ) :
 											?>
-										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-bio-link">View Bio <i class="fas fa-arrow-right" aria-hidden="true"></i></a>
+										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-bio-link text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View Bio</span></a>
 										<?php endif; ?>
 									</div>
 								</div>

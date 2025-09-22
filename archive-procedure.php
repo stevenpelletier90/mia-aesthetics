@@ -51,21 +51,21 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="card-body p-4">
-							<h2 class="h4 mb-3">Body Procedures</h2>
+							<h2 class="h4 mb-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>" class="procedure-category-heading">Body Procedures</a></h2>
 							<p class="card-text mb-3">Sculpt and contour your body with our advanced surgical techniques.</p>
 							<ul class="list-unstyled procedure-links">
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/mia-corset/' ) ); ?>" class="text-decoration-none">Mia Waist Corset&trade;</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/awake-liposuction/' ) ); ?>" class="text-decoration-none">Awake Lipo</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/circumferential-body-lift/' ) ); ?>" class="text-decoration-none">Body Lift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/' ) ); ?>" class="text-decoration-none">Brazilian Butt Lift (BBL)</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/lipo-360/' ) ); ?>" class="text-decoration-none">Lipo 360</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/liposuction/' ) ); ?>" class="text-decoration-none">Liposuction</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/tummy-tuck/' ) ); ?>" class="text-decoration-none">Tummy Tuck</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/mommy-makeover/' ) ); ?>" class="text-decoration-none">Mommy Makeover</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/arm-lift/' ) ); ?>" class="text-decoration-none">Arm Lift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/thigh-lift/' ) ); ?>" class="text-decoration-none">Thigh Lift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/labiaplasty-labia-reduction-vaginal-rejuvenation/' ) ); ?>" class="text-decoration-none">Vaginal Rejuvenation</a></li>
-								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>" class="btn btn-primary btn-sm">View All Body Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/mia-corset/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Mia Waist Corset&trade;</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/awake-liposuction/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Awake Lipo</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/circumferential-body-lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Body Lift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Brazilian Butt Lift (BBL)</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/lipo-360/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Lipo 360</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/liposuction/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Liposuction</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/tummy-tuck/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Tummy Tuck</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/mommy-makeover/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Mommy Makeover</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/arm-lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Arm Lift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/thigh-lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Thigh Lift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/labiaplasty-labia-reduction-vaginal-rejuvenation/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Vaginal Rejuvenation</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>" class="text-decoration-none view-all-link"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View All Body Procedures</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -95,14 +95,14 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="card-body p-4">
-							<h2 class="h4 mb-3">Breast Procedures</h2>
+							<h2 class="h4 mb-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/' ) ); ?>" class="procedure-category-heading">Breast Procedures</a></h2>
 							<p class="card-text mb-3">Enhance, reduce, or lift with our comprehensive breast surgery options.</p>
 							<ul class="list-unstyled procedure-links">
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/augmentation-implants/' ) ); ?>" class="text-decoration-none">Breast Augmentation</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/reduction/' ) ); ?>" class="text-decoration-none">Breast Reduction</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/lift/' ) ); ?>" class="text-decoration-none">Breast Lift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/implant-revision-surgery/' ) ); ?>" class="text-decoration-none">Breast Implant Revision</a></li>
-								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/' ) ); ?>" class="btn btn-primary btn-sm">View All Breast Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/augmentation-implants/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Augmentation</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/reduction/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Reduction</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Lift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/implant-revision-surgery/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Implant Revision</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/' ) ); ?>" class="text-decoration-none view-all-link"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View All Breast Procedures</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -132,19 +132,19 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="card-body p-4">
-							<h2 class="h4 mb-3">Face Procedures</h2>
+							<h2 class="h4 mb-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/' ) ); ?>" class="procedure-category-heading">Face Procedures</a></h2>
 							<p class="card-text mb-3">Rejuvenate and refine your facial features with precision techniques.</p>
 							<ul class="list-unstyled procedure-links">
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/brow-lift/' ) ); ?>" class="text-decoration-none">Brow Lift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/' ) ); ?>" class="text-decoration-none">Buccal Fat Removal</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/' ) ); ?>" class="text-decoration-none">Blepharoplasty</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/' ) ); ?>" class="text-decoration-none">Chin Lipo</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/facelift/' ) ); ?>" class="text-decoration-none">Facelift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/mini-facelift/' ) ); ?>" class="text-decoration-none">Mini Facelift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/' ) ); ?>" class="text-decoration-none">Neck Lift</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/' ) ); ?>" class="text-decoration-none">Otoplasty</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/nose-job-rhinoplasty/' ) ); ?>" class="text-decoration-none">Rhinoplasty</a></li>
-								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/' ) ); ?>" class="btn btn-primary btn-sm">View All Face Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/brow-lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Brow Lift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Buccal Fat Removal</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Blepharoplasty</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Chin Lipo</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/facelift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Facelift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/mini-facelift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Mini Facelift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Neck Lift</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Otoplasty</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/nose-job-rhinoplasty/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Rhinoplasty</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/' ) ); ?>" class="text-decoration-none view-all-link"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View All Face Procedures</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -174,14 +174,14 @@ get_header(); ?>
 							</div>
 						</div>
 						<div class="card-body p-4">
-							<h2 class="h4 mb-3">Men's Procedures</h2>
+							<h2 class="h4 mb-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="procedure-category-heading">Men's Procedures</a></h2>
 							<p class="card-text mb-3">Specialized cosmetic surgery options designed specifically for men.</p>
 							<ul class="list-unstyled procedure-links">
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-bbl/' ) ); ?>" class="text-decoration-none">Male BBL</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>" class="text-decoration-none">Male Breast Procedures</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-liposuction/' ) ); ?>" class="text-decoration-none">Male Liposuction</a></li>
-								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-tummy-tuck/' ) ); ?>" class="text-decoration-none">Male Tummy Tuck</a></li>
-								<li class="mt-3"><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="btn btn-primary btn-sm">View All Male Procedures <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-bbl/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Male BBL</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Male Breast Procedures</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-liposuction/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Male Liposuction</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-tummy-tuck/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Male Tummy Tuck</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="text-decoration-none view-all-link"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View All Male Procedures</span></a></li>
 							</ul>
 						</div>
 					</div>

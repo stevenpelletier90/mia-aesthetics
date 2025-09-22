@@ -68,10 +68,10 @@ get_header(); ?>
 							<h2 class="h4 mb-3">Body Cases</h2>
 							<p class="card-text mb-3">See real transformations from our body contouring and sculpting procedures.</p>
 							<ul class="list-unstyled case-links">
-								<li><a href="/before-after/bbl/"><span>Brazilian Butt Lift (BBL) Cases</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
-								<li><a href="/before-after/lipo-360/"><span>Lipo 360 Results</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
-								<li><a href="/before-after/mommy-makeover/"><span>Mommy Makeover Cases</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
-								<li><a href="/before-after/tummy-tuck/"><span>Tummy Tuck Results</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
+								<li><a href="/before-after/bbl/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Brazilian Butt Lift (BBL) Cases</span></a></li>
+								<li><a href="/before-after/lipo-360/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Lipo 360 Results</span></a></li>
+								<li><a href="/before-after/mommy-makeover/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Mommy Makeover Cases</span></a></li>
+								<li><a href="/before-after/tummy-tuck/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Tummy Tuck Results</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -104,9 +104,9 @@ get_header(); ?>
 							<h2 class="h4 mb-3">Breast Cases</h2>
 							<p class="card-text mb-3">Explore real results from our comprehensive breast surgery procedures.</p>
 							<ul class="list-unstyled case-links">
-								<li><a href="/before-after/breast-augmentation/"><span>Breast Augmentation Cases</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
-								<li><a href="/before-after/breast-reduction/"><span>Breast Reduction Results</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
-								<li><a href="/before-after/breast-lift/"><span>Breast Lift Transformations</span> <i class="fas fa-chevron-right" aria-hidden="true"></i></a></li>
+								<li><a href="/before-after/breast-augmentation/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Augmentation Cases</span></a></li>
+								<li><a href="/before-after/breast-reduction/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Reduction Results</span></a></li>
+								<li><a href="/before-after/breast-lift/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Lift Transformations</span></a></li>
 							</ul>
 						</div>
 					</div>
