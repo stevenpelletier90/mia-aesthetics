@@ -1,0 +1,23 @@
+# Dependencies
+**/node_modules/**
+**/vendor/**
+
+# Vendor assets
+assets/vendor/**
+
+# Minified and compiled files
+**/*.min.css
+**/*.map
+
+# Build output
+dist/
+build/
+theme-bundle/
+
+# WordPress core CSS (if any)
+wp-admin/
+wp-includes/
+
+# Compiled theme bundles
+assets/css/theme.css
+assets/css/theme.min.css

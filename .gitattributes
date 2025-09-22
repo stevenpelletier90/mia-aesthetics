@@ -1,0 +1,21 @@
+# Exclude dev and build-only files from git archives (production zip)
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.vscode export-ignore
+/.DS_Store export-ignore
+/.php-cs-fixer.php export-ignore
+/phpcs.xml export-ignore
+/phpstan.neon export-ignore
+AGENTS.md export-ignore
+CLAUDE.md export-ignore
+/composer.json export-ignore
+/composer.lock export-ignore
+/node_modules export-ignore
+/vendor export-ignore
+/reports export-ignore
+/.claude export-ignore
+/scripts export-ignore
+/.prettierrc.json export-ignore
+/.prettierignore export-ignore
+/eslint.config.js export-ignore
+

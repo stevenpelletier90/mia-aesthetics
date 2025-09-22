@@ -1,0 +1,32 @@
+.page-content {
+	padding: 2rem 0;
+}
+
+.page-header {
+	margin-bottom: 2rem;
+}
+
+.page-header h1 {
+	font-family: var(--font-heading);
+	font-weight: 600;
+	margin-bottom: 0.5rem;
+}
+
+.page-subheading {
+	color: var(--mia-gold);
+	margin-bottom: 1.5rem;
+}
+
+.page-section {
+	margin-bottom: 3rem;
+}
+
+.page-section:last-child {
+	margin-bottom: 0;
+}
+
+.archive-description {
+	color: var(--mia-gray-muted);
+	font-size: 1.1rem;
+	line-height: 1.6;
+}

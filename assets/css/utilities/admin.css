@@ -1,0 +1,20 @@
+/* =============================================================================
+   Admin/Backend Utility Styles
+   ============================================================================= */
+
+/* Featured Image Column in Admin */
+.admin-thumbnail {
+  width: 40px !important;
+  height: 40px !important;
+  object-fit: cover !important;
+  border-radius: 4px !important;
+}
+
+.dashicons.opacity-30 {
+  opacity: 0.3 !important;
+}
+
+.dashicons.font-size-20 {
+  font-size: 20px !important;
+}
+

@@ -1,0 +1,104 @@
+<!-- Free Virtual Consultation Section -->
+<section class="container my-5">
+  <div class="row justify-content-center text-center mb-4">
+    <div class="col-12 col-md-10 col-lg-8">
+      <!-- Headline Block -->
+      <h1>Free Virtual Consultation</h1>
+      <p class="consultation-reviews">Over 2,000+ 5 Star Reviews</p>
+      <p class="consultation-cta-message">Book your surgery today</p>
+      <p class="consultation-financing">Financing available</p>
+    </div>
+  </div>
+
+  <div class="row justify-content-center">
+    <div class="col-12 col-md-10 col-lg-8">
+      <!-- Gravity Form Embed -->
+      [gravityform id="9" title="false"]
+    </div>
+  </div>
+</section>
+<style>
+  /* ===== Free Consultation Form (#gform_wrapper_9) Custom Styles ===== */
+
+  /* 1. Hide the “* indicates required fields” legend */
+  #gform_wrapper_9 .gform_heading .gform_required_legend {
+    display: none;
+  }
+
+  /* 2. Accessible link colours inside the disclaimers / custom‑HTML field */
+  #gform_wrapper_9 .gfield_html a {
+    color: var(--mia-link); /* WCAG‑AA compliant blue on white */
+    text-decoration: underline;
+  }
+  #gform_wrapper_9 .gfield_html a:visited {
+    color: var(--mia-link-visited);
+  }
+  #gform_wrapper_9 .gfield_html a:hover,
+  #gform_wrapper_9 .gfield_html a:focus {
+    color: var(--mia-link-hover);
+    text-decoration: none;
+  }
+
+  /* 3. Submit button – extend base.css btn-primary styles */
+  #gform_submit_button_9 {
+    /* Inherit all btn-primary styles from base.css */
+    background-color: var(--mia-gold) !important;
+    border-color: var(--mia-gold) !important;
+    color: var(--mia-black) !important;
+    border-width: 2px !important;
+    border-radius: 4px !important;
+    padding: clamp(0.6rem, 0.5rem + 0.5vw, 0.9rem) clamp(1.5rem, 1rem + 2vw, 2.5rem) !important;
+    font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem) !important;
+    font-weight: 600 !important;
+    font-family: var(--font-body) !important;
+    text-transform: capitalize;
+    transition: all 0.2s ease !important;
+  }
+
+  #gform_submit_button_9:hover,
+  #gform_submit_button_9:focus {
+    background-color: var(--mia-gold-dark) !important;
+    border-color: var(--mia-gold-dark) !important;
+    color: var(--mia-white) !important;
+    text-decoration: none;
+  }
+
+  /* 4. Improved keyboard focus outline */
+  #gform_submit_button_9:focus-visible {
+    outline: 3px solid var(--mia-gold-dark);
+    outline-offset: 2px;
+  }
+
+  /* 5. Remove Firefox inner focus border */
+  #gform_submit_button_9::-moz-focus-inner {
+    border: 0;
+  }
+
+  /* 6. Custom subheading styles for consultation page */
+  .consultation-reviews {
+    color: var(--mia-gold);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    text-transform: uppercase;
+    margin-bottom: 0.75rem;
+  }
+
+  .consultation-cta-message {
+    color: var(--mia-black);
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+  }
+
+  .consultation-financing {
+    color: var(--mia-gold);
+    font-family: var(--font-heading);
+    font-weight: 600;
+    font-size: clamp(0.875rem, 1.2vw, 1rem);
+    text-transform: uppercase;
+    margin-bottom: 0;
+  }
+</style>

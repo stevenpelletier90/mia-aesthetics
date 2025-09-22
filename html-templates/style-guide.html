@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Mia Aesthetics - Button System</title>
+    <!-- Bootstrap and FontAwesome from npm -->
+    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="../assets/css/fonts.css" />
+    <link rel="stylesheet" href="../assets/css/base.css" />
+    <link rel="stylesheet" href="../assets/css/components/button.css" />
+    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css" />
+    <style>
+      .style-guide-section {
+        margin: 4rem 0;
+        padding: 3rem 0;
+      }
+      .component-example {
+        background: var(--color-gold-light);
+        padding: 2rem;
+        border-radius: 8px;
+        margin: 1rem 0;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Simple Header -->
+    <div class="container-fluid bg-light">
+      <div class="px-4 py-4 text-center">
+        <h1>Mia Aesthetics - Design System</h1>
+      </div>
+    </div>
+
+    <div class="container my-5">
+      <!-- Typography -->
+      <section id="typography" class="style-guide-section">
+        <h2>Typography System</h2>
+        <p>
+          Comprehensive typography system using Montserrat for headings and Inter for body text,
+          with responsive clamp() scaling.
+        </p>
+
+        <!-- Headings -->
+        <h3>Headings</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <h1>H1 - Page Title (clamp: 2rem, 3vw, 3.5rem)</h1>
+          <h2>H2 - Section Heading (clamp: 1.75rem, 2.5vw, 2.75rem)</h2>
+          <h3>H3 - Subsection Heading (clamp: 1.5rem, 2vw, 2.25rem)</h3>
+          <h4>H4 - Content Heading (clamp: 1.25rem, 1.5vw, 1.75rem)</h4>
+          <h5>H5 - Small Heading (clamp: 1.125rem, 1.25vw, 1.5rem)</h5>
+          <h6>H6 - Micro Heading (clamp: 1rem, 1vw, 1.25rem)</h6>
+        </div>
+
+        <!-- Body Text -->
+        <h3>Body Text</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <p class="lead">
+            Lead paragraph - larger text for introductions and important content that needs
+            emphasis. Perfect for hero sections and article intros.
+          </p>
+          <p>
+            Regular paragraph text - the standard body text used throughout the site. Optimized for
+            readability with proper line spacing and comfortable reading length. This text should be
+            easily scannable and accessible.
+          </p>
+          <p>
+            <small
+              >Small text for captions, disclaimers, and secondary information that supports the
+              main content.</small
+            >
+          </p>
+        </div>
+
+        <!-- Brand Colors -->
+        <h3>Brand Colors (Custom Overrides)</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <p class="text-primary">Brand Gold (#c8b273) - Primary brand color for highlights</p>
+          <p class="text-secondary">Brand Black (#000000) - Secondary brand color for emphasis</p>
+          <div class="bg-dark p-3 rounded mt-3">
+            <p class="text-primary mb-1">Gold text on dark backgrounds</p>
+            <p class="text-white mb-0">White text for maximum contrast</p>
+          </div>
+        </div>
+
+        <!-- Font Stack (Custom Implementation) -->
+        <h3>Font Stack (Custom Implementation)</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <h4 style="font-family: var(--font-heading)">Montserrat - Headings Font</h4>
+          <p style="font-family: var(--font-body)">
+            Inter - Body text font for optimal readability and modern appearance
+          </p>
+          <code style="font-family: var(--font-mono)"
+            >Monaco/SF Mono - Monospace font for code blocks</code
+          >
+        </div>
+
+        <!-- Responsive Scaling Demo -->
+        <h3>Responsive Scaling Demo</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <p>
+            <small
+              ><strong>Resize your browser to see the clamp() scaling in action:</strong></small
+            >
+          </p>
+          <div
+            style="border-left: 3px solid var(--color-gold); padding-left: 1rem; margin-top: 1rem"
+          >
+            <h1 style="margin-bottom: 0.5rem">H1 scales: 2rem → 3.5rem</h1>
+            <h2 style="margin-bottom: 0.5rem">H2 scales: 1.75rem → 2.75rem</h2>
+            <h3 style="margin-bottom: 0.5rem">H3 scales: 1.5rem → 2.25rem</h3>
+            <p>All typography maintains perfect proportions across devices</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Buttons -->
+      <section id="buttons" class="style-guide-section">
+        <h2>Button System - 10 Variants with Size Options</h2>
+        <p>
+          Comprehensive button system with 10 variants, 3 sizes, and refined spacing/transitions.
+          Includes multiple outline alternatives for perfect contrast on any background.
+        </p>
+
+        <!-- Button Sizes -->
+        <h3>Button Sizes</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <div class="mb-3">
+            <h6 class="mb-2">Small (.btn-sm)</h6>
+            <button class="btn btn-primary btn-sm me-2 mb-2">
+              <i class="fa-solid fa-calendar-check"></i> Small
+            </button>
+            <button class="btn btn-secondary btn-sm me-2 mb-2">
+              Small <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2">Default</h6>
+            <button class="btn btn-primary me-2 mb-2">
+              <i class="fa-solid fa-calendar-check"></i> Default
+            </button>
+            <button class="btn btn-secondary me-2 mb-2">
+              Default <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2">Large (.btn-lg)</h6>
+            <button class="btn btn-primary btn-lg me-2 mb-2">
+              <i class="fa-solid fa-calendar-check"></i> Large
+            </button>
+            <button class="btn btn-secondary btn-lg me-2 mb-2">
+              Large <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+        </div>
+
+        <!-- Light Background -->
+        <h3>On Light Background</h3>
+        <div class="component-example" style="background: white; padding: 2rem">
+          <div class="mb-3">
+            <h6 class="mb-2">Core Buttons - 6 Variants</h6>
+            <button class="btn btn-primary me-2 mb-2">Primary</button>
+            <button class="btn btn-secondary me-2 mb-2">Secondary</button>
+            <button class="btn btn-outline-primary me-2 mb-2">Outline Primary</button>
+            <button class="btn btn-outline-secondary me-2 mb-2">Outline Secondary</button>
+            <button class="btn btn-blur me-2 mb-2">Blur Background</button>
+            <button class="btn btn-gradient me-2 mb-2">Gradient</button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2">Alternative Outline Buttons - Set 1</h6>
+            <button class="btn btn-outline-primary-alt me-2 mb-2">Gold + Black Text</button>
+            <button class="btn btn-outline-secondary-alt me-2 mb-2">Black + White Text</button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2">Alternative Outline Buttons - Set 2</h6>
+            <button class="btn btn-outline-primary-alt2 me-2 mb-2">Gold + White Text</button>
+            <button class="btn btn-outline-secondary-alt2 me-2 mb-2">Black + Gold Text</button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2">With Icons</h6>
+            <button class="btn btn-primary me-2 mb-2">
+              <i class="fa-solid fa-calendar-check"></i> Schedule
+            </button>
+            <button class="btn btn-secondary me-2 mb-2">
+              <i class="fa-solid fa-phone"></i> Call Now
+            </button>
+            <button class="btn btn-outline-primary me-2 mb-2">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-outline-secondary me-2 mb-2">
+              Back <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="btn btn-blur me-2 mb-2">
+              <i class="fa-solid fa-star"></i> Special Effect
+            </button>
+            <button class="btn btn-gradient me-2 mb-2">
+              Premium <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2">Disabled States</h6>
+            <button class="btn btn-primary me-2 mb-2" disabled>Primary Disabled</button>
+            <button class="btn btn-secondary me-2 mb-2" disabled>Secondary Disabled</button>
+            <button class="btn btn-outline-primary me-2 mb-2" disabled>
+              Outline Primary Disabled
+            </button>
+            <button class="btn btn-outline-secondary me-2 mb-2" disabled>
+              Outline Secondary Disabled
+            </button>
+            <button class="btn btn-blur me-2 mb-2" disabled>Blur Disabled</button>
+            <button class="btn btn-gradient me-2 mb-2" disabled>Gradient Disabled</button>
+            <button class="btn btn-outline-primary-alt me-2 mb-2" disabled>
+              Gold+Black Disabled
+            </button>
+            <button class="btn btn-outline-secondary-alt me-2 mb-2" disabled>
+              Black+White Disabled
+            </button>
+            <button class="btn btn-outline-primary-alt2 me-2 mb-2" disabled>
+              Gold+White Disabled
+            </button>
+            <button class="btn btn-outline-secondary-alt2 me-2 mb-2" disabled>
+              Black+Gold Disabled
+            </button>
+          </div>
+        </div>
+
+        <!-- Dark Background -->
+        <h3>On Dark Background</h3>
+        <div class="component-example" style="background: #1b1b1b; padding: 2rem">
+          <div class="mb-3">
+            <h6 class="mb-2 text-white">Core Buttons - 6 Variants</h6>
+            <button class="btn btn-primary me-2 mb-2">Primary</button>
+            <button class="btn btn-secondary me-2 mb-2">Secondary</button>
+            <button class="btn btn-outline-primary me-2 mb-2">Outline Primary</button>
+            <button class="btn btn-outline-secondary me-2 mb-2">Outline Secondary</button>
+            <button class="btn btn-blur me-2 mb-2">Blur Background</button>
+            <button class="btn btn-gradient me-2 mb-2">Gradient</button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2 text-white">Alternative Outline Buttons - Set 1</h6>
+            <button class="btn btn-outline-primary-alt me-2 mb-2">Gold + Black Text</button>
+            <button class="btn btn-outline-secondary-alt me-2 mb-2">Black + White Text</button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2 text-white">Alternative Outline Buttons - Set 2</h6>
+            <button class="btn btn-outline-primary-alt2 me-2 mb-2">Gold + White Text</button>
+            <button class="btn btn-outline-secondary-alt2 me-2 mb-2">Black + Gold Text</button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2 text-white">With Icons</h6>
+            <button class="btn btn-primary me-2 mb-2">
+              <i class="fa-solid fa-calendar-check"></i> Schedule
+            </button>
+            <button class="btn btn-secondary me-2 mb-2">
+              <i class="fa-solid fa-phone"></i> Call Now
+            </button>
+            <button class="btn btn-outline-primary me-2 mb-2">
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <button class="btn btn-outline-secondary me-2 mb-2">
+              Back <i class="fa-solid fa-arrow-left"></i>
+            </button>
+            <button class="btn btn-blur me-2 mb-2">
+              <i class="fa-solid fa-star"></i> Special Effect
+            </button>
+            <button class="btn btn-gradient me-2 mb-2">
+              Premium <i class="fa-solid fa-arrow-right"></i>
+            </button>
+          </div>
+          <div class="mb-3">
+            <h6 class="mb-2 text-white">Disabled States</h6>
+            <button class="btn btn-primary me-2 mb-2" disabled>Primary Disabled</button>
+            <button class="btn btn-secondary me-2 mb-2" disabled>Secondary Disabled</button>
+            <button class="btn btn-outline-primary me-2 mb-2" disabled>
+              Outline Primary Disabled
+            </button>
+            <button class="btn btn-outline-secondary me-2 mb-2" disabled>
+              Outline Secondary Disabled
+            </button>
+            <button class="btn btn-blur me-2 mb-2" disabled>Blur Disabled</button>
+            <button class="btn btn-gradient me-2 mb-2" disabled>Gradient Disabled</button>
+            <button class="btn btn-outline-primary-alt me-2 mb-2" disabled>
+              Gold+Black Disabled
+            </button>
+            <button class="btn btn-outline-secondary-alt me-2 mb-2" disabled>
+              Black+White Disabled
+            </button>
+            <button class="btn btn-outline-primary-alt2 me-2 mb-2" disabled>
+              Gold+White Disabled
+            </button>
+            <button class="btn btn-outline-secondary-alt2 me-2 mb-2" disabled>
+              Black+Gold Disabled
+            </button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <!-- Bootstrap JS from npm -->
+    <script src="node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>

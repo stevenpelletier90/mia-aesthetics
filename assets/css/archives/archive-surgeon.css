@@ -1,0 +1,101 @@
+.surgeon-card {
+	height: 100%;
+	position: relative;
+	overflow: hidden;
+	border-radius: 0.5rem;
+	background: var(--mia-gold-light);
+	box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+	border: 1px solid var(--mia-gold) 33;
+}
+
+.surgeon-img-container {
+	--container-size: 120px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: var(--container-size);
+	height: var(--container-size);
+}
+
+.surgeon-archive-headshot {
+	width: var(--container-size);
+	height: var(--container-size);
+	border-radius: 50%;
+	object-fit: cover;
+	border: 3px solid var(--mia-gold);
+	background: linear-gradient(135deg,#f1f3ff 0%,#f8f6ff 100%);
+	padding: 3px;
+	box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+.surgeon-info {
+	flex: 1;
+}
+
+.surgeon-card h2.h5 {
+	color: var(--mia-black);
+}
+
+.surgeon-card .location-link {
+	color: var(--mia-gray-muted);
+	text-decoration: none;
+	transition: color 0.2s ease;
+}
+
+.surgeon-card .location-link:hover {
+	color: var(--mia-gold);
+	text-decoration: none;
+}
+
+.surgeon-bio-link {
+	position: relative;
+	font-weight: 600;
+	white-space: nowrap;
+	text-decoration: none;
+	color: var(--mia-black);
+	transition: color 0.2s ease;
+}
+
+.surgeon-bio-link:hover {
+	color: var(--mia-gold);
+	text-decoration: none;
+}
+
+.surgeon-bio-link i {
+	margin-left: 8px;
+	position: relative;
+	top: -1px;
+	transition: transform 0.2s ease;
+}
+
+.surgeon-bio-link:hover i {
+	transform: translateX(3px);
+}
+
+@media (max-width: 767.98px) {
+	.surgeon-img-container {
+		--container-size: 100px;
+	}
+
+	.surgeon-archive-headshot {
+		border: 2px solid var(--mia-gold);
+	}
+
+	.surgeon-card .card-body {
+		display: flex;
+		flex-direction: row;
+		text-align: left;
+		align-items: center;
+	}
+
+	.surgeon-img-container {
+		margin-right: 1rem;
+		margin-bottom: 0;
+	}
+
+	.surgeon-info {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+}

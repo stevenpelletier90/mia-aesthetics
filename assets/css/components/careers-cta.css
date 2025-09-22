@@ -1,0 +1,47 @@
+@media (min-width: 577px) {
+	.careers-cta-container {
+		background: transparent;
+		z-index: var(--z-sticky);
+		justify-content: flex-end;
+		padding-right: 32px;
+	}
+
+	.careers-cta-btn {
+		min-width: 200px;
+		max-width: 280px;
+	}
+
+	.careers-cta-btn .fa-arrow-right {
+		margin-left: 8px;
+		font-size: 0.8em;
+		transition: transform 0.2s ease;
+	}
+
+	.careers-cta-btn:hover .fa-arrow-right {
+		transform: translateX(3px);
+	}
+}
+
+@media (max-width: 576px) {
+	.careers-cta-container {
+		background: rgba(27,27,27,0.7);
+		backdrop-filter: blur(8px);
+		box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+		z-index: var(--z-sticky);
+	}
+
+	.careers-cta-btn {
+		min-width: 70%;
+		max-width: 260px;
+	}
+
+	.careers-cta-btn .fa-arrow-right {
+		margin-left: 8px;
+		font-size: 0.8em;
+		transition: transform 0.2s ease;
+	}
+
+	.careers-cta-btn:hover .fa-arrow-right {
+		transform: translateX(3px);
+	}
+}

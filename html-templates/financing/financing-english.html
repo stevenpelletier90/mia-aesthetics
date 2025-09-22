@@ -1,0 +1,318 @@
+<!-- Page-specific styles -->
+<style>
+  /* Page-specific styles that extend base CSS */
+
+  /* Gold accent utilities */
+  .text-gold {
+    color: var(--mia-gold);
+  }
+
+  .border-gold {
+    border-color: var(--mia-gold);
+  }
+
+  /* Dark gradient background */
+  .bg-gradient-dark {
+    background: linear-gradient(135deg, var(--mia-black) 0%, #000000 100%);
+  }
+
+  /* Section divider */
+  .section-divider {
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--mia-gold), transparent);
+    position: relative;
+    margin: 3rem 0;
+  }
+
+  .section-divider::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 10px;
+    height: 10px;
+    background-color: var(--mia-gold);
+    border-radius: 50%;
+  }
+
+  /* Financing card image constraints */
+  .financing-card-img {
+    max-height: 180px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* CTA section overlay */
+  .cta-overlay {
+    background-image: url("/wp-content/uploads/2025/06/cosmetic-surgery.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-overlay::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    border-radius: inherit;
+  }
+
+  .cta-overlay > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  /* Step number styling */
+  .step-number {
+    color: var(--mia-gold);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    font-weight: 600;
+    font-family: var(--font-body);
+  }
+
+  /* Step heading border */
+  .step-heading-border {
+    border-bottom: 1px solid var(--mia-gold-30);
+  }
+
+  /* Max width for CTA text */
+  .max-width-600 {
+    max-width: 600px;
+  }
+
+  /* Card styling - financing specific */
+  .financing-card-dark {
+    background-color: var(--mia-black);
+    border: 2px solid var(--mia-gold);
+    color: #ffffff;
+  }
+
+  .financing-card-dark .card-text {
+    color: #ffffff;
+  }
+
+  /* Step card specific styling */
+  .bg-gradient-dark h3 {
+    color: #ffffff;
+  }
+
+  .bg-gradient-dark a {
+    color: var(--mia-gold);
+    text-decoration: underline;
+  }
+
+  .bg-gradient-dark a:hover {
+    color: #ffffff;
+    text-decoration: none;
+  }
+
+  /* CTA overlay inherits white text color */
+
+  /* List styling */
+  .financing-list {
+    font-family: var(--font-body);
+    line-height: 1.6;
+    color: #ffffff;
+  }
+
+  .financing-list li {
+    margin-bottom: 0.5rem;
+    color: #ffffff;
+  }
+
+  /* CTA section text styling */
+  .cta-overlay .lead {
+    color: #ffffff;
+  }
+</style>
+<div class="container py-4 py-md-5">
+  <!-- Header Section -->
+  <div class="text-center py-3 py-md-4 mb-4 mb-md-5">
+    <h1 class="mb-2 mb-md-3">Financing Options</h1>
+    <h2 class="h3 fw-normal mb-0">at Mia Aesthetics</h2>
+  </div>
+
+  <!-- Financing Options Section -->
+  <section class="mb-5">
+    <div class="row g-3 g-md-4">
+      <!-- Affirm Card -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 card-elevated financing-card-dark">
+          <div class="card-body d-flex flex-column p-4 p-md-5 text-center">
+            <img
+              src="/wp-content/uploads/2025/06/financing-afirm.png"
+              alt="Affirm financing option"
+              class="financing-card-img img-fluid mx-auto mb-4"
+            />
+            <p class="card-text flex-grow-1">
+              Flexible payment plans with transparent terms and easy monthly payments. Learn more
+              about Affirm's healthcare financing solutions and how they can help make your
+              procedure more accessible.
+            </p>
+            <a
+              href="https://www.affirm.com/"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary btn-lg mt-3"
+            >
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- United Medical Credit Card -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 card-elevated financing-card-dark">
+          <div class="card-body d-flex flex-column p-4 p-md-5 text-center">
+            <img
+              src="/wp-content/uploads/2025/06/financing-united.png"
+              alt="United Medical Credit financing option"
+              class="financing-card-img img-fluid mx-auto mb-4"
+            />
+            <p class="card-text flex-grow-1">
+              Specialized healthcare financing solutions designed specifically for medical
+              procedures. Multiple loan options available to match your financial needs.
+            </p>
+            <a
+              href="https://www.unitedcredit.com/applyforcredit?pid=a1S4X000008uHfT"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary btn-lg mt-3"
+            >
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alphaeon Credit Card -->
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 card-elevated financing-card-dark">
+          <div class="card-body d-flex flex-column p-4 p-md-5 text-center">
+            <img
+              src="/wp-content/uploads/2025/06/financing-alphaeon.png"
+              alt="Alphaeon Credit financing option"
+              class="financing-card-img img-fluid mx-auto mb-4"
+            />
+            <p class="card-text flex-grow-1">
+              Dedicated healthcare credit options with competitive terms. Designed specifically for
+              aesthetic procedures with various payment plans available.
+            </p>
+            <a
+              href="https://go.alphaeoncredit.com/credit-portal/apply"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary btn-lg mt-3"
+            >
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Section Divider -->
+  <div class="section-divider"></div>
+
+  <!-- How Payments Work Section -->
+  <section class="my-5">
+    <h2 class="text-center mb-4 mb-md-5">How Payments Work</h2>
+
+    <div class="row g-3 g-md-4">
+      <!-- Step 1 -->
+      <div class="col-12 col-md-6">
+        <div class="card h-100 card-elevated bg-gradient-dark border-gold">
+          <div class="card-body p-3 p-md-4">
+            <div class="step-number mb-3">STEP 1</div>
+            <h3 class="mb-3 pb-3 step-heading-border">Research Surgeons</h3>
+            <ul class="mb-0 ps-3 financing-list">
+              <li>
+                Choose from over 25 experienced surgeons with diverse specialties and locations
+              </li>
+              <li>
+                Review <a href="/plastic-surgeons/" target="_blank">surgeon bios</a> on our website
+                to learn more
+              </li>
+              <li>
+                Browse our
+                <a href="/before-after/before-after-by-doctor/">before and after photos</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 2 -->
+      <div class="col-12 col-md-6">
+        <div class="card h-100 card-elevated bg-gradient-dark border-gold">
+          <div class="card-body p-3 p-md-4">
+            <div class="step-number mb-3">STEP 2</div>
+            <h3 class="mb-3 pb-3 step-heading-border">Check Specials</h3>
+            <ul class="mb-0 ps-3 financing-list">
+              <li>Contact a sales coordinator to learn about available specials</li>
+              <li>New surgeons often offer reduced rates</li>
+              <li>Keep an eye on seasonal specials for the best deals</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3 -->
+      <div class="col-12 col-md-6">
+        <div class="card h-100 card-elevated bg-gradient-dark border-gold">
+          <div class="card-body p-3 p-md-4">
+            <div class="step-number mb-3">STEP 3</div>
+            <h3 class="mb-3 pb-3 step-heading-border">Lock in Your Price</h3>
+            <ul class="mb-0 ps-3 financing-list">
+              <li>Call us to secure a special price before it expires</li>
+              <li>
+                A booking fee is required to lock in the price, which stays valid for 12 months
+                (this can be paid with Visa, MasterCard, Discover, American Express credit cards, or
+                a Money Order)
+              </li>
+              <li>Schedule your surgery and complete payments within this period</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 4 -->
+      <div class="col-12 col-md-6">
+        <div class="card h-100 card-elevated bg-gradient-dark border-gold">
+          <div class="card-body p-3 p-md-4">
+            <div class="step-number mb-3">STEP 4</div>
+            <h3 class="mb-3 pb-3 step-heading-border">Complete Your Payments</h3>
+            <ul class="mb-0 ps-3 financing-list">
+              <li>
+                Make payments at your own pace, ensuring the full amount is paid 10 days before
+                surgery
+              </li>
+              <li>Contact your patient concierge via phone or email for payments or assistance</li>
+              <li>If needed, ask your concierge for a contract extension to get more time</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-overlay rounded-3 p-4 p-md-5 text-center my-5">
+    <h2 class="text-gold mb-3">Start Your Journey Today</h2>
+    <p class="lead mb-4 mx-auto max-width-600">
+      Connect with our experts to discuss your goals and explore your financing options
+    </p>
+    <a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg">
+      Free Virtual Consultation <i class="fa-solid fa-arrow-right"></i>
+    </a>
+  </section>
+</div>

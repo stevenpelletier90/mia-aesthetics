@@ -1,0 +1,120 @@
+#doctors-gallery h1 {
+	margin-bottom: 40px;
+}
+
+#doctorSelect {
+	min-width: 250px;
+	max-width: 300px;
+}
+
+#doctorSelect:focus {
+	border-color: var(--mia-gold);
+	box-shadow: 0 0 0 0.2rem rgba(200,178,115,0.25);
+}
+
+.gallery h2 {
+	margin-top: 32px;
+	margin-bottom: 32px;
+}
+
+#doctors-gallery .gallery img {
+	transition: transform 0.25s ease;
+}
+
+#doctors-gallery .gallery img:hover {
+	transform: scale(1.04);
+}
+
+#doctors-gallery .gallery button {
+	cursor: pointer;
+}
+
+#lightboxModal .modal-dialog {
+	max-width: 900px;
+	margin: 28px auto;
+}
+
+#lightboxModal .modal-content {
+	background-color: var(--mia-white);
+	border: none;
+}
+
+#lightboxModal .modal-body {
+	padding: 40px;
+	position: relative;
+	background-color: var(--mia-white);
+}
+
+#galleryCarousel img {
+	max-height: 70vh;
+	width: auto;
+	height: auto;
+	object-fit: contain;
+	display: block;
+	margin: 0 auto;
+}
+
+#galleryCarousel .carousel-control-prev, #galleryCarousel .carousel-control-next {
+	background-color: rgba(0,0,0,0.5);
+	width: 50px;
+	height: 50px;
+	top: 50%;
+	transform: translateY(-50%);
+	border-radius: 50%;
+	opacity: 0.8;
+}
+
+#galleryCarousel .carousel-control-prev:hover, #galleryCarousel .carousel-control-next:hover {
+	background-color: rgba(0,0,0,0.7);
+	opacity: 1;
+}
+
+#galleryCarousel .carousel-control-prev {
+	left: 10px;
+}
+
+#galleryCarousel .carousel-control-next {
+	right: 10px;
+}
+
+#galleryCarousel .carousel-control-prev-icon, #galleryCarousel .carousel-control-next-icon {
+	width: 20px;
+	height: 20px;
+}
+
+@media (min-width: 768px) {
+	#doctorSelect {
+		min-width: 250px;
+		padding: 12px 20px;
+		font-size: 18px;
+	}
+
+	.gallery h2 {
+		margin-top: 40px;
+		margin-bottom: 40px;
+	}
+}
+
+@media (max-width: 767px) {
+	#lightboxModal .modal-body {
+		padding: 20px;
+	}
+
+	#galleryCarousel .carousel-control-prev {
+		left: -5px;
+	}
+
+	#galleryCarousel .carousel-control-next {
+		right: -5px;
+	}
+
+	#galleryCarousel .carousel-control-prev, #galleryCarousel .carousel-control-next {
+		width: 40px;
+		height: 40px;
+	}
+
+	#galleryCarousel .carousel-control-prev-icon, #galleryCarousel .carousel-control-next-icon {
+		width: 16px;
+		height: 16px;
+	}
+}

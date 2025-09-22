@@ -1,0 +1,42 @@
+# Dependencies
+node_modules/
+vendor/
+
+# WordPress core files
+wp-admin/
+wp-includes/
+wp-content/uploads/
+wp-config.php
+
+# Build output
+dist/
+build/
+theme-bundle/
+
+# Vendor assets (allow source CSS formatting but exclude vendor)
+assets/vendor/
+
+# Minified and compiled files
+*.min.css
+*.min.js
+*.map
+
+# PHP Composer
+composer.lock
+
+# Logs and cache
+*.log
+wp-content/cache/
+
+# Git and IDE
+.git/
+.vscode/
+.idea/
+
+# Temporary files
+*.tmp
+*.temp
+
+# Generated files
+package-lock.json
+.claude/
