@@ -3,7 +3,8 @@
 }
 
 .navbar {
-	background: linear-gradient(to bottom, var(--mia-black), var(--mia-black));
+	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+	border-bottom: 1px solid var(--mia-gold);
 }
 
 .navbar-toggler {

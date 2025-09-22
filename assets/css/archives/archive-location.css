@@ -6,9 +6,17 @@
 .location-card {
 	display: flex;
 	flex-direction: column;
-	background: var(--mia-white);
-	border: 1px solid var(--mia-black);
-	color: var(--mia-gray-dark);
+	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+	border: 2px solid var(--mia-gold);
+	border-radius: 12px;
+	color: var(--mia-white);
+	overflow: hidden;
+	transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.location-card:hover {
+	box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
+	transform: translateY(-2px);
 }
 
 .location-card-img-top {
@@ -22,41 +30,42 @@
 	position: relative;
 	z-index: 2;
 	background: none;
-	color: var(--mia-gray-dark);
+	color: var(--mia-white);
 	padding: 1.75rem 1.5rem 1.25rem;
 	text-shadow: none;
 }
 
 .location-title-link {
-	color: var(--mia-gray-dark);
+	color: var(--mia-white);
 	font-weight: 600;
 	text-shadow: none;
+	transition: color 0.2s ease;
 }
 
 .location-title-link:hover, .location-title-link:focus {
-	color: var(--mia-black);
+	color: var(--mia-gold);
 }
 
 .location-detail {
-	color: var(--mia-gray-muted);
+	color: var(--mia-gold-light);
 	text-shadow: none;
 	margin-bottom: 0.75rem;
 }
 
 .location-icon {
-	color: var(--mia-black);
+	color: var(--mia-gold);
 	width: 16px;
 	text-align: center;
 }
 
 .location-phone {
-	color: var(--mia-black);
+	color: var(--mia-white);
 	transition: color 0.2s ease;
 	font-weight: 600;
 }
 
 .location-phone:hover {
-	color: var(--mia-black);
+	color: var(--mia-gold);
 	text-decoration: underline;
 }
 
@@ -77,15 +86,16 @@
 	width: fit-content;
 	text-align: left;
 	display: inline-block;
-	border-radius: 3px;
-	transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+	border-radius: 6px;
+	transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
 }
 
 .location-cta-buttons .btn:hover, .location-cta-buttons .btn:focus {
 	color: var(--mia-gold);
-	background-color: var(--mia-black);
-	border-color: var(--mia-black);
-	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+	background-color: transparent;
+	border-color: var(--mia-gold);
+	box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3);
+	transform: translateY(-1px);
 }
 
 .location-cta-buttons .btn i {

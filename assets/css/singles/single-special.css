@@ -1,5 +1,5 @@
 body.single-special {
-	background: radial-gradient(circle at top left, var(--mia-black) 0%, var(--mia-black) 50%, var(--mia-black) 100%);
+	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
 	min-height: 100vh;
 }
 
