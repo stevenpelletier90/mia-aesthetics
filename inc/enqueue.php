@@ -43,7 +43,6 @@ function mia_enqueue_global_assets(): void {
 	wp_enqueue_style( 'mia-bootstrap', get_template_directory_uri() . '/assets/vendor/bootstrap/css/bootstrap.min.css', array( 'mia-fonts' ), '5.3.8' );
 	wp_enqueue_style( 'mia-base', get_template_directory_uri() . '/assets/css/base.css', array( 'mia-bootstrap' ), MIA_THEME_VERSION );
 	wp_enqueue_style( 'mia-button', get_template_directory_uri() . '/assets/css/components/button.css', array( 'mia-base' ), MIA_THEME_VERSION );
-	wp_enqueue_style( 'mia-card', get_template_directory_uri() . '/assets/css/components/card.css', array( 'mia-base' ), MIA_THEME_VERSION );
 	wp_enqueue_style( 'mia-social-media', get_template_directory_uri() . '/assets/css/components/social-media.css', array( 'mia-base' ), MIA_THEME_VERSION );
 	wp_enqueue_style( 'mia-fontawesome', get_template_directory_uri() . '/assets/vendor/fontawesome/css/all.min.css', array(), '7.0.1' );
 	wp_enqueue_style( 'mia-header', get_template_directory_uri() . '/assets/css/header.css', array( 'mia-base' ), MIA_THEME_VERSION );

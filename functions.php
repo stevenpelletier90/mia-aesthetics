@@ -53,6 +53,10 @@ require_once get_template_directory() . '/inc/schema.php';
 require_once get_template_directory() . '/inc/enqueue.php';
 // Asset enqueueing with versioning and conditional loading.
 
+// 9. DEBUG HELPERS (load after all other includes for complete tracking).
+require_once get_template_directory() . '/inc/debug-helpers.php';
+// Frontend debug panel for tracking loaded PHP, CSS, and JS files.
+
 /**
  * Allow SVG uploads in WordPress Media Library.
  *
