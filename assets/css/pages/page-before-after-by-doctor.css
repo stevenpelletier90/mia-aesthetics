@@ -18,7 +18,7 @@
 }
 
 #doctors-gallery .gallery img {
-	transition: transform 0.25s ease;
+	transition: transform 0.2s ease;
 }
 
 #doctors-gallery .gallery img:hover {

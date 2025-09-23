@@ -43,7 +43,7 @@
 .footer-menu a {
   color: var(--mia-white);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: inline-block;
   font-size: 0.95rem;
 }
@@ -106,7 +106,7 @@
   color: var(--mia-white);
   border: none;
   box-shadow: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
   height: 56px;
   flex-shrink: 0;
 }
@@ -117,7 +117,7 @@
   font-weight: 900;
   background-image: none;
   color: var(--mia-white);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   width: auto;
   height: auto;
   flex-shrink: 0;
@@ -148,13 +148,13 @@
 }
 
 .locations-section .accordion-collapse {
-  transition: height 0.35s ease;
+  transition: height 0.2s ease;
 }
 
 .locations-section .accordion-collapse.collapsing {
   height: 0;
   overflow: hidden;
-  transition: height 0.35s ease;
+  transition: height 0.2s ease;
 }
 
 .locations-section .accordion-collapse.show {
@@ -268,7 +268,7 @@
 .footer-links a {
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
   font-size: 0.85rem;
   padding: 0.25rem 0;
 }

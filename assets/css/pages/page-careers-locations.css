@@ -52,7 +52,7 @@
 .location-phone {
 	color: var(--mia-white);
 	text-decoration: none;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .location-phone:hover {
@@ -63,7 +63,7 @@
 	color: var(--mia-gold);
 	font-weight: 600;
 	text-decoration: none;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .location-map-link:hover {
@@ -110,7 +110,7 @@
 	font-size: 1.25rem;
 	font-weight: 600;
 	padding: 20px 24px;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) {
@@ -172,7 +172,7 @@
 	background: var(--mia-white);
 	border: 1px solid var(--mia-gold-light);
 	height: 100%;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .job-function-card:hover {
@@ -223,7 +223,7 @@
 	font-size: 1.25rem;
 	font-weight: 600;
 	padding: 20px 24px;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) {
@@ -261,7 +261,7 @@
 .page-template-page-careers-locations main .accordion-button i {
 	color: var(--mia-gold);
 	font-size: 1.25rem;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .position-card-expanded {
@@ -272,7 +272,7 @@
 	overflow: hidden;
 	padding: 24px;
 	position: relative;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .position-card-expanded::before {
@@ -283,7 +283,7 @@
 	position: absolute;
 	top: 0;
 	transform: translateX(-100%);
-	transition: transform 0.3s ease;
+	transition: transform 0.2s ease;
 	width: 4px;
 }
 
@@ -302,7 +302,7 @@
 	font-size: 1.1rem;
 	font-weight: 600;
 	margin-bottom: 12px;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .position-card-expanded:hover .position-title-expanded {
@@ -324,7 +324,7 @@
 .job-item {
 	background: var(--mia-white);
 	border: 2px solid var(--mia-gold-light);
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .job-item:hover {
@@ -474,7 +474,7 @@
 	border-radius: 12px;
 	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 	height: 100%;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .benefit-card:hover {
@@ -559,7 +559,7 @@
 .video-thumbnail img {
 	height: 100%;
 	object-fit: cover;
-	transition: transform 0.3s ease;
+	transition: transform 0.2s ease;
 	width: 100%;
 }
 
@@ -580,7 +580,7 @@
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	width: 70px;
 }
 
@@ -613,7 +613,7 @@
 	color: var(--mia-white);
 	padding: 32px 24px;
 	text-align: center;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {

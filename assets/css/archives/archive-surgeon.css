@@ -6,7 +6,7 @@
 	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
 	box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
 	border: 2px solid var(--mia-gold);
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .surgeon-card:hover {
@@ -45,7 +45,7 @@
 .surgeon-name-link {
 	color: var(--mia-white);
 	text-decoration: none;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .surgeon-name-link:hover {

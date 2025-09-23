@@ -23,28 +23,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 			</div>
 			<div class="modal-body">
 				<div class="consent-content">
-					<p class="lead mb-4">By requesting a consultation, you acknowledge and agree to the following:</p>
-
-					<ul class="consent-list">
-						<li>This consultation is for informational purposes only and does not constitute medical advice.</li>
-						<li>A formal medical evaluation is required before any treatment recommendations can be made.</li>
-						<li>Your personal information will be kept confidential and used only for consultation purposes.</li>
-						<li>You understand that results may vary and no specific outcomes are guaranteed.</li>
-						<li>You are 18 years of age or older, or have parental consent if under 18.</li>
-					</ul>
-
-					<div class="consent-notice mt-4 p-3">
-						<p class="mb-0"><strong>Important:</strong> This virtual consultation does not replace an in-person medical examination. All treatment decisions should be made in consultation with a qualified medical professional.</p>
-					</div>
+					<p class="mb-0"><sup class="text-mia-gold">**</sup>By checking this box and submitting this form, I consent by electronic signature to be contacted by Mia Aesthetics by live agent, email & automatic telephone dialer for information, offers or advertisements via email/ phone call/ text message at the number & email provided. I consent to call recording of all phone calls to and with Mia Aesthetics. I am not required to sign this document as a condition to purchase any goods or services. I understand that I can revoke this consent at any time by providing notice to Mia Aesthetics. Message data rates may apply. Message frequency may vary. To learn more, see our <a href="/website-privacy-policy/">Privacy Policy</a>, <a href="/website-sms-terms-and-conditions/">SMS Terms and Conditions</a>, and <a href="/terms-of-use/">Terms of Use</a>.</p>
 				</div>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-					<i class="fas fa-times me-2" aria-hidden="true"></i>Close
-				</button>
-				<button type="button" class="btn btn-primary" data-bs-dismiss="modal">
-					<i class="fas fa-check me-2" aria-hidden="true"></i>I Understand
-				</button>
+				<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
 			</div>
 		</div>
 	</div>

@@ -131,7 +131,7 @@ a.consent-trigger:hover i {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .consultation-card
@@ -166,7 +166,7 @@ a.consent-trigger:hover i {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   background-image: none;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -200,7 +200,7 @@ a.consent-trigger:hover i {
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   resize: vertical;
 }
 

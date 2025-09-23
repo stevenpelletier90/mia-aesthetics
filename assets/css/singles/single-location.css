@@ -52,7 +52,7 @@
 .location-phone {
 	color: var(--mia-white);
 	text-decoration: none;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .location-phone:hover {
@@ -66,7 +66,7 @@
 	align-items: center;
 	text-decoration: none;
 	font-weight: 600;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .location-map-link:hover {
@@ -92,7 +92,7 @@
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform 0.5s ease;
+	transition: transform 0.2s ease;
 }
 
 .video-thumbnail:hover img {
@@ -112,7 +112,7 @@
 	justify-content: center;
 	align-items: center;
 	opacity: 0.9;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	border: 3px solid var(--mia-gold);
 }
 
@@ -193,7 +193,7 @@
 	background: transparent;
 	border: none;
 	border-radius: 0;
-	transition: background-color 0.3s ease;
+	transition: background-color 0.2s ease;
 	border-bottom: 1px solid #f0f0f0;
 }
 
@@ -246,7 +246,7 @@
 	border-radius: 12px;
 	padding: 2rem 1.5rem;
 	text-align: center;
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	border: 1px solid var(--mia-gold-20);
 	color: var(--mia-white);
 }

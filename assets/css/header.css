@@ -64,6 +64,51 @@
 	text-decoration: none;
 }
 
+/* Prevent visited state color changes - keep same as unvisited */
+.site-header .navbar-nav .nav-link:visited {
+	color: var(--mia-white);
+}
+
+.site-header .dropdown-item:visited {
+	color: var(--mia-black);
+}
+
+.site-header .mega-menu-title:visited {
+	color: var(--mia-black);
+}
+
+.site-header .header-btn:visited {
+	color: var(--mia-white);
+}
+
+.site-header .mega-menu .dropdown-header a:visited {
+	color: var(--mia-gray-dark);
+}
+
+/* Ensure visited links match their original hover behaviors */
+.site-header .navbar-nav .nav-link:visited:hover {
+	color: var(--mia-gold);
+}
+
+.site-header .dropdown-item:visited:hover {
+	color: var(--mia-gold);
+	text-decoration: underline;
+}
+
+.site-header .mega-menu-title:visited:hover {
+	color: var(--mia-gold);
+}
+
+.site-header .header-btn:visited:hover {
+	background-color: var(--mia-gold);
+	color: var(--mia-black);
+}
+
+.site-header .mega-menu .dropdown-header a:visited:hover {
+	color: var(--mia-gold);
+	text-decoration: underline;
+}
+
 .site-header .navbar-nav .nav-link:hover {
 	color: var(--mia-gold);
 	text-decoration: none;

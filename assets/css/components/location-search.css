@@ -16,7 +16,7 @@
 	border: 2px solid var(--mia-gold-light);
 	border-radius: 50px;
 	outline: none;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	box-sizing: border-box;
 	font-family: var(--font-body);
 }

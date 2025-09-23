@@ -196,7 +196,7 @@
 .video-thumbnail img {
 	height: 100%;
 	object-fit: cover;
-	transition: transform 0.5s ease;
+	transition: transform 0.2s ease;
 	width: 100%;
 }
 
@@ -218,7 +218,7 @@
 	position: absolute;
 	top: 50%;
 	transform: translate(-50%,-50%);
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	width: 80px;
 }
 
@@ -254,7 +254,7 @@
 	display: flex;
 	gap: 1.5rem;
 	padding: 2rem;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .expertise-card:hover {

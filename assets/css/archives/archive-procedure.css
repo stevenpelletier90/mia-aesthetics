@@ -1,5 +1,5 @@
 .procedure-category-card {
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   border-radius: 12px;
   overflow: hidden;
   border: 2px solid var(--mia-gold);
@@ -31,7 +31,7 @@
     transparent 100%
   );
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .procedure-category-card:hover .category-overlay {
@@ -77,7 +77,7 @@
 .procedure-category-heading {
   color: var(--mia-white);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .procedure-category-heading:hover {

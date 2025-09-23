@@ -8,7 +8,7 @@
 	border-radius: 12px;
 	overflow: hidden;
 	box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-	transition: transform 0.3s ease, box-shadow 0.3s ease;
+	transition: transform 0.2s ease, box-shadow 0.2s ease;
 	height: 100%;
 	display: flex;
 	flex-direction: column;
@@ -22,7 +22,7 @@
 .procedure-card.animate-ready {
 	opacity: 0;
 	transform: translateY(20px);
-	transition: opacity 0.6s ease, transform 0.6s ease;
+	transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .procedure-card.animate-in {
@@ -41,7 +41,7 @@ figure.procedure-image {
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-	transition: transform 0.3s ease;
+	transition: transform 0.2s ease;
 }
 
 .procedure-card:hover .procedure-image img {
@@ -72,7 +72,7 @@ figure.procedure-image {
 .procedure-title a {
 	color: var(--mia-white);
 	text-decoration: none;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .procedure-title a:hover {

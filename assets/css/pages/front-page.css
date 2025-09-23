@@ -121,7 +121,7 @@
 .stat-number[data-suffix]::after {
 	content: attr(data-suffix);
 	opacity: 0;
-	transition: opacity 0.5s ease-in-out;
+	transition: opacity 0.2s ease-in-out;
 }
 
 .stat-number[data-suffix].counting-complete::after {

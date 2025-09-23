@@ -423,7 +423,7 @@ function mia_aesthetics_render_desktop_procedures_menu( $procedures ): void {
 				<?php foreach ( $procedures['sections'] as $section ) : ?>
 					<div class="col-md-3 mb-3">
 						<div class="dropdown-header">
-							<a href="<?php echo esc_url( $section['url'] ); ?>" class="text-dark fw-bold text-decoration-none"><?php echo esc_html( $section['title'] ); ?></a>
+							<a href="<?php echo esc_url( $section['url'] ); ?>"><?php echo esc_html( $section['title'] ); ?></a>
 						</div>
 						<ul class="list-unstyled">
 							<?php foreach ( $section['items'] as $item ) : ?>
@@ -454,7 +454,7 @@ function mia_aesthetics_render_mobile_procedures_menu( $procedures ): void {
 		<li><a class="dropdown-item" href="<?php echo esc_url( $procedures['url'] ); ?>">View All Procedures</a></li>
 		<?php foreach ( $procedures['sections'] as $section_key => $section ) : ?>
 			<!-- Section Header -->
-			<li><a class="dropdown-item fw-bold" href="<?php echo esc_url( $section['url'] ); ?>"><?php echo esc_html( $section['title'] ); ?></a></li>
+			<li><a class="dropdown-item" href="<?php echo esc_url( $section['url'] ); ?>"><?php echo esc_html( $section['title'] ); ?></a></li>
 			<!-- Section Items -->
 			<?php foreach ( $section['items'] as $item ) : ?>
 				<?php
@@ -723,7 +723,7 @@ function mia_aesthetics_render_desktop_before_after_menu(): void {
 			<div class="row">
 				<div class="col-md-6 mb-3">
 					<div class="dropdown-header">
-						<span class="text-dark fw-bold">By Procedure</span>
+						<span>By Procedure</span>
 					</div>
 					<ul class="list-unstyled">
 						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
@@ -744,7 +744,7 @@ function mia_aesthetics_render_desktop_before_after_menu(): void {
 				</div>
 				<div class="col-md-6 mb-3">
 					<div class="dropdown-header">
-						<span class="text-dark fw-bold">By Category</span>
+						<span>By Category</span>
 					</div>
 					<ul class="list-unstyled">
 						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>

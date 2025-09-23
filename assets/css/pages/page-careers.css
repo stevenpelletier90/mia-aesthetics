@@ -29,7 +29,7 @@
   height: auto;
   object-fit: cover;
   object-position: center;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   will-change: transform;
 }
 
@@ -153,7 +153,7 @@
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   padding: 3rem 2.5rem;
@@ -205,7 +205,7 @@
 .value-card {
   opacity: 0;
   transform: translateY(30px);
-  transition: all 0.6s ease;
+  transition: all 0.2s ease;
 }
 
 .value-card.animate-in {
@@ -414,7 +414,7 @@
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
 }
@@ -530,11 +530,11 @@
 }
 
 #testimonialsCarousel .carousel-item {
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 #testimonialsCarousel.carousel.slide .carousel-item {
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.2s ease-in-out;
 }
 
 .testimonial-card {
@@ -542,7 +542,7 @@
   border: 1px solid rgba(0, 0, 0, 0.08);
   border-radius: 12px;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
   width: 100%;
 }
@@ -620,7 +620,7 @@
 #testimonialsCarousel .carousel-control-next {
   width: auto;
   opacity: 0.7;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 #testimonialsCarousel .carousel-control-prev:hover,
@@ -649,7 +649,7 @@
 #testimonialsCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
 #testimonialsCarousel .carousel-control-next:hover .carousel-control-next-icon {
   background-color: var(--mia-gray-muted);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 #testimonialsCarousel .carousel-indicators {
@@ -665,7 +665,7 @@
   border: 2px solid var(--mia-black);
   background-color: transparent;
   margin: 0 0.5rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .carousel-indicators [data-bs-target].active {
@@ -726,7 +726,7 @@
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 0.95rem;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -761,7 +761,7 @@
   text-decoration: none;
   font-size: 1.1rem;
   font-weight: 600;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
@@ -811,7 +811,7 @@
   justify-content: center;
   color: var(--mia-white);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-size: 1.1rem;
 }
 
@@ -840,7 +840,7 @@
 .careers-footer .copyright a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .careers-footer .copyright a:hover {
@@ -860,7 +860,7 @@
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
   font-size: 0.9rem;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
   white-space: nowrap;
 }
 

@@ -122,14 +122,18 @@ p {
 }
 
 a {
-  color: var(--mia-black);
-  text-decoration: none;
+  color: var(--mia-link);
+  text-decoration: underline;
   transition: color 0.2s ease-in-out;
 }
 
 a:hover,
 a:focus {
-  color: var(--mia-gold);
+  color: var(--mia-link-hover);
+}
+
+a:visited {
+  color: var(--mia-link-visited);
 }
 
 .content a,
@@ -228,4 +232,9 @@ li {
 .accordion-body a:focus {
   color: var(--mia-link-hover);
   text-decoration: underline;
+}
+
+/* Utility Classes */
+.text-mia-gold {
+  color: var(--mia-gold);
 }

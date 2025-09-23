@@ -32,7 +32,7 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .special-card:hover {
@@ -80,7 +80,7 @@
 .special-card-title a {
   color: var(--mia-white);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.2s ease;
 }
 
 .special-card-title a:hover {
@@ -146,7 +146,7 @@
 }
 
 .special-item {
-  transition: opacity 0.3s ease;
+  transition: opacity 0.2s ease;
 }
 
 .special-item[style*="display: none"] {

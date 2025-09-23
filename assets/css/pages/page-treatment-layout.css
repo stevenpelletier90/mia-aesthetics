@@ -149,7 +149,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 8px;
   color: var(--mia-white);
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   min-height: 80px;
 }
 
@@ -185,12 +185,12 @@
   border: none;
   border-radius: 12px;
   overflow: hidden;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .before-after-card img {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   aspect-ratio: 4/3;
   object-fit: cover;
 }
@@ -211,7 +211,7 @@
 }
 
 .procedure-image img {
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
 }
 
 .procedure-image-wrapper .image-frame {
@@ -223,7 +223,7 @@
   background: var(--mia-white);
   border: 2px solid var(--mia-gold);
   border-radius: 12px;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .highlight-card:hover {
@@ -237,7 +237,7 @@
   border-radius: 12px;
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   height: 100%;
 }
 
@@ -269,7 +269,7 @@
   border-radius: 12px;
   padding: 1.5rem;
   margin: 1.5rem 0;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 }
 
 .highlight-note:hover {
@@ -641,7 +641,7 @@
   border-radius: 8px;
   color: var(--mia-white);
   text-decoration: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
   font-family: var(--font-heading);
   font-weight: 600;
   font-size: 1rem;
@@ -674,7 +674,7 @@
 .procedure-section .procedure-link-item .link-arrow {
   color: var(--mia-gold);
   font-size: 0.875rem;
-  transition: transform 0.3s ease;
+  transition: transform 0.2s ease;
   margin-left: 1rem;
   opacity: 0.8;
 }

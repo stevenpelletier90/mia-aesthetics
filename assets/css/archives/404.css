@@ -46,7 +46,7 @@
 	border-radius: 3px;
 	font-size: 1rem;
 	font-family: var(--font-body);
-	transition: border-color 0.3s ease, box-shadow 0.3s ease;
+	transition: border-color 0.2s ease, box-shadow 0.2s ease;
 	background-color: var(--mia-white);
 }
 
@@ -67,7 +67,7 @@
 	font-weight: 600;
 	text-transform: capitalize;
 	cursor: pointer;
-	transition: all 0.3s ease;
+	transition: all 0.2s ease;
 	font-size: 1rem;
 }
 
@@ -87,7 +87,7 @@
 	text-decoration: underline;
 	cursor: pointer;
 	padding: 0.5rem 0;
-	transition: color 0.3s ease;
+	transition: color 0.2s ease;
 }
 
 .back-button .back-link:hover, .back-button .back-link:focus {
@@ -97,7 +97,7 @@
 
 .back-button .back-link i {
 	font-size: 0.9rem;
-	transition: transform 0.3s ease;
+	transition: transform 0.2s ease;
 }
 
 .back-button .back-link:hover i {
