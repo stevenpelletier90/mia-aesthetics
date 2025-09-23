@@ -1,0 +1,150 @@
+<style>
+/* Gravity Forms Anti-Jump Fix */
+.gform_wrapper {
+  scroll-behavior: auto !important;
+}
+
+.gform_page {
+  transition: opacity 0.3s ease;
+}
+
+.gform_wrapper .gform_page_footer {
+  margin-bottom: 0;
+}
+
+.gform_wrapper input:focus,
+.gform_wrapper select:focus,
+.gform_wrapper textarea:focus {
+  scroll-margin-top: 0;
+}
+
+.form-container {
+  position: relative;
+  min-height: 60vh;
+  scroll-behavior: auto;
+}
+
+.form-container .gform_wrapper {
+  position: relative;
+  scroll-behavior: auto !important;
+}
+</style>
+
+<div class="container py-5 form-container">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+      [gravityform id="14" title="false"]
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let currentScrollPosition = 0;
+  let isFormSubmitting = false;
+
+  function preventScrollJump() {
+    currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  }
+
+  function restoreScrollPosition() {
+    window.scrollTo(0, currentScrollPosition);
+    isFormSubmitting = false;
+  }
+
+  // Override scroll methods during form submission
+  const originalScrollTo = window.scrollTo;
+  const originalScrollBy = window.scrollBy;
+  const originalScrollIntoView = Element.prototype.scrollIntoView;
+
+  function disableScrolling() {
+    window.scrollTo = function() { return; };
+    window.scrollBy = function() { return; };
+    Element.prototype.scrollIntoView = function() { return; };
+  }
+
+  function enableScrolling() {
+    window.scrollTo = originalScrollTo;
+    window.scrollBy = originalScrollBy;
+    Element.prototype.scrollIntoView = originalScrollIntoView;
+  }
+
+  // Handle form button clicks (including after file uploads)
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('.gform_next_button, .gform_previous_button, .gform_button')) {
+      preventScrollJump();
+      isFormSubmitting = true;
+      disableScrolling();
+
+      setTimeout(function() {
+        restoreScrollPosition();
+        enableScrolling();
+      }, 200);
+    }
+  });
+
+  // Handle file upload changes specifically
+  document.addEventListener('change', function(e) {
+    if (e.target.matches('input[type="file"]')) {
+      preventScrollJump();
+      isFormSubmitting = true;
+    }
+  });
+
+  // Handle Gravity Forms events
+  if (typeof jQuery !== 'undefined') {
+    jQuery(document).on('gform_page_loaded gform_post_render', function() {
+      setTimeout(restoreScrollPosition, 50);
+    });
+  }
+
+  // Enhanced MutationObserver
+  if (typeof MutationObserver !== 'undefined') {
+    const formContainers = document.querySelectorAll('.gform_wrapper');
+    formContainers.forEach(function(container) {
+      const observer = new MutationObserver(function(mutations) {
+        let shouldRestore = false;
+
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList') {
+            const addedNodes = Array.from(mutation.addedNodes);
+            const removedNodes = Array.from(mutation.removedNodes);
+
+            if (addedNodes.some(node => node.classList && (node.classList.contains('gform_page') || node.querySelector && node.querySelector('.gform_page'))) ||
+                removedNodes.some(node => node.classList && (node.classList.contains('gform_page') || node.querySelector && node.querySelector('.gform_page')))) {
+              shouldRestore = true;
+            }
+          }
+
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            if (mutation.target.classList.contains('gform_page')) {
+              shouldRestore = true;
+            }
+          }
+        });
+
+        if (shouldRestore) {
+          setTimeout(restoreScrollPosition, 100);
+        }
+      });
+
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class', 'style', 'hidden']
+      });
+    });
+  }
+
+  // Prevent focus-based scrolling during form submission
+  document.addEventListener('focus', function(e) {
+    if (isFormSubmitting && e.target.closest('.gform_wrapper')) {
+      e.preventDefault();
+      setTimeout(function() {
+        restoreScrollPosition();
+      }, 10);
+    }
+  }, true);
+});
+</script>

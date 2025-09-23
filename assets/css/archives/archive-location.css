@@ -60,17 +60,34 @@
 	color: var(--mia-gold);
 	width: 16px;
 	text-align: center;
+	transition: color 0.2s ease;
 }
 
 .location-phone {
 	color: var(--mia-white);
-	transition: color 0.2s ease;
+	transition: all 0.2s ease;
 	font-weight: 600;
+	display: inline-flex;
+	align-items: center;
+	text-decoration: none;
+	padding-bottom: 2px;
+}
+
+.location-phone span {
+	border-bottom: 2px dotted var(--mia-gold);
+	transition: border-bottom-color 0.2s ease;
 }
 
 .location-phone:hover {
 	color: var(--mia-gold);
-	text-decoration: underline;
+}
+
+.location-phone:hover span {
+	border-bottom-color: var(--mia-white);
+}
+
+.d-flex:hover .location-icon {
+	color: var(--mia-white);
 }
 
 .location-cta-buttons {
@@ -118,18 +135,18 @@
 }
 
 .location-list-item .text-muted {
-	font-size: 0.875rem;
+	font-size: 1rem;
 	color: var(--mia-gray-muted);
 }
 
 
 .location-phone {
-	color: var(--mia-gold);
+	color: var(--mia-white);
 	transition: color 0.2s ease;
 }
 
 .location-phone:hover {
-	color: var(--mia-gold-dark);
+	color: var(--mia-gold);
 }
 
 @media (max-width: 767.98px) {

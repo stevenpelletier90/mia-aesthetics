@@ -34,7 +34,7 @@
 }
 
 .category-badge {
-	font-size: 0.75rem;
+	font-size: 1rem;
 	font-weight: 600;
 	text-transform: uppercase;
 	backdrop-filter: blur(4px);
@@ -60,7 +60,7 @@
 
 .case-category-card .card-text {
 	color: var(--mia-white);
-	font-size: 0.95rem;
+	font-size: 1rem;
 	line-height: 1.5;
 }
 
@@ -76,7 +76,7 @@
 
 .case-links a:not(.btn) {
 	color: var(--mia-white);
-	font-size: 0.9rem;
+	font-size: 1rem;
 	transition: all 0.2s ease;
 	display: inline-flex;
 	align-items: center;
@@ -203,7 +203,7 @@
 	}
 
 	.case-links a {
-		font-size: 0.85rem;
+		font-size: 1rem;
 	}
 }
 

@@ -132,10 +132,6 @@ a:focus {
   color: var(--mia-link-hover);
 }
 
-a:visited {
-  color: var(--mia-link-visited);
-}
-
 .content a,
 .entry-content a,
 .procedure-section a {

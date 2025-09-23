@@ -45,7 +45,7 @@
   text-decoration: none;
   transition: all 0.2s ease;
   display: inline-block;
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .footer-menu a:hover {
@@ -182,7 +182,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 0.25rem 0;
-  font-size: 0.9rem;
+  font-size: 1rem;
   font-weight: normal;
 }
 
@@ -196,7 +196,7 @@
 }
 
 .locations-section .accordion-body a.surgeon-link .surgeon-arrow {
-  font-size: 0.8rem;
+  font-size: 1rem;
   opacity: 0.7;
   margin-left: 0.5rem;
   transition: all 0.2s ease;
@@ -234,7 +234,7 @@
   margin-top: 2rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
-  font-size: 0.85rem;
+  font-size: 1rem;
   text-align: center;
 }
 
@@ -245,7 +245,7 @@
 }
 
 .disclaimer {
-  font-size: 0.85rem;
+  font-size: 1rem;
   color: var(--mia-white);
   margin-bottom: 1rem;
 }
@@ -269,7 +269,7 @@
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   transition: color 0.2s ease;
-  font-size: 0.85rem;
+  font-size: 1rem;
   padding: 0.25rem 0;
 }
 
@@ -330,7 +330,7 @@
   }
 
   .locations-section .accordion-button {
-    font-size: 0.95rem;
+    font-size: 1rem;
     padding: 0.6rem 1rem;
   }
 
@@ -339,11 +339,11 @@
   }
 
   .surgeons-list h6 {
-    font-size: 0.85rem;
+    font-size: 1rem;
   }
 
   .surgeon-link {
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .footer-links {
@@ -362,13 +362,13 @@
   }
 
   .locations-section .accordion-button {
-    font-size: 0.9rem;
+    font-size: 1rem;
     padding: 0.5rem 0.75rem;
   }
 
   .locations-section .accordion-body {
     padding: 0.75rem;
-    font-size: 0.9rem;
+    font-size: 1rem;
   }
 
   .surgeon-arrow {
@@ -385,6 +385,6 @@
   }
 
   .footer-links a {
-    font-size: 0.8rem;
+    font-size: 1rem;
   }
 }

@@ -29,6 +29,7 @@ export default [
         google: "readonly",
         geocoder: "readonly",
         IntersectionObserver: "readonly",
+        MutationObserver: "readonly",
         setTimeout: "readonly",
         setInterval: "readonly",
         clearTimeout: "readonly",

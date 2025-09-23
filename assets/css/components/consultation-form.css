@@ -404,6 +404,17 @@ a.consent-trigger:hover i {
   color: var(--mia-gold);
 }
 
+.consent-modal a {
+  color: var(--mia-gold);
+  text-decoration: underline;
+  transition: color 0.2s ease;
+}
+
+.consent-modal a:hover {
+  color: var(--mia-white);
+  text-decoration: underline;
+}
+
 .consent-modal .modal-footer {
   border-top: 1px solid rgba(200, 178, 115, 0.3);
   background: transparent;

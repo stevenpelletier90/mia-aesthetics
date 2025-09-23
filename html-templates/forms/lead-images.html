@@ -1,0 +1,95 @@
+<style>
+/* Gravity Forms Anti-Jump Fix */
+.gform_wrapper {
+  scroll-behavior: auto !important;
+}
+
+.gform_page {
+  transition: opacity 0.3s ease;
+}
+
+.gform_wrapper .gform_page_footer {
+  margin-bottom: 0;
+}
+
+.gform_wrapper input:focus,
+.gform_wrapper select:focus,
+.gform_wrapper textarea:focus {
+  scroll-margin-top: 0;
+}
+
+.form-container {
+  position: relative;
+  min-height: 60vh;
+  scroll-behavior: auto;
+}
+
+.form-container .gform_wrapper {
+  position: relative;
+  scroll-behavior: auto !important;
+}
+</style>
+
+<div class="container py-5 form-container">
+  <div class="row">
+    <div class="col-12 col-md-8 col-lg-6 offset-md-2 offset-lg-3">
+      [gravityform id="4" title="false"]
+    </div>
+  </div>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+  let currentScrollPosition = 0;
+
+  function preventScrollJump() {
+    currentScrollPosition = window.pageYOffset || document.documentElement.scrollTop;
+  }
+
+  function restoreScrollPosition() {
+    window.scrollTo(0, currentScrollPosition);
+  }
+
+  document.addEventListener('click', function(e) {
+    if (e.target.matches('.gform_next_button, .gform_previous_button')) {
+      preventScrollJump();
+      setTimeout(function() {
+        restoreScrollPosition();
+      }, 50);
+    }
+  });
+
+  if (typeof jQuery !== 'undefined' && typeof gform !== 'undefined') {
+    jQuery(document).on('gform_page_loaded', function() {
+      restoreScrollPosition();
+    });
+  }
+
+  if (typeof MutationObserver !== 'undefined') {
+    const formContainers = document.querySelectorAll('.gform_wrapper');
+    formContainers.forEach(function(container) {
+      const observer = new MutationObserver(function(mutations) {
+        let shouldRestore = false;
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList' || mutation.type === 'attributes') {
+            if (mutation.target.classList.contains('gform_page') ||
+                mutation.target.querySelector('.gform_page')) {
+              shouldRestore = true;
+            }
+          }
+        });
+        if (shouldRestore) {
+          setTimeout(restoreScrollPosition, 10);
+        }
+      });
+
+      observer.observe(container, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ['class', 'style']
+      });
+    });
+  }
+});
+</script>

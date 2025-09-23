@@ -196,8 +196,8 @@ get_header();
 					<div class="location-detail mb-2">
 						<div class="d-flex align-items-center">
 							<i class="fas fa-phone me-2 location-icon" aria-hidden="true"></i>
-							<a href="tel:<?php echo esc_attr( $phone_number ); ?>" class="location-phone text-decoration-none">
-								<?php echo esc_html( $phone_number ); ?>
+							<a href="tel:<?php echo esc_attr( $phone_number ); ?>" class="location-phone">
+								<span><?php echo esc_html( $phone_number ); ?></span>
 							</a>
 						</div>
 					</div>
