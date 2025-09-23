@@ -845,3 +845,109 @@
     display: block;
   }
 }
+
+/* Comparison Table Styles */
+.comparison-table {
+  width: 100%;
+  background-color: var(--mia-black);
+  color: var(--mia-white);
+  border: 1px solid var(--mia-gold);
+  border-radius: 8px;
+  overflow: hidden;
+  border-collapse: collapse;
+}
+
+.comparison-table th,
+.comparison-table td {
+  border: 1px solid var(--mia-gold);
+  padding: 1rem;
+  vertical-align: middle;
+}
+
+.comparison-table thead th {
+  background-color: var(--mia-black);
+  border-bottom: 2px solid var(--mia-gold);
+  font-weight: 600;
+  font-family: var(--font-heading);
+  text-align: center;
+  color: var(--mia-gold);
+  font-size: 1.1rem;
+}
+
+.comparison-table tbody th {
+  background-color: var(--mia-gold);
+  font-weight: 600;
+  color: var(--mia-black);
+  text-align: left;
+  font-family: var(--font-heading);
+  font-size: 1rem;
+}
+
+.comparison-table tbody td {
+  background-color: var(--mia-black);
+  text-align: center;
+  color: var(--mia-white);
+}
+
+/* Mobile responsiveness for comparison table */
+@media (max-width: 767.98px) {
+  .comparison-table {
+    display: block;
+    border: none;
+    background: transparent;
+  }
+
+  .comparison-table thead {
+    display: none;
+  }
+
+  .comparison-table tbody {
+    display: block;
+  }
+
+  .comparison-table tr {
+    display: block;
+    background-color: var(--mia-black);
+    border: 1px solid var(--mia-gold);
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    overflow: hidden;
+  }
+
+  .comparison-table th[scope="row"] {
+    display: block;
+    background-color: var(--mia-gold) !important;
+    color: var(--mia-black) !important;
+    text-align: center !important;
+    font-weight: 600 !important;
+    font-family: var(--font-heading) !important;
+    padding: 1rem !important;
+    border: none !important;
+    border-bottom: 2px solid var(--mia-gold) !important;
+    font-size: 1.1rem;
+    margin-bottom: 0;
+  }
+
+  .comparison-table td {
+    display: block;
+    border: none !important;
+    padding: 1rem !important;
+    background-color: var(--mia-black);
+    color: var(--mia-white);
+    position: relative;
+    border-bottom: 1px solid var(--mia-gold-30) !important;
+  }
+
+  .comparison-table td:last-child {
+    border-bottom: none !important;
+  }
+
+  .comparison-table td:before {
+    content: attr(data-label) ": ";
+    color: var(--mia-gold);
+    font-weight: 600;
+    font-family: var(--font-heading);
+    display: inline;
+    margin-right: 0.5rem;
+  }
+}
