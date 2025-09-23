@@ -53,10 +53,6 @@ require_once get_template_directory() . '/inc/schema.php';
 require_once get_template_directory() . '/inc/enqueue.php';
 // Asset enqueueing with versioning and conditional loading.
 
-// 9. DEBUG HELPERS (only loads for administrators).
-require_once get_template_directory() . '/inc/debug-assets.php';
-// Frontend asset debugging panel for administrators.
-
 /**
  * Allow SVG uploads in WordPress Media Library.
  *
