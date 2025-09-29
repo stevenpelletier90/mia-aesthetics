@@ -211,3 +211,14 @@ add_action( 'save_post', 'mia_clear_specials_cache' );
 add_action( 'delete_post', 'mia_clear_specials_cache' );
 add_action( 'wp_trash_post', 'mia_clear_specials_cache' );
 add_action( 'untrash_post', 'mia_clear_specials_cache' );
+
+/**
+ * Disable Gravity Forms confirmation anchor scrolling.
+ *
+ * Prevents Gravity Forms from automatically scrolling the page to the
+ * confirmation message or next page after form submission. This allows
+ * for better control over the user experience after form submission.
+ *
+ * @return bool False to disable the anchor scroll behavior.
+ */
+add_filter( 'gform_confirmation_anchor', '__return_false' );
