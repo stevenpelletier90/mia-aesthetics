@@ -78,32 +78,6 @@
 	box-shadow: 0 4px 8px rgba(0,0,0,0.2);
 }
 
-.back-button .back-link {
-	background: none;
-	border: none;
-	color: var(--mia-black);
-	font-family: var(--font-body);
-	font-size: 1rem;
-	text-decoration: underline;
-	cursor: pointer;
-	padding: 0.5rem 0;
-	transition: color 0.2s ease;
-}
-
-.back-button .back-link:hover, .back-button .back-link:focus {
-	color: var(--mia-gold);
-	outline: none;
-}
-
-.back-button .back-link i {
-	font-size: 0.9rem;
-	transition: transform 0.2s ease;
-}
-
-.back-button .back-link:hover i {
-	transform: translateX(-3px);
-}
-
 @media (max-width: 768px) {
 	.error-404 .post-header h1 {
 		font-size: 4rem;

@@ -44,7 +44,7 @@ get_header(); ?>
 						
 						<!-- Back Button -->
 						<div class="back-button">
-							<button onclick="history.back()" class="back-link">
+							<button onclick="history.back()" class="btn btn-outline-secondary">
 								<i class="fas fa-arrow-left me-2" aria-hidden="true"></i> Go Back to Previous Page
 							</button>
 						</div>

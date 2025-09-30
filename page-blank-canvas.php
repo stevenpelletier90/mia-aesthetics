@@ -1,7 +1,7 @@
 <?php
 /**
  * Template Name: Blank Canvas
- * Template Post Type: post, page, procedure, non-surgical, fat-transfer
+ * Template Post Type: post, page, procedure, non-surgical, fat-transfer, location
  *
  * @package Mia_Aesthetics
  */

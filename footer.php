@@ -27,7 +27,7 @@
 						<li><a href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">Locations</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>">Surgeons</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/careers/' ) ); ?>">Careers</a></li>
-						<li><a href="https://patient.miaaesthetics.com/s/login?ec=302&startURL=/s/home" target="_blank" rel="noopener">Patient Portal</a></li>
+						<li><a href="https://patient.miaaesthetics.com/s/login?ec=302&startURL=%2Fs%2Fhome" target="_blank" rel="noopener">Patient Portal</a></li>
 					</ul>
 				</nav>
 			</div>
