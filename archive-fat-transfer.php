@@ -90,7 +90,7 @@ get_header(); ?>
 						<li>The cheeks often lose fat with age, creating a hollow or sunken look</li>
 						<li>Fat transfer plumps the cheeks again for a fuller, younger look</li>
 					</ul>
-					<h3>Fat Transfer to Lips</h3>
+					<h3><a href="/fat-transfer/lips/">Fat Transfer to Lips</a></h3>
 					<ul>
 						<li>Creates more voluminous and shapely lips</li>
 						<li>Enhances lip symmetry</li>

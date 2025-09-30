@@ -208,7 +208,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 							<div class="cta-card__content">
 								<h3 class="cta-card__title">Financing Options</h3>
 								<p class="cta-card__text">Learn about our flexible payment plans and financing solutions.</p>
-								<a href="/financing" class="btn btn-secondary btn-sm">
+								<a href="/financing/" class="btn btn-secondary btn-sm">
 									Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
@@ -219,7 +219,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 							<div class="cta-card__content">
 								<h3 class="cta-card__title">Our Procedures</h3>
 								<p class="cta-card__text">Browse our complete range of plastic surgery and aesthetic treatments.</p>
-								<a href="/procedures" class="btn btn-outline-primary btn-sm">
+								<a href="/cosmetic-plastic-surgery/" class="btn btn-outline-primary btn-sm">
 									View All <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 								</a>
 							</div>
