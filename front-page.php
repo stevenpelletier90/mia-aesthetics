@@ -18,10 +18,9 @@ require __DIR__ . '/hero-section.php';
 	<!-- Centered Content -->
 	<div class="row justify-content-center">
 		<div class="col-lg-10 col-xl-8">
-		<div class="about-content text-center">
-			<p class="tagline mb-3">PROFESSIONAL CARE YOU CAN TRUST</p>
-			<h1 class="mb-4 page-heading">About Mia Aesthetics</h1>
-			<p class="section-description mb-5">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
+		<div class="about-content text-center">		
+			<h1 class="mb-4 page-heading">Why Mia Aesthetics?</h1>
+			<p class="section-description mb-5">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
 		</div>
 		</div>
 	</div>
