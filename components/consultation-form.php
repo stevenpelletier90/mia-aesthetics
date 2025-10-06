@@ -80,8 +80,11 @@ $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
 </div>
 
 <?php
-// Queue the consent modal to render in footer (outside any containers)
-add_action( 'wp_footer', function() {
-	get_template_part( 'components/consent-modal' );
-});
+// Queue the consent modal to render in footer (outside any containers).
+add_action(
+	'wp_footer',
+	function () {
+		get_template_part( 'components/consent-modal' );
+	}
+);
 ?>

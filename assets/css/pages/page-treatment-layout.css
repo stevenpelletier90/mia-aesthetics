@@ -942,7 +942,7 @@
     border-bottom: none !important;
   }
 
-  .comparison-table td:before {
+  .comparison-table td::before {
     content: attr(data-label) ": ";
     color: var(--mia-gold);
     font-weight: 600;

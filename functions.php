@@ -8,54 +8,35 @@
  * @package Mia_Aesthetics
  */
 
-// Load helper modules (see inc/ for details).
-// 1. CORE FOUNDATION (WordPress features, no dependencies).
+// Core foundation.
 require_once get_template_directory() . '/inc/theme-support.php';
-// WordPress theme support features (MUST be first).
 require_once get_template_directory() . '/inc/state-abbreviations.php';
-// US state abbreviation lookup and helper (pure utility).
 
-// 2. UTILITIES (minimal dependencies, used by other modules).
+// Utilities.
 require_once get_template_directory() . '/inc/media-helpers.php';
-// Video processing, image handling, gallery utilities.
 require_once get_template_directory() . '/inc/cache-helpers.php';
-// Cache management and clearing (used by queries).
 
-// 3. TEMPLATE UTILITIES (depends on utilities above).
+// Template utilities.
 require_once get_template_directory() . '/inc/template-helpers.php';
-// Template/UI helpers (uses state abbreviations).
 require_once get_template_directory() . '/inc/breadcrumb-display.php';
-// Breadcrumb display control and rendering functions.
 require_once get_template_directory() . '/inc/cta-display.php';
-// CTA display control based on ACF settings.
 require_once get_template_directory() . '/inc/social-media-helpers.php';
-// Social media URL helpers based on ACF settings.
 
-// 4. FEATURE MODULES (moderate dependencies).
+// Feature modules.
 require_once get_template_directory() . '/inc/featured-image-column.php';
-// Admin featured image column.
 
-// 5. QUERY MODIFICATIONS (depends on caching utilities).
+// Query modifications.
 require_once get_template_directory() . '/inc/queries.php';
-// Custom query modifications and filters.
 
-// 6. NAVIGATION (depends on utilities and state functions).
+// Navigation.
 require_once get_template_directory() . '/inc/menu-helpers.php';
-// Menu rendering helpers and caching (uses state abbreviations).
 require_once get_template_directory() . '/inc/menus.php';
-// Menu structure and rendering (uses menu helpers).
 
-// 7. SEO AND METADATA (depends on multiple utility modules).
+// SEO and metadata.
 require_once get_template_directory() . '/inc/schema.php';
-// Modular schema system entry point.
 
-// 8. ASSET MANAGEMENT (MUST be last to properly detect template context).
+// Asset management (load last).
 require_once get_template_directory() . '/inc/enqueue.php';
-// Asset enqueueing with versioning and conditional loading.
-
-// 9. DEBUG HELPERS (load after all other includes for complete tracking).
-require_once get_template_directory() . '/inc/debug-helpers.php';
-// Frontend debug panel for tracking loaded PHP, CSS, and JS files.
 
 /**
  * Allow SVG uploads in WordPress Media Library.
@@ -206,7 +187,6 @@ function mia_clear_specials_cache( $post_id ): void {
 	}
 }
 
-// Clear cache when specials are updated.
 add_action( 'save_post', 'mia_clear_specials_cache' );
 add_action( 'delete_post', 'mia_clear_specials_cache' );
 add_action( 'wp_trash_post', 'mia_clear_specials_cache' );

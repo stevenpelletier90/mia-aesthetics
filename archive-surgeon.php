@@ -33,11 +33,12 @@ get_header(); ?>
 					<?php
 					while ( have_posts() ) :
 						the_post();
-						// Get surgeon location if available.
-						$location       = get_field( 'surgeon_location' );
-						$location_id    = '';
-						$location_title = '';
-						$location_class = '';
+						// Get surgeon permalink and location.
+						$surgeon_permalink = get_permalink();
+						$location          = get_field( 'surgeon_location' );
+						$location_id       = '';
+						$location_title    = '';
+						$location_class    = '';
 
 						if ( null !== $location && '' !== $location ) {
 							// Handle Post Object return format.
@@ -84,7 +85,11 @@ get_header(); ?>
 									</div>
 									<div class="surgeon-info d-flex flex-column justify-content-center">
 										<h2 class="h5 mb-1">
-											<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-name-link"><?php the_title(); ?></a>
+											<?php if ( false !== $surgeon_permalink ) : ?>
+												<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-name-link"><?php the_title(); ?></a>
+											<?php else : ?>
+												<?php the_title(); ?>
+											<?php endif; ?>
 										</h2>
 										
 										<?php if ( '' !== $location_title && '' !== $location_id ) : ?>
