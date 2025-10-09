@@ -250,9 +250,6 @@ function mia_clear_menu_cache( $post_id ): void {
 	$post_type = get_post_type( $post_id );
 	if ( in_array( $post_type, array( 'location', 'surgeon', 'non-surgical' ), true ) ) {
 		delete_transient( 'mia_all_menu_data' );
-		delete_transient( 'mia_locations_menu' );
-		delete_transient( 'mia_surgeons_menu' );
-		delete_transient( 'mia_non_surgical_menu' );
 	}
 }
 add_action( 'save_post', 'mia_clear_menu_cache' );

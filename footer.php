@@ -153,6 +153,7 @@
 						<li><a href="<?php echo esc_url( home_url( '/terms-and-conditions/' ) ); ?>">Terms & Conditions</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>">Terms of Use</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/website-sms-terms-and-conditions/' ) ); ?>">SMS Terms & Conditions</a></li>
+						<li><a href="<?php echo esc_url( home_url( '#' ) ); ?>" class="termly-display-preferences">Consent Preferences</a></li>
 					</ul>
 				</nav>
 			</div>

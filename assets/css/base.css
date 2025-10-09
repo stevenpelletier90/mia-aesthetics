@@ -230,6 +230,41 @@ li {
   text-decoration: underline;
 }
 
+p.gform_required_legend {
+  display: none;
+}
+
+/* Gravity Forms - Prevent Mobile Zoom on Input Focus
+ * iOS Safari and Android Chrome zoom when input font-size < 16px.
+ * Setting 16px minimum prevents zoom while maintaining accessibility.
+ * See: https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariWebContent/AdjustingtheTextSize/AdjustingtheTextSize.html
+ *
+ * Higher specificity to override Gravity Forms default styles.
+ */
+body .gform_wrapper .gform_body input[type="text"],
+body .gform_wrapper .gform_body input[type="email"],
+body .gform_wrapper .gform_body input[type="tel"],
+body .gform_wrapper .gform_body input[type="number"],
+body .gform_wrapper .gform_body input[type="url"],
+body .gform_wrapper .gform_body input[type="password"],
+body .gform_wrapper .gform_body input[type="date"],
+body .gform_wrapper .gform_body input[type="search"],
+body .gform_wrapper .gform_body select,
+body .gform_wrapper .gform_body textarea,
+body .gform_wrapper .gform_fields input[type="text"],
+body .gform_wrapper .gform_fields input[type="email"],
+body .gform_wrapper .gform_fields input[type="tel"],
+body .gform_wrapper .gform_fields input[type="number"],
+body .gform_wrapper .gform_fields input[type="url"],
+body .gform_wrapper .gform_fields input[type="password"],
+body .gform_wrapper .gform_fields input[type="date"],
+body .gform_wrapper .gform_fields input[type="search"],
+body .gform_wrapper .gform_fields select,
+body .gform_wrapper .gform_fields textarea {
+  font-size: 16px !important;
+  -webkit-tap-highlight-color: transparent;
+}
+
 /* Utility Classes */
 .text-mia-gold {
   color: var(--mia-gold);

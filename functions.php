@@ -171,26 +171,6 @@ function mia_aesthetics_check_svg_filetype( $data, $file, $filename, $mimes ) {
 
 add_filter( 'wp_check_filetype_and_ext', 'mia_aesthetics_check_svg_filetype', 10, 4 );
 
-/**
- * Cache invalidation for specials archive optimization
- *
- * Clears the specials archive transient cache when specials are modified.
- * This ensures the optimized queries always serve fresh content.
- *
- * @param int $post_id The post ID being modified.
- * @return void
- */
-function mia_clear_specials_cache( $post_id ): void {
-	if ( 'special' === get_post_type( $post_id ) ) {
-		delete_transient( 'specials_archive_english' );
-		delete_transient( 'specials_archive_spanish' );
-	}
-}
-
-add_action( 'save_post', 'mia_clear_specials_cache' );
-add_action( 'delete_post', 'mia_clear_specials_cache' );
-add_action( 'wp_trash_post', 'mia_clear_specials_cache' );
-add_action( 'untrash_post', 'mia_clear_specials_cache' );
 
 /**
  * Disable Gravity Forms confirmation anchor scrolling.
