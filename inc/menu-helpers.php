@@ -451,7 +451,7 @@ function mia_aesthetics_render_mobile_procedures_menu( $procedures ): void {
 		<li><a class="dropdown-item" href="<?php echo esc_url( $procedures['url'] ); ?>">View All Procedures</a></li>
 		<?php foreach ( $procedures['sections'] as $section_key => $section ) : ?>
 			<!-- Section Header -->
-			<li><a class="dropdown-item" href="<?php echo esc_url( $section['url'] ); ?>"><?php echo esc_html( $section['title'] ); ?></a></li>
+			<li><a class="dropdown-item menu-category" href="<?php echo esc_url( $section['url'] ); ?>"><?php echo esc_html( $section['title'] ); ?></a></li>
 			<!-- Section Items -->
 			<?php foreach ( $section['items'] as $item ) : ?>
 				<?php

@@ -64,51 +64,6 @@
 	text-decoration: none;
 }
 
-/* Prevent visited state color changes - keep same as unvisited */
-.site-header .navbar-nav .nav-link:visited {
-	color: var(--mia-white);
-}
-
-.site-header .dropdown-item:visited {
-	color: var(--mia-black);
-}
-
-.site-header .mega-menu-title:visited {
-	color: var(--mia-black);
-}
-
-.site-header .header-btn:visited {
-	color: var(--mia-white);
-}
-
-.site-header .mega-menu .dropdown-header a:visited {
-	color: var(--mia-gray-dark);
-}
-
-/* Ensure visited links match their original hover behaviors */
-.site-header .navbar-nav .nav-link:visited:hover {
-	color: var(--mia-gold);
-}
-
-.site-header .dropdown-item:visited:hover {
-	color: var(--mia-gold);
-	text-decoration: underline;
-}
-
-.site-header .mega-menu-title:visited:hover {
-	color: var(--mia-gold);
-}
-
-.site-header .header-btn:visited:hover {
-	background-color: var(--mia-gold);
-	color: var(--mia-black);
-}
-
-.site-header .mega-menu .dropdown-header a:visited:hover {
-	color: var(--mia-gold);
-	text-decoration: underline;
-}
-
 .site-header .navbar-nav .nav-link:hover {
 	color: var(--mia-gold);
 	text-decoration: none;
@@ -419,6 +374,21 @@
 
 	.offcanvas .dropdown-item.fw-bold {
 		color: var(--mia-gold);
+	}
+
+	/* Mobile menu category headers (Body, Breast, Face, Men) */
+	.offcanvas .dropdown-item.menu-category {
+		color: var(--mia-gold);
+		font-weight: 700;
+		font-size: 1.2rem;
+		padding-top: 1rem;
+		padding-bottom: 0.5rem;
+		text-transform: uppercase;
+		letter-spacing: 0.5px;
+	}
+
+	.offcanvas .dropdown-item.menu-category:hover {
+		color: var(--mia-white);
 	}
 
 	.d-sm-block.d-xl-none .header-btn {

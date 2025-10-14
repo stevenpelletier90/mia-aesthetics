@@ -131,17 +131,192 @@
   .cta-overlay .lead {
     color: #ffffff;
   }
+
+  /* Accordion item styling - scoped to financing accordion only */
+  #financingAccordion .accordion-item {
+    margin-bottom: 1rem;
+    border: 1px solid rgba(27, 27, 27, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  /* Accordion button styling - scoped to financing accordion only */
+  #financingAccordion .accordion-button {
+    background-color: #ffffff;
+    color: #1b1b1b;
+    font-weight: 600;
+    padding: 1rem 1.5rem;
+    border: none;
+  }
+
+  #financingAccordion .accordion-button:not(.collapsed) {
+    background-color: rgba(200, 178, 115, 0.1);
+    color: #1b1b1b;
+  }
+
+  /* Accordion body dark theme - scoped to financing accordion only */
+  #financingAccordion .accordion-body {
+    background-color: #1b1b1b;
+    color: #ffffff;
+    text-align: center;
+  }
+
+  /* Accordion arrow - match FAQ styling with Font Awesome */
+  #financingAccordion .accordion-button::after {
+    background-image: none;
+    content: "\f107";
+    font-family: "Font Awesome 7 Free";
+    font-weight: 900;
+    font-size: 1.2rem;
+    color: #c8b273;
+    transition: transform 0.2s ease;
+  }
+
+  #financingAccordion .accordion-button.collapsed::after {
+    transform: rotate(-90deg);
+  }
+
+  /* Override base.css accordion link hover for buttons */
+  #financingAccordion .accordion-body .btn {
+    text-decoration: none !important;
+  }
+
+  /* Mobile heading size adjustments */
+  @media (max-width: 767px) {
+    .financing-header h1 {
+      font-size: 2rem;
+    }
+
+    .financing-header h2 {
+      font-size: 1.5rem;
+    }
+  }
 </style>
 <div class="container py-4 py-md-5">
   <!-- Header Section -->
-  <div class="text-center py-3 py-md-4 mb-4 mb-md-5">
+  <div class="financing-header text-center py-3 py-md-4 mb-4 mb-md-5">
     <h1 class="mb-2 mb-md-3">Financing Options</h1>
     <h2 class="h3 fw-normal mb-0">at Mia Aesthetics</h2>
   </div>
 
   <!-- Financing Options Section -->
   <section class="mb-5">
-    <div class="row g-3 g-md-4">
+    <!-- Mobile Accordion - visible only on mobile -->
+    <div class="accordion d-block d-md-none mb-4" id="financingAccordion">
+      <!-- Affirm -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#affirmCollapse"
+            aria-expanded="false"
+            aria-controls="affirmCollapse"
+          >
+            Affirm
+          </button>
+        </h2>
+        <div id="affirmCollapse" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <img
+              src="/wp-content/uploads/2025/06/financing-afirm.png"
+              alt="Affirm financing option"
+              class="financing-card-img img-fluid mx-auto mb-4"
+            />
+            <p class="mb-4">
+              Flexible payment plans with transparent terms and easy monthly payments. Patients must
+              apply using their Mia Aesthetics invoices.
+            </p>
+            <a
+              href="https://www.affirm.com/"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- United Medical Credit -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#unitedCollapse"
+            aria-expanded="false"
+            aria-controls="unitedCollapse"
+          >
+            United Medical Credit
+          </button>
+        </h2>
+        <div id="unitedCollapse" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <img
+              src="/wp-content/uploads/2025/06/financing-united.png"
+              alt="United Medical Credit financing option"
+              class="financing-card-img img-fluid mx-auto mb-4"
+            />
+            <p class="mb-4">
+              Specialized healthcare financing solutions designed specifically for medical
+              procedures. Multiple loan options available to match your financial needs.
+            </p>
+            <a
+              href="https://www.unitedcredit.com/applyforcredit?pid=a1S4X000008uHfT"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Alphaeon Credit -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#alphaeonCollapse"
+            aria-expanded="false"
+            aria-controls="alphaeonCollapse"
+          >
+            Alphaeon Credit
+          </button>
+        </h2>
+        <div id="alphaeonCollapse" class="accordion-collapse collapse">
+          <div class="accordion-body">
+            <img
+              src="/wp-content/uploads/2025/06/financing-alphaeon.png"
+              alt="Alphaeon Credit financing option"
+              class="financing-card-img img-fluid mx-auto mb-4"
+            />
+            <p class="mb-4">
+              Dedicated healthcare credit options with competitive terms. Designed specifically for
+              aesthetic procedures with various payment plans available.
+            </p>
+            <a
+              href="/financing/alphaeon-links/"
+              target="_blank"
+              rel="noopener"
+              class="btn btn-primary"
+            >
+              Learn More <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Desktop Card Grid - hidden on mobile -->
+    <div class="row g-3 g-md-4 d-none d-md-flex">
       <!-- Affirm Card -->
       <div class="col-12 col-md-6 col-lg-4">
         <div class="card h-100 card-elevated financing-card-dark">
@@ -152,15 +327,14 @@
               class="financing-card-img img-fluid mx-auto mb-4"
             />
             <p class="card-text flex-grow-1">
-              Flexible payment plans with transparent terms and easy monthly payments. Learn more
-              about Affirm's healthcare financing solutions and how they can help make your
-              procedure more accessible.
+              Flexible payment plans with transparent terms and easy monthly payments. Patients must
+              apply using their Mia Aesthetics invoices.
             </p>
             <a
               href="https://www.affirm.com/"
               target="_blank"
               rel="noopener"
-              class="btn btn-primary btn-lg mt-3"
+              class="btn btn-primary mt-3"
             >
               Learn More <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -185,7 +359,7 @@
               href="https://www.unitedcredit.com/applyforcredit?pid=a1S4X000008uHfT"
               target="_blank"
               rel="noopener"
-              class="btn btn-primary btn-lg mt-3"
+              class="btn btn-primary mt-3"
             >
               Learn More <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -207,10 +381,10 @@
               aesthetic procedures with various payment plans available.
             </p>
             <a
-              href="https://go.alphaeoncredit.com/credit-portal/apply"
+              href="/financing/alphaeon-links/"
               target="_blank"
               rel="noopener"
-              class="btn btn-primary btn-lg mt-3"
+              class="btn btn-primary mt-3"
             >
               Learn More <i class="fa-solid fa-arrow-right"></i>
             </a>
@@ -311,7 +485,7 @@
     <p class="lead mb-4 mx-auto max-width-600">
       Connect with our experts to discuss your goals and explore your financing options
     </p>
-    <a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg">
+    <a href="/free-plastic-surgery-consultation/" class="btn btn-primary">
       Free Virtual Consultation <i class="fa-solid fa-arrow-right"></i>
     </a>
   </section>
