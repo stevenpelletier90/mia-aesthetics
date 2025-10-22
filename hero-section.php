@@ -40,7 +40,7 @@
 	</div>
 
 	<!-- Hero Content Boxes -->
-	<div class="hero-sidebar">
+	<div class="hero-boxes">
 		<!-- Before & After Box -->
 		<div class="hero-box hero-box-top">
 		<!-- Specific results images -->

@@ -30,7 +30,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Founded Year -->
 		<div class="stat-box text-center">
 		<div class="homepage-stat-number" data-count="2017">0</div>
-		<div class="homepage-stat-label">YEAR<br>FOUNDED</div>
+		<div class="homepage-stat-label">YEAR FOUNDED</div>
 		</div>
 
 		<!-- Expert Surgeons (Dynamic) -->
@@ -41,19 +41,19 @@ require __DIR__ . '/hero-section.php';
 			echo esc_html( (string) $stats['surgeons'] );
 		?>
 		">0</div>
-		<div class="homepage-stat-label">EXPERT<br>SURGEONS</div>
+		<div class="homepage-stat-label">EXPERT SURGEONS</div>
 		</div>
 
 		<!-- Clinic Locations (Dynamic) -->
 		<div class="stat-box text-center">
 		<div class="homepage-stat-number" data-count="<?php echo esc_attr( (string) $stats['locations'] ); ?>">0</div>
-		<div class="homepage-stat-label">CLINIC<br>LOCATIONS</div>
+		<div class="homepage-stat-label">CLINIC LOCATIONS</div>
 		</div>
 
 		<!-- Satisfied Patients -->
 		<div class="stat-box text-center">
 		<div class="homepage-stat-number" data-count="150000" data-suffix="+">0</div>
-		<div class="homepage-stat-label">SATISFIED<br>PATIENTS</div>
+		<div class="homepage-stat-label">SATISFIED PATIENTS</div>
 		</div>
 	</div>
 	</div>
