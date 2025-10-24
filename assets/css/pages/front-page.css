@@ -62,8 +62,10 @@
 	font-size: clamp(2.25rem,8vw,3.75rem);
 	font-weight: 800;
 	line-height: 1;
-	color: var(--mia-black);
+	color: var(--mia-gold);
 	font-style: italic;
+	-webkit-text-stroke: 1px var(--mia-black);
+	text-stroke: 1px var(--mia-black);
 }
 
 .homepage-stat-label {

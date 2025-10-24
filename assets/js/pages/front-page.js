@@ -41,7 +41,7 @@ document.addEventListener("DOMContentLoaded", function () {
       // Set initial text to prevent wrapping on two lines
       if (isPatients) {
         element.textContent = "0";
-        element.style.minWidth = "8ch"; // Reserve more space for "150,000+"
+        element.style.minWidth = "6ch"; // Reserve space for "150k+"
       }
 
       const timer = setInterval(() => {
@@ -51,15 +51,13 @@ document.addEventListener("DOMContentLoaded", function () {
         if (currentStep >= steps) {
           clearInterval(timer);
 
-          // Format as "150,000+" for patients counter
-          if (isPatients) {
-            element.textContent = "150,000";
-            // Keep the min-width to prevent layout shifts
-          } else if (isYear) {
+          // Format the final value based on counter type
+          if (isYear) {
             // Don't add commas to years
-            element.textContent = target;
+            element.textContent = target + suffix;
           } else {
-            element.textContent = target.toLocaleString("en-US");
+            // Use toLocaleString for formatting, then add suffix
+            element.textContent = target.toLocaleString("en-US") + suffix;
           }
 
           // Add suffix with fade-in animation if it exists
@@ -72,16 +70,11 @@ document.addEventListener("DOMContentLoaded", function () {
           const currentValue = Math.floor(start);
 
           // Format differently based on the type of counter
-          if (isPatients) {
-            if (currentValue >= target) {
-              element.textContent = "150,000+";
-            } else {
-              element.textContent = currentValue.toLocaleString("en-US") + suffix;
-            }
-          } else if (isYear) {
+          if (isYear) {
             // Don't add commas to years
             element.textContent = currentValue + suffix;
           } else {
+            // Use toLocaleString for all other counters
             element.textContent = currentValue.toLocaleString("en-US") + suffix;
           }
         }

@@ -18,13 +18,12 @@ require __DIR__ . '/hero-section.php';
 	<!-- Centered Content -->
 	<div class="row justify-content-center">
 		<div class="col-lg-10 col-xl-8">
-		<div class="about-content text-center">		
-			<h1 class="mb-4 page-heading">Why Mia Aesthetics?</h1>
-			<p class="section-description mb-5">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
+		<div class="about-content text-center">
+			<h1 class="mb-5 page-heading">Why Mia Aesthetics?</h1>
 		</div>
 		</div>
 	</div>
-	
+
 	<!-- Custom Statistics Grid -->
 	<div class="stats-grid">
 		<!-- Founded Year -->
@@ -52,8 +51,17 @@ require __DIR__ . '/hero-section.php';
 
 		<!-- Satisfied Patients -->
 		<div class="stat-box text-center">
-		<div class="homepage-stat-number" data-count="150000" data-suffix="+">0</div>
+		<div class="homepage-stat-number" data-count="150" data-suffix="k+">0</div>
 		<div class="homepage-stat-label">SATISFIED PATIENTS</div>
+		</div>
+	</div>
+
+	<!-- Section Description -->
+	<div class="row justify-content-center mt-5">
+		<div class="col-lg-10 col-xl-8">
+		<div class="about-content text-center">
+			<p class="section-description">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
+		</div>
 		</div>
 	</div>
 	</div>
