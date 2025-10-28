@@ -43,13 +43,9 @@
 	<div class="hero-boxes">
 		<!-- Before & After Box -->
 		<div class="hero-box hero-box-top">
-		<!-- Specific results images -->
-		<picture>
-			<source media="(max-width: 767px)" srcset="/wp-content/uploads/2025/08/results-Mob.jpg">
-			<img src="/wp-content/uploads/2025/08/results-desktop.jpg" 
-				class="hero-box-image" 
-				alt="Before & After Gallery Results - Mia Aesthetics">
-		</picture>
+		<img src="/wp-content/uploads/2025/10/results-desktop-color.jpg"
+			class="hero-box-image"
+			alt="Before & After Gallery Results - Mia Aesthetics">
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Before & After Gallery</div>
 			<a href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" class="btn btn-outline-primary-alt2" role="button">
@@ -60,13 +56,9 @@
 
 		<!-- Financing Box -->
 		<div class="hero-box hero-box-bottom">
-		<!-- Specific financing images -->
-		<picture>
-			<source media="(max-width: 767px)" srcset="/wp-content/uploads/2025/08/financingbox-mobile.jpg">
-			<img src="/wp-content/uploads/2025/08/financing-1500x600px.jpg" 
-				class="hero-box-image" 
-				alt="Affordable Financing at Mia Aesthetics">
-		</picture>
+		<img src="/wp-content/uploads/2025/10/financing-02.jpg"
+			class="hero-box-image"
+			alt="Affordable Financing at Mia Aesthetics">
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Affordable Financing</div>
 			<a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="btn btn-outline-primary-alt2" role="button">

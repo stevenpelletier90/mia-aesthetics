@@ -62,24 +62,27 @@
 	font-size: clamp(2.25rem,8vw,3.75rem);
 	font-weight: 800;
 	line-height: 1;
-	color: var(--mia-gold);
+	background: linear-gradient(135deg, #C8B273 0%, #A89554 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+	background-clip: text;
 	font-style: italic;
-	-webkit-text-stroke: 1px var(--mia-black);
-	text-stroke: 1px var(--mia-black);
+	filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
 }
 
 .homepage-stat-label {
 	font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	font-size: 0.875rem;
-	font-weight: 600;
+	font-weight: 700;
 	line-height: 1.375;
-	color: var(--mia-gray-dark);
+	color: var(--mia-black);
 	text-transform: uppercase;
 	white-space: nowrap;
+	letter-spacing: 0.5px;
 }
 
 .about-section {
-	padding: 96px 0;
+	padding: 80px 0;
 	margin-top: 0;
 	position: relative;
 	background-color: transparent;
@@ -87,7 +90,7 @@
 
 .stats-grid {
 	display: grid;
-	gap: 32px;
+	gap: 16px;
 	grid-template-columns: repeat(4,1fr);
 	margin: 0 auto;
 	max-width: 1200px;
@@ -96,13 +99,21 @@
 
 .stat-box {
 	align-items: center;
-	background-color: transparent;
-	border-radius: 0;
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.05) 100%);
+	border-radius: 8px;
+	border: 1px solid rgba(200, 178, 115, 0.15);
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	min-height: 200px;
-	padding: 40px 24px;
+	min-height: 180px;
+	padding: 32px 20px;
+	transition: all 0.3s ease;
+}
+
+.stat-box:hover {
+	background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%);
+	border-color: rgba(200, 178, 115, 0.3);
+	transform: translateY(-2px);
 }
 
 .stat-number {
@@ -509,9 +520,14 @@
 
 @media (max-width: 991px) {
 	.stats-grid {
-		gap: 24px;
+		gap: 10px;
 		grid-template-columns: repeat(2,1fr);
 		max-width: 700px;
+	}
+
+	.stat-box {
+		min-height: 170px;
+		padding: 28px 16px;
 	}
 
 	.procedures-section {
@@ -549,9 +565,18 @@
 }
 
 @media (max-width: 767px) {
+	.page-heading {
+		font-size: 2.25rem;
+	}
+
+	.stats-grid {
+		gap: 8px;
+	}
+
 	.stat-box {
-		min-height: 180px;
-		padding: 32px 16px;
+		min-height: 150px;
+		padding: 20px 12px;
+		border-radius: 6px;
 	}
 
 	.procedures-section {
@@ -598,7 +623,8 @@
 
 @media (max-width: 480px) {
 	.page-heading {
-		font-size: 2.5rem;
+		font-size: 2rem;
+		white-space: nowrap;
 	}
 
 	.section-heading {
@@ -610,13 +636,18 @@
 	}
 
 	.stats-grid {
-		gap: 16px;
+		gap: 6px;
 		padding: 0 8px;
 	}
 
 	.stat-box {
-		min-height: 160px;
-		padding: 1.5rem 0.75rem;
+		min-height: 130px;
+		padding: 16px 10px;
+		border-radius: 4px;
+	}
+
+	.homepage-stat-label {
+		font-size: 0.75rem;
 	}
 
 	.stat-number {
