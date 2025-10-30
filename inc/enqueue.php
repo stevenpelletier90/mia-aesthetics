@@ -206,14 +206,17 @@ function mia_load_component_assets( string $component ): void {
 		MIA_THEME_VERSION
 	);
 
-	// Load JS (will fail gracefully if file doesn't exist).
-	wp_enqueue_script(
-		"mia-{$component}",
-		get_template_directory_uri() . "/assets/js/components/{$component}.js",
-		array(),
-		MIA_THEME_VERSION,
-		true
-	);
+	// Load JS only if file exists (prevents 404 errors for CSS-only components).
+	$js_file = get_template_directory() . "/assets/js/components/{$component}.js";
+	if ( file_exists( $js_file ) ) {
+		wp_enqueue_script(
+			"mia-{$component}",
+			get_template_directory_uri() . "/assets/js/components/{$component}.js",
+			array(),
+			MIA_THEME_VERSION,
+			true
+		);
+	}
 }
 
 /**
