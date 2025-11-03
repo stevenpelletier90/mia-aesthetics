@@ -9,9 +9,9 @@
 <!-- footer.php -->
 <footer class="site-footer">
 	<div class="container-fluid wide-container">
-		<div class="footer-columns">     
+		<div class="footer-columns">
 			<div class="footer-column">
-				<h2 class="footer-heading">Follow Us</h2>
+				<h3 class="footer-heading">Follow Us</h3>
 				<div class="social-icons d-flex flex-wrap gap-3 mb-3">
 					<?php mia_social_media_links( 'social-icon' ); ?>
 				</div>
@@ -19,7 +19,7 @@
 
 			<!-- About Column -->
 			<div class="footer-column">
-				<h2 class="footer-heading">About</h2>
+				<h3 class="footer-heading">About</h3>
 				<nav aria-label="About navigation">
 					<ul class="footer-menu">
 						<li><a href="<?php echo esc_url( home_url( '/about-us/' ) ); ?>">Our Story</a></li>
@@ -34,7 +34,7 @@
 
 			<!-- Resources Column -->
 			<div class="footer-column">
-				<h2 class="footer-heading">Resources</h2>
+				<h3 class="footer-heading">Resources</h3>
 				<nav aria-label="Resources navigation">
 					<ul class="footer-menu">
 						<li><a href="<?php echo esc_url( home_url( '/faqs/' ) ); ?>">FAQs</a></li>
@@ -46,10 +46,10 @@
 					</ul>
 				</nav>
 			</div>
-			
+
 			<!-- Procedures Column -->
 			<div class="footer-column">
-				<h2 class="footer-heading">Procedures</h2>
+				<h3 class="footer-heading">Procedures</h3>
 				<nav aria-label="Procedures navigation">
 					<ul class="footer-menu">
 						<li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>">Body Procedures</a></li>
@@ -69,7 +69,7 @@
 		
 		<!-- Locations & Surgeons Section with Accordion -->
 		<div class="locations-section mt-4">
-			<h2 class="footer-heading mb-3">Locations & Surgeons</h2>
+			<h3 class="footer-heading mb-3">Locations & Surgeons</h3>
 			<div class="accordion" id="locationsAccordion">
 				<?php
 				// Use cached footer locations to eliminate N+1 queries.
@@ -84,11 +84,11 @@
 						}
 						?>
 				<div class="accordion-item">
-					<h2 class="accordion-header" id="location-heading-<?php echo esc_attr( (string) $location['id'] ); ?>">
+					<h4 class="accordion-header" id="location-heading-<?php echo esc_attr( (string) $location['id'] ); ?>">
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#location-collapse-<?php echo esc_attr( (string) $location['id'] ); ?>" aria-expanded="false" aria-controls="location-collapse-<?php echo esc_attr( (string) $location['id'] ); ?>" aria-describedby="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
 							<?php echo esc_html( $location['title'] ); ?>
 						</button>
-					</h2>
+					</h4>
 					<div id="location-collapse-<?php echo esc_attr( (string) $location['id'] ); ?>" class="accordion-collapse collapse" aria-describedby="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
 						<div class="accordion-body" id="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
 							<!-- Location Link -->

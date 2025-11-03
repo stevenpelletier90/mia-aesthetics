@@ -116,7 +116,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="col-lg-8 text-center">
 			<h2 class="text-white mb-4 section-heading">Experience Excellence</h2>
 			<p class="lead text-white mb-4">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
-			<a href="/consultation/" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
+			<a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
 		</div>
 		</div>
 	</div>

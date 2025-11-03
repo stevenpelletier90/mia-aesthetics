@@ -190,12 +190,12 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 					<?php endwhile; ?>
 				</div>
 
-				<div class="col-md-5">
+				<aside class="col-md-5" role="complementary" aria-label="Related resources">
 					<div class="sidebar-ctas">
 						<!-- City Guide CTA -->
 						<div class="cta-card cta-card--dark mb-4">
 							<div class="cta-card__content">
-								<h3 class="cta-card__title">Explore <?php echo esc_html( str_replace( 'Mia Aesthetics', '', get_the_title() ) ); ?></h3>
+								<h2 class="cta-card__title">Explore <?php echo esc_html( str_replace( 'Mia Aesthetics', '', get_the_title() ) ); ?></h2>
 								<p class="cta-card__text">Discover the best of our city while you're here for your procedure.</p>
 								<a href="#" class="btn btn-primary btn-sm">
 									City Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -206,7 +206,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 						<!-- Financing CTA -->
 						<div class="cta-card cta-card--gold mb-4">
 							<div class="cta-card__content">
-								<h3 class="cta-card__title">Financing Options</h3>
+								<h2 class="cta-card__title">Financing Options</h2>
 								<p class="cta-card__text">Learn about our flexible payment plans and financing solutions.</p>
 								<a href="/financing/" class="btn btn-secondary btn-sm">
 									Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -217,7 +217,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 						<!-- Procedures CTA -->
 						<div class="cta-card cta-card--primary mb-4">
 							<div class="cta-card__content">
-								<h3 class="cta-card__title">Our Procedures</h3>
+								<h2 class="cta-card__title">Our Procedures</h2>
 								<p class="cta-card__text">Browse our complete range of plastic surgery and aesthetic treatments.</p>
 								<a href="/cosmetic-plastic-surgery/" class="btn btn-outline-primary btn-sm">
 									View All <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
@@ -225,7 +225,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 							</div>
 						</div>
 					</div>
-				</div>
+				</aside>
 			</div>
 		</div>
 	</article>
