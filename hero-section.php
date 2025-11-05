@@ -37,6 +37,13 @@
 					fetchpriority="high">
 			</picture>
 		</div>
+
+		<!-- Hero CTA Button -->
+		<div class="hero-cta-wrapper">
+			<a href="<?php echo esc_url( home_url( '/black-friday/' ) ); ?>" class="btn btn-secondary" role="button">
+				Save Now!
+			</a>
+		</div>
 	</div>
 
 	<!-- Hero Content Boxes -->

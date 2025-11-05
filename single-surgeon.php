@@ -231,8 +231,8 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 								<a href="https://miaaesthetics.com/out-of-town-patients/" class="resource-link">
-									<i class="fas fa-plane" aria-hidden="true"></i>
-									<span>Out of Town Patients</span>
+									<i class="fas fa-clipboard-list" aria-hidden="true"></i>
+									<span>Surgery Preparation</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 								<a href="https://miaaesthetics.com/financing/" class="resource-link">

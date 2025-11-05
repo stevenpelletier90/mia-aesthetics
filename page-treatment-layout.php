@@ -110,7 +110,7 @@ if ( $current_post instanceof WP_Post ) {
 										while ( $mia_aesthetics_related_query->have_posts() ) :
 											$mia_aesthetics_related_query->the_post();
 											?>
-							<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none" style="width: 300px; max-width: 100%;"
+							<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
 								href="<?php the_permalink(); ?>">
 								<i class="fa-solid fa-stethoscope flex-shrink-0" aria-hidden="true"></i>
 								<div>
@@ -125,16 +125,16 @@ if ( $current_post instanceof WP_Post ) {
 								endif;
 								?>
 
-						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none" style="width: 300px; max-width: 100%;"
+						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
 							href="/out-of-town-patients/">
-							<i class="fa-solid fa-plane flex-shrink-0" aria-hidden="true"></i>
+							<i class="fa-solid fa-clipboard-list flex-shrink-0" aria-hidden="true"></i>
 							<div>
-								<strong>Out‑of‑Town Patients</strong><br>
-								<span class="description">Travel info & accommodation details</span>
+								<strong>Surgery Preparation</strong><br>
+								<span class="description">Essential pre-op requirements & guidelines</span>
 							</div>
 						</a>
 
-						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none" style="width: 300px; max-width: 100%;"
+						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
 							href="/calculate-your-bmi/">
 							<i class="fa-solid fa-calculator flex-shrink-0" aria-hidden="true"></i>
 							<div>

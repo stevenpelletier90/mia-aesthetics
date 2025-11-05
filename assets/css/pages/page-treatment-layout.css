@@ -151,6 +151,8 @@
   color: var(--mia-white);
   transition: all 0.2s ease;
   min-height: 80px;
+  width: 300px;
+  max-width: 100%;
 }
 
 .resource-card:hover,

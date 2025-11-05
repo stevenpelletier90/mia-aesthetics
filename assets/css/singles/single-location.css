@@ -181,64 +181,77 @@
 	transform: translateX(-50%);
 }
 
-.sidebar-ctas {
+.sidebar-card {
 	background: var(--mia-white);
 	border: 1px solid var(--mia-gold-light);
 	border-radius: 12px;
-	overflow: hidden;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+	box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+	margin-bottom: 2rem;
+	padding: 2rem;
 }
 
-.cta-card {
-	background: transparent;
-	border: none;
-	border-radius: 0;
-	transition: background-color 0.2s ease;
-	border-bottom: 1px solid #f0f0f0;
-}
-
-.cta-card:last-child {
-	border-bottom: none;
-}
-
-.cta-card:hover {
-	background-color: var(--mia-gold-light);
-	transform: none;
-	box-shadow: none;
-}
-
-.cta-card__content {
-	padding: 1.5rem;
-}
-
-.cta-card__title {
-	font-family: var(--font-heading);
-	font-size: 1.1rem;
+.sidebar-card-title {
+	color: var(--mia-black);
+	font-size: 1.25rem;
 	font-weight: 600;
-	margin-bottom: 0.5rem;
-	line-height: 1.3;
+	margin-bottom: 1.5rem;
+	position: relative;
+}
+
+.sidebar-card-title::after {
+	background: var(--mia-gold);
+	bottom: -0.5rem;
+	content: "";
+	height: 2px;
+	left: 0;
+	position: absolute;
+	width: 30px;
+}
+
+.resource-links {
+	display: flex;
+	flex-direction: column;
+	gap: 0.5rem;
+}
+
+.resource-link {
+	align-items: center;
+	background: var(--mia-gold-light);
+	border: 1px solid transparent;
+	border-radius: 8px;
 	color: var(--mia-black);
+	display: flex;
+	padding: 1rem;
+	text-decoration: none;
+	transition: all 0.2s ease;
 }
 
-.cta-card__text {
-	font-family: var(--font-body);
-	font-size: 0.85rem;
-	line-height: 1.5;
-	margin-bottom: 1rem;
+.resource-link:hover {
+	background: var(--mia-white);
+	border-color: var(--mia-gold);
+	color: var(--mia-gold);
+	text-decoration: none;
+}
+
+.resource-link i:first-child {
+	color: var(--mia-gold);
+	margin-right: 1rem;
+	width: 20px;
+}
+
+.resource-link span {
+	flex-grow: 1;
+	font-weight: 600;
+}
+
+.resource-link i:last-child {
 	color: var(--mia-gray-muted);
+	font-size: 0.75rem;
+	transition: transform 0.2s ease;
 }
 
-.cta-card--dark, .cta-card--gold, .cta-card--primary {
-	background: transparent;
-	border: none;
-}
-
-.cta-card--dark .cta-card__title, .cta-card--gold .cta-card__title, .cta-card--primary .cta-card__title {
-	color: var(--mia-black);
-}
-
-.cta-card--dark .cta-card__text, .cta-card--gold .cta-card__text, .cta-card--primary .cta-card__text {
-	color: var(--mia-gray-muted);
+.resource-link:hover i:last-child {
+	transform: translateX(3px);
 }
 
 .surgeon-card {

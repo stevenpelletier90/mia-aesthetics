@@ -191,38 +191,30 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 				</div>
 
 				<aside class="col-md-5" role="complementary" aria-label="Related resources">
-					<div class="sidebar-ctas">
-						<!-- City Guide CTA -->
-						<div class="cta-card cta-card--dark mb-4">
-							<div class="cta-card__content">
-								<h2 class="cta-card__title">Explore <?php echo esc_html( str_replace( 'Mia Aesthetics', '', get_the_title() ) ); ?></h2>
-								<p class="cta-card__text">Discover the best of our city while you're here for your procedure.</p>
-								<a href="#" class="btn btn-primary btn-sm">
-									City Guide <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-
-						<!-- Financing CTA -->
-						<div class="cta-card cta-card--gold mb-4">
-							<div class="cta-card__content">
-								<h2 class="cta-card__title">Financing Options</h2>
-								<p class="cta-card__text">Learn about our flexible payment plans and financing solutions.</p>
-								<a href="/financing/" class="btn btn-secondary btn-sm">
-									Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-								</a>
-							</div>
-						</div>
-
-						<!-- Procedures CTA -->
-						<div class="cta-card cta-card--primary mb-4">
-							<div class="cta-card__content">
-								<h2 class="cta-card__title">Our Procedures</h2>
-								<p class="cta-card__text">Browse our complete range of plastic surgery and aesthetic treatments.</p>
-								<a href="/cosmetic-plastic-surgery/" class="btn btn-outline-primary btn-sm">
-									View All <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-								</a>
-							</div>
+					<div class="sidebar-card">
+						<h3 class="sidebar-card-title">Patient Resources</h3>
+						<div class="resource-links">
+							<?php
+							$city_guide = get_field( 'city_guide' );
+							if ( $city_guide ) :
+								$city_guide_url = get_permalink( $city_guide );
+								?>
+							<a href="<?php echo esc_url( $city_guide_url ); ?>" class="resource-link">
+								<i class="fas fa-map-marked-alt" aria-hidden="true"></i>
+								<span>Explore <?php echo esc_html( str_replace( 'Mia Aesthetics', '', get_the_title() ) ); ?></span>
+								<i class="fas fa-chevron-right" aria-hidden="true"></i>
+							</a>
+							<?php endif; ?>
+							<a href="/financing/" class="resource-link">
+								<i class="fas fa-credit-card" aria-hidden="true"></i>
+								<span>Financing Options</span>
+								<i class="fas fa-chevron-right" aria-hidden="true"></i>
+							</a>
+							<a href="/cosmetic-plastic-surgery/" class="resource-link">
+								<i class="fas fa-stethoscope" aria-hidden="true"></i>
+								<span>Our Procedures</span>
+								<i class="fas fa-chevron-right" aria-hidden="true"></i>
+							</a>
 						</div>
 					</div>
 				</aside>

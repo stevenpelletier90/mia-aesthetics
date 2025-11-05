@@ -2,7 +2,7 @@
 	overflow: hidden;
 	position: relative;
 	width: 100%;
-	padding: 2rem 2rem 0;
+	padding: 0;
 }
 
 .hero-container {
@@ -23,6 +23,15 @@
 	object-fit: cover;
 	object-position: center;
 	width: 100%;
+}
+
+.hero-cta-wrapper {
+	position: absolute;
+	bottom: 2rem;
+	left: 50%;
+	transform: translateX(-50%);
+	z-index: 10;
+	text-align: center;
 }
 
 .hero-boxes {
@@ -92,6 +101,25 @@
 	text-transform: uppercase;
 }
 
+/* Hero CTA Button Responsive Positioning */
+@media (max-width: 1400px) {
+	.hero-cta-wrapper {
+		bottom: 1.25rem;
+	}
+}
+
+@media (max-width: 1200px) {
+	.hero-cta-wrapper {
+		bottom: 1rem;
+	}
+}
+
+@media (max-width: 991px) {
+	.hero-cta-wrapper {
+		bottom: 0.75rem;
+	}
+}
+
 @media (max-width: 991px) {
 	.hero-box-heading {
 		font-size: clamp(1.25rem, 2.5vw, 1.75rem);
@@ -100,7 +128,7 @@
 
 @media (max-width: 767px) {
 	.hero-section {
-		padding: 1rem 1rem 0;
+		padding: 0;
 	}
 
 	.hero-boxes {
@@ -111,6 +139,10 @@
 
 	.hero-carousel {
 		aspect-ratio: 4/3;
+	}
+
+	.hero-cta-wrapper {
+		bottom: 1.5rem;
 	}
 
 	.hero-box::before {
