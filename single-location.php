@@ -205,6 +205,16 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 								<i class="fas fa-chevron-right" aria-hidden="true"></i>
 							</a>
 							<?php endif; ?>
+							<a href="/patient-resources/surgical-journey/" class="resource-link">
+								<i class="fas fa-route" aria-hidden="true"></i>
+								<span>Your Surgical Journey</span>
+								<i class="fas fa-chevron-right" aria-hidden="true"></i>
+							</a>
+							<a href="/out-of-town-patients/" class="resource-link">
+								<i class="fas fa-clipboard-list" aria-hidden="true"></i>
+								<span>Surgery Preparation</span>
+								<i class="fas fa-chevron-right" aria-hidden="true"></i>
+							</a>
 							<a href="/financing/" class="resource-link">
 								<i class="fas fa-credit-card" aria-hidden="true"></i>
 								<span>Financing Options</span>
