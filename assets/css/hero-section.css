@@ -1,160 +1,159 @@
 .hero-section {
-	overflow: hidden;
-	position: relative;
-	width: 100%;
-	padding: 0;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  padding: 0;
 }
 
 .hero-container {
-	display: flex;
-	flex-direction: column;
-	width: 100%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .hero-carousel {
-	aspect-ratio: 2560/800;
-	overflow: hidden;
-	position: relative;
-	width: 100%;
+  aspect-ratio: 2560/800;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
 }
 
 .hero-carousel img {
-	height: 100%;
-	object-fit: cover;
-	object-position: center;
-	width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  width: 100%;
 }
 
 .hero-cta-wrapper {
-	position: absolute;
-	bottom: 2rem;
-	left: 50%;
-	transform: translateX(-50%);
-	z-index: 10;
-	text-align: center;
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  text-align: center;
 }
 
 .hero-boxes {
-	border-top: none;
-	display: flex;
-	flex-direction: row;
-	width: 100%;
-	padding: 2rem 0 0;
-	gap: 2rem;
+  border-top: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0.5rem 0 0;
+  gap: 0.5rem;
 }
 
 .hero-box {
-	flex: 1;
-	overflow: hidden;
-	position: relative;
+  flex: 1;
+  overflow: hidden;
+  position: relative;
 }
 
 .hero-box::before {
-	content: "";
-	display: block;
-	padding-top: 40%;
+  content: "";
+  display: block;
+  padding-top: 40%;
 }
 
 .hero-box-top {
-	border-right: none;
+  border-right: none;
 }
 
 .hero-box-bottom {
-	border-left: none;
+  border-left: none;
 }
 
 .hero-box-image {
-	height: 100%;
-	left: 0;
-	object-fit: cover;
-	object-position: center;
-	position: absolute;
-	top: 0;
-	width: 100%;
-	display: block;
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  object-position: center;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: block;
 }
 
 .hero-box-overlay {
-	align-items: center;
-	background: rgba(0, 0, 0, 0.6);
-	display: flex;
-	flex-direction: column;
-	height: 100%;
-	justify-content: center;
-	left: 0;
-	padding: 2rem;
-	position: absolute;
-	text-align: center;
-	top: 0;
-	width: 100%;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  padding: 2rem;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 100%;
 }
 
-
 .hero-box-heading {
-	color: var(--mia-white);
-	font-family: var(--font-heading);
-	font-size: clamp(1.5rem, 3vw, 2.25rem);
-	font-weight: 600;
-	line-height: 1.2;
-	margin-bottom: 1rem;
-	text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-	text-transform: uppercase;
+  color: var(--mia-white);
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
+  font-weight: 600;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  text-transform: uppercase;
 }
 
 /* Hero CTA Button Responsive Positioning */
 @media (max-width: 1400px) {
-	.hero-cta-wrapper {
-		bottom: 1.25rem;
-	}
+  .hero-cta-wrapper {
+    bottom: 1.25rem;
+  }
 }
 
 @media (max-width: 1200px) {
-	.hero-cta-wrapper {
-		bottom: 1rem;
-	}
+  .hero-cta-wrapper {
+    bottom: 1rem;
+  }
 }
 
 @media (max-width: 991px) {
-	.hero-cta-wrapper {
-		bottom: 0.75rem;
-	}
+  .hero-cta-wrapper {
+    bottom: 0.75rem;
+  }
 }
 
 @media (max-width: 991px) {
-	.hero-box-heading {
-		font-size: clamp(1.25rem, 2.5vw, 1.75rem);
-	}
+  .hero-box-heading {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+  }
 }
 
 @media (max-width: 767px) {
-	.hero-section {
-		padding: 0;
-	}
+  .hero-section {
+    padding: 0;
+  }
 
-	.hero-boxes {
-		padding: 1rem 0 0;
-		gap: 1rem;
-		flex-direction: column;
-	}
+  .hero-boxes {
+    padding: 1rem 0 0;
+    gap: 1rem;
+    flex-direction: column;
+  }
 
-	.hero-carousel {
-		aspect-ratio: 4/3;
-	}
+  .hero-carousel {
+    aspect-ratio: 4/3;
+  }
 
-	.hero-cta-wrapper {
-		bottom: 1.5rem;
-	}
+  .hero-cta-wrapper {
+    bottom: 1.5rem;
+  }
 
-	.hero-box::before {
-		padding-top: 37.5%;
-	}
+  .hero-box::before {
+    padding-top: 37.5%;
+  }
 
-	.hero-box-overlay {
-		padding: 1.5rem 1rem;
-	}
+  .hero-box-overlay {
+    padding: 1.5rem 1rem;
+  }
 
-	.hero-box-heading {
-		font-size: clamp(1rem, 3.5vw, 1.5rem);
-		margin-bottom: 0.75rem;
-	}
+  .hero-box-heading {
+    font-size: clamp(1rem, 3.5vw, 1.5rem);
+    margin-bottom: 0.75rem;
+  }
 }

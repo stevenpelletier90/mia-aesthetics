@@ -15,19 +15,19 @@
 }
 
 @font-face {
-	font-family: Inter;
-	src: url(../fonts/Inter-VariableFont_opsz,wght.woff2) format("woff2-variations");
-	font-weight: 100 900;
-	font-optical-sizing: auto;
+	font-family: "Open Sans";
+	src: url(../fonts/OpenSans-VariableFont_wdth,wght.woff2) format("woff2-variations");
+	font-weight: 300 800;
+	font-stretch: 75% 100%;
 	font-style: normal;
 	font-display: swap;
 }
 
 @font-face {
-	font-family: Inter;
-	src: url(../fonts/Inter-Italic-VariableFont_opsz,wght.woff2) format("woff2-variations");
-	font-weight: 100 900;
-	font-optical-sizing: auto;
+	font-family: "Open Sans";
+	src: url(../fonts/OpenSans-Italic-VariableFont_wdth,wght.woff2) format("woff2-variations");
+	font-weight: 300 800;
+	font-stretch: 75% 100%;
 	font-style: italic;
 	font-display: swap;
 }

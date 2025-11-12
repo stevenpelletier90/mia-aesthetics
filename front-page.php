@@ -13,13 +13,13 @@ require __DIR__ . '/hero-section.php';
 ?>
 
 <!-- About Section - Centered Layout -->
-<section class="about-section py-5">
+<section class="about-section">
 	<div class="container">
 	<!-- Centered Content -->
 	<div class="row justify-content-center">
 		<div class="col-lg-10 col-xl-8">
 		<div class="about-content text-center">
-			<h1 class="mb-5 page-heading">Why Mia Aesthetics?</h1>
+			<h1 class="page-heading">Why Mia Aesthetics?</h1>
 		</div>
 		</div>
 	</div>
@@ -57,7 +57,7 @@ require __DIR__ . '/hero-section.php';
 	</div>
 
 	<!-- Section Description -->
-	<div class="row justify-content-center mt-5">
+	<div class="row justify-content-center">
 		<div class="col-lg-10 col-xl-8">
 		<div class="about-content text-center">
 			<p class="section-description">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
@@ -68,14 +68,14 @@ require __DIR__ . '/hero-section.php';
 </section>
 
 <!-- Excellence Section -->
-<section class="excellence-section py-5">
+<section class="excellence-section">
 	<div class="container">
 	<div class="row align-items-center">
-		<div class="col-lg-6 mb-4 mb-lg-0">
+		<div class="col-lg-6  mb-lg-0">
 		<div class="excellence-image">
 			<img src="/wp-content/uploads/2025/05/surgery-1.jpg" 
 				alt="Trusted Surgical Excellence" 
-				class="img-fluid rounded">
+				class="img-fluid">
 		</div>
 		</div>
 		<div class="col-lg-6">
@@ -114,8 +114,8 @@ require __DIR__ . '/hero-section.php';
 	<div class="container">
 		<div class="row justify-content-center">
 		<div class="col-lg-8 text-center">
-			<h2 class="text-white mb-4 section-heading">Experience Excellence</h2>
-			<p class="lead text-white mb-4">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
+			<h2 class="text-white  section-heading">Experience Excellence</h2>
+			<p class="lead text-white ">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
 			<a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
 		</div>
 		</div>
@@ -124,7 +124,7 @@ require __DIR__ . '/hero-section.php';
 </section>
 
 <!-- Procedures Tabbed Section -->
-<section class="procedures-section py-5">
+<section class="procedures-section">
 	<div class="container">
 	<div class="row mb-5 text-center">
 		<div class="col-12">
@@ -194,7 +194,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Body Content -->
 		<div class="tab-pane fade show active" id="body-content" role="tabpanel" aria-labelledby="body-tab">
 		<div class="row align-items-center">
-			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
+			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
 			$body_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/body-home.jpg' );
 			if ( 0 !== $body_img_id ) {
@@ -215,11 +215,11 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline mb-3">SCULPT YOUR IDEAL FIGURE</p>
-			<h3 class="mb-4 section-heading">Body Contouring</h3>
-			<p class="section-description mb-4">Our body contouring procedures help you achieve the silhouette you desire. Whether you're looking to remove excess fat, tighten loose skin, or enhance your curves, our specialists can help you reach your aesthetic goals.</p>
+			<p class="tagline ">SCULPT YOUR IDEAL FIGURE</p>
+			<h3 class=" section-heading">Body Contouring</h3>
+			<p class="section-description ">Our body contouring procedures help you achieve the silhouette you desire. Whether you're looking to remove excess fat, tighten loose skin, or enhance your curves, our specialists can help you reach your aesthetic goals.</p>
 			
-			<div class="procedure-links mb-4">
+			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/body/awake-liposuction/" class="procedure-link">
@@ -255,7 +255,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Breast Content -->
 		<div class="tab-pane fade" id="breast-content" role="tabpanel" aria-labelledby="breast-tab">
 		<div class="row align-items-center">
-			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
+			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
 			$breast_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/breast-home.jpg' );
 			if ( 0 !== $breast_img_id ) {
@@ -276,11 +276,11 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline mb-3">ACHIEVE YOUR DESIRED LOOK</p>
-			<h3 class="mb-4 section-heading">Breast Enhancement</h3>
-			<p class="section-description mb-4">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
+			<p class="tagline ">ACHIEVE YOUR DESIRED LOOK</p>
+			<h3 class=" section-heading">Breast Enhancement</h3>
+			<p class="section-description ">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
 			
-			<div class="procedure-links mb-4">
+			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/breast/augmentation-implants/" class="procedure-link">
@@ -313,7 +313,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Face Content -->
 		<div class="tab-pane fade" id="face-content" role="tabpanel" aria-labelledby="face-tab">
 		<div class="row align-items-center">
-			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
+			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
 			$face_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/face-2-home.jpg' );
 			if ( 0 !== $face_img_id ) {
@@ -334,11 +334,11 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline mb-3">ENHANCE YOUR NATURAL BEAUTY</p>
-			<h3 class="mb-4 section-heading">Facial Rejuvenation</h3>
-			<p class="section-description mb-4">Our facial procedures are designed to enhance your natural features and restore youthful appearance. From facelifts to rhinoplasty, our board-certified surgeons use the latest techniques to deliver exceptional results.</p>
+			<p class="tagline ">ENHANCE YOUR NATURAL BEAUTY</p>
+			<h3 class=" section-heading">Facial Rejuvenation</h3>
+			<p class="section-description ">Our facial procedures are designed to enhance your natural features and restore youthful appearance. From facelifts to rhinoplasty, our board-certified surgeons use the latest techniques to deliver exceptional results.</p>
 			
-			<div class="procedure-links mb-4">
+			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/face/brow-lift/" class="procedure-link">
@@ -374,7 +374,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Non-Surgical Content -->
 		<div class="tab-pane fade" id="nonsurgical-content" role="tabpanel" aria-labelledby="nonsurgical-tab">
 		<div class="row align-items-center">
-			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
+			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
 			$nonsurg_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/face-home.jpg' );
 			if ( 0 !== $nonsurg_img_id ) {
@@ -395,11 +395,11 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline mb-3">REJUVENATE WITHOUT SURGERY</p>
-			<h3 class="mb-4 section-heading">Non-Surgical Treatments</h3>
-			<p class="section-description mb-4">Our non-surgical treatments offer remarkable results with minimal downtime. From injectables to laser therapies, we provide a range of options to address your concerns without the need for surgery.</p>
+			<p class="tagline ">REJUVENATE WITHOUT SURGERY</p>
+			<h3 class=" section-heading">Non-Surgical Treatments</h3>
+			<p class="section-description ">Our non-surgical treatments offer remarkable results with minimal downtime. From injectables to laser therapies, we provide a range of options to address your concerns without the need for surgery.</p>
 			
-			<div class="procedure-links mb-4">
+			<div class="procedure-links ">
 				<div class="row">
 		
 				<div class="col-md-6">
@@ -422,7 +422,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Men Content -->
 		<div class="tab-pane fade" id="men-content" role="tabpanel" aria-labelledby="men-tab">
 		<div class="row align-items-center">
-			<div class="col-12 col-xl-6 order-xl-2 mb-4 mb-xl-0">
+			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
 			$men_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/men-home.jpg' );
 			if ( 0 !== $men_img_id ) {
@@ -443,11 +443,11 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline mb-3">TAILORED SOLUTIONS FOR MEN</p>
-			<h3 class="mb-4 section-heading">Men's Procedures</h3>
-			<p class="section-description mb-4">Our men's procedures are specifically designed to address the unique concerns and aesthetic goals of our male patients. From body contouring to facial rejuvenation, we offer a range of treatments to help you look and feel your best.</p>
+			<p class="tagline ">TAILORED SOLUTIONS FOR MEN</p>
+			<h3 class=" section-heading">Men's Procedures</h3>
+			<p class="section-description ">Our men's procedures are specifically designed to address the unique concerns and aesthetic goals of our male patients. From body contouring to facial rejuvenation, we offer a range of treatments to help you look and feel your best.</p>
 			
-			<div class="procedure-links mb-4">
+			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
 					<a href="/cosmetic-plastic-surgery/body/male-bbl/" class="procedure-link">
@@ -494,9 +494,9 @@ require __DIR__ . '/hero-section.php';
 	<div class="row">
 		<div class="col-12">
 		<div class="foundation-content text-center">
-			<p class="foundation-tagline mb-3">GIVING BACK TO OUR COMMUNITY</p>
-			<h2 class="mb-4 section-heading">The Mia Aesthetics Foundation</h2>
-			<p class="section-description section-description--white mb-4">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+			<p class="foundation-tagline ">GIVING BACK TO OUR COMMUNITY</p>
+			<h2 class=" section-heading">The Mia Aesthetics Foundation</h2>
+			<p class="section-description section-description--white ">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
 			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
 		</div>
