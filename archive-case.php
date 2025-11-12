@@ -33,11 +33,11 @@ add_action(
 						// Get all surgeon IDs and randomize in PHP to bypass caching.
 						$all_surgeon_ids = get_posts(
 							array(
-								'post_type'      => 'surgeon',
-								'posts_per_page' => -1,
-								'post_status'    => 'publish',
-								'fields'         => 'ids',
-								'orderby'        => 'none',
+								'post_type'        => 'surgeon',
+								'posts_per_page'   => -1,
+								'post_status'      => 'publish',
+								'fields'           => 'ids',
+								'orderby'          => 'none',
 								'suppress_filters' => true,
 							)
 						);
@@ -49,7 +49,7 @@ add_action(
 							$random_surgeon_ids = array_slice( $all_surgeon_ids, 0, 6 );
 
 							foreach ( $random_surgeon_ids as $surgeon_id ) :
-								$headshot_id = get_field( 'surgeon_headshot', $surgeon_id );
+								$headshot_id   = get_field( 'surgeon_headshot', $surgeon_id );
 								$surgeon_title = get_the_title( $surgeon_id );
 
 								// Display headshot if ID exists.
@@ -60,13 +60,13 @@ add_action(
 										'thumbnail',
 										false,
 										array(
-											'class'     => 'surgeon-avatar',
-											'alt'       => $alt_text ? $alt_text : $surgeon_title,
-											'loading'   => 'eager',
+											'class'   => 'surgeon-avatar',
+											'alt'     => ( ! empty( $alt_text ) && is_string( $alt_text ) ) ? $alt_text : $surgeon_title,
+											'loading' => 'eager',
 											'fetchpriority' => 'high',
 										)
 									);
-								// Fallback to post thumbnail if headshot field is empty but thumbnail exists.
+									// Fallback to post thumbnail if headshot field is empty but thumbnail exists.
 								elseif ( has_post_thumbnail( $surgeon_id ) ) :
 									$thumbnail_id = get_post_thumbnail_id( $surgeon_id );
 									$alt_text     = get_post_meta( (int) $thumbnail_id, '_wp_attachment_image_alt', true );
@@ -74,9 +74,9 @@ add_action(
 										$surgeon_id,
 										'thumbnail',
 										array(
-											'class'     => 'surgeon-avatar',
-											'alt'       => $alt_text ? $alt_text : $surgeon_title,
-											'loading'   => 'eager',
+											'class'   => 'surgeon-avatar',
+											'alt'     => ( ! empty( $alt_text ) && is_string( $alt_text ) ) ? $alt_text : $surgeon_title,
+											'loading' => 'eager',
 											'fetchpriority' => 'high',
 										)
 									);

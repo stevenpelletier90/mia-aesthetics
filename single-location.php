@@ -198,6 +198,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 							$city_guide = get_field( 'city_guide' );
 							if ( $city_guide ) :
 								$city_guide_url = get_permalink( $city_guide );
+								$city_guide_url = is_string( $city_guide_url ) ? $city_guide_url : '';
 								?>
 							<a href="<?php echo esc_url( $city_guide_url ); ?>" class="resource-link">
 								<i class="fas fa-map-marked-alt" aria-hidden="true"></i>
