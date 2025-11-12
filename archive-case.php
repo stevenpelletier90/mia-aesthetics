@@ -6,30 +6,88 @@
  * @package Mia_Aesthetics
  */
 
-get_header(); ?>
+get_header();
+
+// Preload the hero background image for faster LCP.
+add_action(
+	'wp_head',
+	function () {
+		echo '<link rel="preload" as="image" href="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=600&fit=crop" fetchpriority="high">';
+	},
+	1
+);
+?>
 
 <main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
-	
-	<!-- Archive Header -->
-	<section class="post-header py-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h1 class="mb-2">Case Studies</h1>
-					<p class="lead mb-0">Explore real patient transformations and see the exceptional results achieved by our skilled surgical team.</p>
-				</div>
-			</div>
-		</div>
-	</section>
 
-	<!-- Browse by Surgeon CTA -->
-	<section class="browse-by-surgeon py-5 bg-light">
-		<div class="container">
+	<!-- Browse by Surgeon Header -->
+	<section class="browse-by-surgeon position-relative">
+		<div class="browse-by-surgeon-overlay"></div>
+		<div class="container position-relative">
 			<div class="row justify-content-center">
-				<div class="col-lg-8 text-center">
-					<h2 class="h3 mb-3">Browse Results by Surgeon</h2>
-					<p class="lead text-muted mb-4">Explore transformations organized by our expert surgical team members to see their specialized work and artistic approach.</p>
+				<div class="col-lg-8 text-center browse-by-surgeon-content">
+					<!-- Stacked Surgeon Avatars -->
+					<div class="surgeon-avatars mb-4">
+						<?php
+						// Get all surgeon IDs and randomize in PHP to bypass caching.
+						$all_surgeon_ids = get_posts(
+							array(
+								'post_type'      => 'surgeon',
+								'posts_per_page' => -1,
+								'post_status'    => 'publish',
+								'fields'         => 'ids',
+								'orderby'        => 'none',
+								'suppress_filters' => true,
+							)
+						);
+
+						// Shuffle the array in PHP for true randomization.
+						if ( ! empty( $all_surgeon_ids ) && is_array( $all_surgeon_ids ) ) :
+							shuffle( $all_surgeon_ids );
+							// Get only the first 6 surgeons.
+							$random_surgeon_ids = array_slice( $all_surgeon_ids, 0, 6 );
+
+							foreach ( $random_surgeon_ids as $surgeon_id ) :
+								$headshot_id = get_field( 'surgeon_headshot', $surgeon_id );
+								$surgeon_title = get_the_title( $surgeon_id );
+
+								// Display headshot if ID exists.
+								if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
+									$alt_text = get_post_meta( (int) $headshot_id, '_wp_attachment_image_alt', true );
+									echo wp_get_attachment_image(
+										(int) $headshot_id,
+										'thumbnail',
+										false,
+										array(
+											'class'     => 'surgeon-avatar',
+											'alt'       => $alt_text ? $alt_text : $surgeon_title,
+											'loading'   => 'eager',
+											'fetchpriority' => 'high',
+										)
+									);
+								// Fallback to post thumbnail if headshot field is empty but thumbnail exists.
+								elseif ( has_post_thumbnail( $surgeon_id ) ) :
+									$thumbnail_id = get_post_thumbnail_id( $surgeon_id );
+									$alt_text     = get_post_meta( (int) $thumbnail_id, '_wp_attachment_image_alt', true );
+									echo get_the_post_thumbnail(
+										$surgeon_id,
+										'thumbnail',
+										array(
+											'class'     => 'surgeon-avatar',
+											'alt'       => $alt_text ? $alt_text : $surgeon_title,
+											'loading'   => 'eager',
+											'fetchpriority' => 'high',
+										)
+									);
+								endif;
+							endforeach;
+						endif;
+						?>
+					</div>
+
+					<h1 class="mb-3">Before & After Results by Surgeon</h1>
+					<p class="lead mb-4">Explore transformations organized by our expert surgical team members to see their specialized work and artistic approach.</p>
 					<a href="/before-after/before-after-by-doctor/" class="btn btn-primary btn-lg">
 						View Results by Surgeon <i class="fas fa-arrow-right"></i>
 					</a>
