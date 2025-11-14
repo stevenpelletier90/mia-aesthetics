@@ -60,7 +60,7 @@ require __DIR__ . '/hero-section.php';
 	<div class="row justify-content-center">
 		<div class="col-lg-10 col-xl-8">
 		<div class="about-content text-center">
-			<p class="section-description">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
+			<p class="about-description">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
 		</div>
 		</div>
 	</div>
@@ -81,7 +81,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="col-lg-6">
 		<div class="excellence-content">
 			<p class="excellence-tagline">Our Commitment</p>
-			<h2 class="text-white section-heading">Trusted Surgical Excellence</h2>
+			<h2 class="section-heading">Trusted Surgical Excellence</h2>
 			<p class="section-description section-description--white">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
 			<a href="/locations/" class="btn btn-primary me-3" role="button">Our Locations</a>
@@ -114,8 +114,8 @@ require __DIR__ . '/hero-section.php';
 	<div class="container">
 		<div class="row justify-content-center">
 		<div class="col-lg-8 text-center">
-			<h2 class="text-white  section-heading">Experience Excellence</h2>
-			<p class="lead text-white ">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
+			<h2 class="text-white video-heading">Experience Excellence</h2>
+			<p class="video-description text-white">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
 			<a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
 		</div>
 		</div>
