@@ -3,45 +3,43 @@
  * Handles stats animations, tab navigation, and procedure dropdown
  */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // ===== STATS COUNT-UP ANIMATION =====
   function initStatsAnimation() {
     // Get all stat number elements - updated selector for both old and new structures
-    const statNumbers = document.querySelectorAll(
-      ".display-5[data-count], .homepage-stat-number[data-count]"
-    );
+    const statNumbers = document.querySelectorAll('.display-5[data-count], .homepage-stat-number[data-count]');
 
     if (0 === statNumbers.length) {
       return;
     }
 
     // Function to animate counting up
-    function animateCountUp(element, target, duration, steps, suffix = "") {
+    function animateCountUp(element, target, duration, steps, suffix = '') {
       // Start from 0
       let start = 0;
       let currentStep = 0;
 
       // Get the element's parent to identify the patients counter and year
-      let parentText = "";
-      const oldStructure = element.closest(".position-relative");
-      const newStructure = element.closest(".stat-box");
+      let parentText = '';
+      const oldStructure = element.closest('.position-relative');
+      const newStructure = element.closest('.stat-box');
 
       if (oldStructure) {
-        parentText = oldStructure.querySelector("p").textContent;
+        parentText = oldStructure.querySelector('p').textContent;
       } else if (newStructure) {
-        parentText = newStructure.querySelector(".homepage-stat-label").textContent;
+        parentText = newStructure.querySelector('.homepage-stat-label').textContent;
       }
 
-      const isPatients = parentText.includes("Patient") || parentText.includes("PATIENT");
-      const isYear = parentText.includes("Year") || parentText.includes("YEAR");
+      const isPatients = parentText.includes('Patient') || parentText.includes('PATIENT');
+      const isYear = parentText.includes('Year') || parentText.includes('YEAR');
 
       // Calculate the value increment per step
       const valueIncrement = target / steps;
 
       // Set initial text to prevent wrapping on two lines
       if (isPatients) {
-        element.textContent = "0";
-        element.style.minWidth = "6ch"; // Reserve space for "150k+"
+        element.textContent = '0';
+        element.style.minWidth = '6ch'; // Reserve space for "150k+"
       }
 
       const timer = setInterval(() => {
@@ -57,12 +55,12 @@ document.addEventListener("DOMContentLoaded", function () {
             element.textContent = target + suffix;
           } else {
             // Use toLocaleString for formatting, then add suffix
-            element.textContent = target.toLocaleString("en-US") + suffix;
+            element.textContent = target.toLocaleString('en-US') + suffix;
           }
 
           // Add suffix with fade-in animation if it exists
           if (suffix) {
-            element.classList.add("counting-complete");
+            element.classList.add('counting-complete');
           }
         } else {
           // Otherwise, update with the current count based on step
@@ -75,7 +73,7 @@ document.addEventListener("DOMContentLoaded", function () {
             element.textContent = currentValue + suffix;
           } else {
             // Use toLocaleString for all other counters
-            element.textContent = currentValue.toLocaleString("en-US") + suffix;
+            element.textContent = currentValue.toLocaleString('en-US') + suffix;
           }
         }
       }, duration / steps);
@@ -92,8 +90,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
           // Start animation for all stat numbers
           statNumbers.forEach((statNumber) => {
-            const target = parseInt(statNumber.getAttribute("data-count"), 10);
-            const suffix = statNumber.getAttribute("data-suffix") || "";
+            const target = parseInt(statNumber.getAttribute('data-count'), 10);
+            const suffix = statNumber.getAttribute('data-suffix') || '';
 
             // Start the animation
             animateCountUp(statNumber, target, duration, steps, suffix);
@@ -103,7 +101,7 @@ document.addEventListener("DOMContentLoaded", function () {
           });
         }
       },
-      { threshold: 0.5 }
+      { threshold: 0.5 },
     ); // Trigger when at least 50% of the element is visible
 
     // Observe each stat number element
@@ -114,32 +112,32 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // ===== PROCEDURE DROPDOWN FOR MOBILE =====
   function initProcedureDropdown() {
-    const procedureDropdown = document.getElementById("procedureDropdown");
+    const procedureDropdown = document.getElementById('procedureDropdown');
 
     // Function to show the selected tab content
     function showSelectedTabContent(selectedTabId) {
       // Hide all tab panes
-      const tabPanes = document.querySelectorAll(".tab-pane");
+      const tabPanes = document.querySelectorAll('.tab-pane');
       tabPanes.forEach((pane) => {
-        pane.classList.remove("show", "active");
+        pane.classList.remove('show', 'active');
       });
 
       // Show the selected tab pane
       const selectedPane = document.getElementById(selectedTabId);
       if (selectedPane) {
-        selectedPane.classList.add("show", "active");
+        selectedPane.classList.add('show', 'active');
       }
 
       // Update the desktop tabs to match (for when switching back to desktop view)
-      const tabLinks = document.querySelectorAll(".procedure-tabs .nav-link");
+      const tabLinks = document.querySelectorAll('.procedure-tabs .nav-link');
       tabLinks.forEach((link) => {
-        link.classList.remove("active");
-        link.setAttribute("aria-selected", "false");
+        link.classList.remove('active');
+        link.setAttribute('aria-selected', 'false');
 
         // If this tab corresponds to the selected dropdown option
-        if (link.getAttribute("data-bs-target") === "#" + selectedTabId) {
-          link.classList.add("active");
-          link.setAttribute("aria-selected", "true");
+        if (link.getAttribute('data-bs-target') === '#' + selectedTabId) {
+          link.classList.add('active');
+          link.setAttribute('aria-selected', 'true');
         }
       });
     }
@@ -151,21 +149,21 @@ document.addEventListener("DOMContentLoaded", function () {
       showSelectedTabContent(initialTabId);
 
       // Handle dropdown change event
-      procedureDropdown.addEventListener("change", function () {
+      procedureDropdown.addEventListener('change', function () {
         const selectedTabId = this.value;
         showSelectedTabContent(selectedTabId);
       });
 
       // Force a change event on page load to ensure content is visible
-      const event = new Event("change");
+      const event = new Event('change');
       procedureDropdown.dispatchEvent(event);
     }
 
     // Also handle tab clicks for desktop view
-    const tabLinks = document.querySelectorAll(".procedure-tabs .nav-link");
+    const tabLinks = document.querySelectorAll('.procedure-tabs .nav-link');
     tabLinks.forEach((link) => {
-      link.addEventListener("click", function () {
-        const targetId = this.getAttribute("data-bs-target").substring(1); // Remove the # character
+      link.addEventListener('click', function () {
+        const targetId = this.getAttribute('data-bs-target').substring(1); // Remove the # character
 
         // Update the dropdown value to match (for when switching to mobile view)
         if (procedureDropdown) {
@@ -181,23 +179,23 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 // ===== TAB NAVIGATION (Clean & Efficient) =====
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Run arrow logic only ≥ md (≥ 768px). Early-exit on mobile.
-  if (window.matchMedia("(min-width: 768px)").matches) {
+  if (window.matchMedia('(min-width: 768px)').matches) {
     initTabArrows();
   }
 
   function initTabArrows() {
-    const tabs = document.querySelector(".procedure-tabs");
-    const prevArrow = document.querySelector(".prev-arrow");
-    const nextArrow = document.querySelector(".next-arrow");
+    const tabs = document.querySelector('.procedure-tabs');
+    const prevArrow = document.querySelector('.prev-arrow');
+    const nextArrow = document.querySelector('.next-arrow');
 
     if (!tabs || !prevArrow || !nextArrow) {
       return;
     }
 
     let currentTabIndex = 0;
-    const tabLinks = tabs.querySelectorAll(".nav-link");
+    const tabLinks = tabs.querySelectorAll('.nav-link');
 
     // Helper – keep arrows live but disable when useless
     function updateArrows() {
@@ -213,7 +211,7 @@ document.addEventListener("DOMContentLoaded", function () {
       if (0 < maxScroll) {
         // Normal scroll behavior when overflow exists
         const step = 150;
-        tabs.scrollBy({ left: direction * step, behavior: "smooth" });
+        tabs.scrollBy({ left: direction * step, behavior: 'smooth' });
       } else {
         // Tab cycling when no overflow
         if (0 < direction) {
@@ -230,19 +228,19 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Click handlers
-    prevArrow.addEventListener("click", () => handleArrowClick(-1));
-    nextArrow.addEventListener("click", () => handleArrowClick(1));
+    prevArrow.addEventListener('click', () => handleArrowClick(-1));
+    nextArrow.addEventListener('click', () => handleArrowClick(1));
 
     // Track active tab changes
     tabLinks.forEach((link, index) => {
-      link.addEventListener("click", () => {
+      link.addEventListener('click', () => {
         currentTabIndex = index;
       });
     });
 
     // Keep arrows in sync
-    tabs.addEventListener("scroll", updateArrows);
-    window.addEventListener("resize", updateArrows, { passive: true });
+    tabs.addEventListener('scroll', updateArrows);
+    window.addEventListener('resize', updateArrows, { passive: true });
 
     // Initial call
     updateArrows();
@@ -256,7 +254,7 @@ document.addEventListener("DOMContentLoaded", function () {
     requestAnimationFrame(() => requestAnimationFrame(updateArrows));
 
     // Force re-calc after everything settles
-    window.addEventListener("load", () => {
+    window.addEventListener('load', () => {
       // All images, web-fonts, etc. are done
       updateArrows();
     });

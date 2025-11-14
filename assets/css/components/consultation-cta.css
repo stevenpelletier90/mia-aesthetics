@@ -1,12 +1,12 @@
 .consultation-cta-container {
-	background: rgba(27,27,27,0.7);
-	backdrop-filter: blur(8px);
-	box-shadow: 0 2px 10px rgba(0,0,0,0.3);
-	z-index: var(--z-sticky);
+  background: rgba(27, 27, 27, 0.7);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  z-index: var(--z-sticky);
 }
 
 @media (max-width: 576px) {
-	.consultation-cta-container {
-		padding: 0.75rem;
-	}
+  .consultation-cta-container {
+    padding: 0.75rem;
+  }
 }

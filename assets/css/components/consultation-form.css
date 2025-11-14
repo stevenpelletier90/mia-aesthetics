@@ -111,15 +111,7 @@ a.consent-trigger:hover i {
   padding: 0 !important;
 }
 
-.consultation-card
-  .gform_wrapper
-  :is(
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="url"]
-  ) {
+.consultation-card .gform_wrapper :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"]) {
   height: 48px;
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
@@ -134,15 +126,7 @@ a.consent-trigger:hover i {
   transition: all 0.2s ease;
 }
 
-.consultation-card
-  .gform_wrapper
-  :is(
-    input[type="text"],
-    input[type="email"],
-    input[type="tel"],
-    input[type="number"],
-    input[type="url"]
-  ):focus {
+.consultation-card .gform_wrapper :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"]):focus {
   outline: none;
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 2px var(--mia-gold-30);

@@ -1,32 +1,32 @@
 .page-content {
-	padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .page-header {
-	margin-bottom: 2rem;
+  margin-bottom: 2rem;
 }
 
 .page-header h1 {
-	font-family: var(--font-heading);
-	font-weight: 600;
-	margin-bottom: 0.5rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 0.5rem;
 }
 
 .page-subheading {
-	color: var(--mia-gold);
-	margin-bottom: 1.5rem;
+  color: var(--mia-gold);
+  margin-bottom: 1.5rem;
 }
 
 .page-section {
-	margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .page-section:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .taxonomy-description {
-	color: var(--mia-gray-muted);
-	font-size: 1.1rem;
-	line-height: 1.6;
+  color: var(--mia-gray-muted);
+  font-size: 1.1rem;
+  line-height: 1.6;
 }

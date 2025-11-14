@@ -8,7 +8,7 @@
 
 // Modern Scrollspy Implementation using Intersection Observer API
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Disable any Bootstrap scrollspy
   disableBootstrapScrollspy();
 
@@ -41,9 +41,9 @@ function disableBootstrapScrollspy() {
   }
 
   // Remove scrollspy attributes from body
-  bodyElement.removeAttribute("data-bs-spy");
-  bodyElement.removeAttribute("data-bs-target");
-  bodyElement.removeAttribute("data-bs-offset");
+  bodyElement.removeAttribute('data-bs-spy');
+  bodyElement.removeAttribute('data-bs-target');
+  bodyElement.removeAttribute('data-bs-offset');
 }
 
 /**
@@ -51,13 +51,13 @@ function disableBootstrapScrollspy() {
  */
 function setupScrollspy() {
   // Get all sections we want to observe
-  const aboutSection = document.querySelector("#surgeon-about");
-  const specialitiesSection = document.querySelector("#surgeon-specialities");
-  const beforeAfterSection = document.querySelector("#surgeon-before-after");
+  const aboutSection = document.querySelector('#surgeon-about');
+  const specialitiesSection = document.querySelector('#surgeon-specialities');
+  const beforeAfterSection = document.querySelector('#surgeon-before-after');
 
   // Get video container - either desktop or mobile version
-  const desktopVideoContainer = document.querySelector(".d-none.d-lg-block .video-container");
-  const mobileVideoContainer = document.querySelector(".d-lg-none .video-container");
+  const desktopVideoContainer = document.querySelector('.d-none.d-lg-block .video-container');
+  const mobileVideoContainer = document.querySelector('.d-lg-none .video-container');
 
   // Create an array of sections to observe in the order they appear on the page
   const sectionsToObserve = [];
@@ -140,31 +140,28 @@ function setActiveNavButton(activeButton) {
   }
 
   // Remove active class from all nav buttons
-  document.querySelectorAll(".surgeon-nav-btn").forEach((btn) => {
-    btn.classList.remove("active");
+  document.querySelectorAll('.surgeon-nav-btn').forEach((btn) => {
+    btn.classList.remove('active');
   });
 
   // Add active class to the current nav button
-  activeButton.classList.add("active");
+  activeButton.classList.add('active');
 }
 
 /**
  * Sets up smooth scrolling for navigation buttons
  */
 function setupSmoothScrolling() {
-  document.querySelectorAll(".surgeon-nav-btn").forEach((button) => {
-    button.addEventListener("click", function (e) {
+  document.querySelectorAll('.surgeon-nav-btn').forEach((button) => {
+    button.addEventListener('click', function (e) {
       e.preventDefault();
 
       // Get the target section ID
-      const targetId = this.getAttribute("href");
+      const targetId = this.getAttribute('href');
 
       // Handle special case for About button (should scroll to video if available)
-      if ("#surgeon-about" === targetId) {
-        const videoContainer =
-          992 <= window.innerWidth
-            ? document.querySelector(".d-none.d-lg-block .video-container")
-            : document.querySelector(".d-lg-none .video-container");
+      if ('#surgeon-about' === targetId) {
+        const videoContainer = 992 <= window.innerWidth ? document.querySelector('.d-none.d-lg-block .video-container') : document.querySelector('.d-lg-none .video-container');
 
         if (videoContainer) {
           scrollToElement(videoContainer);
@@ -192,12 +189,11 @@ function scrollToElement(element) {
   const navbarHeight = getNavbarHeight();
   // Add extra offset (10px) so the section is slightly below the nav
   const extraOffset = 10;
-  const elementPosition =
-    element.getBoundingClientRect().top + window.scrollY - navbarHeight - extraOffset;
+  const elementPosition = element.getBoundingClientRect().top + window.scrollY - navbarHeight - extraOffset;
 
   window.scrollTo({
     top: elementPosition,
-    behavior: "smooth",
+    behavior: 'smooth',
   });
 }
 
@@ -205,8 +201,8 @@ function scrollToElement(element) {
  * Calculates the height of the navbar (header + mobile nav if visible)
  */
 function getNavbarHeight() {
-  const header = document.querySelector("header");
-  const mobileNav = document.querySelector(".surgeon-mobile-nav");
+  const header = document.querySelector('header');
+  const mobileNav = document.querySelector('.surgeon-mobile-nav');
 
   const headerHeight = header ? header.offsetHeight : 0;
   const mobileNavHeight = mobileNav && 768 > window.innerWidth ? mobileNav.offsetHeight : 0;
@@ -219,51 +215,45 @@ function getNavbarHeight() {
  */
 function setupVideoThumbnails() {
   // Find all video thumbnails on the page
-  const videoThumbnails = document.querySelectorAll(".video-thumbnail");
+  const videoThumbnails = document.querySelectorAll('.video-thumbnail');
 
   // Helper to detect mobile devices
   function isMobileDevice() {
-    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-      navigator.userAgent
-    );
+    return /Mobi|Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   }
 
   videoThumbnails.forEach((thumbnail) => {
-    thumbnail.addEventListener("click", function () {
+    thumbnail.addEventListener('click', function () {
       // Get the embed URL from the data attribute
-      let embedUrl = this.getAttribute("data-embed-url");
+      let embedUrl = this.getAttribute('data-embed-url');
 
       if (!embedUrl) {
         return;
       }
 
       // Add autoplay and mute parameters to YouTube URL
-      if (embedUrl.includes("youtube.com/embed/")) {
+      if (embedUrl.includes('youtube.com/embed/')) {
         // On mobile, force mute=1 for autoplay to work
         const isMobile = isMobileDevice();
-        const muteParam = isMobile ? "mute=1" : "mute=0";
-        embedUrl +=
-          (embedUrl.includes("?") ? "&" : "?") + "autoplay=1&" + muteParam + "&controls=1&rel=0";
+        const muteParam = isMobile ? 'mute=1' : 'mute=0';
+        embedUrl += (embedUrl.includes('?') ? '&' : '?') + 'autoplay=1&' + muteParam + '&controls=1&rel=0';
       }
 
       // Create an iframe element
-      const iframe = document.createElement("iframe");
+      const iframe = document.createElement('iframe');
       iframe.src = embedUrl;
-      iframe.title = "YouTube Video";
-      iframe.frameBorder = "0";
-      iframe.setAttribute("allowfullscreen", "");
-      iframe.setAttribute(
-        "allow",
-        "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-      );
+      iframe.title = 'YouTube Video';
+      iframe.frameBorder = '0';
+      iframe.setAttribute('allowfullscreen', '');
+      iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture');
 
       // Replace the thumbnail with the iframe
       this.parentNode.replaceChild(iframe, this);
 
       // Track video play event if analytics is available
-      if ("function" === typeof gtag) {
-        gtag("event", "play_video", {
-          event_category: "Video",
+      if ('function' === typeof gtag) {
+        gtag('event', 'play_video', {
+          event_category: 'Video',
           event_label: embedUrl,
         });
       }

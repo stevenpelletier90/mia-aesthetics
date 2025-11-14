@@ -1,71 +1,71 @@
 body.single-special {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	min-height: 100vh;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  min-height: 100vh;
 }
 
 .special-container {
-	width: 100%;
-	padding: 48px 15px;
+  width: 100%;
+  padding: 48px 15px;
 }
 
 .special-content-wrapper {
-	max-width: 600px;
-	margin-left: auto;
-	margin-right: auto;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .special-hero-image {
-	width: 100%;
-	max-width: 100%;
-	aspect-ratio: 6/1;
-	background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
-	border-radius: 4px;
-	margin-bottom: 16px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	color: var(--mia-white);
-	font-size: 18px;
-	overflow: hidden;
-	position: relative;
+  width: 100%;
+  max-width: 100%;
+  aspect-ratio: 6/1;
+  background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
+  border-radius: 4px;
+  margin-bottom: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mia-white);
+  font-size: 18px;
+  overflow: hidden;
+  position: relative;
 }
 
 .special-hero-image:has(img) {
-	opacity: 1;
-	background: transparent;
+  opacity: 1;
+  background: transparent;
 }
 
 .special-hero-image:not(:has(img)) {
-	opacity: 0.7;
+  opacity: 0.7;
 }
 
 .special-hero-image img {
-	width: 100%;
-	height: auto;
-	object-fit: contain;
-	object-position: center;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
 }
 
 .single-special .main-content {
-	padding: 32px 0;
-	color: var(--mia-white);
+  padding: 32px 0;
+  color: var(--mia-white);
 }
 
 .single-special .main-content > * + * {
-	margin-top: 40px;
+  margin-top: 40px;
 }
 
 .special-disclaimer {
-	margin-top: 16px;
-	font-size: 14px;
-	color: rgba(255,255,255,0.8);
-	line-height: 1.5;
+  margin-top: 16px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.5;
 }
 
 .special-disclaimer p {
-	margin-bottom: 0.5rem;
+  margin-bottom: 0.5rem;
 }
 
 .special-disclaimer p:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }

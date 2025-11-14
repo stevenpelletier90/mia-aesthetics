@@ -5,6 +5,6 @@
  * dynamic links, newsletter modals). Kept modular for organization.
  */
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener('DOMContentLoaded', () => {
   // Placeholder: footer hooks go here
 });

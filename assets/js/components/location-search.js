@@ -7,7 +7,7 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   // Global variables
   let locations = [];
@@ -17,7 +17,7 @@
 
   // Define Google Maps callback immediately (before DOM load)
   window.initGoogleMaps = function () {
-    if ("function" === typeof initializeAutocomplete) {
+    if ('function' === typeof initializeAutocomplete) {
       initializeAutocomplete();
     }
   };
@@ -35,19 +35,19 @@
   const CACHE_DURATION = 1000 * 60 * 60; // 1 hour
 
   // DOM elements
-  const searchInput = document.getElementById("location-search");
-  const searchDropdown = document.getElementById("search-dropdown");
-  const loadingSpinner = document.getElementById("loading-spinner");
-  const searchIcon = document.querySelector(".search-icon");
+  const searchInput = document.getElementById('location-search');
+  const searchDropdown = document.getElementById('search-dropdown');
+  const loadingSpinner = document.getElementById('loading-spinner');
+  const searchIcon = document.querySelector('.search-icon');
 
   // Initialize when page loads
-  document.addEventListener("DOMContentLoaded", function () {
+  document.addEventListener('DOMContentLoaded', function () {
     // Test if input events work even without Google Maps
     if (searchInput) {
       const testInputHandler = function () {
         // Input event handler for testing
       };
-      searchInput.addEventListener("input", testInputHandler);
+      searchInput.addEventListener('input', testInputHandler);
 
       // Store reference so we can remove it later
       searchInput._testHandler = testInputHandler;
@@ -58,11 +58,7 @@
     // Check if Google Maps is loading
     setTimeout(() => {
       // If Google Maps is available but callback wasn't called, call it manually
-      if (
-        "undefined" !== typeof google &&
-        google.maps &&
-        "function" === typeof initializeAutocomplete
-      ) {
+      if ('undefined' !== typeof google && google.maps && 'function' === typeof initializeAutocomplete) {
         initializeAutocomplete();
       }
     }, 3000);
@@ -73,11 +69,9 @@
   // Load locations from WordPress API
   async function loadLocations() {
     try {
-      const response = await fetch(
-        "/wp-json/wp/v2/location?per_page=100&parent=0&_fields=id,title,link,acf"
-      );
+      const response = await fetch('/wp-json/wp/v2/location?per_page=100&parent=0&_fields=id,title,link,acf');
       if (!response.ok) {
-        throw new Error("Failed to load locations");
+        throw new Error('Failed to load locations');
       }
 
       const data = await response.json();
@@ -113,7 +107,7 @@
   // Initialize search functionality
   window.initializeAutocomplete = function () {
     try {
-      if ("undefined" === typeof google || !google.maps) {
+      if ('undefined' === typeof google || !google.maps) {
         return;
       }
 
@@ -121,12 +115,12 @@
 
       // Remove the test input listener first
       if (searchInput._testHandler) {
-        searchInput.removeEventListener("input", searchInput._testHandler);
+        searchInput.removeEventListener('input', searchInput._testHandler);
         delete searchInput._testHandler;
       }
 
-      searchInput.addEventListener("input", debouncedSearch);
-      searchInput.addEventListener("keydown", handleKeyNavigation);
+      searchInput.addEventListener('input', debouncedSearch);
+      searchInput.addEventListener('keydown', handleKeyNavigation);
     } catch {
       // Continue without Google Maps functionality
     }
@@ -147,7 +141,7 @@
 
   // Search handler
   function handleSearch() {
-    const originalQuery = searchInput.value ? searchInput.value.trim() : "";
+    const originalQuery = searchInput.value ? searchInput.value.trim() : '';
     const query = originalQuery.toLowerCase();
 
     if (query.length < SEARCH_CONFIG.MIN_SEARCH_LENGTH) {
@@ -171,14 +165,7 @@
         return false;
       }
 
-      const searchFields = [
-        location.title,
-        locationMap.city,
-        locationMap.state,
-        locationMap.state_short,
-      ]
-        .filter(Boolean)
-        .map((field) => field.toLowerCase());
+      const searchFields = [location.title, locationMap.city, locationMap.state, locationMap.state_short].filter(Boolean).map((field) => field.toLowerCase());
 
       return searchFields.some((field) => field.includes(query));
     });
@@ -205,11 +192,11 @@
 
     geocoder.geocode(
       {
-        address: query + ", USA",
-        componentRestrictions: { country: "US" },
+        address: query + ', USA',
+        componentRestrictions: { country: 'US' },
       },
       (results, status) => {
-        if ("OK" === status && results[0]) {
+        if ('OK' === status && results[0]) {
           userLocation = {
             lat: results[0].geometry.location.lat(),
             lng: results[0].geometry.location.lng(),
@@ -227,7 +214,7 @@
           searchDropdown.innerHTML = '<div class="no-results">No locations found</div>';
           showDropdown();
         }
-      }
+      },
     );
   }
 
@@ -238,12 +225,7 @@
     if (hasExactMatches) {
       const exactResults = exactMatches.map((loc) => ({ ...loc, isExactMatch: true }));
       const alternatives = locations
-        .filter(
-          (loc) =>
-            loc.coordinates &&
-            null !== loc.distance &&
-            !exactMatches.some((exact) => exact.id === loc.id)
-        )
+        .filter((loc) => loc.coordinates && null !== loc.distance && !exactMatches.some((exact) => exact.id === loc.id))
         .sort((a, b) => (a.distance || Infinity) - (b.distance || Infinity))
         .slice(0, 2)
         .map((loc) => ({ ...loc, isExactMatch: false }));
@@ -260,11 +242,7 @@
     if (0 === resultsToShow.length) {
       searchDropdown.innerHTML = '<div class="no-results">No locations available</div>';
     } else {
-      displayResultsWithDistance(
-        resultsToShow,
-        originalQuery || searchQuery,
-        hasExactMatches ? "exact" : "nearby"
-      );
+      displayResultsWithDistance(resultsToShow, originalQuery || searchQuery, hasExactMatches ? 'exact' : 'nearby');
     }
 
     hideLoading();
@@ -279,12 +257,7 @@
 
     locations.forEach((location) => {
       if (location.coordinates) {
-        location.distance = calculateDistance(
-          userLocation.lat,
-          userLocation.lng,
-          location.coordinates.lat,
-          location.coordinates.lng
-        );
+        location.distance = calculateDistance(userLocation.lat, userLocation.lng, location.coordinates.lat, location.coordinates.lng);
       }
     });
   }
@@ -295,12 +268,7 @@
     const dLat = toRadians(lat2 - lat1);
     const dLng = toRadians(lng2 - lng1);
 
-    const a =
-      Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(toRadians(lat1)) *
-        Math.cos(toRadians(lat2)) *
-        Math.sin(dLng / 2) *
-        Math.sin(dLng / 2);
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) + Math.cos(toRadians(lat1)) * Math.cos(toRadians(lat2)) * Math.sin(dLng / 2) * Math.sin(dLng / 2);
 
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return R * c;
@@ -311,12 +279,12 @@
   }
 
   // Display results with distance
-  function displayResultsWithDistance(results, searchQuery, searchType = "nearby") {
+  function displayResultsWithDistance(results, searchQuery, searchType = 'nearby') {
     currentResults = results;
     currentHighlightIndex = -1;
 
-    let headerHtml = "";
-    if ("exact" === searchType) {
+    let headerHtml = '';
+    if ('exact' === searchType) {
       headerHtml = `
         <div style="padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.8);">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
@@ -327,7 +295,7 @@
       `;
     } else {
       const closestDistance = results[0]?.distance || 0;
-      const distanceNote = 100 < closestDistance ? " (nearest options)" : "";
+      const distanceNote = 100 < closestDistance ? ' (nearest options)' : '';
 
       headerHtml = `
         <div style="padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.8);">
@@ -343,13 +311,13 @@
       .map((location) => {
         const address = formatAddress(location.acf);
 
-        let matchLabel = "";
+        let matchLabel = '';
         if (location.isExactMatch) {
           matchLabel =
             '<span style="background-color: var(--color-gold); color: var(--color-primary); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap;"><i class="fas fa-star" style="font-size: 0.6rem;"></i>Match</span>';
         }
 
-        let distanceHtml = "";
+        let distanceHtml = '';
         if (null !== location.distance) {
           const distanceText = `${location.distance.toFixed(1)} miles away`;
           distanceHtml = `<div class="location-distance">${distanceText}</div>`;
@@ -357,23 +325,23 @@
 
         return `
           <div class="dropdown-item" role="option" data-location-id="${location.id}" aria-selected="false">
-            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: ${matchLabel ? "0.25rem" : "0"};">
+            <div style="display: flex; justify-content: space-between; align-items: start; margin-bottom: ${matchLabel ? '0.25rem' : '0'};">
               <h4>${escapeHtml(location.title)}</h4>
               ${matchLabel}
             </div>
-            ${address ? `<div class="location-address">${address}</div>` : ""}
+            ${address ? `<div class="location-address">${address}</div>` : ''}
             ${distanceHtml}
           </div>
         `;
       })
-      .join("");
+      .join('');
 
     searchDropdown.innerHTML = headerHtml + html;
     showDropdown();
 
-    const items = searchDropdown.querySelectorAll(".dropdown-item");
+    const items = searchDropdown.querySelectorAll('.dropdown-item');
     items.forEach((item, index) => {
-      item.addEventListener("click", () => selectLocation(results[index]));
+      item.addEventListener('click', () => selectLocation(results[index]));
     });
   }
 
@@ -386,7 +354,7 @@
   function formatAddress(acf) {
     const locationMap = acf.location_map;
     if (!locationMap) {
-      return "";
+      return '';
     }
 
     const addressParts = [];
@@ -401,12 +369,8 @@
     // Special handling for locations where Google Maps doesn't populate city correctly
     if (!city && locationMap.state_short) {
       // For Brooklyn/NYC addresses, Google sometimes doesn't populate city
-      if (
-        "NY" === locationMap.state_short &&
-        locationMap.street_name &&
-        locationMap.street_name.toLowerCase().includes("atlantic")
-      ) {
-        city = "Brooklyn";
+      if ('NY' === locationMap.state_short && locationMap.street_name && locationMap.street_name.toLowerCase().includes('atlantic')) {
+        city = 'Brooklyn';
       }
     }
 
@@ -421,23 +385,18 @@
     }
 
     if (0 < cityStateZip.length) {
-      addressParts.push(`<div>${cityStateZip.join(", ")}</div>`);
+      addressParts.push(`<div>${cityStateZip.join(', ')}</div>`);
     }
 
-    return addressParts.join("");
+    return addressParts.join('');
   }
 
   // Escape HTML
   function escapeHtml(unsafe) {
-    if ("string" !== typeof unsafe) {
-      return "";
+    if ('string' !== typeof unsafe) {
+      return '';
     }
-    return unsafe
-      .replace(/&/g, "&amp;")
-      .replace(/</g, "&lt;")
-      .replace(/>/g, "&gt;")
-      .replace(/"/g, "&quot;")
-      .replace(/'/g, "&#039;");
+    return unsafe.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&#039;');
   }
 
   // Loading skeleton
@@ -465,49 +424,49 @@
 
   // UI functions
   function showLoading() {
-    loadingSpinner.style.display = "block";
-    searchIcon.style.display = "none";
+    loadingSpinner.style.display = 'block';
+    searchIcon.style.display = 'none';
     searchDropdown.innerHTML = createLoadingSkeleton();
-    searchDropdown.querySelector(".loading-skeleton").style.display = "block";
+    searchDropdown.querySelector('.loading-skeleton').style.display = 'block';
     showDropdown();
   }
 
   function hideLoading() {
-    loadingSpinner.style.display = "none";
-    searchIcon.style.display = "block";
+    loadingSpinner.style.display = 'none';
+    searchIcon.style.display = 'block';
   }
 
   function showDropdown() {
-    searchDropdown.style.display = "block";
-    searchInput.setAttribute("aria-expanded", "true");
+    searchDropdown.style.display = 'block';
+    searchInput.setAttribute('aria-expanded', 'true');
   }
 
   function hideDropdown() {
-    searchDropdown.style.display = "none";
+    searchDropdown.style.display = 'none';
     currentHighlightIndex = -1;
-    searchInput.setAttribute("aria-expanded", "false");
+    searchInput.setAttribute('aria-expanded', 'false');
   }
 
   // Keyboard navigation
   function handleKeyNavigation(e) {
-    const items = searchDropdown.querySelectorAll(".dropdown-item");
+    const items = searchDropdown.querySelectorAll('.dropdown-item');
 
     if (0 === items.length) {
       return;
     }
 
-    if ("ArrowDown" === e.key) {
+    if ('ArrowDown' === e.key) {
       e.preventDefault();
       currentHighlightIndex = Math.min(currentHighlightIndex + 1, items.length - 1);
       updateHighlight(items);
-    } else if ("ArrowUp" === e.key) {
+    } else if ('ArrowUp' === e.key) {
       e.preventDefault();
       currentHighlightIndex = Math.max(currentHighlightIndex - 1, -1);
       updateHighlight(items);
-    } else if ("Enter" === e.key && 0 <= currentHighlightIndex) {
+    } else if ('Enter' === e.key && 0 <= currentHighlightIndex) {
       e.preventDefault();
       selectLocation(currentResults[currentHighlightIndex]);
-    } else if ("Escape" === e.key) {
+    } else if ('Escape' === e.key) {
       hideDropdown();
       searchInput.blur();
     }
@@ -517,27 +476,27 @@
   function updateHighlight(items) {
     items.forEach((item, index) => {
       if (index === currentHighlightIndex) {
-        item.classList.add("highlighted");
-        item.setAttribute("aria-selected", "true");
-        item.scrollIntoView({ block: "nearest" });
-        searchInput.setAttribute("aria-activedescendant", item.getAttribute("data-location-id"));
+        item.classList.add('highlighted');
+        item.setAttribute('aria-selected', 'true');
+        item.scrollIntoView({ block: 'nearest' });
+        searchInput.setAttribute('aria-activedescendant', item.getAttribute('data-location-id'));
       } else {
-        item.classList.remove("highlighted");
-        item.setAttribute("aria-selected", "false");
+        item.classList.remove('highlighted');
+        item.setAttribute('aria-selected', 'false');
       }
     });
   }
 
   // Hide dropdown when clicking outside
-  document.addEventListener("click", function (e) {
+  document.addEventListener('click', function (e) {
     if (!searchInput.contains(e.target) && !searchDropdown.contains(e.target)) {
       hideDropdown();
     }
   });
 
   // Handle escape key globally
-  document.addEventListener("keydown", function (e) {
-    if ("Escape" === e.key) {
+  document.addEventListener('keydown', function (e) {
+    if ('Escape' === e.key) {
       hideDropdown();
     }
   });

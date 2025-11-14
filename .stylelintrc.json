@@ -38,12 +38,5 @@
     "at-rule-empty-line-before": null,
     "declaration-empty-line-before": null
   },
-  "ignoreFiles": [
-    "**/*.min.css",
-    "**/bootstrap/**",
-    "**/fontawesome/**",
-    "**/glide/**",
-    "theme-bundle/**",
-    "assets/vendor/**"
-  ]
+  "ignoreFiles": ["**/*.min.css", "**/bootstrap/**", "**/fontawesome/**", "**/glide/**", "theme-bundle/**", "assets/vendor/**"]
 }

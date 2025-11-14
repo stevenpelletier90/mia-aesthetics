@@ -3,7 +3,7 @@
  * Bootstrap 5 handles tab functionality natively
  */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Image switching for featured specials based on language
   const spanishTab = document.getElementById('spanish-tab');
   const englishTab = document.getElementById('english-tab');
@@ -20,13 +20,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const skinnySpanishSrc = '/wp-content/uploads/2025/09/Specials-Skinny-SPAN.jpg';
 
     spanishTab.addEventListener('shown.bs.tab', function () {
-      jPlasmaImgs.forEach(img => img.src = jPlasmaSpanishSrc);
-      skinnyImgs.forEach(img => img.src = skinnySpanishSrc);
+      jPlasmaImgs.forEach((img) => (img.src = jPlasmaSpanishSrc));
+      skinnyImgs.forEach((img) => (img.src = skinnySpanishSrc));
     });
 
     englishTab.addEventListener('shown.bs.tab', function () {
-      jPlasmaImgs.forEach(img => img.src = jPlasmaEnglishSrc);
-      skinnyImgs.forEach(img => img.src = skinnyEnglishSrc);
+      jPlasmaImgs.forEach((img) => (img.src = jPlasmaEnglishSrc));
+      skinnyImgs.forEach((img) => (img.src = skinnyEnglishSrc));
     });
   }
 });

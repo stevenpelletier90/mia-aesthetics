@@ -183,8 +183,7 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
 .value-title {
@@ -447,8 +446,7 @@
   width: 80px;
   height: 80px;
   object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
 }
 
 .benefit-title {

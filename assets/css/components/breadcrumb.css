@@ -1,18 +1,19 @@
 .breadcrumb-nav {
-	padding: 12px 0;
-	font-family: var(--font-body);
-	background: var(--mia-white);
+  padding: 12px 0;
+  font-family: var(--font-body);
+  background: var(--mia-white);
 }
 
 .breadcrumb-nav a {
-	color: var(--mia-gray-dark);
-	text-decoration: underline;
+  color: var(--mia-gray-dark);
+  text-decoration: underline;
 }
 
-.breadcrumb-nav a:hover, .breadcrumb-nav a:focus {
-	color: var(--mia-gold);
+.breadcrumb-nav a:hover,
+.breadcrumb-nav a:focus {
+  color: var(--mia-gold);
 }
 
 .breadcrumb-nav .breadcrumb_last {
-	color: var(--mia-gray-dark);
+  color: var(--mia-gray-dark);
 }

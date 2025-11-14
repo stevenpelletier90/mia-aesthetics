@@ -1,379 +1,389 @@
 .case-category-card {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	border: 2px solid var(--mia-gold);
-	border-radius: 8px;
-	box-shadow: 0 5px 20px rgba(200,178,115,0.1);
-	overflow: hidden;
-	transition: all 0.2s ease;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border: 2px solid var(--mia-gold);
+  border-radius: 8px;
+  box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 .case-category-card:hover {
-	box-shadow: 0 10px 30px rgba(200,178,115,0.2);
-	transform: translateY(-2px);
-	border-color: var(--mia-gold);
+  box-shadow: 0 10px 30px rgba(200, 178, 115, 0.2);
+  transform: translateY(-2px);
+  border-color: var(--mia-gold);
 }
 
 .category-image-container {
-	height: 350px;
-	overflow: hidden;
-	position: relative;
+  height: 350px;
+  overflow: hidden;
+  position: relative;
 }
 
 .category-image-container img {
-	object-fit: cover;
+  object-fit: cover;
 }
 
 .category-overlay {
-	background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 50%, transparent 100%);
-	opacity: 0;
-	transition: opacity 0.2s ease;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.3) 50%, transparent 100%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
 }
 
 .case-category-card:hover .category-overlay {
-	opacity: 1;
+  opacity: 1;
 }
 
 .category-badge {
-	font-size: 1rem;
-	font-weight: 600;
-	text-transform: uppercase;
-	backdrop-filter: blur(4px);
-	background-color: var(--mia-black);
-	color: var(--mia-gold);
-	border: none;
-	transition: background-color 0.2s;
+  font-size: 1rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  backdrop-filter: blur(4px);
+  background-color: var(--mia-black);
+  color: var(--mia-gold);
+  border: none;
+  transition: background-color 0.2s;
 }
 
-.category-badge:focus, .category-badge:hover, .category-badge:active {
-	background-color: var(--mia-black);
-	color: var(--mia-gold);
+.category-badge:focus,
+.category-badge:hover,
+.category-badge:active {
+  background-color: var(--mia-black);
+  color: var(--mia-gold);
 }
 
 .case-category-card .card-body {
-	padding: 1.5rem;
+  padding: 1.5rem;
 }
 
 .case-category-card h2 {
-	color: var(--mia-white);
-	margin-bottom: 1rem;
+  color: var(--mia-white);
+  margin-bottom: 1rem;
 }
 
 .case-category-card .card-text {
-	color: var(--mia-white);
-	font-size: 1rem;
-	line-height: 1.5;
+  color: var(--mia-white);
+  font-size: 1rem;
+  line-height: 1.5;
 }
 
 .case-links li {
-	margin-bottom: 0.5rem;
-	padding-left: 0;
-	position: relative;
+  margin-bottom: 0.5rem;
+  padding-left: 0;
+  position: relative;
 }
 
 .case-links li:last-child {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .case-links a:not(.btn) {
-	color: var(--mia-white);
-	font-size: 1rem;
-	transition: all 0.2s ease;
-	display: inline-flex;
-	align-items: center;
-	text-decoration: none;
-	padding-bottom: 2px;
+  color: var(--mia-white);
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding-bottom: 2px;
 }
 
 .case-links a:not(.btn) span {
-	border-bottom: 2px dotted var(--mia-gold);
-	transition: border-bottom-color 0.2s ease;
+  border-bottom: 2px dotted var(--mia-gold);
+  transition: border-bottom-color 0.2s ease;
 }
 
 .case-links a:not(.btn):hover {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .case-links a:not(.btn):hover span {
-	border-bottom-color: var(--mia-white);
+  border-bottom-color: var(--mia-white);
 }
 
 .case-links a:not(.btn):hover i {
-	transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 .case-links a:not(.btn) i {
-	transition: transform 0.2s ease, color 0.2s ease;
-	color: var(--mia-gold);
-	text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  color: var(--mia-gold);
+  text-decoration: none;
 }
 
 .case-links a:not(.btn):hover i {
-	color: var(--mia-white);
+  color: var(--mia-white);
 }
 
 .section-heading {
-	color: var(--mia-black);
-	font-family: var(--font-heading);
+  color: var(--mia-black);
+  font-family: var(--font-heading);
 }
 
 .browse-by-surgeon {
-	background-image: url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=600&fit=crop');
-	background-size: cover;
-	background-position: center;
-	background-repeat: no-repeat;
-	min-height: 550px;
-	display: flex;
-	align-items: center;
-	padding: 6rem 0;
-	margin-top: 0;
+  background-image: url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=600&fit=crop");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+  padding: 6rem 0;
+  margin-top: 0;
 }
 
 .browse-by-surgeon-overlay {
-	position: absolute;
-	top: 0;
-	left: 0;
-	width: 100%;
-	height: 100%;
-	background: linear-gradient(135deg, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.75) 50%, rgba(0,0,0,0.85) 100%);
-	z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.85) 100%);
+  z-index: 1;
 }
 
 .browse-by-surgeon .container {
-	z-index: 2;
+  z-index: 2;
 }
 
 .browse-by-surgeon-content {
-	padding: 2rem 0;
+  padding: 2rem 0;
 }
 
 .browse-by-surgeon h1 {
-	color: var(--mia-white);
-	font-weight: 700;
-	font-size: 3rem;
-	margin-bottom: 1rem;
-	line-height: 1.2;
+  color: var(--mia-white);
+  font-weight: 700;
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
 }
 
 .browse-by-surgeon .lead {
-	color: var(--mia-white);
-	opacity: 0.95;
-	font-size: 1.25rem;
-	line-height: 1.6;
-	max-width: 700px;
-	margin-left: auto;
-	margin-right: auto;
+  color: var(--mia-white);
+  opacity: 0.95;
+  font-size: 1.25rem;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* Stacked Surgeon Avatars */
 .surgeon-avatars {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	height: 70px;
-	margin-bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  margin-bottom: 2rem;
 }
 
 .surgeon-avatar {
-	width: 70px;
-	height: 70px;
-	border-radius: 50%;
-	border: 4px solid var(--mia-gold);
-	object-fit: cover;
-	transition: transform 0.2s ease, z-index 0s;
-	position: relative;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-	background-color: var(--mia-white);
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 4px solid var(--mia-gold);
+  object-fit: cover;
+  transition:
+    transform 0.2s ease,
+    z-index 0s;
+  position: relative;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  background-color: var(--mia-white);
 }
 
 .surgeon-avatar:not(:first-child) {
-	margin-left: -20px;
+  margin-left: -20px;
 }
 
 .surgeon-avatar:hover {
-	transform: scale(1.15) translateY(-5px);
-	z-index: 10;
-	border-color: var(--mia-white);
+  transform: scale(1.15) translateY(-5px);
+  z-index: 10;
+  border-color: var(--mia-white);
 }
 
 /* Button Enhancement for Browse Section */
 .browse-by-surgeon .btn {
-	box-shadow: 0 4px 15px rgba(200,178,115,0.3);
+  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.3);
 }
 
 .browse-by-surgeon .btn:hover {
-	transform: translateY(-3px);
-	box-shadow: 0 6px 20px rgba(200,178,115,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(200, 178, 115, 0.4);
 }
 
 .browse-by-surgeon .btn i {
-	transition: transform 0.3s ease;
-	margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
 }
 
 .browse-by-surgeon .btn:hover i {
-	transform: translateX(5px);
+  transform: translateX(5px);
 }
 
 .case-category-card:focus-within {
-	outline: 2px solid var(--mia-gold);
-	outline-offset: 2px;
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
 }
 
 .case-links a:focus {
-	outline: 2px solid var(--mia-gold);
-	outline-offset: 2px;
-	border-radius: 2px;
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .browse-by-surgeon .btn:focus {
-	outline: 2px solid var(--mia-white);
-	outline-offset: 3px;
-	box-shadow: 0 0 0 4px rgba(255,255,255,0.3);
+  outline: 2px solid var(--mia-white);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
 /* Responsive Design for Browse by Surgeon */
 @media (max-width: 991.98px) {
-	.browse-by-surgeon {
-		min-height: 450px;
-		padding: 4.5rem 0;
-	}
+  .browse-by-surgeon {
+    min-height: 450px;
+    padding: 4.5rem 0;
+  }
 
-	.browse-by-surgeon h1 {
-		font-size: 2.25rem;
-	}
+  .browse-by-surgeon h1 {
+    font-size: 2.25rem;
+  }
 
-	.browse-by-surgeon .lead {
-		font-size: 1.125rem;
-	}
+  .browse-by-surgeon .lead {
+    font-size: 1.125rem;
+  }
 
-	.surgeon-avatar {
-		width: 60px;
-		height: 60px;
-		border-width: 3px;
-	}
+  .surgeon-avatar {
+    width: 60px;
+    height: 60px;
+    border-width: 3px;
+  }
 
-	.surgeon-avatars {
-		height: 60px;
-	}
+  .surgeon-avatars {
+    height: 60px;
+  }
 }
 
 @media (max-width: 767.98px) {
-	.browse-by-surgeon {
-		min-height: 400px;
-		padding: 3.5rem 0;
-	}
+  .browse-by-surgeon {
+    min-height: 400px;
+    padding: 3.5rem 0;
+  }
 
-	.browse-by-surgeon h1 {
-		font-size: 2rem;
-	}
+  .browse-by-surgeon h1 {
+    font-size: 2rem;
+  }
 
-	.browse-by-surgeon .lead {
-		font-size: 1rem;
-	}
+  .browse-by-surgeon .lead {
+    font-size: 1rem;
+  }
 
-	.surgeon-avatar {
-		width: 50px;
-		height: 50px;
-		border-width: 3px;
-	}
+  .surgeon-avatar {
+    width: 50px;
+    height: 50px;
+    border-width: 3px;
+  }
 
-	.surgeon-avatar:not(:first-child) {
-		margin-left: -15px;
-	}
+  .surgeon-avatar:not(:first-child) {
+    margin-left: -15px;
+  }
 
-	.surgeon-avatars {
-		height: 50px;
-		margin-bottom: 1.5rem;
-	}
+  .surgeon-avatars {
+    height: 50px;
+    margin-bottom: 1.5rem;
+  }
 }
 
 @media (max-width: 575.98px) {
-	.browse-by-surgeon {
-		min-height: 350px;
-		padding: 3rem 0;
-	}
+  .browse-by-surgeon {
+    min-height: 350px;
+    padding: 3rem 0;
+  }
 
-	.browse-by-surgeon h1 {
-		font-size: 1.75rem;
-	}
+  .browse-by-surgeon h1 {
+    font-size: 1.75rem;
+  }
 
-	.browse-by-surgeon .lead {
-		font-size: 0.9375rem;
-	}
+  .browse-by-surgeon .lead {
+    font-size: 0.9375rem;
+  }
 
-	.surgeon-avatar {
-		width: 45px;
-		height: 45px;
-		border-width: 2px;
-	}
+  .surgeon-avatar {
+    width: 45px;
+    height: 45px;
+    border-width: 2px;
+  }
 
-	.surgeon-avatar:not(:first-child) {
-		margin-left: -12px;
-	}
+  .surgeon-avatar:not(:first-child) {
+    margin-left: -12px;
+  }
 
-	.surgeon-avatars {
-		height: 45px;
-	}
+  .surgeon-avatars {
+    height: 45px;
+  }
 
-	/* Hide last 2 avatars on very small screens */
-	.surgeon-avatar:nth-child(n+5) {
-		display: none;
-	}
+  /* Hide last 2 avatars on very small screens */
+  .surgeon-avatar:nth-child(n + 5) {
+    display: none;
+  }
 
-	.browse-by-surgeon .btn {
-		width: 100%;
-		max-width: 300px;
-	}
+  .browse-by-surgeon .btn {
+    width: 100%;
+    max-width: 300px;
+  }
 }
 
 @media (min-width: 1200px) {
-	.category-image-container {
-		height: 400px;
-	}
+  .category-image-container {
+    height: 400px;
+  }
 }
 
 @media (max-width: 991.98px) {
-	.category-image-container {
-		height: 280px;
-	}
+  .category-image-container {
+    height: 280px;
+  }
 
-	.case-category-card .card-body {
-		padding: 1.25rem;
-	}
+  .case-category-card .card-body {
+    padding: 1.25rem;
+  }
 }
 
 @media (max-width: 767.98px) {
-	.category-image-container {
-		height: 220px;
-	}
+  .category-image-container {
+    height: 220px;
+  }
 
-	.case-category-card .card-body {
-		padding: 1rem;
-	}
+  .case-category-card .card-body {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 575.98px) {
-	.category-image-container {
-		height: 300px;
-	}
+  .category-image-container {
+    height: 300px;
+  }
 
-	.case-category-card .card-body {
-		padding: 0.875rem;
-	}
+  .case-category-card .card-body {
+    padding: 0.875rem;
+  }
 
-	.case-links a {
-		font-size: 1rem;
-	}
+  .case-links a {
+    font-size: 1rem;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
-	.case-category-card, .case-links a, .browse-by-surgeon .btn, .browse-by-surgeon .btn i, .surgeon-avatar {
-		transition: none;
-	}
+  .case-category-card,
+  .case-links a,
+  .browse-by-surgeon .btn,
+  .browse-by-surgeon .btn i,
+  .surgeon-avatar {
+    transition: none;
+  }
 }
 
 @media (prefers-contrast: high) {
-	.category-overlay {
-		background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0.5) 50%, transparent 100%);
-	}
+  .category-overlay {
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
+  }
 }

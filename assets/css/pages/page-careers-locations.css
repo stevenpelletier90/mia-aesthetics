@@ -1,863 +1,867 @@
 .sidebar-section.border-radius-none {
-	border-radius: 0;
+  border-radius: 0;
 }
 
 .location-header {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-	color: var(--mia-white);
-	padding: 48px 0;
-	position: relative;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  color: var(--mia-white);
+  padding: 48px 0;
+  position: relative;
 }
 
 .location-header h1 {
-	color: var(--mia-gold);
-	font-weight: 600;
-	margin-bottom: 24px;
-	text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  color: var(--mia-gold);
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .location-header p {
-	color: var(--mia-white);
-	font-size: 1.1rem;
-	margin-bottom: 24px;
+  color: var(--mia-white);
+  font-size: 1.1rem;
+  margin-bottom: 24px;
 }
 
 .location-intro {
-	border-left: 3px solid var(--mia-gold);
-	padding-left: 16px;
+  border-left: 3px solid var(--mia-gold);
+  padding-left: 16px;
 }
 
 .location-info {
-	backdrop-filter: blur(5px);
-	background-color: rgba(155,155,155,0.2);
-	border-radius: 8px;
-	padding: 24px;
+  backdrop-filter: blur(5px);
+  background-color: rgba(155, 155, 155, 0.2);
+  border-radius: 8px;
+  padding: 24px;
 }
 
 .location-detail {
-	align-items: center;
-	color: var(--mia-white);
-	display: flex;
-	margin-bottom: 16px;
+  align-items: center;
+  color: var(--mia-white);
+  display: flex;
+  margin-bottom: 16px;
 }
 
 .location-icon {
-	color: var(--mia-gold);
-	filter: drop-shadow(0 2px 3px rgba(0,0,0,0.3));
-	font-size: 1.2rem;
-	margin-right: 12px;
+  color: var(--mia-gold);
+  filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.3));
+  font-size: 1.2rem;
+  margin-right: 12px;
 }
 
 .location-phone {
-	color: var(--mia-white);
-	text-decoration: none;
-	transition: color 0.2s ease;
+  color: var(--mia-white);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .location-phone:hover {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .location-map-link {
-	color: var(--mia-gold);
-	font-weight: 600;
-	text-decoration: none;
-	transition: all 0.2s ease;
+  color: var(--mia-gold);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .location-map-link:hover {
-	color: var(--mia-white);
-	text-decoration: underline;
+  color: var(--mia-white);
+  text-decoration: underline;
 }
 
 .dept-breakdown {
-	margin-top: 48px;
+  margin-top: 48px;
 }
 
 .dept-breakdown h3 {
-	color: var(--mia-black);
-	font-size: 1.75rem;
-	font-weight: 600;
-	margin-bottom: 24px;
-	padding-bottom: 12px;
-	position: relative;
+  color: var(--mia-black);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  position: relative;
 }
 
 .dept-breakdown h3::after {
-	background-color: var(--mia-gold);
-	bottom: 0;
-	content: "";
-	height: 3px;
-	left: 0;
-	position: absolute;
-	width: 60px;
+  background-color: var(--mia-gold);
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 60px;
 }
 
 .dept-breakdown .accordion-item {
-	background: var(--mia-white);
-	border: 1px solid rgba(0,0,0,0.125);
-	border-radius: 8px;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-	overflow: hidden;
+  background: var(--mia-white);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .dept-breakdown .accordion-button {
-	background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
-	border: none;
-	box-shadow: none;
-	color: var(--mia-black);
-	font-size: 1.25rem;
-	font-weight: 600;
-	padding: 20px 24px;
-	transition: all 0.2s ease;
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
+  border: none;
+  box-shadow: none;
+  color: var(--mia-black);
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 20px 24px;
+  transition: all 0.2s ease;
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	box-shadow: none;
-	color: var(--mia-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  box-shadow: none;
+  color: var(--mia-white);
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) i {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .dept-breakdown .accordion-button:hover {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	color: var(--mia-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  color: var(--mia-white);
 }
 
 .dept-breakdown .accordion-button:focus {
-	border-color: transparent;
-	box-shadow: none;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .dept-breakdown .accordion-body {
-	background: var(--mia-gold-light);
-	padding: 32px 24px;
+  background: var(--mia-gold-light);
+  padding: 32px 24px;
 }
 
 .dept-breakdown .accordion-body .lead {
-	color: var(--mia-gray-muted);
-	font-size: 1.1rem;
-	line-height: 1.7;
-	margin-bottom: 0;
+  color: var(--mia-gray-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 0;
 }
 
 .job-functions {
-	margin-top: 48px;
+  margin-top: 48px;
 }
 
 .job-functions h3 {
-	color: var(--mia-black);
-	font-size: 1.75rem;
-	font-weight: 600;
-	margin-bottom: 24px;
-	padding-bottom: 12px;
-	position: relative;
+  color: var(--mia-black);
+  font-size: 1.75rem;
+  font-weight: 600;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  position: relative;
 }
 
 .job-functions h3::after {
-	background-color: var(--mia-gold);
-	bottom: 0;
-	content: "";
-	height: 3px;
-	left: 0;
-	position: absolute;
-	width: 60px;
+  background-color: var(--mia-gold);
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 60px;
 }
 
 .job-function-card {
-	background: var(--mia-white);
-	border: 1px solid var(--mia-gold-light);
-	height: 100%;
-	transition: all 0.2s ease;
+  background: var(--mia-white);
+  border: 1px solid var(--mia-gold-light);
+  height: 100%;
+  transition: all 0.2s ease;
 }
 
 .job-function-card:hover {
-	border-color: var(--mia-gold);
-	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-	transform: translateY(-3px);
+  border-color: var(--mia-gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .job-function-title {
-	color: var(--mia-black);
-	font-size: 1.2rem;
-	font-weight: 600;
-	margin-bottom: 16px;
+  color: var(--mia-black);
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 16px;
 }
 
 .job-function-card:hover .job-function-title {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .job-function-description {
-	color: var(--mia-gray-muted);
-	font-size: 0.95rem;
-	line-height: 1.6;
-	margin-bottom: 0;
+  color: var(--mia-gray-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 0;
 }
 
 .career-categories {
-	margin-top: 48px;
+  margin-top: 48px;
 }
 
 .page-template-page-careers-locations main .accordion-item {
-	background: var(--mia-white);
-	border: 1px solid rgba(0,0,0,0.125);
-	border-radius: 8px;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-	overflow: hidden;
+  background: var(--mia-white);
+  border: 1px solid rgba(0, 0, 0, 0.125);
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .page-template-page-careers-locations main .accordion-header {
-	margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 .page-template-page-careers-locations main .accordion-button {
-	background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
-	border: none;
-	box-shadow: none;
-	color: var(--mia-black);
-	font-size: 1.25rem;
-	font-weight: 600;
-	padding: 20px 24px;
-	transition: all 0.2s ease;
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
+  border: none;
+  box-shadow: none;
+  color: var(--mia-black);
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 20px 24px;
+  transition: all 0.2s ease;
 }
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	box-shadow: none;
-	color: var(--mia-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  box-shadow: none;
+  color: var(--mia-white);
 }
 
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) i {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .page-template-page-careers-locations main .accordion-button:hover {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	color: var(--mia-white);
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  color: var(--mia-white);
 }
 
 .page-template-page-careers-locations main .accordion-button:focus {
-	border-color: transparent;
-	box-shadow: none;
+  border-color: transparent;
+  box-shadow: none;
 }
 
 .page-template-page-careers-locations main .accordion-body {
-	background: var(--mia-gold-light);
-	padding: 32px 24px;
+  background: var(--mia-gold-light);
+  padding: 32px 24px;
 }
 
 .page-template-page-careers-locations main .accordion-body .lead {
-	color: var(--mia-gray-muted);
-	font-size: 1.1rem;
-	line-height: 1.7;
-	margin-bottom: 32px;
+  color: var(--mia-gray-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
 }
 
 .page-template-page-careers-locations main .accordion-button i {
-	color: var(--mia-gold);
-	font-size: 1.25rem;
-	transition: color 0.2s ease;
+  color: var(--mia-gold);
+  font-size: 1.25rem;
+  transition: color 0.2s ease;
 }
 
 .position-card-expanded {
-	background: var(--mia-white);
-	border: 1px solid var(--mia-gold-light);
-	border-radius: 8px;
-	height: 100%;
-	overflow: hidden;
-	padding: 24px;
-	position: relative;
-	transition: all 0.2s ease;
+  background: var(--mia-white);
+  border: 1px solid var(--mia-gold-light);
+  border-radius: 8px;
+  height: 100%;
+  overflow: hidden;
+  padding: 24px;
+  position: relative;
+  transition: all 0.2s ease;
 }
 
 .position-card-expanded::before {
-	background: var(--mia-gold);
-	content: "";
-	height: 100%;
-	left: 0;
-	position: absolute;
-	top: 0;
-	transform: translateX(-100%);
-	transition: transform 0.2s ease;
-	width: 4px;
+  background: var(--mia-gold);
+  content: "";
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform: translateX(-100%);
+  transition: transform 0.2s ease;
+  width: 4px;
 }
 
 .position-card-expanded:hover {
-	border-color: var(--mia-gold);
-	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-	transform: translateY(-3px);
+  border-color: var(--mia-gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .position-card-expanded:hover::before {
-	transform: translateX(0);
+  transform: translateX(0);
 }
 
 .position-title-expanded {
-	color: var(--mia-black);
-	font-size: 1.1rem;
-	font-weight: 600;
-	margin-bottom: 12px;
-	transition: color 0.2s ease;
+  color: var(--mia-black);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  transition: color 0.2s ease;
 }
 
 .position-card-expanded:hover .position-title-expanded {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .position-description {
-	color: var(--mia-gray-muted);
-	font-size: 0.9rem;
-	line-height: 1.6;
-	margin: 0;
+  color: var(--mia-gray-muted);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0;
 }
 
 .job-listings {
-	border-top: 2px solid #f0f0f0;
-	padding-top: 48px;
+  border-top: 2px solid #f0f0f0;
+  padding-top: 48px;
 }
 
 .job-item {
-	background: var(--mia-white);
-	border: 2px solid var(--mia-gold-light);
-	transition: all 0.2s ease;
+  background: var(--mia-white);
+  border: 2px solid var(--mia-gold-light);
+  transition: all 0.2s ease;
 }
 
 .job-item:hover {
-	border-color: var(--mia-gold);
-	box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-	transform: translateY(-3px);
+  border-color: var(--mia-gold);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  transform: translateY(-3px);
 }
 
 .job-item h4 {
-	color: var(--mia-black);
-	font-weight: 600;
-	margin-bottom: 12px;
+  color: var(--mia-black);
+  font-weight: 600;
+  margin-bottom: 12px;
 }
 
 .job-type {
-	font-size: 0.85rem;
-	font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 600;
 }
 
 .no-jobs-message {
-	background: var(--mia-gold-light);
-	border: 2px dashed #dee2e6;
+  background: var(--mia-gold-light);
+  border: 2px dashed #dee2e6;
 }
 
 .no-jobs-message i {
-	color: var(--mia-gold);
-	opacity: 0.6;
+  color: var(--mia-gold);
+  opacity: 0.6;
 }
 
 .benefits-section {
-	background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
-	padding: 80px 0;
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
+  padding: 80px 0;
 }
 
 .benefits-top-content {
-	margin-bottom: 64px;
+  margin-bottom: 64px;
 }
 
 .benefits-header {
-	padding-right: 48px;
-	text-align: left;
+  padding-right: 48px;
+  text-align: left;
 }
 
 .benefits-header .section-tagline {
-	color: var(--mia-gold);
-	font-size: 0.95rem;
-	font-weight: 600;
-	margin-bottom: 8px;
-	text-transform: uppercase;
+  color: var(--mia-gold);
+  font-size: 0.95rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  text-transform: uppercase;
 }
 
 .benefits-title {
-	color: var(--mia-black);
-	font-size: clamp(2.5rem,4vw,3.5rem);
-	font-weight: 600;
-	margin-bottom: 24px;
-	padding-bottom: 0;
-	position: relative;
-	text-align: left;
+  color: var(--mia-black);
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  font-weight: 600;
+  margin-bottom: 24px;
+  padding-bottom: 0;
+  position: relative;
+  text-align: left;
 }
 
 .benefits-title::after {
-	display: none;
+  display: none;
 }
 
 .benefits-subtitle {
-	color: var(--mia-gray-muted);
-	font-size: 1.1rem;
-	line-height: 1.7;
-	margin: 0;
-	text-align: left;
+  color: var(--mia-gray-muted);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  margin: 0;
+  text-align: left;
 }
 
 .founders-quote-wrapper {
-	align-items: center;
-	display: flex;
-	height: 100%;
-	padding-left: 32px;
+  align-items: center;
+  display: flex;
+  height: 100%;
+  padding-left: 32px;
 }
 
 .founders-quote {
-	background: linear-gradient(135deg, rgba(200,178,115,0.05) 0%, var(--mia-gold-10) 100%);
-	border: 1px solid var(--mia-gold-20);
-	border-radius: 16px;
-	box-shadow: 0 8px 24px rgba(0,0,0,0.08);
-	font-style: normal;
-	margin: 0;
-	overflow: hidden;
-	padding: 48px;
-	position: relative;
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--mia-gold-10) 100%);
+  border: 1px solid var(--mia-gold-20);
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-style: normal;
+  margin: 0;
+  overflow: hidden;
+  padding: 48px;
+  position: relative;
 }
 
 .founders-quote::before {
-	background: radial-gradient(circle, var(--mia-gold-10) 0%, transparent 70%);
-	content: "";
-	height: 200%;
-	pointer-events: none;
-	position: absolute;
-	right: -50%;
-	top: -50%;
-	width: 200%;
+  background: radial-gradient(circle, var(--mia-gold-10) 0%, transparent 70%);
+  content: "";
+  height: 200%;
+  pointer-events: none;
+  position: absolute;
+  right: -50%;
+  top: -50%;
+  width: 200%;
 }
 
 .quote-icon {
-	color: var(--mia-gold);
-	font-size: 2.5rem;
-	line-height: 1;
-	margin-bottom: 16px;
-	opacity: 0.3;
+  color: var(--mia-gold);
+  font-size: 2.5rem;
+  line-height: 1;
+  margin-bottom: 16px;
+  opacity: 0.3;
 }
 
 .quote-text {
-	color: var(--mia-black);
-	font-size: 1.25rem;
-	font-style: italic;
-	font-weight: 600;
-	line-height: 1.8;
-	margin-bottom: 32px;
-	position: relative;
-	z-index: 1;
+  color: var(--mia-black);
+  font-size: 1.25rem;
+  font-style: italic;
+  font-weight: 600;
+  line-height: 1.8;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 1;
 }
 
 .quote-attribution {
-	align-items: center;
-	display: flex;
-	font-style: normal;
-	gap: 16px;
+  align-items: center;
+  display: flex;
+  font-style: normal;
+  gap: 16px;
 }
 
 .attribution-line {
-	background: var(--mia-gold);
-	display: inline-block;
-	height: 2px;
-	width: 40px;
+  background: var(--mia-gold);
+  display: inline-block;
+  height: 2px;
+  width: 40px;
 }
 
 .attribution-text {
-	color: var(--mia-gold);
-	font-size: 16px;
-	font-weight: 600;
-	text-transform: uppercase;
+  color: var(--mia-gold);
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
 }
 
 .benefit-card {
-	background: var(--mia-white);
-	border: 1px solid var(--mia-gold-light);
-	border-radius: 12px;
-	box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-	height: 100%;
-	transition: all 0.2s ease;
+  background: var(--mia-white);
+  border: 1px solid var(--mia-gold-light);
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  height: 100%;
+  transition: all 0.2s ease;
 }
 
 .benefit-card:hover {
-	border-color: var(--mia-gold);
-	box-shadow: 0 12px 25px rgba(0,0,0,0.15);
-	transform: translateY(-5px);
+  border-color: var(--mia-gold);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
 }
 
 .benefit-icon {
-	align-items: center;
-	background: var(--mia-gold-light);
-	border: 2px solid var(--mia-gold-20);
-	border-radius: 50%;
-	box-shadow: 0 4px 15px var(--mia-gold-20);
-	display: flex;
-	height: 140px;
-	justify-content: center;
-	margin: 0 auto;
-	width: 140px;
+  align-items: center;
+  background: var(--mia-gold-light);
+  border: 2px solid var(--mia-gold-20);
+  border-radius: 50%;
+  box-shadow: 0 4px 15px var(--mia-gold-20);
+  display: flex;
+  height: 140px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 140px;
 }
 
 .benefit-icon i {
-	color: var(--mia-gold);
-	font-size: 1.75rem;
+  color: var(--mia-gold);
+  font-size: 1.75rem;
 }
 
 .benefit-svg-icon {
-	filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
-	height: 80px;
-	object-fit: contain;
-	width: 80px;
+  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
+  height: 80px;
+  object-fit: contain;
+  width: 80px;
 }
 
 .benefit-title {
-	color: var(--mia-black);
-	font-size: 1.3rem;
-	font-weight: 600;
-	margin-bottom: 20px;
+  color: var(--mia-black);
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 20px;
 }
 
 .benefit-list {
-	list-style: none;
-	padding: 0;
-	text-align: left;
+  list-style: none;
+  padding: 0;
+  text-align: left;
 }
 
 .benefit-list li {
-	color: var(--mia-gray-muted);
-	font-size: 0.95rem;
-	line-height: 1.6;
-	margin-bottom: 16px;
-	padding-left: 20px;
-	position: relative;
+  color: var(--mia-gray-muted);
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 16px;
+  padding-left: 20px;
+  position: relative;
 }
 
 .benefit-list li::before {
-	color: var(--mia-gold);
-	content: "✓";
-	font-size: 1.1rem;
-	font-weight: 600;
-	left: 0;
-	position: absolute;
+  color: var(--mia-gold);
+  content: "✓";
+  font-size: 1.1rem;
+  font-weight: 600;
+  left: 0;
+  position: absolute;
 }
 
-.video-container, .sidebar-section {
-	border-radius: 12px;
-	box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-	margin-bottom: 32px;
-	overflow: hidden;
+.video-container,
+.sidebar-section {
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+  overflow: hidden;
 }
 
 .video-thumbnail {
-	cursor: pointer;
-	height: 100%;
-	left: 0;
-	overflow: hidden;
-	position: absolute;
-	top: 0;
-	width: 100%;
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  width: 100%;
 }
 
 .video-thumbnail img {
-	height: 100%;
-	object-fit: cover;
-	transition: transform 0.2s ease;
-	width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  width: 100%;
 }
 
 .video-thumbnail:hover img {
-	transform: scale(1.05);
+  transform: scale(1.05);
 }
 
 .video-play-button {
-	align-items: center;
-	background-color: rgba(200,178,115,0.9);
-	border: none;
-	border-radius: 50%;
-	cursor: pointer;
-	display: flex;
-	height: 70px;
-	justify-content: center;
-	left: 50%;
-	position: absolute;
-	top: 50%;
-	transform: translate(-50%,-50%);
-	transition: all 0.2s ease;
-	width: 70px;
+  align-items: center;
+  background-color: rgba(200, 178, 115, 0.9);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  height: 70px;
+  justify-content: center;
+  left: 50%;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: all 0.2s ease;
+  width: 70px;
 }
 
 .video-play-button:hover {
-	background-color: var(--mia-gold);
-	transform: translate(-50%,-50%) scale(1.1);
+  background-color: var(--mia-gold);
+  transform: translate(-50%, -50%) scale(1.1);
 }
 
 .video-play-button i {
-	color: var(--mia-white);
-	font-size: 1.5rem;
-	margin-left: 3px;
+  color: var(--mia-white);
+  font-size: 1.5rem;
+  margin-left: 3px;
 }
 
 .page-template-page-careers-locations .team-section {
-	background-color: var(--mia-gold-light);
+  background-color: var(--mia-gold-light);
 }
 
 .page-template-page-careers-locations .section-title {
-	color: var(--mia-black);
-	font-family: var(--font-heading);
-	font-weight: 600;
-	margin-bottom: 48px;
+  color: var(--mia-black);
+  font-family: var(--font-heading);
+  font-weight: 600;
+  margin-bottom: 48px;
 }
 
 .page-template-page-careers-locations .surgeon-card {
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	border: 1px solid var(--mia-gold-20);
-	border-radius: 12px;
-	color: var(--mia-white);
-	padding: 32px 24px;
-	text-align: center;
-	transition: transform 0.2s ease, box-shadow 0.2s ease;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border: 1px solid var(--mia-gold-20);
+  border-radius: 12px;
+  color: var(--mia-white);
+  padding: 32px 24px;
+  text-align: center;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {
-	box-shadow: 0 12px 30px rgba(0,0,0,0.2);
-	transform: translateY(-3px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
 }
 
 .page-template-page-careers-locations .surgeon-card img {
-	background: linear-gradient(135deg,#667eea 0%,#764ba2 100%);
-	border: 3px solid var(--mia-gold);
-	border-radius: 50%;
-	display: block;
-	height: 120px;
-	margin: 0 auto 24px;
-	object-fit: cover;
-	padding: 3px;
-	width: 120px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: 3px solid var(--mia-gold);
+  border-radius: 50%;
+  display: block;
+  height: 120px;
+  margin: 0 auto 24px;
+  object-fit: cover;
+  padding: 3px;
+  width: 120px;
 }
 
 .page-template-page-careers-locations .surgeon-card h3 {
-	color: var(--mia-white);
-	font-family: var(--font-heading);
-	font-size: 1.2rem;
-	font-weight: 600;
-	line-height: 1.3;
-	margin-bottom: 8px;
+  color: var(--mia-white);
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 8px;
 }
 
 .page-template-page-careers-locations .surgeon-card p {
-	color: rgba(255,255,255,0.8);
-	font-family: var(--font-body);
-	font-size: 0.9rem;
-	font-style: italic;
-	margin-bottom: 20px;
+  color: rgba(255, 255, 255, 0.8);
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 20px;
 }
 
 @media (min-width: 768px) {
-	.surgeon-card img {
-		height: 140px;
-		width: 140px;
-	}
+  .surgeon-card img {
+    height: 140px;
+    width: 140px;
+  }
 }
 
 @media (max-width: 991.98px) {
-	.benefits-top-content {
-		margin-bottom: 48px;
-	}
+  .benefits-top-content {
+    margin-bottom: 48px;
+  }
 
-	.benefits-header {
-		margin-bottom: 32px;
-		padding-right: 0;
-	}
+  .benefits-header {
+    margin-bottom: 32px;
+    padding-right: 0;
+  }
 
-	.founders-quote-wrapper {
-		padding-left: 0;
-	}
+  .founders-quote-wrapper {
+    padding-left: 0;
+  }
 }
 
 @media (max-width: 768px) {
-	.location-header {
-		padding: 32px 0;
-	}
+  .location-header {
+    padding: 32px 0;
+  }
 
-	.dept-breakdown h3, .job-functions h3 {
-		font-size: 1.5rem;
-	}
+  .dept-breakdown h3,
+  .job-functions h3 {
+    font-size: 1.5rem;
+  }
 
-	.dept-breakdown .accordion-button {
-		font-size: 1.1rem;
-		padding: 16px;
-	}
+  .dept-breakdown .accordion-button {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
 
-	.dept-breakdown .accordion-button i {
-		font-size: 16px;
-		margin-right: 8px;
-	}
+  .dept-breakdown .accordion-button i {
+    font-size: 16px;
+    margin-right: 8px;
+  }
 
-	.dept-breakdown .accordion-body {
-		padding: 24px 16px;
-	}
+  .dept-breakdown .accordion-body {
+    padding: 24px 16px;
+  }
 
-	.job-function-title {
-		font-size: 1.1rem;
-	}
+  .job-function-title {
+    font-size: 1.1rem;
+  }
 
-	.job-function-description {
-		font-size: 0.9rem;
-	}
+  .job-function-description {
+    font-size: 0.9rem;
+  }
 
-	.page-template-page-careers-locations main .accordion-button {
-		font-size: 1.1rem;
-		padding: 16px;
-	}
+  .page-template-page-careers-locations main .accordion-button {
+    font-size: 1.1rem;
+    padding: 16px;
+  }
 
-	.page-template-page-careers-locations main .accordion-button i {
-		font-size: 16px;
-		margin-right: 8px;
-	}
+  .page-template-page-careers-locations main .accordion-button i {
+    font-size: 16px;
+    margin-right: 8px;
+  }
 
-	.page-template-page-careers-locations main .accordion-body {
-		padding: 24px 16px;
-	}
+  .page-template-page-careers-locations main .accordion-body {
+    padding: 24px 16px;
+  }
 
-	.position-card-expanded {
-		padding: 20px;
-	}
+  .position-card-expanded {
+    padding: 20px;
+  }
 
-	.benefits-section {
-		padding: 48px 0;
-	}
+  .benefits-section {
+    padding: 48px 0;
+  }
 
-	.benefits-top-content {
-		margin-bottom: 40px;
-	}
+  .benefits-top-content {
+    margin-bottom: 40px;
+  }
 
-	.benefits-header {
-		margin-bottom: 32px;
-		padding-right: 0;
-		text-align: center;
-	}
+  .benefits-header {
+    margin-bottom: 32px;
+    padding-right: 0;
+    text-align: center;
+  }
 
-	.benefits-title {
-		font-size: 32px;
-		text-align: center;
-	}
+  .benefits-title {
+    font-size: 32px;
+    text-align: center;
+  }
 
-	.benefits-subtitle {
-		text-align: center;
-	}
+  .benefits-subtitle {
+    text-align: center;
+  }
 
-	.founders-quote-wrapper {
-		padding: 0;
-	}
+  .founders-quote-wrapper {
+    padding: 0;
+  }
 
-	.founders-quote {
-		margin: 0;
-		padding: 32px;
-	}
+  .founders-quote {
+    margin: 0;
+    padding: 32px;
+  }
 
-	.quote-icon {
-		font-size: 32px;
-	}
+  .quote-icon {
+    font-size: 32px;
+  }
 
-	.quote-text {
-		font-size: 1.1rem;
-		margin-bottom: 24px;
-	}
+  .quote-text {
+    font-size: 1.1rem;
+    margin-bottom: 24px;
+  }
 
-	.attribution-line {
-		width: 30px;
-	}
+  .attribution-line {
+    width: 30px;
+  }
 
-	.attribution-text {
-		font-size: 0.9rem;
-	}
+  .attribution-text {
+    font-size: 0.9rem;
+  }
 
-	.benefit-card {
-		margin-bottom: 32px;
-	}
+  .benefit-card {
+    margin-bottom: 32px;
+  }
 
-	.benefit-icon {
-		height: 120px;
-		width: 120px;
-	}
+  .benefit-icon {
+    height: 120px;
+    width: 120px;
+  }
 
-	.benefit-icon i {
-		font-size: 1.5rem;
-	}
+  .benefit-icon i {
+    font-size: 1.5rem;
+  }
 
-	.benefit-svg-icon {
-		height: 70px;
-		width: 70px;
-	}
+  .benefit-svg-icon {
+    height: 70px;
+    width: 70px;
+  }
 
-	.benefit-title {
-		font-size: 1.2rem;
-	}
+  .benefit-title {
+    font-size: 1.2rem;
+  }
 
-	.benefit-list li {
-		font-size: 0.9rem;
-	}
+  .benefit-list li {
+    font-size: 0.9rem;
+  }
 
-	.position-title-expanded {
-		font-size: 16px;
-	}
+  .position-title-expanded {
+    font-size: 16px;
+  }
 
-	.position-description {
-		font-size: 0.85rem;
-	}
+  .position-description {
+    font-size: 0.85rem;
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card {
-		align-items: center;
-		background: var(--mia-white);
-		border: 1px solid var(--mia-gold-light);
-		box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-		color: var(--mia-black);
-		display: flex;
-		min-height: 120px;
-		padding: 16px;
-		text-align: left;
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card {
+    align-items: center;
+    background: var(--mia-white);
+    border: 1px solid var(--mia-gold-light);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: var(--mia-black);
+    display: flex;
+    min-height: 120px;
+    padding: 16px;
+    text-align: left;
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card:hover {
-		border-color: var(--mia-gold);
-		box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-		transform: translateY(-2px);
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card:hover {
+    border-color: var(--mia-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+    transform: translateY(-2px);
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card img {
-		border: 2px solid var(--mia-gold);
-		flex-shrink: 0;
-		height: 100px;
-		margin: 0 20px 0 0;
-		width: 100px;
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card img {
+    border: 2px solid var(--mia-gold);
+    flex-shrink: 0;
+    height: 100px;
+    margin: 0 20px 0 0;
+    width: 100px;
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card .surgeon-info {
-		display: flex;
-		flex: 1;
-		flex-direction: column;
-		height: 100%;
-		justify-content: center;
-		text-align: left;
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card .surgeon-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    text-align: left;
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card h3 {
-		color: var(--mia-black);
-		font-size: 1.1rem;
-		line-height: 1.3;
-		margin-bottom: 4px;
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card h3 {
+    color: var(--mia-black);
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin-bottom: 4px;
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card p {
-		color: var(--mia-gray-muted);
-		font-size: 0.85rem;
-		font-style: normal;
-		margin-bottom: 12px;
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card p {
+    color: var(--mia-gray-muted);
+    font-size: 0.85rem;
+    font-style: normal;
+    margin-bottom: 12px;
+  }
 
-	.page-template-page-careers-locations .team-section .surgeon-card .btn {
-		align-self: flex-start;
-		font-size: 0.75rem;
-		min-width: auto;
-		padding: 6px 13px;
-		width: auto;
-	}
+  .page-template-page-careers-locations .team-section .surgeon-card .btn {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    min-width: auto;
+    padding: 6px 13px;
+    width: auto;
+  }
 }

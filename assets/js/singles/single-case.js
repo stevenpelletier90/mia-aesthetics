@@ -14,27 +14,25 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
-  const imageModal = document.getElementById("imageModal");
+  const imageModal = document.getElementById('imageModal');
   if (!imageModal) {
     return;
   }
 
-  imageModal.addEventListener("show.bs.modal", (event) => {
+  imageModal.addEventListener('show.bs.modal', (event) => {
     const trigger = event.relatedTarget;
-    const slideName = trigger?.getAttribute("data-bs-title");
-    const carousel = bootstrap.Carousel.getInstance(document.getElementById("caseCarousel"));
+    const slideName = trigger?.getAttribute('data-bs-title');
+    const carousel = bootstrap.Carousel.getInstance(document.getElementById('caseCarousel'));
 
     if (carousel && slideName) {
-      carousel.to("Before Treatment" === slideName ? 0 : 1);
+      carousel.to('Before Treatment' === slideName ? 0 : 1);
     }
   });
 
   // Improve affordance: show pointer cursor on modal triggers
-  document
-    .querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#imageModal"]')
-    .forEach((el) => {
-      el.style.cursor = "pointer";
-    });
+  document.querySelectorAll('[data-bs-toggle="modal"][data-bs-target="#imageModal"]').forEach((el) => {
+    el.style.cursor = 'pointer';
+  });
 })();

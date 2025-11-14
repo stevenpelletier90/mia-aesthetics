@@ -16,11 +16,7 @@
         "/wp-content/uploads/2025/08/BRONSTEIN_BA_5.jpg"
       ],
       "Lipo 360": ["/wp-content/uploads/2025/08/BRONSTEIN_LIPO_2.jpg"],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/BRONSTEIN_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/BRONSTEIN_MMO_4.jpg",
-        "/wp-content/uploads/2025/08/BRONSTEIN_MMO_5.jpg"
-      ],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/BRONSTEIN_MMO_1.jpg", "/wp-content/uploads/2025/08/BRONSTEIN_MMO_4.jpg", "/wp-content/uploads/2025/08/BRONSTEIN_MMO_5.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/08/BRONSTEIN_TT_1.jpg",
         "/wp-content/uploads/2025/08/BRONSTEIN_TT_2.jpg",
@@ -38,20 +34,9 @@
         "/wp-content/uploads/2025/08/CHAREPOO_BBL_3.jpg",
         "/wp-content/uploads/2025/08/CHAREPOO_BBL_4.jpg"
       ],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/CHAREPOO_BA_1.jpg",
-        "/wp-content/uploads/2025/08/CHAREPOO_BA_2.jpg",
-        "/wp-content/uploads/2025/08/CHAREPOO_BA_3.jpg"
-      ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/CHAREPOO_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/CHAREPOO_LIPO_2.jpg",
-        "/wp-content/uploads/2025/08/CHAREPOO_LIPO_3.jpg"
-      ],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/CHAREPOO_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/CHAREPOO_MMO_2.jpg"
-      ],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/CHAREPOO_BA_1.jpg", "/wp-content/uploads/2025/08/CHAREPOO_BA_2.jpg", "/wp-content/uploads/2025/08/CHAREPOO_BA_3.jpg"],
+      "Lipo 360": ["/wp-content/uploads/2025/08/CHAREPOO_LIPO_1.jpg", "/wp-content/uploads/2025/08/CHAREPOO_LIPO_2.jpg", "/wp-content/uploads/2025/08/CHAREPOO_LIPO_3.jpg"],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/CHAREPOO_MMO_1.jpg", "/wp-content/uploads/2025/08/CHAREPOO_MMO_2.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/08/CHAREPOO_TT_4.jpg",
         "/wp-content/uploads/2025/08/CHAREPOO_TT_3.jpg",
@@ -65,10 +50,7 @@
     "name": "Dr. Cooper",
     "procedures": {
       "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/COOPER_BBL_1.jpg"],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/COOPER_BA_1.jpg",
-        "/wp-content/uploads/2025/08/COOPER_BA_2.jpg"
-      ],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/COOPER_BA_1.jpg", "/wp-content/uploads/2025/08/COOPER_BA_2.jpg"],
       "Lipo 360": [
         "/wp-content/uploads/2025/08/Cooper_Lipo360_1.jpg",
         "/wp-content/uploads/2025/08/Cooper_Lipo360_2.jpg",
@@ -77,21 +59,13 @@
         "/wp-content/uploads/2025/08/Cooper_MaleLipo360_1.jpg"
       ],
       "Mommy Makeover": ["/wp-content/uploads/2025/08/COOPER_MMO_2.jpg"],
-      "Tummy Tuck": [
-        "/wp-content/uploads/2025/08/COOPER_TT_2.jpg",
-        "/wp-content/uploads/2025/08/COOPER_TT_3.jpg",
-        "/wp-content/uploads/2025/08/COOPER_TT_4.jpg"
-      ]
+      "Tummy Tuck": ["/wp-content/uploads/2025/08/COOPER_TT_2.jpg", "/wp-content/uploads/2025/08/COOPER_TT_3.jpg", "/wp-content/uploads/2025/08/COOPER_TT_4.jpg"]
     }
   },
   "dr-fasusi": {
     "name": "Dr. Fasusi",
     "procedures": {
-      "Brazilian Butt Lift (BBL)": [
-        "/wp-content/uploads/2025/08/FASUSI_BBL_1.jpg",
-        "/wp-content/uploads/2025/08/FASUSI_BBL_2.jpg",
-        "/wp-content/uploads/2025/08/FASUSI_BBL_3.jpg"
-      ],
+      "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/FASUSI_BBL_1.jpg", "/wp-content/uploads/2025/08/FASUSI_BBL_2.jpg", "/wp-content/uploads/2025/08/FASUSI_BBL_3.jpg"],
       "Breast Procedures": [
         "/wp-content/uploads/2025/08/FASUSI_BA_1.jpg",
         "/wp-content/uploads/2025/08/FASUSI_BA_2.jpg",
@@ -99,11 +73,7 @@
         "/wp-content/uploads/2025/08/FASUSI_BL_4.jpg",
         "/wp-content/uploads/2025/08/FASUSI_BL_5.jpg"
       ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/FASUSI_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/FASUSI_LIPO_2.jpg",
-        "/wp-content/uploads/2025/08/FASUSI_LIPO_3.jpg"
-      ],
+      "Lipo 360": ["/wp-content/uploads/2025/08/FASUSI_LIPO_1.jpg", "/wp-content/uploads/2025/08/FASUSI_LIPO_2.jpg", "/wp-content/uploads/2025/08/FASUSI_LIPO_3.jpg"],
       "Mommy Makeover": [
         "/wp-content/uploads/2025/08/FASUSI_MMO_1.jpg",
         "/wp-content/uploads/2025/08/FASUSI_MMO_2.jpg",
@@ -123,10 +93,7 @@
   "dr-giorgis": {
     "name": "Dr. Giorgis",
     "procedures": {
-      "Brazilian Butt Lift (BBL)": [
-        "/wp-content/uploads/2025/08/GIORGIS_BBL_2.jpg",
-        "/wp-content/uploads/2025/08/GIORGIS_BBL_3.jpg"
-      ],
+      "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/GIORGIS_BBL_2.jpg", "/wp-content/uploads/2025/08/GIORGIS_BBL_3.jpg"],
       "Breast Procedures": [
         "/wp-content/uploads/2025/08/GIORGIS_BA_1.jpg",
         "/wp-content/uploads/2025/08/GIORGIS_BA_2.jpg",
@@ -135,35 +102,17 @@
         "/wp-content/uploads/2025/08/GIORGIS_BA_5.jpg"
       ],
       "Lipo 360": ["/wp-content/uploads/2025/08/GIORGIS_LIPO_3.jpg"],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/GIORGIS_MM_1.jpg",
-        "/wp-content/uploads/2025/08/GIORGIS_MM_3.jpg"
-      ],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/GIORGIS_MM_1.jpg", "/wp-content/uploads/2025/08/GIORGIS_MM_3.jpg"],
       "Tummy Tuck": ["/wp-content/uploads/2025/08/GIORGIS_TT_1.jpg"]
     }
   },
   "dr-gray": {
     "name": "Dr. Gray",
     "procedures": {
-      "Brazilian Butt Lift (BBL)": [
-        "/wp-content/uploads/2025/08/GRAY_BBL_1.jpg",
-        "/wp-content/uploads/2025/08/GRAY_BBL_2.jpg",
-        "/wp-content/uploads/2025/08/GRAY_BBL_3.jpg"
-      ],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/GRAY_BA_1.jpg",
-        "/wp-content/uploads/2025/08/GRAY_BA_3.jpg"
-      ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/GRAY_LIPO_2.jpg",
-        "/wp-content/uploads/2025/08/GRAY_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/GRAY_LIPO_3.jpg"
-      ],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/GRAY_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/GRAY_MMO_2.jpg",
-        "/wp-content/uploads/2025/08/GRAY_MMO_3.jpg"
-      ],
+      "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/GRAY_BBL_1.jpg", "/wp-content/uploads/2025/08/GRAY_BBL_2.jpg", "/wp-content/uploads/2025/08/GRAY_BBL_3.jpg"],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/GRAY_BA_1.jpg", "/wp-content/uploads/2025/08/GRAY_BA_3.jpg"],
+      "Lipo 360": ["/wp-content/uploads/2025/08/GRAY_LIPO_2.jpg", "/wp-content/uploads/2025/08/GRAY_LIPO_1.jpg", "/wp-content/uploads/2025/08/GRAY_LIPO_3.jpg"],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/GRAY_MMO_1.jpg", "/wp-content/uploads/2025/08/GRAY_MMO_2.jpg", "/wp-content/uploads/2025/08/GRAY_MMO_3.jpg"],
       "Tummy Tuck": ["/wp-content/uploads/2025/08/GRAY_TT_1.jpg"]
     }
   },
@@ -176,26 +125,15 @@
         "/wp-content/uploads/2025/08/GROSS_BBL_4.jpg",
         "/wp-content/uploads/2025/08/GROSS_BBL_5.jpg"
       ],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/GROSS_BA_2.jpg",
-        "/wp-content/uploads/2025/08/GROSS_BL_1.jpg"
-      ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/GROSS_LIPO_2.jpg",
-
-        "/wp-content/uploads/2025/08/GROSS_LIPO_4.jpg",
-        "/wp-content/uploads/2025/08/GROSS_LIPO_5.jpg"
-      ],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/GROSS_BA_2.jpg", "/wp-content/uploads/2025/08/GROSS_BL_1.jpg"],
+      "Lipo 360": ["/wp-content/uploads/2025/08/GROSS_LIPO_2.jpg", "/wp-content/uploads/2025/08/GROSS_LIPO_4.jpg", "/wp-content/uploads/2025/08/GROSS_LIPO_5.jpg"],
       "Mommy Makeover": [
         "/wp-content/uploads/2025/08/GROSS_MM_4.jpg",
         "/wp-content/uploads/2025/08/GROSS_MM_3.jpg",
         "/wp-content/uploads/2025/08/GROSS_MM_2.jpg",
         "/wp-content/uploads/2025/08/GROSS_MM_5.jpg"
       ],
-      "Tummy Tuck": [
-        "/wp-content/uploads/2025/08/GROSS_TT_1.jpg",
-        "/wp-content/uploads/2025/08/GROSS_TT_2.jpg"
-      ]
+      "Tummy Tuck": ["/wp-content/uploads/2025/08/GROSS_TT_1.jpg", "/wp-content/uploads/2025/08/GROSS_TT_2.jpg"]
     }
   },
   "dr-horowitz": {
@@ -207,10 +145,7 @@
         "/wp-content/uploads/2025/08/HOROWITZ_BBL_3.jpg",
         "/wp-content/uploads/2025/08/HOROWITZ_BBL_5.jpg"
       ],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/HOROWITZ_BA_3.jpg",
-        "/wp-content/uploads/2025/08/HOROWITZ_BA_5.jpg"
-      ],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/HOROWITZ_BA_3.jpg", "/wp-content/uploads/2025/08/HOROWITZ_BA_5.jpg"],
       "Lipo 360": [
         "/wp-content/uploads/2025/08/HOROWITZ_LIPO_1.jpg",
         "/wp-content/uploads/2025/08/HOROWITZ_LIPO_3.jpg",
@@ -289,11 +224,7 @@
         "/wp-content/uploads/2025/08/KUMAR_BA_4.jpg",
         "/wp-content/uploads/2025/08/KUMAR_BL_5.jpg"
       ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/KUMAR_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/KUMAR_LIPO_2.jpg",
-        "/wp-content/uploads/2025/08/KUMAR_LIPO_3.jpg"
-      ],
+      "Lipo 360": ["/wp-content/uploads/2025/08/KUMAR_LIPO_1.jpg", "/wp-content/uploads/2025/08/KUMAR_LIPO_2.jpg", "/wp-content/uploads/2025/08/KUMAR_LIPO_3.jpg"],
       "Mommy Makeover": [
         "/wp-content/uploads/2025/08/KUMAR_12-12_MM-1.jpg",
         "/wp-content/uploads/2025/08/KUMAR_12-12_MM-2.jpg",
@@ -301,11 +232,7 @@
         "/wp-content/uploads/2025/08/KUMAR_12-12_MM-5.jpg",
         "/wp-content/uploads/2025/08/KUMAR_12-12_MM-3.jpg"
       ],
-      "Tummy Tuck": [
-        "/wp-content/uploads/2025/08/KUMAR_TT_1.jpg",
-        "/wp-content/uploads/2025/08/KUMAR_TT_2.jpg",
-        "/wp-content/uploads/2025/08/KUMAR_TT_3.jpg"
-      ]
+      "Tummy Tuck": ["/wp-content/uploads/2025/08/KUMAR_TT_1.jpg", "/wp-content/uploads/2025/08/KUMAR_TT_2.jpg", "/wp-content/uploads/2025/08/KUMAR_TT_3.jpg"]
     }
   },
   "dr-mehio": {
@@ -352,22 +279,11 @@
   "dr-morse": {
     "name": "Dr. Morse",
     "procedures": {
-      "Brazilian Butt Lift (BBL)": [
-        "/wp-content/uploads/2025/08/MORSE_BBL_1.jpg",
-        "/wp-content/uploads/2025/08/MORSE_BBL_2.jpg",
-        "/wp-content/uploads/2025/08/MORSE_BBL_3.jpg"
-      ],
+      "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/MORSE_BBL_1.jpg", "/wp-content/uploads/2025/08/MORSE_BBL_2.jpg", "/wp-content/uploads/2025/08/MORSE_BBL_3.jpg"],
       "Breast Procedures": ["/wp-content/uploads/2025/08/MORSE_BA_1.jpg"],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/MORSE_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/MORSE_LIPO_2.jpg"
-      ],
+      "Lipo 360": ["/wp-content/uploads/2025/08/MORSE_LIPO_1.jpg", "/wp-content/uploads/2025/08/MORSE_LIPO_2.jpg"],
       "Mommy Makeover": ["/wp-content/uploads/2025/08/MORSE_MMO_1.jpg"],
-      "Tummy Tuck": [
-        "/wp-content/uploads/2025/08/MORSE_TT_3.jpg",
-        "/wp-content/uploads/2025/08/MORSE_TT_2.jpg",
-        "/wp-content/uploads/2025/08/MORSE_TT_1.jpg"
-      ]
+      "Tummy Tuck": ["/wp-content/uploads/2025/08/MORSE_TT_3.jpg", "/wp-content/uploads/2025/08/MORSE_TT_2.jpg", "/wp-content/uploads/2025/08/MORSE_TT_1.jpg"]
     }
   },
   "dr-orlando": {
@@ -394,10 +310,7 @@
         "/wp-content/uploads/2025/08/ORLANDO_LIPO_4.jpg",
         "/wp-content/uploads/2025/08/ORLANDO_LIPO_5.jpg"
       ],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/ORLANDO_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/ORLANDO_MMO_2.jpg"
-      ],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/ORLANDO_MMO_1.jpg", "/wp-content/uploads/2025/08/ORLANDO_MMO_2.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/08/ORLANDO_TT_1.jpg",
         "/wp-content/uploads/2025/08/ORLANDO_TT_2.jpg",
@@ -449,11 +362,7 @@
   "dr-rozentsvit": {
     "name": "Dr. Rozentsvit",
     "procedures": {
-      "Brazilian Butt Lift (BBL)": [
-        "/wp-content/uploads/2025/08/ROZENTSVIT_BBL_1.jpg",
-        "/wp-content/uploads/2025/08/ROZENTSVIT_BBL_2.jpg",
-        "/wp-content/uploads/2025/08/ROZENTSVIT_BBL_3.jpg"
-      ],
+      "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/ROZENTSVIT_BBL_1.jpg", "/wp-content/uploads/2025/08/ROZENTSVIT_BBL_2.jpg", "/wp-content/uploads/2025/08/ROZENTSVIT_BBL_3.jpg"],
       "Breast Procedures": [
         "/wp-content/uploads/2025/08/ROZENTSVIT_BA_1.jpg",
         "/wp-content/uploads/2025/08/ROZENTSVIT_BA_2.jpg",
@@ -461,15 +370,8 @@
         "/wp-content/uploads/2025/08/ROZENTSVIT_BA_4.jpg",
         "/wp-content/uploads/2025/08/ROZENTSVIT_BA_5.jpg"
       ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/ROZENTSVIT_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/ROZENTSVIT_LIPO_2.jpg",
-        "/wp-content/uploads/2025/08/ROZENTSVIT_LIPO_3.jpg"
-      ],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/ROZENTSVIT_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/ROZENTSVIT_MMO_2.jpg"
-      ],
+      "Lipo 360": ["/wp-content/uploads/2025/08/ROZENTSVIT_LIPO_1.jpg", "/wp-content/uploads/2025/08/ROZENTSVIT_LIPO_2.jpg", "/wp-content/uploads/2025/08/ROZENTSVIT_LIPO_3.jpg"],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/ROZENTSVIT_MMO_1.jpg", "/wp-content/uploads/2025/08/ROZENTSVIT_MMO_2.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/08/ROZENTSVIT_TT_1.jpg",
         "/wp-content/uploads/2025/08/ROZENTSVIT_TT_2.jpg",
@@ -534,15 +436,8 @@
         "/wp-content/uploads/2025/08/SCROGGINS_BAL_1.jpg",
         "/wp-content/uploads/2025/08/SCROGGINS_BA_5.jpg"
       ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/SCROGGINS_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/SCROGGINS_LIPO_2.jpg",
-        "/wp-content/uploads/2025/08/SCROGGINS_LIPO_3.jpg"
-      ],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/SCROGGINS_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/SCROGGINS_MMO_2.jpg"
-      ],
+      "Lipo 360": ["/wp-content/uploads/2025/08/SCROGGINS_LIPO_1.jpg", "/wp-content/uploads/2025/08/SCROGGINS_LIPO_2.jpg", "/wp-content/uploads/2025/08/SCROGGINS_LIPO_3.jpg"],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/SCROGGINS_MMO_1.jpg", "/wp-content/uploads/2025/08/SCROGGINS_MMO_2.jpg"],
       "Tummy Tuck": ["/wp-content/uploads/2025/08/SCROGGINS_TT_1.jpg"]
     }
   },
@@ -567,14 +462,8 @@
   "dr-towle": {
     "name": "Dr. Towle",
     "procedures": {
-      "Brazilian Butt Lift (BBL)": [
-        "/wp-content/uploads/2025/08/TOWLE_BBL_2.jpg",
-        "/wp-content/uploads/2025/08/TOWLE_BBL_3.jpg"
-      ],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/TOWLE_BA_2.jpg",
-        "/wp-content/uploads/2025/08/TOWLE-FAT-TRANSFER-1.jpg"
-      ],
+      "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/TOWLE_BBL_2.jpg", "/wp-content/uploads/2025/08/TOWLE_BBL_3.jpg"],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/TOWLE_BA_2.jpg", "/wp-content/uploads/2025/08/TOWLE-FAT-TRANSFER-1.jpg"],
       "Lipo 360": ["/wp-content/uploads/2025/08/TOWLE_LIPO_4.jpg"],
 
       "Tummy Tuck": ["/wp-content/uploads/2025/08/TOWLE_TT_1.jpg"]
@@ -605,10 +494,7 @@
         "/wp-content/uploads/2025/08/valauri_lipo360_5.jpg"
       ],
       "Mommy Makeover": ["/wp-content/uploads/2025/08/VALAURI_MMO_1.jpg"],
-      "Tummy Tuck": [
-        "/wp-content/uploads/2025/08/VALAURI_TT_1.jpg",
-        "/wp-content/uploads/2025/08/VALAURI_TT_2.jpg"
-      ]
+      "Tummy Tuck": ["/wp-content/uploads/2025/08/VALAURI_TT_1.jpg", "/wp-content/uploads/2025/08/VALAURI_TT_2.jpg"]
     }
   },
   "dr-wright": {
@@ -627,10 +513,7 @@
         "/wp-content/uploads/2025/08/WRIGHT_BAL_1.jpg",
         "/wp-content/uploads/2025/08/WRIGHT_BA_5.jpg"
       ],
-      "Lipo 360": [
-        "/wp-content/uploads/2025/08/WRIGHT_LIPO_1.jpg",
-        "/wp-content/uploads/2025/08/WRIGHT_LIPO_2.jpg"
-      ],
+      "Lipo 360": ["/wp-content/uploads/2025/08/WRIGHT_LIPO_1.jpg", "/wp-content/uploads/2025/08/WRIGHT_LIPO_2.jpg"],
       "Mommy Makeover": ["/wp-content/uploads/2025/08/WRIGHT_MMO_1.jpg"],
       "Tummy Tuck": [
         "/wp-content/uploads/2025/08/Wright_TummyTuck_4.jpg",
@@ -645,16 +528,9 @@
     "name": "Dr. Xu",
     "procedures": {
       "Brazilian Butt Lift (BBL)": ["/wp-content/uploads/2025/08/XU_BBL_1.jpg"],
-      "Breast Procedures": [
-        "/wp-content/uploads/2025/08/XU_BA_1.jpg",
-        "/wp-content/uploads/2025/08/XU_BA_2.jpg"
-      ],
+      "Breast Procedures": ["/wp-content/uploads/2025/08/XU_BA_1.jpg", "/wp-content/uploads/2025/08/XU_BA_2.jpg"],
       "Lipo 360": ["/wp-content/uploads/2025/08/XU_LIPO_1.jpg"],
-      "Mommy Makeover": [
-        "/wp-content/uploads/2025/08/XU_MMO_1.jpg",
-        "/wp-content/uploads/2025/08/XU_MMO_2.jpg",
-        "/wp-content/uploads/2025/08/XU_MMO_3.jpg"
-      ],
+      "Mommy Makeover": ["/wp-content/uploads/2025/08/XU_MMO_1.jpg", "/wp-content/uploads/2025/08/XU_MMO_2.jpg", "/wp-content/uploads/2025/08/XU_MMO_3.jpg"],
       "Tummy Tuck": ["/wp-content/uploads/2025/08/XU_TT_1.jpg"]
     }
   },

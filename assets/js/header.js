@@ -3,7 +3,7 @@
  * Includes theme debug display when WP_DEBUG is enabled
  */
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener('DOMContentLoaded', function () {
   // Theme Debug Display
   if (window.mia_config && window.mia_config.debug && window.mia_config.debug_info) {
     createDebugDisplay();
@@ -17,8 +17,8 @@ function createDebugDisplay() {
   const debugInfo = window.mia_config.debug_info;
 
   // Create debug panel
-  const debugPanel = document.createElement("div");
-  debugPanel.id = "mia-debug-panel";
+  const debugPanel = document.createElement('div');
+  debugPanel.id = 'mia-debug-panel';
   debugPanel.style.cssText = `
     position: fixed;
     top: 10px;
@@ -38,8 +38,8 @@ function createDebugDisplay() {
   `;
 
   // Create toggle button
-  const toggleButton = document.createElement("button");
-  toggleButton.innerHTML = "🐞 DEBUG";
+  const toggleButton = document.createElement('button');
+  toggleButton.innerHTML = '🐞 DEBUG';
   toggleButton.style.cssText = `
     position: fixed;
     top: 10px;
@@ -57,11 +57,11 @@ function createDebugDisplay() {
 
   // Toggle functionality
   let isOpen = false;
-  toggleButton.addEventListener("click", () => {
+  toggleButton.addEventListener('click', () => {
     isOpen = !isOpen;
-    debugPanel.style.display = isOpen ? "block" : "none";
-    toggleButton.innerHTML = isOpen ? "✕ CLOSE" : "🐞 DEBUG";
-    toggleButton.style.right = isOpen ? "420px" : "10px";
+    debugPanel.style.display = isOpen ? 'block' : 'none';
+    toggleButton.innerHTML = isOpen ? '✕ CLOSE' : '🐞 DEBUG';
+    toggleButton.style.right = isOpen ? '420px' : '10px';
   });
 
   // Build debug content
@@ -69,14 +69,14 @@ function createDebugDisplay() {
 
   content += `<h4>📄 Current Template</h4>`;
   content += `<div>Template Key: <span style="color: #00ff00;">${debugInfo.template_key}</span></div>`;
-  content += `<div>Page Template: <span style="color: #00ff00;">${debugInfo.page_template || "none"}</span></div>`;
-  content += `<div>Post Type: <span style="color: #00ff00;">${debugInfo.post_type || "none"}</span></div>`;
+  content += `<div>Page Template: <span style="color: #00ff00;">${debugInfo.page_template || 'none'}</span></div>`;
+  content += `<div>Post Type: <span style="color: #00ff00;">${debugInfo.post_type || 'none'}</span></div>`;
 
   content += `<h4>🎯 Page Conditions</h4>`;
-  content += `<div>is_singular: <span style="color: ${debugInfo.is_singular ? "#00ff00" : "#ff0000"};">${debugInfo.is_singular}</span></div>`;
-  content += `<div>is_archive: <span style="color: ${debugInfo.is_archive ? "#00ff00" : "#ff0000"};">${debugInfo.is_archive}</span></div>`;
-  content += `<div>is_home: <span style="color: ${debugInfo.is_home ? "#00ff00" : "#ff0000"};">${debugInfo.is_home}</span></div>`;
-  content += `<div>is_front_page: <span style="color: ${debugInfo.is_front_page ? "#00ff00" : "#ff0000"};">${debugInfo.is_front_page}</span></div>`;
+  content += `<div>is_singular: <span style="color: ${debugInfo.is_singular ? '#00ff00' : '#ff0000'};">${debugInfo.is_singular}</span></div>`;
+  content += `<div>is_archive: <span style="color: ${debugInfo.is_archive ? '#00ff00' : '#ff0000'};">${debugInfo.is_archive}</span></div>`;
+  content += `<div>is_home: <span style="color: ${debugInfo.is_home ? '#00ff00' : '#ff0000'};">${debugInfo.is_home}</span></div>`;
+  content += `<div>is_front_page: <span style="color: ${debugInfo.is_front_page ? '#00ff00' : '#ff0000'};">${debugInfo.is_front_page}</span></div>`;
 
   if (debugInfo.template_mapping && Object.keys(debugInfo.template_mapping).length > 0) {
     content += `<h4>📂 Template Assets</h4>`;
@@ -113,13 +113,10 @@ function createDebugDisplay() {
   document.body.appendChild(debugPanel);
 
   // Keyboard shortcut
-  document.addEventListener("keydown", (e) => {
-    if (e.key.toLowerCase() === "d" && !e.ctrlKey && !e.altKey && !e.shiftKey) {
+  document.addEventListener('keydown', (e) => {
+    if (e.key.toLowerCase() === 'd' && !e.ctrlKey && !e.altKey && !e.shiftKey) {
       const activeElement = document.activeElement;
-      if (
-        activeElement &&
-        (activeElement.tagName === "INPUT" || activeElement.tagName === "TEXTAREA")
-      ) {
+      if (activeElement && (activeElement.tagName === 'INPUT' || activeElement.tagName === 'TEXTAREA')) {
         return; // Don't trigger if typing in input fields
       }
       toggleButton.click();
@@ -131,12 +128,12 @@ function createDebugDisplay() {
  * Initialize mega-menu dropdowns to prevent closing when clicking background
  */
 function initializeMegaMenus() {
-  const megaMenus = document.querySelectorAll(".dropdown-menu.mega-menu");
+  const megaMenus = document.querySelectorAll('.dropdown-menu.mega-menu');
 
   megaMenus.forEach(function (menu) {
-    menu.addEventListener("click", function (event) {
+    menu.addEventListener('click', function (event) {
       // Only prevent closing if clicking on the menu background, not on links
-      if (event.target.tagName !== "A" && !event.target.closest("a")) {
+      if (event.target.tagName !== 'A' && !event.target.closest('a')) {
         event.stopPropagation();
       }
     });

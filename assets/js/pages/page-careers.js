@@ -7,14 +7,14 @@
  */
 
 (function () {
-  "use strict";
+  'use strict';
 
   // Stats Counter Animation
-  document.addEventListener("DOMContentLoaded", function () {
-    const statsCounters = document.querySelectorAll("[data-count]");
+  document.addEventListener('DOMContentLoaded', function () {
+    const statsCounters = document.querySelectorAll('[data-count]');
 
     // Counter animation function
-    function animateCounter(element, targetValue, suffix = "") {
+    function animateCounter(element, targetValue, suffix = '') {
       const startValue = 0;
       const duration = 2000; // 2 seconds
       const startTime = performance.now();
@@ -56,8 +56,8 @@
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             const element = entry.target;
-            const targetValue = parseInt(element.getAttribute("data-count"));
-            const suffix = element.getAttribute("data-suffix") || "";
+            const targetValue = parseInt(element.getAttribute('data-count'));
+            const suffix = element.getAttribute('data-suffix') || '';
 
             // Start the animation
             animateCounter(element, targetValue, suffix);
@@ -69,8 +69,8 @@
       },
       {
         threshold: 0.5,
-        rootMargin: "0px 0px -50px 0px",
-      }
+        rootMargin: '0px 0px -50px 0px',
+      },
     );
 
     // Observe all counter elements
@@ -80,8 +80,8 @@
   });
 
   // Core Values Animation
-  document.addEventListener("DOMContentLoaded", function () {
-    const valueCards = document.querySelectorAll(".value-card");
+  document.addEventListener('DOMContentLoaded', function () {
+    const valueCards = document.querySelectorAll('.value-card');
 
     const valuesObserver = new IntersectionObserver(
       (entries) => {
@@ -89,7 +89,7 @@
           if (entry.isIntersecting) {
             // Add staggered animation delay
             setTimeout(() => {
-              entry.target.classList.add("animate-in");
+              entry.target.classList.add('animate-in');
             }, index * 150); // 150ms delay between each card
 
             valuesObserver.unobserve(entry.target);
@@ -98,8 +98,8 @@
       },
       {
         threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
+        rootMargin: '0px 0px -50px 0px',
+      },
     );
 
     valueCards.forEach((card) => {
@@ -108,30 +108,30 @@
   });
 
   // Testimonials Carousel Initialization (Bootstrap 5.3 compliant)
-  document.addEventListener("DOMContentLoaded", function () {
-    const testimonialCarousel = document.getElementById("testimonialsCarousel");
+  document.addEventListener('DOMContentLoaded', function () {
+    const testimonialCarousel = document.getElementById('testimonialsCarousel');
 
-    if (testimonialCarousel && "undefined" !== typeof bootstrap) {
+    if (testimonialCarousel && 'undefined' !== typeof bootstrap) {
       // Function to restructure carousel based on screen size
       function restructureCarousel() {
         const screenWidth = window.innerWidth;
         const isMobile = 767.98 >= screenWidth;
         const isTablet = 767.98 < screenWidth && 991.98 >= screenWidth;
-        const carouselInner = testimonialCarousel.querySelector(".carousel-inner");
-        const indicators = testimonialCarousel.querySelector(".carousel-indicators");
+        const carouselInner = testimonialCarousel.querySelector('.carousel-inner');
+        const indicators = testimonialCarousel.querySelector('.carousel-indicators');
 
         // Extract all testimonial cards from original structure
-        const allCards = Array.from(testimonialCarousel.querySelectorAll(".testimonial-card"));
+        const allCards = Array.from(testimonialCarousel.querySelectorAll('.testimonial-card'));
 
         // Clear existing content
-        carouselInner.innerHTML = "";
-        indicators.innerHTML = "";
+        carouselInner.innerHTML = '';
+        indicators.innerHTML = '';
 
         if (isMobile) {
           // Mobile: 1 review per slide = 10 slides
           allCards.forEach((card, index) => {
-            const slide = document.createElement("div");
-            slide.className = `carousel-item${0 === index ? " active" : ""}`;
+            const slide = document.createElement('div');
+            slide.className = `carousel-item${0 === index ? ' active' : ''}`;
             slide.innerHTML = `
               <div class="row g-4 justify-content-center">
                 <div class="col-12">
@@ -142,14 +142,14 @@
             carouselInner.appendChild(slide);
 
             // Create indicator
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#testimonialsCarousel");
-            indicator.setAttribute("data-bs-slide-to", index.toString());
-            indicator.setAttribute("aria-label", `Slide ${index + 1}`);
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.setAttribute('data-bs-target', '#testimonialsCarousel');
+            indicator.setAttribute('data-bs-slide-to', index.toString());
+            indicator.setAttribute('aria-label', `Slide ${index + 1}`);
             if (0 === index) {
-              indicator.className = "active";
-              indicator.setAttribute("aria-current", "true");
+              indicator.className = 'active';
+              indicator.setAttribute('aria-current', 'true');
             }
             indicators.appendChild(indicator);
           });
@@ -157,8 +157,8 @@
           // Tablet: 2 reviews per slide = 5 slides (2+2+2+2+2)
           for (let i = 0; i < allCards.length; i += 2) {
             const slideIndex = Math.floor(i / 2);
-            const slide = document.createElement("div");
-            slide.className = `carousel-item${0 === slideIndex ? " active" : ""}`;
+            const slide = document.createElement('div');
+            slide.className = `carousel-item${0 === slideIndex ? ' active' : ''}`;
 
             const firstCard = allCards[i];
             const secondCard = allCards[i + 1];
@@ -168,20 +168,20 @@
                 <div class="col-md-6">
                   ${firstCard.outerHTML}
                 </div>
-                ${secondCard ? `<div class="col-md-6">${secondCard.outerHTML}</div>` : ""}
+                ${secondCard ? `<div class="col-md-6">${secondCard.outerHTML}</div>` : ''}
               </div>
             `;
             carouselInner.appendChild(slide);
 
             // Create indicator
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#testimonialsCarousel");
-            indicator.setAttribute("data-bs-slide-to", slideIndex.toString());
-            indicator.setAttribute("aria-label", `Slide ${slideIndex + 1}`);
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.setAttribute('data-bs-target', '#testimonialsCarousel');
+            indicator.setAttribute('data-bs-slide-to', slideIndex.toString());
+            indicator.setAttribute('aria-label', `Slide ${slideIndex + 1}`);
             if (0 === slideIndex) {
-              indicator.className = "active";
-              indicator.setAttribute("aria-current", "true");
+              indicator.className = 'active';
+              indicator.setAttribute('aria-current', 'true');
             }
             indicators.appendChild(indicator);
           }
@@ -195,31 +195,30 @@
           ];
 
           originalSlides.forEach((cardIndices, slideIndex) => {
-            const slide = document.createElement("div");
-            slide.className = `carousel-item${0 === slideIndex ? " active" : ""}`;
+            const slide = document.createElement('div');
+            slide.className = `carousel-item${0 === slideIndex ? ' active' : ''}`;
 
             let slideContent = '<div class="row g-4 justify-content-center">';
             cardIndices.forEach((cardIndex) => {
               if (allCards[cardIndex]) {
-                const colClass =
-                  1 === cardIndices.length ? "col-lg-4 col-md-6 col-12" : "col-lg-4 col-md-6";
+                const colClass = 1 === cardIndices.length ? 'col-lg-4 col-md-6 col-12' : 'col-lg-4 col-md-6';
                 slideContent += `<div class="${colClass}">${allCards[cardIndex].outerHTML}</div>`;
               }
             });
-            slideContent += "</div>";
+            slideContent += '</div>';
 
             slide.innerHTML = slideContent;
             carouselInner.appendChild(slide);
 
             // Create indicator
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#testimonialsCarousel");
-            indicator.setAttribute("data-bs-slide-to", slideIndex.toString());
-            indicator.setAttribute("aria-label", `Slide ${slideIndex + 1}`);
+            const indicator = document.createElement('button');
+            indicator.type = 'button';
+            indicator.setAttribute('data-bs-target', '#testimonialsCarousel');
+            indicator.setAttribute('data-bs-slide-to', slideIndex.toString());
+            indicator.setAttribute('aria-label', `Slide ${slideIndex + 1}`);
             if (0 === slideIndex) {
-              indicator.className = "active";
-              indicator.setAttribute("aria-current", "true");
+              indicator.className = 'active';
+              indicator.setAttribute('aria-current', 'true');
             }
             indicators.appendChild(indicator);
           });
@@ -233,7 +232,7 @@
       let resizeTimeout;
       let lastWidth = window.innerWidth;
 
-      window.addEventListener("resize", function () {
+      window.addEventListener('resize', function () {
         const currentWidth = window.innerWidth;
 
         // Only restructure if width actually changed significantly (not just mobile scroll)
@@ -256,7 +255,7 @@
           new bootstrap.Carousel(testimonialCarousel, {
             interval: 6000,
             keyboard: true,
-            pause: "hover",
+            pause: 'hover',
             ride: false,
             wrap: true,
             touch: true,
@@ -271,25 +270,25 @@
       const carousel = new bootstrap.Carousel(testimonialCarousel, {
         interval: 6000,
         keyboard: true,
-        pause: "hover",
+        pause: 'hover',
         ride: false, // Don't auto-start to improve responsiveness
         wrap: true,
         touch: true,
       });
 
       // Improve click responsiveness by stopping any ongoing transitions
-      const prevBtn = testimonialCarousel.querySelector(".carousel-control-prev");
-      const nextBtn = testimonialCarousel.querySelector(".carousel-control-next");
+      const prevBtn = testimonialCarousel.querySelector('.carousel-control-prev');
+      const nextBtn = testimonialCarousel.querySelector('.carousel-control-next');
 
       if (prevBtn) {
-        prevBtn.addEventListener("click", function (e) {
+        prevBtn.addEventListener('click', function (e) {
           e.preventDefault();
           carousel.prev();
         });
       }
 
       if (nextBtn) {
-        nextBtn.addEventListener("click", function (e) {
+        nextBtn.addEventListener('click', function (e) {
           e.preventDefault();
           carousel.next();
         });
@@ -301,16 +300,16 @@
       }, 1000);
 
       // Simple fade in effect for testimonials when they come into view
-      const testimonialsSection = document.querySelector(".testimonials-section");
+      const testimonialsSection = document.querySelector('.testimonials-section');
       if (testimonialsSection) {
         const testimonialsObserver = new IntersectionObserver(
           (entries) => {
             entries.forEach((entry) => {
               if (entry.isIntersecting) {
                 // Simple fade in for all visible cards
-                const allCards = entry.target.querySelectorAll(".testimonial-card");
+                const allCards = entry.target.querySelectorAll('.testimonial-card');
                 allCards.forEach((card) => {
-                  card.style.opacity = "1";
+                  card.style.opacity = '1';
                 });
 
                 testimonialsObserver.unobserve(entry.target);
@@ -319,8 +318,8 @@
           },
           {
             threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px",
-          }
+            rootMargin: '0px 0px -50px 0px',
+          },
         );
 
         testimonialsObserver.observe(testimonialsSection);

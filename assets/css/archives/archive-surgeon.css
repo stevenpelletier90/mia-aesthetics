@@ -1,130 +1,132 @@
 .surgeon-card {
-	height: 100%;
-	position: relative;
-	overflow: hidden;
-	border-radius: 8px;
-	background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-	box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.3);
-	border: 2px solid var(--mia-gold);
-	transition: all 0.2s ease;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  border: 2px solid var(--mia-gold);
+  transition: all 0.2s ease;
 }
 
 .surgeon-card:hover {
-	box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
+  box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
 }
 
 .surgeon-img-container {
-	--container-size: 120px;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	width: var(--container-size);
-	height: var(--container-size);
+  --container-size: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--container-size);
+  height: var(--container-size);
 }
 
 .surgeon-archive-headshot {
-	width: var(--container-size);
-	height: var(--container-size);
-	border-radius: 4px;
-	object-fit: cover;
-	border: 1px solid var(--mia-gold);
-	background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
-	padding: 0;
-	box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+  width: var(--container-size);
+  height: var(--container-size);
+  border-radius: 4px;
+  object-fit: cover;
+  border: 1px solid var(--mia-gold);
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
+  padding: 0;
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .surgeon-info {
-	flex: 1;
+  flex: 1;
 }
 
 .surgeon-card h2.h5 {
-	color: var(--mia-white);
-	font-weight: 600;
+  color: var(--mia-white);
+  font-weight: 600;
 }
 
 .surgeon-name-link {
-	color: var(--mia-white);
-	text-decoration: none;
-	transition: color 0.2s ease;
+  color: var(--mia-white);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .surgeon-name-link:hover {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .surgeon-card .location-link {
-	color: var(--mia-white);
-	text-decoration: none;
-	transition: color 0.2s ease;
+  color: var(--mia-white);
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .surgeon-card .location-link:hover {
-	color: var(--mia-gold);
-	text-decoration: none;
+  color: var(--mia-gold);
+  text-decoration: none;
 }
 
 .surgeon-bio-link {
-	color: var(--mia-white);
-	font-size: 0.9rem;
-	font-weight: 600;
-	transition: all 0.2s ease;
-	display: inline-flex;
-	align-items: center;
-	text-decoration: none;
-	padding-bottom: 2px;
+  color: var(--mia-white);
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  padding-bottom: 2px;
 }
 
 .surgeon-bio-link span {
-	border-bottom: 2px dotted var(--mia-gold);
-	transition: border-bottom-color 0.2s ease;
+  border-bottom: 2px dotted var(--mia-gold);
+  transition: border-bottom-color 0.2s ease;
 }
 
 .surgeon-bio-link:hover {
-	color: var(--mia-gold);
+  color: var(--mia-gold);
 }
 
 .surgeon-bio-link:hover span {
-	border-bottom-color: var(--mia-white);
+  border-bottom-color: var(--mia-white);
 }
 
 .surgeon-bio-link:hover i {
-	transform: translateX(4px);
+  transform: translateX(4px);
 }
 
 .surgeon-bio-link i {
-	transition: transform 0.2s ease, color 0.2s ease;
-	color: var(--mia-gold);
-	text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+  color: var(--mia-gold);
+  text-decoration: none;
 }
 
 .surgeon-bio-link:hover i {
-	color: var(--mia-white);
+  color: var(--mia-white);
 }
 
 @media (max-width: 767.98px) {
-	.surgeon-img-container {
-		--container-size: 100px;
-	}
+  .surgeon-img-container {
+    --container-size: 100px;
+  }
 
-	.surgeon-archive-headshot {
-		border: 2px solid var(--mia-gold);
-	}
+  .surgeon-archive-headshot {
+    border: 2px solid var(--mia-gold);
+  }
 
-	.surgeon-card .card-body {
-		display: flex;
-		flex-direction: row;
-		text-align: left;
-		align-items: center;
-	}
+  .surgeon-card .card-body {
+    display: flex;
+    flex-direction: row;
+    text-align: left;
+    align-items: center;
+  }
 
-	.surgeon-img-container {
-		margin-right: 1rem;
-		margin-bottom: 0;
-	}
+  .surgeon-img-container {
+    margin-right: 1rem;
+    margin-bottom: 0;
+  }
 
-	.surgeon-info {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-	}
+  .surgeon-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 }

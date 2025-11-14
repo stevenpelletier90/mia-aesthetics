@@ -29,7 +29,7 @@ require __DIR__ . '/hero-section.php';
 		<!-- Founded Year -->
 		<div class="stat-box text-center">
 		<div class="homepage-stat-number" data-count="2017">0</div>
-		<div class="homepage-stat-label">YEAR FOUNDED</div>
+		<div class="homepage-stat-label">Year Founded</div>
 		</div>
 
 		<!-- Expert Surgeons (Dynamic) -->
@@ -40,19 +40,19 @@ require __DIR__ . '/hero-section.php';
 			echo esc_html( (string) $stats['surgeons'] );
 		?>
 		">0</div>
-		<div class="homepage-stat-label">EXPERT SURGEONS</div>
+		<div class="homepage-stat-label">Expert Surgeons</div>
 		</div>
 
 		<!-- Clinic Locations (Dynamic) -->
 		<div class="stat-box text-center">
 		<div class="homepage-stat-number" data-count="<?php echo esc_attr( (string) $stats['locations'] ); ?>">0</div>
-		<div class="homepage-stat-label">CLINIC LOCATIONS</div>
+		<div class="homepage-stat-label">Clinic Locations</div>
 		</div>
 
 		<!-- Satisfied Patients -->
 		<div class="stat-box text-center">
 		<div class="homepage-stat-number" data-count="150" data-suffix="k+">0</div>
-		<div class="homepage-stat-label">SATISFIED PATIENTS</div>
+		<div class="homepage-stat-label">Satisfied Patients</div>
 		</div>
 	</div>
 
@@ -85,7 +85,7 @@ require __DIR__ . '/hero-section.php';
 			<p class="section-description section-description--white">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
 			<a href="/locations/" class="btn btn-primary me-3" role="button">Our Locations</a>
-			<a href="/plastic-surgeons/" class="btn btn-outline-primary-alt2" role="button">Our Surgeons</a>
+			<a href="/plastic-surgeons/" class="btn btn-primary" role="button">Our Surgeons</a>
 			</div>
 		</div>
 		</div>
@@ -215,7 +215,7 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline ">SCULPT YOUR IDEAL FIGURE</p>
+			<p class="tagline ">Sculpt Your Ideal Figure</p>
 			<h3 class=" section-heading">Body Contouring</h3>
 			<p class="section-description ">Our body contouring procedures help you achieve the silhouette you desire. Whether you're looking to remove excess fat, tighten loose skin, or enhance your curves, our specialists can help you reach your aesthetic goals.</p>
 			
@@ -276,7 +276,7 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline ">ACHIEVE YOUR DESIRED LOOK</p>
+			<p class="tagline ">Achive Your Desired Look</p>
 			<h3 class=" section-heading">Breast Enhancement</h3>
 			<p class="section-description ">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
 			
@@ -334,7 +334,7 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline ">ENHANCE YOUR NATURAL BEAUTY</p>
+			<p class="tagline ">Enhance Your Natural Beauty</p>
 			<h3 class=" section-heading">Facial Rejuvenation</h3>
 			<p class="section-description ">Our facial procedures are designed to enhance your natural features and restore youthful appearance. From facelifts to rhinoplasty, our board-certified surgeons use the latest techniques to deliver exceptional results.</p>
 			
@@ -395,7 +395,7 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline ">REJUVENATE WITHOUT SURGERY</p>
+			<p class="tagline ">Rejuvenate Without Surgery</p>
 			<h3 class=" section-heading">Non-Surgical Treatments</h3>
 			<p class="section-description ">Our non-surgical treatments offer remarkable results with minimal downtime. From injectables to laser therapies, we provide a range of options to address your concerns without the need for surgery.</p>
 			
@@ -443,7 +443,7 @@ require __DIR__ . '/hero-section.php';
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline ">TAILORED SOLUTIONS FOR MEN</p>
+			<p class="tagline ">Tailored Solutions For Men</p>
 			<h3 class=" section-heading">Men's Procedures</h3>
 			<p class="section-description ">Our men's procedures are specifically designed to address the unique concerns and aesthetic goals of our male patients. From body contouring to facial rejuvenation, we offer a range of treatments to help you look and feel your best.</p>
 			
@@ -494,9 +494,9 @@ require __DIR__ . '/hero-section.php';
 	<div class="row">
 		<div class="col-12">
 		<div class="foundation-content text-center">
-			<p class="foundation-tagline ">GIVING BACK TO OUR COMMUNITY</p>
+			<p class="foundation-tagline ">Giving Back to Our Community</p>
 			<h2 class=" section-heading">The Mia Aesthetics Foundation</h2>
-			<p class="section-description section-description--white ">We're committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+			<p class="section-description section-description--white ">At Mia Aesthetics, we are committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
 			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 		</div>
 		</div>
