@@ -2,1284 +2,1208 @@
 <!-- This is a self-contained HTML snippet for use in Elementor HTML widgets -->
 
 <!-- Required Libraries -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link
+  href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+  rel="stylesheet"
+  integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+  crossorigin="anonymous"
+/>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+  crossorigin="anonymous"
+  referrerpolicy="no-referrer"
+/>
 <!-- Google Fonts -->
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
 
 <style>
-/* ============================================
+  /* ============================================
    GLOBAL THEME STYLES
    ============================================ */
 
-/* CSS Custom Properties (Variables) */
-:root {
-  --mia-black: #1b1b1b;
-  --mia-pure-black: #000000;
-  --mia-gold: #c8b273;
-  --mia-gold-dark: #be9e42;
-  --mia-gold-light: #f9f5ee;
-  --mia-white: #ffffff;
-  --mia-gray-dark: #222;
-  --mia-gray-muted: #666;
-  --mia-link: #0066cc;
-  --mia-link-visited: #551a8b;
-  --mia-link-hover: #004499;
-  --mia-gold-10: rgba(200, 178, 115, 0.1);
-  --mia-gold-20: rgba(200, 178, 115, 0.2);
-  --mia-gold-30: rgba(200, 178, 115, 0.3);
-  --mia-gold-40: rgba(200, 178, 115, 0.4);
-  --mia-gold-50: rgba(200, 178, 115, 0.5);
-  --font-heading: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  --z-sticky: 1020;
-  --z-tooltip: 1070;
-  --z-header: 9999;
-}
-
-/* Base Typography */
-html {
-  font-size: 16px;
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--mia-black);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
-}
-
-::selection {
-  background-color: var(--mia-gold);
-  color: var(--mia-white);
-  text-shadow: none;
-}
-
-::-moz-selection {
-  background-color: var(--mia-gold);
-  color: var(--mia-white);
-  text-shadow: none;
-}
-
-/* Headings */
-h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6 {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-weight: 600;
-  line-height: 1.25;
-  color: var(--mia-black);
-  margin-top: 0;
-}
-
-h1, .h1 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
-}
-
-h2, .h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-}
-
-h3, .h3 {
-  font-size: 1.75rem;
-  margin-bottom: 1.25rem;
-}
-
-h4, .h4 {
-  font-size: clamp(1.25rem, 1.5vw, 1.75rem);
-  margin-bottom: 1rem;
-}
-
-h5, .h5 {
-  font-size: clamp(1.125rem, 1.25vw, 1.5rem);
-  margin-bottom: 1rem;
-}
-
-h6, .h6 {
-  font-size: clamp(1rem, 1vw, 1.25rem);
-  margin-bottom: 0.75rem;
-  text-transform: uppercase;
-}
-
-/* Paragraphs & Links */
-p {
-  margin-bottom: 1rem;
-  line-height: 1.625;
-}
-
-a {
-  color: var(--mia-link);
-  text-decoration: underline;
-  transition: color 0.2s ease-in-out;
-}
-
-a:hover,
-a:focus {
-  color: var(--mia-link-hover);
-}
-
-/* Lists */
-ul, ol {
-  margin-top: 0;
-  margin-bottom: 1rem;
-  padding-left: 1.5rem;
-}
-
-li {
-  margin-bottom: 0.25rem;
-}
-
-.list-unstyled {
-  padding-left: 0;
-  list-style: none;
-}
-
-/* Button Styles */
-.btn {
-  border-radius: 4px !important;
-  border-width: 2px !important;
-  padding: clamp(0.4rem, 0.3rem + 0.4vw, 0.6rem) clamp(1rem, 0.75rem + 1vw, 1.5rem) !important;
-  font-weight: 600 !important;
-  font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1rem) !important;
-}
-
-.btn-sm {
-  padding: clamp(0.25rem, 0.2rem + 0.3vw, 0.45rem) clamp(0.75rem, 0.5rem + 1vw, 1.25rem) !important;
-  font-size: clamp(0.75rem, 0.625rem + 0.5vw, 0.875rem) !important;
-}
-
-.btn-lg {
-  padding: clamp(0.6rem, 0.5rem + 0.5vw, 0.9rem) clamp(1.5rem, 1rem + 2vw, 2.5rem) !important;
-  font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem) !important;
-}
-
-.btn .fa-solid, .btn .fa-regular, .btn .fa-light {
-  font-size: 0.85em !important;
-  margin-right: 0.5rem !important;
-}
-
-.btn .fa-arrow-right, .btn .fa-arrow-left {
-  margin-right: 0 !important;
-  margin-left: 0.5rem !important;
-  transition: transform 0.2s ease;
-}
-
-.btn:hover .fa-arrow-right {
-  transform: translateX(4px);
-}
-
-.btn:hover .fa-arrow-left {
-  transform: translateX(-4px);
-}
-
-.btn-primary {
-  background-color: var(--mia-gold) !important;
-  border-color: var(--mia-gold) !important;
-  color: var(--mia-black) !important;
-}
-
-.btn-primary:hover {
-  background-color: var(--mia-gold-dark) !important;
-  border-color: var(--mia-gold-dark) !important;
-  color: var(--mia-white) !important;
-}
-
-.btn-primary:focus, .btn-primary:focus-visible {
-  background-color: var(--mia-gold) !important;
-  border-color: var(--mia-gold-dark) !important;
-  color: var(--mia-black) !important;
-  box-shadow: 0 0 0 3px var(--mia-gold-30) !important;
-}
-
-.btn-primary:active {
-  background-color: var(--mia-gold-dark) !important;
-  border-color: var(--mia-gold-dark) !important;
-  color: var(--mia-white) !important;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
-}
-
-.btn-secondary {
-  background-color: var(--mia-black) !important;
-  border-color: var(--mia-black) !important;
-  color: var(--mia-white) !important;
-}
-
-.btn-secondary:hover {
-  background-color: var(--mia-gold-dark) !important;
-  border-color: var(--mia-gold-dark) !important;
-  color: var(--mia-white) !important;
-}
-
-/* Utility Classes */
-.text-mia-gold {
-  color: var(--mia-gold);
-}
-
-@media (max-width: 480px) {
-  .btn-lg {
-    font-size: 16px;
-    min-height: 48px;
+  /* CSS Custom Properties (Variables) */
+  :root {
+    --mia-black: #1b1b1b;
+    --mia-pure-black: #000000;
+    --mia-gold: #c8b273;
+    --mia-gold-dark: #be9e42;
+    --mia-gold-light: #f9f5ee;
+    --mia-white: #ffffff;
+    --mia-gray-dark: #222;
+    --mia-gray-muted: #666;
+    --mia-link: #0066cc;
+    --mia-link-visited: #551a8b;
+    --mia-link-hover: #004499;
+    --mia-gold-10: rgba(200, 178, 115, 0.1);
+    --mia-gold-20: rgba(200, 178, 115, 0.2);
+    --mia-gold-30: rgba(200, 178, 115, 0.3);
+    --mia-gold-40: rgba(200, 178, 115, 0.4);
+    --mia-gold-50: rgba(200, 178, 115, 0.5);
+    --font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    --z-sticky: 1020;
+    --z-tooltip: 1070;
+    --z-header: 9999;
   }
-}
 
-/* ============================================
+  /* Base Typography */
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    font-family:
+      'Inter',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--mia-black);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--mia-gold);
+    color: var(--mia-white);
+    text-shadow: none;
+  }
+
+  ::-moz-selection {
+    background-color: var(--mia-gold);
+    color: var(--mia-white);
+    text-shadow: none;
+  }
+
+  /* Headings */
+  h1,
+  .h1,
+  h2,
+  .h2,
+  h3,
+  .h3,
+  h4,
+  .h4,
+  h5,
+  .h5,
+  h6,
+  .h6 {
+    font-family:
+      'Montserrat',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    font-weight: 600;
+    line-height: 1.25;
+    color: var(--mia-black);
+    margin-top: 0;
+  }
+
+  h1,
+  .h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  h2,
+  .h2 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+  }
+
+  h3,
+  .h3 {
+    font-size: 1.75rem;
+    margin-bottom: 1.25rem;
+  }
+
+  h4,
+  .h4 {
+    font-size: clamp(1.25rem, 1.5vw, 1.75rem);
+    margin-bottom: 1rem;
+  }
+
+  h5,
+  .h5 {
+    font-size: clamp(1.125rem, 1.25vw, 1.5rem);
+    margin-bottom: 1rem;
+  }
+
+  h6,
+  .h6 {
+    font-size: clamp(1rem, 1vw, 1.25rem);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  /* Paragraphs & Links */
+  p {
+    margin-bottom: 1rem;
+    line-height: 1.625;
+  }
+
+  a {
+    color: var(--mia-link);
+    text-decoration: underline;
+    transition: color 0.2s ease-in-out;
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--mia-link-hover);
+  }
+
+  /* Lists */
+  ul,
+  ol {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+
+  li {
+    margin-bottom: 0.25rem;
+  }
+
+  .list-unstyled {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  /* Button Styles */
+  .btn {
+    border-radius: 4px !important;
+    border-width: 2px !important;
+    padding: clamp(0.4rem, 0.3rem + 0.4vw, 0.6rem) clamp(1rem, 0.75rem + 1vw, 1.5rem) !important;
+    font-weight: 600 !important;
+    font-size: clamp(0.875rem, 0.75rem + 0.5vw, 1rem) !important;
+  }
+
+  .btn-sm {
+    padding: clamp(0.25rem, 0.2rem + 0.3vw, 0.45rem) clamp(0.75rem, 0.5rem + 1vw, 1.25rem) !important;
+    font-size: clamp(0.75rem, 0.625rem + 0.5vw, 0.875rem) !important;
+  }
+
+  .btn-lg {
+    padding: clamp(0.6rem, 0.5rem + 0.5vw, 0.9rem) clamp(1.5rem, 1rem + 2vw, 2.5rem) !important;
+    font-size: clamp(1rem, 0.875rem + 0.5vw, 1.25rem) !important;
+  }
+
+  .btn .fa-solid,
+  .btn .fa-regular,
+  .btn .fa-light {
+    font-size: 0.85em !important;
+    margin-right: 0.5rem !important;
+  }
+
+  .btn .fa-arrow-right,
+  .btn .fa-arrow-left {
+    margin-right: 0 !important;
+    margin-left: 0.5rem !important;
+    transition: transform 0.2s ease;
+  }
+
+  .btn:hover .fa-arrow-right {
+    transform: translateX(4px);
+  }
+
+  .btn:hover .fa-arrow-left {
+    transform: translateX(-4px);
+  }
+
+  .btn-primary {
+    background-color: var(--mia-gold) !important;
+    border-color: var(--mia-gold) !important;
+    color: var(--mia-black) !important;
+  }
+
+  .btn-primary:hover {
+    background-color: var(--mia-gold-dark) !important;
+    border-color: var(--mia-gold-dark) !important;
+    color: var(--mia-white) !important;
+  }
+
+  .btn-primary:focus,
+  .btn-primary:focus-visible {
+    background-color: var(--mia-gold) !important;
+    border-color: var(--mia-gold-dark) !important;
+    color: var(--mia-black) !important;
+    box-shadow: 0 0 0 3px var(--mia-gold-30) !important;
+  }
+
+  .btn-primary:active {
+    background-color: var(--mia-gold-dark) !important;
+    border-color: var(--mia-gold-dark) !important;
+    color: var(--mia-white) !important;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+  }
+
+  .btn-secondary {
+    background-color: var(--mia-black) !important;
+    border-color: var(--mia-black) !important;
+    color: var(--mia-white) !important;
+  }
+
+  .btn-secondary:hover {
+    background-color: var(--mia-gold-dark) !important;
+    border-color: var(--mia-gold-dark) !important;
+    color: var(--mia-white) !important;
+  }
+
+  /* Utility Classes */
+  .text-mia-gold {
+    color: var(--mia-gold);
+  }
+
+  @media (max-width: 480px) {
+    .btn-lg {
+      font-size: 16px;
+      min-height: 48px;
+    }
+  }
+
+  /* ============================================
    CAREERS PAGE SPECIFIC STYLES
    ============================================ */
-.mia-brand {
-  white-space: nowrap;
-}
+  .mia-brand {
+    white-space: nowrap;
+  }
+
+  .mia-brand .trademark {
+    font-size: 0.6em;
+    vertical-align: super;
+    line-height: 0;
+  }
 
-.mia-brand .trademark {
-  font-size: 0.6em;
-  vertical-align: super;
-  line-height: 0;
-}
-
-.careers-hero {
-  padding: 5rem 0;
-  background: #f8f4ed;
-}
-
-.careers-hero__content {
-  padding-right: 2rem;
-}
-
-.careers-hero__image-container {
-  position: relative;
-  overflow: hidden;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.careers-hero__image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  object-position: center;
-  transition: transform 0.2s ease;
-  will-change: transform;
-}
-
-.careers-hero__image:hover {
-  transform: scale(1.02);
-}
-
-.careers-hero__title {
-  font-size: clamp(2.25rem, 5vw, 3.75rem);
-  font-weight: 600;
-  line-height: 1.2;
-  margin-bottom: 1.5rem;
-  color: #1b1b1b;
-}
-
-.careers-hero__text {
-  margin-bottom: 2rem;
-}
-
-.careers-hero__text p {
-  font-size: clamp(1.125rem, 2.5vw, 1.25rem);
-  line-height: 1.6;
-  margin-bottom: 0;
-  font-weight: 400;
-  color: #666;
-}
-
-.careers-hero__cta {
-  margin-top: 2rem;
-}
-
-.stats-section {
-  padding: 5rem 0;
-  background-color: #1b1b1b;
-  color: #fff;
-}
-
-.section-tagline {
-  font-size: 1.1rem;
-  font-weight: 600;
-  color: #c8b273;
-  text-transform: uppercase;
-  margin-bottom: 1rem;
-}
-
-.stats-heading h2,
-.stats-heading-title {
-  font-size: clamp(2rem, 5vw, 4rem);
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.1;
-  margin-bottom: 0;
-}
-
-.stats-content p {
-  font-size: clamp(1rem, 2vw, 1.125rem);
-  color: rgba(255, 255, 255, 0.8);
-  margin-bottom: 2rem;
-  text-align: left;
-}
-
-.stat-line-gold {
-  width: 3px;
-  height: 100%;
-  min-height: 80px;
-  background-color: #c8b273;
-}
-
-.stats-section h3.display-5 {
-  font-size: clamp(2.5rem, 6vw, 3.5rem);
-}
-
-.core-values-section {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #f8f4ed 0%, #fff 100%);
-  position: relative;
-  overflow: hidden;
-}
-
-.core-values-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #c8b273 50%, transparent 100%);
-}
-
-.core-values__header {
-  text-align: center;
-  margin-bottom: 5rem;
-  position: relative;
-}
-
-.core-values__title {
-  font-size: clamp(2.5rem, 5vw, 4.5rem);
-  font-weight: 600;
-  color: #1b1b1b;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.core-values__subtitle {
-  font-size: 1.25rem;
-  color: #666;
-  max-width: 600px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-.values-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
-  margin-top: 4rem;
-}
-
-.value-card {
-  background: #fff;
-  border: 1px solid #f8f4ed;
-  border-radius: 12px;
-  transition: all 0.2s ease;
-  height: 100%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  padding: 3rem 2.5rem;
-  text-align: center;
-  opacity: 0;
-  transform: translateY(30px);
-}
-
-.value-card.animate-in {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.value-card:hover {
-  border-color: #c8b273;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
-}
-
-.value-icon {
-  width: 140px;
-  height: 140px;
-  margin: 0 auto 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  background: #f8f4ed;
-  border: 2px solid rgba(200, 178, 115, 0.2);
-  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.2);
-}
-
-.value-svg-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
-}
-
-.value-title {
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #1b1b1b;
-  margin-bottom: 1.5rem;
-  line-height: 1.3;
-}
-
-.value-description {
-  font-size: 1rem;
-  color: #666;
-  line-height: 1.7;
-  margin: 0;
-}
-
-.foundation-parallax {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  background-attachment: fixed;
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-image: url(/wp-content/uploads/2023/10/miaf6.jpg);
-}
-
-.foundation-parallax::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, rgba(27, 27, 27, 0.8) 0%, rgba(27, 27, 27, 0.6) 100%);
-  z-index: 1;
-}
-
-.foundation-parallax .container {
-  position: relative;
-  z-index: 2;
-}
-
-.foundation-content {
-  text-align: center;
-  color: white;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 4rem 2rem;
-}
-
-.foundation-content h2 {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 600;
-  margin-bottom: 2rem;
-  line-height: 1.2;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-  color: #fff;
-}
-
-.foundation-content p {
-  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
-  line-height: 1.7;
-  margin-bottom: 3rem;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  color: rgba(255, 255, 255, 0.95);
-}
-
-.foundation-cta {
-  margin-top: 3rem;
-}
-
-.find-location-section {
-  padding: 6rem 0;
-  background: #f8f4ed;
-}
-
-.find-location__header {
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.find-location__title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 600;
-  color: #1b1b1b;
-  margin-bottom: 1.5rem;
-}
-
-.find-location__subtitle {
-  font-size: 1.25rem;
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  text-wrap: balance;
-}
-
-.benefits-section {
-  background: linear-gradient(135deg, #f8f4ed 0%, #fff 100%);
-  padding: 5rem 0;
-}
-
-.benefits-top-content {
-  margin-bottom: 4rem;
-}
-
-.benefits-header {
-  padding-right: 3rem;
-  text-align: left;
-}
-
-.benefits-header .section-tagline {
-  color: #c8b273;
-  font-weight: 600;
-  font-size: 0.95rem;
-  text-transform: uppercase;
-  margin-bottom: 0.5rem;
-}
-
-.benefits-title {
-  color: #1b1b1b;
-  font-weight: 600;
-  font-size: clamp(2.5rem, 4vw, 3.5rem);
-  margin-bottom: 1.5rem;
-  position: relative;
-  padding-bottom: 0;
-  text-align: left;
-}
-
-.benefits-subtitle {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #666;
-  margin: 0;
-  text-align: left;
-}
-
-.founders-quote-wrapper {
-  height: 100%;
-  display: flex;
-  align-items: center;
-  padding-left: 2rem;
-}
-
-.founders-quote {
-  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, rgba(200, 178, 115, 0.1) 100%);
-  border: 1px solid rgba(200, 178, 115, 0.2);
-  border-radius: 16px;
-  padding: 3rem;
-  margin: 0;
-  font-style: normal;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-  position: relative;
-  overflow: hidden;
-}
-
-.founders-quote::before {
-  content: "";
-  position: absolute;
-  top: -50%;
-  right: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(200, 178, 115, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-}
-
-.quote-icon {
-  font-size: 2.5rem;
-  color: #c8b273;
-  opacity: 0.3;
-  margin-bottom: 1rem;
-  line-height: 1;
-}
-
-.quote-text {
-  font-size: 1.25rem;
-  line-height: 1.8;
-  color: #1b1b1b;
-  margin-bottom: 2rem;
-  font-weight: 600;
-  font-style: italic;
-  position: relative;
-  z-index: 1;
-}
-
-.quote-attribution {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  font-style: normal;
-}
-
-.attribution-line {
-  display: inline-block;
-  width: 40px;
-  height: 2px;
-  background: #c8b273;
-}
-
-.attribution-text {
-  font-size: 1rem;
-  color: #c8b273;
-  font-weight: 600;
-  text-transform: uppercase;
-}
-
-.benefit-card {
-  background: #fff;
-  border: 1px solid #f8f4ed;
-  border-radius: 12px;
-  transition: all 0.2s ease;
-  height: 100%;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
-}
-
-.benefit-card:hover {
-  border-color: #c8b273;
-  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
-}
-
-.benefit-icon {
-  width: 140px;
-  height: 140px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto;
-  border-radius: 50%;
-  background: #f8f4ed;
-  border: 2px solid rgba(200, 178, 115, 0.2);
-  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.2);
-}
-
-.benefit-svg-icon {
-  width: 80px;
-  height: 80px;
-  object-fit: contain;
-  filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg)
-    brightness(90%) contrast(86%);
-}
-
-.benefit-title {
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: #1b1b1b;
-  margin-bottom: 1.25rem;
-}
-
-.benefit-list {
-  list-style: none;
-  padding: 0;
-  text-align: left;
-}
-
-.benefit-list li {
-  font-size: 0.95rem;
-  line-height: 1.6;
-  color: #666;
-  margin-bottom: 1rem;
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-.benefit-list li::before {
-  content: "✓";
-  position: absolute;
-  left: 0;
-  color: #c8b273;
-  font-weight: 600;
-  font-size: 1.1rem;
-}
-
-.testimonials-section {
-  padding: 6rem 0;
-  background: linear-gradient(135deg, #f8f4ed 0%, #fff 100%);
-  position: relative;
-}
-
-.testimonials-section .container {
-  max-width: 1400px;
-  position: relative;
-}
-
-.testimonials-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, #c8b273 50%, transparent 100%);
-}
-
-.testimonials-header {
-  margin-bottom: 4rem;
-}
-
-.testimonials-title {
-  font-size: clamp(2.5rem, 5vw, 4rem);
-  font-weight: 600;
-  color: #1b1b1b;
-  line-height: 1.1;
-  margin-bottom: 1.5rem;
-}
-
-.testimonials-subtitle {
-  font-size: 1.25rem;
-  color: #666;
-  max-width: 700px;
-  margin: 0 auto;
-  line-height: 1.6;
-}
-
-#testimonialsCarousel {
-  margin-bottom: 3rem;
-  position: relative;
-  overflow: visible;
-}
-
-#testimonialsCarousel .carousel-item {
-  transition: transform 0.2s ease-in-out;
-}
-
-.testimonial-card {
-  background: #fff;
-  border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
-  text-align: center;
-  transition: all 0.2s ease;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
-  width: 100%;
-}
-
-.testimonial-content {
-  padding: 2rem;
-  min-height: 400px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  overflow: hidden;
-}
-
-.testimonial-card:hover {
-  border-color: rgba(0, 0, 0, 0.12);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.testimonial-quote {
-  font-size: 1.1rem;
-  line-height: 1.7;
-  color: #1b1b1b;
-  margin-bottom: 2rem;
-  font-style: italic;
-  flex-grow: 1;
-  text-align: left;
-}
-
-.testimonial-author {
-  margin-bottom: 1.5rem;
-}
-
-.testimonial-stars {
-  display: flex;
-  justify-content: center;
-  gap: 0.25rem;
-  margin-top: auto;
-}
-
-.testimonial-stars .fas.fa-star {
-  color: #c8b273;
-  font-size: 1.1rem;
-}
-
-.author-name {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #1b1b1b;
-  margin-bottom: 0.5rem;
-}
-
-.author-location {
-  font-size: 0.9rem;
-  color: #666;
-  margin-bottom: 0;
-}
-
-#testimonialsCarousel .carousel-control-prev,
-#testimonialsCarousel .carousel-control-next {
-  width: auto;
-  opacity: 0.7;
-}
-
-#testimonialsCarousel .carousel-control-prev {
-  left: -15px;
-}
-
-#testimonialsCarousel .carousel-control-next {
-  right: -15px;
-}
-
-#testimonialsCarousel .carousel-control-prev-icon,
-#testimonialsCarousel .carousel-control-next-icon {
-  background-color: #666;
-  border-radius: 50%;
-  width: 2.5rem;
-  height: 2.5rem;
-  background-size: 50%;
-  background-position: center;
-}
-
-#testimonialsCarousel .carousel-indicators {
-  position: static;
-  margin-top: 2rem;
-  margin-bottom: 0;
-}
-
-.carousel-indicators [data-bs-target] {
-  width: 12px;
-  height: 12px;
-  border-radius: 50%;
-  border: 2px solid #1b1b1b;
-  background-color: transparent;
-  margin: 0 0.5rem;
-  transition: all 0.2s ease;
-}
-
-.carousel-indicators [data-bs-target].active {
-  background-color: #c8b273;
-  border-color: #c8b273;
-  transform: scale(1.2);
-}
-
-.carousel-indicators [data-bs-target]:hover {
-  background-color: #c8b273;
-  border-color: #c8b273;
-}
-
-/* Responsive Styles */
-@media (max-width: 991.98px) {
   .careers-hero {
-    padding: 3rem 0;
+    padding: 5rem 0;
+    background: #f8f4ed;
   }
 
   .careers-hero__content {
-    padding-right: 0;
+    padding-right: 2rem;
+  }
+
+  .careers-hero__image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  }
+
+  .careers-hero__image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.2s ease;
+    will-change: transform;
+  }
+
+  .careers-hero__image:hover {
+    transform: scale(1.02);
+  }
+
+  .careers-hero__title {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: #1b1b1b;
+  }
+
+  .careers-hero__text {
     margin-bottom: 2rem;
+  }
+
+  .careers-hero__text p {
+    font-size: clamp(1.125rem, 2.5vw, 1.25rem);
+    line-height: 1.6;
+    margin-bottom: 0;
+    font-weight: 400;
+    color: #666;
+  }
+
+  .careers-hero__cta {
+    margin-top: 2rem;
+  }
+
+  .stats-section {
+    padding: 5rem 0;
+    background-color: #1b1b1b;
+    color: #fff;
+  }
+
+  .section-tagline {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #c8b273;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+  }
+
+  .stats-heading h2,
+  .stats-heading-title {
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 600;
+    color: #fff;
+    line-height: 1.1;
+    margin-bottom: 0;
+  }
+
+  .stats-content p {
+    font-size: clamp(1rem, 2vw, 1.125rem);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: 2rem;
+    text-align: left;
+  }
+
+  .stat-line-gold {
+    width: 3px;
+    height: 100%;
+    min-height: 80px;
+    background-color: #c8b273;
+  }
+
+  .stats-section h3.display-5 {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
+  }
+
+  .core-values-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f4ed 0%, #fff 100%);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .core-values-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #c8b273 50%, transparent 100%);
+  }
+
+  .core-values__header {
     text-align: center;
+    margin-bottom: 5rem;
+    position: relative;
+  }
+
+  .core-values__title {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 600;
+    color: #1b1b1b;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .core-values__subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.6;
   }
 
   .values-grid {
-    grid-template-columns: repeat(2, 1fr);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
+    margin-top: 4rem;
   }
 
   .value-card {
-    padding: 2.5rem 2rem;
-  }
-
-  .benefits-header {
-    padding-right: 0;
-    margin-bottom: 2rem;
-  }
-
-  .founders-quote-wrapper {
-    padding-left: 0;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .careers-hero {
-    padding: 2rem 0;
-  }
-
-  .careers-hero__content {
+    background: #fff;
+    border: 1px solid #f8f4ed;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    padding: 3rem 2.5rem;
     text-align: center;
+    opacity: 0;
+    transform: translateY(30px);
   }
 
-  .values-grid {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
+  .value-card.animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 
-  .value-card {
-    padding: 2rem 1.5rem;
+  .value-card:hover {
+    border-color: #c8b273;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
   }
 
   .value-icon {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
+    margin: 0 auto 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: #f8f4ed;
+    border: 2px solid rgba(200, 178, 115, 0.2);
+    box-shadow: 0 4px 15px rgba(200, 178, 115, 0.2);
   }
 
   .value-svg-icon {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
+  }
+
+  .value-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-bottom: 1.5rem;
+    line-height: 1.3;
+  }
+
+  .value-description {
+    font-size: 1rem;
+    color: #666;
+    line-height: 1.7;
+    margin: 0;
   }
 
   .foundation-parallax {
-    min-height: 60vh;
-    background-attachment: scroll;
+    position: relative;
+    min-height: 80vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: url(/wp-content/uploads/2023/10/miaf6.jpg);
+  }
+
+  .foundation-parallax::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(27, 27, 27, 0.8) 0%, rgba(27, 27, 27, 0.6) 100%);
+    z-index: 1;
+  }
+
+  .foundation-parallax .container {
+    position: relative;
+    z-index: 2;
   }
 
   .foundation-content {
-    padding: 2rem 1rem;
+    text-align: center;
+    color: white;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .foundation-content h2 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    margin-bottom: 2rem;
+    line-height: 1.2;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    color: #fff;
+  }
+
+  .foundation-content p {
+    font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+    line-height: 1.7;
+    margin-bottom: 3rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    color: rgba(255, 255, 255, 0.95);
+  }
+
+  .foundation-cta {
+    margin-top: 3rem;
+  }
+
+  .find-location-section {
+    padding: 6rem 0;
+    background: #f8f4ed;
+  }
+
+  .find-location__header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .find-location__title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-bottom: 1.5rem;
+  }
+
+  .find-location__subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+    margin-bottom: 2.5rem;
+    text-wrap: balance;
+  }
+
+  .benefits-section {
+    background: linear-gradient(135deg, #f8f4ed 0%, #fff 100%);
+    padding: 5rem 0;
+  }
+
+  .benefits-top-content {
+    margin-bottom: 4rem;
   }
 
   .benefits-header {
-    text-align: center;
+    padding-right: 3rem;
+    text-align: left;
+  }
+
+  .benefits-header .section-tagline {
+    color: #c8b273;
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
   }
 
   .benefits-title {
-    font-size: 2rem;
-    text-align: center;
+    color: #1b1b1b;
+    font-weight: 600;
+    font-size: clamp(2.5rem, 4vw, 3.5rem);
+    margin-bottom: 1.5rem;
+    position: relative;
+    padding-bottom: 0;
+    text-align: left;
   }
 
   .benefits-subtitle {
-    text-align: center;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #666;
+    margin: 0;
+    text-align: left;
+  }
+
+  .founders-quote-wrapper {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 2rem;
   }
 
   .founders-quote {
-    padding: 2rem;
+    background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, rgba(200, 178, 115, 0.1) 100%);
+    border: 1px solid rgba(200, 178, 115, 0.2);
+    border-radius: 16px;
+    padding: 3rem;
+    margin: 0;
+    font-style: normal;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .founders-quote::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(200, 178, 115, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .quote-icon {
+    font-size: 2.5rem;
+    color: #c8b273;
+    opacity: 0.3;
+    margin-bottom: 1rem;
+    line-height: 1;
+  }
+
+  .quote-text {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #1b1b1b;
+    margin-bottom: 2rem;
+    font-weight: 600;
+    font-style: italic;
+    position: relative;
+    z-index: 1;
+  }
+
+  .quote-attribution {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-style: normal;
+  }
+
+  .attribution-line {
+    display: inline-block;
+    width: 40px;
+    height: 2px;
+    background: #c8b273;
+  }
+
+  .attribution-text {
+    font-size: 1rem;
+    color: #c8b273;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .benefit-card {
+    background: #fff;
+    border: 1px solid #f8f4ed;
+    border-radius: 12px;
+    transition: all 0.2s ease;
+    height: 100%;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  }
+
+  .benefit-card:hover {
+    border-color: #c8b273;
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
   }
 
   .benefit-icon {
-    width: 120px;
-    height: 120px;
+    width: 140px;
+    height: 140px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #f8f4ed;
+    border: 2px solid rgba(200, 178, 115, 0.2);
+    box-shadow: 0 4px 15px rgba(200, 178, 115, 0.2);
   }
 
   .benefit-svg-icon {
-    width: 70px;
-    height: 70px;
+    width: 80px;
+    height: 80px;
+    object-fit: contain;
+    filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
+  }
+
+  .benefit-title {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-bottom: 1.25rem;
+  }
+
+  .benefit-list {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  .benefit-list li {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: #666;
+    margin-bottom: 1rem;
+    padding-left: 1.25rem;
+    position: relative;
+  }
+
+  .benefit-list li::before {
+    content: '✓';
+    position: absolute;
+    left: 0;
+    color: #c8b273;
+    font-weight: 600;
+    font-size: 1.1rem;
+  }
+
+  .testimonials-section {
+    padding: 6rem 0;
+    background: linear-gradient(135deg, #f8f4ed 0%, #fff 100%);
+    position: relative;
+  }
+
+  .testimonials-section .container {
+    max-width: 1400px;
+    position: relative;
+  }
+
+  .testimonials-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent 0%, #c8b273 50%, transparent 100%);
+  }
+
+  .testimonials-header {
+    margin-bottom: 4rem;
+  }
+
+  .testimonials-title {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 600;
+    color: #1b1b1b;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonials-subtitle {
+    font-size: 1.25rem;
+    color: #666;
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.6;
+  }
+
+  #testimonialsCarousel {
+    margin-bottom: 3rem;
+    position: relative;
+    overflow: visible;
+  }
+
+  #testimonialsCarousel .carousel-item {
+    transition: transform 0.2s ease-in-out;
   }
 
   .testimonial-card {
-    min-height: 280px;
-    height: 320px;
+    background: #fff;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    width: 100%;
   }
 
   .testimonial-content {
-    padding: 1.5rem;
-    min-height: 280px;
+    padding: 2rem;
+    min-height: 400px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    overflow: hidden;
+  }
+
+  .testimonial-card:hover {
+    border-color: rgba(0, 0, 0, 0.12);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
   }
 
   .testimonial-quote {
-    font-size: 0.95rem;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #1b1b1b;
+    margin-bottom: 2rem;
+    font-style: italic;
+    flex-grow: 1;
+    text-align: left;
   }
-}
 
-/* ============================================
+  .testimonial-author {
+    margin-bottom: 1.5rem;
+  }
+
+  .testimonial-stars {
+    display: flex;
+    justify-content: center;
+    gap: 0.25rem;
+    margin-top: auto;
+  }
+
+  .testimonial-stars .fas.fa-star {
+    color: #c8b273;
+    font-size: 1.1rem;
+  }
+
+  .author-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #1b1b1b;
+    margin-bottom: 0.5rem;
+  }
+
+  .author-location {
+    font-size: 0.9rem;
+    color: #666;
+    margin-bottom: 0;
+  }
+
+  #testimonialsCarousel .carousel-control-prev,
+  #testimonialsCarousel .carousel-control-next {
+    width: auto;
+    opacity: 0.7;
+  }
+
+  #testimonialsCarousel .carousel-control-prev {
+    left: -15px;
+  }
+
+  #testimonialsCarousel .carousel-control-next {
+    right: -15px;
+  }
+
+  #testimonialsCarousel .carousel-control-prev-icon,
+  #testimonialsCarousel .carousel-control-next-icon {
+    background-color: #666;
+    border-radius: 50%;
+    width: 2.5rem;
+    height: 2.5rem;
+    background-size: 50%;
+    background-position: center;
+  }
+
+  #testimonialsCarousel .carousel-indicators {
+    position: static;
+    margin-top: 2rem;
+    margin-bottom: 0;
+  }
+
+  .carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #1b1b1b;
+    background-color: transparent;
+    margin: 0 0.5rem;
+    transition: all 0.2s ease;
+  }
+
+  .carousel-indicators [data-bs-target].active {
+    background-color: #c8b273;
+    border-color: #c8b273;
+    transform: scale(1.2);
+  }
+
+  .carousel-indicators [data-bs-target]:hover {
+    background-color: #c8b273;
+    border-color: #c8b273;
+  }
+
+  /* Responsive Styles */
+  @media (max-width: 991.98px) {
+    .careers-hero {
+      padding: 3rem 0;
+    }
+
+    .careers-hero__content {
+      padding-right: 0;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+
+    .values-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+
+    .value-card {
+      padding: 2.5rem 2rem;
+    }
+
+    .benefits-header {
+      padding-right: 0;
+      margin-bottom: 2rem;
+    }
+
+    .founders-quote-wrapper {
+      padding-left: 0;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .careers-hero {
+      padding: 2rem 0;
+    }
+
+    .careers-hero__content {
+      text-align: center;
+    }
+
+    .values-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .value-icon {
+      width: 120px;
+      height: 120px;
+    }
+
+    .value-svg-icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    .foundation-parallax {
+      min-height: 60vh;
+      background-attachment: scroll;
+    }
+
+    .foundation-content {
+      padding: 2rem 1rem;
+    }
+
+    .benefits-header {
+      text-align: center;
+    }
+
+    .benefits-title {
+      font-size: 2rem;
+      text-align: center;
+    }
+
+    .benefits-subtitle {
+      text-align: center;
+    }
+
+    .founders-quote {
+      padding: 2rem;
+    }
+
+    .benefit-icon {
+      width: 120px;
+      height: 120px;
+    }
+
+    .benefit-svg-icon {
+      width: 70px;
+      height: 70px;
+    }
+
+    .testimonial-card {
+      min-height: 280px;
+      height: 320px;
+    }
+
+    .testimonial-content {
+      padding: 1.5rem;
+      min-height: 280px;
+    }
+
+    .testimonial-quote {
+      font-size: 0.95rem;
+    }
+  }
+
+  /* ============================================
    CAREERS FOOTER STYLES
    ============================================ */
-button.carousel-control-prev,
-button.carousel-control-next {
-  border: none;
-  background-color: transparent;
-}
-
-button.carousel-control-prev:focus,
-button.carousel-control-next:focus {
-  border: none;
-  background-color: transparent;
-}
-
-button.carousel-control-prev:hover,
-button.carousel-control-next:hover {
-  background-color: transparent;
-}
-.site-footer {
-  display: none;
-}
-
-footer.careers-footer {
-  background: linear-gradient(135deg, #1b1b1b 0%, #2a2a2a 100%) !important;
-  color: #fff !important;
-  padding: 4rem 0 2rem !important;
-  margin-top: 0 !important;
-}
-
-.careers-footer .footer-column {
-  height: 100%;
-}
-
-.careers-footer .footer-heading {
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  color: #c8b273;
-  margin-bottom: 1.5rem;
-  position: relative;
-}
-
-.careers-footer .footer-heading::after {
-  content: "";
-  position: absolute;
-  bottom: -0.5rem;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: #c8b273;
-}
-
-.careers-footer .footer-text {
-  font-size: 1rem;
-  line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
-  margin-bottom: 1.5rem;
-}
-
-.careers-footer .footer-links {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.careers-footer .footer-link {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  font-size: 0.95rem;
-  transition: all 0.2s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.careers-footer .footer-link:hover {
-  color: #c8b273;
-  text-decoration: none;
-  transform: translateX(5px);
-}
-
-.careers-footer .footer-link i {
-  width: 16px;
-  text-align: center;
-}
-
-.careers-footer .contact-info {
-  margin-top: 1rem;
-}
-
-.careers-footer .contact-item {
-  margin-bottom: 0.75rem;
-}
-
-.careers-footer .contact-item strong {
-  color: #c8b273;
-  font-weight: 600;
-}
-
-.careers-footer .contact-link {
-  color: #fff;
-  text-decoration: none;
-  font-size: 1.1rem;
-  font-weight: 600;
-  transition: all 0.2s ease;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.careers-footer .contact-link:hover {
-  color: #c8b273;
-  text-decoration: none;
-}
-
-.careers-footer .contact-link i {
-  font-size: 1rem;
-}
-
-.careers-footer .footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  margin-top: 3rem;
-  padding-top: 2rem;
-}
-
-.careers-footer .footer-logo {
-    width: auto;
-    max-width: none;
-}
-
-.careers-footer .footer-logo-img {
-    max-height: 55px;
-    width: auto;
-    height: 55px;
-}
-
-.careers-footer .footer-brand-text {
-  color: #fff;
-  font-family: "Montserrat", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin: 0;
-}
-
-.careers-footer .social-links {
-  display: flex;
-  gap: 1rem;
-  justify-content: flex-end;
-}
-
-.careers-footer .social-link {
-  width: 40px;
-  height: 40px;
-  background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #fff;
-  text-decoration: none;
-  transition: all 0.2s ease;
-  font-size: 1.1rem;
-}
-
-.careers-footer .social-link:hover {
-  background: #c8b273;
-  color: #1b1b1b;
-  transform: translateY(-2px);
-  text-decoration: none;
-}
-
-.careers-footer .footer-divider {
-  border-color: rgba(255, 255, 255, 0.1);
-  margin: 1.5rem 0 1rem;
-}
-
-.careers-footer .copyright {
-  text-align: center;
-}
-
-.careers-footer .copyright p {
-  font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin: 0;
-}
-
-.careers-footer .copyright a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.careers-footer .copyright a:hover {
-  color: #c8b273;
-  text-decoration: underline;
-}
-
-.careers-footer .legal-links {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.careers-footer .legal-links a {
-  color: rgba(255, 255, 255, 0.8);
-  text-decoration: none;
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-  white-space: nowrap;
-}
-
-.careers-footer .legal-links a:hover {
-  color: #c8b273;
-  text-decoration: underline;
-}
-
-.careers-footer .link-separator {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.9rem;
-  user-select: none;
-}
-
-.careers-footer .disclaimer {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
-  font-style: italic;
-}
-
-@media (max-width: 991.98px) {
-  .careers-footer {
-    padding: 3rem 0 1.5rem;
+  button.carousel-control-prev,
+  button.carousel-control-next {
+    border: none;
+    background-color: transparent;
   }
 
-  .careers-footer .social-links {
-    justify-content: center;
-    margin-top: 1rem;
+  button.carousel-control-prev:focus,
+  button.carousel-control-next:focus {
+    border: none;
+    background-color: transparent;
   }
 
-  .careers-footer .footer-bottom {
-    text-align: center;
+  button.carousel-control-prev:hover,
+  button.carousel-control-next:hover {
+    background-color: transparent;
   }
-
-  .careers-footer .footer-logo {
-    margin-bottom: 1rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .careers-footer {
-    padding: 2.5rem 0 1rem;
-  }
-
-  .careers-footer .footer-column {
-    text-align: left;
-    margin-bottom: 2.5rem;
-  }
-
-  .careers-footer .footer-heading {
-    font-size: 1.3rem;
-    margin-bottom: 1rem;
-  }
-
-  .careers-footer .footer-heading::after {
+  .site-footer {
     display: none;
   }
 
+  footer.careers-footer {
+    background: linear-gradient(135deg, #1b1b1b 0%, #2a2a2a 100%) !important;
+    color: #fff !important;
+    padding: 4rem 0 2rem !important;
+    margin-top: 0 !important;
+  }
+
+  .careers-footer .footer-column {
+    height: 100%;
+  }
+
+  .careers-footer .footer-heading {
+    font-family:
+      'Montserrat',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #c8b273;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .careers-footer .footer-heading::after {
+    content: '';
+    position: absolute;
+    bottom: -0.5rem;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background: #c8b273;
+  }
+
   .careers-footer .footer-text {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 1.5rem;
+  }
+
+  .careers-footer .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .careers-footer .footer-link {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
     font-size: 0.95rem;
-    text-align: left;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .careers-footer .footer-link:hover {
+    color: #c8b273;
+    text-decoration: none;
+    transform: translateX(5px);
+  }
+
+  .careers-footer .footer-link i {
+    width: 16px;
+    text-align: center;
   }
 
   .careers-footer .contact-info {
-    margin-top: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .careers-footer .contact-item {
+    margin-bottom: 0.75rem;
+  }
+
+  .careers-footer .contact-item strong {
+    color: #c8b273;
+    font-weight: 600;
   }
 
   .careers-footer .contact-link {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .careers-footer .contact-link:hover {
+    color: #c8b273;
+    text-decoration: none;
+  }
+
+  .careers-footer .contact-link i {
     font-size: 1rem;
   }
 
   .careers-footer .footer-bottom {
-    border-top: 1px solid rgba(200, 178, 115, 0.2);
-    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 3rem;
+    padding-top: 2rem;
   }
 
   .careers-footer .footer-logo {
-    text-align: center;
-    margin-bottom: 1.5rem;
+    width: auto;
+    max-width: none;
+  }
+
+  .careers-footer .footer-logo-img {
+    max-height: 55px;
+    width: auto;
+    height: 55px;
+  }
+
+  .careers-footer .footer-brand-text {
+    color: #fff;
+    font-family:
+      'Montserrat',
+      -apple-system,
+      BlinkMacSystemFont,
+      'Segoe UI',
+      sans-serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin: 0;
   }
 
   .careers-footer .social-links {
-    justify-content: center;
-    margin-top: 0;
-    margin-bottom: 1.5rem;
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
   }
 
   .careers-footer .social-link {
-    width: 35px;
-    height: 35px;
-    font-size: 1rem;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s ease;
+    font-size: 1.1rem;
+  }
+
+  .careers-footer .social-link:hover {
+    background: #c8b273;
+    color: #1b1b1b;
+    transform: translateY(-2px);
+    text-decoration: none;
+  }
+
+  .careers-footer .footer-divider {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 1.5rem 0 1rem;
   }
 
   .careers-footer .copyright {
@@ -1287,99 +1211,226 @@ footer.careers-footer {
   }
 
   .careers-footer .copyright p {
-    font-size: 0.85rem;
-    line-height: 1.5;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin: 0;
   }
 
-  .careers-footer .footer-divider {
-    display: none;
+  .careers-footer .copyright a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
+    transition: color 0.2s ease;
+  }
+
+  .careers-footer .copyright a:hover {
+    color: #c8b273;
+    text-decoration: underline;
   }
 
   .careers-footer .legal-links {
-    flex-direction: column;
-    gap: 0.75rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
-  }
-
-  .careers-footer .link-separator {
-    display: none;
+    gap: 0.5rem;
   }
 
   .careers-footer .legal-links a {
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: none;
     font-size: 0.9rem;
-    padding: 0.25rem 0;
+    transition: color 0.2s ease;
+    white-space: nowrap;
+  }
+
+  .careers-footer .legal-links a:hover {
+    color: #c8b273;
+    text-decoration: underline;
+  }
+
+  .careers-footer .link-separator {
+    color: rgba(255, 255, 255, 0.4);
+    font-size: 0.9rem;
+    user-select: none;
   }
 
   .careers-footer .disclaimer {
-    font-size: 0.8rem;
-    margin-bottom: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-style: italic;
   }
-}
 
-/* ============================================
+  @media (max-width: 991.98px) {
+    .careers-footer {
+      padding: 3rem 0 1.5rem;
+    }
+
+    .careers-footer .social-links {
+      justify-content: center;
+      margin-top: 1rem;
+    }
+
+    .careers-footer .footer-bottom {
+      text-align: center;
+    }
+
+    .careers-footer .footer-logo {
+      margin-bottom: 1rem;
+    }
+  }
+
+  @media (max-width: 767.98px) {
+    .careers-footer {
+      padding: 2.5rem 0 1rem;
+    }
+
+    .careers-footer .footer-column {
+      text-align: left;
+      margin-bottom: 2.5rem;
+    }
+
+    .careers-footer .footer-heading {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+    }
+
+    .careers-footer .footer-heading::after {
+      display: none;
+    }
+
+    .careers-footer .footer-text {
+      font-size: 0.95rem;
+      text-align: left;
+    }
+
+    .careers-footer .contact-info {
+      margin-top: 0.5rem;
+    }
+
+    .careers-footer .contact-link {
+      font-size: 1rem;
+    }
+
+    .careers-footer .footer-bottom {
+      border-top: 1px solid rgba(200, 178, 115, 0.2);
+      padding-top: 1.5rem;
+    }
+
+    .careers-footer .footer-logo {
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    .careers-footer .social-links {
+      justify-content: center;
+      margin-top: 0;
+      margin-bottom: 1.5rem;
+    }
+
+    .careers-footer .social-link {
+      width: 35px;
+      height: 35px;
+      font-size: 1rem;
+    }
+
+    .careers-footer .copyright {
+      text-align: center;
+    }
+
+    .careers-footer .copyright p {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .careers-footer .footer-divider {
+      display: none;
+    }
+
+    .careers-footer .legal-links {
+      flex-direction: column;
+      gap: 0.75rem;
+      align-items: center;
+    }
+
+    .careers-footer .link-separator {
+      display: none;
+    }
+
+    .careers-footer .legal-links a {
+      font-size: 0.9rem;
+      padding: 0.25rem 0;
+    }
+
+    .careers-footer .disclaimer {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  /* ============================================
    CAREERS CTA BUTTON STYLES
    ============================================ */
-.careers-cta-container {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  z-index: 1020;
-  display: flex;
-  align-items: center;
-  padding: 1rem;
-}
-
-.careers-cta-btn {
-  text-decoration: none;
-}
-
-@media (min-width: 577px) {
   .careers-cta-container {
-    background: transparent;
-    justify-content: flex-end;
-    padding-right: 32px;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1020;
+    display: flex;
+    align-items: center;
+    padding: 1rem;
   }
 
   .careers-cta-btn {
-    min-width: 200px;
-    max-width: 280px;
+    text-decoration: none;
   }
 
-  .careers-cta-btn .fa-arrow-right {
-    margin-left: 8px;
-    font-size: 0.8em;
-    transition: transform 0.2s ease;
+  @media (min-width: 577px) {
+    .careers-cta-container {
+      background: transparent;
+      justify-content: flex-end;
+      padding-right: 32px;
+    }
+
+    .careers-cta-btn {
+      min-width: 200px;
+      max-width: 280px;
+    }
+
+    .careers-cta-btn .fa-arrow-right {
+      margin-left: 8px;
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
+
+    .careers-cta-btn:hover .fa-arrow-right {
+      transform: translateX(3px);
+    }
   }
 
-  .careers-cta-btn:hover .fa-arrow-right {
-    transform: translateX(3px);
-  }
-}
+  @media (max-width: 576px) {
+    .careers-cta-container {
+      background: rgba(27, 27, 27, 0.7);
+      backdrop-filter: blur(8px);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+      justify-content: center;
+    }
 
-@media (max-width: 576px) {
-  .careers-cta-container {
-    background: rgba(27, 27, 27, 0.7);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    justify-content: center;
-  }
+    .careers-cta-btn {
+      min-width: 70%;
+      max-width: 260px;
+    }
 
-  .careers-cta-btn {
-    min-width: 70%;
-    max-width: 260px;
-  }
+    .careers-cta-btn .fa-arrow-right {
+      margin-left: 8px;
+      font-size: 0.8em;
+      transition: transform 0.2s ease;
+    }
 
-  .careers-cta-btn .fa-arrow-right {
-    margin-left: 8px;
-    font-size: 0.8em;
-    transition: transform 0.2s ease;
+    .careers-cta-btn:hover .fa-arrow-right {
+      transform: translateX(3px);
+    }
   }
-
-  .careers-cta-btn:hover .fa-arrow-right {
-    transform: translateX(3px);
-  }
-}
 </style>
 
 <!-- Careers Landing Page HTML -->
@@ -1389,16 +1440,25 @@ footer.careers-footer {
       <!-- Left Column: Content -->
       <div class="col-lg-6">
         <div class="careers-hero__content">
-          <h1 class="careers-hero__title">Join <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span></h1>
+          <h1 class="careers-hero__title">
+            Join <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>
+          </h1>
           <div class="careers-hero__text">
             <p>
-              At <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>, passion, and purpose meet to transform lives every day.
-              We believe confidence is powerful — and so are the people behind it. As a nationwide leader in plastic surgery and aesthetic care,
-              we're on a mission to empower individuals through transformative experiences that enhance both inner and outer beauty.
+              At <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span
+              >, passion, and purpose meet to transform lives every day. We believe confidence is powerful — and so are the people behind it. As a nationwide leader in plastic surgery and aesthetic
+              care, we're on a mission to empower individuals through transformative experiences that enhance both inner and outer beauty.
             </p>
           </div>
           <div class="careers-hero__cta">
-            <a href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg"> Join Our Team </a>
+            <a
+              href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary btn-lg"
+            >
+              Join Our Team
+            </a>
           </div>
         </div>
       </div>
@@ -1406,11 +1466,7 @@ footer.careers-footer {
       <!-- Right Column: Image -->
       <div class="col-lg-6">
         <div class="careers-hero__image-container">
-          <img
-            src="/wp-content/uploads/2025/11/employees.jpg"
-            alt="Mia Aesthetics™ Team - Join Our Mission"
-            class="careers-hero__image img-fluid rounded"
-          />
+          <img src="/wp-content/uploads/2025/11/employees.jpg" alt="Mia Aesthetics™ Team - Join Our Mission" class="careers-hero__image img-fluid rounded" />
         </div>
       </div>
     </div>
@@ -1434,9 +1490,8 @@ footer.careers-footer {
       <div class="col-lg-6">
         <div class="stats-content">
           <p class="mb-3 mb-md-4 fs-6">
-            Whether you're in the clinic, behind the scenes, or leading operations, your work directly supports
-            life-changing moments for our patients. If you're passionate about helping others, committed to delivering
-            outstanding care, and ready to grow with a purpose-driven organization, we'd love to meet you.
+            Whether you're in the clinic, behind the scenes, or leading operations, your work directly supports life-changing moments for our patients. If you're passionate about helping others,
+            committed to delivering outstanding care, and ready to grow with a purpose-driven organization, we'd love to meet you.
           </p>
         </div>
       </div>
@@ -1448,7 +1503,7 @@ footer.careers-footer {
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2017">0</h3>
+          <h3 class="display-5 text-white mb-2 lh-1" data-count="2017">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Year Founded</p>
         </div>
       </div>
@@ -1457,7 +1512,7 @@ footer.careers-footer {
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="25">0</h3>
+          <h3 class="display-5 text-white mb-2 lh-1" data-count="25">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Expert Surgeons</p>
         </div>
       </div>
@@ -1466,7 +1521,7 @@ footer.careers-footer {
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="15">0</h3>
+          <h3 class="display-5 text-white mb-2 lh-1" data-count="15">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Clinic Locations</p>
         </div>
       </div>
@@ -1475,7 +1530,7 @@ footer.careers-footer {
       <div class="col">
         <div class="position-relative ps-3 ps-md-4 mb-4">
           <div class="position-absolute start-0 top-0 stat-line-gold"></div>
-          <h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="150" data-suffix=",000 +">0</h3>
+          <h3 class="display-5 text-white mb-2 lh-1" data-count="150" data-suffix=",000 +">0</h3>
           <p class="text-white opacity-75 mb-0 fs-6">Satisfied Patients</p>
         </div>
       </div>
@@ -1489,58 +1544,46 @@ footer.careers-footer {
     <div class="core-values__header">
       <p class="section-tagline">What Drives Us</p>
       <h2 class="core-values__title">Our Core Values</h2>
-      <p class="core-values__subtitle">
-        These fundamental principles guide everything we do and shape the exceptional experience we create for both our
-        team and our patients.
-      </p>
+      <p class="core-values__subtitle">These fundamental principles guide everything we do and shape the exceptional experience we create for both our team and our patients.</p>
     </div>
 
     <div class="values-grid">
       <!-- Value 1: Patients First -->
       <div class="value-card" data-value="1">
         <div class="value-icon">
-          <img src="/wp-content/uploads/2025/11/core-values.svg" alt="Patients First Icon" class="value-svg-icon">
+          <img src="/wp-content/uploads/2025/11/core-values.svg" alt="Patients First Icon" class="value-svg-icon" />
         </div>
         <h3 class="value-title">Patients First</h3>
-        <p class="value-description">
-          We are committed to the highest quality of patient care. We understand our patients and support them in
-          their journey to achieve their dreams.
-        </p>
+        <p class="value-description">We are committed to the highest quality of patient care. We understand our patients and support them in their journey to achieve their dreams.</p>
       </div>
 
       <!-- Value 2: Execute With Purpose -->
       <div class="value-card" data-value="2">
         <div class="value-icon">
-          <img src="/wp-content/uploads/2025/11/core-values2.svg" alt="Execute With Purpose Icon" class="value-svg-icon">
+          <img src="/wp-content/uploads/2025/11/core-values2.svg" alt="Execute With Purpose Icon" class="value-svg-icon" />
         </div>
         <h3 class="value-title">Execute With Purpose</h3>
-        <p class="value-description">
-          We are purposeful in everything we do by demonstrating enthusiasm, best intentions, and commitment to
-          delivering results.
-        </p>
+        <p class="value-description">We are purposeful in everything we do by demonstrating enthusiasm, best intentions, and commitment to delivering results.</p>
       </div>
 
       <!-- Value 3: Respect For Others -->
       <div class="value-card" data-value="3">
         <div class="value-icon">
-          <img src="/wp-content/uploads/2025/11/core-values3.svg" alt="Respect For Others Icon" class="value-svg-icon">
+          <img src="/wp-content/uploads/2025/11/core-values3.svg" alt="Respect For Others Icon" class="value-svg-icon" />
         </div>
         <h3 class="value-title">Respect For Others</h3>
         <p class="value-description">
-          We value and drive mutual respect for our customers, partners and teammates. In doing so, we benefit from an
-          agreeable work environment and increased job satisfaction.
+          We value and drive mutual respect for our customers, partners and teammates. In doing so, we benefit from an agreeable work environment and increased job satisfaction.
         </p>
       </div>
 
       <!-- Value 4: Collaborate Openly -->
       <div class="value-card" data-value="4">
         <div class="value-icon">
-          <img src="/wp-content/uploads/2025/11/core-values4.svg" alt="Collaborate Openly Icon" class="value-svg-icon">
+          <img src="/wp-content/uploads/2025/11/core-values4.svg" alt="Collaborate Openly Icon" class="value-svg-icon" />
         </div>
         <h3 class="value-title">Collaborate Openly</h3>
-        <p class="value-description">
-          When we work together, we bring new ideas forward, create solutions and learn from each other.
-        </p>
+        <p class="value-description">When we work together, we bring new ideas forward, create solutions and learn from each other.</p>
       </div>
     </div>
   </div>
@@ -1550,12 +1593,13 @@ footer.careers-footer {
 <section class="foundation-parallax">
   <div class="container">
     <div class="foundation-content">
-      <h2><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Foundation</h2>
+      <h2>
+        <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Foundation
+      </h2>
       <p>
-        We are proud to give back through the <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Foundation, a non-profit organization. Our talented
-        surgical team provides reconstructive plastic surgery to those who live in underserved communities. The Mia
-        Foundation teams up with like-minded partners across the globe who share our mission and values. Click below to
-        learn more about how the Mia Foundation continues to help those in need.
+        We are proud to give back through the <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Foundation, a non-profit organization. Our talented surgical team provides
+        reconstructive plastic surgery to those who live in underserved communities. The Mia Foundation teams up with like-minded partners across the globe who share our mission and values. Click
+        below to learn more about how the Mia Foundation continues to help those in need.
       </p>
       <div class="foundation-cta">
         <a href="/mia-foundation/" class="btn btn-primary">Learn More</a>
@@ -1574,7 +1618,10 @@ footer.careers-footer {
           <div class="benefits-header">
             <p class="section-tagline">What We Offer</p>
             <h2 class="benefits-title">Benefits</h2>
-            <p class="benefits-subtitle">At <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
+            <p class="benefits-subtitle">
+              At <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span
+              >, we support our team and their families with benefits that care for their physical, mental, and financial well-being.
+            </p>
           </div>
         </div>
 
@@ -1585,7 +1632,9 @@ footer.careers-footer {
               <div class="quote-icon">
                 <i class="fas fa-quote-left" aria-hidden="true"></i>
               </div>
-              <p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
+              <p class="quote-text">
+                "Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."
+              </p>
               <footer class="quote-attribution">
                 <span class="attribution-line"></span>
                 <span class="attribution-text">Our Founders</span>
@@ -1601,7 +1650,7 @@ footer.careers-footer {
       <div class="col-lg-3 col-md-6">
         <div class="benefit-card h-100 p-4 text-center">
           <div class="benefit-icon mb-3">
-            <img src="/wp-content/uploads/2025/11/Health-Wellness.svg" alt="Health & Wellness" class="benefit-svg-icon">
+            <img src="/wp-content/uploads/2025/11/Health-Wellness.svg" alt="Health & Wellness" class="benefit-svg-icon" />
           </div>
           <h4 class="benefit-title">Health & Wellness</h4>
           <ul class="benefit-list">
@@ -1616,7 +1665,7 @@ footer.careers-footer {
       <div class="col-lg-3 col-md-6">
         <div class="benefit-card h-100 p-4 text-center">
           <div class="benefit-icon mb-3">
-            <img src="/wp-content/uploads/2025/11/PTO.svg" alt="Time To Unwind" class="benefit-svg-icon">
+            <img src="/wp-content/uploads/2025/11/PTO.svg" alt="Time To Unwind" class="benefit-svg-icon" />
           </div>
           <h4 class="benefit-title">Time To Unwind</h4>
           <ul class="benefit-list">
@@ -1631,7 +1680,7 @@ footer.careers-footer {
       <div class="col-lg-3 col-md-6">
         <div class="benefit-card h-100 p-4 text-center">
           <div class="benefit-icon mb-3">
-            <img src="/wp-content/uploads/2025/11/Financial.svg" alt="Financial Well-Being" class="benefit-svg-icon">
+            <img src="/wp-content/uploads/2025/11/Financial.svg" alt="Financial Well-Being" class="benefit-svg-icon" />
           </div>
           <h4 class="benefit-title">Financial Well-Being</h4>
           <ul class="benefit-list">
@@ -1645,7 +1694,7 @@ footer.careers-footer {
       <div class="col-lg-3 col-md-6">
         <div class="benefit-card h-100 p-4 text-center">
           <div class="benefit-icon mb-3">
-            <img src="/wp-content/uploads/2025/11/Other-Perks.svg" alt="Other Perks" class="benefit-svg-icon">
+            <img src="/wp-content/uploads/2025/11/Other-Perks.svg" alt="Other Perks" class="benefit-svg-icon" />
           </div>
           <h4 class="benefit-title">Other Perks</h4>
           <ul class="benefit-list">
@@ -1658,7 +1707,12 @@ footer.careers-footer {
 
     <!-- Benefits CTA -->
     <div class="text-center mt-5">
-      <a href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+      <a
+        href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-lg"
+      >
         Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
@@ -1671,7 +1725,9 @@ footer.careers-footer {
     <div class="testimonials-header text-center mb-5">
       <p class="section-tagline">Patient Excellence</p>
       <h2 class="testimonials-title">What Our Patients Say</h2>
-      <p class="testimonials-subtitle">See why patients choose our exceptional team and experience the <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> difference.</p>
+      <p class="testimonials-subtitle">
+        See why patients choose our exceptional team and experience the <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> difference.
+      </p>
     </div>
 
     <!-- Bootstrap Carousel -->
@@ -1684,10 +1740,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "Dr. Valauri, Ana and Mo are Mia's Magic Trio! Mo will make you feel safe and welcome with her amazing customer service etiquette. Dr. Valauri did an amazing job. He delivered exactly what I asked for. My results exceeded my expectations."
+                    "Dr. Valauri, Ana and Mo are Mia's Magic Trio! Mo will make you feel safe and welcome with her amazing customer service etiquette. Dr. Valauri did an amazing job. He delivered
+                    exactly what I asked for. My results exceeded my expectations."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Tampa Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1704,10 +1763,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "From my pre-op, Tajh was AWESOME, she made me very comfortable & gave reassurance. The nurses were AWESOME, but VANESSA, she is THE GOAT!! She's honest & has a gift of calmness. 10/10 definitely recommend."
+                    "From my pre-op, Tajh was AWESOME, she made me very comfortable & gave reassurance. The nurses were AWESOME, but VANESSA, she is THE GOAT!! She's honest & has a gift of calmness.
+                    10/10 definitely recommend."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Atlanta Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1724,10 +1786,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "The experience at <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> was awesome from Yesi my pre-op coordinator. Talking to Yesi was like talking to a friend, she is so nice and welcoming. Best person in the building!"
+                    "The experience at <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> was awesome from Yesi my pre-op coordinator. Talking to Yesi was like talking to a
+                    friend, she is so nice and welcoming. Best person in the building!"
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Miami Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1750,10 +1815,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "I can't say enough good things about my experience at this location—everything from the care I received to the amazing results. Nurse Vanessa was an absolute angel! She took such wonderful care of me after my procedure."
+                    "I can't say enough good things about my experience at this location—everything from the care I received to the amazing results. Nurse Vanessa was an absolute angel! She took such
+                    wonderful care of me after my procedure."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Atlanta Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1770,10 +1838,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "I had Lipo 360 and my experience has been a great one. When I came in Gabi answered all my questions, she joked around with me and just truly made me feel comfortable. My experience has been so smooth and well organized."
+                    "I had Lipo 360 and my experience has been a great one. When I came in Gabi answered all my questions, she joked around with me and just truly made me feel comfortable. My
+                    experience has been so smooth and well organized."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Miami Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1790,10 +1861,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "This is my second time having a procedure done with the amazing Dr. Wright at MIA. I cannot be more content with my choice. Dr Wright and her staff are all extremely helpful and supportive through it all."
+                    "This is my second time having a procedure done with the amazing Dr. Wright at MIA. I cannot be more content with my choice. Dr Wright and her staff are all extremely helpful and
+                    supportive through it all."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Miami Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1816,10 +1890,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "I had my bbl with lipo 360 surgery this morning with Dr. Charepoo. He's super informative and delightful. After I woke up, Julia was the best recovery nurse. She spoke to me so gentle and reassuring."
+                    "I had my bbl with lipo 360 surgery this morning with Dr. Charepoo. He's super informative and delightful. After I woke up, Julia was the best recovery nurse. She spoke to me so
+                    gentle and reassuring."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Austin Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1836,10 +1913,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "Amazing experience from my first interaction with the staff. I couldn't have asked for better customer service. The staff, specifically Audrey have been great to me by answering all questions and concerns."
+                    "Amazing experience from my first interaction with the staff. I couldn't have asked for better customer service. The staff, specifically Audrey have been great to me by answering
+                    all questions and concerns."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Miami Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1856,10 +1936,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "Vanessa was an excellent nurse. She cared for me during the recovery process and was very attentive to my needs. She was very kind and compassionate. She made my recovery run with ease."
+                    "Vanessa was an excellent nurse. She cared for me during the recovery process and was very attentive to my needs. She was very kind and compassionate. She made my recovery run with
+                    ease."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Atlanta Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1882,10 +1965,13 @@ footer.careers-footer {
               <div class="testimonial-card card h-100">
                 <div class="testimonial-content card-body d-flex flex-column">
                   <blockquote class="testimonial-quote flex-grow-1">
-                    "I cannot express enough gratitude for the incredible care and compassion Nurse Vanessa provided to me following my surgery. She was kind, professional and very attentive. Dr. Fasusi was also exceptional! He embodies everything a great plastic surgeon should be."
+                    "I cannot express enough gratitude for the incredible care and compassion Nurse Vanessa provided to me following my surgery. She was kind, professional and very attentive. Dr.
+                    Fasusi was also exceptional! He embodies everything a great plastic surgeon should be."
                   </blockquote>
                   <div class="testimonial-author mt-auto">
-                    <h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+                    <h5 class="author-name">
+                      <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient
+                    </h5>
                     <p class="author-location">Atlanta Location</p>
                   </div>
                   <div class="testimonial-stars mt-2">
@@ -1923,7 +2009,12 @@ footer.careers-footer {
 
     <!-- Testimonials CTA -->
     <div class="text-center mt-5">
-      <a href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-lg">
+      <a
+        href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn btn-primary btn-lg"
+      >
         Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
       </a>
     </div>
@@ -1939,7 +2030,8 @@ footer.careers-footer {
         <div class="footer-column">
           <h3 class="footer-heading">Our Mission</h3>
           <p class="footer-text">
-            <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> provides a unique opportunity for surgeons to champion our mission of delivering high-quality, safe plastic surgery at affordable prices, proving that beauty and cost-effectiveness can coexist.
+            <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> provides a unique opportunity for surgeons to champion our mission of delivering high-quality, safe plastic
+            surgery at affordable prices, proving that beauty and cost-effectiveness can coexist.
           </p>
         </div>
       </div>
@@ -1956,9 +2048,7 @@ footer.careers-footer {
               <strong>Surgeon Inquiries:</strong>
             </div>
             <div class="contact-item">
-              <a href="mailto:maggie@miaaesthetics.com" class="contact-link">
-                <i class="fas fa-envelope" aria-hidden="true"></i> maggie@miaaesthetics.com
-              </a>
+              <a href="mailto:maggie@miaaesthetics.com" class="contact-link"> <i class="fas fa-envelope" aria-hidden="true"></i> maggie@miaaesthetics.com </a>
             </div>
             <div class="contact-item mt-3">
               <small class="text-muted">Please send your curriculum vitae for consideration.</small>
@@ -1971,16 +2061,10 @@ footer.careers-footer {
       <div class="col-lg-4 col-md-12">
         <div class="footer-column">
           <h3 class="footer-heading">Join Our Team</h3>
-          <p class="footer-text">
-            Ready to make a difference in aesthetic medicine? We'd love to hear from you.
-          </p>
+          <p class="footer-text">Ready to make a difference in aesthetic medicine? We'd love to hear from you.</p>
           <div class="footer-links">
-            <a href="/locations/" class="footer-link">
-              <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Our Locations
-            </a>
-            <a href="/plastic-surgeons/" class="footer-link">
-              <i class="fas fa-user-md" aria-hidden="true"></i> Meet Our Team
-            </a>
+            <a href="/locations/" class="footer-link"> <i class="fas fa-map-marker-alt" aria-hidden="true"></i> Our Locations </a>
+            <a href="/plastic-surgeons/" class="footer-link"> <i class="fas fa-user-md" aria-hidden="true"></i> Meet Our Team </a>
           </div>
         </div>
       </div>
@@ -1991,7 +2075,7 @@ footer.careers-footer {
       <div class="row align-items-center">
         <div class="col-md-6">
           <div class="footer-logo">
-            <img src="/wp-content/uploads/2025/11/miaaesthetics-logo.svg" alt="Mia Aesthetics" class="footer-logo-img">
+            <img src="/wp-content/uploads/2025/11/miaaesthetics-logo.svg" alt="Mia Aesthetics" class="footer-logo-img" />
           </div>
         </div>
         <div class="col-md-6 text-md-end">
@@ -2011,10 +2095,13 @@ footer.careers-footer {
           </div>
         </div>
       </div>
-      <hr class="footer-divider">
+      <hr class="footer-divider" />
       <div class="copyright">
         <div class="text-center mb-3">
-          <p class="mb-1">&copy; 2025 <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span>. All rights reserved.</p>
+          <p class="mb-1">
+            &copy; 2025 <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span
+            >. All rights reserved.
+          </p>
           <p class="disclaimer mb-0">The pictures on this website consist of both models and actual patients.</p>
         </div>
 
@@ -2041,319 +2128,328 @@ footer.careers-footer {
 
 <!-- Careers Apply Sticky CTA - Shows on Both Mobile and Desktop -->
 <div id="careersCta" class="careers-cta-container d-flex justify-content-center justify-content-lg-end align-items-center position-fixed bottom-0 start-0 w-100 p-3">
-  <a href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services" target="_blank" rel="noopener noreferrer" class="careers-cta-btn btn btn-primary d-inline-block text-center text-decoration-none" aria-label="Apply for career opportunities">
+  <a
+    href="https://recruiting.paylocity.com/Recruiting/Jobs/All/450b9702-9d0a-45f8-9f93-340cc0200bab/Mia-Aesthetics-Services"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="careers-cta-btn btn btn-primary d-inline-block text-center text-decoration-none"
+    aria-label="Apply for career opportunities"
+  >
     Click to Apply <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
   </a>
 </div>
 
 <script>
-/**
- * Careers Page JavaScript - Inline for Elementor
- */
-(function () {
-  "use strict";
+  /**
+   * Careers Page JavaScript - Inline for Elementor
+   */
+  (function () {
+    'use strict';
 
-  // Stats Counter Animation
-  document.addEventListener("DOMContentLoaded", function () {
-    const statsCounters = document.querySelectorAll("[data-count]");
+    // Stats Counter Animation
+    document.addEventListener('DOMContentLoaded', function () {
+      const statsCounters = document.querySelectorAll('[data-count]');
 
-    // Counter animation function
-    function animateCounter(element, targetValue, suffix = "") {
-      const startValue = 0;
-      const duration = 2000;
-      const startTime = performance.now();
+      // Counter animation function
+      function animateCounter(element, targetValue, suffix = '') {
+        const startValue = 0;
+        const duration = 2000;
+        const startTime = performance.now();
 
-      function updateCounter(currentTime) {
-        const elapsed = currentTime - startTime;
-        const progress = Math.min(elapsed / duration, 1);
+        function updateCounter(currentTime) {
+          const elapsed = currentTime - startTime;
+          const progress = Math.min(elapsed / duration, 1);
 
-        // Easing function
-        const easeOutCubic = 1 - Math.pow(1 - progress, 3);
-        const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOutCubic);
+          // Easing function
+          const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+          const currentValue = Math.floor(startValue + (targetValue - startValue) * easeOutCubic);
 
-        element.textContent = currentValue.toString() + suffix;
+          element.textContent = currentValue.toString() + suffix;
 
-        if (1 > progress) {
-          requestAnimationFrame(updateCounter);
+          if (1 > progress) {
+            requestAnimationFrame(updateCounter);
+          }
         }
+
+        requestAnimationFrame(updateCounter);
       }
 
-      requestAnimationFrame(updateCounter);
-    }
+      // Intersection Observer
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              const element = entry.target;
+              const targetValue = parseInt(element.getAttribute('data-count'));
+              const suffix = element.getAttribute('data-suffix') || '';
 
-    // Intersection Observer
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const element = entry.target;
-            const targetValue = parseInt(element.getAttribute("data-count"));
-            const suffix = element.getAttribute("data-suffix") || "";
+              animateCounter(element, targetValue, suffix);
+              observer.unobserve(element);
+            }
+          });
+        },
+        {
+          threshold: 0.5,
+          rootMargin: '0px 0px -50px 0px',
+        },
+      );
 
-            animateCounter(element, targetValue, suffix);
-            observer.unobserve(element);
-          }
-        });
-      },
-      {
-        threshold: 0.5,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
-
-    statsCounters.forEach((counter) => {
-      observer.observe(counter);
+      statsCounters.forEach((counter) => {
+        observer.observe(counter);
+      });
     });
-  });
 
-  // Core Values Animation
-  document.addEventListener("DOMContentLoaded", function () {
-    const valueCards = document.querySelectorAll(".value-card");
+    // Core Values Animation
+    document.addEventListener('DOMContentLoaded', function () {
+      const valueCards = document.querySelectorAll('.value-card');
 
-    const valuesObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry, index) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add("animate-in");
-            }, index * 150);
+      const valuesObserver = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry, index) => {
+            if (entry.isIntersecting) {
+              setTimeout(() => {
+                entry.target.classList.add('animate-in');
+              }, index * 150);
 
-            valuesObserver.unobserve(entry.target);
-          }
-        });
-      },
-      {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      }
-    );
+              valuesObserver.unobserve(entry.target);
+            }
+          });
+        },
+        {
+          threshold: 0.1,
+          rootMargin: '0px 0px -50px 0px',
+        },
+      );
 
-    valueCards.forEach((card) => {
-      valuesObserver.observe(card);
+      valueCards.forEach((card) => {
+        valuesObserver.observe(card);
+      });
     });
-  });
 
-  // Testimonials Carousel Initialization with Responsive Restructuring
-  document.addEventListener("DOMContentLoaded", function () {
-    const testimonialCarousel = document.getElementById("testimonialsCarousel");
+    // Testimonials Carousel Initialization with Responsive Restructuring
+    document.addEventListener('DOMContentLoaded', function () {
+      const testimonialCarousel = document.getElementById('testimonialsCarousel');
 
-    if (testimonialCarousel && "undefined" !== typeof bootstrap) {
-      // Function to restructure carousel based on screen size
-      function restructureCarousel() {
-        const screenWidth = window.innerWidth;
-        const isMobile = 767.98 >= screenWidth;
-        const isTablet = 767.98 < screenWidth && 991.98 >= screenWidth;
-        const carouselInner = testimonialCarousel.querySelector(".carousel-inner");
-        const indicators = testimonialCarousel.querySelector(".carousel-indicators");
+      if (testimonialCarousel && 'undefined' !== typeof bootstrap) {
+        // Function to restructure carousel based on screen size
+        function restructureCarousel() {
+          const screenWidth = window.innerWidth;
+          const isMobile = 767.98 >= screenWidth;
+          const isTablet = 767.98 < screenWidth && 991.98 >= screenWidth;
+          const carouselInner = testimonialCarousel.querySelector('.carousel-inner');
+          const indicators = testimonialCarousel.querySelector('.carousel-indicators');
 
-        // Extract all testimonial cards from original structure
-        const allCards = Array.from(testimonialCarousel.querySelectorAll(".testimonial-card"));
+          // Extract all testimonial cards from original structure
+          const allCards = Array.from(testimonialCarousel.querySelectorAll('.testimonial-card'));
 
-        // Clear existing content
-        carouselInner.innerHTML = "";
-        indicators.innerHTML = "";
+          // Clear existing content
+          carouselInner.innerHTML = '';
+          indicators.innerHTML = '';
 
-        if (isMobile) {
-          // Mobile: 1 review per slide = 10 slides
-          allCards.forEach((card, index) => {
-            const slide = document.createElement("div");
-            slide.className = `carousel-item${0 === index ? " active" : ""}`;
-            slide.innerHTML = `
+          if (isMobile) {
+            // Mobile: 1 review per slide = 10 slides
+            allCards.forEach((card, index) => {
+              const slide = document.createElement('div');
+              slide.className = `carousel-item${0 === index ? ' active' : ''}`;
+              slide.innerHTML = `
               <div class="row g-4 justify-content-center">
                 <div class="col-12">
                   ${card.outerHTML}
                 </div>
               </div>
             `;
-            carouselInner.appendChild(slide);
+              carouselInner.appendChild(slide);
 
-            // Create indicator
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#testimonialsCarousel");
-            indicator.setAttribute("data-bs-slide-to", index.toString());
-            indicator.setAttribute("aria-label", `Slide ${index + 1}`);
-            if (0 === index) {
-              indicator.className = "active";
-              indicator.setAttribute("aria-current", "true");
-            }
-            indicators.appendChild(indicator);
-          });
-        } else if (isTablet) {
-          // Tablet: 2 reviews per slide = 5 slides (2+2+2+2+2)
-          for (let i = 0; i < allCards.length; i += 2) {
-            const slideIndex = Math.floor(i / 2);
-            const slide = document.createElement("div");
-            slide.className = `carousel-item${0 === slideIndex ? " active" : ""}`;
+              // Create indicator
+              const indicator = document.createElement('button');
+              indicator.type = 'button';
+              indicator.setAttribute('data-bs-target', '#testimonialsCarousel');
+              indicator.setAttribute('data-bs-slide-to', index.toString());
+              indicator.setAttribute('aria-label', `Slide ${index + 1}`);
+              if (0 === index) {
+                indicator.className = 'active';
+                indicator.setAttribute('aria-current', 'true');
+              }
+              indicators.appendChild(indicator);
+            });
+          } else if (isTablet) {
+            // Tablet: 2 reviews per slide = 5 slides (2+2+2+2+2)
+            for (let i = 0; i < allCards.length; i += 2) {
+              const slideIndex = Math.floor(i / 2);
+              const slide = document.createElement('div');
+              slide.className = `carousel-item${0 === slideIndex ? ' active' : ''}`;
 
-            const firstCard = allCards[i];
-            const secondCard = allCards[i + 1];
+              const firstCard = allCards[i];
+              const secondCard = allCards[i + 1];
 
-            slide.innerHTML = `
+              slide.innerHTML = `
               <div class="row g-4 justify-content-center">
                 <div class="col-md-6">
                   ${firstCard.outerHTML}
                 </div>
-                ${secondCard ? `<div class="col-md-6">${secondCard.outerHTML}</div>` : ""}
+                ${secondCard ? `<div class="col-md-6">${secondCard.outerHTML}</div>` : ''}
               </div>
             `;
-            carouselInner.appendChild(slide);
+              carouselInner.appendChild(slide);
 
-            // Create indicator
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#testimonialsCarousel");
-            indicator.setAttribute("data-bs-slide-to", slideIndex.toString());
-            indicator.setAttribute("aria-label", `Slide ${slideIndex + 1}`);
-            if (0 === slideIndex) {
-              indicator.className = "active";
-              indicator.setAttribute("aria-current", "true");
-            }
-            indicators.appendChild(indicator);
-          }
-        } else {
-          // Desktop: 3 reviews per slide = 4 slides (3+3+3+1) - restore original structure
-          const originalSlides = [
-            [0, 1, 2], // Reviews 1-3
-            [3, 4, 5], // Reviews 4-6
-            [6, 7, 8], // Reviews 7-9
-            [9], // Review 10
-          ];
-
-          originalSlides.forEach((cardIndices, slideIndex) => {
-            const slide = document.createElement("div");
-            slide.className = `carousel-item${0 === slideIndex ? " active" : ""}`;
-
-            let slideContent = '<div class="row g-4 justify-content-center">';
-            cardIndices.forEach((cardIndex) => {
-              if (allCards[cardIndex]) {
-                const colClass =
-                  1 === cardIndices.length ? "col-lg-4 col-md-6 col-12" : "col-lg-4 col-md-6";
-                slideContent += `<div class="${colClass} d-flex">${allCards[cardIndex].outerHTML}</div>`;
+              // Create indicator
+              const indicator = document.createElement('button');
+              indicator.type = 'button';
+              indicator.setAttribute('data-bs-target', '#testimonialsCarousel');
+              indicator.setAttribute('data-bs-slide-to', slideIndex.toString());
+              indicator.setAttribute('aria-label', `Slide ${slideIndex + 1}`);
+              if (0 === slideIndex) {
+                indicator.className = 'active';
+                indicator.setAttribute('aria-current', 'true');
               }
-            });
-            slideContent += "</div>";
-
-            slide.innerHTML = slideContent;
-            carouselInner.appendChild(slide);
-
-            // Create indicator
-            const indicator = document.createElement("button");
-            indicator.type = "button";
-            indicator.setAttribute("data-bs-target", "#testimonialsCarousel");
-            indicator.setAttribute("data-bs-slide-to", slideIndex.toString());
-            indicator.setAttribute("aria-label", `Slide ${slideIndex + 1}`);
-            if (0 === slideIndex) {
-              indicator.className = "active";
-              indicator.setAttribute("aria-current", "true");
+              indicators.appendChild(indicator);
             }
-            indicators.appendChild(indicator);
-          });
-        }
-      }
+          } else {
+            // Desktop: 3 reviews per slide = 4 slides (3+3+3+1) - restore original structure
+            const originalSlides = [
+              [0, 1, 2], // Reviews 1-3
+              [3, 4, 5], // Reviews 4-6
+              [6, 7, 8], // Reviews 7-9
+              [9], // Review 10
+            ];
 
-      // Initial setup
-      restructureCarousel();
+            originalSlides.forEach((cardIndices, slideIndex) => {
+              const slide = document.createElement('div');
+              slide.className = `carousel-item${0 === slideIndex ? ' active' : ''}`;
 
-      // Rebuild on resize (but avoid refreshes on mobile scroll)
-      let resizeTimeout;
-      let lastWidth = window.innerWidth;
+              let slideContent = '<div class="row g-4 justify-content-center">';
+              cardIndices.forEach((cardIndex) => {
+                if (allCards[cardIndex]) {
+                  const colClass = 1 === cardIndices.length ? 'col-lg-4 col-md-6 col-12' : 'col-lg-4 col-md-6';
+                  slideContent += `<div class="${colClass} d-flex">${allCards[cardIndex].outerHTML}</div>`;
+                }
+              });
+              slideContent += '</div>';
 
-      window.addEventListener("resize", function () {
-        const currentWidth = window.innerWidth;
+              slide.innerHTML = slideContent;
+              carouselInner.appendChild(slide);
 
-        // Only restructure if width actually changed significantly (not just mobile scroll)
-        if (50 > Math.abs(currentWidth - lastWidth)) {
-          return;
+              // Create indicator
+              const indicator = document.createElement('button');
+              indicator.type = 'button';
+              indicator.setAttribute('data-bs-target', '#testimonialsCarousel');
+              indicator.setAttribute('data-bs-slide-to', slideIndex.toString());
+              indicator.setAttribute('aria-label', `Slide ${slideIndex + 1}`);
+              if (0 === slideIndex) {
+                indicator.className = 'active';
+                indicator.setAttribute('aria-current', 'true');
+              }
+              indicators.appendChild(indicator);
+            });
+          }
         }
 
-        clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(function () {
-          // Dispose existing carousel
-          const existingCarousel = bootstrap.Carousel.getInstance(testimonialCarousel);
-          if (existingCarousel) {
-            existingCarousel.dispose();
+        // Initial setup
+        restructureCarousel();
+
+        // Rebuild on resize (but avoid refreshes on mobile scroll)
+        let resizeTimeout;
+        let lastWidth = window.innerWidth;
+
+        window.addEventListener('resize', function () {
+          const currentWidth = window.innerWidth;
+
+          // Only restructure if width actually changed significantly (not just mobile scroll)
+          if (50 > Math.abs(currentWidth - lastWidth)) {
+            return;
           }
 
-          // Restructure without reloading
-          restructureCarousel();
+          clearTimeout(resizeTimeout);
+          resizeTimeout = setTimeout(function () {
+            // Dispose existing carousel
+            const existingCarousel = bootstrap.Carousel.getInstance(testimonialCarousel);
+            if (existingCarousel) {
+              existingCarousel.dispose();
+            }
 
-          // Reinitialize carousel
-          new bootstrap.Carousel(testimonialCarousel, {
-            interval: 6000,
-            keyboard: true,
-            pause: "hover",
-            ride: false,
-            wrap: true,
-            touch: true,
-          });
+            // Restructure without reloading
+            restructureCarousel();
 
-          // Update last width
-          lastWidth = currentWidth;
-        }, 300);
-      });
-
-      // Initialize Bootstrap carousel with faster transitions
-      const carousel = new bootstrap.Carousel(testimonialCarousel, {
-        interval: 6000,
-        keyboard: true,
-        pause: "hover",
-        ride: false,
-        wrap: true,
-        touch: true,
-      });
-
-      // Improve click responsiveness by stopping any ongoing transitions
-      const prevBtn = testimonialCarousel.querySelector(".carousel-control-prev");
-      const nextBtn = testimonialCarousel.querySelector(".carousel-control-next");
-
-      if (prevBtn) {
-        prevBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          carousel.prev();
-        });
-      }
-
-      if (nextBtn) {
-        nextBtn.addEventListener("click", function (e) {
-          e.preventDefault();
-          carousel.next();
-        });
-      }
-
-      // Start carousel after initialization
-      setTimeout(() => {
-        carousel.cycle();
-      }, 1000);
-
-      // Fade in effect for testimonials
-      const testimonialsSection = document.querySelector(".testimonials-section");
-      if (testimonialsSection) {
-        const testimonialsObserver = new IntersectionObserver(
-          (entries) => {
-            entries.forEach((entry) => {
-              if (entry.isIntersecting) {
-                const allCards = entry.target.querySelectorAll(".testimonial-card");
-                allCards.forEach((card) => {
-                  card.style.opacity = "1";
-                });
-
-                testimonialsObserver.unobserve(entry.target);
-              }
+            // Reinitialize carousel
+            new bootstrap.Carousel(testimonialCarousel, {
+              interval: 6000,
+              keyboard: true,
+              pause: 'hover',
+              ride: false,
+              wrap: true,
+              touch: true,
             });
-          },
-          {
-            threshold: 0.1,
-            rootMargin: "0px 0px -50px 0px",
-          }
-        );
 
-        testimonialsObserver.observe(testimonialsSection);
+            // Update last width
+            lastWidth = currentWidth;
+          }, 300);
+        });
+
+        // Initialize Bootstrap carousel with faster transitions
+        const carousel = new bootstrap.Carousel(testimonialCarousel, {
+          interval: 6000,
+          keyboard: true,
+          pause: 'hover',
+          ride: false,
+          wrap: true,
+          touch: true,
+        });
+
+        // Improve click responsiveness by stopping any ongoing transitions
+        const prevBtn = testimonialCarousel.querySelector('.carousel-control-prev');
+        const nextBtn = testimonialCarousel.querySelector('.carousel-control-next');
+
+        if (prevBtn) {
+          prevBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            carousel.prev();
+          });
+        }
+
+        if (nextBtn) {
+          nextBtn.addEventListener('click', function (e) {
+            e.preventDefault();
+            carousel.next();
+          });
+        }
+
+        // Start carousel after initialization
+        setTimeout(() => {
+          carousel.cycle();
+        }, 1000);
+
+        // Fade in effect for testimonials
+        const testimonialsSection = document.querySelector('.testimonials-section');
+        if (testimonialsSection) {
+          const testimonialsObserver = new IntersectionObserver(
+            (entries) => {
+              entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                  const allCards = entry.target.querySelectorAll('.testimonial-card');
+                  allCards.forEach((card) => {
+                    card.style.opacity = '1';
+                  });
+
+                  testimonialsObserver.unobserve(entry.target);
+                }
+              });
+            },
+            {
+              threshold: 0.1,
+              rootMargin: '0px 0px -50px 0px',
+            },
+          );
+
+          testimonialsObserver.observe(testimonialsSection);
+        }
       }
-    }
-  });
-})();
+    });
+  })();
 </script>
 
 <!-- Bootstrap JS Bundle (includes Popper) -->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+<script
+  src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+  integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+  crossorigin="anonymous"
+></script>

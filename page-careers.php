@@ -84,7 +84,7 @@ get_header(); ?>
 		<div class="col">
 		<div class="position-relative ps-3 ps-md-4 mb-4">
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
-			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="2017">0</h3>
+			<h3 class="display-5 text-white mb-2 lh-1" data-count="2017">0</h3>
 			<p class="text-white opacity-75 mb-0 fs-6">Year Founded</p>
 		</div>
 		</div>
@@ -93,7 +93,7 @@ get_header(); ?>
 		<div class="col">
 		<div class="position-relative ps-3 ps-md-4 mb-4">
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
-			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
+			<h3 class="display-5 text-white mb-2 lh-1" data-count="
 			<?php
 			$stats = mia_aesthetics_get_site_stats();
 			echo esc_attr( (string) $stats['surgeons'] );
@@ -107,7 +107,7 @@ get_header(); ?>
 		<div class="col">
 		<div class="position-relative ps-3 ps-md-4 mb-4">
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
-			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="
+			<h3 class="display-5 text-white mb-2 lh-1" data-count="
 			<?php
 			echo esc_attr( (string) $stats['locations'] );
 			?>
@@ -120,7 +120,7 @@ get_header(); ?>
 		<div class="col">
 		<div class="position-relative ps-3 ps-md-4 mb-4">
 			<div class="position-absolute start-0 top-0 stat-line-gold"></div>
-			<h3 class="display-5 fw-bold text-white mb-2 lh-1" data-count="150" data-suffix=",000 +">0</h3>
+			<h3 class="display-5 text-white mb-2 lh-1" data-count="150" data-suffix=",000 +">0</h3>
 			<p class="text-white opacity-75 mb-0 fs-6">Satisfied Patients</p>
 		</div>
 		</div>

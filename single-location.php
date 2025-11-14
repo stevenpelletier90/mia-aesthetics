@@ -46,13 +46,13 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 							<div class="location-detail mb-4">
 								<div class="d-flex flex-column">
 									<?php if ( ! in_array( trim( $street ), array( '', '0' ), true ) ) : ?>
-										<span class="fw-bold"><?php echo esc_html( trim( $street ) ); ?></span>
+										<?php echo esc_html( trim( $street ) ); ?>
 									<?php endif; ?>
 									<?php
 									$address_line2 = trim( $city . ', ' . $state . ' ' . $zip, ', ' );
 									if ( '' !== $address_line2 && '0' !== $address_line2 ) :
 										?>
-										<span class="fw-bold"><?php echo esc_html( $address_line2 ); ?></span>
+										<?php echo esc_html( $address_line2 ); ?>
 									<?php endif; ?>
 								</div>
 							</div>

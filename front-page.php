@@ -480,27 +480,44 @@ require __DIR__ . '/hero-section.php';
 </section>
 
 
-<!-- Foundation Section with Fixed Background (Desktop) / Regular Image (Mobile) -->
+<!-- Foundation Section with Mosaic Background & Gold Gradient -->
 <section class="foundation-section">
-	<!-- Background image for desktop -->
-	<div class="foundation-bg d-none d-md-block"></div>
-  
-	<!-- Regular image for mobile -->
-	<div class="foundation-mobile-img d-md-none">
-	<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="Mia Aesthetics Foundation" class="img-fluid w-100">
+	<!-- Mosaic Background Container -->
+	<div class="foundation-mosaic">
+		<div class="mosaic-item mosaic-item-1">
+			<img src="/wp-content/uploads/2025/04/body-home.jpg" alt="" loading="lazy">
+		</div>
+		<div class="mosaic-item mosaic-item-2">
+			<img src="/wp-content/uploads/2025/05/surgery-1.jpg" alt="" loading="lazy">
+		</div>
+		<div class="mosaic-item mosaic-item-3">
+			<img src="/wp-content/uploads/2025/04/breast-home.jpg" alt="" loading="lazy">
+		</div>
+		<div class="mosaic-item mosaic-item-4">
+			<img src="/wp-content/uploads/2025/04/face-2-home.jpg" alt="" loading="lazy">
+		</div>
+		<div class="mosaic-item mosaic-item-5">
+			<img src="/wp-content/uploads/2025/04/men-home.jpg" alt="" loading="lazy">
+		</div>
+		<div class="mosaic-item mosaic-item-6">
+			<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="" loading="lazy">
+		</div>
 	</div>
-  
+
+	<!-- Gold Gradient Overlay -->
+	<div class="foundation-gradient-overlay"></div>
+
 	<div class="container position-relative">
-	<div class="row">
-		<div class="col-12">
-		<div class="foundation-content text-center">
-			<p class="foundation-tagline ">Giving Back to Our Community</p>
-			<h2 class=" section-heading">The Mia Aesthetics Foundation</h2>
-			<p class="section-description section-description--white ">At Mia Aesthetics, we are committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
-			<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+		<div class="row">
+			<div class="col-12">
+				<div class="foundation-content text-center">
+					<p class="foundation-tagline ">Giving Back to Our Community</p>
+					<h2 class=" section-heading">The Mia Aesthetics Foundation</h2>
+					<p class="section-description section-description--white ">At Mia Aesthetics, we are committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+					<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+				</div>
+			</div>
 		</div>
-		</div>
-	</div>
 	</div>
 </section>
 

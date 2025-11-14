@@ -19,7 +19,7 @@ get_header(); ?>
 		<div class="container">
 			<div class="row justify-content-center">
 				<div class="col-lg-8 text-center">
-					<h1 class="display-1 fw-bold mb-4 error-number">404</h1>
+					<h1 class="display-1 mb-4 error-number">404</h1>
 					<h2 class="h3 mb-4">Page Not Found</h2>
 					<p class="lead mb-0">
 						The page you are looking for might have been removed, had its name changed,
