@@ -485,22 +485,22 @@ require __DIR__ . '/hero-section.php';
 	<!-- Mosaic Background Container -->
 	<div class="foundation-mosaic">
 		<div class="mosaic-item mosaic-item-1">
-			<img src="/wp-content/uploads/2025/04/body-home.jpg" alt="" loading="lazy">
+			<img src="/wp-content/uploads/2025/07/mia-foundation-team-1.jpg" alt="" loading="lazy">
 		</div>
 		<div class="mosaic-item mosaic-item-2">
-			<img src="/wp-content/uploads/2025/05/surgery-1.jpg" alt="" loading="lazy">
+			<img src="/wp-content/uploads/2025/07/mia-foundation-consultation-1.jpg" alt="" loading="lazy">
 		</div>
 		<div class="mosaic-item mosaic-item-3">
-			<img src="/wp-content/uploads/2025/04/breast-home.jpg" alt="" loading="lazy">
+			<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="" loading="lazy">
 		</div>
 		<div class="mosaic-item mosaic-item-4">
-			<img src="/wp-content/uploads/2025/04/face-2-home.jpg" alt="" loading="lazy">
+			<img src="/wp-content/uploads/2025/07/mia-foundation-consultation-2.jpg" alt="" loading="lazy">
 		</div>
 		<div class="mosaic-item mosaic-item-5">
-			<img src="/wp-content/uploads/2025/04/men-home.jpg" alt="" loading="lazy">
+			<img src="/wp-content/uploads/2025/07/mia-foundation-team-2.jpg" alt="" loading="lazy">
 		</div>
 		<div class="mosaic-item mosaic-item-6">
-			<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="" loading="lazy">
+			<img src="/wp-content/uploads/2025/07/mia-foundation-team-1.jpg" alt="" loading="lazy">
 		</div>
 	</div>
 
