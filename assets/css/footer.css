@@ -53,18 +53,11 @@
   text-decoration: underline;
 }
 
-.footer-divider-container {
-  width: 100%;
-  padding: 0;
-  margin: 2rem 0;
-}
-
 .footer-divider {
   border: 0;
   height: 1px;
   background: rgba(255, 255, 255, 0.2);
-  width: 100%;
-  margin: 0;
+  opacity: 1;
 }
 
 .locations-section {
@@ -101,7 +94,7 @@
 .locations-section .accordion-button {
   font-family: var(--font-heading);
   font-weight: 600;
-  padding: 0.75rem 1.25rem;
+  padding: 0.75rem 1.5rem;
   background-color: var(--mia-black);
   color: var(--mia-white);
   border: none;
@@ -163,17 +156,14 @@
 }
 
 .locations-section .accordion-body {
-  padding: 1rem 1.25rem;
+  padding: 1rem 1.5rem;
   color: rgba(255, 255, 255, 0.8);
   background-color: var(--mia-black);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   flex-grow: 1;
 }
 
-.location-link a {
-  text-decoration: none;
-}
-
+/* Base styles for all surgeon links */
 .locations-section .accordion-body a.surgeon-link {
   color: var(--mia-white);
   text-decoration: none;
@@ -181,7 +171,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.25rem 0;
+  padding: 4px 0;
   font-size: 1rem;
   font-weight: normal;
 }
@@ -198,7 +188,7 @@
 .locations-section .accordion-body a.surgeon-link .surgeon-arrow {
   font-size: 1rem;
   opacity: 0.7;
-  margin-left: 0.5rem;
+  margin-left: 8px;
   transition: all 0.2s ease;
   color: var(--mia-white);
 }
@@ -208,25 +198,12 @@
   color: var(--mia-gold);
 }
 
+/* Location link override - gold by default */
 .location-link a.surgeon-link {
   color: var(--mia-gold);
 }
 
-.location-link a.surgeon-link:hover {
-  color: var(--mia-gold);
-  text-decoration: none;
-}
-
-.location-link a.surgeon-link:hover span {
-  text-decoration: underline;
-}
-
 .location-link a.surgeon-link .surgeon-arrow {
-  color: var(--mia-gold);
-}
-
-.location-link a.surgeon-link:hover .surgeon-arrow {
-  opacity: 1;
   color: var(--mia-gold);
 }
 
@@ -250,19 +227,8 @@
   margin-bottom: 1rem;
 }
 
-.footer-links {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  gap: 1.5rem;
-  flex-wrap: wrap;
-}
-
 .footer-links li {
-  display: inline-block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 8px;
 }
 
 .footer-links a {
@@ -270,7 +236,7 @@
   text-decoration: none;
   transition: color 0.2s ease;
   font-size: 1rem;
-  padding: 0.25rem 0;
+  padding: 4px 0;
 }
 
 .footer-links a:hover {
@@ -331,7 +297,7 @@
 
   .locations-section .accordion-button {
     font-size: 1rem;
-    padding: 0.6rem 1rem;
+    padding: 0.75rem 1rem;
   }
 
   .locations-section .accordion-body {
@@ -344,10 +310,6 @@
 
   .surgeon-link {
     font-size: 1rem;
-  }
-
-  .footer-links {
-    gap: 1rem;
   }
 }
 
@@ -375,16 +337,7 @@
     font-size: 0.7rem;
   }
 
-  .footer-links {
-    gap: 0.75rem;
-    justify-content: center;
-  }
-
   .footer-links li {
-    margin: 0 0.25rem 0.5rem;
-  }
-
-  .footer-links a {
-    font-size: 1rem;
+    margin-bottom: 8px;
   }
 }

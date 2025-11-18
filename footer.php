@@ -62,11 +62,9 @@
 				</nav>
 			</div>
 		</div>
-		
-		<div class="footer-divider-container">
-			<hr class="footer-divider">
-		</div>
-		
+
+		<hr class="footer-divider my-4">
+
 		<!-- Locations & Surgeons Section with Accordion -->
 		<div class="locations-section mt-4">
 			<h3 class="footer-heading mb-3">Locations & Surgeons</h3>
@@ -129,12 +127,11 @@
 			</div>
 		</div>
 	</div>
-	<div class="footer-divider-container">
-		<div class="container-fluid wide-container">
-			<hr class="footer-divider">
-		</div>
+
+	<div class="container-fluid wide-container">
+		<hr class="footer-divider my-4">
 	</div>
-	
+
 	<!-- Bottom Footer - Simplified for better responsive behavior -->
 	<div class="footer-bottom">
 		<div class="container-fluid wide-container">
@@ -147,7 +144,7 @@
 			<!-- Links Section - Centered -->
 			<div class="text-center">
 				<nav aria-label="Legal and policy navigation">
-					<ul class="footer-links">
+					<ul class="footer-links list-unstyled d-flex justify-content-center gap-3 flex-wrap m-0">
 						<li><a href="<?php echo esc_url( home_url( '/website-privacy-policy/' ) ); ?>">Privacy Policy</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/patient-privacy-practices/' ) ); ?>">Patient Privacy Practices</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/terms-and-conditions/' ) ); ?>">Terms & Conditions</a></li>
