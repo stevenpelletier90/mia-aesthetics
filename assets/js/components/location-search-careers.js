@@ -320,7 +320,7 @@
       headerHtml = `
         <div style="padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.8);">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <span style="background-color: var(--color-gold); color: var(--color-primary); padding: 0.25rem 0.75rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; flex-shrink: 0;"><i class="fas fa-star" style="font-size: 0.7rem;"></i></span>
+            <span style="background-color: var(--mia-gold); color: var(--mia-black); padding: 0.25rem 0.75rem; border-radius: 20px; font-weight: 600; display: inline-flex; align-items: center; gap: 0.25rem; flex-shrink: 0;"><i class="fas fa-star" style="font-size: 0.7rem;"></i></span>
             <span><strong style="color: #fff;">${escapeHtml(searchQuery)}</strong> + closest alternatives</span>
           </div>
         </div>
@@ -332,7 +332,7 @@
       headerHtml = `
         <div style="padding: 0.75rem 1.5rem; background: rgba(255, 255, 255, 0.05); border-bottom: 1px solid rgba(255, 255, 255, 0.1); font-size: 0.85rem; color: rgba(255, 255, 255, 0.8);">
           <div style="display: flex; align-items: center; gap: 0.5rem;">
-            <i class="fas fa-map-marker-alt" style="color: var(--color-gold); flex-shrink: 0;"></i>
+            <i class="fas fa-map-marker-alt" style="color: var(--mia-gold); flex-shrink: 0;"></i>
             <span>Closest career locations to <strong style="color: #fff;">${escapeHtml(searchQuery)}</strong>${distanceNote}</span>
           </div>
         </div>
@@ -346,7 +346,7 @@
         let matchLabel = '';
         if (location.isExactMatch) {
           matchLabel =
-            '<span style="background-color: var(--color-gold); color: var(--color-primary); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap;"><i class="fas fa-star" style="font-size: 0.6rem;"></i>Match</span>';
+            '<span style="background-color: var(--mia-gold); color: var(--mia-black); font-size: 0.7rem; font-weight: 600; padding: 0.2rem 0.5rem; border-radius: 12px; display: inline-flex; align-items: center; gap: 0.2rem; white-space: nowrap;"><i class="fas fa-star" style="font-size: 0.6rem;"></i>Match</span>';
         }
 
         let distanceHtml = '';
