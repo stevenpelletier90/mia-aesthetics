@@ -26,7 +26,7 @@
 .special-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border: 2px solid var(--mia-gold);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   display: flex;
   flex-direction: column;
@@ -124,7 +124,7 @@
 .specials-language-toggle .nav-link {
   background: transparent;
   border: 2px solid var(--mia-gold);
-  border-radius: 25px;
+  border-radius: var(--radius-lg);
   color: var(--mia-black);
   cursor: pointer;
   font-size: 0.95rem;
@@ -179,7 +179,7 @@
 .featured-badge {
   animation: pulse 2s infinite;
   background: var(--mia-gold);
-  border-radius: 20px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px var(--mia-gold-30);
   color: var(--mia-white);
   font-size: 14px;

@@ -20,7 +20,7 @@
 .careers-hero__image-container {
   position: relative;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
 }
 
@@ -152,7 +152,7 @@
 .value-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   transition: all 0.2s ease;
   height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -173,7 +173,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--mia-gold-light);
   border: 2px solid var(--mia-gold-20);
   box-shadow: 0 4px 15px var(--mia-gold-20);
@@ -349,7 +349,7 @@
 .founders-quote {
   background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--mia-gold-10) 100%);
   border: 1px solid var(--mia-gold-20);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   padding: 3rem;
   margin: 0;
   font-style: normal;
@@ -412,7 +412,7 @@
 .benefit-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   transition: all 0.2s ease;
   height: 100%;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
@@ -431,7 +431,7 @@
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   background: var(--mia-gold-light);
   border: 2px solid var(--mia-gold-20);
   box-shadow: 0 4px 15px var(--mia-gold-20);
@@ -538,7 +538,7 @@
 .testimonial-card {
   background: var(--mia-white);
   border: 1px solid rgba(0, 0, 0, 0.08);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   text-align: center;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
@@ -637,7 +637,7 @@
 #testimonialsCarousel .carousel-control-prev-icon,
 #testimonialsCarousel .carousel-control-next-icon {
   background-color: var(--mia-gray-muted);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   width: 2.5rem;
   height: 2.5rem;
   background-size: 50%;
@@ -659,7 +659,7 @@
 .carousel-indicators [data-bs-target] {
   width: 12px;
   height: 12px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   border: 2px solid var(--mia-black);
   background-color: transparent;
   margin: 0 0.5rem;
@@ -803,7 +803,7 @@
   width: 40px;
   height: 40px;
   background: rgba(255, 255, 255, 0.1);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   align-items: center;
   justify-content: center;

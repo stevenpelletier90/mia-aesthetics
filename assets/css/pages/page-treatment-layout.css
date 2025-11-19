@@ -147,7 +147,7 @@
 .resource-card {
   background-color: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   color: var(--mia-white);
   transition: all 0.2s ease;
   min-height: 80px;
@@ -185,7 +185,7 @@
 
 .before-after-card {
   border: none;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   transition: all 0.2s ease;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -207,7 +207,7 @@
 }
 
 .procedure-image {
-  border-radius: 16px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
@@ -217,14 +217,14 @@
 }
 
 .procedure-image-wrapper .image-frame {
-  border-radius: 12px;
+  border-radius: var(--radius-sm);
   overflow: hidden;
 }
 
 .highlight-card {
   background: var(--mia-white);
   border: 2px solid var(--mia-gold);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   transition: all 0.2s ease;
 }
 
@@ -236,7 +236,7 @@
 .info-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 2rem 1.5rem;
   text-align: center;
   transition: all 0.2s ease;
@@ -268,7 +268,7 @@
 .highlight-note {
   background: linear-gradient(135deg, rgba(255, 193, 7, 0.15) 0%, rgba(255, 193, 7, 0.08) 100%);
   border: 2px solid var(--mia-gold);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 1.5rem;
   margin: 1.5rem 0;
   transition: all 0.2s ease;
@@ -294,7 +294,7 @@
 .info-note {
   background: linear-gradient(135deg, rgba(13, 202, 240, 0.08) 0%, rgba(13, 202, 240, 0.04) 100%);
   border: 1px solid rgba(13, 202, 240, 0.3);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 1.25rem;
   margin: 1rem 0;
 }
@@ -313,7 +313,7 @@
 .confidence-note {
   background: linear-gradient(135deg, rgba(220, 53, 69, 0.08) 0%, rgba(220, 53, 69, 0.04) 100%);
   border: 1px solid rgba(220, 53, 69, 0.2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 1.25rem;
   margin: 1rem 0;
 }
@@ -333,7 +333,7 @@
 .customization-note {
   background: linear-gradient(135deg, rgba(111, 66, 193, 0.08) 0%, rgba(111, 66, 193, 0.04) 100%);
   border: 1px solid rgba(111, 66, 193, 0.2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 1.25rem;
   margin: 1rem 0;
 }
@@ -351,7 +351,7 @@
 
 .causes-info {
   background: var(--mia-gold-light);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 1.25rem;
   margin: 1rem 0;
 }
@@ -364,7 +364,7 @@
 .treatment-area-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold);
-  border-radius: 0.375rem;
+  border-radius: var(--radius-sm);
   transition: all 0.2s ease;
 }
 
@@ -426,7 +426,7 @@
 
 .fixed-bg-content-box {
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 0.375rem;
+  border-radius: var(--radius-sm);
 }
 
 .fixed-bg-heading {
@@ -450,7 +450,7 @@
 
 .procedure-step-card {
   border: 1px solid var(--mia-gold);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   background: var(--mia-white);
   transition: all 0.2s ease;
 }
@@ -465,7 +465,7 @@
   height: 3rem;
   background: var(--mia-gold);
   color: var(--mia-black);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   font-weight: 600;
   font-size: 1.25rem;
   display: flex;
@@ -509,7 +509,7 @@
 }
 
 .procedure-image-wrapper {
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
@@ -583,7 +583,7 @@
 
 .bbl-recovery-content-box {
   background: rgba(0, 0, 0, 0.8);
-  border-radius: 0.375rem;
+  border-radius: var(--radius-sm);
 }
 
 .bbl-recovery-content-box h2 {
@@ -599,7 +599,7 @@
 .bbl-info-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold);
-  border-radius: 0.5rem;
+  border-radius: var(--radius-md);
   transition: all 0.2s ease;
 }
 
@@ -639,7 +639,7 @@
 .procedure-section .procedure-link-item {
   background: var(--mia-black);
   border: 1px solid var(--mia-gold);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   color: var(--mia-white);
   text-decoration: none;
   transition: all 0.2s ease;
@@ -853,7 +853,7 @@
   background-color: var(--mia-black);
   color: var(--mia-white);
   border: 1px solid var(--mia-gold);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   border-collapse: collapse;
 }
@@ -910,7 +910,7 @@
     display: block;
     background-color: var(--mia-black);
     border: 1px solid var(--mia-gold);
-    border-radius: 8px;
+    border-radius: var(--radius-md);
     margin-bottom: 1.5rem;
     overflow: hidden;
   }

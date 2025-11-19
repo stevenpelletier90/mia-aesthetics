@@ -1,5 +1,5 @@
 .sidebar-section.border-radius-none {
-  border-radius: 0;
+  border-radius: var(--radius-none);
 }
 
 .location-header {
@@ -30,7 +30,7 @@
 
 .location-info {
   background-color: rgba(155, 155, 155, 0.2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 1.5rem;
   backdrop-filter: blur(5px);
 }
@@ -116,7 +116,7 @@
   width: 4.375rem;
   height: 4.375rem;
   background-color: var(--mia-black);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -133,13 +133,13 @@
 
 .sidebar-section {
   background-color: var(--mia-white);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   overflow: hidden;
   margin-bottom: 2rem;
 }
 
 .card {
-  border-radius: 8px;
+  border-radius: var(--radius-md);
 }
 
 .card-body {
@@ -184,7 +184,7 @@
 .sidebar-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
   padding: 2rem;
@@ -218,7 +218,7 @@
   align-items: center;
   background: var(--mia-gold-light);
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   color: var(--mia-black);
   display: flex;
   padding: 1rem;
@@ -256,7 +256,7 @@
 
 .surgeon-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   padding: 2rem 1.5rem;
   text-align: center;
   transition:
@@ -273,7 +273,7 @@
   img {
     width: 7.5rem;
     height: 7.5rem;
-    border-radius: 50%;
+    border-radius: var(--radius-full);
     object-fit: cover;
     border: 3px solid var(--mia-gold);
     margin-bottom: 1.5rem;

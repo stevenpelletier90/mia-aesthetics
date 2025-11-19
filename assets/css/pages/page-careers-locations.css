@@ -1,5 +1,5 @@
 .sidebar-section.border-radius-none {
-  border-radius: 0;
+  border-radius: var(--radius-none);
 }
 
 .location-header {
@@ -31,7 +31,7 @@
 .location-info {
   backdrop-filter: blur(5px);
   background-color: rgba(155, 155, 155, 0.2);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   padding: 24px;
 }
 
@@ -97,7 +97,7 @@
 .dept-breakdown .accordion-item {
   background: var(--mia-white);
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -206,7 +206,7 @@
 .page-template-page-careers-locations main .accordion-item {
   background: var(--mia-white);
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -267,7 +267,7 @@
 .position-card-expanded {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   height: 100%;
   overflow: hidden;
   padding: 24px;
@@ -408,7 +408,7 @@
 .founders-quote {
   background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--mia-gold-10) 100%);
   border: 1px solid var(--mia-gold-20);
-  border-radius: 16px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   font-style: normal;
   margin: 0;
@@ -471,7 +471,7 @@
 .benefit-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: 100%;
   transition: all 0.2s ease;
@@ -487,7 +487,7 @@
   align-items: center;
   background: var(--mia-gold-light);
   border: 2px solid var(--mia-gold-20);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   box-shadow: 0 4px 15px var(--mia-gold-20);
   display: flex;
   height: 140px;
@@ -541,7 +541,7 @@
 
 .video-container,
 .sidebar-section {
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   margin-bottom: 32px;
   overflow: hidden;
@@ -572,7 +572,7 @@
   align-items: center;
   background-color: rgba(200, 178, 115, 0.9);
   border: none;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   display: flex;
   height: 70px;
@@ -610,7 +610,7 @@
 .page-template-page-careers-locations .surgeon-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border: 1px solid var(--mia-gold-20);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   color: var(--mia-white);
   padding: 32px 24px;
   text-align: center;
@@ -627,7 +627,7 @@
 .page-template-page-careers-locations .surgeon-card img {
   background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
   border: 3px solid var(--mia-gold);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: block;
   height: 120px;
   margin: 0 auto 24px;

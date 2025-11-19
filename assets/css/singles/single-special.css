@@ -18,7 +18,7 @@ body.single-special {
   max-width: 100%;
   aspect-ratio: 6/1;
   background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;

@@ -38,7 +38,7 @@
 
   img {
     background: linear-gradient(135deg, var(--mia-white) 0%, var(--mia-gold-light) 100%);
-    border-radius: 8px;
+    border-radius: var(--radius-sm);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     height: auto;
     width: 100%;
@@ -49,7 +49,7 @@
     align-items: center;
     aspect-ratio: 4/5;
     background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-    border-radius: 20px;
+    border-radius: var(--radius-sm);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: center;
@@ -68,7 +68,7 @@
 
 .surgeon-image-accent {
   background: var(--mia-gold);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   bottom: -10px;
   height: 6.25rem;
   opacity: 0.2;
@@ -95,7 +95,7 @@
 .surgeon-badge {
   background: var(--mia-black);
   border: 1px solid var(--mia-gold);
-  border-radius: 30px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(27, 27, 27, 0.1);
   color: var(--mia-gold);
   display: inline-block;
@@ -258,7 +258,7 @@
 }
 
 .video-container {
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
   overflow: hidden;
 }
@@ -299,7 +299,7 @@
   align-items: center;
   background-color: var(--mia-black);
   border: 3px solid var(--mia-gold);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   cursor: pointer;
   display: flex;
   height: 5rem;
@@ -342,7 +342,7 @@
 .expertise-card {
   background: var(--mia-gold-light);
   border: 1px solid transparent;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   display: flex;
   gap: 1.5rem;
   padding: 2rem;
@@ -365,7 +365,7 @@
 .expertise-icon {
   align-items: center;
   background: var(--mia-gold-10);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   display: flex;
   flex-shrink: 0;
   height: 3.125rem;
@@ -428,7 +428,7 @@
 .sidebar-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
   padding: 2rem;
@@ -532,7 +532,7 @@
   align-items: center;
   background: var(--mia-gold-light);
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   color: var(--mia-black);
   display: flex;
   padding: 1rem;

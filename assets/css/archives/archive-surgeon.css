@@ -2,7 +2,7 @@
   height: 100%;
   position: relative;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   border: 2px solid var(--mia-gold);
@@ -25,7 +25,7 @@
 .surgeon-archive-headshot {
   width: var(--container-size);
   height: var(--container-size);
-  border-radius: 4px;
+  border-radius: var(--radius-sm);
   object-fit: cover;
   border: 1px solid var(--mia-gold);
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);

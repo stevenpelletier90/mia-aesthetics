@@ -43,7 +43,7 @@
   text-decoration: none;
   font-family: var(--font-heading);
   transition: all 0.2s ease;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
 }
 
 .header-btn:is(:hover, :focus) {
@@ -354,7 +354,7 @@
     box-shadow: none;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
-    border-radius: 0;
+    border-radius: var(--radius-none);
   }
 
   .offcanvas .dropdown-item {

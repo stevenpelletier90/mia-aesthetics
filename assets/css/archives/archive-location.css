@@ -8,7 +8,7 @@
   flex-direction: column;
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border: 2px solid var(--mia-gold);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   color: var(--mia-white);
   overflow: hidden;
   transition:

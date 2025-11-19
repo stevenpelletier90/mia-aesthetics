@@ -20,7 +20,7 @@
 
 .search-results .card {
   border: 1px solid var(--mia-gold-light);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -32,7 +32,7 @@
 }
 
 .search-results .card-img-top {
-  border-radius: 8px 8px 0 0;
+  border-radius: var(--radius-sm) var(--radius-sm) 0 0;
   height: 200px;
   object-fit: cover;
 }
@@ -60,7 +60,7 @@
 .search-results .card-body .text-muted {
   background-color: var(--mia-gold-light);
   padding: 0.25rem 0.5rem;
-  border-radius: 3px;
+  border-radius: var(--radius-sm);
   font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;

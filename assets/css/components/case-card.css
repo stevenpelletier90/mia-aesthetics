@@ -4,7 +4,7 @@
 
 .case-card-inner {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   border: 2px solid var(--mia-gold);
   overflow: hidden;
   display: flex;
@@ -132,14 +132,14 @@
     background: var(--mia-white);
     flex-direction: column;
     border: 2px solid var(--mia-gold);
-    border-radius: 12px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
   }
 
   .case-card-image {
     width: 100%;
     aspect-ratio: 8/3;
-    border-radius: 0;
+    border-radius: var(--radius-none);
   }
 
   .case-card-img {

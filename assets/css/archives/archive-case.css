@@ -1,7 +1,7 @@
 .case-category-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border: 2px solid var(--mia-gold);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
   overflow: hidden;
   transition: all 0.2s ease;
@@ -180,7 +180,7 @@
 .surgeon-avatar {
   width: 70px;
   height: 70px;
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   border: 4px solid var(--mia-gold);
   object-fit: cover;
   transition:
@@ -228,7 +228,7 @@
 .case-links a:focus {
   outline: 2px solid var(--mia-gold);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 .browse-by-surgeon .btn:focus {

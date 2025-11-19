@@ -102,7 +102,7 @@
 .stat-box {
   align-items: center;
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.03) 0%, rgba(0, 0, 0, 0.05) 100%);
-  border-radius: 8px;
+  border-radius: var(--radius-md);
   border: 1px solid rgba(200, 178, 115, 0.15);
   display: flex;
   flex-direction: column;
@@ -307,7 +307,7 @@
 
   .nav-link {
     border: 1px solid transparent;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
     color: var(--mia-black);
     flex: 0 0 auto;
     font-size: 1rem;
@@ -335,7 +335,7 @@
   align-items: center;
   background: var(--mia-white);
   border: 1px solid var(--mia-gold);
-  border-radius: 50%;
+  border-radius: var(--radius-full);
   box-shadow: var(--shadow-md);
   color: var(--mia-gold);
   display: flex;
@@ -518,7 +518,7 @@
 
 .foundation-content {
   background: transparent;
-  border-radius: 0;
+  border-radius: var(--radius-none);
   margin: 0 auto;
   max-width: 100%;
   padding: 3rem 3rem 2rem;
@@ -771,7 +771,7 @@
   .stat-box {
     min-height: 150px;
     padding: 1.25rem 0.75rem;
-    border-radius: 6px;
+    border-radius: var(--radius-sm);
   }
 
   .procedures-section {
@@ -885,7 +885,7 @@
   .stat-box {
     min-height: 130px;
     padding: 1rem 0.625rem;
-    border-radius: 4px;
+    border-radius: var(--radius-sm);
   }
 
   .homepage-stat-label {

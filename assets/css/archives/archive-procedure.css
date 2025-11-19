@@ -1,6 +1,6 @@
 .procedure-category-card {
   transition: all 0.2s ease;
-  border-radius: 12px;
+  border-radius: var(--radius-lg);
   overflow: hidden;
   border: 2px solid var(--mia-gold);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
@@ -140,7 +140,7 @@
 
 .procedure-video-card {
   border: 1px solid rgba(0, 0, 0, 0.1);
-  border-radius: 0.25rem;
+  border-radius: var(--radius-sm);
   overflow: hidden;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
@@ -153,7 +153,7 @@
 .procedure-links a:focus {
   outline: 2px solid var(--mia-gold);
   outline-offset: 2px;
-  border-radius: 2px;
+  border-radius: var(--radius-sm);
 }
 
 @media (max-width: 991.98px) {
