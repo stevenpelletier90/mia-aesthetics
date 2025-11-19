@@ -1,24 +1,25 @@
+/* Arrow styles - shared across all breakpoints */
+.careers-cta-btn .fa-arrow-right {
+  margin-left: 0.5rem;
+  font-size: 0.8em;
+  transition: transform 0.2s ease;
+}
+
+.careers-cta-btn:hover .fa-arrow-right {
+  transform: translateX(3px);
+}
+
 @media (min-width: 577px) {
   .careers-cta-container {
     background: transparent;
     z-index: var(--z-sticky);
     justify-content: flex-end;
-    padding-right: 32px;
+    padding-right: 2rem;
   }
 
   .careers-cta-btn {
     min-width: 200px;
     max-width: 280px;
-  }
-
-  .careers-cta-btn .fa-arrow-right {
-    margin-left: 8px;
-    font-size: 0.8em;
-    transition: transform 0.2s ease;
-  }
-
-  .careers-cta-btn:hover .fa-arrow-right {
-    transform: translateX(3px);
   }
 }
 
@@ -33,15 +34,5 @@
   .careers-cta-btn {
     min-width: 70%;
     max-width: 260px;
-  }
-
-  .careers-cta-btn .fa-arrow-right {
-    margin-left: 8px;
-    font-size: 0.8em;
-    transition: transform 0.2s ease;
-  }
-
-  .careers-cta-btn:hover .fa-arrow-right {
-    transform: translateX(3px);
   }
 }

@@ -1,13 +1,13 @@
 .single-case .consent-trigger {
   color: var(--mia-gold);
   text-decoration: underline;
-  font-size: 14px;
+  font-size: 0.875rem;
   transition: color 0.2s ease;
-}
 
-.single-case .consent-trigger:hover {
-  color: var(--mia-white);
-  text-decoration: underline;
+  &:hover {
+    color: var(--mia-white);
+    text-decoration: underline;
+  }
 }
 
 .post-header h1 {
@@ -15,7 +15,7 @@
 }
 
 .case-image-container {
-  max-width: 450px;
+  max-width: 28.125rem;
   margin: 0 auto;
   position: relative;
 }
@@ -26,8 +26,8 @@
   left: 0;
   background-color: var(--mia-black);
   color: var(--mia-white);
-  padding: 4px 8px;
-  margin: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
 }
 
 .after-label {
@@ -36,14 +36,14 @@
   left: 0;
   background-color: var(--mia-gold);
   color: var(--mia-black);
-  padding: 4px 8px;
-  margin: 4px;
+  padding: 0.25rem 0.5rem;
+  margin: 0.25rem;
 }
 
 .surgeon-info {
   background-color: transparent;
   color: var(--mia-black);
-  padding: 16px;
+  padding: 1rem;
   border-radius: 4px;
   height: 100%;
 }
@@ -51,7 +51,7 @@
 .location-info {
   background-color: transparent;
   color: var(--mia-black);
-  padding: 16px;
+  padding: 1rem;
   border-radius: 4px;
   height: 100%;
 }
@@ -63,33 +63,30 @@
   transition: all 0.2s ease;
   display: inline-block;
   position: relative;
-  padding-left: 15px;
+  padding-left: 1rem;
   text-decoration: none;
   font-weight: 600;
-}
 
-.case-surgeon-arrow-link::before,
-.case-location-arrow-link::before {
-  content: "›";
-  position: absolute;
-  left: 0;
-  color: var(--mia-gold);
-  font-weight: 600;
-  opacity: 0.6;
-  transition: all 0.2s ease;
-}
+  &::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--mia-gold);
+    font-weight: 600;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+  }
 
-.case-surgeon-arrow-link:hover,
-.case-location-arrow-link:hover {
-  color: var(--mia-black);
-  padding-left: 20px;
-  text-decoration: none;
-}
+  &:hover {
+    color: var(--mia-black);
+    padding-left: 1.25rem;
+    text-decoration: none;
 
-.case-surgeon-arrow-link:hover::before,
-.case-location-arrow-link:hover::before {
-  opacity: 1;
-  transform: translateX(3px);
+    &::before {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+  }
 }
 
 .case-procedure-link {
@@ -98,34 +95,34 @@
   transition: all 0.2s ease;
   display: inline-block;
   position: relative;
-  padding-left: 15px;
+  padding-left: 1rem;
   text-decoration: none;
   font-weight: 600;
-}
 
-.case-procedure-link::before {
-  content: "›";
-  position: absolute;
-  left: 0;
-  color: var(--mia-gold);
-  font-weight: 600;
-  opacity: 0.6;
-  transition: all 0.2s ease;
-}
+  &::before {
+    content: "›";
+    position: absolute;
+    left: 0;
+    color: var(--mia-gold);
+    font-weight: 600;
+    opacity: 0.6;
+    transition: all 0.2s ease;
+  }
 
-.case-procedure-link:hover {
-  color: var(--mia-black);
-  padding-left: 20px;
-  text-decoration: none;
-}
+  &:hover {
+    color: var(--mia-black);
+    padding-left: 1.25rem;
+    text-decoration: none;
 
-.case-procedure-link:hover::before {
-  opacity: 1;
-  transform: translateX(3px);
-}
+    &::before {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+  }
 
-.case-procedure-link i {
-  display: none;
+  i {
+    display: none;
+  }
 }
 
 .case-surgeon-link,
@@ -142,24 +139,21 @@
   background-color: transparent;
   color: var(--mia-black);
   margin-top: 0.5rem;
-}
 
-.case-surgeon-link:hover,
-.case-location-link:hover {
-  background-color: var(--mia-black);
-  color: var(--mia-white);
-  text-decoration: none;
-}
+  &:hover {
+    background-color: var(--mia-black);
+    color: var(--mia-white);
+    text-decoration: none;
 
-.case-surgeon-link i,
-.case-location-link i {
-  transition: transform 0.2s ease;
-}
+    i {
+      transform: translateX(3px);
+      color: var(--mia-white);
+    }
+  }
 
-.case-surgeon-link:hover i,
-.case-location-link:hover i {
-  transform: translateX(3px);
-  color: var(--mia-white);
+  i {
+    transition: transform 0.2s ease;
+  }
 }
 
 .patient-info-card {
@@ -177,14 +171,19 @@
   transition: all 0.2s ease;
   color: inherit;
   overflow: hidden;
-}
 
-.patient-info-card-link:hover {
-  border-color: var(--mia-gold);
-  background-color: rgba(200, 178, 115, 0.05);
-  color: inherit;
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  &:hover {
+    border-color: var(--mia-gold);
+    background-color: rgba(200, 178, 115, 0.05);
+    color: inherit;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
+    .patient-info-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+  }
 }
 
 .patient-info-arrow {
@@ -197,77 +196,114 @@
   transition: all 0.2s ease;
 }
 
-.patient-info-card-link:hover .patient-info-arrow {
-  opacity: 1;
-  transform: translateX(3px);
-}
-
 .cursor-pointer {
   cursor: pointer;
 }
 
 .case-background {
-  margin-bottom: 24px;
+  margin-bottom: 1.5rem;
 }
 
 .case-content {
-  margin-top: 32px;
+  margin-top: 2rem;
+
+  /* Enhanced styling when content has structure */
+  &:has(h2, h3) {
+    h2,
+    h3 {
+      color: var(--mia-black);
+      font-weight: 600;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--mia-gold-light);
+    }
+  }
+
+  /* Enhanced styling when content has lists */
+  &:has(ul, ol) {
+    ul,
+    ol {
+      padding-left: 1.5rem;
+      margin: 1.5rem 0;
+
+      li {
+        margin-bottom: 0.75rem;
+        line-height: 1.6;
+
+        &::marker {
+          color: var(--mia-gold);
+        }
+      }
+    }
+  }
 }
 
-#imageModal .modal-dialog {
-  max-width: 900px;
-  margin: 28px auto;
+#imageModal {
+  .modal-dialog {
+    max-width: 56.25rem;
+    margin: 1.75rem auto;
+  }
+
+  .modal-content {
+    background-color: var(--mia-white);
+    border: none;
+  }
+
+  .modal-body {
+    padding: 2.5rem;
+    position: relative;
+    background-color: var(--mia-white);
+  }
 }
 
-#imageModal .modal-content {
-  background-color: var(--mia-white);
-  border: none;
-}
+#caseCarousel {
+  img {
+    max-height: 70vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+    margin: 0 auto;
+  }
 
-#imageModal .modal-body {
-  padding: 40px;
-  position: relative;
-  background-color: var(--mia-white);
-}
+  .carousel-control-prev,
+  .carousel-control-next {
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 3.125rem;
+    height: 3.125rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+    opacity: 0.8;
 
-#caseCarousel img {
-  max-height: 70vh;
-  width: auto;
-  height: auto;
-  object-fit: contain;
-  display: block;
-  margin: 0 auto;
-}
+    &:hover {
+      background-color: rgba(27, 27, 27, 0.7);
+      opacity: 1;
+    }
+  }
 
-#caseCarousel .carousel-control-prev,
-#caseCarousel .carousel-control-next {
-  background-color: rgba(0, 0, 0, 0.5);
-  width: 50px;
-  height: 50px;
-  top: 50%;
-  transform: translateY(-50%);
-  border-radius: 50%;
-  opacity: 0.8;
-}
+  .carousel-control-prev {
+    left: 0.625rem;
+  }
 
-#caseCarousel .carousel-control-prev:hover,
-#caseCarousel .carousel-control-next:hover {
-  background-color: rgba(27, 27, 27, 0.7);
-  opacity: 1;
-}
+  .carousel-control-next {
+    right: 0.625rem;
+  }
 
-#caseCarousel .carousel-control-prev {
-  left: 10px;
-}
+  .carousel-control-prev-icon,
+  .carousel-control-next-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+  }
 
-#caseCarousel .carousel-control-next {
-  right: 10px;
-}
-
-#caseCarousel .carousel-control-prev-icon,
-#caseCarousel .carousel-control-next-icon {
-  width: 20px;
-  height: 20px;
+  /* Hide navigation when only one image */
+  &:has(.carousel-item:only-child) {
+    .carousel-control-prev,
+    .carousel-control-next {
+      display: none;
+    }
+  }
 }
 
 .related-case-item {
@@ -275,12 +311,17 @@
   border-radius: 6px;
   transition: all 0.2s ease;
   background: var(--mia-white);
-}
 
-.related-case-item:hover {
-  border-color: var(--mia-gold);
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
+  &:hover {
+    border-color: var(--mia-gold);
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-1px);
+
+    .related-case-arrow {
+      opacity: 1;
+      transform: translateX(3px);
+    }
+  }
 }
 
 .related-case-link {
@@ -296,17 +337,17 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 2.5rem;
+  height: 2.5rem;
   background: var(--mia-gold);
   border-radius: 50%;
   flex-shrink: 0;
-}
 
-.related-case-number span {
-  color: var(--mia-black);
-  font-weight: 600;
-  font-size: 1rem;
+  span {
+    color: var(--mia-black);
+    font-weight: 600;
+    font-size: 1rem;
+  }
 }
 
 .related-case-content {
@@ -333,11 +374,6 @@
   transition: all 0.2s ease;
 }
 
-.related-case-item:hover .related-case-arrow {
-  opacity: 1;
-  transform: translateX(3px);
-}
-
 @media (min-width: 1200px) {
   .single-case .col-xl-7 {
     padding-right: 3rem;
@@ -346,15 +382,13 @@
   .single-case .col-xl-5 {
     padding-left: 2rem;
   }
-}
 
-@media (min-width: 1200px) {
   .col-lg-8 {
-    padding-right: 30px;
+    padding-right: 2rem;
   }
 
   .col-lg-4 {
-    padding-left: 30px;
+    padding-left: 2rem;
   }
 }
 
@@ -384,8 +418,8 @@
   }
 
   .related-case-number {
-    width: 36px;
-    height: 36px;
+    width: 2.25rem;
+    height: 2.25rem;
   }
 
   .related-case-title {

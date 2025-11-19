@@ -85,6 +85,28 @@ a.consent-trigger:hover i {
   padding: 0 !important;
   border: none;
   background: transparent;
+
+  /* Enhanced visual feedback for focused fields */
+  &:has(input:focus, select:focus, textarea:focus) {
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: -4px;
+      top: 0;
+      bottom: 0;
+      width: 2px;
+      background: var(--mia-gold);
+      border-radius: 2px;
+      opacity: 0.6;
+    }
+  }
+
+  /* Subtle highlight for required fields (non-intrusive) */
+  &:has(input:required, select:required, textarea:required) {
+    position: relative;
+  }
 }
 
 .consultation-card .gform_wrapper .gfield_label {
@@ -205,6 +227,16 @@ a.consent-trigger:hover i {
   padding: 0;
   list-style: none;
   margin-block: 0 !important;
+
+  /* Enhanced visual for checked checkboxes */
+  &:has(input:checked) {
+    .gchoice {
+      label {
+        color: var(--mia-white);
+        font-weight: 500;
+      }
+    }
+  }
 }
 
 .consultation-card .gform_wrapper .gfield_checkbox .gchoice {
