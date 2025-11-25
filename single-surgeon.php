@@ -46,7 +46,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				</div>
 				<div class="col-lg-7">
 					<div class="surgeon-hero-content">
-						<div class="surgeon-badge">Plastic Surgeon</div>
+						<div class="badge surgeon-badge">Plastic Surgeon</div>
 						<h1 class="surgeon-name"><?php echo esc_html( get_the_title() ); ?></h1>
 						<?php
 						$location = get_field( 'surgeon_location' );

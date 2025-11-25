@@ -92,18 +92,17 @@
   }
 }
 
+/* Bootstrap .badge provides base styles; we customize for brand */
 .surgeon-badge {
   background: var(--mia-black);
   border: 1px solid var(--mia-gold);
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(27, 27, 27, 0.1);
   color: var(--mia-gold);
-  display: inline-block;
   font-size: 0.875rem;
   font-weight: 600;
   margin-bottom: 1rem;
   padding: 0.5rem 1.5rem;
-  text-transform: uppercase;
 }
 
 .surgeon-hero .surgeon-name {

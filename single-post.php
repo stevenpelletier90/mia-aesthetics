@@ -18,13 +18,13 @@ get_header(); ?>
 		$reading_time = ceil( $word_count / 200 );
 		?>
 
-		<section class="post-header py-5">
+		<section class="post-header py-4">
 			<div class="container">
 				<div class="row">
 					<div class="col-lg-8">
 						<h1 class="mb-3"><?php the_title(); ?></h1>
 
-						<div class="post-meta">
+						<div class="post-meta mb-0">
 							<div class="d-flex align-items-center">
 								<i class="far fa-calendar-alt me-2" aria-hidden="true"></i>
 								<span><?php echo get_the_date(); ?></span>
@@ -35,7 +35,7 @@ get_header(); ?>
 						</div>
 
 						<?php if ( has_excerpt() ) : ?>
-							<p class="post-excerpt"><?php echo esc_html( get_the_excerpt() ); ?></p>
+							<p class="post-excerpt mb-0"><?php echo esc_html( get_the_excerpt() ); ?></p>
 						<?php endif; ?>
 					</div>
 				</div>
@@ -68,9 +68,11 @@ get_header(); ?>
 							?>
 							<div class="related-topics mb-5">
 								<h2 class="h5 mb-3"><?php esc_html_e( 'Related Topics', 'mia-aesthetics' ); ?></h2>
-								<?php foreach ( $tags as $post_tag ) : ?>
-									<a href="<?php echo esc_url( get_tag_link( $post_tag->term_id ) ); ?>" class="text-decoration-none me-2 post-tag-link">#<?php echo esc_html( $post_tag->name ); ?></a>
-								<?php endforeach; ?>
+								<div class="d-flex flex-wrap gap-2">
+									<?php foreach ( $tags as $post_tag ) : ?>
+										<a href="<?php echo esc_url( get_tag_link( $post_tag->term_id ) ); ?>" class="badge badge-mia">#<?php echo esc_html( $post_tag->name ); ?></a>
+									<?php endforeach; ?>
+								</div>
 							</div>
 						<?php endif; ?>
 					</div>

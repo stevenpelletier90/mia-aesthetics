@@ -37,7 +37,7 @@ get_header(); ?>
 		<div class="container">
 			<div class="row">
 				<div class="col-12">
-					<h1><?php the_title(); ?></h1>
+					<h1 class="text-center"><?php the_title(); ?></h1>
 				</div>
 			</div>
 		</div>
@@ -113,7 +113,7 @@ get_header(); ?>
 								<?php if ( '' !== $height ) : ?>
 								<div class="col-4">
 									<div class="patient-info-card">
-										<h5 class="h6">Height</h5>
+										<div class="patient-info-label mb-2">Height</div>
 										<p class="mb-0"><?php echo esc_html( $height ); ?></p>
 									</div>
 								</div>
@@ -122,7 +122,7 @@ get_header(); ?>
 								<?php if ( '' !== $weight ) : ?>
 								<div class="col-4">
 									<div class="patient-info-card">
-										<h5 class="h6">Weight</h5>
+										<div class="patient-info-label mb-2">Weight</div>
 										<p class="mb-0"><?php echo esc_html( $weight ); ?> lbs</p>
 									</div>
 								</div>
@@ -131,7 +131,7 @@ get_header(); ?>
 								<?php if ( '' !== $bmi ) : ?>
 								<div class="col-4">
 									<div class="patient-info-card">
-										<h5 class="h6">BMI</h5>
+										<div class="patient-info-label mb-2">BMI</div>
 										<p class="mb-0"><?php echo esc_html( $bmi ); ?></p>
 									</div>
 								</div>
@@ -149,13 +149,13 @@ get_header(); ?>
 									if ( false !== $surgeon_permalink ) :
 										?>
 									<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
-										<h5 class="h6">Performed by</h5>
+										<div class="patient-info-label mb-2">Performed By</div>
 										<p class="mb-0"><?php echo esc_html( get_the_title( $surgeon ) ); ?></p>
 										<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 									</a>
 									<?php else : ?>
 									<div class="patient-info-card">
-										<h5 class="h6">Performed by</h5>
+										<div class="patient-info-label mb-2">Performed By</div>
 										<p class="mb-0"><?php echo esc_html( get_the_title( $surgeon ) ); ?></p>
 									</div>
 									<?php endif; ?>
@@ -169,13 +169,13 @@ get_header(); ?>
 									if ( false !== $location_permalink ) :
 										?>
 									<a href="<?php echo esc_url( $location_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
-										<h5 class="h6">Location</h5>
+										<div class="patient-info-label mb-2">Location</div>
 										<p class="mb-0"><?php echo esc_html( get_the_title( $location ) ); ?></p>
 										<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 									</a>
 									<?php else : ?>
 									<div class="patient-info-card">
-										<h5 class="h6">Location</h5>
+										<div class="patient-info-label mb-2">Location</div>
 										<p class="mb-0"><?php echo esc_html( get_the_title( $location ) ); ?></p>
 									</div>
 									<?php endif; ?>
@@ -190,13 +190,13 @@ get_header(); ?>
 											if ( false !== $procedure_permalink ) :
 												?>
 											<a href="<?php echo esc_url( $procedure_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
-												<h5 class="h6">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></h5>
+												<div class="patient-info-label mb-2">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></div>
 												<p class="mb-0"><?php echo esc_html( get_the_title( $procedure_id ) ); ?></p>
 												<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 											</a>
 											<?php else : ?>
 											<div class="patient-info-card">
-												<h5 class="h6">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></h5>
+												<div class="patient-info-label mb-2">Procedure<?php echo count( $procedure_performed ) > 1 ? 's' : ''; ?></div>
 												<p class="mb-0"><?php echo esc_html( get_the_title( $procedure_id ) ); ?></p>
 											</div>
 											<?php endif; ?>
@@ -206,6 +206,14 @@ get_header(); ?>
 							</div>
 							<?php endif; ?>
 						<?php endif; ?>
+
+						<?php /* ---------------- Patient Background ------------- */ ?>
+						<?php if ( '' !== trim( get_the_content() ) ) : ?>
+							<h3 class="h5 mb-3 mt-4">Patient Background</h3>
+							<div class="case-background">
+								<?php the_content(); ?>
+							</div>
+						<?php endif; ?>
 					</section>
 
 
@@ -213,22 +221,6 @@ get_header(); ?>
 			</div>
 		</div>
 	</article>
-
-	<?php /* ---------------- Patient Background ------------- */ ?>
-	<?php if ( '' !== trim( get_the_content() ) ) : ?>
-	<section class="py-4 py-lg-5">
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<h2 class="h4 mb-4">Patient Background</h2>
-					<div class="case-background">
-						<?php the_content(); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-	<?php endif; ?>
 
 	<?php /* ------------- Treatment & Recovery -------------- */ ?>
 	<?php if ( is_array( $case_links ) && count( $case_links ) > 0 ) : ?>
