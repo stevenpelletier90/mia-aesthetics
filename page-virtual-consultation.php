@@ -13,9 +13,11 @@ get_header(); ?>
 <main id="primary" <?php post_class( 'virtual-consultation-page' ); ?>>
 
 	<section class="virtual-consultation-hero">
-		<div class="container">
+		<div class="hero-background"></div>
+		<div class="hero-overlay"></div>
+		<div class="container hero-content">
 			<div class="row justify-content-center">
-				<div class="col-lg-8 col-xl-6 text-center">
+				<div class="col-lg-10 col-xl-8 text-center">
 					<h1 class="virtual-consultation-title">Free Virtual Consultation</h1>
 					<p class="virtual-consultation-subtitle">
 						Take the first step toward your transformation. Fill out the form below and one of our patient coordinators will contact you within 24 hours.
@@ -26,11 +28,11 @@ get_header(); ?>
 	</section>
 
 	<section class="virtual-consultation-form-section">
-		<div class="container">
+		<div class="container container-lg">
 			<div class="row justify-content-center">
-				<div class="col-lg-6 col-xl-5">
+				<div class="col-lg-8 col-xl-7">
 					<div class="consultation-form-card">
-						<form id="virtual-consultation-form" class="virtual-consultation-form" novalidate>
+						<form id="virtual-consultation-form" class="virtual-consultation-form">
 							<div class="form-row">
 								<div class="form-group">
 									<label for="first-name" class="form-label">
@@ -43,10 +45,11 @@ get_header(); ?>
 										class="form-control"
 										placeholder="Enter your first name"
 										required
+										minlength="2"
 										autocomplete="given-name"
 										aria-required="true"
 									>
-									<div class="invalid-feedback">Please enter your first name.</div>
+									<div class="invalid-feedback">Please enter your first name (at least 2 characters).</div>
 								</div>
 
 								<div class="form-group">
@@ -60,10 +63,11 @@ get_header(); ?>
 										class="form-control"
 										placeholder="Enter your last name"
 										required
+										minlength="2"
 										autocomplete="family-name"
 										aria-required="true"
 									>
-									<div class="invalid-feedback">Please enter your last name.</div>
+									<div class="invalid-feedback">Please enter your last name (at least 2 characters).</div>
 								</div>
 							</div>
 
@@ -96,6 +100,8 @@ get_header(); ?>
 										class="form-control"
 										placeholder="(555) 555-5555"
 										required
+										pattern="\(\d{3}\) \d{3}-\d{4}"
+										title="Phone number in format (555) 555-5555"
 										autocomplete="tel"
 										aria-required="true"
 									>
@@ -126,22 +132,22 @@ get_header(); ?>
 
 								<div class="form-group">
 									<label for="zip-code" class="form-label">
-										Zip Code <span class="required" aria-hidden="true">*</span>
+										Zip/Postal Code <span class="required" aria-hidden="true">*</span>
 									</label>
 									<input
 										type="text"
 										id="zip-code"
 										name="zip_code"
 										class="form-control"
-										placeholder="12345"
+										placeholder="12345 or A1A 1A1"
 										required
+										pattern="(\d{5}|[A-Za-z]\d[A-Za-z]\s?\d[A-Za-z]\d)"
+										title="US zip (12345) or Canadian postal code (A1A 1A1)"
 										autocomplete="postal-code"
-										pattern="[0-9]{5}"
-										maxlength="5"
-										inputmode="numeric"
+										maxlength="7"
 										aria-required="true"
 									>
-									<div class="invalid-feedback">Please enter a valid 5-digit zip code.</div>
+									<div class="invalid-feedback">Please enter a valid zip/postal code.</div>
 								</div>
 							</div>
 
@@ -184,23 +190,46 @@ get_header(); ?>
 								<div class="invalid-feedback">Please select a location.</div>
 							</div>
 
-							<div class="form-group form-consent">
+							<div class="form-group form-preferences">
+								<p class="form-label">Communication Preferences</p>
 								<div class="form-check">
 									<input
 										type="checkbox"
-										id="consent"
-										name="consent"
+										id="text-deals"
+										name="text_deals"
 										class="form-check-input"
-										required
-										aria-required="true"
 									>
-									<label for="consent" class="form-check-label">
-										I consent to receive communications from Mia Aesthetics.
-										<a href="/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>
+									<label for="text-deals" class="form-check-label">
+										Text me the latest deals and promotions
 									</label>
 								</div>
-								<div class="invalid-feedback">You must agree to continue.</div>
+								<div class="form-check">
+									<input
+										type="checkbox"
+										id="email-specials"
+										name="email_specials"
+										class="form-check-input"
+									>
+									<label for="email-specials" class="form-check-label">
+										Email me the latest specials
+									</label>
+								</div>
+								<div class="form-check">
+									<input
+										type="checkbox"
+										id="text-reminders"
+										name="text_reminders"
+										class="form-check-input"
+									>
+									<label for="text-reminders" class="form-check-label">
+										Text me appointment reminders
+									</label>
+								</div>
 							</div>
+
+							<p class="form-disclaimer-consent">
+								By checking this box and submitting this form, I consent by electronic signature to be contacted by Mia Aesthetics by live agent, email &amp; automatic telephone dialer for information, offers or advertisements via email/ phone call/ text message at the number &amp; email provided. I consent to call recording of all phone calls to and with Mia Aesthetics. I am not required to sign this document as a condition to purchase any goods or services. I understand that I can revoke this consent at any time by providing notice to Mia Aesthetics. Message data rates may apply. Message frequency may vary. To learn more, see our Privacy Policy, SMS Terms and Conditions, and Terms of Use.
+							</p>
 
 							<button type="submit" class="btn btn-submit">
 								<span class="btn-text">Request Consultation</span>

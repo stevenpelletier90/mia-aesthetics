@@ -1,178 +1,260 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
-
-This is the single, canonical project document for the Mia Aesthetics WordPress theme. It is written for AI-assisted development and should stay current as the codebase evolves.
-
-## AI Assistant Role & Expertise
-
-You are an expert WordPress developer and frontend engineer specializing in medical aesthetics websites. Your expertise includes:
-
-**WordPress Development:**
-
-- Advanced theme development using modern PHP practices
-- WordPress hooks, filters, and API integration
-- Advanced Custom Fields (ACF) implementation and data handling
-- WordPress security best practices (nonces, sanitization, validation)
-- Performance optimization and caching strategies
-- SEO and schema markup implementation
-
-**Frontend Technologies:**
-
-- Semantic HTML5 and accessibility (WCAG 2.1 AA compliance)
-- Modern CSS architecture and responsive design
-- Vanilla JavaScript and progressive enhancement
-- Bootstrap 5 framework expertise
-- Cross-browser compatibility and mobile-first development
-
-**Medical Aesthetics Domain Knowledge:**
-
-- Understanding of cosmetic surgery procedures and terminology
-- Patient journey and conversion optimization
-- Medical advertising compliance and regulations
-- Trust-building UX patterns for healthcare websites
-- HIPAA awareness and patient privacy considerations
-
-**Quality Standards:**
-
-- Code quality and maintainability
-- Performance optimization
-- Accessibility compliance
-- Security-first approach
-- SEO best practices
-
-Always approach tasks with the precision and attention to detail expected in medical practice websites, where trust, accuracy, and professionalism are paramount.
+Project guide for the Mia Aesthetics WordPress theme. Written for AI-assisted development.
 
 ## Project Overview
 
-**Mia Aesthetics** is a premium WordPress theme for cosmetic surgery and medical aesthetics practices. The theme focuses on:
-
-- **Patient Education**: Clear, professional presentation of procedures and treatment information
-- **Trust & Credibility**: Medical-grade design standards with emphasis on professionalism
-- **Conversion Optimization**: Strategic patient journey design from awareness to consultation
-- **Compliance**: Medical advertising regulation awareness and accessibility standards
+**Mia Aesthetics** is a premium WordPress theme for cosmetic surgery practices.
 
 **Technical Stack:**
 
-- Custom WordPress theme using Bootstrap 5 and ACF
-- CSS-only workflow (no SCSS); modular CSS per template/component
-- Uses npm dependencies (Bootstrap, FontAwesome) via vendor assets
-- Semantic HTML5 with structured data (Schema.org) for medical practices
+- WordPress theme with Bootstrap 5 and ACF Pro
+- CSS-only workflow (no SCSS); modular CSS per template
+- Vendor assets (Bootstrap, FontAwesome) via npm
 
-**Target Audience:**
+**Focus Areas:**
 
-- Patients researching cosmetic procedures (high consideration purchases)
-- Mobile-first users (60%+ mobile traffic typical for medical searches)
-- Demographics: Primarily 25-55 years old, seeking procedure information and surgeon credentials
+- Patient education and trust-building
+- Conversion optimization (awareness → consultation)
+- Medical advertising compliance
+- WCAG 2.1 AA accessibility
 
 ## Development Commands
 
-**Build and Asset Management:**
-
 ```bash
-# Build vendor assets from node_modules (Bootstrap, FontAwesome)
-npm run build:vendor
+npm run build:vendor   # Build vendor assets
+npm install && composer install
 
-# Install dependencies
-npm install
-composer install
+# Linting
+npm run lint           # JS + CSS
+npm run phpcs          # PHP CodeSniffer
+npm run phpstan        # Static analysis
+npm run format         # Prettier formatting
+
+composer qa            # Run all PHP checks
 ```
 
-**Code Quality and Linting:**
+## Design System
 
-```bash
-# JavaScript/CSS linting
-npm run lint           # Run both JS and CSS linting
-npm run lint:js        # ESLint for JavaScript files
-npm run lint:css       # Stylelint for CSS files
+### Color Tokens (`assets/css/base.css`)
 
-# Code formatting
-npm run format         # Format JS, CSS, JSON, MD files
-npm run format:check   # Check formatting without changes
-
-# PHP code quality
-npm run phpcs          # PHP CodeSniffer (coding standards)
-npm run phpcs:fix      # Auto-fix PHP coding standards
-npm run phpstan        # PHPStan static analysis
-
-# Composer shortcuts
-composer qa            # Run phpcbf, phpcs, and phpstan
-composer phpcs         # PHP CodeSniffer
-composer phpcbf        # PHP Code Beautifier and Fixer
-composer phpstan       # PHPStan analysis
+```css
+--mia-black: #1b1b1b;        /* Primary backgrounds, body text */
+--mia-pure-black: #000000;   /* Deep backgrounds, gradients */
+--mia-gold: #c8b273;         /* Primary accent, CTAs */
+--mia-gold-dark: #be9e42;    /* Hover states */
+--mia-gold-light: #f9f5ee;   /* Light section backgrounds */
+--mia-white: #ffffff;        /* Text on dark, cards */
+--mia-gray-muted: #666;      /* Muted text */
+--mia-gold-10 through --mia-gold-50  /* Opacity variants */
 ```
+
+### Typography
+
+```css
+--font-heading: 'Montserrat', sans-serif; /* Headlines, nav, buttons - weight 600 */
+--font-body: 'Open Sans', sans-serif; /* Body text - weight 400 */
+```
+
+### Border Radius
+
+```css
+--radius-none: 0; /* Buttons */
+--radius-sm: 4px; /* Cards, inputs */
+--radius-md: 8px; /* Stat boxes */
+--radius-lg: 12px; /* Feature sections */
+--radius-full: 50%; /* Circles */
+```
+
+### Button Classes (`assets/css/components/button.css`)
+
+| Class                       | Use Case                          |
+| --------------------------- | --------------------------------- |
+| `.btn-primary`              | Gold/Black - Primary CTAs         |
+| `.btn-secondary`            | Black/White - Secondary actions   |
+| `.btn-outline-primary`      | Gold outline - Light backgrounds  |
+| `.btn-outline-primary-alt2` | White outline - Dark backgrounds  |
+| `.btn-blur`                 | Glassmorphism - Over images/video |
+| `.btn-gradient`             | Black gradient - Premium feel     |
 
 ## Project Architecture
 
-**Theme Structure:**
-
-- **Custom WordPress theme** using Bootstrap 5 framework and Advanced Custom Fields (ACF)
-- **No build process** for custom CSS/JS - direct file loading per template
-- **Vendor assets** managed via npm and copied to `assets/vendor/` using `scripts/build-vendor.js`
-
-**File Organization:**
+### File Organization
 
 ```bash
 assets/
-├── css/
-│   ├── archives/     # Archive template styles
-│   ├── components/   # Reusable component styles
-│   ├── pages/        # Page template styles
-│   ├── singles/      # Single post type styles
-│   └── utilities/    # Global utilities
-├── js/
-│   ├── archives/     # Archive template scripts
-│   ├── components/   # Reusable component scripts
-│   ├── pages/        # Page template scripts
-│   └── singles/      # Single post type scripts
-└── vendor/           # Third-party assets (Bootstrap, FontAwesome)
+  css/
+    base.css              <- Design tokens
+    archives/             <- Archive styles
+    components/           <- Reusable components
+    pages/                <- Page template styles
+    singles/              <- Single post type styles
+  js/
+    (mirrors css structure)
+  vendor/                 <- Bootstrap, FontAwesome
 
-inc/                  # PHP helper modules (loaded in dependency order)
-├── schema/           # Structured data classes
-└── *.php            # Individual helper modules
+inc/
+  enqueue.php             <- Asset loading
+  template-helpers.php    <- Display functions
+  media-helpers.php       <- Image handling
+  menu-helpers.php        <- Navigation
+  schema.php              <- JSON-LD structured data
 ```
 
-**Asset Loading Strategy:**
+### Adding Template Assets
 
-- **Global assets**: Bootstrap, FontAwesome, fonts loaded on every page
-- **Template-specific assets**: CSS/JS loaded only for specific templates via `inc/enqueue.php`
-- **Modular approach**: Each template has corresponding CSS/JS files in respective directories
-- **Performance-focused**: Only loads assets needed for current template
+1. Create: `assets/css/pages/page-{name}.css`
+2. Register in `mia_get_template_asset_map()` in `inc/enqueue.php`:
 
-**Key Architectural Patterns:**
+```php
+'page-my-template' => array(
+  'css' => 'pages/page-my-template.css',
+  'js'  => 'pages/page-my-template.js',
+),
+```
 
-- **Template-specific assets**: Each PHP template has corresponding CSS/JS files that are conditionally loaded
-- **Modular helpers**: PHP functionality split into focused modules in `inc/` directory
-- **Schema system**: Structured data handled by dedicated classes in `inc/schema/`
-- **Medical-specific post types**: Custom post types for surgeons, procedures, cases, locations, etc.
-- **ACF integration**: Heavy use of Advanced Custom Fields for content management
+### Custom Post Types
 
-**Dependencies:**
+`surgeon`, `procedure`, `non-surgical`, `location`, `case`, `special`, `condition`, `fat-transfer`
 
-- **Runtime**: Bootstrap 5.3+, FontAwesome 7.0+, WordPress 6.0+, ACF Pro
-- **Development**: ESLint, Stylelint, Prettier, PHP CodeSniffer, PHPStan
+## WordPress Patterns
 
-## Technical Reference Documentation
+### Template Hierarchy
 
-- WordPress
-  - Template Hierarchy: <https://developer.wordpress.org/themes/basics/template-hierarchy/>
-  - Including CSS/JS: <https://developer.wordpress.org/themes/basics/including-css-javascript/>
-  - Coding Standards: <https://developer.wordpress.org/coding-standards/>
-- Frontend Frameworks
-  - Bootstrap 5: <https://getbootstrap.com/docs/5.3/>
-  - FontAwesome Icons: <https://fontawesome.com/icons>
-- Dev Tooling
-  - ESLint: <https://eslint.org/>
-  - Stylelint: <https://stylelint.io/>
-  - Prettier: <https://prettier.io/>
-  - PHP CodeSniffer: <https://github.com/squizlabs/PHP_CodeSniffer>
-  - PHPStan: <https://phpstan.org/>
-- Content & SEO
-  - Advanced Custom Fields: <https://www.advancedcustomfields.com/resources/>
-  - Schema.org: <https://schema.org/>
-  - JSON‑LD: <https://json-ld.org/>
-- Web Standards
-  - WCAG: <https://www.w3.org/WAI/WCAG21/quickref/>
-  - MDN CSS: <https://developer.mozilla.org/en-US/docs/Web/CSS>
-  - MDN JavaScript: <https://developer.mozilla.org/en-US/docs/Web/JavaScript>
-  - Can I Use: <https://caniuse.com/>
+```bash
+front-page.php          -> Homepage
+single-{post-type}.php  -> Single post type
+archive-{post-type}.php -> Archive listings
+page-{slug}.php         -> Specific pages
+```
+
+### Standard Template
+
+```php
+<?php
+/**
+ * Template description
+ *
+ * @package Mia_Aesthetics
+ */
+
+get_header();
+?>
+
+<main id="primary">
+  <?php while ( have_posts() ) : the_post(); ?>
+    <section class="page-content py-5">
+      <div class="container">
+        <?php the_content(); ?>
+      </div>
+    </section>
+  <?php endwhile; ?>
+</main>
+
+<?php get_footer(); ?>
+```
+
+### Section Pattern
+
+```html
+<section class="[name]-section">
+  <div class="container">
+    <p class="tagline">Uppercase Label</p>
+    <h2 class="section-heading">Title</h2>
+    <p class="section-description">Description</p>
+  </div>
+</section>
+```
+
+## ACF Integration
+
+```php
+// Always null-check ACF fields
+$field = get_field( 'field_name' );
+if ( null !== $field && is_array( $field ) ) {
+  // Use the field
+}
+
+// Image field (returns ID)
+$image_id = get_field( 'image' );
+if ( $image_id && is_numeric( $image_id ) ) {
+  $url = wp_get_attachment_image_url( (int) $image_id, 'large' );
+}
+```
+
+**Common Fields:** `faq_section`, `surgeon_headshot`, `surgeon_location`, `specialties`, `video_details`, `show_consultation_cta`
+
+## PHP Standards
+
+### Security
+
+```php
+// Always escape output
+echo esc_html( $text );
+echo esc_url( $url );
+echo esc_attr( $attribute );
+echo wp_kses_post( $html );
+
+// Sanitize input
+$clean = sanitize_text_field( $_POST['field'] );
+
+// Nonce verification
+wp_nonce_field( 'action_name', 'nonce_field' );
+```
+
+### File Headers
+
+```php
+<?php
+/**
+ * Description
+ *
+ * @package Mia_Aesthetics
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+  exit;
+}
+```
+
+## Frontend Aesthetics
+
+Reference: [Claude Cookbook - Frontend Aesthetics](https://github.com/anthropics/claude-cookbooks/blob/main/coding/prompting_for_frontend_aesthetics.ipynb)
+
+### Core Principles
+
+1. **Staggered reveals** - One orchestrated page load beats scattered micro-interactions
+2. **Atmosphere over flat** - Layer gradients, patterns, grain textures
+3. **Respect `prefers-reduced-motion`**
+
+```css
+/* Staggered animation */
+.element:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.element:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+/* Dot pattern */
+.section::before {
+  background-image: radial-gradient(circle at 1px 1px, rgba(200, 178, 115, 0.08) 1px, transparent 0);
+  background-size: 24px 24px;
+}
+```
+
+## Anti-Patterns
+
+**CSS:** Inline styles, hardcoded colors, Bootstrap blue buttons, `border-radius > 4px` on buttons, generic AI aesthetics (Inter, Roboto, purple gradients)
+
+**PHP:** Unescaped output, ACF without null checks, hardcoded URLs, missing `@package`
+
+**WordPress:** Direct DB queries (use WP_Query), enqueueing outside `wp_enqueue_scripts`
+
+## Reference Links
+
+- [Bootstrap 5](https://getbootstrap.com/docs/5.3/)
+- [FontAwesome](https://fontawesome.com/icons)
+- [ACF](https://www.advancedcustomfields.com/resources/)
+- [WordPress Coding Standards](https://developer.wordpress.org/coding-standards/)
+- [WCAG Quick Reference](https://www.w3.org/WAI/WCAG21/quickref/)

@@ -1,6 +1,7 @@
 /**
  * Virtual Consultation Form
- * Modern form validation, location auto-selection, and UX enhancements
+ * Phone/zip formatting, location auto-selection, and form submission
+ * Uses HTML5 native validation for field validation
  *
  * @package Mia_Aesthetics
  */
@@ -18,55 +19,12 @@
   const submitButton = form.querySelector('.btn-submit');
   const locationSelect = document.getElementById('location');
   const locationHint = document.getElementById('location-hint');
+  const phoneInput = document.getElementById('phone');
+  const zipCodeInput = document.getElementById('zip-code');
 
-  // Store locations data
+  // Store locations data for distance calculation
   let locations = [];
   let geocoder = null;
-
-  /**
-   * Validation rules for each field
-   */
-  const validators = {
-    'first-name': {
-      validate: (value) => value.trim().length >= 2,
-      message: 'Please enter your first name (at least 2 characters).',
-    },
-    'last-name': {
-      validate: (value) => value.trim().length >= 2,
-      message: 'Please enter your last name (at least 2 characters).',
-    },
-    email: {
-      validate: (value) => {
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        return emailRegex.test(value.trim());
-      },
-      message: 'Please enter a valid email address.',
-    },
-    phone: {
-      validate: (value) => {
-        // Accept various phone formats, minimum 10 digits
-        const digits = value.replace(/\D/g, '');
-        return digits.length >= 10;
-      },
-      message: 'Please enter a valid phone number.',
-    },
-    'preferred-language': {
-      validate: (value) => value.trim().length > 0,
-      message: 'Please select your preferred language.',
-    },
-    'zip-code': {
-      validate: (value) => /^\d{5}$/.test(value.trim()),
-      message: 'Please enter a valid 5-digit zip code.',
-    },
-    location: {
-      validate: (value) => value.trim().length > 0,
-      message: 'Please select a location.',
-    },
-    consent: {
-      validate: (_, element) => element.checked,
-      message: 'You must agree to continue.',
-    },
-  };
 
   /**
    * Initialize Google Maps Geocoder
@@ -79,7 +37,6 @@
 
   /**
    * Load location coordinates from WordPress REST API
-   * The dropdown is pre-populated by PHP, we just need coordinates for distance calc
    */
   async function loadLocationCoordinates() {
     try {
@@ -101,7 +58,6 @@
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error('Error loading location coordinates:', error);
-      // Form still works, just without auto-selection
     }
   }
 
@@ -126,18 +82,22 @@
   }
 
   /**
-   * Find nearest location based on zip code
-   * @param {string} zipCode - 5-digit zip code
+   * Find nearest location based on zip/postal code
+   * @param {string} postalCode - US zip or Canadian postal code
    */
-  function findNearestLocation(zipCode) {
+  function findNearestLocation(postalCode) {
     if (!geocoder || locations.length === 0) {
       return;
     }
 
+    // Determine if US or Canadian format
+    const isCanadian = /^[A-Z]\d[A-Z]/i.test(postalCode);
+    const country = isCanadian ? 'CA' : 'US';
+
     geocoder.geocode(
       {
-        address: zipCode + ', USA',
-        componentRestrictions: { country: 'US' },
+        address: postalCode + ', ' + country,
+        componentRestrictions: { country: country },
       },
       (results, status) => {
         if (status === 'OK' && results[0]) {
@@ -163,7 +123,6 @@
           // Select the nearest location
           if (locationSelect) {
             locationSelect.value = nearest.id.toString();
-            clearValidation(locationSelect);
 
             // Show the hint
             if (locationHint) {
@@ -230,74 +189,64 @@
   }
 
   /**
-   * Validate a single field
-   * @param {HTMLElement} field - The form field to validate
-   * @returns {boolean} - Whether the field is valid
+   * Handle phone number input - format as user types
+   * @param {Event} event - The input event
    */
-  function validateField(field) {
-    const fieldId = field.id;
-    const validator = validators[fieldId];
+  function handlePhoneInput(event) {
+    const field = event.target;
+    if (field.id === 'phone') {
+      const cursorPosition = field.selectionStart;
+      const oldLength = field.value.length;
+      field.value = formatPhoneNumber(field.value);
+      const newLength = field.value.length;
 
-    if (!validator) {
-      return true;
+      // Adjust cursor position after formatting
+      const diff = newLength - oldLength;
+      field.setSelectionRange(cursorPosition + diff, cursorPosition + diff);
     }
-
-    const isValid = validator.validate(field.value, field);
-    const feedback = field
-      .closest('.form-group, .form-check')
-      ?.querySelector('.invalid-feedback');
-
-    if (isValid) {
-      field.classList.remove('is-invalid');
-      field.classList.add('is-valid');
-      field.setAttribute('aria-invalid', 'false');
-    } else {
-      field.classList.remove('is-valid');
-      field.classList.add('is-invalid');
-      field.setAttribute('aria-invalid', 'true');
-
-      if (feedback) {
-        feedback.textContent = validator.message;
-      }
-    }
-
-    return isValid;
   }
 
   /**
-   * Clear validation state from a field
-   * @param {HTMLElement} field - The form field to clear
+   * Handle zip code input - format and trigger location lookup
+   * @param {Event} event - The input event
    */
-  function clearValidation(field) {
-    field.classList.remove('is-valid', 'is-invalid');
-    field.removeAttribute('aria-invalid');
+  function handleZipCodeInput(event) {
+    const field = event.target;
+    if (field.id === 'zip-code') {
+      // Allow alphanumeric and space for Canadian postal codes
+      let value = field.value.toUpperCase().replace(/[^A-Z0-9\s]/g, '');
+
+      // Check if it looks like a US zip (all digits)
+      const isUSFormat = /^\d+$/.test(value.replace(/\s/g, ''));
+
+      if (isUSFormat) {
+        // US zip: limit to 5 digits
+        value = value.replace(/\D/g, '').slice(0, 5);
+      } else {
+        // Canadian: limit to 7 chars (including space)
+        value = value.slice(0, 7);
+      }
+
+      field.value = value;
+
+      // Trigger location lookup for valid formats
+      const usZipRegex = /^\d{5}$/;
+      const canadianRegex = /^[A-Z]\d[A-Z]\s?\d[A-Z]\d$/;
+
+      if ((usZipRegex.test(value) || canadianRegex.test(value)) && geocoder) {
+        findNearestLocation(value);
+      }
+    }
   }
 
   /**
-   * Validate all form fields
-   * @returns {boolean} - Whether all fields are valid
+   * Handle location select change - hide hint when user manually changes
+   * @param {Event} event - The change event
    */
-  function validateForm() {
-    const fields = form.querySelectorAll('.form-control, .form-check-input');
-    let isFormValid = true;
-    let firstInvalidField = null;
-
-    fields.forEach((field) => {
-      const isValid = validateField(field);
-      if (!isValid && !firstInvalidField) {
-        firstInvalidField = field;
-        isFormValid = false;
-      } else if (!isValid) {
-        isFormValid = false;
-      }
-    });
-
-    // Focus the first invalid field for accessibility
-    if (firstInvalidField) {
-      firstInvalidField.focus();
+  function handleLocationChange(event) {
+    if (event.target.id === 'location' && locationHint) {
+      locationHint.hidden = true;
     }
-
-    return isFormValid;
   }
 
   /**
@@ -307,8 +256,12 @@
   async function handleSubmit(event) {
     event.preventDefault();
 
-    // Validate all fields
-    if (!validateForm()) {
+    // Mark form as submitted to enable CSS validation styling
+    form.classList.add('was-submitted');
+
+    // Use HTML5 native validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
       return;
     }
 
@@ -345,7 +298,7 @@
       submitButton.disabled = false;
       submitButton.classList.remove('is-loading');
 
-      // Show error to user (alert is a browser global)
+      // Show error to user
       // eslint-disable-next-line no-undef
       alert(
         'There was an error submitting your request. Please try again later.'
@@ -353,90 +306,20 @@
     }
   }
 
-  /**
-   * Handle real-time validation on blur
-   * @param {Event} event - The blur event
-   */
-  function handleBlur(event) {
-    const field = event.target;
-    if (field.matches('.form-control, .form-check-input')) {
-      validateField(field);
-    }
-  }
-
-  /**
-   * Handle input changes to clear invalid state
-   * @param {Event} event - The input event
-   */
-  function handleInput(event) {
-    const field = event.target;
-    if (
-      field.matches('.form-control') &&
-      field.classList.contains('is-invalid')
-    ) {
-      // Only clear the invalid state, don't validate yet
-      clearValidation(field);
-    }
-  }
-
-  /**
-   * Handle checkbox change
-   * @param {Event} event - The change event
-   */
-  function handleChange(event) {
-    const field = event.target;
-    if (field.matches('.form-check-input')) {
-      validateField(field);
-    }
-
-    // Hide location hint if user manually changes location
-    if (field.id === 'location' && locationHint) {
-      locationHint.hidden = true;
-    }
-  }
-
-  /**
-   * Handle zip code input - restrict to numbers and trigger location lookup
-   * @param {Event} event - The input event
-   */
-  function handleZipCodeInput(event) {
-    const field = event.target;
-    if (field.id === 'zip-code') {
-      // Remove any non-numeric characters
-      field.value = field.value.replace(/\D/g, '').slice(0, 5);
-
-      // If we have a complete 5-digit zip code, find nearest location
-      if (field.value.length === 5 && geocoder) {
-        findNearestLocation(field.value);
-      }
-    }
-  }
-
-  /**
-   * Handle phone number input - format as user types
-   * @param {Event} event - The input event
-   */
-  function handlePhoneInput(event) {
-    const field = event.target;
-    if (field.id === 'phone') {
-      const cursorPosition = field.selectionStart;
-      const oldLength = field.value.length;
-      field.value = formatPhoneNumber(field.value);
-      const newLength = field.value.length;
-
-      // Adjust cursor position after formatting
-      const diff = newLength - oldLength;
-      field.setSelectionRange(cursorPosition + diff, cursorPosition + diff);
-    }
-  }
-
   // Event listeners
   form.addEventListener('submit', handleSubmit);
-  form.addEventListener('blur', handleBlur, true);
-  form.addEventListener('input', handleInput);
-  form.addEventListener('input', handleZipCodeInput);
-  form.addEventListener('input', handlePhoneInput);
-  form.addEventListener('change', handleChange);
+
+  if (phoneInput) {
+    phoneInput.addEventListener('input', handlePhoneInput);
+  }
+
+  if (zipCodeInput) {
+    zipCodeInput.addEventListener('input', handleZipCodeInput);
+  }
+
+  if (locationSelect) {
+    locationSelect.addEventListener('change', handleLocationChange);
+  }
 
   // Initialize - load coordinates for auto-selection feature
   loadLocationCoordinates();

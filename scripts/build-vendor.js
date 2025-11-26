@@ -7,6 +7,9 @@ import path from 'path';
 
 const root = process.cwd();
 
+// Normalize paths to forward slashes for consistent display
+const toForwardSlash = (p) => p.replace(/\\/g, '/');
+
 const targets = [
   // Bootstrap
   {
@@ -42,7 +45,7 @@ async function copyFile(srcRel, destRel) {
   try {
     await ensureDir(path.dirname(dest));
     await fs.copyFile(src, dest);
-    console.log(`✓ ${srcRel} -> ${destRel}`);
+    console.log(`✓ ${toForwardSlash(srcRel)} -> ${toForwardSlash(destRel)}`);
   } catch (err) {
     console.warn(`! Skipped ${srcRel}: ${err.code || err.message}`);
   }
@@ -63,7 +66,7 @@ async function copyDir(srcRel, destRel) {
         await copyFile(from, to);
       }
     }
-    console.log(`✓ Copied directory ${srcRel} -> ${destRel}`);
+    console.log(`✓ Copied directory ${toForwardSlash(srcRel)} -> ${toForwardSlash(destRel)}`);
   } catch (err) {
     console.warn(`! Skipped dir ${srcRel}: ${err.code || err.message}`);
   }
