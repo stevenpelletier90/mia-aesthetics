@@ -113,14 +113,14 @@ get_header(); ?>
 
 									$related_posts = new WP_Query(
 										array(
-											'category__in'   => $category_ids,
-											'post__not_in'   => array( get_the_ID() ),
+											'category__in' => $category_ids,
+											'post__not_in' => array( get_the_ID() ),
 											'posts_per_page' => 3,
-											'orderby'        => 'rand',
+											'orderby'      => 'rand',
 											// Performance optimizations.
 											'update_post_meta_cache' => false, // We don't read meta in the loop.
 											'update_post_term_cache' => false, // We don't render terms in the loop.
-											'no_found_rows'  => true,  // Skip count query.
+											'no_found_rows' => true,  // Skip count query.
 										)
 									);
 
