@@ -89,6 +89,11 @@ function mia_enqueue_conditional_components(): void {
 		mia_enqueue_google_maps( 'initGoogleMapsCareers' );
 	}
 
+	// Virtual Consultation - Load Google Maps for location auto-selection.
+	if ( mia_needs_virtual_consultation_maps() ) {
+		mia_enqueue_google_maps( 'initVirtualConsultationGeocoder' );
+	}
+
 	// TODO: Add conditional loading for regular location-search component when ready
 	// Components exist: location-search.css and location-search.js.
 
@@ -161,6 +166,18 @@ function mia_needs_faq(): bool {
 function mia_needs_location_search_careers(): bool {
 	// Currently only used on careers page.
 	if ( is_page_template( 'page-careers.php' ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Check if current page needs Google Maps for virtual consultation
+ */
+function mia_needs_virtual_consultation_maps(): bool {
+	// Load Google Maps on virtual consultation page for location auto-selection.
+	if ( is_page_template( 'page-virtual-consultation.php' ) ) {
 		return true;
 	}
 
@@ -401,6 +418,10 @@ function mia_get_template_asset_map(): array {
 		'page-treatment-layout'       => array(
 			'css' => 'pages/page-treatment-layout.css',
 			'js'  => 'pages/page-treatment-layout.js',
+		),
+		'page-virtual-consultation'   => array(
+			'css' => 'pages/page-virtual-consultation.css',
+			'js'  => 'pages/page-virtual-consultation.js',
 		),
 		'page'                        => array(
 			'css' => 'pages/page.css',
