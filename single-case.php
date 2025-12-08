@@ -142,7 +142,7 @@ get_header(); ?>
 							<?php if ( $has_surgeon_location || ( is_array( $procedure_performed ) && count( $procedure_performed ) > 0 ) ) : ?>
 							<!-- Surgeon, Location, and Procedure Row -->
 							<div class="row g-3">
-								<?php if ( ! empty( $surgeon ) ) : ?>
+								<?php if ( null !== $surgeon && '' !== $surgeon ) : ?>
 								<div class="col-6">
 									<?php
 									$surgeon_permalink = get_permalink( $surgeon );

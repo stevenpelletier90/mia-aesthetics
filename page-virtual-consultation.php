@@ -177,7 +177,7 @@ get_header(); ?>
 										);
 										foreach ( $locations as $location ) :
 											?>
-											<option value="<?php echo esc_attr( $location->ID ); ?>">
+											<option value="<?php echo esc_attr( (string) $location->ID ); ?>">
 												<?php echo esc_html( $location->post_title ); ?>
 											</option>
 										<?php endforeach; ?>

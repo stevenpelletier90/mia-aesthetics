@@ -186,6 +186,52 @@ if ( $image_id && is_numeric( $image_id ) ) {
 
 ## PHP Standards
 
+### Static Analysis (PHPStan Level 8 + Bleeding Edge)
+
+The project uses maximum PHPStan strictness. All code must pass:
+
+```bash
+npm run phpstan        # Level 8 + bleeding edge + strict rules
+npm run phpcs          # WordPress Coding Standards
+```
+
+**Key rules enforced:**
+
+- No `empty()` - use explicit comparisons instead
+- No implicit boolean checks on mixed types
+- No short ternary (`?:`) - use full ternary or null coalesce
+- Strict null safety for all function parameters
+
+### Type-Safe Patterns
+
+```php
+// ACF fields - always check type explicitly
+$field = get_field( 'field_name' );
+if ( is_string( $field ) && '' !== $field ) {
+  // Use the field
+}
+
+// Arrays - check type and count
+$items = get_field( 'items' );
+if ( is_array( $items ) && count( $items ) > 0 ) {
+  // Use the array
+}
+
+// preg_replace returns string|null - always fallback
+$clean = preg_replace( '/pattern/', '', $input ) ?? '';
+
+// WordPress functions returning string|false
+$template = get_page_template_slug();
+if ( is_string( $template ) && '' !== $template ) {
+  // Use the template
+}
+
+// Never use empty() - be explicit
+if ( '' === $value )           // Instead of: empty($value)
+if ( 0 === count( $array ) )   // Instead of: empty($array)
+if ( null === $var || false === $var )  // Instead of: !$var
+```
+
 ### Security
 
 ```php
@@ -247,7 +293,12 @@ Reference: [Claude Cookbook - Frontend Aesthetics](https://github.com/anthropics
 
 **CSS:** Inline styles, hardcoded colors, Bootstrap blue buttons, `border-radius > 4px` on buttons, generic AI aesthetics (Inter, Roboto, purple gradients)
 
-**PHP:** Unescaped output, ACF without null checks, hardcoded URLs, missing `@package`
+**PHP:**
+
+- `empty($var)` - use explicit type checks instead
+- `if ($var)` on mixed types - use `null !== $var` or type checks
+- `$var ?: 'default'` - use full ternary `$var !== '' ? $var : 'default'`
+- Unescaped output, ACF without null checks, hardcoded URLs, missing `@package`
 
 **WordPress:** Direct DB queries (use WP_Query), enqueueing outside `wp_enqueue_scripts`
 

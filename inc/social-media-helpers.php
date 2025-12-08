@@ -66,7 +66,7 @@ function mia_social_media_links( $class_name = 'social-icon' ): void {
 
 	foreach ( $platforms as $platform => $data ) {
 		$url = get_social_media_url( $platform );
-		if ( $url ) {
+		if ( is_string( $url ) && '' !== $url ) {
 			?>
 			<a href="<?php echo esc_url( $url ); ?>" target="_blank" rel="noopener" aria-label="<?php echo esc_attr( $data['label'] ); ?>" class="<?php echo esc_attr( $class_name ); ?>">
 				<i class="<?php echo esc_attr( $data['icon'] ); ?>" aria-hidden="true"></i>

@@ -29,7 +29,7 @@ get_header(); ?>
 					if ( $total_results > 0 ) {
 						printf(
 							'<p class="lead mb-0">Found %d %s matching your search.</p>',
-							esc_html( $total_results ),
+							absint( $total_results ),
 							1 === $total_results ? 'result' : 'results'
 						);
 					} else {

@@ -18,7 +18,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 $breadcrumbs = $args['breadcrumbs'] ?? '';
 
 // Exit early if no breadcrumbs to display.
-if ( empty( $breadcrumbs ) ) {
+if ( '' === $breadcrumbs || ! is_string( $breadcrumbs ) ) {
 	return;
 }
 

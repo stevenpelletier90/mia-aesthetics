@@ -44,11 +44,6 @@ get_header();
 			$gallery_data      = array();
 
 			if ( file_exists( $gallery_json_path ) ) {
-				/**
-				 * WordPress core file always exists
-				 *
-				 * @phpstan-ignore-next-line requireOnce.fileNotFound
-				 */
 				require_once ABSPATH . 'wp-admin/includes/file.php';
 				WP_Filesystem();
 				$json = $GLOBALS['wp_filesystem']->get_contents( $gallery_json_path );
@@ -69,7 +64,7 @@ get_header();
 					$last_name       = end( $name_components );
 
 					// Clean the last name of any special characters.
-					$last_name = preg_replace( '/[^a-zA-Z0-9]/', '', $last_name );
+					$last_name = preg_replace( '/[^a-zA-Z0-9]/', '', $last_name ) ?? '';
 
 					// Generate data-doctor value as "dr-lastname" format to match JSON keys.
 					$surgeon_slug = 'dr-' . strtolower( $last_name );
@@ -84,7 +79,7 @@ get_header();
 					}
 
 					// Debug output for each surgeon.
-					echo '<!-- Surgeon: ' . esc_html( $surgeon['name'] ) . ' => LastName: ' . esc_html( $last_name ) . ' => Slug: ' . esc_html( $surgeon_slug ) . ' => Has Gallery: ' . ( $has_gallery ? 'Yes' : 'No' ) . ' -->';
+					echo '<!-- Surgeon: ' . esc_html( $surgeon['name'] ?? '' ) . ' => LastName: ' . esc_html( $last_name ) . ' => Slug: ' . esc_html( $surgeon_slug ) . ' => Has Gallery: ' . ( $has_gallery ? 'Yes' : 'No' ) . ' -->';
 					?>
 					<option value="<?php echo esc_attr( $surgeon_slug ); ?>"><?php echo esc_html( $display_name ); ?></option>
 					<?php
@@ -104,11 +99,6 @@ $gallery_data      = array();
 
 if ( file_exists( $gallery_json_path ) ) {
 	// Use WP_Filesystem API for better security and compatibility.
-	/**
-	 * WordPress core file always exists
-	 *
-	 * @phpstan-ignore-next-line requireOnce.fileNotFound
-	 */
 	require_once ABSPATH . 'wp-admin/includes/file.php';
 	WP_Filesystem();
 	$json = $GLOBALS['wp_filesystem']->get_contents( $gallery_json_path );
@@ -161,17 +151,17 @@ if ( is_array( $gallery_data ) && count( $gallery_data ) > 0 ) :
 		$full_name       = trim( $name_parts[0] );
 		$name_components = explode( ' ', $full_name );
 		$last_name       = end( $name_components );
-		$last_name       = preg_replace( '/[^a-zA-Z0-9]/', '', $last_name );
+		$last_name       = preg_replace( '/[^a-zA-Z0-9]/', '', $last_name ) ?? '';
 		$surgeon_slug    = 'dr-' . strtolower( $last_name );
 
 		// If this surgeon doesn't have gallery data, create a coming soon message.
 		if ( ! isset( $gallery_data[ $surgeon_slug ] ) ) {
 			?>
 			<article class="gallery d-none" data-doctor="<?php echo esc_attr( $surgeon_slug ); ?>">
-				<h2 class="h2 text-center mt-5 mb-5">Dr. <?php echo esc_html( $last_name ); ?></h2>
+				<h2 class="h2 text-center mt-5 mb-5">Dr. <?php echo esc_html( '' !== $last_name ? $last_name : 'Unknown' ); ?></h2>
 				<div class="alert alert-info text-center" role="alert">
 					<h3 class="h4 mb-3">Before & After Images Coming Soon!</h3>
-					<p class="mb-0">We're currently preparing the before and after gallery for Dr. <?php echo esc_html( $last_name ); ?>. Please check back soon to see amazing transformation results.</p>
+					<p class="mb-0">We're currently preparing the before and after gallery for Dr. <?php echo esc_html( '' !== $last_name ? $last_name : 'Unknown' ); ?>. Please check back soon to see amazing transformation results.</p>
 				</div>
 			</article>
 			<?php

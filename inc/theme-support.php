@@ -152,7 +152,7 @@ add_action( 'acf/init', 'mia_acf_init' );
  */
 function mia_acf_init(): void {
 	$api_key = get_field( 'google_maps_api_key', 'option' );
-	if ( $api_key ) {
+	if ( is_string( $api_key ) && '' !== $api_key ) {
 		acf_update_setting( 'google_api_key', $api_key );
 	}
 }

@@ -38,7 +38,7 @@ function should_show_consultation_cta() {
 	$cta_defaults = get_field( 'cta_defaults', 'option' );
 
 	// If no defaults are set yet, default to showing (except for specials).
-	if ( ! $cta_defaults ) {
+	if ( null === $cta_defaults || false === $cta_defaults ) {
 		return ! is_singular( 'special' );
 	}
 

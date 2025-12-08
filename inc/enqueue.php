@@ -145,11 +145,11 @@ function mia_needs_faq(): bool {
 		$faq_section = get_field( 'faq_section' );
 
 		// Check if FAQ section exists and has valid FAQs.
-		if ( isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && ! empty( $faq_section['faqs'] ) ) {
+		if ( isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && count( $faq_section['faqs'] ) > 0 ) {
 			// Check if at least one FAQ has both question and answer.
 			foreach ( $faq_section['faqs'] as $faq ) {
-				if ( isset( $faq['question'] ) && ! empty( $faq['question'] ) &&
-					isset( $faq['answer'] ) && ! empty( $faq['answer'] ) ) {
+				if ( isset( $faq['question'] ) && is_string( $faq['question'] ) && '' !== $faq['question'] &&
+					isset( $faq['answer'] ) && is_string( $faq['answer'] ) && '' !== $faq['answer'] ) {
 					return true;
 				}
 			}
@@ -193,7 +193,7 @@ function mia_needs_virtual_consultation_maps(): bool {
 function mia_enqueue_google_maps( string $callback ): void {
 	if ( ! wp_script_is( 'google-maps', 'registered' ) ) {
 		$api_key = get_field( 'google_maps_api_key', 'option' );
-		if ( $api_key ) {
+		if ( is_string( $api_key ) && '' !== $api_key ) {
 			wp_register_script(
 				'google-maps',
 				'https://maps.googleapis.com/maps/api/js?key=' . esc_attr( $api_key ) . '&libraries=places&callback=' . esc_attr( $callback ),
@@ -261,7 +261,7 @@ function mia_get_current_template_key(): string {
 
 	// Check for page templates (on any post type, not just pages).
 	$template = get_page_template_slug();
-	if ( $template ) {
+	if ( is_string( $template ) && '' !== $template ) {
 		return basename( $template, '.php' );
 	}
 

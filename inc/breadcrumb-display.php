@@ -22,7 +22,7 @@ function mia_needs_breadcrumb(): bool {
 
 	// Check individual post override first (takes priority).
 	$override = get_field( 'breadcrumb_display_override' );
-	if ( ! empty( $override ) && 'default' !== $override ) {
+	if ( is_string( $override ) && '' !== $override && 'default' !== $override ) {
 		return 'show' === $override;
 	}
 
@@ -30,7 +30,7 @@ function mia_needs_breadcrumb(): bool {
 	$breadcrumb_defaults = get_field( 'breadcrumb_defaults', 'option' );
 
 	// If no defaults are set yet, default to showing.
-	if ( ! $breadcrumb_defaults ) {
+	if ( null === $breadcrumb_defaults || false === $breadcrumb_defaults ) {
 		return true;
 	}
 

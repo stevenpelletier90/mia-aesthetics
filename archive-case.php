@@ -43,7 +43,7 @@ add_action(
 						);
 
 						// Shuffle the array in PHP for true randomization.
-						if ( ! empty( $all_surgeon_ids ) && is_array( $all_surgeon_ids ) ) :
+						if ( is_array( $all_surgeon_ids ) && count( $all_surgeon_ids ) > 0 ) :
 							shuffle( $all_surgeon_ids );
 							// Get only the first 6 surgeons.
 							$random_surgeon_ids = array_slice( $all_surgeon_ids, 0, 6 );
@@ -61,7 +61,7 @@ add_action(
 										false,
 										array(
 											'class'   => 'surgeon-avatar',
-											'alt'     => ( ! empty( $alt_text ) && is_string( $alt_text ) ) ? $alt_text : $surgeon_title,
+											'alt'     => ( is_string( $alt_text ) && '' !== $alt_text ) ? $alt_text : $surgeon_title,
 											'loading' => 'eager',
 											'fetchpriority' => 'high',
 										)
@@ -75,7 +75,7 @@ add_action(
 										'thumbnail',
 										array(
 											'class'   => 'surgeon-avatar',
-											'alt'     => ( ! empty( $alt_text ) && is_string( $alt_text ) ) ? $alt_text : $surgeon_title,
+											'alt'     => ( is_string( $alt_text ) && '' !== $alt_text ) ? $alt_text : $surgeon_title,
 											'loading' => 'eager',
 											'fetchpriority' => 'high',
 										)

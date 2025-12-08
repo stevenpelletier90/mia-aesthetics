@@ -1,5 +1,8 @@
+includes:
+    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
 parameters:
-    level: 7
+    level: 8
     paths:
         - .
     excludePaths:
@@ -9,61 +12,22 @@ parameters:
         # - assets/vendor/
         # - .claude
     bootstrapFiles:
-        - vendor/php-stubs/wordpress-stubs/wordpress-stubs.php
+        # wordpress-stubs loaded automatically by szepeviktor/phpstan-wordpress
         - vendor/php-stubs/acf-pro-stubs/acf-pro-stubs.php
         - vendor/php-stubs/gravity-forms-stubs/gravity-forms-stubs.php
         - vendor/php-stubs/wordpress-seo-stubs/wordpress-seo-stubs.php
     
     # WordPress-specific settings
     treatPhpDocTypesAsCertain: false  # ACF and WordPress functions often have incorrect PHPDocs
-    
-    # Ignore common WordPress/ACF/Yoast patterns that are safe
+
+    # Minimal ignores - only for unfixable WordPress patterns
     ignoreErrors:
-        # ACF get_field() can return various types - this is expected behavior
-        - '#Function get_field invoked with#'
-        - '#Method ACF::(get_field|get_sub_field|get_row_layout)\(\) invoked with#'
-        
-        # ACF field returns are intentionally flexible
-        - '#get_field\(\) return type has no value type#'
-        
-        # WordPress functions with mixed return types (by design)
-        - '#Function get_post_meta invoked with#'
-        - '#Function get_option invoked with#'
-        - '#Function get_theme_mod invoked with#'
-        
-        # Yoast SEO functions (keep for when they're used)
-        - '#Function YoastSEO\(\) invoked with#'
-        - '#Call to function WPSEO_#'
-        
-        # WordPress hooks and filters (dynamic by nature)
-        - '#Function (add_action|add_filter|do_action|apply_filters) invoked with#'
-        
-        # ACF Blocks (if using them)
-        - '#Function acf_register_block_type invoked with#'
-        
-        # WordPress/ACF mixed type patterns that are safe
-        - '#Only booleans are allowed in a negated boolean, mixed given#'
-        - '#Only booleans are allowed in an if condition, mixed given#'
-        - '#Only booleans are allowed in an if condition, string\|false given#'
-        - '#Construct empty\(\) is not allowed#'
-        
-        # WordPress template and conditional functions
-        - '#Function (is_home|is_front_page|is_single|is_page|is_archive|is_category|is_tag|is_author|is_search|is_404|is_page_template|have_posts|the_post) invoked with#'
-        
-        # WordPress loop and iteration patterns
-        - '#Variable \$post might not be defined#'
-        - '#Offset .* does not exist on array#'
+        # WordPress loop pattern: while($query->have_posts()) is intentional
         - '#While loop condition is always true#'
         - '#Unreachable statement - code above always terminates#'
-        
-        # WordPress superglobals (commonly used in themes)
-        - '#Variable \$_(GET|POST|SERVER|REQUEST) .* does not exist#'
-        
-        # WordPress formatting functions that handle escaping
-        - '#Function (wp_kses_post|wp_strip_all_tags|sanitize_text_field|esc_html|esc_attr|esc_url) .* should not be used#'
-    
-    # Memory and performance
-    reportUnmatchedIgnoredErrors: false
+
+    # Report unmatched ignores to keep this list clean
+    reportUnmatchedIgnoredErrors: true
     
     # Disable parallel processing completely
     parallel:

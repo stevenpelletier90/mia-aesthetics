@@ -196,7 +196,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 						<div class="resource-links">
 							<?php
 							$city_guide = get_field( 'city_guide' );
-							if ( $city_guide ) :
+							if ( null !== $city_guide && false !== $city_guide ) :
 								$city_guide_url = get_permalink( $city_guide );
 								$city_guide_url = is_string( $city_guide_url ) ? $city_guide_url : '';
 								?>

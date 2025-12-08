@@ -21,7 +21,7 @@ $valid_faqs   = $args['valid_faqs'] ?? array();
 $accordion_id = $args['accordion_id'] ?? 'faq-accordion';
 
 // Exit early if no valid FAQs to display.
-if ( empty( $valid_faqs ) ) {
+if ( ! is_array( $valid_faqs ) || 0 === count( $valid_faqs ) ) {
 	return;
 }
 ?>

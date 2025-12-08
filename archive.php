@@ -21,13 +21,13 @@ get_header(); ?>
 				<div class="col-lg-8">
 					<?php
 					if ( is_category() ) {
-						echo '<h1>Category: ' . esc_html( single_cat_title( '', false ) ) . '</h1>';
+						echo '<h1>Category: ' . esc_html( single_cat_title( '', false ) ?? '' ) . '</h1>';
 					} elseif ( is_tag() ) {
-						echo '<h1>Tag: ' . esc_html( single_tag_title( '', false ) ) . '</h1>';
+						echo '<h1>Tag: ' . esc_html( single_tag_title( '', false ) ?? '' ) . '</h1>';
 					} elseif ( is_author() ) {
 						echo '<h1>Author: ' . esc_html( get_the_author() ) . '</h1>';
 					} elseif ( is_post_type_archive() ) {
-						echo '<h1>' . esc_html( post_type_archive_title( '', false ) ) . '</h1>';
+						echo '<h1>' . esc_html( post_type_archive_title( '', false ) ?? '' ) . '</h1>';
 					} else {
 						echo '<h1>' . wp_kses_post( get_the_archive_title() ) . '</h1>';
 					}

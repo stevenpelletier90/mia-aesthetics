@@ -80,11 +80,6 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 			if ( false !== $path && file_exists( $path ) ) {
 				// Use WP_Filesystem API for better security and compatibility.
 				if ( ! function_exists( 'WP_Filesystem' ) ) {
-					/**
-					 * Load WordPress filesystem API
-					 *
-					 * @phpstan-ignore-next-line requireOnce.fileNotFound -- WordPress core file always exists
-					 */
 					require_once wp_normalize_path( ABSPATH . 'wp-admin/includes/file.php' );
 				}
 				WP_Filesystem();
@@ -98,7 +93,7 @@ function mia_aesthetics_fix_svg_display( $response, $attachment, $meta ) {
 
 						// If width/height not in XML attributes, try viewBox.
 						if ( 0 === $width || 0 === $height ) {
-							$viewbox = explode( ' ', $xml['viewBox'] );
+							$viewbox = explode( ' ', (string) ( $xml['viewBox'] ?? '' ) );
 							if ( count( $viewbox ) === 4 ) {
 								$width  = intval( $viewbox[2] );
 								$height = intval( $viewbox[3] );

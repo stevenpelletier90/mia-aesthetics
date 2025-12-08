@@ -62,7 +62,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 
 							// Type safety checks.
 							if ( false !== $location_title && false !== $location_url ) {
-								$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title );
+								$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title ) ?? $location_title;
 								?>
 						<p class="surgeon-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></p>
 								<?php
@@ -75,6 +75,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 							<!-- Mobile Gallery Link -->
 							<?php
 							$doctor_slug = get_post_field( 'post_name', get_post() );
+							$doctor_slug = is_string( $doctor_slug ) ? $doctor_slug : '';
 							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
 							?>
 							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-outline-primary-alt2 surgeon-gallery-mobile d-lg-none">
@@ -177,6 +178,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 											$excerpt = get_the_excerpt( $specialty->ID );
 											if ( '' === $excerpt ) {
 												$content = get_post_field( 'post_content', $specialty->ID );
+												$content = is_string( $content ) ? $content : '';
 												$excerpt = wp_trim_words( $content, 20, '...' );
 											}
 											?>
@@ -215,6 +217,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 									<i class="fas fa-images" aria-hidden="true"></i>
 									<?php
 									$doctor_slug = get_post_field( 'post_name', get_post() );
+									$doctor_slug = is_string( $doctor_slug ) ? $doctor_slug : '';
 									$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
 									?>
 									<span><a href="<?php echo esc_url( $gallery_url ); ?>">View Before & After Gallery</a></span>
