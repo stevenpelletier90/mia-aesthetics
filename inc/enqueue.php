@@ -159,7 +159,6 @@ function mia_needs_faq(): bool {
 	return false;
 }
 
-
 /**
  * Check if current page needs location search careers component
  */
@@ -183,7 +182,6 @@ function mia_needs_virtual_consultation_maps(): bool {
 
 	return false;
 }
-
 
 /**
  * Enqueue Google Maps API with specified callback
@@ -285,8 +283,6 @@ function mia_get_current_template_key(): string {
 		}
 	}
 
-	// (Archive checking moved to top of function to prevent page template interference)
-
 	// Taxonomy archives.
 	if ( is_tax( 'case_category' ) ) {
 		return 'case-category';
@@ -331,7 +327,6 @@ function mia_enqueue_template_assets(): void {
 	mia_load_template_files( $template_key );
 }
 
-
 /**
  * Load template-specific CSS/JS files
  *
@@ -341,7 +336,7 @@ function mia_load_template_files( string $template_key ): void {
 	// Get asset map for current template.
 	$asset_map = mia_get_template_asset_map();
 
-		// Load CSS for this template (always load CSS).
+	// Load CSS for this template (always load CSS).
 	if ( isset( $asset_map[ $template_key ]['css'] ) ) {
 		$css_path = get_template_directory_uri() . '/assets/css/' . $asset_map[ $template_key ]['css'];
 
@@ -353,7 +348,7 @@ function mia_load_template_files( string $template_key ): void {
 		);
 	}
 
-		// Load JS for this template.
+	// Load JS for this template.
 	if ( isset( $asset_map[ $template_key ]['js'] ) ) {
 		$js_path = get_template_directory_uri() . '/assets/js/' . $asset_map[ $template_key ]['js'];
 
@@ -530,11 +525,20 @@ function mia_get_template_asset_map(): array {
 	);
 }
 
+add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
 
 /**
- * Helper Functions
- * =============================================================================
+ * Output third-party header scripts (tracking, consent, accessibility)
  */
-
-
-add_action( 'wp_enqueue_scripts', 'mia_enqueue_assets' );
+function mia_head_scripts(): void {
+	?>
+	<script>
+		window.attributersettings = {
+			cookieLife: 30
+		}
+	</script>
+	<script type="text/javascript" src="https://d1b3llzbo1rqxo.cloudfront.net/attributer.js"></script>
+	<script src="https://cdn.userway.org/widget.js" data-account="o4cLhj3rDh"></script>
+	<?php
+}
+add_action( 'wp_head', 'mia_head_scripts', 1 );
