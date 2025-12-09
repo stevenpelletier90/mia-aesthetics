@@ -73,9 +73,11 @@ require __DIR__ . '/hero-section.php';
 	<div class="row align-items-center">
 		<div class="col-lg-6  mb-lg-0">
 		<div class="excellence-image">
-			<img src="/wp-content/uploads/2025/05/surgery-1.jpg" 
-				alt="Trusted Surgical Excellence" 
-				class="img-fluid">
+			<img src="/wp-content/uploads/2025/05/surgery-1.jpg"
+				alt="Trusted Surgical Excellence"
+				class="img-fluid"
+				width="800"
+				height="600">
 		</div>
 		</div>
 		<div class="col-lg-6">
@@ -210,7 +212,7 @@ require __DIR__ . '/hero-section.php';
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/body-home.jpg" alt="Body Procedures" class="img-fluid rounded shadow">';
+				echo '<img src="/wp-content/uploads/2025/04/body-home.jpg" alt="Body Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -271,12 +273,12 @@ require __DIR__ . '/hero-section.php';
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/breast-home.jpg" alt="Breast Procedures" class="img-fluid rounded shadow">';
+				echo '<img src="/wp-content/uploads/2025/04/breast-home.jpg" alt="Breast Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
 			<div class="col-12 col-xl-6 order-xl-1">
-			<p class="tagline mt-3">Achive Your Desired Look</p>
+			<p class="tagline mt-3">Achieve Your Desired Look</p>
 			<h3 class="section-heading">Breast Enhancement</h3>
 			<p class="section-description ">Our breast procedures are designed to enhance, reduce, or lift your breasts to achieve your desired appearance. Our board-certified surgeons use the latest techniques to deliver natural-looking results with minimal scarring.</p>
 			
@@ -329,7 +331,7 @@ require __DIR__ . '/hero-section.php';
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/face-2-home.jpg" alt="Facial Procedures" class="img-fluid rounded shadow">';
+				echo '<img src="/wp-content/uploads/2025/04/face-2-home.jpg" alt="Facial Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -390,7 +392,7 @@ require __DIR__ . '/hero-section.php';
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/face-home.jpg" alt="Non-Surgical Procedures" class="img-fluid rounded shadow">';
+				echo '<img src="/wp-content/uploads/2025/04/face-home.jpg" alt="Non-Surgical Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -438,7 +440,7 @@ require __DIR__ . '/hero-section.php';
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/men-home.jpg" alt="Men\'s Procedures" class="img-fluid rounded shadow">';
+				echo '<img src="/wp-content/uploads/2025/04/men-home.jpg" alt="Men\'s Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -483,7 +485,11 @@ require __DIR__ . '/hero-section.php';
 <!-- Foundation Section -->
 <section class="foundation-section">
 	<div class="foundation-background">
-		<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="" loading="lazy">
+		<img src="/wp-content/uploads/2025/04/miaf6.jpg"
+			alt="Mia Aesthetics Foundation community outreach"
+			width="1920"
+			height="1080"
+			loading="lazy">
 	</div>
 
 	<div class="container position-relative">

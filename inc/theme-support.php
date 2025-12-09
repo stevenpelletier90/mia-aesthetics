@@ -141,6 +141,47 @@ function mia_admin_bar_view_source( $wp_admin_bar ): void {
 }
 
 /**
+ * Disable comments site-wide.
+ *
+ * Removes comment support from all post types, hides admin menu/bar items,
+ * and closes comments on the frontend.
+ */
+function mia_disable_comments_post_types(): void {
+	foreach ( get_post_types() as $post_type ) {
+		if ( post_type_supports( $post_type, 'comments' ) ) {
+			remove_post_type_support( $post_type, 'comments' );
+			remove_post_type_support( $post_type, 'trackbacks' );
+		}
+	}
+}
+add_action( 'admin_init', 'mia_disable_comments_post_types' );
+
+/**
+ * Remove comments page from admin menu.
+ */
+function mia_disable_comments_admin_menu(): void {
+	remove_menu_page( 'edit-comments.php' );
+}
+add_action( 'admin_menu', 'mia_disable_comments_admin_menu' );
+
+/**
+ * Remove comments link from admin bar.
+ *
+ * @param WP_Admin_Bar $wp_admin_bar The WP_Admin_Bar instance.
+ */
+function mia_disable_comments_admin_bar( WP_Admin_Bar $wp_admin_bar ): void {
+	$wp_admin_bar->remove_menu( 'comments' );
+}
+add_action( 'admin_bar_menu', 'mia_disable_comments_admin_bar', 999 );
+
+// Close comments and pings on frontend.
+add_filter( 'comments_open', '__return_false', 20 );
+add_filter( 'pings_open', '__return_false', 20 );
+
+// Hide any existing comments.
+add_filter( 'comments_array', '__return_empty_array' );
+
+/**
  * Enable Google Maps API for ACF Pro
  */
 add_action( 'acf/init', 'mia_acf_init' );

@@ -31,10 +31,13 @@
 					srcset="/wp-content/uploads/2025/11/BF25-Desktop.jpg 1920w, /wp-content/uploads/2025/11/BF25-Banner-Wide.jpg 2560w"
 					sizes="100vw">
 				<!-- Mobile fallback: up to 767px (800x600 - different aspect ratio) -->
-				<img src="/wp-content/uploads/2025/11/BF25-Banner-MOB-V2.jpg" 
-					class="d-block w-100" 
-					alt="Beat the Heat Summer Special" 
-					fetchpriority="high">
+				<img src="/wp-content/uploads/2025/11/BF25-Banner-MOB-V2.jpg"
+					class="d-block w-100"
+					alt="Beat the Heat Summer Special"
+					width="800"
+					height="600"
+					fetchpriority="high"
+					data-no-lazy="1">
 			</picture>
 		</div>
 
@@ -52,7 +55,9 @@
 		<div class="hero-box hero-box-top">
 		<img src="/wp-content/uploads/2025/10/results-desktop-color.jpg"
 			class="hero-box-image"
-			alt="Before & After Gallery Results - Mia Aesthetics">
+			alt="Before & After Gallery Results - Mia Aesthetics"
+			width="600"
+			height="400">
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Before & After Gallery</div>
 			<a href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" class="btn btn-outline-primary-alt2" role="button">
@@ -65,7 +70,9 @@
 		<div class="hero-box hero-box-bottom">
 		<img src="/wp-content/uploads/2025/10/financing-02.jpg"
 			class="hero-box-image"
-			alt="Affordable Financing at Mia Aesthetics">
+			alt="Affordable Financing at Mia Aesthetics"
+			width="600"
+			height="400">
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Affordable Financing</div>
 			<a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="btn btn-outline-primary-alt2" role="button">
