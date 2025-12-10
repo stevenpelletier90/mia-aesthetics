@@ -13,6 +13,59 @@ NASA Web Developer Position - Steve Pelletier
 
 ---
 
+## Quick Glance Cheat Sheet (Keep This Visible During Call)
+
+**The Four Skills:**
+
+- **Plugins:** Featured image column, transient cleaner, GF file cleanup, Elementor widgets
+- **Backend:** 8 CPTs, conditional asset loading, caching with auto-clear
+- **Database:** WP_Query, transients, `save_post` to clear cache
+- **REST API:** Zip code → 3 closest locations with miles, Google Maps, Haversine formula
+
+**Key Hooks (Memorize These):**
+
+- `pre_get_posts` - modify queries before they run
+- `save_post` - clear cache when content changes
+- `wp_enqueue_scripts` - load CSS/JS conditionally
+- `body_class` - add template CSS classes
+
+**Quick Definitions:**
+
+- Hook = spot to plug in your code
+- Action = run code when X happens
+- Filter = modify data before it's used
+- Enqueue = load files the WordPress way
+
+**Security (Quick):** `esc_html`, `esc_url`, `sanitize_text_field`, `current_user_can`
+
+**Closing Line:**
+
+> "I know I have the experience and progression to be a valuable member of this team."
+
+**Availability:** "My contract is wrapping up. Available in 1-2 weeks."
+
+---
+
+## Mindset Reminders
+
+1. **You know this stuff.** The terminology tripped you up, not the knowledge.
+2. **Own mistakes directly.** No excuses. "I stumbled, here's what I actually know."
+3. **Be specific.** "I use `pre_get_posts`" is better than "I modify queries."
+4. **Use their language.** Say "hooks" not "functions that run when stuff happens."
+5. **Close strong.** "I know" not "I feel." Confidence, not hope.
+
+---
+
+## Pre-Interview Checklist
+
+- [ ] Review this document
+- [ ] Have WORDPRESS-TECHNIQUES.md open for reference
+- [ ] Have SKILLS-PORTFOLIO.md open for terminology mapping
+- [ ] Take a breath - you've built real things
+- [ ] Remember: they called YOU back
+
+---
+
 ## The Four Skills They Mentioned
 
 ### 1. Custom Plugin Development
@@ -47,6 +100,10 @@ NASA Web Developer Position - Steve Pelletier
 
 > "At Mia Aesthetics, I built a theme with 8 custom post types that have parent/child relationships - locations have child offices, procedures have sub-procedures. I built a system that only loads CSS and JavaScript when that component is actually needed on the page. For database performance, I skip unnecessary work - like pagination counts when I don't need them. I also cache expensive data and automatically clear it when content changes, so users always see fresh data without the site being slow."
 
+**If they ask how the conditional loading works:** "Each template has a map that says 'this template needs these CSS and JS files.' When the page loads, I check what template we're on and only load what's in that map - instead of loading everything everywhere."
+
+**If they ask how the cache clearing works:** "I hook into `save_post` - that's an action that fires whenever content is saved. When it fires, I delete the cached data for that post type, so the next page load rebuilds it fresh."
+
 ---
 
 ### 3. Database Integration
@@ -63,7 +120,9 @@ NASA Web Developer Position - Steve Pelletier
 
 #### If Asked "How do you work with the WordPress database?"
 
-> "I use WordPress's built-in tools - WP_Query for fetching posts, and caching to avoid hitting the database on every page load. I optimize queries by only asking for what I need - if I just need a count, I don't fetch full post objects. For data that's expensive to generate, I save it temporarily and set it to auto-clear when someone updates related content. That way the site stays fast but data is always fresh."
+> "I use WP_Query and optimize it based on what I actually need - if I just need post IDs, I tell it to skip fetching full objects. For data that's expensive to generate, I cache it in transients and clear it automatically when content changes. That keeps the site fast while making sure users always see fresh data."
+
+**If they ask for specifics, you can add:** "For example, I use `fields => 'ids'` and `no_found_rows => true` to skip work I don't need, and hook into `save_post` to clear caches."
 
 ---
 
@@ -72,24 +131,45 @@ NASA Web Developer Position - Steve Pelletier
 #### Your REST API Experience
 
 ```javascript
-// Location search - fetches CPT data with ACF fields
+// Fetch all locations via REST API, get coordinates from ACF fields
 const response = await fetch('/wp-json/wp/v2/location?per_page=100&parent=0&_fields=id,title,link,acf');
 
-// Chained API calls for related data
-const acfResponse = await fetch(`/wp-json/wp/v2/pages/${page.id}?_fields=id,title,link,acf`);
-const locationResponse = await fetch(`/wp-json/wp/v2/location/${mainLocationId}?_fields=acf`);
+// User enters zip → Google geocodes it → I calculate distance to each location
+location.distance = calculateDistance(userLat, userLng, locationLat, locationLng);
+
+// Sort by distance, show top 3 closest with "X miles away"
+results.sort((a, b) => a.distance - b.distance).slice(0, 3);
 ```
 
 **What You Built:**
 
-- Location search that queries the REST API and displays results on a Google Map
-- Virtual consultation page that fetches location coordinates via API
-- Careers location finder with chained API calls to get related ACF data
-- Used `_fields` parameter to limit response payload for performance
+- **Location finder:** User enters zip code → shows the 3 closest locations with distance in miles
+- **Distance calculation:** Used Haversine formula to calculate miles between user and each location
+- **Google Maps integration:** ACF has a Google Maps field - editors type an address, it stores coordinates, REST API delivers them, Google Maps displays pins
+- **Careers location search:** Same concept, different context - find nearest office with job openings
+- **Virtual consultation:** Fetch location coordinates via chained API calls to pre-fill forms
+- **Performance:** Used `_fields` parameter to only fetch the data I actually need
 
 #### If Asked "Have you worked with WordPress REST API?"
 
-> "Yes. In Mia Aesthetics I built location search features that query the REST API to fetch custom post type data including ACF fields, then display results on Google Maps. I chain multiple API calls when I need related data - for example, fetching a page, then fetching its linked location to get coordinates. I use the `_fields` parameter to limit response payload and improve performance."
+> "Yes. I built a location finder where users enter their zip code and it shows the 3 closest offices with how many miles away each one is. I fetch the location data via the REST API, calculate the distances, sort them, and display the results on a Google Map. I also built a careers version that does the same thing for job seekers."
+
+**If they ask for specifics, you can add:** "ACF has a Google Maps field type - editors just type the address or business name and it stores the coordinates. I fetch those via the REST API, calculate distance with the Haversine formula, sort by closest, and plot them on a map."
+
+#### What You Should Know (But Didn't Build Yet)
+
+| Concept                 | Plain English                                              | Could You Do It?                    |
+| ----------------------- | ---------------------------------------------------------- | ----------------------------------- |
+| `register_rest_route()` | Make your own API URL that returns custom data             | Yes - know the pattern              |
+| `WP_REST_Controller`    | A PHP class template for building API endpoints            | Familiar - haven't needed it yet    |
+| `permission_callback`   | Check "is this person allowed to access this?" before running | Yes - same as `current_user_can()` |
+| Nonces in REST          | A security token that proves the request came from your site | Yes - used nonces in forms         |
+| Headless WordPress      | WordPress handles data, a separate app handles the display | Know how it works                   |
+| CRUD via REST           | Not just reading data - also creating, updating, deleting  | Know it's possible                  |
+
+#### If Asked "Have you created custom REST endpoints?"
+
+> "I've consumed the REST API heavily - fetching location data, ACF fields, and chaining calls together. I haven't needed to create custom endpoints from scratch, but I know the pattern: you register a route, define what data it returns, and add a security check to control who can access it. It's the same permission concepts I use elsewhere."
 
 ---
 
@@ -170,35 +250,110 @@ Hooks = WordPress's way of saying "run my code when X happens" or "let me modify
 
 ---
 
-## Potential "Zinger" Questions
+## Schema.org / Structured Data (Impressive Work - Don't Undersell)
 
-### "What's the difference between an action and a filter?"
+### What You Built
 
-> "Actions do something - they execute code at a specific point. Filters modify something - they take data, change it, and return it. `save_post` is an action that fires when a post saves. `body_class` is a filter that takes the array of body classes and returns a modified array."
+You extended Yoast SEO's schema output with custom OOP classes:
 
-### "How do you optimize a slow WordPress site?"
+```php
+// You wrote custom PHP classes that plug into Yoast's schema graph
+class Surgeon_Schema {
+    public function is_needed(): bool {
+        return is_singular( 'surgeon' );
+    }
 
-> "I start with queries - are we running expensive queries on every page load? I look for missing indexes, unnecessary meta queries, and queries that could be cached. Then asset loading - are we loading scripts globally that should be conditional? Then caching - object cache for expensive operations, transients for data that doesn't change often, full page caching at the server level. Then images - proper sizing, lazy loading, WebP format."
+    public function generate(): array {
+        return array(
+            '@type' => array( 'Person', 'Physician' ),
+            'medicalSpecialty' => 'PlasticSurgery',
+            // ... doctor-specific structured data
+        );
+    }
+}
+```
 
-### "What's your experience with PHP static analysis?"
+### Why This Matters
 
-> "I enforce PHPStan Level 8 with bleeding edge rules on my current project. That means strict return types, no `empty()` calls, explicit type checking on all mixed types. It catches bugs before they hit production - things like null returns that would cause fatal errors."
+- Most WordPress devs never touch structured data
+- You wrote OOP PHP classes (not just procedural code)
+- You integrated with a third-party plugin at a deep level
+- Google uses this data for rich search results
 
-### "How do you handle security in WordPress?"
+### If Asked About SEO or Structured Data
 
-> "Output escaping based on context - `esc_html()` for text, `esc_url()` for URLs, `esc_attr()` for attributes, `wp_kses_post()` for trusted HTML. Input sanitization with `sanitize_text_field()` and validation with `filter_var()`. Capability checks before sensitive operations - like only allowing SVG uploads for administrators."
+> "I added custom structured data for our surgeons and locations. When Google crawls a surgeon page, it sees proper 'Physician' markup with their specialty and credentials. For location pages, it sees 'MedicalClinic' markup with address and contact info. I built PHP classes that plug into Yoast SEO and output the right data for each page type. It helps Google understand our content and show rich results."
 
-### "What's your process when you don't know something?"
-
-> "I research it. WordPress has excellent documentation, and I use the developer references frequently. If I'm stuck on something, I'll read the core source code to understand how a function actually works. I also maintain documentation for my own projects so I don't have to solve the same problem twice."
-
-### "Tell me about a mistake you made and how you handled it."
-
-> "In my recent interview with your team, I blanked on the term 'hooks' even though I use them daily. I call them functions in my head, not hooks. I could have made excuses, but instead I followed up to demonstrate that I do understand the concepts - I just had a terminology disconnect under pressure. That's why I'm here - I want to show you what I actually know."
+**If they ask how:** "Yoast has a filter I hook into - I add my own classes that check what page we're on and output the appropriate schema."
 
 ---
 
-## PHPStan Level 8 - In Case They Ask
+## Security (Important for NASA/Government)
+
+### What You Practice
+
+| Security Measure         | How You Use It                                                             |
+| ------------------------ | -------------------------------------------------------------------------- |
+| Output Escaping          | `esc_html()`, `esc_url()`, `esc_attr()`, `wp_kses_post()` based on context |
+| Input Sanitization       | `sanitize_text_field()`, `sanitize_email()` before saving                  |
+| Capability Checks        | `current_user_can('manage_options')` before sensitive operations           |
+| Nonces                   | `wp_nonce_field()` / `wp_verify_nonce()` for form security                 |
+| Direct Access Prevention | `if (!defined('ABSPATH')) exit;` in all PHP files                          |
+
+### If Asked About Security
+
+> "I follow WordPress security best practices. Output escaping based on context - `esc_html` for text, `esc_url` for URLs, `esc_attr` for attributes. Input sanitization before saving anything to the database. Capability checks before sensitive operations - like only allowing SVG uploads for administrators. Nonces for form submissions. And preventing direct file access with the ABSPATH check."
+
+---
+
+## Template Hierarchy (You Know This)
+
+### How It Works
+
+WordPress automatically loads specific template files based on what's being viewed:
+
+```bash
+front-page.php      → Homepage
+single-surgeon.php  → Individual surgeon page
+archive-surgeon.php → Surgeon listing page
+page-careers.php    → Specific page by slug
+```
+
+### Your Template Experience
+
+- 30+ template files following WordPress naming conventions
+- 8 single templates for each custom post type
+- 8 archive templates for each custom post type
+- Page templates for specific pages
+
+### If Asked About Template Hierarchy
+
+> "I follow WordPress template hierarchy. In Mia Aesthetics I built over 30 templates - single templates for each of the 8 custom post types, archive templates for listings, and page templates for specific pages like careers. WordPress automatically picks the right template based on what's being viewed."
+
+---
+
+## Accessibility
+
+### What You Implement (WCAG 2.1 AA)
+
+| Technique         | Example                                                         |
+| ----------------- | --------------------------------------------------------------- |
+| ARIA Labels       | `aria-label="Primary navigation"` on nav elements               |
+| ARIA Expanded     | `aria-expanded="false"` on mobile menu toggles                  |
+| ARIA Controls     | `aria-controls="siteMenu"` linking buttons to what they control |
+| Landmark Roles    | `<nav>`, `<main>`, `<aside>` for screen readers                 |
+| Alt Text          | Meaningful descriptions for informational images                |
+| Decorative Images | `alt=""` or `aria-hidden="true"` for decorative elements        |
+
+### If Asked About Accessibility
+
+> "I follow WCAG 2.1 AA guidelines. That means using proper HTML elements - a `<nav>` for navigation, `<main>` for content, `<button>` for buttons instead of styled divs. For interactive elements like menus, I add ARIA attributes so screen readers know what's happening - like telling it 'this menu is open' or 'this button controls that panel.' Images get meaningful alt text if they convey information, or empty alt if they're decorative."
+
+**Note:** Section 508 (federal requirement) references WCAG 2.0 AA. Your WCAG 2.1 AA experience meets and exceeds that standard, but don't claim Section 508 experience directly unless asked - just say you follow WCAG 2.1 AA.
+
+---
+
+## PHPStan Level 8 (Strict Type Safety)
 
 **What It Is (Simple):**
 
@@ -226,9 +381,49 @@ if ( is_string( $field ) && '' !== $field ) {
 
 ---
 
-## Your Availability Statement
+## Potential "Zinger" Questions
 
-> "My current contract is wrapping up. I can be available within 1-2 weeks depending on NASA's timeline and onboarding requirements."
+### "What's the difference between an action and a filter?"
+
+> "Actions do something - they execute code at a specific point. Filters modify something - they take data, change it, and return it. `save_post` is an action that fires when a post saves. `body_class` is a filter that takes the array of body classes and returns a modified array."
+
+### "How do you optimize a slow WordPress site?"
+
+> "I start with queries - are we running expensive queries on every page load? I look for missing indexes, unnecessary meta queries, and queries that could be cached. Then asset loading - are we loading scripts globally that should be conditional? Then caching - object cache for expensive operations, transients for data that doesn't change often, full page caching at the server level. Then images - proper sizing, lazy loading, WebP format."
+
+**If they ask how you identify slow queries:** "I use Query Monitor - it's a plugin that shows every database query on the page, how long each took, and what triggered it. I look for queries that are slow or that run on every page when they shouldn't."
+
+### "What's your experience with PHP static analysis?"
+
+> "I use PHPStan at the strictest level on my current project. It reads my code and finds bugs before I even run it - like if a function might return null but I forgot to handle that case. It's like having a really strict code reviewer that catches problems before they reach users."
+
+**If they ask what "Level 8" means:** "PHPStan has levels 0-9, where higher means stricter. Level 8 requires explicit type checking everywhere - you can't be lazy about handling edge cases."
+
+### "How do you handle security in WordPress?"
+
+> "Three things: clean what comes in, escape what goes out, and check who's doing it. Before I save any user input, I sanitize it. Before I display anything, I escape it based on context - different functions for text, URLs, and HTML. And before sensitive operations, I check if the user has permission - like only letting administrators upload SVG files."
+
+**If they want specifics:** "For escaping: `esc_html()` for text, `esc_url()` for links. For sanitizing: `sanitize_text_field()`. For permissions: `current_user_can()`."
+
+### "What's your process when you don't know something?"
+
+> "I research it. WordPress has excellent documentation, and I use the developer references frequently. If I'm stuck on something, I'll read the core source code to understand how a function actually works. I also maintain documentation for my own projects so I don't have to solve the same problem twice."
+
+### "How do you debug a plugin that's not working?"
+
+> "First I check if it's actually the plugin - I deactivate it and see if the problem goes away. If it is the plugin, I check the error log and turn on `WP_DEBUG` to see what's happening. I look for conflicts by deactivating other plugins one by one. If I need to dig deeper, I'll add some logging to trace the code path, or use Query Monitor to see what hooks are firing and what queries are running. Most issues come down to conflicts, missing dependencies, or PHP errors that are being hidden."
+
+**If they ask for specifics:**
+
+- **Error logs:** `wp-content/debug.log` with `WP_DEBUG_LOG` enabled
+- **Query Monitor plugin:** Shows hooks, queries, PHP errors, HTTP requests
+- **Conflict testing:** Switch to default theme, deactivate all plugins, reactivate one by one
+- **Hook debugging:** `did_action('hook_name')` to check if a hook fired
+- **Database issues:** Check `wp_options` for corrupted plugin settings
+
+### "Tell me about a mistake you made and how you handled it."
+
+> "In my recent interview with your team, I blanked on the term 'hooks' even though I use them daily. I call them functions in my head, not hooks. I could have made excuses, but instead I followed up to demonstrate that I do understand the concepts - I just had a terminology disconnect under pressure. That's why I'm here - I want to show you what I actually know."
 
 ---
 
@@ -248,6 +443,12 @@ if ( is_string( $field ) && '' !== $field ) {
 
 ---
 
+## Your Availability Statement
+
+> "My current contract is wrapping up. I can be available within 1-2 weeks depending on NASA's timeline and onboarding requirements."
+
+---
+
 ## Summary: Your Technical Arsenal
 
 | Category              | What You've Done                                                               |
@@ -261,26 +462,6 @@ if ( is_string( $field ) && '' !== $field ) {
 | **Type Safety**       | Strictest PHP analysis (PHPStan Level 8) - catches bugs before they go live    |
 | **Performance**       | Only load what's needed, fast hero images, responsive image sizes              |
 | **Standards**         | WordPress coding standards, accessibility (WCAG 2.1 AA)                        |
-
----
-
-## Mindset Reminders
-
-1. **You know this stuff.** The terminology tripped you up, not the knowledge.
-2. **Own mistakes directly.** No excuses. "I stumbled, here's what I actually know."
-3. **Be specific.** "I use `pre_get_posts`" is better than "I modify queries."
-4. **Use their language.** Say "hooks" not "functions that run when stuff happens."
-5. **Close strong.** "I know" not "I feel." Confidence, not hope.
-
----
-
-## Pre-Interview Checklist
-
-- [ ] Review this document
-- [ ] Have WORDPRESS-TECHNIQUES.md open for reference
-- [ ] Have SKILLS-PORTFOLIO.md open for terminology mapping
-- [ ] Take a breath - you've built real things
-- [ ] Remember: they called YOU back
 
 ---
 
