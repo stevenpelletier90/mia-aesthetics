@@ -19,7 +19,7 @@ NASA Web Developer Position - Steve Pelletier
 
 - **Plugins:** Featured image column, transient cleaner, GF file cleanup, Elementor widgets
 - **Backend:** 8 CPTs, conditional asset loading, caching with auto-clear
-- **Database:** WP_Query, transients, `save_post` to clear cache
+- **Database:** WP_Query, transients, `save_post` to clear cache, batch queries (7→2 calls), avoid JOINs
 - **REST API:** Zip code → 3 closest locations with miles, Google Maps, Haversine formula
 
 **Key Hooks (Memorize These):**
@@ -83,6 +83,43 @@ NASA Web Developer Position - Steve Pelletier
 
 > "Yes. I've built utility plugins for admin improvements like featured image columns in post lists, database optimization plugins that clean up transients, and file management plugins that handle Gravity Forms uploads. I've also extended Elementor with custom functionality. These aren't flashy plugins, but they solve real operational problems - keeping the database clean, improving editor workflow, and managing file storage."
 
+**If they ask for a specific example:** "The featured image column plugin. Editors were scrolling through hundreds of posts trying to find the right one - they couldn't see images without clicking into each post. I hooked into `manage_posts_columns` to add a column, then `manage_posts_custom_column` to output a 50x50 thumbnail for each row. Now they can scan visually and find what they need in seconds."
+
+**If they ask about plugin structure:**
+
+- Header comment declares plugin name, version, author
+- Hook into `plugins_loaded` or `init` for setup
+- Namespace functions or use a class to avoid conflicts
+- Register activation/deactivation hooks if needed for setup/cleanup
+
+**Your Plugins:**
+
+| Plugin | Problem It Solves | How It Works |
+|--------|-------------------|--------------|
+| Featured Image Column | Can't see images in post list | Hooks into admin columns, outputs thumbnail |
+| Transient Cleaner | Expired cache piles up in database | Queries `_transient_timeout_*` options, deletes expired |
+| Gravity Forms Cleanup | Uploaded files fill up server | Scheduled task removes files after X days |
+| Elementor Widgets | Built-in widgets don't fit client needs | Extends Elementor's widget base class |
+
+**Plugin Lifecycle Hooks:**
+
+| Hook | When It Runs | What You Do |
+|------|--------------|-------------|
+| `register_activation_hook()` | Plugin activated | Set default options, create DB tables, flush rewrites |
+| `register_deactivation_hook()` | Plugin deactivated | Clean temp data, but keep settings |
+| `register_uninstall_hook()` | Plugin deleted | Remove everything - options, tables, files |
+
+**Common Plugin APIs:**
+
+| API | Purpose | Functions |
+|-----|---------|-----------|
+| **Options** | Store settings | `get_option()`, `update_option()`, `delete_option()` |
+| **Admin Menus** | Settings pages | `add_menu_page()`, `add_submenu_page()`, `add_options_page()` |
+| **Shortcodes** | Embed in content | `add_shortcode( 'tag', 'callback' )` |
+| **AJAX** | Async requests | `wp_ajax_{action}`, `wp_ajax_nopriv_{action}` |
+| **Cron** | Scheduled tasks | `wp_schedule_event()`, `wp_schedule_single_event()` |
+| **Transients** | Cached data | `get_transient()`, `set_transient()`, `delete_transient()` |
+
 ---
 
 ### 2. Backend Development
@@ -117,12 +154,31 @@ NASA Web Developer Position - Steve Pelletier
 | Caching               | Save results so I don't hit the database on every page load            |
 | Transients            | Temporary saved data that expires after a set time                     |
 | Auto-clear on Save    | When content updates, delete old cached data automatically             |
+| Batch Queries         | Get multiple things in one call instead of looping                     |
+| Avoid JOINs           | Look up by ID instead of filtering - faster on big tables              |
+
+#### Concrete Examples You Built
+
+| Problem | Solution | Result |
+|---------|----------|--------|
+| Footer needs surgeons for 6 locations | One query with "give me surgeons at ANY of these locations" instead of 6 separate queries | 7 database calls → 2 |
+| Gallery category filter is slow | Get post IDs directly from taxonomy table, then look up by ID (indexed) instead of JOIN | Instant filtering on 1000+ cases |
+| Navigation data hit on every page | Cache the menu data, auto-clear when locations/surgeons change | Database only hit when content changes |
+| Specials need date filtering | Meta query with "end date >= today OR no end date" | Only active specials show |
 
 #### If Asked "How do you work with the WordPress database?"
 
 > "I use WP_Query and optimize it based on what I actually need - if I just need post IDs, I tell it to skip fetching full objects. For data that's expensive to generate, I cache it in transients and clear it automatically when content changes. That keeps the site fast while making sure users always see fresh data."
 
 **If they ask for specifics, you can add:** "For example, I use `fields => 'ids'` and `no_found_rows => true` to skip work I don't need, and hook into `save_post` to clear caches."
+
+**If they ask for a concrete example:** "Our navigation menus show all locations and surgeons dynamically. When an editor adds a new location or removes a surgeon, it updates across the entire site - header, footer, location finder, everywhere. I cache that data so we're not hitting the database on every page load, but the cache clears automatically when someone saves a location or surgeon post."
+
+**If they ask about batch queries:** "Our footer shows surgeons grouped by 6 locations. Instead of asking the database 'which surgeons work here?' for each location - that's 7 calls minimum - I ask once: 'give me all surgeons who work at ANY of these locations.' Then I sort them into groups with PHP. Seven database calls become two."
+
+**If they ask about avoiding JOINs:** "For our before/after gallery, filtering by category normally uses a JOIN - the database has to match rows across tables. Instead, I ask the taxonomy table directly for the post IDs, then look up those posts by their ID. ID lookups are instant because they're indexed. The JOIN has to scan and match."
+
+**If they ask about caching strategy:** "I use two types. Transients live in the database - good for data that should survive server restarts, like navigation menus. Object cache lives in memory - faster but temporary. I pick based on how often it changes and how expensive it is to rebuild."
 
 ---
 
@@ -158,14 +214,14 @@ results.sort((a, b) => a.distance - b.distance).slice(0, 3);
 
 #### What You Should Know (But Didn't Build Yet)
 
-| Concept                 | Plain English                                              | Could You Do It?                    |
-| ----------------------- | ---------------------------------------------------------- | ----------------------------------- |
-| `register_rest_route()` | Make your own API URL that returns custom data             | Yes - know the pattern              |
-| `WP_REST_Controller`    | A PHP class template for building API endpoints            | Familiar - haven't needed it yet    |
+| Concept                 | Plain English                                                 | Could You Do It?                   |
+| ----------------------- | ------------------------------------------------------------- | ---------------------------------- |
+| `register_rest_route()` | Make your own API URL that returns custom data                | Yes - know the pattern             |
+| `WP_REST_Controller`    | A PHP class template for building API endpoints               | Familiar - haven't needed it yet   |
 | `permission_callback`   | Check "is this person allowed to access this?" before running | Yes - same as `current_user_can()` |
-| Nonces in REST          | A security token that proves the request came from your site | Yes - used nonces in forms         |
-| Headless WordPress      | WordPress handles data, a separate app handles the display | Know how it works                   |
-| CRUD via REST           | Not just reading data - also creating, updating, deleting  | Know it's possible                  |
+| Nonces in REST          | A security token that proves the request came from your site  | Yes - used nonces in forms         |
+| Headless WordPress      | WordPress handles data, a separate app handles the display    | Know how it works                  |
+| CRUD via REST           | Not just reading data - also creating, updating, deleting     | Know it's possible                 |
 
 #### If Asked "Have you created custom REST endpoints?"
 
@@ -247,6 +303,38 @@ Hooks = WordPress's way of saying "run my code when X happens" or "let me modify
 | Dynamic Tags       | Pull in data like post title, featured image, ACF fields                |
 | Template Parts     | Header, footer, single, archive, 404, search results                    |
 | Global Widgets     | Reusable widgets that update everywhere when you edit once              |
+
+---
+
+## Gutenberg / Block Editor
+
+### What "Gutenberg Block Methodology" Means
+
+Gutenberg blocks are **React components** that follow a specific registration pattern:
+
+| Component | Purpose |
+|-----------|---------|
+| **block.json** | Metadata file - declares name, category, attributes, supports |
+| **Edit function** | What editors see in the admin (React component) |
+| **Save function** | What gets output on the frontend (or null for dynamic blocks) |
+| **Attributes** | Data the block stores (like text content, settings, IDs) |
+| **Supports** | Built-in features like colors, spacing, alignment |
+
+### If Asked "What's your experience with Gutenberg blocks?"
+
+> "My current project uses ACF and custom templates rather than custom blocks - that was the right fit for the content editors. But I understand how Gutenberg blocks work. They're React components that register with WordPress - you define what the editor sees, what gets saved, and what attributes the block stores. The block.json file declares the block's metadata and settings."
+
+**If they ask about the methodology:** "Gutenberg blocks follow a specific pattern: you have an Edit component for the admin interface, a Save component for the frontend output, and attributes that store the block's data. The block.json file registers everything - name, category, what features it supports like colors or spacing. It's React under the hood, but WordPress provides helper components so you're not starting from scratch."
+
+**If they ask if you could build one:** "Yes. The pattern is clear - register the block, define the edit and save functions, declare attributes for any configurable options. I've worked with React and understand component-based architecture. The WordPress block API just wraps that in their registration system."
+
+### Block Types You Should Know
+
+| Type | Description |
+|------|-------------|
+| **Static block** | Save function outputs HTML directly |
+| **Dynamic block** | PHP renders the output (Save returns null), good for data that changes |
+| **Server-side rendering** | Block registered in PHP with `register_block_type()` and a render callback |
 
 ---
 

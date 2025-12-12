@@ -73,7 +73,7 @@ function mia_setup(): void {
 	);
 
 	/* ---- Images ------------------------------------------------------- */
-	add_image_size( 'hero-mobile', 640, 400, true );
+	add_image_size( 'hero-mobile', 800, 600, true );
 	add_image_size( 'hero-tablet', 1024, 600, true );
 	add_image_size( 'hero-desktop', 1920, 800, true );
 	add_image_size( 'card-thumb', 600, 400, true );

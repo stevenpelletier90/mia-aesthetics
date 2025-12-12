@@ -27,11 +27,48 @@
 
 .hero-cta-wrapper {
   position: absolute;
-  bottom: 2rem;
+  bottom: 3.5rem;
   left: 50%;
   transform: translateX(-50%);
   z-index: 10;
   text-align: center;
+}
+
+/* Hero CTA Button - matches banner black/gold theme */
+.hero-cta {
+  background: rgba(0, 0, 0, 0.85);
+  border: 2px solid var(--mia-gold);
+  border-radius: 0;
+  color: var(--mia-white);
+  display: inline-block;
+  font-family: var(--font-heading);
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  padding: 1rem 2.5rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.hero-cta:hover,
+.hero-cta:focus {
+  background: var(--mia-white);
+  border-color: var(--mia-white);
+  color: var(--mia-black);
+  text-decoration: none;
+}
+
+/* Larger button on widescreen */
+@media (min-width: 1400px) {
+  .hero-cta-wrapper {
+    bottom: 4rem;
+  }
+
+  .hero-cta {
+    font-size: 1.25rem;
+    padding: 1.125rem 3rem;
+  }
 }
 
 .hero-boxes {
@@ -101,21 +138,31 @@
 }
 
 /* Hero CTA Button Responsive Positioning */
-@media (max-width: 1400px) {
+@media (max-width: 1399px) {
   .hero-cta-wrapper {
-    bottom: 1.25rem;
+    bottom: 2.5rem;
   }
 }
 
 @media (max-width: 1200px) {
   .hero-cta-wrapper {
-    bottom: 1rem;
+    bottom: 2rem;
+  }
+
+  .hero-cta {
+    font-size: 1rem;
+    padding: 0.875rem 2rem;
   }
 }
 
 @media (max-width: 991px) {
   .hero-cta-wrapper {
-    bottom: 0.75rem;
+    bottom: 1.5rem;
+  }
+
+  .hero-cta {
+    font-size: 0.9375rem;
+    padding: 0.75rem 1.75rem;
   }
 }
 
@@ -138,6 +185,10 @@
 
   .hero-carousel {
     aspect-ratio: 4/3;
+  }
+
+  .hero-carousel img {
+    object-position: top center;
   }
 
   .hero-cta-wrapper {

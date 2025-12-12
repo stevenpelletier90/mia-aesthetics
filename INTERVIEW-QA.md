@@ -28,6 +28,20 @@ _If they ask how the cache clearing works:_ "I hook into `save_post` - that's an
 
 _If they want specifics:_ "I use `fields => 'ids'` and `no_found_rows => true` to skip work I don't need, and hook into `save_post` to clear caches."
 
+_If they ask for a concrete example:_ "Our navigation menus show all locations and surgeons dynamically. When an editor adds a new location or removes a surgeon, it updates across the entire site automatically - the header, footer, location finder, everywhere. I cache that data so we're not hitting the database on every page load, but the cache clears automatically when someone saves a location or surgeon post."
+
+---
+
+**Q: Can you give me a specific example of database optimization?**
+
+> Our footer shows surgeons grouped by 6 locations. The obvious way to build that is to loop through each location and ask the database "which surgeons work here?" - that's 7 database calls minimum. Instead, I get all the location IDs first, then make ONE call asking "give me all surgeons who work at any of these locations." Then I sort them into groups using PHP. Seven database calls become two.
+
+_If they ask about search optimization:_ "For our before/after gallery, filtering by category normally uses a database JOIN - which can be slow on large tables. Instead, I ask the taxonomy table directly for the post IDs in that category, then look up those specific posts by their ID. Looking up posts by ID is instant because it's indexed. The JOIN approach has to scan and match rows."
+
+_If they ask about caching strategy:_ "I use two types. Transients are saved in the database - good for data that should survive server restarts, like navigation menus. Object cache lives in memory - faster, but temporary. I pick based on how often the data changes and how expensive it is to rebuild."
+
+_If they ask about query hooks:_ "I hook into `pre_get_posts` to modify queries before they run. For example, if I'm not showing pagination, I tell WordPress to skip counting total results - that's extra database work we don't need. Small optimizations, but they add up across thousands of page loads."
+
 ---
 
 **Q: Have you worked with WordPress REST API?**
@@ -125,6 +139,58 @@ _If they ask what "Level 8" means:_ "PHPStan has levels 0-9, where higher means 
 **Q: How do you debug a plugin that's not working?**
 
 > First I check if it's actually the plugin - I deactivate it and see if the problem goes away. If it is the plugin, I check the error log and turn on `WP_DEBUG` to see what's happening. I look for conflicts by deactivating other plugins one by one. If I need to dig deeper, I'll add some logging to trace the code path, or use Query Monitor to see what hooks are firing and what queries are running. Most issues come down to conflicts, missing dependencies, or PHP errors that are being hidden.
+
+---
+
+## Problem Solving
+
+**Q: Walk me through how you approach a technical problem.**
+
+> First I make sure I understand what we're actually trying to solve - what's the user need? Then I check if WordPress has a built-in way to do it - no point reinventing the wheel. If I need custom code, I look at what hooks are available to plug into. I build the simplest version first, test it, then refine. If I get stuck, I check the WordPress developer docs or look at how core handles similar problems.
+
+_If they want a concrete example:_ "When I needed to show the 3 closest locations to a user, I broke it down: get the user's location from their zip code, get all our location coordinates, calculate distances, sort them, display on a map. Each step was a separate problem to solve."
+
+---
+
+**Q: Give me an example of a custom plugin you built.**
+
+> I built a featured image column plugin for the admin. Editors were frustrated scrolling through hundreds of posts trying to find the right one - they couldn't see the images without clicking into each post. So I added a thumbnail column to the post list that shows the featured image right there. Now they can scan visually and find what they need in seconds.
+
+_If they ask how it works:_ "I hook into `manage_posts_columns` to add my column to the table, then `manage_posts_custom_column` to output the thumbnail for each row. It checks if a featured image exists, and if so, displays it at 50x50 pixels."
+
+_If they ask about plugin structure:_ "A plugin starts with a header comment that tells WordPress the plugin name, version, author. Then you hook into WordPress at the right points - `plugins_loaded` or `init` for setup, specific hooks for functionality. I use the singleton pattern for the main class so it only loads once, and I namespace my functions to avoid conflicts with other plugins."
+
+_If they ask about other plugins:_
+
+- **Transient cleaner** - Removes expired cached data from the database. WordPress doesn't clean these up automatically, so they pile up over time.
+- **Gravity Forms cleanup** - After forms are processed, uploaded files stay in wp-content. This plugin removes them after a set period so the server doesn't fill up.
+- **Elementor widgets** - Custom widgets that extend Elementor's built-in functionality for specific client needs.
+
+_If they ask about plugin lifecycle hooks:_
+
+- **Activation hook** - Runs once when plugin is activated. Set up default options, create database tables, flush rewrite rules.
+- **Deactivation hook** - Runs when plugin is deactivated. Clean up temporary data, but leave settings in case they reactivate.
+- **Uninstall hook** - Runs when plugin is deleted. Remove all data - options, database tables, files. Clean exit.
+
+_If they ask about common plugin patterns:_
+
+- **Options API** - `get_option()` / `update_option()` to store plugin settings in the database
+- **Admin menus** - `add_menu_page()` / `add_submenu_page()` to add settings pages
+- **Shortcodes** - `add_shortcode()` to let users embed plugin output in content
+- **AJAX handlers** - `wp_ajax_*` hooks for admin, `wp_ajax_nopriv_*` for frontend
+- **Scheduled tasks** - `wp_schedule_event()` for cron jobs like cleanup or sync
+
+---
+
+## Gutenberg / Block Editor
+
+**Q: What's your experience with Gutenberg blocks?**
+
+> My current project uses ACF and custom templates rather than custom blocks - that was the right fit for the content editors. But I understand how Gutenberg blocks work. They're React components that register with WordPress - you define what the editor sees, what gets saved, and what attributes the block stores. The block.json file declares the block's metadata and settings.
+
+_If they ask about the methodology:_ "Gutenberg blocks follow a specific pattern: you have an Edit component for the admin interface, a Save component for the frontend output, and attributes that store the block's data. The block.json file registers everything - name, category, what features it supports like colors or spacing. It's React under the hood, but WordPress provides helper components so you're not starting from scratch."
+
+_If they ask if you could build one:_ "Yes. The pattern is clear - register the block, define the edit and save functions, declare attributes for any configurable options. I've worked with React and understand component-based architecture. The WordPress block API just wraps that in their registration system."
 
 ---
 
