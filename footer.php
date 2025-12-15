@@ -42,7 +42,7 @@
 						<li><a href="<?php echo esc_url( home_url( '/calculate-your-bmi/' ) ); ?>">Calculate Your BMI</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/patient-resources/' ) ); ?>">Patient Resources</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/surgical-journey/' ) ); ?>">Surgical Journey</a></li>
-						<li><a href="<?php echo esc_url( home_url( '/out-of-town-patients/' ) ); ?>">Surgery Preparation</a></li>
+						<li><a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>">Surgery Preparation</a></li>
 					</ul>
 				</nav>
 			</div>

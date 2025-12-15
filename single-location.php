@@ -211,7 +211,7 @@ if ( null !== $location_map && is_array( $location_map ) ) {
 								<span>Your Surgical Journey</span>
 								<i class="fas fa-chevron-right" aria-hidden="true"></i>
 							</a>
-							<a href="/out-of-town-patients/" class="resource-link">
+							<a href="/surgery-preparation/" class="resource-link">
 								<i class="fas fa-clipboard-list" aria-hidden="true"></i>
 								<span>Surgery Preparation</span>
 								<i class="fas fa-chevron-right" aria-hidden="true"></i>

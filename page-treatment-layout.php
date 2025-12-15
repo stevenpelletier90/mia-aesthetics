@@ -126,7 +126,7 @@ if ( $current_post instanceof WP_Post ) {
 								?>
 
 						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
-							href="/out-of-town-patients/">
+							href="/surgery-preparation/">
 							<i class="fa-solid fa-clipboard-list flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>Surgery Preparation</strong><br>
