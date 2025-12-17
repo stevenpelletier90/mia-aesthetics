@@ -21,7 +21,13 @@ get_header(); ?>
 						</div>
 					<?php endif; ?>
 					
-					<?php get_template_part( 'components/consultation-form' ); ?>
+					<?php
+					if ( has_term( 'spanish-specials', 'special-category' ) ) {
+						get_template_part( 'components/consultation-form-spanish' );
+					} else {
+						get_template_part( 'components/consultation-form' );
+					}
+					?>
 					
 					<div class="special-disclaimer">
 						<?php the_content(); ?>

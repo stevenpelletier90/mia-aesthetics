@@ -310,6 +310,20 @@ a.consent-trigger:hover i {
   margin-top: 0.5rem !important;
 }
 
+/* Form 21 (Spanish) field layout */
+:is(#field_21_13, #field_21_55, #field_21_57, #field_21_58, #field_21_69) {
+  grid-column: span 2 !important;
+}
+
+:is(#field_21_2, #field_21_3, #field_21_42, #field_21_38) {
+  grid-column: span 1 !important;
+}
+
+:is(#field_21_55, #field_21_57, #field_21_58) {
+  margin-bottom: 0 !important;
+  margin-top: 0.5rem !important;
+}
+
 @media (max-width: 768px) {
   .consultation-card .gform_wrapper .gform_fields {
     display: block !important;

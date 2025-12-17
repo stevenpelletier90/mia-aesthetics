@@ -72,6 +72,23 @@ async function copyDir(srcRel, destRel) {
   }
 }
 
+async function fixFontAwesomeFontDisplay() {
+  // FontAwesome ships with font-display:block which causes PageSpeed warnings.
+  // Replace with font-display:swap for better performance.
+  const cssPath = path.join(root, 'assets/vendor/fontawesome/css/all.min.css');
+  try {
+    let css = await fs.readFile(cssPath, 'utf8');
+    const original = css;
+    css = css.replace(/font-display:block/g, 'font-display:swap');
+    if (css !== original) {
+      await fs.writeFile(cssPath, css, 'utf8');
+      console.log('✓ Fixed FontAwesome font-display: block -> swap');
+    }
+  } catch (err) {
+    console.warn(`! Could not fix FontAwesome font-display: ${err.message}`);
+  }
+}
+
 async function run() {
   for (const t of targets) {
     if (t.from && t.to) {
@@ -89,6 +106,9 @@ async function run() {
       await copyDir(t.fromDir, t.toDir);
     }
   }
+
+  // Post-processing fixes
+  await fixFontAwesomeFontDisplay();
 }
 
 run();
