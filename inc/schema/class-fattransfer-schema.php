@@ -59,11 +59,10 @@ class FatTransfer_Schema {
 		$schema_data = array();
 
 		$procedure = array(
-			'@type'      => 'SurgicalProcedure',
-			'@id'        => get_permalink( $procedure_id ) . '#procedure',
-			'name'       => get_the_title(),
-			'url'        => get_permalink( $procedure_id ),
-			'providedBy' => array( '@id' => $org_id ),
+			'@type' => 'SurgicalProcedure',
+			'@id'   => get_permalink( $procedure_id ) . '#procedure',
+			'name'  => get_the_title(),
+			'url'   => get_permalink( $procedure_id ),
 		);
 
 		// Description from Yoast meta or excerpt.
@@ -87,12 +86,8 @@ class FatTransfer_Schema {
 			$procedure['howPerformed'] = $how_performed;
 		}
 
-		// Preparation instructions.
-		$procedure['preparation'] = array(
-			'@type' => 'MedicalWebPage',
-			'url'   => home_url( '/surgery-preparation/' ),
-			'name'  => 'Surgery Preparation Guidelines',
-		);
+		// Preparation instructions (text description).
+		$procedure['preparation'] = 'Consultation required. See surgery preparation guidelines at ' . home_url( '/surgery-preparation/' );
 
 		// Follow-up care.
 		$procedure['followup'] = 'Post-operative care instructions provided by your surgeon';
@@ -106,8 +101,11 @@ class FatTransfer_Schema {
 			'name'  => 'Plastic Surgery',
 		);
 
-		// Possible complications.
-		$procedure['possibleComplication'] = $this->get_possible_complications();
+		// Pricing information.
+		$offers = $this->get_offers( $procedure_id );
+		if ( null !== $offers ) {
+			$procedure['offers'] = $offers;
+		}
 
 		$schema_data[] = $procedure;
 
@@ -245,18 +243,34 @@ class FatTransfer_Schema {
 	}
 
 	/**
-	 * Get possible complications for fat transfer procedures
+	 * Get pricing offers for the procedure
 	 *
-	 * @return array<int, string> List of possible complications.
+	 * @param int $procedure_id The procedure post ID.
+	 * @return array<string, mixed>|null Offer schema data or null.
 	 */
-	private function get_possible_complications() {
+	private function get_offers( $procedure_id ): ?array {
+		$price = get_field( 'procedure_price', $procedure_id );
+		if ( ! is_string( $price ) || '' === $price ) {
+			return null;
+		}
+
+		// Extract numeric value from price string (e.g., "$4,500" -> "4500").
+		$numeric_price = preg_replace( '/[^0-9.]/', '', $price ) ?? '';
+		if ( '' === $numeric_price ) {
+			return null;
+		}
+
 		return array(
-			'Infection',
-			'Bleeding',
-			'Scarring',
-			'Fat absorption',
-			'Asymmetry',
-			'Anesthesia risks',
+			'@type'           => 'Offer',
+			'price'           => $numeric_price,
+			'priceCurrency'   => 'USD',
+			'priceValidUntil' => gmdate( 'Y-12-31' ),
+			'availability'    => 'http://schema.org/InStock',
+			'seller'          => array(
+				'@type' => 'Organization',
+				'name'  => 'Mia Aesthetics',
+				'url'   => home_url(),
+			),
 		);
 	}
 

@@ -64,7 +64,6 @@ class NonSurgical_Schema {
 			'@id'           => get_permalink( $procedure_id ) . '#procedure',
 			'name'          => get_the_title(),
 			'url'           => get_permalink( $procedure_id ),
-			'providedBy'    => array( '@id' => $org_id ),
 			'procedureType' => 'http://schema.org/NoninvasiveProcedure',
 		);
 
@@ -104,8 +103,11 @@ class NonSurgical_Schema {
 			'name'  => 'Dermatology',
 		);
 
-		// Non-surgical procedures typically have fewer risks.
-		$procedure['possibleComplication'] = $this->get_possible_complications();
+		// Pricing information.
+		$offers = $this->get_offers( $procedure_id );
+		if ( null !== $offers ) {
+			$procedure['offers'] = $offers;
+		}
 
 		$schema_data[] = $procedure;
 
@@ -224,16 +226,34 @@ class NonSurgical_Schema {
 	}
 
 	/**
-	 * Get possible complications for non-surgical procedures
+	 * Get pricing offers for the treatment
 	 *
-	 * @return array<int, string> List of possible complications.
+	 * @param int $procedure_id The procedure post ID.
+	 * @return array<string, mixed>|null Offer schema data or null.
 	 */
-	private function get_possible_complications() {
+	private function get_offers( $procedure_id ): ?array {
+		$price = get_field( 'non_surgical_price', $procedure_id );
+		if ( ! is_string( $price ) || '' === $price ) {
+			return null;
+		}
+
+		// Extract numeric value from price string (e.g., "$500" -> "500").
+		$numeric_price = preg_replace( '/[^0-9.]/', '', $price ) ?? '';
+		if ( '' === $numeric_price ) {
+			return null;
+		}
+
 		return array(
-			'Temporary redness',
-			'Mild swelling',
-			'Bruising',
-			'Skin sensitivity',
+			'@type'           => 'Offer',
+			'price'           => $numeric_price,
+			'priceCurrency'   => 'USD',
+			'priceValidUntil' => gmdate( 'Y-12-31' ),
+			'availability'    => 'http://schema.org/InStock',
+			'seller'          => array(
+				'@type' => 'Organization',
+				'name'  => 'Mia Aesthetics',
+				'url'   => home_url(),
+			),
 		);
 	}
 

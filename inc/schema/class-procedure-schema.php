@@ -59,11 +59,10 @@ class Procedure_Schema {
 		$schema_data = array();
 
 		$procedure = array(
-			'@type'      => 'SurgicalProcedure',
-			'@id'        => get_permalink( $procedure_id ) . '#procedure',
-			'name'       => get_the_title(),
-			'url'        => get_permalink( $procedure_id ),
-			'providedBy' => array( '@id' => $org_id ),
+			'@type' => 'SurgicalProcedure',
+			'@id'   => get_permalink( $procedure_id ) . '#procedure',
+			'name'  => get_the_title(),
+			'url'   => get_permalink( $procedure_id ),
 		);
 
 		// Description from Yoast meta or excerpt.
@@ -87,12 +86,8 @@ class Procedure_Schema {
 			$procedure['howPerformed'] = $how_performed;
 		}
 
-		// Preparation instructions.
-		$procedure['preparation'] = array(
-			'@type' => 'MedicalWebPage',
-			'url'   => home_url( '/surgery-preparation/' ),
-			'name'  => 'Surgery Preparation Guidelines',
-		);
+		// Preparation instructions (text description).
+		$procedure['preparation'] = 'Consultation required. See surgery preparation guidelines at ' . home_url( '/surgery-preparation/' );
 
 		// Follow-up care.
 		$procedure['followup'] = 'Post-operative care instructions provided by your surgeon';
@@ -106,13 +101,10 @@ class Procedure_Schema {
 			'name'  => 'Plastic Surgery',
 		);
 
-		// Add potential risks (generic for cosmetic surgery).
-		$procedure['possibleComplication'] = $this->get_possible_complications();
-
-		// Related procedures.
-		$related = $this->get_related_procedures( $procedure_id );
-		if ( count( $related ) > 0 ) {
-			$procedure['relatedProcedure'] = $related;
+		// Pricing information.
+		$offers = $this->get_offers( $procedure_id );
+		if ( null !== $offers ) {
+			$procedure['offers'] = $offers;
 		}
 
 		$schema_data[] = $procedure;
@@ -266,53 +258,35 @@ class Procedure_Schema {
 	}
 
 	/**
-	 * Get possible complications for cosmetic surgery
-	 *
-	 * @return array<int, string> List of possible complications.
-	 */
-	private function get_possible_complications() {
-		return array(
-			'Infection',
-			'Bleeding',
-			'Scarring',
-			'Anesthesia risks',
-			'Asymmetry',
-		);
-	}
-
-	/**
-	 * Get related procedures
+	 * Get pricing offers for the procedure
 	 *
 	 * @param int $procedure_id The procedure post ID.
-	 * @return array<int, array<string, string>> Related procedure references.
+	 * @return array<string, mixed>|null Offer schema data or null.
 	 */
-	private function get_related_procedures( $procedure_id ) {
-		$related = get_field( 'related_procedures', $procedure_id );
-		if ( ! is_array( $related ) || 0 === count( $related ) ) {
-			return array();
+	private function get_offers( $procedure_id ): ?array {
+		$price = get_field( 'procedure_price', $procedure_id );
+		if ( ! is_string( $price ) || '' === $price ) {
+			return null;
 		}
 
-		$related_schema = array();
-		foreach ( $related as $related_post ) {
-			$related_id = is_object( $related_post ) && property_exists( $related_post, 'ID' ) ? $related_post->ID : (int) $related_post;
-			if ( 0 === $related_id ) {
-				continue;
-			}
-
-			$permalink = get_permalink( $related_id );
-			if ( false === $permalink ) {
-				continue;
-			}
-
-			$related_schema[] = array(
-				'@type' => 'SurgicalProcedure',
-				'@id'   => $permalink . '#procedure',
-				'name'  => get_the_title( $related_id ),
-				'url'   => $permalink,
-			);
+		// Extract numeric value from price string (e.g., "$4,500" -> "4500").
+		$numeric_price = preg_replace( '/[^0-9.]/', '', $price ) ?? '';
+		if ( '' === $numeric_price ) {
+			return null;
 		}
 
-		return $related_schema;
+		return array(
+			'@type'           => 'Offer',
+			'price'           => $numeric_price,
+			'priceCurrency'   => 'USD',
+			'priceValidUntil' => gmdate( 'Y-12-31' ), // Valid through end of current year.
+			'availability'    => 'http://schema.org/InStock',
+			'seller'          => array(
+				'@type' => 'Organization',
+				'name'  => 'Mia Aesthetics',
+				'url'   => home_url(),
+			),
+		);
 	}
 
 	/**
