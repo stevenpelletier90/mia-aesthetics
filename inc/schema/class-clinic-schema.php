@@ -522,9 +522,8 @@ class Clinic_Schema {
 		return array_map(
 			static function ( $service ) {
 				return array(
-					'@type'         => 'MedicalProcedure',
-					'name'          => $service,
-					'procedureType' => 'Surgical',
+					'@type' => 'SurgicalProcedure',
+					'name'  => $service,
 				);
 			},
 			$services

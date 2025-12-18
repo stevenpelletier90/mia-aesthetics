@@ -45,6 +45,10 @@ class Schema_Loader {
 		require_once $schema_dir . 'class-organization-schema.php';
 		require_once $schema_dir . 'class-surgeon-schema.php';
 		require_once $schema_dir . 'class-clinic-schema.php';
+		require_once $schema_dir . 'class-procedure-schema.php';
+		require_once $schema_dir . 'class-nonsurgical-schema.php';
+		require_once $schema_dir . 'class-fattransfer-schema.php';
+		require_once $schema_dir . 'class-condition-schema.php';
 		require_once $schema_dir . 'class-faq-schema.php';
 	}
 
@@ -62,6 +66,22 @@ class Schema_Loader {
 
 		if ( is_singular( 'location' ) ) {
 			$pieces[] = new Clinic_Schema( $context );
+		}
+
+		if ( is_singular( 'procedure' ) ) {
+			$pieces[] = new Procedure_Schema( $context );
+		}
+
+		if ( is_singular( 'non-surgical' ) ) {
+			$pieces[] = new NonSurgical_Schema( $context );
+		}
+
+		if ( is_singular( 'fat-transfer' ) ) {
+			$pieces[] = new FatTransfer_Schema( $context );
+		}
+
+		if ( is_singular( 'condition' ) ) {
+			$pieces[] = new Condition_Schema( $context );
 		}
 
 		// FAQ Schema can be added to any page type.
