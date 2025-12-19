@@ -9,7 +9,7 @@ get_header(); ?>
 <main id="primary" class="site-main">
 <?php
 // Include hero section.
-require __DIR__ . '/hero-section.php';
+get_template_part( 'components/hero-section' );
 ?>
 
 <!-- About Section - Centered Layout -->
@@ -73,11 +73,23 @@ require __DIR__ . '/hero-section.php';
 	<div class="row align-items-center">
 		<div class="col-lg-6  mb-lg-0">
 		<div class="excellence-image">
-			<img src="/wp-content/uploads/2025/05/surgery-1.jpg"
-				alt="Trusted Surgical Excellence"
-				class="img-fluid"
-				width="800"
-				height="600">
+			<?php
+			$surgery_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/05/surgery-1.jpg' ) );
+			if ( 0 !== $surgery_img_id ) {
+				echo wp_get_attachment_image(
+					$surgery_img_id,
+					'large',
+					false,
+					array(
+						'class' => 'img-fluid',
+						'alt'   => 'Trusted Surgical Excellence',
+						'sizes' => '(max-width: 991px) 100vw, 50vw',
+					)
+				);
+			} else {
+				echo '<img src="/wp-content/uploads/2025/05/surgery-1.jpg" alt="Trusted Surgical Excellence" class="img-fluid" width="800" height="600">';
+			}
+			?>
 		</div>
 		</div>
 		<div class="col-lg-6">
@@ -198,7 +210,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="row align-items-center">
 			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
-			$body_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/body-home.jpg' );
+			$body_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/04/body-home.jpg' ) );
 			if ( 0 !== $body_img_id ) {
 				echo wp_get_attachment_image(
 					$body_img_id,
@@ -259,7 +271,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="row align-items-center">
 			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
-			$breast_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/breast-home.jpg' );
+			$breast_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/04/breast-home.jpg' ) );
 			if ( 0 !== $breast_img_id ) {
 				echo wp_get_attachment_image(
 					$breast_img_id,
@@ -317,7 +329,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="row align-items-center">
 			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
-			$face_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/face-2-home.jpg' );
+			$face_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/04/face-2-home.jpg' ) );
 			if ( 0 !== $face_img_id ) {
 				echo wp_get_attachment_image(
 					$face_img_id,
@@ -378,7 +390,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="row align-items-center">
 			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
-			$nonsurg_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/face-home.jpg' );
+			$nonsurg_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/04/face-home.jpg' ) );
 			if ( 0 !== $nonsurg_img_id ) {
 				echo wp_get_attachment_image(
 					$nonsurg_img_id,
@@ -426,7 +438,7 @@ require __DIR__ . '/hero-section.php';
 		<div class="row align-items-center">
 			<div class="col-12 col-xl-6 order-xl-2  mb-xl-0">
 			<?php
-			$men_img_id = attachment_url_to_postid( '/wp-content/uploads/2025/04/men-home.jpg' );
+			$men_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/04/men-home.jpg' ) );
 			if ( 0 !== $men_img_id ) {
 				echo wp_get_attachment_image(
 					$men_img_id,
@@ -485,11 +497,23 @@ require __DIR__ . '/hero-section.php';
 <!-- Foundation Section -->
 <section class="foundation-section">
 	<div class="foundation-background">
-		<img src="/wp-content/uploads/2025/04/miaf6.jpg"
-			alt="Mia Aesthetics Foundation community outreach"
-			width="1920"
-			height="1080"
-			loading="lazy">
+		<?php
+		$foundation_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/04/miaf6.jpg' ) );
+		if ( 0 !== $foundation_img_id ) {
+			echo wp_get_attachment_image(
+				$foundation_img_id,
+				'full',
+				false,
+				array(
+					'alt'     => 'Mia Aesthetics Foundation community outreach',
+					'sizes'   => '100vw',
+					'loading' => 'lazy',
+				)
+			);
+		} else {
+			echo '<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="Mia Aesthetics Foundation community outreach" width="1920" height="1080" loading="lazy">';
+		}
+		?>
 	</div>
 
 	<div class="container position-relative">

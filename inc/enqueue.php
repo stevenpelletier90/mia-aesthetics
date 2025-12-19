@@ -110,6 +110,7 @@ function mia_has_consultation_form(): bool {
 	// Check for pages with consultation form templates.
 	if ( is_page_template( 'page-condition-layout.php' ) ||
 		is_page_template( 'page-treatment-layout.php' ) ||
+		is_page_template( 'page-non-surgical-layout.php' ) ||
 		is_singular( 'special' ) ) {
 		return true;
 	}
@@ -315,12 +316,7 @@ function mia_enqueue_template_assets(): void {
 
 	// Front page needs hero section styles.
 	if ( is_front_page() ) {
-		wp_enqueue_style(
-			'mia-hero-section',
-			get_template_directory_uri() . '/assets/css/hero-section.css',
-			array( 'mia-base' ),
-			MIA_THEME_VERSION
-		);
+		mia_load_component_assets( 'hero-section' );
 	}
 
 	// Load template-specific CSS/JS files.
@@ -413,6 +409,10 @@ function mia_get_template_asset_map(): array {
 		'page-treatment-layout'       => array(
 			'css' => 'pages/page-treatment-layout.css',
 			'js'  => 'pages/page-treatment-layout.js',
+		),
+		'page-non-surgical-layout'    => array(
+			'css' => 'pages/page-non-surgical-layout.css',
+			'js'  => 'pages/page-non-surgical-layout.js',
 		),
 		'page-virtual-consultation'   => array(
 			'css' => 'pages/page-virtual-consultation.css',

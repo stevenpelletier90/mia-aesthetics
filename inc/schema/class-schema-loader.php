@@ -46,8 +46,8 @@ class Schema_Loader {
 		require_once $schema_dir . 'class-surgeon-schema.php';
 		require_once $schema_dir . 'class-clinic-schema.php';
 		require_once $schema_dir . 'class-procedure-schema.php';
-		require_once $schema_dir . 'class-nonsurgical-schema.php';
-		require_once $schema_dir . 'class-fattransfer-schema.php';
+		require_once $schema_dir . 'class-non-surgical-schema.php';
+		require_once $schema_dir . 'class-fat-transfer-schema.php';
 		require_once $schema_dir . 'class-condition-schema.php';
 		require_once $schema_dir . 'class-faq-schema.php';
 	}

@@ -1,0 +1,11 @@
+/**
+ * Non-Surgical Treatment Layout Styles
+ *
+ * This template shares styles with page-treatment-layout.css
+ * Add non-surgical specific overrides below
+ */
+
+/* Import shared treatment layout styles */
+@import url("page-treatment-layout.css");
+
+/* Non-surgical specific overrides (if needed) */
