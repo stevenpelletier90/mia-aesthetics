@@ -278,10 +278,6 @@
       const formData = new FormData(form);
       const data = Object.fromEntries(formData.entries());
 
-      // Log for demo purposes (remove in production)
-      // eslint-disable-next-line no-console
-      console.log('Form submitted:', data);
-
       // Show success message
       form.hidden = true;
       if (successMessage) {

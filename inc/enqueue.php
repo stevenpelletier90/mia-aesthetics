@@ -362,160 +362,160 @@ function mia_get_template_asset_map(): array {
 	return array(
 		// Page Templates.
 		'front-page'                  => array(
-			'css' => 'pages/front-page.css',
-			'js'  => 'pages/front-page.js',
+			'css' => 'templates/front-page.css',
+			'js'  => 'templates/front-page.js',
 		),
 		'page-before-after-by-doctor' => array(
-			'css' => 'pages/page-before-after-by-doctor.css',
-			'js'  => 'pages/page-before-after-by-doctor.js',
+			'css' => 'templates/page-before-after-by-doctor.css',
+			'js'  => 'templates/page-before-after-by-doctor.js',
 		),
 		'page-blank-canvas'           => array(
-			'css' => 'pages/page-blank-canvas.css',
-			'js'  => 'pages/page-blank-canvas.js',
+			'css' => 'templates/page-blank-canvas.css',
+			'js'  => 'templates/page-blank-canvas.js',
 		),
 		'page-careers'                => array(
-			'css' => 'pages/page-careers.css',
-			'js'  => 'pages/page-careers.js',
+			'css' => 'templates/page-careers.css',
+			'js'  => 'templates/page-careers.js',
 		),
 		'page-careers-locations'      => array(
-			'css' => 'pages/page-careers-locations.css',
-			'js'  => 'pages/page-careers-locations.js',
+			'css' => 'templates/page-careers-locations.css',
+			'js'  => 'templates/page-careers-locations.js',
 		),
 		'page-case-category'          => array(
-			'css' => 'pages/page-case-category.css',
-			'js'  => 'pages/page-case-category.js',
+			'css' => 'templates/page-case-category.css',
+			'js'  => 'templates/page-case-category.js',
 		),
 		'page-condition-layout'       => array(
-			'css' => 'pages/page-condition-layout.css',
-			'js'  => 'pages/page-condition-layout.js',
+			'css' => 'templates/page-condition-layout.css',
+			'js'  => 'templates/page-condition-layout.js',
 		),
 		'page-hero-canvas'            => array(
-			'css' => 'pages/page-hero-canvas.css',
-			'js'  => 'pages/page-hero-canvas.js',
+			'css' => 'templates/page-hero-canvas.css',
+			'js'  => 'templates/page-hero-canvas.js',
 		),
 		'page-procedures-listing'     => array(
-			'css' => 'pages/page-procedures-listing.css',
-			'js'  => 'pages/page-procedures-listing.js',
+			'css' => 'templates/page-procedures-listing.css',
+			'js'  => 'templates/page-procedures-listing.js',
 		),
 		'page-procedures-manual'      => array(
-			'css' => 'pages/page-procedures-manual.css',
-			'js'  => 'pages/page-procedures-manual.js',
+			'css' => 'templates/page-procedures-manual.css',
+			'js'  => 'templates/page-procedures-manual.js',
 		),
 		'page-treatment-layout'       => array(
-			'css' => 'pages/page-treatment-layout.css',
-			'js'  => 'pages/page-treatment-layout.js',
+			'css' => 'templates/page-treatment-layout.css',
+			'js'  => 'templates/page-treatment-layout.js',
 		),
 		'page-non-surgical-layout'    => array(
-			'css' => 'pages/page-non-surgical-layout.css',
-			'js'  => 'pages/page-non-surgical-layout.js',
+			'css' => 'templates/page-non-surgical-layout.css',
+			'js'  => 'templates/page-non-surgical-layout.js',
 		),
 		'page-virtual-consultation'   => array(
-			'css' => 'pages/page-virtual-consultation.css',
-			'js'  => 'pages/page-virtual-consultation.js',
+			'css' => 'templates/page-virtual-consultation.css',
+			'js'  => 'templates/page-virtual-consultation.js',
 		),
 		'page'                        => array(
-			'css' => 'pages/page.css',
-			'js'  => 'pages/page.js',
+			'css' => 'templates/page.css',
+			'js'  => 'templates/page.js',
 		),
 
-		// Archive Pages.
+		// Archive Templates.
 		'error-404'                   => array(
-			'css' => 'archives/404.css',
-			'js'  => 'archives/404.js',
+			'css' => 'templates/404.css',
+			'js'  => 'templates/404.js',
 		),
 		'archive-case'                => array(
-			'css' => 'archives/archive-case.css',
-			'js'  => 'archives/archive-case.js',
+			'css' => 'templates/archive-case.css',
+			'js'  => 'templates/archive-case.js',
 		),
 		'archive-condition'           => array(
-			'css' => 'archives/archive-condition.css',
-			'js'  => 'archives/archive-condition.js',
+			'css' => 'templates/archive-condition.css',
+			'js'  => 'templates/archive-condition.js',
 		),
 		'archive-location'            => array(
-			'css' => 'archives/archive-location.css',
-			'js'  => 'archives/archive-location.js',
+			'css' => 'templates/archive-location.css',
+			'js'  => 'templates/archive-location.js',
 		),
 		'archive-non-surgical'        => array(
-			'css' => 'archives/archive-non-surgical.css',
-			'js'  => 'archives/archive-non-surgical.js',
+			'css' => 'templates/archive-non-surgical.css',
+			'js'  => 'templates/archive-non-surgical.js',
 		),
 		'archive-procedure'           => array(
-			'css' => 'archives/archive-procedure.css',
-			'js'  => 'archives/archive-procedure.js',
+			'css' => 'templates/archive-procedure.css',
+			'js'  => 'templates/archive-procedure.js',
 		),
 		'archive-special'             => array(
-			'css' => 'archives/archive-special.css',
-			'js'  => 'archives/archive-special.js',
+			'css' => 'templates/archive-special.css',
+			'js'  => 'templates/archive-special.js',
 		),
 		'archive-surgeon'             => array(
-			'css' => 'archives/archive-surgeon.css',
-			'js'  => 'archives/archive-surgeon.js',
+			'css' => 'templates/archive-surgeon.css',
+			'js'  => 'templates/archive-surgeon.js',
 		),
 		'archive-fat-transfer'        => array(
-			'css' => 'archives/archive-fat-transfer.css',
-			'js'  => 'archives/archive-fat-transfer.js',
+			'css' => 'templates/archive-fat-transfer.css',
+			'js'  => 'templates/archive-fat-transfer.js',
 		),
 		'archive'                     => array(
-			'css' => 'archives/archive.css',
-			'js'  => 'archives/archive.js',
+			'css' => 'templates/archive.css',
+			'js'  => 'templates/archive.js',
 		),
 		'case-category'               => array(
-			'css' => 'archives/case-category.css',
-			'js'  => 'archives/case-category.js',
+			'css' => 'templates/case-category.css',
+			'js'  => 'templates/case-category.js',
 		),
 		'category'                    => array(
-			'css' => 'archives/category.css',
-			'js'  => 'archives/category.js',
+			'css' => 'templates/category.css',
+			'js'  => 'templates/category.js',
 		),
 		'home'                        => array(
-			'css' => 'archives/home.css',
-			'js'  => 'archives/home.js',
+			'css' => 'templates/home.css',
+			'js'  => 'templates/home.js',
 		),
 		'search'                      => array(
-			'css' => 'archives/search.css',
-			'js'  => 'archives/search.js',
+			'css' => 'templates/search.css',
+			'js'  => 'templates/search.js',
 		),
 		'index'                       => array(
-			'css' => 'archives/index.css',
-			'js'  => 'archives/index.js',
+			'css' => 'templates/index.css',
+			'js'  => 'templates/index.js',
 		),
 
-		// Single Post Types.
+		// Single Templates.
 		'single-case'                 => array(
-			'css' => 'singles/single-case.css',
-			'js'  => 'singles/single-case.js',
+			'css' => 'templates/single-case.css',
+			'js'  => 'templates/single-case.js',
 		),
 		'single-condition'            => array(
-			'css' => 'singles/single-condition.css',
-			'js'  => 'singles/single-condition.js',
+			'css' => 'templates/single-condition.css',
+			'js'  => 'templates/single-condition.js',
 		),
 		'single-location'             => array(
-			'css' => 'singles/single-location.css',
-			'js'  => 'singles/single-location.js',
+			'css' => 'templates/single-location.css',
+			'js'  => 'templates/single-location.js',
 		),
 		'single-non-surgical'         => array(
-			'css' => 'singles/single-non-surgical.css',
-			'js'  => 'singles/single-non-surgical.js',
+			'css' => 'templates/single-non-surgical.css',
+			'js'  => 'templates/single-non-surgical.js',
 		),
 		'single-procedure'            => array(
-			'css' => 'singles/single-procedure.css',
-			'js'  => 'singles/single-procedure.js',
+			'css' => 'templates/single-procedure.css',
+			'js'  => 'templates/single-procedure.js',
 		),
 		'single-special'              => array(
-			'css' => 'singles/single-special.css',
-			'js'  => 'singles/single-special.js',
+			'css' => 'templates/single-special.css',
+			'js'  => 'templates/single-special.js',
 		),
 		'single-surgeon'              => array(
-			'css' => 'singles/single-surgeon.css',
-			'js'  => 'singles/single-surgeon.js',
+			'css' => 'templates/single-surgeon.css',
+			'js'  => 'templates/single-surgeon.js',
 		),
 		'single-fat-transfer'         => array(
-			'css' => 'singles/single-fat-transfer.css',
-			'js'  => 'singles/single-fat-transfer.js',
+			'css' => 'templates/single-fat-transfer.css',
+			'js'  => 'templates/single-fat-transfer.js',
 		),
 		'single-post'                 => array(
-			'css' => 'singles/single-post.css',
-			'js'  => 'singles/single-post.js',
+			'css' => 'templates/single-post.css',
+			'js'  => 'templates/single-post.js',
 		),
 	);
 }

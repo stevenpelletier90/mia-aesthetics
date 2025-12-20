@@ -14,7 +14,7 @@ get_header();
 	<!-- 1. Hero Section -->
 	<header class="specials-hero text-center">
 		<div class="container">
-			<h1 class="display-4">Current Specials</h1>
+			<h1 class="main-heading">Current Specials</h1>
 			<p class="lead mb-4">Limited-time offers on your favorite treatments</p>
 			<a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg">
 				Free Virtual Consultation <i class="fas fa-arrow-right" aria-hidden="true"></i>
