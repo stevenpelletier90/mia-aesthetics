@@ -543,31 +543,6 @@ function mia_enqueue_third_party_scripts(): void {
 		'window.attributersettings = { cookieLife: 30 };',
 		'before'
 	);
-
-	// UserWay - Accessibility widget.
-	// External CDN script - version managed by provider.
-	wp_enqueue_script(
-		'mia-userway',
-		'https://cdn.userway.org/widget.js',
-		array(),
-		'1.0.0',
-		false // Load in head for early accessibility.
-	);
 }
 add_action( 'wp_enqueue_scripts', 'mia_enqueue_third_party_scripts', 5 );
 
-/**
- * Add data attributes to third-party scripts
- *
- * @param string $tag    The script tag HTML.
- * @param string $handle The script handle.
- * @return string Modified script tag.
- */
-function mia_add_script_attributes( string $tag, string $handle ): string {
-	if ( 'mia-userway' === $handle ) {
-		$tag = str_replace( ' src=', ' data-account="o4cLhj3rDh" src=', $tag );
-	}
-
-	return $tag;
-}
-add_filter( 'script_loader_tag', 'mia_add_script_attributes', 10, 2 );
