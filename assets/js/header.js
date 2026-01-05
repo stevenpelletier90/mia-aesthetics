@@ -6,7 +6,7 @@
 
 document.addEventListener('DOMContentLoaded', function () {
   initializeMegaMenus();
-  initializeHoverDropdowns();
+  initializeDesktopDropdowns();
 });
 
 /**
@@ -26,68 +26,26 @@ function initializeMegaMenus() {
 }
 
 /**
- * Initialize hover-to-open behavior for desktop dropdowns
- * Uses Bootstrap's Dropdown API for proper state management
+ * Initialize desktop dropdown behavior
+ * Click on parent nav item navigates to its page
  */
-function initializeHoverDropdowns() {
-  // Only apply hover behavior on desktop (matches CSS breakpoint)
+function initializeDesktopDropdowns() {
   const isDesktop = function () {
     return window.innerWidth >= 1200;
   };
 
-  const dropdownItems = document.querySelectorAll('.navbar-nav .nav-item.dropdown');
-  let hoverTimeout = null;
+  const dropdownToggles = document.querySelectorAll('.navbar-nav .dropdown-toggle');
 
-  dropdownItems.forEach(function (item) {
-    const toggle = item.querySelector('.dropdown-toggle');
-    const menu = item.querySelector('.dropdown-menu');
-
-    if (!toggle || !menu) return;
-
-    // Get or create Bootstrap dropdown instance
-    let dropdownInstance = bootstrap.Dropdown.getOrCreateInstance(toggle, {
-      autoClose: true,
-    });
-
-    // Mouse enter - show dropdown
-    item.addEventListener('mouseenter', function () {
-      if (!isDesktop()) return;
-
-      clearTimeout(hoverTimeout);
-      // Hide any other open dropdowns first
-      dropdownItems.forEach(function (otherItem) {
-        if (otherItem !== item) {
-          const otherToggle = otherItem.querySelector('.dropdown-toggle');
-          if (otherToggle) {
-            const otherInstance = bootstrap.Dropdown.getInstance(otherToggle);
-            if (otherInstance) {
-              otherInstance.hide();
-            }
-          }
-        }
-      });
-      dropdownInstance.show();
-    });
-
-    // Mouse leave - hide dropdown with small delay
-    item.addEventListener('mouseleave', function () {
-      if (!isDesktop()) return;
-
-      hoverTimeout = setTimeout(function () {
-        dropdownInstance.hide();
-      }, 150);
-    });
-
-    // Prevent default click behavior on desktop (allow hover only)
+  dropdownToggles.forEach(function (toggle) {
     toggle.addEventListener('click', function (event) {
       if (isDesktop()) {
-        // Navigate to the href instead of toggling
+        // Navigate to the href instead of toggling dropdown
         const href = toggle.getAttribute('href');
         if (href && href !== '#') {
           window.location.href = href;
+          event.preventDefault();
+          event.stopPropagation();
         }
-        event.preventDefault();
-        event.stopPropagation();
       }
     });
   });

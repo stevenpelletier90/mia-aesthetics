@@ -45,7 +45,7 @@ if ( is_singular( 'surgeon' ) ) {
 				<!-- Tablet/Mobile CTA - Only visible on medium mobile devices -->
 				<div class="d-none d-sm-block d-xl-none mx-auto">
 					<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="header-btn" aria-label="Schedule free virtual consultation">
-						<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+						<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?>
 					</a>
 				</div>
 				
@@ -77,23 +77,35 @@ if ( is_singular( 'surgeon' ) ) {
 							<ul class="navbar-nav ms-xl-auto me-xl-3 mb-2 mb-xl-0">
 								<?php
 								$menu_structure = mia_aesthetics_get_menu_structure();
-								mia_aesthetics_render_procedures_menu( $menu_structure['procedures'], false );
-								mia_aesthetics_render_procedures_menu( $menu_structure['procedures'], true );
-								mia_aesthetics_render_non_surgical_menu( false );
-								mia_aesthetics_render_non_surgical_menu( true );
+								// 1. Locations
 								mia_aesthetics_render_locations_menu( false );
 								mia_aesthetics_render_locations_menu( true );
+								// 2. Surgeons
 								mia_aesthetics_render_surgeons_menu( false );
 								mia_aesthetics_render_surgeons_menu( true );
+								// 3. Procedures
+								mia_aesthetics_render_procedures_menu( $menu_structure['procedures'], false );
+								mia_aesthetics_render_procedures_menu( $menu_structure['procedures'], true );
+								// 4. Non-Surgical
+								mia_aesthetics_render_non_surgical_menu( false );
+								mia_aesthetics_render_non_surgical_menu( true );
+								// 5. Before & After
 								mia_aesthetics_render_before_after_menu( false );
 								mia_aesthetics_render_before_after_menu( true );
 								?>
+								<!-- 6. Financing -->
 								<li class="nav-item <?php echo mia_aesthetics_is_current_section( 'financing' ) ? 'current-menu-ancestor' : ''; ?>">
 									<a class="nav-link" href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" <?php echo mia_aesthetics_is_current_url( home_url( '/financing/' ) ) ? 'aria-current="page"' : ''; ?>><?php esc_html_e( 'Financing', 'mia-aesthetics' ); ?></a>
 								</li>
+								<!-- 7. Specials -->
 								<li class="nav-item <?php echo mia_aesthetics_is_current_section( 'specials' ) ? 'current-menu-ancestor' : ''; ?>">
 									<a class="nav-link" href="<?php echo esc_url( home_url( '/specials/' ) ); ?>" <?php echo mia_aesthetics_is_current_url( home_url( '/specials/' ) ) ? 'aria-current="page"' : ''; ?>><?php esc_html_e( 'Specials', 'mia-aesthetics' ); ?></a>
 								</li>
+								<!-- 8. Shop -->
+								<li class="nav-item">
+									<a class="nav-link" href="https://shop.miaaesthetics.com/" target="_blank" rel="noopener"><?php esc_html_e( 'Shop', 'mia-aesthetics' ); ?></a>
+								</li>
+								<!-- 9. Patient Portal -->
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-controls="patient-portal-menu">
 										<?php esc_html_e( 'Patient Portal', 'mia-aesthetics' ); ?>
@@ -107,9 +119,6 @@ if ( is_singular( 'surgeon' ) ) {
 										<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/web-to-case/' ) ); ?>"><?php esc_html_e( 'Portal Support', 'mia-aesthetics' ); ?></a></li>
 									</ul>
 								</li>
-								<li class="nav-item">
-									<a class="nav-link" href="https://shop.miaaesthetics.com/" target="_blank" rel="noopener"><?php esc_html_e( 'Shop', 'mia-aesthetics' ); ?></a>
-								</li>
 							</ul>
 						</div>
 					</div>
@@ -118,7 +127,7 @@ if ( is_singular( 'surgeon' ) ) {
 				<!-- Desktop CTA Button -->
 				<div class="d-none d-xl-block">
 					<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="header-btn desktop-cta" aria-label="Schedule free virtual consultation">
-						<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?> <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+						<?php esc_html_e( 'Free Virtual Consultation', 'mia-aesthetics' ); ?>
 					</a>
 				</div>
 			</div>
