@@ -120,7 +120,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 	?>
 	<div class="hero-boxes">
 		<!-- Before & After Box -->
-		<div class="hero-box hero-box-top">
+		<a href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" class="hero-box hero-box-top hero-box-link">
 		<?php
 		if ( $ba_img_id > 0 ) {
 			echo wp_get_attachment_image(
@@ -138,14 +138,14 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		?>
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Before & After Gallery</div>
-			<a href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" class="btn btn-outline-primary-alt2" role="button">
+			<span class="btn btn-outline-primary-alt2" role="button">
 			View Results <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-			</a>
+			</span>
 		</div>
-		</div>
+		</a>
 
 		<!-- Financing Box -->
-		<div class="hero-box hero-box-bottom">
+		<a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="hero-box hero-box-bottom hero-box-link">
 		<?php
 		if ( $fin_img_id > 0 ) {
 			echo wp_get_attachment_image(
@@ -163,11 +163,11 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		?>
 		<div class="hero-box-overlay">
 			<div class="hero-box-heading">Affordable Financing</div>
-			<a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="btn btn-outline-primary-alt2" role="button">
+			<span class="btn btn-outline-primary-alt2" role="button">
 			Learn More <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-			</a>
+			</span>
 		</div>
-		</div>
+		</a>
 	</div>
 	</div>
 </section>
@@ -193,7 +193,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		</div>
 
 		<!-- Expert Surgeons (Dynamic) -->
-		<div class="stat-box text-center">
+		<a href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" class="stat-box stat-box-link text-center">
 		<div class="homepage-stat-number" data-count="
 		<?php
 			$stats = mia_aesthetics_get_site_stats();
@@ -201,13 +201,13 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		?>
 		">0</div>
 		<div class="homepage-stat-label">Expert Surgeons</div>
-		</div>
+		</a>
 
 		<!-- Clinic Locations (Dynamic) -->
-		<div class="stat-box text-center">
+		<a href="<?php echo esc_url( home_url( '/locations/' ) ); ?>" class="stat-box stat-box-link text-center">
 		<div class="homepage-stat-number" data-count="<?php echo esc_attr( (string) $stats['locations'] ); ?>">0</div>
 		<div class="homepage-stat-label">Clinic Locations</div>
-		</div>
+		</a>
 
 		<!-- Satisfied Patients -->
 		<div class="stat-box text-center">
@@ -220,7 +220,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 	<div class="row justify-content-center">
 		<div class="col-lg-10 col-xl-8">
 		<div class="about-content text-center">
-			<p class="about-description mb-3 mt-4">Our mission at <strong>Mia Aesthetics</strong> is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
+			<p class="about-description mb-3 mt-4">Our mission at Mia Aesthetics is to deliver the highest quality of plastic surgery at affordable prices, demonstrating that beauty and cost-effectiveness can coexist harmoniously.</p>
 		</div>
 		</div>
 	</div>

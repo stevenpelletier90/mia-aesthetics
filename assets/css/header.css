@@ -143,14 +143,29 @@
   }
 
   .dropdown-menu.mega-menu {
+    background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
     border-top: 3px solid var(--mia-gold);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
     left: 0;
     right: 0;
   }
 
+  /* Hover-to-open for desktop dropdowns */
+  .navbar-nav .nav-item.dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0;
+  }
+
+  .navbar-nav .nav-item.dropdown > .dropdown-toggle::after {
+    transition: transform 0.2s ease;
+  }
+
+  .navbar-nav .nav-item.dropdown:hover > .dropdown-toggle::after {
+    transform: rotate(180deg);
+  }
+
   .mega-menu-title {
-    color: var(--mia-black);
+    color: var(--mia-white);
     font-weight: 600;
     font-size: 1.1rem;
     display: inline-block;
@@ -159,7 +174,7 @@
   }
 
   .mega-menu-title:hover {
-    color: var(--mia-gray-dark);
+    color: var(--mia-gold);
     text-decoration: none;
   }
 
@@ -172,16 +187,17 @@
   .mega-menu .dropdown-header {
     padding: 0.5rem 0;
     margin-bottom: 0.5rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    border-bottom: 1px solid rgba(200, 178, 115, 0.3);
     font-size: 1.1rem;
     font-family: var(--font-body);
     font-weight: 600;
+    color: var(--mia-white);
   }
 
   .mega-menu .dropdown-header a {
     text-decoration: none;
     font-weight: 600;
-    color: var(--mia-gray-dark);
+    color: var(--mia-white);
     font-size: 1.1rem;
   }
 
@@ -196,16 +212,28 @@
     padding: 0.25rem 0;
     font-size: 16px;
     font-family: var(--font-body);
+    color: var(--mia-white);
+  }
+
+  .mega-menu .dropdown-item:hover,
+  .mega-menu .dropdown-item:focus {
+    background-color: transparent;
+    color: var(--mia-gold);
   }
 
   .mega-menu a {
     font-size: 1.1rem;
     font-family: var(--font-body);
+    color: var(--mia-white);
+  }
+
+  .mega-menu a:hover {
+    color: var(--mia-gold);
   }
 
   .navbar-nav .mega-menu .bg-light {
-    background-color: var(--mia-gold-10);
-    border: 1px solid var(--mia-gold-20);
+    background-color: rgba(200, 178, 115, 0.1);
+    border: 1px solid rgba(200, 178, 115, 0.2);
   }
 
   .mega-menu .btn-outline-dark {
@@ -217,6 +245,41 @@
     background-color: var(--mia-gold);
     border-color: var(--mia-gold);
     color: var(--mia-black);
+  }
+
+  /* Override default dropdown-item colors for mega menu */
+  .mega-menu .list-unstyled .dropdown-item {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .mega-menu .list-unstyled .dropdown-item:hover {
+    color: var(--mia-gold);
+  }
+
+  /* Regular dropdown menus (Patient Portal, etc.) */
+  .navbar-nav .dropdown-menu:not(.mega-menu) {
+    background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+    border: none;
+    border-top: 3px solid var(--mia-gold);
+    border-radius: 0;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    min-width: auto;
+    width: auto;
+    padding: 0.5rem 0;
+    margin-top: 0;
+  }
+
+  .navbar-nav .dropdown-menu:not(.mega-menu) .dropdown-item {
+    color: var(--mia-white);
+    padding: 0.5rem 1.25rem;
+    white-space: nowrap;
+    font-size: 0.95rem;
+  }
+
+  .navbar-nav .dropdown-menu:not(.mega-menu) .dropdown-item:hover,
+  .navbar-nav .dropdown-menu:not(.mega-menu) .dropdown-item:focus {
+    background-color: transparent;
+    color: var(--mia-gold);
   }
 
   .navbar-nav .nav-item {

@@ -129,6 +129,48 @@
   text-transform: uppercase;
 }
 
+/* Hero Box Link - clickable card behavior */
+.hero-box-link {
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.hero-box-link .hero-box-image {
+  transition: transform 0.4s ease;
+}
+
+.hero-box-link .hero-box-overlay {
+  transition: background 0.3s ease;
+}
+
+.hero-box-link .btn {
+  transition: all 0.3s ease;
+}
+
+/* Coordinated hover: box hover triggers button hover state */
+.hero-box-link:hover .hero-box-image,
+.hero-box-link:focus .hero-box-image {
+  transform: scale(1.05);
+}
+
+.hero-box-link:hover .hero-box-overlay,
+.hero-box-link:focus .hero-box-overlay {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-box-link:hover .btn,
+.hero-box-link:focus .btn {
+  background: var(--mia-white);
+  border-color: var(--mia-white);
+  color: var(--mia-black);
+}
+
+.hero-box-link:focus {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+}
+
 /* ==========================================================================
    ABOUT SECTION
    ========================================================================== */
@@ -192,13 +234,14 @@
   font-family: var(--font-heading);
   font-size: clamp(2.25rem, 8vw, 3.75rem);
   font-weight: 800;
-  line-height: 1;
+  line-height: 1.1;
   background: linear-gradient(135deg, #c8b273 0%, #a89554 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-style: italic;
   filter: drop-shadow(1px 1px 2px rgba(0, 0, 0, 0.1));
+  padding-right: 0.1em;
 }
 
 .homepage-stat-label {
@@ -245,6 +288,33 @@
   background: linear-gradient(135deg, rgba(0, 0, 0, 0.05) 0%, rgba(0, 0, 0, 0.08) 100%);
   border-color: rgba(200, 178, 115, 0.3);
   transform: translateY(-2px);
+}
+
+/* Stat Box Link - clickable stat cards */
+.stat-box-link {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.stat-box-link:hover,
+.stat-box-link:focus {
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.1) 0%, rgba(200, 178, 115, 0.15) 100%);
+  border-color: var(--mia-gold);
+  transform: translateY(-4px);
+}
+
+.stat-box-link:focus {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+}
+
+.stat-box-link .homepage-stat-label {
+  transition: color 0.3s ease;
+}
+
+.stat-box-link:hover .homepage-stat-label,
+.stat-box-link:focus .homepage-stat-label {
+  color: var(--mia-gold-dark);
 }
 
 .stat-number {

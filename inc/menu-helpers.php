@@ -412,11 +412,6 @@ function mia_aesthetics_render_desktop_procedures_menu( $procedures ): void {
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 mb-3">
-					<a class="mega-menu-title" href="<?php echo esc_url( $procedures['url'] ); ?>">View All Procedures <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-				</div>
-			</div>
-			<div class="row">
 				<?php foreach ( $procedures['sections'] as $section ) : ?>
 					<div class="col-md-3 mb-3">
 						<div class="dropdown-header">
@@ -502,11 +497,6 @@ function mia_aesthetics_render_desktop_locations_menu( $locations ): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
-			<div class="row">
-				<div class="col-12 mb-3">
-					<a class="mega-menu-title" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">View All Locations <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-				</div>
-			</div>
 			<div class="row">
 				<?php
 				if ( array() !== $locations ) :
@@ -612,11 +602,6 @@ function mia_aesthetics_render_desktop_surgeons_menu( $surgeons ): void {
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
 			<div class="row">
-				<div class="col-12 mb-3">
-					<a class="mega-menu-title" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>">View All Surgeons <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-				</div>
-			</div>
-			<div class="row">
 				<?php
 				if ( array() !== $surgeons ) :
 					$total_surgeons      = count( $surgeons );
@@ -711,12 +696,6 @@ function mia_aesthetics_render_desktop_before_after_menu(): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
-			<div class="row">
-				<div class="col-12 mb-3">
-					<?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/before-after/' ) ); ?>
-					<a class="mega-menu-title" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Before & After <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-md-6 mb-3">
 					<div class="dropdown-header">
@@ -822,12 +801,6 @@ function mia_aesthetics_render_desktop_non_surgical_menu(): void {
 	?>
 	<div class="dropdown-menu mega-menu w-100 p-3 rounded-0 mt-0">
 		<div class="container">
-			<div class="row">
-				<div class="col-12 mb-3">
-					<?php $is_exact_view_all = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) ); ?>
-					<a class="mega-menu-title" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" <?php echo $is_exact_view_all ? 'aria-current="page"' : ''; ?>>View All Non-Surgical Procedures <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
-				</div>
-			</div>
 			<div class="row">
 				<div class="col-md-3 mb-3">
 					<ul class="list-unstyled">
