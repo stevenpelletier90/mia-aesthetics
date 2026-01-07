@@ -409,7 +409,7 @@ function mia_aesthetics_render_procedures_menu( $procedures, $is_mobile = false 
  */
 function mia_aesthetics_render_desktop_procedures_menu( $procedures ): void {
 	?>
-	<div class="dropdown-menu mega-menu p-3 mt-0">
+	<div class="dropdown-menu mega-menu mega-menu-4col p-3 mt-0">
 		<div class="container">
 			<div class="row">
 				<?php foreach ( $procedures['sections'] as $section ) : ?>
@@ -580,7 +580,7 @@ function mia_aesthetics_render_surgeons_menu( bool $is_mobile = false ): void {
  */
 function mia_aesthetics_render_desktop_surgeons_menu( $surgeons ): void {
 	?>
-	<div class="dropdown-menu mega-menu p-3 mt-0">
+	<div class="dropdown-menu mega-menu mega-menu-4col p-3 mt-0">
 		<div class="container">
 			<div class="row">
 				<?php
@@ -675,7 +675,7 @@ function mia_aesthetics_render_before_after_menu( bool $is_mobile = false ): voi
  */
 function mia_aesthetics_render_desktop_before_after_menu(): void {
 	?>
-	<div class="dropdown-menu mega-menu p-3 mt-0">
+	<div class="dropdown-menu mega-menu mega-menu-2col p-3 mt-0">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-6 mb-3">

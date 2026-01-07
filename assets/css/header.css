@@ -133,8 +133,19 @@
     left: auto;
     right: auto;
     width: fit-content;
-    min-width: 1100px;
     max-width: calc(100vw - 2rem);
+  }
+
+  /* 2-column menus (Before & After) */
+  .mega-menu.mega-menu-2col {
+    min-width: 550px;
+    max-width: 650px;
+  }
+
+  /* 4-column menus (Procedures, Surgeons) */
+  .mega-menu.mega-menu-4col {
+    min-width: 950px;
+    max-width: 1100px;
   }
 
   /* Remove container max-width constraint inside mega menus */
