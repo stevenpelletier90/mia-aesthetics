@@ -18,6 +18,7 @@ require_once get_template_directory() . '/inc/cache-helpers.php';
 
 // Template utilities.
 require_once get_template_directory() . '/inc/template-helpers.php';
+require_once get_template_directory() . '/inc/display-control-helpers.php';
 require_once get_template_directory() . '/inc/breadcrumb-display.php';
 require_once get_template_directory() . '/inc/cta-display.php';
 require_once get_template_directory() . '/inc/social-media-helpers.php';

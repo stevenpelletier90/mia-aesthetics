@@ -13,10 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Load the video schema trait.
+require_once __DIR__ . '/trait-video-schema.php';
+
 /**
  * Medical clinic schema markup generator
  */
 class Clinic_Schema {
+
+	use Video_Schema_Trait;
 
 	/**
 	 * Yoast SEO context object
@@ -24,6 +29,24 @@ class Clinic_Schema {
 	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
 	 */
 	private $context;
+
+	/**
+	 * Get video title fallback for clinics
+	 *
+	 * @return string The fallback video title.
+	 */
+	protected function get_video_title_fallback(): string {
+		return 'Mia Aesthetics ' . get_the_title() . ' - Clinic Tour';
+	}
+
+	/**
+	 * Get video description fallback for clinics
+	 *
+	 * @return string The fallback video description.
+	 */
+	protected function get_video_description_fallback(): string {
+		return 'Learn more about Mia Aesthetics ' . get_the_title();
+	}
 
 	/**
 	 * Constructor
@@ -581,53 +604,6 @@ class Clinic_Schema {
 				return array( '@id' => get_permalink( $surgeon->ID ) . '#physician' );
 			},
 			$surgeons
-		);
-	}
-
-	/**
-	 * Get featured video from video_details group field
-	 *
-	 * @param int $loc_id The location post ID.
-	 * @return array<string, mixed>|null
-	 */
-	private function get_featured_video( $loc_id ) {
-		$video_details = get_field( 'video_details', $loc_id );
-
-		if ( ! is_array( $video_details ) || ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
-			return null;
-		}
-
-		$video_id          = $video_details['video_id'];
-		$video_title       = ! isset( $video_details['video_title'] ) || '' === $video_details['video_title'] ? get_the_title() . ' - Featured Video' : $video_details['video_title'];
-		$video_description = ! isset( $video_details['video_description'] ) || '' === $video_details['video_description'] ? 'Learn more about Mia Aesthetics ' . get_the_title() . ' location' : $video_details['video_description'];
-
-		// Generate YouTube URLs from video ID.
-		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
-		$embed_url = 'https://www.youtube.com/embed/' . $video_id;
-
-		// Use custom thumbnail if available, otherwise use YouTube thumbnail.
-		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
-		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
-			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-			if ( false !== $custom_thumbnail ) {
-				$thumbnail_url = $custom_thumbnail;
-			}
-		}
-
-		return array(
-			'@type'        => 'VideoObject',
-			'@id'          => get_permalink( $loc_id ) . '#video',
-			'name'         => $video_title,
-			'description'  => $video_description,
-			'url'          => $watch_url,
-			'embedUrl'     => $embed_url,
-			'thumbnailUrl' => $thumbnail_url,
-			'uploadDate'   => get_the_date( 'c', $loc_id ), // Use location post date as fallback.
-			'publisher'    => array(
-				'@type' => 'Organization',
-				'name'  => 'Mia Aesthetics',
-				'url'   => home_url(),
-			),
 		);
 	}
 }

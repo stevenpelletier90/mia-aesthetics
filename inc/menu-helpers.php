@@ -388,9 +388,10 @@ function mia_aesthetics_render_procedures_menu( $procedures, $is_mobile = false 
 	$is_exact       = mia_aesthetics_is_current_url( $procedures['url'] );
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
-		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( $procedures['url'] ); ?>" 
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( $procedures['url'] ); ?>"
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
 			<?php echo esc_html( $procedures['title'] ); ?>
+			<i class="fa-solid fa-chevron-down d-xl-none"></i>
 		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php mia_aesthetics_render_mobile_procedures_menu( $procedures ); ?>
@@ -474,9 +475,10 @@ function mia_aesthetics_render_locations_menu( bool $is_mobile = false ): void {
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'd-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
-		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>" 
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>"
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			Locations
+			<i class="fa-solid fa-chevron-down d-xl-none"></i>
 		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php mia_aesthetics_render_mobile_locations_menu( $locations ); ?>
@@ -488,31 +490,61 @@ function mia_aesthetics_render_locations_menu( bool $is_mobile = false ): void {
 }
 
 /**
- * Render desktop locations mega menu
+ * Render desktop locations mega menu (2-column layout)
  *
  * @param array<int, mixed> $locations Array of location data.
  * @return void
  */
 function mia_aesthetics_render_desktop_locations_menu( $locations ): void {
 	?>
-	<ul class="dropdown-menu">
-		<?php
-		if ( array() !== $locations ) :
-			foreach ( $locations as $location ) :
-				$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-				$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-				$menu_label   = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
-				?>
-				<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
+	<div class="dropdown-menu mega-menu mega-menu-locations p-2 mt-0">
+		<div class="container">
+			<div class="row">
 				<?php
-			endforeach;
-		else :
-			?>
-			<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">View Our Locations</a></li>
-			<?php
-		endif;
-		?>
-	</ul>
+				if ( is_array( $locations ) && count( $locations ) > 0 ) :
+					$total = count( $locations );
+					$half  = (int) ceil( $total / 2 );
+					$col1  = array_slice( $locations, 0, $half );
+					$col2  = array_slice( $locations, $half );
+					?>
+					<div class="col-6">
+						<ul class="list-unstyled mb-0">
+							<?php foreach ( $col1 as $location ) : ?>
+								<?php
+								$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
+								$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
+								$menu_label   = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
+								?>
+								<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<div class="col-6">
+						<ul class="list-unstyled mb-0">
+							<?php foreach ( $col2 as $location ) : ?>
+								<?php
+								$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
+								$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
+								$menu_label   = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
+								?>
+								<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
+							<?php endforeach; ?>
+						</ul>
+					</div>
+					<?php
+				else :
+					?>
+					<div class="col-12">
+						<ul class="list-unstyled mb-0">
+							<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/locations/' ) ); ?>">View Our Locations</a></li>
+						</ul>
+					</div>
+					<?php
+				endif;
+				?>
+			</div>
+		</div>
+	</div>
 	<?php
 }
 
@@ -559,9 +591,10 @@ function mia_aesthetics_render_surgeons_menu( bool $is_mobile = false ): void {
 	$is_exact       = mia_aesthetics_is_current_url( home_url( '/plastic-surgeons/' ) );
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
-		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" 
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>"
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
 			Surgeons
+			<i class="fa-solid fa-chevron-down d-xl-none"></i>
 		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php mia_aesthetics_render_mobile_surgeons_menu( $surgeons ); ?>
@@ -655,9 +688,10 @@ function mia_aesthetics_render_before_after_menu( bool $is_mobile = false ): voi
 	$dropdown_class = $is_mobile ? 'd-xl-none' : 'd-none d-xl-block';
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?>">
-		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" 
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>"
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">
 			Before & After
+			<i class="fa-solid fa-chevron-down d-xl-none"></i>
 		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php mia_aesthetics_render_mobile_before_after_menu(); ?>
@@ -760,9 +794,10 @@ function mia_aesthetics_render_non_surgical_menu( bool $is_mobile = false ): voi
 	$is_exact       = mia_aesthetics_is_current_url( home_url( '/non-surgical/' ) );
 	?>
 	<li class="nav-item dropdown <?php echo esc_attr( $dropdown_class ); ?> <?php echo $is_section ? 'current-menu-ancestor' : ''; ?>">
-		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" 
+		<a class="nav-link dropdown-toggle" href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>"
 			role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>
 			Non-Surgical
+			<i class="fa-solid fa-chevron-down d-xl-none"></i>
 		</a>
 		<?php if ( $is_mobile ) : ?>
 			<?php mia_aesthetics_render_mobile_non_surgical_menu(); ?>

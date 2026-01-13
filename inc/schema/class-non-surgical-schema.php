@@ -13,10 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Load the video schema trait.
+require_once __DIR__ . '/trait-video-schema.php';
+
 /**
  * NoninvasiveProcedure schema markup generator for non-surgical treatment pages
  */
 class NonSurgical_Schema {
+
+	use Video_Schema_Trait;
 
 	/**
 	 * Yoast SEO context object
@@ -24,6 +29,24 @@ class NonSurgical_Schema {
 	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
 	 */
 	private $context;
+
+	/**
+	 * Get video title fallback for non-surgical procedures
+	 *
+	 * @return string The fallback video title.
+	 */
+	protected function get_video_title_fallback(): string {
+		return get_the_title() . ' - Treatment Overview';
+	}
+
+	/**
+	 * Get video description fallback for non-surgical procedures
+	 *
+	 * @return string The fallback video description.
+	 */
+	protected function get_video_description_fallback(): string {
+		return 'Learn more about ' . get_the_title() . ' at Mia Aesthetics';
+	}
 
 	/**
 	 * Constructor
@@ -250,53 +273,6 @@ class NonSurgical_Schema {
 			'priceValidUntil' => gmdate( 'Y-12-31' ),
 			'availability'    => 'http://schema.org/InStock',
 			'seller'          => array(
-				'@type' => 'Organization',
-				'name'  => 'Mia Aesthetics',
-				'url'   => home_url(),
-			),
-		);
-	}
-
-	/**
-	 * Get featured video from video_details group field
-	 *
-	 * @param int $procedure_id The procedure post ID.
-	 * @return array<string, mixed>|null Featured video data or null.
-	 */
-	private function get_featured_video( $procedure_id ): ?array {
-		$video_details = get_field( 'video_details', $procedure_id );
-
-		if ( ! is_array( $video_details ) || ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
-			return null;
-		}
-
-		$video_id    = $video_details['video_id'];
-		$video_title = isset( $video_details['video_title'] ) && '' !== $video_details['video_title']
-			? $video_details['video_title']
-			: get_the_title() . ' - Treatment Overview';
-
-		$video_description = isset( $video_details['video_description'] ) && '' !== $video_details['video_description']
-			? $video_details['video_description']
-			: 'Learn more about ' . get_the_title() . ' at Mia Aesthetics';
-
-		$thumbnail_url = sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
-		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
-			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-			if ( false !== $custom_thumbnail ) {
-				$thumbnail_url = $custom_thumbnail;
-			}
-		}
-
-		return array(
-			'@type'        => 'VideoObject',
-			'@id'          => get_permalink( $procedure_id ) . '#video',
-			'name'         => $video_title,
-			'description'  => $video_description,
-			'url'          => 'https://www.youtube.com/watch?v=' . $video_id,
-			'embedUrl'     => 'https://www.youtube.com/embed/' . $video_id,
-			'thumbnailUrl' => $thumbnail_url,
-			'uploadDate'   => get_the_date( 'c', $procedure_id ),
-			'publisher'    => array(
 				'@type' => 'Organization',
 				'name'  => 'Mia Aesthetics',
 				'url'   => home_url(),

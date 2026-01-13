@@ -76,13 +76,7 @@ if ( ! defined( 'MIA_AESTHETICS_STATE_ABBREVIATIONS' ) ) {
  * @param string $state Full state name.
  * @return string State abbreviation or original string if not found
  */
-function mia_aesthetics_get_state_abbr( $state ) {
-	if ( class_exists( 'WP_State' ) ) {
-		$abbr = WP_State::abbr( $state );
-		return $abbr ? $abbr : $state;
-	}
-
-	// Fallback: constant map for legacy support.
+function mia_aesthetics_get_state_abbr( string $state ): string {
 	if ( defined( 'MIA_AESTHETICS_STATE_ABBREVIATIONS' ) && isset( MIA_AESTHETICS_STATE_ABBREVIATIONS[ $state ] ) ) {
 		return MIA_AESTHETICS_STATE_ABBREVIATIONS[ $state ];
 	}

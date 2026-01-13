@@ -13,10 +13,15 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+// Load the video schema trait.
+require_once __DIR__ . '/trait-video-schema.php';
+
 /**
  * MedicalProcedure schema markup generator for individual procedure pages
  */
 class Procedure_Schema {
+
+	use Video_Schema_Trait;
 
 	/**
 	 * Yoast SEO context object
@@ -24,6 +29,24 @@ class Procedure_Schema {
 	 * @var \Yoast\WP\SEO\Context\Meta_Tags_Context
 	 */
 	private $context;
+
+	/**
+	 * Get video title fallback for procedures
+	 *
+	 * @return string The fallback video title.
+	 */
+	protected function get_video_title_fallback(): string {
+		return get_the_title() . ' - Procedure Overview';
+	}
+
+	/**
+	 * Get video description fallback for procedures
+	 *
+	 * @return string The fallback video description.
+	 */
+	protected function get_video_description_fallback(): string {
+		return 'Learn more about ' . get_the_title() . ' at Mia Aesthetics';
+	}
 
 	/**
 	 * Constructor
@@ -287,92 +310,5 @@ class Procedure_Schema {
 				'url'   => home_url(),
 			),
 		);
-	}
-
-	/**
-	 * Get featured video from video_details group field
-	 *
-	 * @param int $procedure_id The procedure post ID.
-	 * @return array<string, mixed>|null Featured video data or null.
-	 */
-	private function get_featured_video( $procedure_id ): ?array {
-		$video_details = get_field( 'video_details', $procedure_id );
-
-		if ( ! is_array( $video_details ) || ! isset( $video_details['video_id'] ) || '' === $video_details['video_id'] ) {
-			return null;
-		}
-
-		$video_id          = $video_details['video_id'];
-		$video_title       = $this->get_video_title( $video_details );
-		$video_description = $this->get_video_description( $video_details );
-		$thumbnail_url     = $this->get_video_thumbnail_url( $video_details, $video_id );
-
-		// Generate YouTube URLs from video ID.
-		$watch_url = 'https://www.youtube.com/watch?v=' . $video_id;
-		$embed_url = 'https://www.youtube.com/embed/' . $video_id;
-
-		return array(
-			'@type'        => 'VideoObject',
-			'@id'          => get_permalink( $procedure_id ) . '#video',
-			'name'         => $video_title,
-			'description'  => $video_description,
-			'url'          => $watch_url,
-			'embedUrl'     => $embed_url,
-			'thumbnailUrl' => $thumbnail_url,
-			'uploadDate'   => get_the_date( 'c', $procedure_id ),
-			'publisher'    => array(
-				'@type' => 'Organization',
-				'name'  => 'Mia Aesthetics',
-				'url'   => home_url(),
-			),
-		);
-	}
-
-	/**
-	 * Get video title with fallback
-	 *
-	 * @param array<string, mixed> $video_details Video details from ACF.
-	 * @return string
-	 */
-	private function get_video_title( $video_details ) {
-		if ( isset( $video_details['video_title'] ) && '' !== $video_details['video_title'] ) {
-			return $video_details['video_title'];
-		}
-
-		return get_the_title() . ' - Procedure Overview';
-	}
-
-	/**
-	 * Get video description with fallback
-	 *
-	 * @param array<string, mixed> $video_details Video details from ACF.
-	 * @return string
-	 */
-	private function get_video_description( $video_details ) {
-		if ( isset( $video_details['video_description'] ) && '' !== $video_details['video_description'] ) {
-			return $video_details['video_description'];
-		}
-
-		return 'Learn more about ' . get_the_title() . ' at Mia Aesthetics';
-	}
-
-	/**
-	 * Get video thumbnail URL
-	 *
-	 * @param array<string, mixed> $video_details Video details from ACF.
-	 * @param string               $video_id Video ID.
-	 * @return string
-	 */
-	private function get_video_thumbnail_url( $video_details, $video_id ) {
-		// Use custom thumbnail if available.
-		if ( isset( $video_details['video_thumbnail'] ) && '' !== $video_details['video_thumbnail'] ) {
-			$custom_thumbnail = wp_get_attachment_image_url( $video_details['video_thumbnail'], 'full' );
-			if ( false !== $custom_thumbnail ) {
-				return $custom_thumbnail;
-			}
-		}
-
-		// Fall back to YouTube thumbnail.
-		return sprintf( 'https://img.youtube.com/vi/%s/maxresdefault.jpg', $video_id );
 	}
 }

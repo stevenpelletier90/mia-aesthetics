@@ -109,6 +109,7 @@ if ( is_singular( 'surgeon' ) ) {
 								<li class="nav-item dropdown">
 									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-controls="patient-portal-menu">
 										<?php esc_html_e( 'Patient Portal', 'mia-aesthetics' ); ?>
+										<i class="fa-solid fa-chevron-down d-xl-none"></i>
 									</a>
 									<ul class="dropdown-menu" aria-labelledby="patient-portal-dropdown" id="patient-portal-menu">
 										<li>

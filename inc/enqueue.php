@@ -545,4 +545,3 @@ function mia_enqueue_third_party_scripts(): void {
 	);
 }
 add_action( 'wp_enqueue_scripts', 'mia_enqueue_third_party_scripts', 5 );
-
