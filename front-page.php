@@ -68,7 +68,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 	<div class="hero-container">
 	<!-- Hero Banner (Responsive) -->
 	<div class="hero-carousel">
-		<div class="hero-banner">
+		<a href="<?php echo esc_url( $hero_link ); ?>" class="hero-banner hero-banner-link" aria-label="<?php echo esc_attr( $hero_alt ); ?>">
 			<?php if ( $hero_mobile_id > 0 && $hero_desktop_id > 0 ) : ?>
 			<picture>
 				<?php if ( $has_separate_widescreen ) : ?>
@@ -100,14 +100,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 					data-no-lazy="1">
 			</picture>
 			<?php endif; ?>
-		</div>
-
-		<!-- Hero CTA Button -->
-		<div class="hero-cta-wrapper">
-			<a href="<?php echo esc_url( $hero_link ); ?>" class="hero-cta" role="button">
-				<?php echo esc_html( $hero_cta_text ); ?>
-			</a>
-		</div>
+		</a>
 	</div>
 
 	<!-- Hero Content Boxes -->

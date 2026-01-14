@@ -15,8 +15,6 @@ if ( $current_post instanceof WP_Post ) {
 }
 ?>
 <main id="primary" role="main">
-<?php mia_aesthetics_breadcrumbs(); ?>
-
 	<?php
 	while ( have_posts() ) :
 		the_post();

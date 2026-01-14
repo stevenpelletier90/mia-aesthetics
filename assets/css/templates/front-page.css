@@ -29,6 +29,19 @@
   width: 100%;
 }
 
+/* Hero Banner Link - clickable banner */
+.hero-banner-link {
+  display: block;
+  height: 100%;
+  width: 100%;
+  cursor: pointer;
+}
+
+.hero-banner-link:focus {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: -2px;
+}
+
 .hero-cta-wrapper {
   position: absolute;
   bottom: 3.5rem;

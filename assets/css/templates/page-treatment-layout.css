@@ -952,3 +952,47 @@
     margin-right: 0.5rem;
   }
 }
+
+/* ==========================================================================
+   Case Study & Result Badge Styles
+   ========================================================================== */
+
+.bg-gold {
+  background-color: var(--mia-gold) !important;
+}
+
+.text-gold {
+  color: var(--mia-gold) !important;
+}
+
+.result-badge {
+  z-index: 10;
+}
+
+.result-badge .badge {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.case-study-section {
+  background-color: var(--mia-gold-light);
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+}
+
+.case-study-section .image-container {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  border-radius: var(--radius-lg);
+}
+
+.case-study-info .section-header h2 {
+  color: var(--mia-black);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+}
+
+.image-frame {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}

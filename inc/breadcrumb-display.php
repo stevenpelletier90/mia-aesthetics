@@ -69,3 +69,54 @@ function mia_aesthetics_breadcrumbs(): void {
 
 	get_template_part( 'components/breadcrumb', null, $args );
 }
+
+/**
+ * Shortcode for breadcrumbs
+ *
+ * Use [mia_breadcrumbs] in content to display breadcrumbs inline.
+ * Supports optional class attribute for styling variations.
+ *
+ * @param array<string, string> $atts Shortcode attributes.
+ * @return string Breadcrumb HTML output.
+ */
+function mia_aesthetics_breadcrumbs_shortcode( $atts ): string {
+	if ( ! function_exists( 'yoast_breadcrumb' ) ) {
+		return '';
+	}
+
+	// Check breadcrumb display logic.
+	if ( ! mia_needs_breadcrumb() ) {
+		return '';
+	}
+
+	// Yoast outputs breadcrumb trail as string.
+	$breadcrumbs = yoast_breadcrumb( '', '', false );
+
+	if ( '' === $breadcrumbs ) {
+		return '';
+	}
+
+	// Parse shortcode attributes.
+	$atts = shortcode_atts(
+		array(
+			'class' => '',
+		),
+		$atts,
+		'mia_breadcrumbs'
+	);
+
+	// Build wrapper class.
+	$wrapper_class = 'breadcrumb-inline';
+	if ( is_string( $atts['class'] ) && '' !== $atts['class'] ) {
+		$wrapper_class .= ' ' . sanitize_html_class( $atts['class'] );
+	}
+
+	// Return breadcrumb HTML without container (for inline use).
+	$output  = '<nav aria-label="' . esc_attr__( 'Breadcrumb', 'mia-aesthetics' ) . '" class="' . esc_attr( $wrapper_class ) . '">';
+	$output .= '<span class="visually-hidden">' . esc_html__( 'You are here:', 'mia-aesthetics' ) . '</span>';
+	$output .= wp_kses_post( $breadcrumbs );
+	$output .= '</nav>';
+
+	return $output;
+}
+add_shortcode( 'mia_breadcrumbs', 'mia_aesthetics_breadcrumbs_shortcode' );

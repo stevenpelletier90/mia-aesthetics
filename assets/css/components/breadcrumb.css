@@ -17,3 +17,39 @@
 .breadcrumb-nav .breadcrumb_last {
   color: var(--mia-gray-dark);
 }
+
+/* Inline breadcrumbs (used via shortcode in content) */
+.breadcrumb-inline {
+  margin-bottom: 1rem;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.breadcrumb-inline a {
+  color: #0066cc;
+  text-decoration: none;
+}
+
+.breadcrumb-inline a:hover,
+.breadcrumb-inline a:focus {
+  color: #004499;
+}
+
+.breadcrumb-inline .breadcrumb_last {
+  color: var(--mia-gray-muted);
+}
+
+@media (min-width: 992px) {
+  .breadcrumb-inline {
+    margin-bottom: 1.5rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .breadcrumb-inline {
+    text-align: center;
+  }
+}
