@@ -2,7 +2,7 @@
 /**
  * Menu Helper Functions for Mia Aesthetics theme.
  *
- * Provides rendering logic and caching for navigation menus (procedures, locations, surgeons, before/after).
+ * Provides rendering logic for navigation menus (procedures, locations, surgeons, before/after).
  * All menu display logic is centralized here for maintainability.
  *
  * @package Mia_Aesthetics
@@ -111,107 +111,84 @@ function mia_aesthetics_is_current_section( string $menu_slug ): bool {
 
 /**
  * Get all menu data with a single optimized query
- * Returns cached results for locations, surgeons, and non-surgical procedures
+ * Returns locations, surgeons, and non-surgical procedures for navigation menus
  *
  * @return array<string, array<int, mixed>> Associative array with 'locations', 'surgeons', 'non_surgical' keys
  */
 function mia_get_all_menu_data(): array {
-	$cache_key = 'mia_all_menu_data';
-	$all_data  = get_transient( $cache_key );
+	$args = array(
+		'post_type'              => array( 'location', 'surgeon', 'non-surgical' ),
+		'posts_per_page'         => -1,
+		'orderby'                => 'post_type title',
+		'order'                  => 'ASC',
+		'fields'                 => 'ids',
+		'no_found_rows'          => true,
+		'update_post_meta_cache' => false,
+		'update_post_term_cache' => false,
+	);
 
-	if ( false === $all_data ) {
-		// Single query for all menu post types.
-		$args = array(
-			'post_type'              => array( 'location', 'surgeon', 'non-surgical' ),
-			'posts_per_page'         => -1,
-			'orderby'                => 'post_type title',
-			'order'                  => 'ASC',
-			'fields'                 => 'ids',
-			'no_found_rows'          => true,
-			'update_post_meta_cache' => true, // Only for locations that need ACF state field.
-			'update_post_term_cache' => false,
-			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Cached result, acceptable for menu functionality.
-			'meta_query'             => array(
-				'relation' => 'OR',
-				array(
-					'key'     => 'post_type',
-					'compare' => 'NOT EXISTS', // Include posts without post_type meta.
-				),
-				array(
-					'key'     => 'post_parent',
-					'value'   => 0,
-					'compare' => '=',
-					'type'    => 'NUMERIC',
-				),
-			),
-		);
+	$post_ids = get_posts( $args );
+	$all_data = array(
+		'locations'    => array(),
+		'surgeons'     => array(),
+		'non_surgical' => array(),
+	);
 
-		$post_ids = get_posts( $args );
-		$all_data = array(
-			'locations'    => array(),
-			'surgeons'     => array(),
-			'non_surgical' => array(),
-		);
+	if ( array() !== $post_ids ) {
+		foreach ( $post_ids as $post_id ) {
+			$post_type = get_post_type( $post_id );
 
-		if ( array() !== $post_ids ) {
-			foreach ( $post_ids as $post_id ) {
-				$post_type = get_post_type( $post_id );
-
-				switch ( $post_type ) {
-					case 'location':
-						// Only include parent locations (post_parent = 0).
-						if ( 0 === wp_get_post_parent_id( $post_id ) ) {
-							$all_data['locations'][] = array(
-								'id'    => $post_id,
-								'title' => get_the_title( $post_id ),
-								'url'   => get_permalink( $post_id ),
-								'state' => get_field( 'state', $post_id ),
-							);
-						}
-						break;
-
-					case 'surgeon':
-						$surgeon_name = get_the_title( $post_id );
-						$name_parts   = explode( ' ', $surgeon_name );
-						$last_name    = isset( $name_parts[1] ) ? $name_parts[1] : $surgeon_name;
-
-						$all_data['surgeons'][] = array(
-							'id'        => $post_id,
-							'name'      => $surgeon_name,
-							'url'       => get_permalink( $post_id ),
-							'last_name' => $last_name,
-						);
-						break;
-
-					case 'non-surgical':
-						$all_data['non_surgical'][] = array(
+			switch ( $post_type ) {
+				case 'location':
+					// Only include parent locations (post_parent = 0).
+					if ( 0 === wp_get_post_parent_id( $post_id ) ) {
+						$all_data['locations'][] = array(
 							'id'    => $post_id,
 							'title' => get_the_title( $post_id ),
 							'url'   => get_permalink( $post_id ),
 						);
-						break;
-				}
-			}
-
-			// Sort surgeons by last name.
-			if ( array() !== $all_data['surgeons'] ) {
-				usort(
-					$all_data['surgeons'],
-					static function ( $a, $b ) {
-						return strcasecmp( $a['last_name'], $b['last_name'] );
 					}
-				);
+					break;
+
+				case 'surgeon':
+					$surgeon_name = get_the_title( $post_id );
+					$name_parts   = explode( ' ', $surgeon_name );
+					$last_name    = isset( $name_parts[1] ) ? $name_parts[1] : $surgeon_name;
+
+					$all_data['surgeons'][] = array(
+						'id'        => $post_id,
+						'name'      => $surgeon_name,
+						'url'       => get_permalink( $post_id ),
+						'last_name' => $last_name,
+					);
+					break;
+
+				case 'non-surgical':
+					$all_data['non_surgical'][] = array(
+						'id'    => $post_id,
+						'title' => get_the_title( $post_id ),
+						'url'   => get_permalink( $post_id ),
+					);
+					break;
 			}
 		}
 
-		set_transient( $cache_key, $all_data, DAY_IN_SECONDS );
+		// Sort surgeons by last name.
+		if ( array() !== $all_data['surgeons'] ) {
+			usort(
+				$all_data['surgeons'],
+				static function ( $a, $b ) {
+					return strcasecmp( $a['last_name'], $b['last_name'] );
+				}
+			);
+		}
 	}
 
 	return $all_data;
 }
 
 /**
- * Get locations with caching (optimized to use consolidated data)
+ * Get locations for menu display
  *
  * @return array<int, mixed>
  */
@@ -221,7 +198,7 @@ function mia_aesthetics_get_locations_direct(): array {
 }
 
 /**
- * Get non-surgical procedures with caching (optimized to use consolidated data)
+ * Get non-surgical procedures for menu display
  *
  * @return array<int, mixed>
  */
@@ -231,7 +208,7 @@ function mia_aesthetics_get_non_surgical_direct(): array {
 }
 
 /**
- * Get surgeons with caching (optimized to use consolidated data)
+ * Get surgeons for menu display
  *
  * @return array<int, mixed>
  */
@@ -241,139 +218,97 @@ function mia_aesthetics_get_surgeons_direct(): array {
 }
 
 /**
- * Clear menu data cache when relevant posts are updated
- *
- * @param int $post_id The ID of the post being updated.
- * @return void
- */
-function mia_clear_menu_cache( $post_id ): void {
-	$post_type = get_post_type( $post_id );
-	if ( in_array( $post_type, array( 'location', 'surgeon', 'non-surgical' ), true ) ) {
-		delete_transient( 'mia_all_menu_data' );
-	}
-}
-add_action( 'save_post', 'mia_clear_menu_cache' );
-add_action( 'delete_post', 'mia_clear_menu_cache' );
-add_action( 'trash_post', 'mia_clear_menu_cache' );
-add_action( 'untrash_post', 'mia_clear_menu_cache' );
-
-/**
  * Get footer locations with surgeons data (optimized for footer display)
  * Solves N+1 query problem by fetching all surgeons in a single query
  *
  * @return array<int, array<string, mixed>> Array of locations with associated surgeons
  */
 function mia_get_footer_locations(): array {
-	$cache_key      = 'mia_footer_locations_with_surgeons';
-	$locations_data = get_transient( $cache_key );
+	// Step 1: Get all locations.
+	$locations_query = new WP_Query(
+		array(
+			'post_type'              => 'location',
+			'posts_per_page'         => -1,
+			'orderby'                => 'title',
+			'order'                  => 'ASC',
+			'post_parent'            => 0,
+			'fields'                 => 'ids',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+		)
+	);
 
-	if ( false === $locations_data ) {
-		// Step 1: Get all locations.
-		$locations_query = new WP_Query(
-			array(
-				'post_type'              => 'location',
-				'posts_per_page'         => -1,
-				'orderby'                => 'title',
-				'order'                  => 'ASC',
-				'post_parent'            => 0,
-				'fields'                 => 'ids',
-				'no_found_rows'          => true,
-				'update_post_meta_cache' => false,
-				'update_post_term_cache' => false,
-			)
-		);
+	if ( array() === $locations_query->posts ) {
+		return array();
+	}
 
-		if ( array() === $locations_query->posts ) {
-			return array();
-		}
+	$location_ids = $locations_query->posts;
 
-		$location_ids = $locations_query->posts;
-
-		// Step 2: Get ALL surgeons for ALL locations in one query (prevents N+1).
-		$all_surgeons_query = new WP_Query(
-			array(
-				'post_type'              => 'surgeon',
-				'posts_per_page'         => -1,
-				// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Cached result, prevents N+1 queries.
-				'meta_query'             => array(
-					array(
-						'key'     => 'surgeon_location',
-						'value'   => $location_ids,
-						'compare' => 'IN',
-					),
+	// Step 2: Get ALL surgeons for ALL locations in one query (prevents N+1).
+	$all_surgeons_query = new WP_Query(
+		array(
+			'post_type'              => 'surgeon',
+			'posts_per_page'         => -1,
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query -- Prevents N+1 queries.
+			'meta_query'             => array(
+				array(
+					'key'     => 'surgeon_location',
+					'value'   => $location_ids,
+					'compare' => 'IN',
 				),
-				'fields'                 => 'ids',
-				'no_found_rows'          => true,
-				'update_post_meta_cache' => true, // Need meta for surgeon_location field.
-				'update_post_term_cache' => false,
-			)
-		);
+			),
+			'fields'                 => 'ids',
+			'no_found_rows'          => true,
+			'update_post_meta_cache' => true, // Need meta for surgeon_location field.
+			'update_post_term_cache' => false,
+		)
+	);
 
-		// Step 3: Group surgeons by location.
-		$surgeons_by_location = array();
-		if ( array() !== $all_surgeons_query->posts ) {
-			foreach ( $all_surgeons_query->posts as $surgeon_id ) {
-				$surgeon_location = get_field( 'surgeon_location', $surgeon_id );
-				if ( null !== $surgeon_location ) {
-					// Handle both object and ID formats - ensure we always get an integer.
-					if ( is_object( $surgeon_location ) && property_exists( $surgeon_location, 'ID' ) ) {
-						$location_key = (int) $surgeon_location->ID;
-					} else {
-						$location_key = (int) $surgeon_location;
+	// Step 3: Group surgeons by location.
+	$surgeons_by_location = array();
+	if ( array() !== $all_surgeons_query->posts ) {
+		foreach ( $all_surgeons_query->posts as $surgeon_id ) {
+			$surgeon_location = get_field( 'surgeon_location', $surgeon_id );
+			if ( null !== $surgeon_location ) {
+				// Handle both object and ID formats - ensure we always get an integer.
+				if ( is_object( $surgeon_location ) && property_exists( $surgeon_location, 'ID' ) ) {
+					$location_key = (int) $surgeon_location->ID;
+				} else {
+					$location_key = (int) $surgeon_location;
+				}
+				if ( in_array( $location_key, $location_ids, true ) ) {
+					if ( ! isset( $surgeons_by_location[ $location_key ] ) ) {
+						$surgeons_by_location[ $location_key ] = array();
 					}
-					if ( in_array( $location_key, $location_ids, true ) ) {
-						if ( ! isset( $surgeons_by_location[ $location_key ] ) ) {
-							$surgeons_by_location[ $location_key ] = array();
-						}
-						$surgeons_by_location[ $location_key ][] = array(
-							'id'    => $surgeon_id,
-							'title' => get_the_title( $surgeon_id ),
-							'url'   => get_permalink( $surgeon_id ),
-						);
-					}
+					$surgeons_by_location[ $location_key ][] = array(
+						'id'    => $surgeon_id,
+						'title' => get_the_title( $surgeon_id ),
+						'url'   => get_permalink( $surgeon_id ),
+					);
 				}
 			}
 		}
+	}
 
-		// Step 4: Build final locations data structure.
-		$locations_data = array();
-		foreach ( $location_ids as $location_id ) {
-			if ( $location_id instanceof WP_Post ) {
-				$location_int_id = (int) $location_id->ID;
-			} else {
-				$location_int_id = (int) $location_id;
-			}
-			$locations_data[] = array(
-				'id'       => $location_int_id,
-				'title'    => get_the_title( $location_int_id ),
-				'url'      => get_permalink( $location_int_id ),
-				'surgeons' => $surgeons_by_location[ $location_int_id ] ?? array(),
-			);
+	// Step 4: Build final locations data structure.
+	$locations_data = array();
+	foreach ( $location_ids as $location_id ) {
+		if ( $location_id instanceof WP_Post ) {
+			$location_int_id = (int) $location_id->ID;
+		} else {
+			$location_int_id = (int) $location_id;
 		}
-
-		// Cache for 6 hours (locations and surgeons don't change frequently).
-		set_transient( $cache_key, $locations_data, 6 * HOUR_IN_SECONDS );
+		$locations_data[] = array(
+			'id'       => $location_int_id,
+			'title'    => get_the_title( $location_int_id ),
+			'url'      => get_permalink( $location_int_id ),
+			'surgeons' => $surgeons_by_location[ $location_int_id ] ?? array(),
+		);
 	}
 
 	return $locations_data;
 }
-
-/**
- * Clear footer locations cache when relevant posts are updated
- *
- * @param int $post_id The ID of the post being updated.
- * @return void
- */
-function mia_clear_footer_locations_cache( $post_id ): void {
-	$post_type = get_post_type( $post_id );
-	if ( in_array( $post_type, array( 'location', 'surgeon' ), true ) ) {
-		delete_transient( 'mia_footer_locations_with_surgeons' );
-	}
-}
-add_action( 'save_post', 'mia_clear_footer_locations_cache' );
-add_action( 'delete_post', 'mia_clear_footer_locations_cache' );
-add_action( 'trash_post', 'mia_clear_footer_locations_cache' );
-add_action( 'untrash_post', 'mia_clear_footer_locations_cache' );
 
 /**
  * Render procedures dropdown
@@ -510,24 +445,14 @@ function mia_aesthetics_render_desktop_locations_menu( $locations ): void {
 					<div class="col-6">
 						<ul class="list-unstyled mb-0">
 							<?php foreach ( $col1 as $location ) : ?>
-								<?php
-								$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-								$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-								$menu_label   = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
-								?>
-								<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
+								<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $location['title'] ); ?></a></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
 					<div class="col-6">
 						<ul class="list-unstyled mb-0">
 							<?php foreach ( $col2 as $location ) : ?>
-								<?php
-								$display_city = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-								$abbr         = mia_aesthetics_get_state_abbr( $location['state'] );
-								$menu_label   = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
-								?>
-								<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
+								<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $location['title'] ); ?></a></li>
 							<?php endforeach; ?>
 						</ul>
 					</div>
@@ -561,11 +486,8 @@ function mia_aesthetics_render_mobile_locations_menu( $locations ): void {
 		<?php
 		if ( array() !== $locations ) :
 			foreach ( $locations as $location ) :
-				$display_city       = trim( str_ireplace( 'Mia Aesthetics', '', $location['title'] ) );
-				$abbr               = mia_aesthetics_get_state_abbr( $location['state'] );
-						$menu_label = isset( $location['state'] ) && '' !== $location['state'] ? $display_city . ', ' . $abbr : $display_city;
 				?>
-				<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $menu_label ); ?></a></li>
+				<li><a class="dropdown-item" href="<?php echo esc_url( $location['url'] ); ?>"><?php echo esc_html( $location['title'] ); ?></a></li>
 				<?php
 			endforeach;
 		else :

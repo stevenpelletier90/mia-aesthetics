@@ -10,7 +10,6 @@
 
 // Core foundation.
 require_once get_template_directory() . '/inc/theme-support.php';
-require_once get_template_directory() . '/inc/state-abbreviations.php';
 
 // Utilities.
 require_once get_template_directory() . '/inc/media-helpers.php';

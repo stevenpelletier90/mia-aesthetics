@@ -53,9 +53,12 @@
   width: 100%;
 }
 
-.location-hero .hero-text {
+.location-hero .hero-left {
   flex: 1;
   max-width: 700px;
+}
+
+.location-hero .hero-text {
   text-align: center;
 }
 
@@ -91,7 +94,7 @@
 
 /* Video in Hero */
 .location-video {
-  max-width: 560px;
+  max-width: 100%;
   margin: 0 auto;
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -447,12 +450,9 @@
     gap: 2rem;
   }
 
-  .location-hero .hero-text {
+  .location-hero .hero-left {
     max-width: none;
-  }
-
-  .location-video {
-    margin: 0 auto;
+    width: 100%;
   }
 
   .location-hero .hero-form {

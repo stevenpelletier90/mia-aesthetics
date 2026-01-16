@@ -123,38 +123,40 @@ $mia_location_hero_id = get_post_thumbnail_id();
 
 			<div class="hero-content">
 				<div class="hero-inner">
-					<!-- Title + CTA -->
-					<div class="hero-text">
-						<h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
-						<h2 class="location-cta">Book Your Surgery Today!</h2>
+					<!-- Left: Title + CTA + Video -->
+					<div class="hero-left">
+						<div class="hero-text">
+							<h1 id="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>"><?php the_title(); ?></h1>
+							<h2 class="location-cta">Book Your Surgery Today!</h2>
+						</div>
+
+						<!-- Video thumbnail -->
+						<?php if ( '' !== $video_id && '' !== $thumbnail_url ) : ?>
+						<div class="location-video">
+							<div class="ratio ratio-16x9">
+								<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
+									<img
+										src="<?php echo esc_url( $thumbnail_url ); ?>"
+										alt="<?php echo esc_attr( get_the_title() ); ?> Video Thumbnail"
+										class="img-fluid object-fit-cover"
+										loading="lazy"
+										width="640"
+										height="360"
+									/>
+									<button class="video-play-button" aria-label="Play video about <?php echo esc_attr( get_the_title() ); ?>">
+										<i class="fa-solid fa-play" aria-hidden="true"></i>
+									</button>
+								</div>
+							</div>
+						</div>
+						<?php endif; ?>
 					</div>
 
-					<!-- Consultation Form (desktop) -->
+					<!-- Right: Consultation Form -->
 					<div class="hero-form">
 						<?php get_template_part( 'components/consultation-form' ); ?>
 					</div>
 				</div>
-
-				<!-- Video thumbnail -->
-				<?php if ( '' !== $video_id && '' !== $thumbnail_url ) : ?>
-				<div class="location-video">
-					<div class="ratio ratio-16x9">
-						<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
-							<img
-								src="<?php echo esc_url( $thumbnail_url ); ?>"
-								alt="<?php echo esc_attr( get_the_title() ); ?> Video Thumbnail"
-								class="img-fluid object-fit-cover"
-								loading="lazy"
-								width="640"
-								height="360"
-							/>
-							<button class="video-play-button" aria-label="Play video about <?php echo esc_attr( get_the_title() ); ?>">
-								<i class="fa-solid fa-play" aria-hidden="true"></i>
-							</button>
-						</div>
-					</div>
-				</div>
-				<?php endif; ?>
 			</div>
 		</section>
 
