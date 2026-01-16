@@ -111,7 +111,8 @@ function mia_has_consultation_form(): bool {
 	if ( is_page_template( 'page-condition-layout.php' ) ||
 		is_page_template( 'page-treatment-layout.php' ) ||
 		is_page_template( 'page-non-surgical-layout.php' ) ||
-		is_singular( 'special' ) ) {
+		is_singular( 'special' ) ||
+		is_singular( 'location' ) ) {
 		return true;
 	}
 
