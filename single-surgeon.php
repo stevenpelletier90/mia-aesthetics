@@ -13,12 +13,6 @@ $name_parts = explode( ' ', $full_name );
 $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_name;
 ?>
 <main id="primary" tabindex="0">
-<div class="surgeon-breadcrumb-wrapper">
-	<div class="surgeon-fluid-container">
-		<?php mia_aesthetics_breadcrumbs(); ?>
-	</div>
-</div>
-
 	<!-- Professional Surgeon Header -->
 	<section class="surgeon-hero">
 		<div class="surgeon-fluid-container">
@@ -46,7 +40,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 				</div>
 				<div class="col-lg-7">
 					<div class="surgeon-hero-content">
-						<div class="badge surgeon-badge">Plastic Surgeon</div>
+						<?php echo do_shortcode( '[mia_breadcrumbs class="dark"]' ); ?>
 						<h1 class="surgeon-name"><?php echo esc_html( get_the_title() ); ?></h1>
 						<?php
 						$location = get_field( 'surgeon_location' );

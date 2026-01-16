@@ -138,10 +138,10 @@ a.consent-trigger:hover i {
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--mia-gray-muted);
   border-radius: var(--radius-sm);
-  background-color: rgba(0, 0, 0, 0.2);
-  color: var(--mia-white);
+  background-color: var(--mia-white);
+  color: var(--mia-black);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -152,7 +152,7 @@ a.consent-trigger:hover i {
   outline: none;
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 2px var(--mia-gold-30);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--mia-white);
 }
 
 .consultation-card .gform_wrapper .ginput_container_select {
@@ -165,10 +165,10 @@ a.consent-trigger:hover i {
   padding-right: 2.5rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--mia-gray-muted);
   border-radius: var(--radius-sm);
-  background-color: rgba(0, 0, 0, 0.2);
-  color: var(--mia-white);
+  background-color: var(--mia-white);
+  color: var(--mia-black);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -191,7 +191,7 @@ a.consent-trigger:hover i {
   outline: none;
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 2px var(--mia-gold-30);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--mia-white);
 }
 
 .consultation-card .gform_wrapper textarea {
@@ -199,10 +199,10 @@ a.consent-trigger:hover i {
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  border: 1px solid var(--mia-gray-muted);
   border-radius: var(--radius-sm);
-  background-color: rgba(0, 0, 0, 0.2);
-  color: var(--mia-white);
+  background-color: var(--mia-white);
+  color: var(--mia-black);
   width: 100%;
   max-width: 100%;
   box-sizing: border-box;
@@ -214,11 +214,11 @@ a.consent-trigger:hover i {
   outline: none;
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 2px var(--mia-gold-30);
-  background-color: rgba(0, 0, 0, 0.4);
+  background-color: var(--mia-white);
 }
 
 .consultation-card .gform_wrapper :is(input, textarea)::placeholder {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--mia-gray-muted);
   opacity: 1;
 }
 
@@ -269,9 +269,10 @@ a.consent-trigger:hover i {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+  font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.5;
-  background-color: var(--mia-white);
+  background-color: var(--mia-gold);
   color: var(--mia-black);
   border: none;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
@@ -279,7 +280,7 @@ a.consent-trigger:hover i {
   font-size: 16px;
   border-radius: var(--radius-sm);
   transition: all 0.2s ease;
-  text-transform: capitalize;
+  text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
   width: 100% !important;
@@ -287,8 +288,8 @@ a.consent-trigger:hover i {
 
 .consultation-card .gform_wrapper .gform_footer .gform_button:is(:hover, :focus) {
   color: var(--mia-black);
-  background-color: var(--mia-gold);
-  border-color: var(--mia-gold);
+  background-color: var(--mia-white);
+  border-color: var(--mia-white);
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
 }
 

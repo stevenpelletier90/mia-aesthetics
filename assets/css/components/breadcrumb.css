@@ -53,3 +53,23 @@
     text-align: center;
   }
 }
+
+/* Dark variant for dark backgrounds (hero sections) */
+.breadcrumb-inline.dark {
+  margin-bottom: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.breadcrumb-inline.dark a {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
+}
+
+.breadcrumb-inline.dark a:hover,
+.breadcrumb-inline.dark a:focus {
+  color: var(--mia-gold);
+}
+
+.breadcrumb-inline.dark .breadcrumb_last {
+  color: var(--mia-gold);
+}
