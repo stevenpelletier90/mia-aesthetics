@@ -84,19 +84,19 @@ get_header(); ?>
 
 								<ul class="list-unstyled mb-0">
 									<li>
-										<a href="/before-after/" class="text-decoration-none">
+										<a href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" class="text-decoration-none">
 											<i class="fas fa-images" aria-hidden="true"></i>
 											Before & After Gallery
 										</a>
 									</li>
 									<li>
-										<a href="/faqs/" class="text-decoration-none">
+										<a href="<?php echo esc_url( home_url( '/faqs/' ) ); ?>" class="text-decoration-none">
 											<i class="fas fa-question-circle" aria-hidden="true"></i>
 											Frequently Asked Questions
 										</a>
 									</li>
 									<li>
-										<a href="/conditions/" class="text-decoration-none">
+										<a href="<?php echo esc_url( home_url( '/conditions/' ) ); ?>" class="text-decoration-none">
 											<i class="fas fa-heart" aria-hidden="true"></i>
 											Conditions We Treat
 										</a>

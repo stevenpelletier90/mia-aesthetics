@@ -141,7 +141,7 @@ get_header();
 						?>
 	<div class="location-card">
 						<?php if ( false !== $bg_image_url && '' !== $bg_image_url ) : ?>
-			<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="location-card-img-top w-100">
+			<img src="<?php echo esc_url( $bg_image_url ); ?>" alt="<?php echo esc_attr( get_the_title() ); ?>" class="location-card-img-top w-100" width="800" height="600" loading="lazy">
 		<?php endif; ?>
 		<div class="location-content p-4">
 			<h2 class="h4 mb-3">

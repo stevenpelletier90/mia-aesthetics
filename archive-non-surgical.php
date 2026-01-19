@@ -50,7 +50,7 @@ get_header(); ?>
 
 						// Fallback image if no featured image.
 						if ( '' === $procedure_image ) {
-							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
+							$procedure_image = '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg' ) . '" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid" width="600" height="400" loading="lazy">';
 						}
 
 						// Only display if permalink is available.
@@ -98,7 +98,7 @@ get_header(); ?>
 
 						// Fallback image if no featured image.
 						if ( '' === $procedure_image ) {
-							$procedure_image = '<img src="' . get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid">';
+							$procedure_image = '<img src="' . esc_url( get_template_directory_uri() . '/assets/images/placeholder-procedure.jpg' ) . '" alt="' . esc_attr( $procedure_title ) . '" class="img-fluid" width="600" height="400" loading="lazy">';
 						}
 
 						// Only display if permalink is available.

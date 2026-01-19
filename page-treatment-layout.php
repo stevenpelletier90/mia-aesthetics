@@ -124,7 +124,7 @@ if ( $current_post instanceof WP_Post ) {
 								?>
 
 						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
-							href="/surgery-preparation/">
+							href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>">
 							<i class="fa-solid fa-clipboard-list flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>Surgery Preparation</strong><br>
@@ -133,7 +133,7 @@ if ( $current_post instanceof WP_Post ) {
 						</a>
 
 						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
-							href="/calculate-your-bmi/">
+							href="<?php echo esc_url( home_url( '/calculate-your-bmi/' ) ); ?>">
 							<i class="fa-solid fa-calculator flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>BMI Calculator</strong><br>

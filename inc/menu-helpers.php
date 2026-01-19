@@ -116,6 +116,12 @@ function mia_aesthetics_is_current_section( string $menu_slug ): bool {
  * @return array<string, array<int, mixed>> Associative array with 'locations', 'surgeons', 'non_surgical' keys
  */
 function mia_get_all_menu_data(): array {
+	// Static cache to prevent multiple queries within the same request.
+	static $cached = null;
+	if ( null !== $cached ) {
+		return $cached;
+	}
+
 	$args = array(
 		'post_type'              => array( 'location', 'surgeon', 'non-surgical' ),
 		'posts_per_page'         => -1,
@@ -184,6 +190,7 @@ function mia_get_all_menu_data(): array {
 		}
 	}
 
+	$cached = $all_data;
 	return $all_data;
 }
 

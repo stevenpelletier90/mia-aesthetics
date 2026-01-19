@@ -3,9 +3,26 @@
 // Condition-specific functionality
 
 /**
- * JavaScript specific to the “Condition” single template
+ * JavaScript specific to the "Condition" single template
  * (extracted from the former global main.js)
  */
+
+/**
+ * Throttle function to limit how often a function can be called
+ * @param {Function} fn - The function to throttle
+ * @param {number} wait - Minimum time between calls in milliseconds
+ * @returns {Function} Throttled function
+ */
+function throttle(fn, wait) {
+  let lastTime = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastTime >= wait) {
+      lastTime = now;
+      fn.apply(this, args);
+    }
+  };
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   // Generate table of contents and handle scrolling
@@ -85,33 +102,36 @@ function setupTableOfContents() {
     });
   });
 
-  // Simple scroll handler that highlights the correct TOC item
-  window.addEventListener('scroll', function () {
-    const scrollPosition = window.scrollY + scrollOffset;
+  // Simple scroll handler that highlights the correct TOC item (throttled to 100ms)
+  window.addEventListener(
+    'scroll',
+    throttle(function () {
+      const scrollPosition = window.scrollY + scrollOffset;
 
-    // Find the appropriate section
-    let activeIndex = 0;
+      // Find the appropriate section
+      let activeIndex = 0;
 
-    // Determine which section we’re currently in
-    for (let i = 0; i < headings.length; i++) {
-      // If we've scrolled past this heading but not the next one, this is active
-      if (scrollPosition >= headings[i].offsetTop) {
-        activeIndex = i;
-      } else {
-        // We haven't reached this heading yet, so the previous one is active
-        break;
+      // Determine which section we're currently in
+      for (let i = 0; i < headings.length; i++) {
+        // If we've scrolled past this heading but not the next one, this is active
+        if (scrollPosition >= headings[i].offsetTop) {
+          activeIndex = i;
+        } else {
+          // We haven't reached this heading yet, so the previous one is active
+          break;
+        }
       }
-    }
 
-    // Update active classes
-    tocLinks.forEach((link, i) => {
-      if (i === activeIndex) {
-        link.classList.add('active');
-      } else {
-        link.classList.remove('active');
-      }
-    });
-  });
+      // Update active classes
+      tocLinks.forEach((link, i) => {
+        if (i === activeIndex) {
+          link.classList.add('active');
+        } else {
+          link.classList.remove('active');
+        }
+      });
+    }, 100)
+  );
 
   // Trigger scroll event once to set initial active state
   window.dispatchEvent(new Event('scroll'));

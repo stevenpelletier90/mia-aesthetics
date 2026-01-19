@@ -379,3 +379,19 @@
     min-height: 48px;
   }
 }
+
+/* ==========================================================================
+   REDUCED MOTION PREFERENCES
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .btn .fa-arrow-right,
+  .btn .fa-arrow-left {
+    transition: none;
+  }
+
+  .btn:hover .fa-arrow-right,
+  .btn:hover .fa-arrow-left {
+    transform: none;
+  }
+}

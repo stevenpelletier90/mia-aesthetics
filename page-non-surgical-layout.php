@@ -125,7 +125,7 @@ if ( $current_post instanceof WP_Post ) {
 								?>
 
 						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
-							href="/free-plastic-surgery-consultation/">
+							href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>">
 							<i class="fa-solid fa-calendar-check flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>Free Consultation</strong><br>
@@ -134,7 +134,7 @@ if ( $current_post instanceof WP_Post ) {
 						</a>
 
 						<a class="resource-card d-flex align-items-center gap-3 p-3 text-decoration-none"
-							href="/financing/">
+							href="<?php echo esc_url( home_url( '/financing/' ) ); ?>">
 							<i class="fa-solid fa-credit-card flex-shrink-0" aria-hidden="true"></i>
 							<div>
 								<strong>Financing Options</strong><br>

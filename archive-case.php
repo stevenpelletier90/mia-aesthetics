@@ -88,7 +88,7 @@ add_action(
 
 					<h1 class="mb-3">Before & After Results by Surgeon</h1>
 					<p class="lead mb-4">Explore transformations organized by our expert surgical team members to see their specialized work and artistic approach.</p>
-					<a href="/before-after/before-after-by-doctor/" class="btn btn-primary btn-lg">
+					<a href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" class="btn btn-primary btn-lg">
 						View Results by Surgeon <i class="fas fa-arrow-right"></i>
 					</a>
 				</div>
@@ -104,14 +104,14 @@ add_action(
 					<div class="card h-100 case-category-card">
 						<div class="category-image-container position-relative overflow-hidden">
 							<picture>
-								<source media="(max-width: 576px)" 
-										srcset="/wp-content/uploads/2025/05/body-procedures.jpg?w=400&h=300&crop=1" 
+								<source media="(max-width: 576px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/05/body-procedures.jpg?w=400&h=300&crop=1' ) ); ?>"
 										width="400" height="300">
-								<source media="(max-width: 768px)" 
-										srcset="/wp-content/uploads/2025/05/body-procedures.jpg?w=600&h=400&crop=1" 
+								<source media="(max-width: 768px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/05/body-procedures.jpg?w=600&h=400&crop=1' ) ); ?>"
 										width="600" height="400">
-								<img src="/wp-content/uploads/2025/05/body-procedures.jpg?w=800&h=600&crop=1" 
-									alt="Body Case Studies - Real patient transformations for body procedures" 
+								<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/05/body-procedures.jpg?w=800&h=600&crop=1' ) ); ?>"
+									alt="Body Case Studies - Real patient transformations for body procedures"
 									class="card-img-top w-100 h-100 object-fit-cover"
 									width="800" height="600"
 									loading="lazy">
@@ -126,10 +126,10 @@ add_action(
 							<h2 class="h4 mb-3">Body Cases</h2>
 							<p class="card-text mb-3">See real transformations from our body contouring and sculpting procedures.</p>
 							<ul class="list-unstyled case-links">
-								<li><a href="/before-after/bbl/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Brazilian Butt Lift (BBL) Cases</span></a></li>
-								<li><a href="/before-after/lipo-360/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Lipo 360 Results</span></a></li>
-								<li><a href="/before-after/mommy-makeover/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Mommy Makeover Cases</span></a></li>
-								<li><a href="/before-after/tummy-tuck/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Tummy Tuck Results</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Brazilian Butt Lift (BBL) Cases</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Lipo 360 Results</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/mommy-makeover/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Mommy Makeover Cases</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/tummy-tuck/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Tummy Tuck Results</span></a></li>
 							</ul>
 						</div>
 					</div>
@@ -140,14 +140,14 @@ add_action(
 					<div class="card h-100 case-category-card">
 						<div class="category-image-container position-relative overflow-hidden">
 							<picture>
-								<source media="(max-width: 576px)" 
-										srcset="/wp-content/uploads/2025/05/breast-procedures.jpg?w=400&h=300&crop=1" 
+								<source media="(max-width: 576px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/05/breast-procedures.jpg?w=400&h=300&crop=1' ) ); ?>"
 										width="400" height="300">
-								<source media="(max-width: 768px)" 
-										srcset="/wp-content/uploads/2025/05/breast-procedures.jpg?w=600&h=400&crop=1" 
+								<source media="(max-width: 768px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/05/breast-procedures.jpg?w=600&h=400&crop=1' ) ); ?>"
 										width="600" height="400">
-								<img src="/wp-content/uploads/2025/05/breast-procedures.jpg?w=800&h=600&crop=1" 
-									alt="Breast Case Studies - Real patient transformations for breast procedures" 
+								<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/05/breast-procedures.jpg?w=800&h=600&crop=1' ) ); ?>"
+									alt="Breast Case Studies - Real patient transformations for breast procedures"
 									class="card-img-top w-100 h-100 object-fit-cover"
 									width="800" height="600"
 									loading="lazy">
@@ -162,9 +162,9 @@ add_action(
 							<h2 class="h4 mb-3">Breast Cases</h2>
 							<p class="card-text mb-3">Explore real results from our comprehensive breast surgery procedures.</p>
 							<ul class="list-unstyled case-links">
-								<li><a href="/before-after/breast-augmentation/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Augmentation Cases</span></a></li>
-								<li><a href="/before-after/breast-reduction/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Reduction Results</span></a></li>
-								<li><a href="/before-after/breast-lift/" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Lift Transformations</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/breast-augmentation/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Augmentation Cases</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/breast-reduction/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Reduction Results</span></a></li>
+								<li><a href="<?php echo esc_url( home_url( '/before-after/breast-lift/' ) ); ?>" class="text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>Breast Lift Transformations</span></a></li>
 							</ul>
 						</div>
 					</div>

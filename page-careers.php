@@ -43,7 +43,7 @@ get_header(); ?>
 		<div class="col-lg-6">
 		<div class="careers-hero__image-container">
 			<img
-			src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/09/employees.jpg"
+			src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/employees.jpg' ) ); ?>"
 			alt="Mia Aesthetics™ Team - Join Our Mission"
 			class="careers-hero__image img-fluid rounded"
 			/>
@@ -144,7 +144,7 @@ get_header(); ?>
 		<!-- Value 1: Patients First -->
 		<div class="value-card" data-value="1">
 		<div class="value-icon">
-			<img src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/08/core-values.svg" alt="Patients First Icon" class="value-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/core-values.svg' ) ); ?>" alt="Patients First Icon" class="value-svg-icon">
 		</div>
 		<h3 class="value-title">Patients First</h3>
 		<p class="value-description">
@@ -157,7 +157,7 @@ get_header(); ?>
 		<!-- Value 2: Execute With Purpose -->
 		<div class="value-card" data-value="2">
 		<div class="value-icon">
-			<img src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/08/core-values2.svg" alt="Execute With Purpose Icon" class="value-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/core-values2.svg' ) ); ?>" alt="Execute With Purpose Icon" class="value-svg-icon">
 		</div>
 		<h3 class="value-title">Execute With Purpose</h3>
 		<p class="value-description">
@@ -169,7 +169,7 @@ get_header(); ?>
 		<!-- Value 3: Respect For Others -->
 		<div class="value-card" data-value="3">
 		<div class="value-icon">
-			<img src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/08/core-values3.svg" alt="Respect For Others Icon" class="value-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/core-values3.svg' ) ); ?>" alt="Respect For Others Icon" class="value-svg-icon">
 		</div>
 		<h3 class="value-title">Respect For Others</h3>
 		<p class="value-description">
@@ -181,7 +181,7 @@ get_header(); ?>
 		<!-- Value 4: Collaborate Openly -->
 		<div class="value-card" data-value="4">
 		<div class="value-icon">
-			<img src="<?php echo esc_url( get_site_url() ); ?>/wp-content/uploads/2025/08/core-values4.svg" alt="Collaborate Openly Icon" class="value-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/core-values4.svg' ) ); ?>" alt="Collaborate Openly Icon" class="value-svg-icon">
 		</div>
 		<h3 class="value-title">Collaborate Openly</h3>
 		<p class="value-description">
@@ -265,7 +265,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<img src="/wp-content/uploads/2025/08/Health-Wellness.svg" alt="Health & Wellness" class="benefit-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Health-Wellness.svg' ) ); ?>" alt="Health & Wellness" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Health & Wellness</h4>
 			<ul class="benefit-list">
@@ -280,7 +280,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<img src="/wp-content/uploads/2025/08/PTO.svg" alt="Time To Unwind" class="benefit-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/PTO.svg' ) ); ?>" alt="Time To Unwind" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Time To Unwind</h4>
 			<ul class="benefit-list">
@@ -295,7 +295,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<img src="/wp-content/uploads/2025/08/Financial.svg" alt="Financial Well-Being" class="benefit-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Financial.svg' ) ); ?>" alt="Financial Well-Being" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Financial Well-Being</h4>
 			<ul class="benefit-list">
@@ -309,7 +309,7 @@ get_header(); ?>
 		<div class="col-lg-3 col-md-6">
 		<div class="benefit-card h-100 p-4 text-center">
 			<div class="benefit-icon mb-3">
-			<img src="/wp-content/uploads/2025/08/Other-Perks.svg" alt="Other Perks" class="benefit-svg-icon">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Other-Perks.svg' ) ); ?>" alt="Other Perks" class="benefit-svg-icon">
 			</div>
 			<h4 class="benefit-title">Other Perks</h4>
 			<ul class="benefit-list">

@@ -486,7 +486,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<img src="/wp-content/uploads/2025/08/Health-Wellness.svg" alt="Health & Wellness" class="benefit-svg-icon">
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Health-Wellness.svg' ) ); ?>" alt="Health & Wellness" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Health & Wellness</h4>
 									<ul class="benefit-list">
@@ -501,7 +501,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<img src="/wp-content/uploads/2025/08/PTO.svg" alt="Time To Unwind" class="benefit-svg-icon">
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/PTO.svg' ) ); ?>" alt="Time To Unwind" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Time To Unwind</h4>
 									<ul class="benefit-list">
@@ -516,7 +516,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<img src="/wp-content/uploads/2025/08/Financial.svg" alt="Financial Well-Being" class="benefit-svg-icon">
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Financial.svg' ) ); ?>" alt="Financial Well-Being" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Financial Well-Being</h4>
 									<ul class="benefit-list">
@@ -530,7 +530,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							<div class="col-lg-3 col-md-6">
 								<div class="benefit-card h-100 p-4 text-center">
 									<div class="benefit-icon mb-3">
-										<img src="/wp-content/uploads/2025/08/Other-Perks.svg" alt="Other Perks" class="benefit-svg-icon">
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Other-Perks.svg' ) ); ?>" alt="Other Perks" class="benefit-svg-icon">
 									</div>
 									<h4 class="benefit-title">Other Perks</h4>
 									<ul class="benefit-list">
@@ -543,7 +543,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 
 						<!-- Benefits CTA -->
 						<div class="text-center mt-5">
-							<a href="/careers" class="btn btn-primary btn-lg">
+							<a href="<?php echo esc_url( home_url( '/careers/' ) ); ?>" class="btn btn-primary btn-lg">
 								Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 							</a>
 						</div>

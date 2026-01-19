@@ -227,3 +227,15 @@
     margin-bottom: 0.4rem;
   }
 }
+
+/* ==========================================================================
+   REDUCED MOTION PREFERENCES
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .case-title-link,
+  .case-surgeon-link,
+  .case-location-link {
+    transition: none;
+  }
+}

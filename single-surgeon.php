@@ -11,34 +11,80 @@ get_header();
 $full_name  = get_the_title();
 $name_parts = explode( ' ', $full_name );
 $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_name;
+
+// Pre-calculate gallery URL (used in multiple places).
+$doctor_slug = get_post_field( 'post_name', get_post() );
+$doctor_slug = is_string( $doctor_slug ) ? $doctor_slug : '';
+$gallery_url = home_url( '/before-after/before-after-by-doctor/' ) . '?doctor=' . rawurlencode( $doctor_slug );
 ?>
 <main id="primary" tabindex="0">
 	<!-- Professional Surgeon Header -->
 	<section class="surgeon-hero">
-		<div class="surgeon-fluid-container">
+		<div class="container">
 			<div class="row align-items-center">
-				<div class="col-lg-5">
+				<div class="col-lg-6">
 					<?php
-					$headshot_id = get_field( 'surgeon_headshot' );
-					if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
-						$headshot_url = wp_get_attachment_image_url( (int) $headshot_id, 'large' );
-						if ( false !== $headshot_url ) :
-							?>
+					$video_details = get_field( 'video_details' );
+					$has_video     = null !== $video_details && is_array( $video_details ) && isset( $video_details['video_id'] ) && '' !== $video_details['video_id'];
+
+					if ( $has_video ) :
+						$video_id      = $video_details['video_id'];
+						$embed_url     = 'https://www.youtube.com/embed/' . $video_id;
+						$thumbnail_url = '';
+
+						if ( isset( $video_details['video_thumbnail'] ) ) {
+							$video_thumbnail = $video_details['video_thumbnail'];
+							if ( is_array( $video_thumbnail ) ) {
+								$thumbnail_url = $video_thumbnail['url'];
+							} elseif ( is_numeric( $video_thumbnail ) ) {
+								$thumbnail_url = wp_get_attachment_image_url( (int) $video_thumbnail, 'full' );
+							}
+						}
+						?>
+						<div class="surgeon-hero-video">
+							<div class="video-container">
+								<div class="ratio ratio-16x9">
+									<?php if ( '' !== $thumbnail_url ) : ?>
+									<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
+										<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="Video thumbnail for Dr. <?php echo esc_attr( $last_name ); ?>" class="img-fluid" width="640" height="360" loading="lazy">
+										<button class="video-play-button" aria-label="Play video about Dr. <?php echo esc_attr( $last_name ); ?>">
+											<i class="fa-solid fa-play" aria-hidden="true"></i>
+										</button>
+									</div>
+									<?php else : ?>
+									<iframe
+										src="<?php echo esc_url( $embed_url ); ?>"
+										title="Dr. <?php echo esc_attr( $last_name ); ?> Video"
+										frameborder="0"
+										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+										allowfullscreen
+									></iframe>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+					<?php else :
+						$headshot_id = get_field( 'surgeon_headshot' );
+						if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
+							$headshot_url = wp_get_attachment_image_url( (int) $headshot_id, 'large' );
+							if ( false !== $headshot_url ) :
+								?>
 						<div class="surgeon-hero-image">
-							<img src="<?php echo esc_url( $headshot_url ); ?>" alt="<?php echo esc_attr( $full_name ); ?>" class="img-fluid">
+							<img src="<?php echo esc_url( $headshot_url ); ?>" alt="<?php echo esc_attr( $full_name ); ?>" class="img-fluid" width="600" height="800" loading="lazy">
 							<div class="surgeon-image-accent"></div>
 						</div>
-						<?php endif; ?>
-					<?php else : ?>
+							<?php endif; ?>
+						<?php else : ?>
 						<div class="surgeon-hero-image surgeon-placeholder">
 							<div class="placeholder-content">
 								<i class="fa-solid fa-user-doctor" aria-hidden="true"></i>
 							</div>
 							<div class="surgeon-image-accent"></div>
 						</div>
+						<?php endif; ?>
 					<?php endif; ?>
 				</div>
-				<div class="col-lg-7">
+				<div class="col-lg-6">
 					<div class="surgeon-hero-content">
 						<?php echo do_shortcode( '[mia_breadcrumbs class="dark"]' ); ?>
 						<h1 class="surgeon-name"><?php echo esc_html( get_the_title() ); ?></h1>
@@ -67,11 +113,6 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<!-- Quick Actions -->
 						<div class="surgeon-hero-actions">
 							<!-- Mobile Gallery Link -->
-							<?php
-							$doctor_slug = get_post_field( 'post_name', get_post() );
-							$doctor_slug = is_string( $doctor_slug ) ? $doctor_slug : '';
-							$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
-							?>
 							<a href="<?php echo esc_url( $gallery_url ); ?>" class="btn btn-outline-primary-alt2 surgeon-gallery-mobile d-lg-none">
 								<i class="fas fa-images" aria-hidden="true"></i> View Before & Afters
 							</a>
@@ -93,7 +134,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 
 	<!-- Main Content Area -->
 	<div class="surgeon-content-area">
-		<div class="surgeon-fluid-container">
+		<div class="container">
 			<div class="row">
 				<!-- Main Content Column -->
 				<div class="col-lg-8">
@@ -110,48 +151,6 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 								<?php endwhile; ?>
 							</div>
 						</section>
-
-						<!-- Video Section -->
-						<?php
-						$video_details = get_field( 'video_details' );
-						if ( null !== $video_details && is_array( $video_details ) && isset( $video_details['video_id'] ) && '' !== $video_details['video_id'] ) :
-							$video_id      = $video_details['video_id'];
-							$embed_url     = 'https://www.youtube.com/embed/' . $video_id;
-							$thumbnail_url = '';
-
-							if ( isset( $video_details['video_thumbnail'] ) ) {
-								$video_thumbnail = $video_details['video_thumbnail'];
-								if ( is_array( $video_thumbnail ) ) {
-									$thumbnail_url = $video_thumbnail['url'];
-								} elseif ( is_numeric( $video_thumbnail ) ) {
-									$thumbnail_url = wp_get_attachment_image_url( (int) $video_thumbnail, 'full' );
-								}
-							}
-							?>
-						<section class="surgeon-video-section">
-							<h2 class="section-title">Meet Dr. <?php echo esc_html( $last_name ); ?></h2>
-							<div class="video-container">
-								<div class="ratio ratio-16x9">
-									<?php if ( '' !== $thumbnail_url ) : ?>
-									<div class="video-thumbnail" data-embed-url="<?php echo esc_url( $embed_url ); ?>">
-										<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="Video thumbnail" class="img-fluid">
-										<button class="video-play-button" aria-label="Play video">
-											<i class="fa-solid fa-play" aria-hidden="true"></i>
-										</button>
-									</div>
-									<?php else : ?>
-									<iframe 
-										src="<?php echo esc_url( $embed_url ); ?>" 
-										title="Dr. <?php echo esc_attr( $last_name ); ?> Video"
-										frameborder="0" 
-										allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-										allowfullscreen
-									></iframe>
-									<?php endif; ?>
-								</div>
-							</div>
-						</section>
-						<?php endif; ?>
 
 						<!-- Specialties Section -->
 						<?php
@@ -209,11 +208,6 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 								<?php endif; ?>
 								<li>
 									<i class="fas fa-images" aria-hidden="true"></i>
-									<?php
-									$doctor_slug = get_post_field( 'post_name', get_post() );
-									$doctor_slug = is_string( $doctor_slug ) ? $doctor_slug : '';
-									$gallery_url = '/before-after/before-after-by-doctor/?doctor=' . rawurlencode( $doctor_slug );
-									?>
 									<span><a href="<?php echo esc_url( $gallery_url ); ?>">View Before & After Gallery</a></span>
 								</li>
 							</ul>
@@ -222,17 +216,17 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 						<div class="sidebar-card">
 							<h3 class="sidebar-card-title">Patient Resources</h3>
 							<div class="resource-links">
-								<a href="https://miaaesthetics.com/patient-resources/surgical-journey/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/patient-resources/surgical-journey/' ) ); ?>" class="resource-link">
 									<i class="fas fa-route" aria-hidden="true"></i>
 									<span>Your Surgical Journey</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
-								<a href="https://miaaesthetics.com/surgery-preparation/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>" class="resource-link">
 									<i class="fas fa-clipboard-list" aria-hidden="true"></i>
 									<span>Surgery Preparation</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
-								<a href="https://miaaesthetics.com/financing/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="resource-link">
 									<i class="fas fa-credit-card" aria-hidden="true"></i>
 									<span>Financing Options</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -250,7 +244,7 @@ $last_name  = isset( $name_parts[1] ) ? rtrim( $name_parts[1], ',' ) : $full_nam
 	if ( null !== $faq_section && is_array( $faq_section ) && isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && count( $faq_section['faqs'] ) > 0 ) :
 		?>
 	<section class="surgeon-faq-section">
-		<div class="surgeon-fluid-container">
+		<div class="container">
 			<h2 class="section-title text-center">Frequently Asked Questions</h2>
 			<?php echo wp_kses_post( mia_aesthetics_display_faqs() ); ?>
 		</div>

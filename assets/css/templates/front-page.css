@@ -971,3 +971,33 @@
     text-shadow: none;
   }
 }
+
+/* ==========================================================================
+   REDUCED MOTION PREFERENCES
+   ========================================================================== */
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-cta,
+  .hero-box-link .hero-box-image,
+  .hero-box-link .hero-box-overlay,
+  .hero-box-link .btn,
+  .stat-box,
+  .stat-box-link,
+  .stat-box-link .homepage-stat-label,
+  .procedure-tabs .nav-link,
+  .procedure-nav-arrow,
+  .procedure-link {
+    transition: none;
+  }
+
+  .hero-box-link:hover .hero-box-image,
+  .hero-box-link:focus .hero-box-image {
+    transform: none;
+  }
+
+  .stat-box:hover,
+  .stat-box-link:hover,
+  .stat-box-link:focus {
+    transform: none;
+  }
+}

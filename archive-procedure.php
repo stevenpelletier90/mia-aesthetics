@@ -32,14 +32,14 @@ get_header(); ?>
 					<div class="card h-100 procedure-category-card">
 						<div class="category-image-container position-relative overflow-hidden">
 							<picture>
-								<source media="(max-width: 576px)" 
-										srcset="/wp-content/uploads/2025/04/body-home.jpg?w=400&h=300&crop=1" 
+								<source media="(max-width: 576px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/body-home.jpg?w=400&h=300&crop=1' ) ); ?>"
 										width="400" height="300">
-								<source media="(max-width: 768px)" 
-										srcset="/wp-content/uploads/2025/04/body-home.jpg?w=600&h=400&crop=1" 
+								<source media="(max-width: 768px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/body-home.jpg?w=600&h=400&crop=1' ) ); ?>"
 										width="600" height="400">
-								<img src="/wp-content/uploads/2025/04/body-home.jpg?w=800&h=600&crop=1" 
-									alt="Body Procedures - Transform your body with our comprehensive surgical options" 
+								<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/body-home.jpg?w=800&h=600&crop=1' ) ); ?>"
+									alt="Body Procedures - Transform your body with our comprehensive surgical options"
 									class="card-img-top w-100 h-100 object-fit-cover"
 									width="800" height="600"
 									loading="lazy">
@@ -76,14 +76,14 @@ get_header(); ?>
 					<div class="card h-100 procedure-category-card">
 						<div class="category-image-container position-relative overflow-hidden">
 							<picture>
-								<source media="(max-width: 576px)" 
-										srcset="/wp-content/uploads/2025/04/breast-home.jpg?w=400&h=300&crop=1" 
+								<source media="(max-width: 576px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/breast-home.jpg?w=400&h=300&crop=1' ) ); ?>"
 										width="400" height="300">
-								<source media="(max-width: 768px)" 
-										srcset="/wp-content/uploads/2025/04/breast-home.jpg?w=600&h=400&crop=1" 
+								<source media="(max-width: 768px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/breast-home.jpg?w=600&h=400&crop=1' ) ); ?>"
 										width="600" height="400">
-								<img src="/wp-content/uploads/2025/04/breast-home.jpg?w=800&h=600&crop=1" 
-									alt="Breast Procedures - Enhance and reshape with our expert breast surgery options" 
+								<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/breast-home.jpg?w=800&h=600&crop=1' ) ); ?>"
+									alt="Breast Procedures - Enhance and reshape with our expert breast surgery options"
 									class="card-img-top w-100 h-100 object-fit-cover"
 									width="800" height="600"
 									loading="lazy">
@@ -113,14 +113,14 @@ get_header(); ?>
 					<div class="card h-100 procedure-category-card">
 						<div class="category-image-container position-relative overflow-hidden">
 							<picture>
-								<source media="(max-width: 576px)" 
-										srcset="/wp-content/uploads/2025/04/face-2-home.jpg?w=400&h=300&crop=1" 
+								<source media="(max-width: 576px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/face-2-home.jpg?w=400&h=300&crop=1' ) ); ?>"
 										width="400" height="300">
-								<source media="(max-width: 768px)" 
-										srcset="/wp-content/uploads/2025/04/face-2-home.jpg?w=600&h=400&crop=1" 
+								<source media="(max-width: 768px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/face-2-home.jpg?w=600&h=400&crop=1' ) ); ?>"
 										width="600" height="400">
-								<img src="/wp-content/uploads/2025/04/face-2-home.jpg?w=800&h=600&crop=1" 
-									alt="Face Procedures - Rejuvenate and refine your facial features with precision surgery" 
+								<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/face-2-home.jpg?w=800&h=600&crop=1' ) ); ?>"
+									alt="Face Procedures - Rejuvenate and refine your facial features with precision surgery"
 									class="card-img-top w-100 h-100 object-fit-cover"
 									width="800" height="600"
 									loading="lazy">
@@ -155,14 +155,14 @@ get_header(); ?>
 					<div class="card h-100 procedure-category-card">
 						<div class="category-image-container position-relative overflow-hidden">
 							<picture>
-								<source media="(max-width: 576px)" 
-										srcset="/wp-content/uploads/2025/04/men-home.jpg?w=400&h=300&crop=1" 
+								<source media="(max-width: 576px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/men-home.jpg?w=400&h=300&crop=1' ) ); ?>"
 										width="400" height="300">
-								<source media="(max-width: 768px)" 
-										srcset="/wp-content/uploads/2025/04/men-home.jpg?w=600&h=400&crop=1" 
+								<source media="(max-width: 768px)"
+										srcset="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/men-home.jpg?w=600&h=400&crop=1' ) ); ?>"
 										width="600" height="400">
-								<img src="/wp-content/uploads/2025/04/men-home.jpg?w=800&h=600&crop=1" 
-									alt="Male Procedures - Specialized cosmetic surgery options designed for men" 
+								<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/04/men-home.jpg?w=800&h=600&crop=1' ) ); ?>"
+									alt="Male Procedures - Specialized cosmetic surgery options designed for men"
 									class="card-img-top w-100 h-100 object-fit-cover"
 									width="800" height="600"
 									loading="lazy">

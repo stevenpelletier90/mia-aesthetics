@@ -8,7 +8,7 @@
 }
 
 .faqs-section h2 {
-  color: #1b1b1b;
+  color: var(--mia-black);
   font-weight: 600;
   position: relative;
   padding-bottom: 1rem;
@@ -22,7 +22,7 @@
   bottom: 0;
   width: 80px;
   height: 3px;
-  background-color: #c8b273;
+  background-color: var(--mia-gold);
 }
 
 .faqs-section .accordion .accordion-item {
@@ -33,8 +33,8 @@
 }
 
 .faqs-section .accordion .accordion-item .accordion-button {
-  background-color: #ffffff;
-  color: #1b1b1b;
+  background-color: var(--mia-white);
+  color: var(--mia-black);
   font-weight: 600;
   padding: 1rem 1.5rem;
   border: none;
@@ -45,8 +45,8 @@
 }
 
 .faqs-section .accordion .accordion-item .accordion-button:not(.collapsed) {
-  background-color: rgba(200, 178, 115, 0.1);
-  color: #1b1b1b;
+  background-color: var(--mia-gold-10);
+  color: var(--mia-black);
 }
 
 .faqs-section .accordion .accordion-item .accordion-button:not(.collapsed)::after {
@@ -59,7 +59,7 @@
   font-family: "Font Awesome 7 Free";
   font-weight: 900;
   font-size: 1.2rem;
-  color: #c8b273;
+  color: var(--mia-gold);
   transition: transform 0.2s ease;
 }
 
@@ -69,7 +69,7 @@
 
 .faqs-section .accordion .accordion-item .accordion-body {
   padding: 1.5rem;
-  background-color: #ffffff;
+  background-color: var(--mia-white);
   color: rgba(27, 27, 27, 0.8);
   line-height: 1.6;
 }

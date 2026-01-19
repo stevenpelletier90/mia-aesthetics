@@ -240,7 +240,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 					)
 				);
 			} else {
-				echo '<img src="/wp-content/uploads/2025/05/surgery-1.jpg" alt="Trusted Surgical Excellence" class="img-fluid" width="800" height="600">';
+				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/05/surgery-1.jpg' ) ) . '" alt="Trusted Surgical Excellence" class="img-fluid" width="800" height="600">';
 			}
 			?>
 		</div>
@@ -251,8 +251,8 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 			<h2 class="section-heading">Trusted Surgical Excellence</h2>
 			<p class="section-description section-description--white">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
 			<div class="excellence-buttons">
-			<a href="/locations/" class="btn btn-primary me-3" role="button">Our Locations</a>
-			<a href="/plastic-surgeons/" class="btn btn-primary" role="button">Our Surgeons</a>
+			<a href="<?php echo esc_url( home_url( '/locations/' ) ); ?>" class="btn btn-primary me-3" role="button">Our Locations</a>
+			<a href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" class="btn btn-primary" role="button">Our Surgeons</a>
 			</div>
 		</div>
 		</div>
@@ -271,7 +271,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		loop
 		playsinline
 		class="video-bg">
-		<source src="/wp-content/uploads/2025/09/home-video.mp4" type="video/mp4">
+		<source src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/home-video.mp4' ) ); ?>" type="video/mp4">
 		Your browser does not support the video tag.
 	</video>
 	</div>
@@ -283,7 +283,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		<div class="col-lg-8 text-center">
 			<h2 class="text-white video-heading mb-2">Experience Excellence</h2>
 			<p class="video-description text-white mb-4">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
-			<a href="/free-plastic-surgery-consultation/" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
+			<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
 		</div>
 		</div>
 	</div>
@@ -377,7 +377,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/body-home.jpg" alt="Body Procedures" class="img-fluid rounded shadow" width="800" height="600">';
+				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/04/body-home.jpg' ) ) . '" alt="Body Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -389,29 +389,29 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/body/awake-liposuction/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/awake-liposuction/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Awake Lipo
 					</a>
-					<a href="/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Brazilian Butt Lift (BBL)
 					</a>
-					<a href="/cosmetic-plastic-surgery/body/lipo-360/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/lipo-360/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Lipo 360
 					</a>
 				</div>
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/body/mommy-makeover/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/mommy-makeover/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Mommy Makeover
 					</a>
-					<a href="/cosmetic-plastic-surgery/body/tummy-tuck/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/tummy-tuck/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Tummy Tuck
 					</a>
-					<a href="/cosmetic-plastic-surgery/body/arm-lift/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/arm-lift/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Arm Lift
 					</a>
 				</div>
 				</div>
-				<a href="/cosmetic-plastic-surgery/body/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/' ) ); ?>" class="procedure-link">
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Body Procedures
 				</a>
 			</div>
@@ -438,7 +438,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/breast-home.jpg" alt="Breast Procedures" class="img-fluid rounded shadow" width="800" height="600">';
+				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/04/breast-home.jpg' ) ) . '" alt="Breast Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -450,26 +450,26 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/breast/augmentation-implants/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/augmentation-implants/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Augmentation
 					</a>
-					<a href="/cosmetic-plastic-surgery/breast/lift/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/lift/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Lift
 					</a>
-					<a href="/cosmetic-plastic-surgery/breast/reduction/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/reduction/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Reduction
 					</a>
 				</div>
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/breast/implant-revision-surgery/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/implant-revision-surgery/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Breast Implant Revision
 					</a>
-					<a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Breast Procedures
 					</a>
 				</div>
 				</div>
-				<a href="/cosmetic-plastic-surgery/breast/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/' ) ); ?>" class="procedure-link">
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Breast Procedures
 				</a>
 			</div>
@@ -496,7 +496,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/face-2-home.jpg" alt="Facial Procedures" class="img-fluid rounded shadow" width="800" height="600">';
+				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/04/face-2-home.jpg' ) ) . '" alt="Facial Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -508,29 +508,29 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/face/brow-lift/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/brow-lift/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Brow Lift
 					</a>
-					<a href="/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Buccal Fat Removal
 					</a>
-					<a href="/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Eyelid Lift
 					</a>
 				</div>
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/face/facelift/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/facelift/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Facelift
 					</a>
-					<a href="/cosmetic-plastic-surgery/face/mini-facelift/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/mini-facelift/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Mini Facelift
 					</a>
-					<a href="/cosmetic-plastic-surgery/face/neck-lift/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Neck Lift
 					</a>
 				</div>
 				</div>
-				<a href="/cosmetic-plastic-surgery/face/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/' ) ); ?>" class="procedure-link">
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Facial Procedures
 				</a>
 			</div>
@@ -557,7 +557,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/face-home.jpg" alt="Non-Surgical Procedures" class="img-fluid rounded shadow" width="800" height="600">';
+				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/04/face-home.jpg' ) ) . '" alt="Non-Surgical Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -570,15 +570,15 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				<div class="row">
 
 				<div class="col-md-6">
-				<a href="/non-surgical/j-plasma-skin-tightening/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> J-Plasma
 					</a>
-					<a href="/weight-loss/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Weight Loss
 					</a>
 				</div>
 				</div>
-				<a href="/non-surgical/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/non-surgical/' ) ); ?>" class="procedure-link">
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Non-Surgical Treatments
 				</a>
 			</div>
@@ -605,7 +605,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				);
 			} else {
 				// Fallback if image ID can't be found.
-				echo '<img src="/wp-content/uploads/2025/04/men-home.jpg" alt="Men\'s Procedures" class="img-fluid rounded shadow" width="800" height="600">';
+				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/04/men-home.jpg' ) ) . '" alt="Men\'s Procedures" class="img-fluid rounded shadow" width="800" height="600">';
 			}
 			?>
 			</div>
@@ -617,25 +617,25 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 			<div class="procedure-links ">
 				<div class="row">
 				<div class="col-md-6">
-					<a href="/cosmetic-plastic-surgery/body/male-bbl/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-bbl/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Brazilian Butt Lift (BBL)
 					</a>
-					<a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Breast Procedures
 					</a>
 
 				</div>
 				<div class="col-md-6">
-				<a href="/cosmetic-plastic-surgery/body/male-liposuction/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-liposuction/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Liposuction
 					</a>
-					<a href="/cosmetic-plastic-surgery/body/male-tummy-tuck/" class="procedure-link">
+					<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-tummy-tuck/' ) ); ?>" class="procedure-link">
 					<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> Male Tummy Tuck
 					</a>
 
 				</div>
 				</div>
-				<a href="/cosmetic-plastic-surgery/men/" class="procedure-link">
+				<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/men/' ) ); ?>" class="procedure-link">
 				<i class="fa-solid fa-arrow-right" aria-hidden="true"></i> View All Men's Procedures
 				</a>
 			</div>
@@ -664,7 +664,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 				)
 			);
 		} else {
-			echo '<img src="/wp-content/uploads/2025/04/miaf6.jpg" alt="Mia Aesthetics Foundation community outreach" width="1920" height="1080" loading="lazy">';
+			echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/04/miaf6.jpg' ) ) . '" alt="Mia Aesthetics Foundation community outreach" width="1920" height="1080" loading="lazy">';
 		}
 		?>
 	</div>
@@ -676,7 +676,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 					<p class="foundation-tagline mb-3">Giving Back to Our Community</p>
 					<h2 class="section-heading">The Mia Aesthetics Foundation</h2>
 					<p class="section-description section-description--white ">At Mia Aesthetics, we are committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
-					<a href="/mia-foundation/" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+					<a href="<?php echo esc_url( home_url( '/mia-foundation/' ) ); ?>" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 				</div>
 			</div>
 		</div>

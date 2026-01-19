@@ -51,21 +51,24 @@ get_header(); ?>
 
 					<!-- Featured Image Placeholder -->
 					<div class="mb-4">
-						<img src="/wp-content/uploads/2025/06/fat-transfer.jpg" 
-							alt="Fat Transfer Procedures" 
-							class="img-fluid">
+						<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/06/fat-transfer.jpg' ) ); ?>"
+							alt="Fat Transfer Procedures"
+							class="img-fluid"
+							width="800"
+							height="600"
+							loading="lazy">
 					</div>
 					
 					<div class="content">
 						<h2>What is Fat Transfer Surgery?</h2>
 						<p>Plastic surgeons call it autologous fat transfer, but most people refer to this procedure as fat transfer or fat grafting. Whatever you call it, fat transfer allows your surgeon to remove excess fat from areas where you don't want it and then inject it into other parts of your body where it can benefit you. The procedure has become increasingly popular because it can deliver more permanent results than dermal fillers without placing anything man-made into the body the way implants do.</p>
 
-						<p>Although the most well-known fat transfer procedure is easily the <a href="/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/">Brazilian butt lift (BBL)</a>, it's not just about your butt! Fat can be transferred almost anywhere in your body. It is frequently injected into the thighs, calves, ankles, and <a href="/fat-transfer/face/">face</a>, just to name a few possible destinations.</p>
+						<p>Although the most well-known fat transfer procedure is easily the <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/brazilian-butt-lift-bbl/' ) ); ?>">Brazilian butt lift (BBL)</a>, it's not just about your butt! Fat can be transferred almost anywhere in your body. It is frequently injected into the thighs, calves, ankles, and <a href="<?php echo esc_url( home_url( '/fat-transfer/face/' ) ); ?>">face</a>, just to name a few possible destinations.</p>
 					
 						
 
 						<h2>How Fat Transfer Works - From Harvesting to Results</h2>
-						<p>A fat transfer procedure begins with <a href="/cosmetic-plastic-surgery/body/liposuction/">liposuction</a>. Your plastic surgeon will remove excess fat from places where you feel you have too much, carefully sculpting and contouring the area as they work. The fat removed during your liposuction is then washed and purified. When this process is complete, your surgeon chooses the healthiest and most viable fat cells and injects them into the desired area.</p>
+						<p>A fat transfer procedure begins with <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/liposuction/' ) ); ?>">liposuction</a>. Your plastic surgeon will remove excess fat from places where you feel you have too much, carefully sculpting and contouring the area as they work. The fat removed during your liposuction is then washed and purified. When this process is complete, your surgeon chooses the healthiest and most viable fat cells and injects them into the desired area.</p>
 
 						<p>Fat transfer creates very similar results to dermal fillers. Fillers offer only a temporary solution, however, and require ongoing maintenance. Hyaluronic acid (HA) fillers like those used at Mia Aesthetics typically last six to 12 months, depending on where they're injected and how quickly your body metabolizes (absorbs) them.</p>
 
@@ -90,7 +93,7 @@ get_header(); ?>
 						<li>The cheeks often lose fat with age, creating a hollow or sunken look</li>
 						<li>Fat transfer plumps the cheeks again for a fuller, younger look</li>
 					</ul>
-					<h3><a href="/fat-transfer/lips/">Fat Transfer to Lips</a></h3>
+					<h3><a href="<?php echo esc_url( home_url( '/fat-transfer/lips/' ) ); ?>">Fat Transfer to Lips</a></h3>
 					<ul>
 						<li>Creates more voluminous and shapely lips</li>
 						<li>Enhances lip symmetry</li>
@@ -101,7 +104,7 @@ get_header(); ?>
 					</ul>
 					<h3>Fat Transfer to Hips</h3>
 					<ul>
-						<li>Reduce or <a href="/how-to-get-rid-of-hip-dips/">eliminate hip dips</a></li>
+						<li>Reduce or <a href="<?php echo esc_url( home_url( '/how-to-get-rid-of-hip-dips/' ) ); ?>">eliminate hip dips</a></li>
 					</ul>
 					<h3>Fat Transfer to Thighs</h3>
 					<ul>
@@ -150,7 +153,7 @@ get_header(); ?>
 
 <p>The most important thing you can do to ensure that your fat transfer is a success is to choose the right plastic surgeon. We cannot stress this enough. Poor technique and sloppy work can cause complications at worst and produce subpar results at best. No amount of preparation or good post-op care can compensate for poorly performed procedures.</p>
 
-<p>When you've consulted with a plastic surgeon, examined <a href="/before-after/before-after-by-doctor/">before-and-after photos of their work</a>, and are sure you're in good hands, you can do the following to help prepare for and recover from your fat transfer to help make it a success:</p>
+<p>When you've consulted with a plastic surgeon, examined <a href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>">before-and-after photos of their work</a>, and are sure you're in good hands, you can do the following to help prepare for and recover from your fat transfer to help make it a success:</p>
 
 <ul>
 	<li><strong>Pre-op checklist</strong>
@@ -216,7 +219,7 @@ get_header(); ?>
 		</h3>
 		<div id="collapse-faq-fat-transfer-3" class="accordion-collapse collapse" data-bs-parent="#faq-accordion-fat-transfer">
 			<div class="accordion-body">
-				You sure can. Fat transfer is frequently combined with other cosmetic surgeries, such as <a href="/cosmetic-plastic-surgery/face/facelift/">facelifts</a> for added volume or <a href="/cosmetic-plastic-surgery/body/tummy-tuck/">tummy tucks</a> for contouring. Combining procedures can enhance results and reduce overall recovery time. Fat transfer can also be combined with dermal fillers if you are a little short on donor fat or lose a bit of volume again over time as you age. You can combine fat augmentation with Botox as well, if, for example, you want to address under-eye hollows as well as <a href="/conditions/crows-feet/botox-treatment/">crow's feet</a>.
+				You sure can. Fat transfer is frequently combined with other cosmetic surgeries, such as <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/facelift/' ) ); ?>">facelifts</a> for added volume or <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/tummy-tuck/' ) ); ?>">tummy tucks</a> for contouring. Combining procedures can enhance results and reduce overall recovery time. Fat transfer can also be combined with dermal fillers if you are a little short on donor fat or lose a bit of volume again over time as you age. You can combine fat augmentation with Botox as well, if, for example, you want to address under-eye hollows as well as <a href="<?php echo esc_url( home_url( '/conditions/crows-feet/botox-treatment/' ) ); ?>">crow's feet</a>.
 			</div>
 		</div>
 	</div>

@@ -240,22 +240,22 @@ $mia_location_hero_id = get_post_thumbnail_id();
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 								<?php endif; ?>
-								<a href="/patient-resources/surgical-journey/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/patient-resources/surgical-journey/' ) ); ?>" class="resource-link">
 									<i class="fas fa-route" aria-hidden="true"></i>
 									<span>Your Surgical Journey</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
-								<a href="/surgery-preparation/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>" class="resource-link">
 									<i class="fas fa-clipboard-list" aria-hidden="true"></i>
 									<span>Surgery Preparation</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
-								<a href="/financing/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="resource-link">
 									<i class="fas fa-credit-card" aria-hidden="true"></i>
 									<span>Financing Options</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
-								<a href="/cosmetic-plastic-surgery/" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="resource-link">
 									<i class="fas fa-stethoscope" aria-hidden="true"></i>
 									<span>Our Procedures</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
@@ -309,14 +309,21 @@ $mia_location_hero_id = get_post_thumbnail_id();
 									if ( false !== $headshot_url ) :
 										?>
 									<img src="<?php echo esc_url( $headshot_url ); ?>"
-										alt="<?php the_title(); ?> Headshot" />
+										alt="<?php the_title(); ?> Headshot"
+										width="300"
+										height="300"
+										loading="lazy" />
 									<?php endif; ?>
 								<?php elseif ( has_post_thumbnail() ) : ?>
 									<?php
 									$thumbnail_url = get_the_post_thumbnail_url();
 									if ( false !== $thumbnail_url ) :
 										?>
-									<img src="<?php echo esc_url( $thumbnail_url ); ?>" alt="<?php the_title(); ?>" />
+									<img src="<?php echo esc_url( $thumbnail_url ); ?>"
+										alt="<?php the_title(); ?>"
+										width="300"
+										height="300"
+										loading="lazy" />
 									<?php endif; ?>
 								<?php endif; ?>
 
@@ -349,5 +356,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 		</div>
 	</section>
 	<?php endif; ?>
+
+</main>
 
 <?php get_footer(); ?>
