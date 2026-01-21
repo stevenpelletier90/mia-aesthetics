@@ -100,6 +100,21 @@ class Surgeon_Schema {
 			$surgeon['department'] = array( '@id' => $clinic_id );
 		}
 
+		// Contact info from associated location.
+		if ( null !== $clinic_obj ) {
+			$address = $this->get_address( $clinic_obj->ID );
+			if ( null !== $address ) {
+				$surgeon['address'] = $address;
+			}
+
+			$telephone = get_field( 'phone_number', $clinic_obj->ID );
+			if ( is_string( $telephone ) && '' !== $telephone ) {
+				$surgeon['telephone'] = $telephone;
+			}
+
+			$surgeon['priceRange'] = '$1,000-$20,000';
+		}
+
 		// Description.
 		$surgeon['description'] = $this->get_description( $surgeon_id );
 
@@ -215,5 +230,40 @@ class Surgeon_Schema {
 		}
 
 		return $specialties;
+	}
+
+	/**
+	 * Get address from surgeon's associated location
+	 *
+	 * @param int $loc_id The location post ID.
+	 * @return array<string, string>|null
+	 */
+	private function get_address( int $loc_id ): ?array {
+		$location_map = get_field( 'location_map', $loc_id );
+
+		if ( ! is_array( $location_map ) || count( $location_map ) === 0 ) {
+			return null;
+		}
+
+		$street_number = $location_map['street_number'] ?? '';
+		$street_name   = $location_map['street_name'] ?? '';
+		$street        = trim( $street_number . ' ' . $street_name );
+
+		$city  = $location_map['city'] ?? '';
+		$state = $location_map['state_short'] ?? $location_map['state'] ?? '';
+		$zip   = $location_map['post_code'] ?? '';
+
+		if ( '' !== $street && '' !== $city && '' !== $state ) {
+			return array(
+				'@type'           => 'PostalAddress',
+				'streetAddress'   => $street,
+				'addressLocality' => $city,
+				'addressRegion'   => $state,
+				'postalCode'      => $zip,
+				'addressCountry'  => 'US',
+			);
+		}
+
+		return null;
 	}
 }

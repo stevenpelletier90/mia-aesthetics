@@ -82,8 +82,8 @@
   display: flex;
   align-items: center;
   margin-bottom: 0.875rem;
-  font-size: 0.9rem;
-  color: var(--mia-gray-muted);
+  font-size: 0.9375rem;
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.4;
 }
 
@@ -101,7 +101,7 @@
 
 .case-surgeon-link,
 .case-location-link {
-  color: var(--mia-gold);
+  color: var(--mia-white);
   text-decoration: none;
   font-weight: 600;
   transition: color 0.2s ease;
@@ -111,15 +111,14 @@
 .case-surgeon-link:focus,
 .case-location-link:hover,
 .case-location-link:focus {
-  color: var(--mia-white);
+  color: var(--mia-gold);
   text-decoration: none;
   transform: none;
 }
 
 .case-procedure {
-  color: var(--mia-gray-muted);
+  color: var(--mia-white);
   font-weight: 400;
-  font-style: italic;
 }
 
 .case-card-action {
@@ -129,7 +128,7 @@
 
 @media (max-width: 768px) {
   .case-card-inner {
-    background: var(--mia-white);
+    background: var(--mia-gold-light);
     flex-direction: column;
     border: 2px solid var(--mia-gold);
     border-radius: var(--radius-lg);
@@ -194,13 +193,12 @@
   .case-surgeon-link:focus,
   .case-location-link:hover,
   .case-location-link:focus {
-    color: var(--mia-gold);
+    color: var(--mia-gold-dark);
     transform: none;
   }
 
   .case-procedure {
     color: var(--mia-gray-muted);
-    font-style: italic;
   }
 
   .case-card-action {

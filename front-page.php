@@ -220,43 +220,107 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 	</div>
 </section>
 
-<!-- Excellence Section -->
-<section class="excellence-section">
+<!-- Meet Our Surgeons Section -->
+<section class="surgeons-section">
 	<div class="container">
-	<div class="row align-items-center">
-		<div class="col-lg-6  mb-lg-0">
-		<div class="excellence-image">
-			<?php
-			$surgery_img_id = attachment_url_to_postid( home_url( '/wp-content/uploads/2025/05/surgery-1.jpg' ) );
-			if ( 0 !== $surgery_img_id ) {
-				echo wp_get_attachment_image(
-					$surgery_img_id,
-					'large',
-					false,
-					array(
-						'class' => 'img-fluid',
-						'alt'   => 'Trusted Surgical Excellence',
-						'sizes' => '(max-width: 991px) 100vw, 50vw',
-					)
-				);
-			} else {
-				echo '<img src="' . esc_url( home_url( '/wp-content/uploads/2025/05/surgery-1.jpg' ) ) . '" alt="Trusted Surgical Excellence" class="img-fluid" width="800" height="600">';
-			}
-			?>
-		</div>
-		</div>
-		<div class="col-lg-6">
-		<div class="excellence-content">
-			<p class="excellence-tagline mb-3">Our Commitment</p>
-			<h2 class="section-heading">Trusted Surgical Excellence</h2>
-			<p class="section-description section-description--white">Delivering life-changing results with expert care at every step. Our team of highly skilled specialists, years of experience, and thousands of satisfied patients set us apart in the industry.</p>
-			<div class="excellence-buttons">
-			<a href="<?php echo esc_url( home_url( '/locations/' ) ); ?>" class="btn btn-primary me-3" role="button">Our Locations</a>
-			<a href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>" class="btn btn-primary" role="button">Our Surgeons</a>
+		<div class="row mb-4 text-center">
+			<div class="col-12">
+				<p class="surgeons-tagline mb-3">Our Team</p>
+				<h2 class="section-heading">Meet Our Surgeons</h2>
+				<p class="section-description">Board-certified plastic surgeons dedicated to delivering exceptional results</p>
 			</div>
 		</div>
+
+		<div class="surgeons-carousel-wrapper">
+			<button class="carousel-nav carousel-prev" aria-label="Previous surgeons">
+				<i class="fa-solid fa-chevron-left" aria-hidden="true"></i>
+			</button>
+
+			<div class="surgeons-carousel">
+				<?php
+				$surgeons_query = new WP_Query(
+					array(
+						'post_type'      => 'surgeon',
+						'posts_per_page' => -1,
+						'orderby'        => 'menu_order',
+						'order'          => 'ASC',
+					)
+				);
+
+				if ( $surgeons_query->have_posts() ) :
+					while ( $surgeons_query->have_posts() ) :
+						$surgeons_query->the_post();
+						$surgeon_permalink = get_permalink();
+						$location          = get_field( 'surgeon_location' );
+						$location_title    = '';
+						$location_id       = 0;
+
+						if ( null !== $location && is_object( $location ) && property_exists( $location, 'ID' ) ) {
+							$location_id    = (int) $location->ID;
+							$location_title = $location->post_title;
+						}
+
+						$headshot_id = get_field( 'surgeon_headshot' );
+						?>
+						<div class="surgeon-slide">
+							<div class="homepage-surgeon-card">
+								<div class="homepage-surgeon-image">
+									<?php
+									if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
+										echo wp_get_attachment_image(
+											(int) $headshot_id,
+											'medium',
+											false,
+											array(
+												'class' => 'homepage-surgeon-headshot',
+												'alt'   => get_the_title() . ' Headshot',
+											)
+										);
+									elseif ( has_post_thumbnail() ) :
+										the_post_thumbnail( 'medium', array( 'class' => 'homepage-surgeon-headshot' ) );
+									endif;
+									?>
+								</div>
+								<div class="homepage-surgeon-info">
+									<h3 class="homepage-surgeon-name">
+										<?php if ( false !== $surgeon_permalink ) : ?>
+											<a href="<?php echo esc_url( $surgeon_permalink ); ?>"><?php the_title(); ?></a>
+										<?php else : ?>
+											<?php the_title(); ?>
+										<?php endif; ?>
+									</h3>
+									<?php if ( '' !== $location_title && 0 !== $location_id ) : ?>
+										<p class="homepage-surgeon-location">
+											<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+											<?php
+											$location_permalink = get_permalink( $location_id );
+											if ( false !== $location_permalink ) :
+												?>
+												<a href="<?php echo esc_url( $location_permalink ); ?>"><?php echo esc_html( $location_title ); ?></a>
+											<?php else : ?>
+												<?php echo esc_html( $location_title ); ?>
+											<?php endif; ?>
+										</p>
+									<?php endif; ?>
+									<?php if ( false !== $surgeon_permalink ) : ?>
+										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="homepage-surgeon-bio-link">
+											View Bio <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+										</a>
+									<?php endif; ?>
+								</div>
+							</div>
+						</div>
+						<?php
+					endwhile;
+					wp_reset_postdata();
+				endif;
+				?>
+			</div>
+
+			<button class="carousel-nav carousel-next" aria-label="Next surgeons">
+				<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
+			</button>
 		</div>
-	</div>
 	</div>
 </section>
 
@@ -281,8 +345,8 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 	<div class="container">
 		<div class="row justify-content-center">
 		<div class="col-lg-8 text-center">
-			<h2 class="text-white video-heading mb-2">Experience Excellence</h2>
-			<p class="video-description text-white mb-4">Join thousands of satisfied patients who have transformed their lives at Mia Aesthetics</p>
+			<h2 class="text-white video-heading mb-3">Experience Excellence</h2>
+			<p class="video-description text-white mb-4">Join over 150,000 satisfied patients who have transformed their lives with our board-certified plastic surgeons. From your first consultation to your final results, we are committed to delivering exceptional care and life-changing outcomes.</p>
 			<a href="<?php echo esc_url( home_url( '/free-plastic-surgery-consultation/' ) ); ?>" class="btn btn-primary btn-lg" role="button">Free Virtual Consultation</a>
 		</div>
 		</div>
@@ -669,14 +733,14 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		?>
 	</div>
 
-	<div class="container position-relative">
+	<div class="container position-relative foundation-container">
 		<div class="row">
-			<div class="col-12">
-				<div class="foundation-content text-center">
+			<div class="col-lg-8 col-12">
+				<div class="foundation-content">
 					<p class="foundation-tagline mb-3">Giving Back to Our Community</p>
 					<h2 class="section-heading">The Mia Aesthetics Foundation</h2>
-					<p class="section-description section-description--white ">At Mia Aesthetics, we are committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
-					<a href="<?php echo esc_url( home_url( '/mia-foundation/' ) ); ?>" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work"> See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
+					<p class="section-description section-description--white">At Mia Aesthetics, we are committed to making a positive impact in our communities through charitable initiatives, education, and outreach programs that help those in need.</p>
+					<a href="<?php echo esc_url( home_url( '/mia-foundation/' ) ); ?>" class="btn btn-primary" role="button" aria-label="Discover Mia Aesthetics Foundation charitable work">See Our Impact <i class="fa-solid fa-arrow-right" aria-hidden="true"></i></a>
 				</div>
 			</div>
 		</div>

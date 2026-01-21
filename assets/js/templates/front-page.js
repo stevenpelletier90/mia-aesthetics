@@ -173,9 +173,47 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  // ===== SURGEONS CAROUSEL NAVIGATION =====
+  function initSurgeonsCarousel() {
+    const carousel = document.querySelector('.surgeons-carousel');
+    const prevBtn = document.querySelector('.surgeons-carousel-wrapper .carousel-prev');
+    const nextBtn = document.querySelector('.surgeons-carousel-wrapper .carousel-next');
+
+    if (!carousel || !prevBtn || !nextBtn) {
+      return;
+    }
+
+    // Get the width of one slide including gap
+    function getScrollAmount() {
+      const slide = carousel.querySelector('.surgeon-slide');
+      if (!slide) {
+        return 300;
+      }
+      const slideStyle = window.getComputedStyle(slide);
+      const slideWidth = slide.offsetWidth;
+      const gap = parseInt(window.getComputedStyle(carousel).gap, 10) || 24;
+      return slideWidth + gap;
+    }
+
+    prevBtn.addEventListener('click', function () {
+      carousel.scrollBy({
+        left: -getScrollAmount() * 2,
+        behavior: 'smooth',
+      });
+    });
+
+    nextBtn.addEventListener('click', function () {
+      carousel.scrollBy({
+        left: getScrollAmount() * 2,
+        behavior: 'smooth',
+      });
+    });
+  }
+
   // Initialize all functionality
   initStatsAnimation();
   initProcedureDropdown();
+  initSurgeonsCarousel();
 });
 
 // ===== TAB NAVIGATION (Clean & Efficient) =====
