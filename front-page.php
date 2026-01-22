@@ -320,6 +320,10 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 			<button class="carousel-nav carousel-next" aria-label="Next surgeons">
 				<i class="fa-solid fa-chevron-right" aria-hidden="true"></i>
 			</button>
+
+			<div class="carousel-counter" aria-live="polite" aria-atomic="true">
+				<span class="carousel-current">1</span>/<span class="carousel-total"><?php echo esc_html( (string) $surgeons_query->post_count ); ?></span>
+			</div>
 		</div>
 	</div>
 </section>

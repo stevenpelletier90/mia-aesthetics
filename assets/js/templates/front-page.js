@@ -178,8 +178,10 @@ document.addEventListener('DOMContentLoaded', function () {
     const carousel = document.querySelector('.surgeons-carousel');
     const prevBtn = document.querySelector('.surgeons-carousel-wrapper .carousel-prev');
     const nextBtn = document.querySelector('.surgeons-carousel-wrapper .carousel-next');
+    const currentCounter = document.querySelector('.carousel-current');
+    const slides = carousel ? carousel.querySelectorAll('.surgeon-slide') : [];
 
-    if (!carousel || !prevBtn || !nextBtn) {
+    if (!carousel) {
       return;
     }
 
@@ -189,25 +191,43 @@ document.addEventListener('DOMContentLoaded', function () {
       if (!slide) {
         return 300;
       }
-      const slideStyle = window.getComputedStyle(slide);
       const slideWidth = slide.offsetWidth;
       const gap = parseInt(window.getComputedStyle(carousel).gap, 10) || 24;
       return slideWidth + gap;
     }
 
-    prevBtn.addEventListener('click', function () {
-      carousel.scrollBy({
-        left: -getScrollAmount() * 2,
-        behavior: 'smooth',
-      });
-    });
+    // Update counter based on scroll position
+    function updateCounter() {
+      if (!currentCounter || 0 === slides.length) {
+        return;
+      }
+      const scrollLeft = carousel.scrollLeft;
+      const slideWidth = getScrollAmount();
+      const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
+      currentCounter.textContent = Math.min(currentIndex, slides.length);
+    }
 
-    nextBtn.addEventListener('click', function () {
-      carousel.scrollBy({
-        left: getScrollAmount() * 2,
-        behavior: 'smooth',
+    // Listen to scroll events to update counter
+    carousel.addEventListener('scroll', updateCounter, { passive: true });
+
+    // Initial counter update
+    updateCounter();
+
+    if (prevBtn && nextBtn) {
+      prevBtn.addEventListener('click', function () {
+        carousel.scrollBy({
+          left: -getScrollAmount(),
+          behavior: 'smooth',
+        });
       });
-    });
+
+      nextBtn.addEventListener('click', function () {
+        carousel.scrollBy({
+          left: getScrollAmount(),
+          behavior: 'smooth',
+        });
+      });
+    }
   }
 
   // Initialize all functionality

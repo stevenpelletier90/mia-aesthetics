@@ -375,6 +375,7 @@
 .surgeons-carousel-wrapper {
   position: relative;
   padding: 0 3rem;
+  margin-bottom: 2.5rem;
 }
 
 .surgeons-carousel {
@@ -404,14 +405,6 @@
   border-radius: var(--radius-md);
   overflow: hidden;
   height: 100%;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
-}
-
-.homepage-surgeon-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 
 .homepage-surgeon-image {
@@ -442,11 +435,6 @@
 .homepage-surgeon-name a {
   color: var(--mia-white);
   text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.homepage-surgeon-name a:hover {
-  color: var(--mia-gold);
 }
 
 .homepage-surgeon-location {
@@ -466,11 +454,6 @@
 .homepage-surgeon-location a {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
-  transition: color 0.2s ease;
-}
-
-.homepage-surgeon-location a:hover {
-  color: var(--mia-gold);
 }
 
 .homepage-surgeon-bio-link {
@@ -481,20 +464,10 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  transition: color 0.2s ease;
-}
-
-.homepage-surgeon-bio-link:hover {
-  color: var(--mia-white);
 }
 
 .homepage-surgeon-bio-link i {
   font-size: 0.75rem;
-  transition: transform 0.2s ease;
-}
-
-.homepage-surgeon-bio-link:hover i {
-  transform: translateX(4px);
 }
 
 /* Carousel Navigation */
@@ -527,6 +500,26 @@
 
 .carousel-next {
   right: 0;
+}
+
+/* Carousel Counter */
+.carousel-counter {
+  position: absolute;
+  bottom: -2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-heading);
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--mia-black);
+  background: var(--mia-white);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--mia-gold);
+}
+
+.carousel-current {
+  color: var(--mia-gold-dark);
 }
 
 /* Responsive Carousel */
@@ -574,8 +567,8 @@
   }
 
   .surgeon-slide {
-    flex: 0 0 calc(50% - 0.5rem);
-    min-width: calc(50% - 0.5rem);
+    flex: 0 0 100%;
+    min-width: 100%;
   }
 
   .surgeons-carousel {
@@ -626,8 +619,8 @@
   }
 
   .surgeon-slide {
-    flex: 0 0 calc(50% - 0.375rem);
-    min-width: calc(50% - 0.375rem);
+    flex: 0 0 100%;
+    min-width: 100%;
   }
 
   .carousel-nav {
