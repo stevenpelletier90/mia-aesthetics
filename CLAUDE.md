@@ -2,6 +2,8 @@
 
 Project guide for the Mia Aesthetics WordPress theme. Written for AI-assisted development.
 
+<!-- Last verified: 2026-01-23 -->
+
 ## Project Overview
 
 **Mia Aesthetics** is a premium WordPress theme for cosmetic surgery practices.
