@@ -186,7 +186,7 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Get the width of one slide including gap
-    function getScrollAmount() {
+    function getSingleSlideWidth() {
       const slide = carousel.querySelector('.surgeon-slide');
       if (!slide) {
         return 300;
@@ -196,13 +196,25 @@ document.addEventListener('DOMContentLoaded', function () {
       return slideWidth + gap;
     }
 
-    // Update counter based on scroll position
+    // Get number of visible slides in the carousel viewport
+    function getVisibleCount() {
+      const carouselWidth = carousel.offsetWidth;
+      const slideWidth = getSingleSlideWidth();
+      return Math.max(1, Math.round(carouselWidth / slideWidth));
+    }
+
+    // Get scroll amount based on visible slides
+    function getScrollAmount() {
+      return getSingleSlideWidth() * getVisibleCount();
+    }
+
+    // Update counter based on scroll position (simple slide number for mobile)
     function updateCounter() {
       if (!currentCounter || 0 === slides.length) {
         return;
       }
       const scrollLeft = carousel.scrollLeft;
-      const slideWidth = getScrollAmount();
+      const slideWidth = getSingleSlideWidth();
       const currentIndex = Math.round(scrollLeft / slideWidth) + 1;
       currentCounter.textContent = Math.min(currentIndex, slides.length);
     }

@@ -268,7 +268,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 									if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
 										echo wp_get_attachment_image(
 											(int) $headshot_id,
-											'medium',
+											'medium_large',
 											false,
 											array(
 												'class' => 'homepage-surgeon-headshot',
@@ -276,7 +276,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 											)
 										);
 									elseif ( has_post_thumbnail() ) :
-										the_post_thumbnail( 'medium', array( 'class' => 'homepage-surgeon-headshot' ) );
+										the_post_thumbnail( 'medium_large', array( 'class' => 'homepage-surgeon-headshot' ) );
 									endif;
 									?>
 								</div>
