@@ -240,7 +240,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
 								<?php endif; ?>
-								<a href="<?php echo esc_url( home_url( '/patient-resources/surgical-journey/' ) ); ?>" class="resource-link">
+								<a href="<?php echo esc_url( home_url( '/surgical-journey/' ) ); ?>" class="resource-link">
 									<i class="fas fa-route" aria-hidden="true"></i>
 									<span>Your Surgical Journey</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
