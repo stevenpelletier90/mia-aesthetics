@@ -226,8 +226,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		<div class="row mb-4 text-center">
 			<div class="col-12">
 				<p class="surgeons-tagline mb-3">Our Team</p>
-				<h2 class="section-heading">Meet Our Surgeons</h2>
-				<p class="section-description">Board-certified plastic surgeons dedicated to delivering exceptional results</p>
+				<h2 class="section-heading">Meet Our Surgeons</h2>				
 			</div>
 		</div>
 

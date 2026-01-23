@@ -386,6 +386,10 @@ function mia_get_template_asset_map(): array {
 			'css' => 'templates/page-case-category.css',
 			'js'  => 'templates/page-case-category.js',
 		),
+		'page-city-guide'             => array(
+			'css' => 'templates/page-city-guide.css',
+			'js'  => 'templates/page-city-guide.js',
+		),
 		'page-condition-layout'       => array(
 			'css' => 'templates/page-condition-layout.css',
 			'js'  => 'templates/page-condition-layout.js',

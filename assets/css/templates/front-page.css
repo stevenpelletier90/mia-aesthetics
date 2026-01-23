@@ -607,12 +607,12 @@
   }
 
   .surgeons-carousel-wrapper {
-    padding: 0;
+    padding: 0 2.5rem;
     overflow: visible;
   }
 
   .surgeons-carousel {
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0;
     gap: 0.75rem;
     overflow-x: scroll;
     -webkit-overflow-scrolling: touch;
@@ -624,7 +624,9 @@
   }
 
   .carousel-nav {
-    display: none;
+    width: 28px;
+    height: 28px;
+    font-size: 0.75rem;
   }
 
   .homepage-surgeon-info {
