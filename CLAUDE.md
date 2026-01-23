@@ -19,19 +19,32 @@ Project guide for the Mia Aesthetics WordPress theme. Written for AI-assisted de
 - Medical advertising compliance
 - WCAG 2.1 AA accessibility
 
+## Environment Requirements
+
+- **PHP:** 8.1+ (compatible through 8.4)
+- **WordPress:** 6.x
+- **Node:** 18+
+- **Composer:** 2.x
+- **Hosting:** WP Engine (staging + production environments)
+
 ## Development Commands
 
 ```bash
-npm run build:vendor   # Build vendor assets
+# Setup
 npm install && composer install
+npm run build:vendor   # Build Bootstrap + FontAwesome
 
 # Linting
-npm run lint           # JS + CSS
-npm run phpcs          # PHP CodeSniffer
-npm run phpstan        # Static analysis
-npm run format         # Prettier formatting
+npm run lint           # JS + CSS (ESLint + Stylelint)
+npm run phpcs          # PHP CodeSniffer check
+npm run phpcs:fix      # Auto-fix PHP issues
+npm run phpstan        # Static analysis (Level 8)
+npm run format         # Prettier format all
+npm run format:check   # Check formatting without writing
 
-composer qa            # Run all PHP checks
+# Full QA Pipeline
+composer qa            # Run phpcbf → phpcs → phpstan
+composer qa:reports    # Generate JSON reports in /reports
 ```
 
 ## Design System
@@ -39,22 +52,39 @@ composer qa            # Run all PHP checks
 ### Color Tokens (`assets/css/base.css`)
 
 ```css
+/* Brand Colors */
 --mia-black: #1b1b1b;        /* Primary backgrounds, body text */
 --mia-pure-black: #000000;   /* Deep backgrounds, gradients */
 --mia-gold: #c8b273;         /* Primary accent, CTAs */
 --mia-gold-dark: #be9e42;    /* Hover states */
 --mia-gold-light: #f9f5ee;   /* Light section backgrounds */
 --mia-white: #ffffff;        /* Text on dark, cards */
+--mia-gray-dark: #222;       /* Dark gray backgrounds */
 --mia-gray-muted: #666;      /* Muted text */
---mia-gold-10 through --mia-gold-50  /* Opacity variants */
+
+/* Link Colors */
+--mia-link: #0066cc;         /* Default link color */
+--mia-link-visited: #551a8b; /* Visited links */
+--mia-link-hover: #004499;   /* Link hover state */
+
+/* Gold Opacity Variants */
+--mia-gold-10 through --mia-gold-50  /* 10%-50% opacity */
+
+/* Z-Index Scale */
+--z-sticky: 1020;            /* Sticky elements */
+--z-tooltip: 1070;           /* Tooltips */
+--z-header: 9999;            /* Site header */
 ```
 
 ### Typography
 
 ```css
---font-heading: 'Montserrat', sans-serif; /* Headlines, nav, buttons - weight 600 */
---font-body: 'Open Sans', sans-serif; /* Body text - weight 400 */
+--font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+--font-body: 'Open Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 ```
+
+- **Headings:** Montserrat, weight 600
+- **Body:** Open Sans, weight 400
 
 ### Border Radius
 
@@ -64,18 +94,25 @@ composer qa            # Run all PHP checks
 --radius-md: 8px; /* Stat boxes */
 --radius-lg: 12px; /* Feature sections */
 --radius-full: 50%; /* Circles */
+--radius-DEFAULT: 4px; /* Default fallback */
 ```
 
 ### Button Classes (`assets/css/components/button.css`)
 
-| Class                       | Use Case                          |
-| --------------------------- | --------------------------------- |
-| `.btn-primary`              | Gold/Black - Primary CTAs         |
-| `.btn-secondary`            | Black/White - Secondary actions   |
-| `.btn-outline-primary`      | Gold outline - Light backgrounds  |
-| `.btn-outline-primary-alt2` | White outline - Dark backgrounds  |
-| `.btn-blur`                 | Glassmorphism - Over images/video |
-| `.btn-gradient`             | Black gradient - Premium feel     |
+| Class                         | Use Case                             |
+| ----------------------------- | ------------------------------------ |
+| `.btn-primary`                | Gold/Black - Primary CTAs            |
+| `.btn-secondary`              | Black/White - Secondary actions      |
+| `.btn-outline-primary`        | Gold outline - Light backgrounds     |
+| `.btn-outline-primary-alt`    | Gold outline, black text - Light BGs |
+| `.btn-outline-primary-alt2`   | Gold outline, white text - Dark BGs  |
+| `.btn-outline-secondary`      | Black outline - Light backgrounds    |
+| `.btn-outline-secondary-alt`  | Black outline, white text - Dark BGs |
+| `.btn-outline-secondary-alt2` | Black outline, gold text - Dark BGs  |
+| `.btn-blur`                   | Glassmorphism - Over images/video    |
+| `.btn-gradient`               | Black gradient - Premium feel        |
+| `.btn-sm`                     | Small button size                    |
+| `.btn-lg`                     | Large button size                    |
 
 ## Project Architecture
 
@@ -84,38 +121,79 @@ composer qa            # Run all PHP checks
 ```bash
 assets/
   css/
-    base.css              <- Design tokens
-    archives/             <- Archive styles
-    components/           <- Reusable components
-    pages/                <- Page template styles
-    singles/              <- Single post type styles
+    base.css              <- Design tokens, typography, utilities
+    header.css            <- Header/navigation styles
+    footer.css            <- Footer styles
+    fonts.css             <- Font face declarations
+    components/           <- Reusable component styles
+      button.css          <- Button variants
+      breadcrumb.css      <- Breadcrumb navigation
+      faq.css             <- FAQ accordion
+      consultation-*.css  <- CTA and form styles
+      case-card.css       <- Case study cards
+      location-search.css <- Location finder
+    templates/            <- All template styles (pages, singles, archives)
   js/
     (mirrors css structure)
   vendor/                 <- Bootstrap, FontAwesome
+
+components/               <- PHP template parts
+  breadcrumb.php          <- Breadcrumb component
+  faq.php                 <- FAQ section
+  consultation-cta.php    <- Consultation CTA block
+  consultation-form.php   <- Consultation form
+  case-card.php           <- Case study card
+  careers-cta.php         <- Careers CTA block
+  consent-modal.php       <- Consent modal
 
 inc/
   enqueue.php             <- Asset loading
   template-helpers.php    <- Display functions
   media-helpers.php       <- Image handling
-  menu-helpers.php        <- Navigation
-  schema.php              <- JSON-LD structured data
+  menu-helpers.php        <- Navigation rendering
+  menus.php               <- Menu registration
+  queries.php             <- Custom WP_Query helpers
+  cache-helpers.php       <- Caching utilities
+  theme-support.php       <- Theme features
+  cta-display.php         <- CTA display logic
+  breadcrumb-display.php  <- Breadcrumb display logic
+  display-control-helpers.php <- Display toggles
+  location-search.php     <- Location search AJAX
+  social-media-helpers.php <- Social media functions
+  schema/                 <- JSON-LD structured data
+    class-schema-loader.php
+    class-*-schema.php    <- Post type schema classes
+    trait-video-schema.php
 ```
 
 ### Adding Template Assets
 
-1. Create: `assets/css/pages/page-{name}.css`
+1. Create: `assets/css/templates/page-{name}.css`
 2. Register in `mia_get_template_asset_map()` in `inc/enqueue.php`:
 
 ```php
 'page-my-template' => array(
-  'css' => 'pages/page-my-template.css',
-  'js'  => 'pages/page-my-template.js',
+  'css' => 'templates/page-my-template.css',
+  'js'  => 'templates/page-my-template.js',
 ),
 ```
 
 ### Custom Post Types
 
 `surgeon`, `procedure`, `non-surgical`, `location`, `case`, `special`, `condition`, `fat-transfer`
+
+### Key Files
+
+| File                   | Purpose                                           |
+| ---------------------- | ------------------------------------------------- |
+| `functions.php`        | Theme bootstrap - loads all inc/ modules in order |
+| `style.css`            | Theme metadata (name, version, description)       |
+| `header.php`           | Global header, navigation, offcanvas menu         |
+| `footer.php`           | Global footer, scripts                            |
+| `front-page.php`       | Homepage template                                 |
+| `inc/enqueue.php`      | All CSS/JS asset loading + template asset map     |
+| `inc/menu-helpers.php` | Navigation rendering (mega menus, dropdowns)      |
+| `inc/schema.php`       | JSON-LD structured data loader                    |
 
 ## WordPress Patterns
 
@@ -182,7 +260,14 @@ if ( $image_id && is_numeric( $image_id ) ) {
 }
 ```
 
-**Common Fields:** `faq_section`, `surgeon_headshot`, `surgeon_location`, `specialties`, `video_details`, `show_consultation_cta`
+**Common Fields by Post Type:**
+
+- **Surgeon:** `surgeon_headshot`, `surgeon_location`, `specialty_1`-`specialty_5`, `board_certified`, `medical_school`
+- **Location:** `phone_number`, `location_map`, `location_maps_link`, `business_hours`, `city_guide`, `average_rating`, `review_count`
+- **Procedure/Treatment:** `procedure_price`, `non_surgical_price`, `related_procedures`, `overview_details`, `faq_section`
+- **Case:** `case_information`
+- **Display Control:** `show_consultation_form`, `cta_display_override`, `breadcrumb_display_override`
+- **Options Pages:** `cta_defaults`, `breadcrumb_defaults`, `hero_banner_*`
 
 ## PHP Standards
 
@@ -301,6 +386,16 @@ Reference: [Claude Cookbook - Frontend Aesthetics](https://github.com/anthropics
 - Unescaped output, ACF without null checks, hardcoded URLs, missing `@package`
 
 **WordPress:** Direct DB queries (use WP_Query), enqueueing outside `wp_enqueue_scripts`
+
+## Gotchas
+
+- **Windows paths:** npm scripts use PowerShell wrappers for PHP tools (`phpcs`, `phpstan`)
+- **PHPStan memory:** Requires 2GB memory limit (`--memory-limit=2G` already configured)
+- **Dropdown toggles:** Navigation dropdowns should link to real pages, not `href="#"` (causes SEO issues)
+- **ACF option fields:** Use `get_field('field_name', 'option')` for options pages
+- **Template assets:** Must register in `mia_get_template_asset_map()` or CSS/JS won't load
+- **Bootstrap buttons:** Always override with `.btn-primary` etc. to avoid default blue
+- **WP Engine cache:** Purge page cache after theme updates (WP Engine dashboard or admin bar)
 
 ## Reference Links
 

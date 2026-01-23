@@ -107,7 +107,7 @@ if ( is_singular( 'surgeon' ) ) {
 								</li>
 								<!-- 9. Patient Portal -->
 								<li class="nav-item dropdown">
-									<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-controls="patient-portal-menu">
+									<a class="nav-link dropdown-toggle" href="https://patient.miaaesthetics.com/s/login?ec=302&amp;startURL=%2Fs%2Fhome" target="_blank" rel="noopener" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true" id="patient-portal-dropdown" aria-controls="patient-portal-menu">
 										<?php esc_html_e( 'Patient Portal', 'mia-aesthetics' ); ?>
 										<i class="fa-solid fa-chevron-down d-xl-none"></i>
 									</a>
