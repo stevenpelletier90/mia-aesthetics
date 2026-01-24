@@ -114,9 +114,9 @@ get_header();
 											</div>
 										<?php endif; ?>
 										<div class="special-card-body">
-											<h3 class="special-card-title">
+											<h2 class="special-card-title">
 												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-											</h3>
+											</h2>
 											<?php if ( has_excerpt() ) : ?>
 												<div class="special-card-excerpt">
 													<?php the_excerpt(); ?>
@@ -140,9 +140,9 @@ get_header();
 										</a>
 									</div>
 									<div class="special-card-body">
-										<h3 class="special-card-title">
+										<h2 class="special-card-title">
 											<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>">Skinny Shot Special</a>
-										</h3>
+										</h2>
 										<div class="special-card-excerpt">
 											<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
 										</div>
@@ -161,9 +161,9 @@ get_header();
 										</a>
 									</div>
 									<div class="special-card-body">
-										<h3 class="special-card-title">
+										<h2 class="special-card-title">
 											<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">J-Plasma Skin Tightening</a>
-										</h3>
+										</h2>
 										<div class="special-card-excerpt">
 											<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
 										</div>
@@ -216,9 +216,9 @@ get_header();
 											</div>
 										<?php endif; ?>
 										<div class="special-card-body">
-											<h3 class="special-card-title">
+											<h2 class="special-card-title">
 												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
-											</h3>
+											</h2>
 											<?php if ( has_excerpt() ) : ?>
 												<div class="special-card-excerpt">
 													<?php the_excerpt(); ?>
@@ -242,9 +242,9 @@ get_header();
 										</a>
 									</div>
 									<div class="special-card-body">
-										<h3 class="special-card-title">
+										<h2 class="special-card-title">
 											<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>">Skinny Shot Special</a>
-										</h3>
+										</h2>
 										<div class="special-card-excerpt">
 											<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
 										</div>
@@ -263,9 +263,9 @@ get_header();
 										</a>
 									</div>
 									<div class="special-card-body">
-										<h3 class="special-card-title">
+										<h2 class="special-card-title">
 											<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">J-Plasma Skin Tightening</a>
-										</h3>
+										</h2>
 										<div class="special-card-excerpt">
 											<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
 										</div>

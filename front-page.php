@@ -337,8 +337,10 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 		muted
 		loop
 		playsinline
+		aria-hidden="true"
 		class="video-bg">
 		<source src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/home-video.mp4' ) ); ?>" type="video/mp4">
+		<track kind="captions" src="data:text/vtt,WEBVTT" label="No captions needed" default>
 		Your browser does not support the video tag.
 	</video>
 	</div>

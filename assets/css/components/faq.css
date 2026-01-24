@@ -7,18 +7,26 @@
     0 2px 4px -1px rgba(0, 0, 0, 0.06);
 }
 
+.faqs-section {
+  max-width: 850px;
+  margin-inline: auto;
+}
+
 .faqs-section h2 {
   color: var(--mia-black);
   font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  text-align: center;
   position: relative;
   padding-bottom: 1rem;
-  margin-bottom: 1.5rem;
 }
 
 .faqs-section h2::after {
   content: "";
   position: absolute;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   bottom: 0;
   width: 80px;
   height: 3px;
@@ -75,6 +83,19 @@
 }
 
 @media (max-width: 768px) {
+  .faqs-section {
+    max-width: none;
+  }
+
+  .faqs-section h2 {
+    text-align: left;
+  }
+
+  .faqs-section h2::after {
+    left: 0;
+    transform: none;
+  }
+
   .faq-container {
     padding: 1.5rem;
     border-radius: var(--radius-sm);

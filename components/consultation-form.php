@@ -50,7 +50,7 @@ $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
 			</p>
 		<?php endif; ?>
 
-		<div class="gf-wrapper" aria-label="<?php echo esc_attr( $card_title . ' Form' ); ?>">
+		<div class="gf-wrapper">
 			<?php
 			// Check if Gravity Forms is active.
 			if ( function_exists( 'gravity_form' ) ) {

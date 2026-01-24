@@ -39,9 +39,8 @@ get_header();
 		$faq_section = get_field( 'faq_section' );
 		if ( null !== $faq_section && is_array( $faq_section ) && isset( $faq_section['faqs'] ) && is_array( $faq_section['faqs'] ) && count( $faq_section['faqs'] ) > 0 ) :
 			?>
-		<section class="faq-section py-5 bg-light">
+		<section class="py-4 py-lg-5" aria-labelledby="faq-heading-<?php echo esc_attr( (string) get_the_ID() ); ?>">
 			<div class="container">
-				<h2 class="text-center mb-4">Frequently Asked Questions</h2>
 				<?php echo wp_kses_post( mia_aesthetics_display_faqs() ); ?>
 			</div>
 		</section>

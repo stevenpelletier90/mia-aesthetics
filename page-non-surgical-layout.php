@@ -87,7 +87,7 @@ if ( $current_post instanceof WP_Post ) {
 						</div>
 					</div>
 
-					<div class="d-flex flex-wrap justify-content-center gap-3" aria-label="Related resources">
+					<div class="d-flex flex-wrap justify-content-center gap-3">
 								<?php
 								$mia_aesthetics_related_treatments = get_field( 'related_procedures' );
 								if ( is_array( $mia_aesthetics_related_treatments ) && count( $mia_aesthetics_related_treatments ) > 0 ) :

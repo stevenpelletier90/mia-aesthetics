@@ -13,8 +13,8 @@
   width: 100%;
   padding: 1rem 3rem 1rem 1.5rem;
   font-size: 1.1rem;
-  border: 2px solid var(--mia-gold-light);
-  border-radius: var(--radius-full);
+  border: 2px solid var(--mia-gold);
+  border-radius: var(--radius-sm);
   outline: none;
   transition: all 0.2s ease;
   box-sizing: border-box;

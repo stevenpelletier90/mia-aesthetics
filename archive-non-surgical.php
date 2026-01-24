@@ -65,11 +65,11 @@ get_header(); ?>
 									</a>
 								</figure>
 								<div class="procedure-content">
-									<h3 class="procedure-title">
+									<h2 class="procedure-title">
 										<a href="<?php echo esc_url( $procedure_link ); ?>">
 											<?php echo esc_html( $procedure_title ); ?>
 										</a>
-									</h3>
+									</h2>
 									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary">
 										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
@@ -113,11 +113,11 @@ get_header(); ?>
 									</a>
 								</figure>
 								<div class="procedure-content">
-									<h3 class="procedure-title">
+									<h2 class="procedure-title">
 										<a href="<?php echo esc_url( $procedure_link ); ?>">
 											<?php echo esc_html( $procedure_title ); ?>
 										</a>
-									</h3>
+									</h2>
 									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary">
 										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>

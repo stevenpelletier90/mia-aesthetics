@@ -26,13 +26,7 @@ if ( ! is_array( $valid_faqs ) || 0 === count( $valid_faqs ) ) {
 }
 ?>
 
-<section class="faqs-section my-5"
-<?php
-if ( $show_heading ) {
-	echo 'aria-labelledby="faq-heading-' . esc_attr( (string) get_the_ID() ) . '"';
-}
-?>
->
+<div class="faqs-section">
 	<?php if ( $show_heading ) : ?>
 		<?php
 			$section_title = ! isset( $faq_section['title'] ) || '' === $faq_section['title']
@@ -77,4 +71,4 @@ if ( $show_heading ) {
 			</div>
 		<?php endforeach; ?>
 	</div>
-</section>
+</div>

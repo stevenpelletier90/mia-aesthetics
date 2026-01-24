@@ -330,7 +330,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 								<div class="surgeon-info">
 									<h3><?php the_title(); ?></h3>
 									<p>Plastic Surgeon</p>
-									<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm">
+									<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm" aria-label="View <?php echo esc_attr( get_the_title() ); ?>'s profile">
 										View Profile <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 									</a>
 								</div>

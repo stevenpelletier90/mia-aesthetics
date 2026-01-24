@@ -86,11 +86,11 @@ get_header();
 										</a>
 									</figure>
 									<div class="procedure-content">
-										<h3 class="procedure-title">
+										<h2 class="procedure-title">
 											<a href="<?php echo esc_url( $procedure_link ); ?>">
 												<?php echo esc_html( $procedure_title ); ?>
 											</a>
-										</h3>
+										</h2>
 										<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-outline-primary btn-sm" role="button">
 											Learn More
 										</a>
