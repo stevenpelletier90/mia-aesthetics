@@ -40,7 +40,7 @@ get_header();
 						<div class="location-list-item">
 							<div class="d-flex justify-content-between align-items-start">
 								<div class="location-info flex-grow-1">
-									<h3 class="h5 mb-2">
+									<h2 class="h5 mb-2">
 										<?php
 										$location_permalink = get_permalink();
 										if ( false !== $location_permalink ) :
@@ -51,7 +51,7 @@ get_header();
 										<?php else : ?>
 											<?php echo esc_html( get_the_title() ); ?>
 										<?php endif; ?>
-									</h3>
+									</h2>
 									<?php
 									if ( null !== $location_map && is_array( $location_map ) && count( $location_map ) > 0 ) :
 										$street = ( isset( $location_map['street_number'] ) ? $location_map['street_number'] : '' ) . ' ' . ( isset( $location_map['street_name'] ) ? $location_map['street_name'] : '' );

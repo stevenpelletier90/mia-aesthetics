@@ -207,24 +207,16 @@ get_header(); ?>
 					'title' => 'Featured Video 1',
 				),
 				array(
-					'id'    => 'sb8Kapy8mzU',
+					'id'    => 'ykz9Z8Kh3Yo',
 					'title' => 'Featured Video 2',
 				),
 				array(
-					'id'    => '4-B_ISCne28',
+					'id'    => 'oxp3W3KY0hc',
 					'title' => 'Featured Video 3',
 				),
 				array(
-					'id'    => 'ykz9Z8Kh3Yo',
-					'title' => 'Featured Video 4',
-				),
-				array(
-					'id'    => 'oxp3W3KY0hc',
-					'title' => 'Featured Video 5',
-				),
-				array(
 					'id'    => 'b6b0KaW2cXE',
-					'title' => 'Featured Video 6',
+					'title' => 'Featured Video 4',
 				),
 			);
 			?>

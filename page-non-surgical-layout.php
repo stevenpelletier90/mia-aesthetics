@@ -21,7 +21,7 @@ if ( $current_post instanceof WP_Post ) {
 	while ( have_posts() ) :
 		the_post();
 		?>
-<section class="treatment-hero position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
+<section class="treatment-hero position-relative overflow-hidden" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
 			<?php if ( false !== $mia_aesthetics_hero_id ) : ?>
 				<picture class="hero-picture">
 					<?php

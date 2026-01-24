@@ -40,11 +40,11 @@ if ( false === $case_permalink ) {
 		<?php endif; ?>
 
 		<div class="case-card-body">
-			<h3 class="case-card-title">
+			<h2 class="case-card-title">
 				<a href="<?php echo esc_url( $case_permalink ); ?>" class="case-title-link">
 					<?php the_title(); ?>
 				</a>
-			</h3>
+			</h2>
 
 			<div class="case-card-meta">
 				<?php if ( null !== $surgeon && false !== $surgeon ) : ?>

@@ -237,13 +237,13 @@ get_header(); ?>
 								if ( false !== $resource_permalink ) :
 									?>
 								<a href="<?php echo esc_url( $resource_permalink ); ?>" class="patient-info-card patient-info-card-link text-decoration-none">
-									<h5 class="h6">Resource</h5>
+									<h3 class="h6">Resource</h3>
 									<p class="mb-0"><?php echo esc_html( get_the_title( $resource_id ) ); ?></p>
 									<i class="fas fa-chevron-right patient-info-arrow" aria-hidden="true"></i>
 								</a>
 								<?php else : ?>
 								<div class="patient-info-card">
-									<h5 class="h6">Resource</h5>
+									<h3 class="h6">Resource</h3>
 									<p class="mb-0"><?php echo esc_html( get_the_title( $resource_id ) ); ?></p>
 								</div>
 								<?php endif; ?>

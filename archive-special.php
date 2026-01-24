@@ -8,11 +8,11 @@
 get_header();
 ?>
 
-<div class="specials-archive-page">
+<main id="primary" class="specials-archive-page">
 <?php mia_aesthetics_breadcrumbs(); ?>
 
 	<!-- 1. Hero Section -->
-	<header class="specials-hero text-center">
+	<section class="specials-hero text-center">
 		<div class="container">
 			<h1 class="main-heading">Current Specials</h1>
 			<p class="lead mb-4">Limited-time offers on your favorite treatments</p>
@@ -20,7 +20,7 @@ get_header();
 				Free Virtual Consultation <i class="fas fa-arrow-right" aria-hidden="true"></i>
 			</a>
 		</div>
-	</header>
+	</section>
 
 	<!-- 2. Language Toggle -->
 	<div class="specials-language-toggle py-3">
@@ -57,7 +57,7 @@ get_header();
 	</div>
 
 	<!-- 3. Specials Archive Grid -->
-	<main id="primary" class="specials-grid py-5">
+	<section class="specials-grid py-5">
 		<div class="container">
 
 			<?php
@@ -289,8 +289,8 @@ get_header();
 			<?php endif; ?>
 
 		</div> <!-- .container -->
-	</main>
+	</section>
 
-</div><!-- .specials-archive-page -->
+</main><!-- .specials-archive-page -->
 
 <?php get_footer(); ?>

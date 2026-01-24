@@ -80,11 +80,11 @@ $locations = new WP_Query(
 						<div class="city-guide-list-item">
 							<div class="d-flex justify-content-between align-items-start">
 								<div class="city-guide-info flex-grow-1">
-									<h3 class="h5 mb-2">
+									<h2 class="h5 mb-2">
 										<a href="<?php echo esc_url( $city_guide_url ); ?>" class="text-decoration-none">
 											<?php echo esc_html( get_the_title() ); ?>
 										</a>
-									</h3>
+									</h2>
 									<?php
 									if ( null !== $location_map && is_array( $location_map ) && count( $location_map ) > 0 ) :
 										$street = ( isset( $location_map['street_number'] ) ? $location_map['street_number'] : '' ) . ' ' . ( isset( $location_map['street_name'] ) ? $location_map['street_name'] : '' );

@@ -15,6 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 
 get_header(); ?>
 
+<main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
 <!-- Careers Landing Page HTML -->
 <section class="careers-hero py-5">
@@ -267,7 +268,7 @@ get_header(); ?>
 			<div class="benefit-icon mb-3">
 			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Health-Wellness.svg' ) ); ?>" alt="Health & Wellness" class="benefit-svg-icon">
 			</div>
-			<h4 class="benefit-title">Health & Wellness</h4>
+			<h3 class="benefit-title">Health & Wellness</h3>
 			<ul class="benefit-list">
 			<li><strong>Medical, Dental, and Vision:</strong> Available to employees, their dependents, and domestic partners</li>
 			<li><strong>Additional Benefits:</strong> Short-Term Disability, Long-Term Disability, Dependent Care Flexible Spending Account, Healthcare Flexible Spending Account</li>
@@ -282,7 +283,7 @@ get_header(); ?>
 			<div class="benefit-icon mb-3">
 			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/PTO.svg' ) ); ?>" alt="Time To Unwind" class="benefit-svg-icon">
 			</div>
-			<h4 class="benefit-title">Time To Unwind</h4>
+			<h3 class="benefit-title">Time To Unwind</h3>
 			<ul class="benefit-list">
 			<li><strong>Paid Time Off (PTO):</strong> Accrue from date of hire; PTO for vacation, personal appointments, illness, and other events</li>
 			<li><strong>Paid Holidays:</strong> Recognized company holidays throughout the calendar year</li>
@@ -297,7 +298,7 @@ get_header(); ?>
 			<div class="benefit-icon mb-3">
 			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Financial.svg' ) ); ?>" alt="Financial Well-Being" class="benefit-svg-icon">
 			</div>
-			<h4 class="benefit-title">Financial Well-Being</h4>
+			<h3 class="benefit-title">Financial Well-Being</h3>
 			<ul class="benefit-list">
 			<li><strong>Competitive Pay</strong></li>
 			<li><strong>401k with employer match & no vesting schedule</strong></li>
@@ -311,7 +312,7 @@ get_header(); ?>
 			<div class="benefit-icon mb-3">
 			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Other-Perks.svg' ) ); ?>" alt="Other Perks" class="benefit-svg-icon">
 			</div>
-			<h4 class="benefit-title">Other Perks</h4>
+			<h3 class="benefit-title">Other Perks</h3>
 			<ul class="benefit-list">
 			<li><strong>Discounts on service offerings</strong></li>
 			<li><strong>Celebratory company-wide event(s)</strong></li>
@@ -351,7 +352,7 @@ get_header(); ?>
 					"Dr. Valauri, Ana and Mo are Mia's Magic Trio! Mo will make you feel safe and welcome with her amazing customer service etiquette. Dr. Valauri did an amazing job. He delivered exactly what I asked for. My results exceeded my expectations."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Tampa Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -371,7 +372,7 @@ get_header(); ?>
 					"From my pre-op, Tajh was AWESOME, she made me very comfortable & gave reassurance. The nurses were AWESOME, but VANESSA, she is THE GOAT!! She's honest & has a gift of calmness. 10/10 definitely recommend."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -391,7 +392,7 @@ get_header(); ?>
 					"The experience at <span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> was awesome from Yesi my pre-op coordinator. Talking to Yesi was like talking to a friend, she is so nice and welcoming. Best person in the building!"
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -417,7 +418,7 @@ get_header(); ?>
 					"I can't say enough good things about my experience at this location—everything from the care I received to the amazing results. Nurse Vanessa was an absolute angel! She took such wonderful care of me after my procedure."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -437,7 +438,7 @@ get_header(); ?>
 					"I had Lipo 360 and my experience has been a great one. When I came in Gabi answered all my questions, she joked around with me and just truly made me feel comfortable. My experience has been so smooth and well organized."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -457,7 +458,7 @@ get_header(); ?>
 					"This is my second time having a procedure done with the amazing Dr. Wright at MIA. I cannot be more content with my choice. Dr Wright and her staff are all extremely helpful and supportive through it all."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -483,7 +484,7 @@ get_header(); ?>
 					"I had my bbl with lipo 360 surgery this morning with Dr. Charepoo. He's super informative and delightful. After I woke up, Julia was the best recovery nurse. She spoke to me so gentle and reassuring."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Austin Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -503,7 +504,7 @@ get_header(); ?>
 					"Amazing experience from my first interaction with the staff. I couldn't have asked for better customer service. The staff, specifically Audrey have been great to me by answering all questions and concerns."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Miami Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -523,7 +524,7 @@ get_header(); ?>
 					"Vanessa was an excellent nurse. She cared for me during the recovery process and was very attentive to my needs. She was very kind and compassionate. She made my recovery run with ease."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -549,7 +550,7 @@ get_header(); ?>
 					"I cannot express enough gratitude for the incredible care and compassion Nurse Vanessa provided to me following my surgery. She was kind, professional and very attentive. Dr. Fasusi was also exceptional! He embodies everything a great plastic surgeon should be."
 					</blockquote>
 					<div class="testimonial-author mt-auto">
-					<h5 class="author-name"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</h5>
+					<p class="author-name h5"><span class="mia-brand">Mia Aesthetics<span class="trademark">™</span></span> Patient</p>
 					<p class="author-location">Atlanta Location</p>
 					</div>
 					<div class="testimonial-stars mt-2">
@@ -593,6 +594,7 @@ get_header(); ?>
 	</div>
 	</div>
 </section>
+</main>
 
 <!-- Custom Careers Footer -->
 <footer class="careers-footer">

@@ -97,7 +97,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 		?>
 
 		<!-- Hero Section with Background Image -->
-		<section class="location-hero position-relative overflow-hidden" role="banner" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
+		<section class="location-hero position-relative overflow-hidden" aria-labelledby="page-title-<?php echo esc_attr( (string) get_the_ID() ); ?>">
 			<?php if ( false !== $mia_location_hero_id && 0 !== $mia_location_hero_id ) : ?>
 				<picture class="hero-picture">
 					<?php
