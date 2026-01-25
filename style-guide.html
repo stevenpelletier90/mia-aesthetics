@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="assets/css/fonts.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/components/button.css" />
+    <link rel="stylesheet" href="assets/css/components/faq.css" />
     <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css" />
     <style>
       .style-guide-section {
@@ -433,6 +434,47 @@
             <p class="small mb-2 text-white">Alternative Outlines</p>
             <button class="btn btn-outline-primary-alt2 me-2 mb-2">Gold + White Text</button>
             <button class="btn btn-outline-secondary-alt me-2 mb-2">Black + White Text</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- FAQ Accordion -->
+      <section id="faq" class="style-guide-section">
+        <h2>FAQ Accordion</h2>
+        <p class="section-intro">Styled accordion component for FAQ sections. Uses Font Awesome icons.</p>
+
+        <div class="faqs-section">
+          <div class="accordion" id="demoAccordion">
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">What procedures does Mia Aesthetics offer?</button>
+              </h3>
+              <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#demoAccordion">
+                <div class="accordion-body">
+                  Mia Aesthetics specializes in cosmetic surgery procedures including Brazilian Butt Lift (BBL), liposuction, tummy tuck, breast augmentation, and mommy makeover.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">How do I schedule a consultation?</button>
+              </h3>
+              <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
+                <div class="accordion-body">
+                  Schedule a free consultation by filling out our online form, calling our patient coordinators, or visiting one of our locations.
+                </div>
+              </div>
+            </div>
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">What financing options are available?</button>
+              </h3>
+              <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
+                <div class="accordion-body">
+                  We offer multiple financing options including partnerships with medical financing companies, flexible payment plans, and promotional offers.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
