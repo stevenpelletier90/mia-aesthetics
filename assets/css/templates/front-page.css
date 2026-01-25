@@ -54,7 +54,7 @@
 /* Hero CTA Button - matches banner black/gold theme */
 .hero-cta {
   background: rgba(0, 0, 0, 0.85);
-  border: 2px solid var(--mia-gold);
+  border: 1px solid var(--mia-gold);
   border-radius: 0;
   color: var(--mia-white);
   display: inline-block;
@@ -118,7 +118,7 @@
 
 .hero-box-overlay {
   align-items: center;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.7);
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -169,7 +169,7 @@
 
 .hero-box-link:hover .hero-box-overlay,
 .hero-box-link:focus .hero-box-overlay {
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .hero-box-link:hover .btn,
