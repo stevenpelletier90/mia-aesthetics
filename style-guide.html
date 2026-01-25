@@ -9,7 +9,6 @@
     <link rel="stylesheet" href="assets/css/fonts.css" />
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/components/button.css" />
-    <link rel="stylesheet" href="assets/css/templates/page-virtual-consultation.css" />
     <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css" />
     <style>
       .style-guide-section {
@@ -81,6 +80,7 @@
       .swatch-gray-dark { background: var(--mia-gray-dark); }
       .swatch-gray-light { background: var(--mia-gray-light); }
       .swatch-link { background: var(--mia-link); }
+      .swatch-link-visited { background: var(--mia-link-visited); }
       .swatch-link-hover { background: var(--mia-link-hover); }
       .swatch-gold-10 { background: var(--mia-gold-10); }
       .swatch-gold-20 { background: var(--mia-gold-20); }
@@ -114,8 +114,8 @@
         <h2>Design Tokens</h2>
         <p class="section-intro">CSS custom properties that define the visual language of the Mia Aesthetics brand.</p>
 
-        <!-- Color Palette -->
-        <h3>Color Palette</h3>
+        <!-- Brand Colors -->
+        <h3>Brand Colors</h3>
         <div class="row g-3 mb-4">
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
@@ -136,6 +136,13 @@
               <div class="color-swatch-box swatch-gold-light"></div>
               <div class="color-swatch-name">Gold Light</div>
               <div class="color-swatch-value">--mia-gold-light<br />#f9f5ee</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-gold-aaa"></div>
+              <div class="color-swatch-name">Gold AAA</div>
+              <div class="color-swatch-value">--mia-gold-aaa<br />#e8d5a3</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
@@ -161,8 +168,48 @@
           </div>
         </div>
 
-        <!-- Gold Alpha Values -->
-        <h4>Gold Alpha Values</h4>
+        <!-- Neutrals & Links -->
+        <h3>Neutrals &amp; Links</h3>
+        <div class="row g-3 mb-4">
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-gray-dark"></div>
+              <div class="color-swatch-name">Gray Dark</div>
+              <div class="color-swatch-value">--mia-gray-dark<br />#222</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-gray-light"></div>
+              <div class="color-swatch-name">Gray Light</div>
+              <div class="color-swatch-value">--mia-gray-light<br />#dee2e6</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-link"></div>
+              <div class="color-swatch-name">Link</div>
+              <div class="color-swatch-value">--mia-link<br />#0066cc</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-link-hover"></div>
+              <div class="color-swatch-name">Link Hover</div>
+              <div class="color-swatch-value">--mia-link-hover<br />#004499</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-link-visited"></div>
+              <div class="color-swatch-name">Link Visited</div>
+              <div class="color-swatch-value">--mia-link-visited<br />#551a8b</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Gold Opacity -->
+        <h3>Gold Opacity</h3>
         <div class="row g-3 mb-4">
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
@@ -201,49 +248,9 @@
           </div>
         </div>
 
-        <!-- Utility Colors -->
-        <h4>Utility Colors</h4>
-        <div class="row g-3 mb-4">
-          <div class="col-6 col-md-4 col-lg-2">
-            <div class="color-swatch">
-              <div class="color-swatch-box swatch-gray-dark"></div>
-              <div class="color-swatch-name">Gray Dark</div>
-              <div class="color-swatch-value">--mia-gray-dark<br />#222</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <div class="color-swatch">
-              <div class="color-swatch-box swatch-gray-light"></div>
-              <div class="color-swatch-name">Gray Light</div>
-              <div class="color-swatch-value">--mia-gray-light<br />#dee2e6</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <div class="color-swatch">
-              <div class="color-swatch-box swatch-gold-aaa"></div>
-              <div class="color-swatch-name">Gold AAA</div>
-              <div class="color-swatch-value">--mia-gold-aaa<br />#e8d5a3</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <div class="color-swatch">
-              <div class="color-swatch-box swatch-link"></div>
-              <div class="color-swatch-name">Link</div>
-              <div class="color-swatch-value">--mia-link<br />#0066cc</div>
-            </div>
-          </div>
-          <div class="col-6 col-md-4 col-lg-2">
-            <div class="color-swatch">
-              <div class="color-swatch-box swatch-link-hover"></div>
-              <div class="color-swatch-name">Link Hover</div>
-              <div class="color-swatch-value">--mia-link-hover<br />#004499</div>
-            </div>
-          </div>
-        </div>
-
         <!-- Border Radius -->
-        <h4>Border Radius</h4>
-        <div class="table-responsive">
+        <h3>Border Radius</h3>
+        <div class="table-responsive mb-4">
           <table class="table token-table">
             <thead>
               <tr>
@@ -281,12 +288,43 @@
             </tbody>
           </table>
         </div>
+
+        <!-- Z-Index -->
+        <h3>Z-Index</h3>
+        <div class="table-responsive">
+          <table class="table token-table">
+            <thead>
+              <tr>
+                <th>Token</th>
+                <th>Value</th>
+                <th>Usage</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>--z-sticky</code></td>
+                <td>1020</td>
+                <td>Sticky elements, sidebars</td>
+              </tr>
+              <tr>
+                <td><code>--z-tooltip</code></td>
+                <td>1070</td>
+                <td>Tooltips, popovers</td>
+              </tr>
+              <tr>
+                <td><code>--z-header</code></td>
+                <td>9999</td>
+                <td>Site header, navigation</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
       </section>
 
       <!-- Typography -->
       <section id="typography" class="style-guide-section">
-        <h2>Typography System</h2>
-        <p class="section-intro">Montserrat for headings and Open Sans for body text, optimized for readability and brand consistency.</p>
+        <h2>Typography</h2>
+        <p class="section-intro">Montserrat for headings (uppercase, weight 600) and Open Sans for body text (weight 400).</p>
 
         <!-- Font Stacks -->
         <h3>Font Stacks</h3>
@@ -294,7 +332,7 @@
           <div class="mb-4">
             <h4>Montserrat - Headings</h4>
             <p class="mb-1"><code>--font-heading</code></p>
-            <p class="mb-0">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789</p>
+            <p class="mb-0">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />0123456789</p>
           </div>
           <div>
             <h4>Open Sans - Body</h4>
@@ -305,57 +343,45 @@
 
         <!-- Headings -->
         <h3>Headings</h3>
+        <p class="small mb-3">All headings are uppercase with weight 600.</p>
         <div class="component-example component-example--white">
           <h1>H1 - Page Title (2.5rem)</h1>
           <h2>H2 - Section Heading (2rem)</h2>
-          <h3>H3 - Subsection Heading (1.75rem)</h3>
-          <h4>H4 - Content Heading (clamp: 1.25rem → 1.75rem)</h4>
-          <h5>H5 - Small Heading (clamp: 1.125rem → 1.5rem)</h5>
-          <h6>H6 - Micro Heading (clamp: 1rem → 1.25rem)</h6>
+          <h3>H3 - Subsection (1.75rem)</h3>
+          <h4>H4 - Content Heading</h4>
+          <h5>H5 - Small Heading</h5>
+          <h6>H6 - Micro Heading</h6>
         </div>
 
         <!-- Body Text -->
         <h3>Body Text</h3>
         <div class="component-example component-example--white">
-          <p class="lead">Lead paragraph - larger introductory text for hero sections and article intros. Perfect for drawing attention to key messaging.</p>
-          <p>Regular paragraph text - the standard body text optimized for readability with proper line spacing (1.625) and comfortable reading. This text should be easily scannable and accessible across all devices.</p>
-          <p>
-            <small>Small text for captions, disclaimers, and secondary information that supports the main content.</small>
-          </p>
-        </div>
-
-        <!-- Text Utilities -->
-        <h3>Text Color Utilities</h3>
-        <div class="component-example component-example--white">
-          <p class="text-mia-gold mb-2">.text-mia-gold - Brand gold for highlights</p>
-          <p class="text-mia-black mb-2">.text-mia-black - Primary text color</p>
-          <div class="bg-mia-black p-3 rounded">
-            <p class="text-mia-white mb-2">.text-mia-white - For dark backgrounds</p>
-            <p class="text-mia-gold mb-0">.text-mia-gold - Gold on dark for emphasis</p>
-          </div>
+          <p class="lead">Lead paragraph for hero sections and article intros.</p>
+          <p>Regular paragraph text with line-height 1.625 for comfortable reading.</p>
+          <p><small>Small text for captions and secondary information.</small></p>
         </div>
       </section>
 
       <!-- Buttons -->
       <section id="buttons" class="style-guide-section">
-        <h2>Button System</h2>
-        <p class="section-intro">10 button variants with 3 sizes, refined spacing, and smooth transitions. Includes multiple outline options for any background context.</p>
+        <h2>Buttons</h2>
+        <p class="section-intro">10 button variants with 3 sizes and smooth transitions.</p>
 
         <!-- Button Sizes -->
-        <h3>Button Sizes</h3>
+        <h3>Sizes</h3>
         <div class="component-example component-example--white">
           <div class="mb-3">
-            <h6 class="mb-2">Small (.btn-sm)</h6>
+            <p class="small mb-2">Small (.btn-sm)</p>
             <button class="btn btn-primary btn-sm me-2 mb-2"><i class="fa-solid fa-calendar-check"></i> Small Primary</button>
             <button class="btn btn-secondary btn-sm me-2 mb-2">Small Secondary <i class="fa-solid fa-arrow-right"></i></button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2">Default</h6>
+            <p class="small mb-2">Default</p>
             <button class="btn btn-primary me-2 mb-2"><i class="fa-solid fa-calendar-check"></i> Default Primary</button>
             <button class="btn btn-secondary me-2 mb-2">Default Secondary <i class="fa-solid fa-arrow-right"></i></button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2">Large (.btn-lg)</h6>
+            <p class="small mb-2">Large (.btn-lg)</p>
             <button class="btn btn-primary btn-lg me-2 mb-2"><i class="fa-solid fa-calendar-check"></i> Large Primary</button>
             <button class="btn btn-secondary btn-lg me-2 mb-2">Large Secondary <i class="fa-solid fa-arrow-right"></i></button>
           </div>
@@ -365,34 +391,27 @@
         <h3>On Light Background</h3>
         <div class="component-example component-example--white">
           <div class="mb-3">
-            <h6 class="mb-2">Core Buttons</h6>
+            <p class="small mb-2">Core Buttons</p>
             <button class="btn btn-primary me-2 mb-2">Primary (Gold)</button>
             <button class="btn btn-secondary me-2 mb-2">Secondary (Black)</button>
             <button class="btn btn-outline-primary me-2 mb-2">Outline Primary</button>
             <button class="btn btn-outline-secondary me-2 mb-2">Outline Secondary</button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2">Alternative Outline - Set 1</h6>
-            <button class="btn btn-outline-primary-alt me-2 mb-2">Gold Border + Black Text</button>
-            <button class="btn btn-outline-secondary-alt me-2 mb-2">Black Border + White Text</button>
+            <p class="small mb-2">Alternative Outlines</p>
+            <button class="btn btn-outline-primary-alt me-2 mb-2">Gold + Black Text</button>
+            <button class="btn btn-outline-secondary-alt2 me-2 mb-2">Black + Gold Text</button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2">Alternative Outline - Set 2</h6>
-            <button class="btn btn-outline-primary-alt2 me-2 mb-2">Gold Border + White Text</button>
-            <button class="btn btn-outline-secondary-alt2 me-2 mb-2">Black Border + Gold Text</button>
-          </div>
-          <div class="mb-3">
-            <h6 class="mb-2">With Icons (Arrow Animation on Hover)</h6>
+            <p class="small mb-2">With Icons</p>
             <button class="btn btn-primary me-2 mb-2"><i class="fa-solid fa-calendar-check"></i> Schedule</button>
             <button class="btn btn-secondary me-2 mb-2"><i class="fa-solid fa-phone"></i> Call Now</button>
             <button class="btn btn-outline-primary me-2 mb-2">Learn More <i class="fa-solid fa-arrow-right"></i></button>
-            <button class="btn btn-outline-secondary me-2 mb-2"><i class="fa-solid fa-arrow-left"></i> Back</button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2">Disabled States</h6>
+            <p class="small mb-2">Disabled</p>
             <button class="btn btn-primary me-2 mb-2" disabled>Primary Disabled</button>
             <button class="btn btn-secondary me-2 mb-2" disabled>Secondary Disabled</button>
-            <button class="btn btn-outline-primary me-2 mb-2" disabled>Outline Disabled</button>
           </div>
         </div>
 
@@ -400,27 +419,20 @@
         <h3>On Dark Background</h3>
         <div class="component-example component-example--dark">
           <div class="mb-3">
-            <h6 class="mb-2 text-white">Core Buttons</h6>
+            <p class="small mb-2 text-white">Core Buttons</p>
             <button class="btn btn-primary me-2 mb-2">Primary (Gold)</button>
             <button class="btn btn-secondary me-2 mb-2">Secondary (Black)</button>
             <button class="btn btn-outline-primary me-2 mb-2">Outline Primary</button>
-            <button class="btn btn-outline-secondary me-2 mb-2">Outline Secondary</button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2 text-white">Special Effects</h6>
+            <p class="small mb-2 text-white">Special Effects</p>
             <button class="btn btn-blur me-2 mb-2"><i class="fa-solid fa-star"></i> Blur Effect</button>
             <button class="btn btn-gradient me-2 mb-2">Gradient <i class="fa-solid fa-arrow-right"></i></button>
           </div>
           <div class="mb-3">
-            <h6 class="mb-2 text-white">Alternative Outlines (Best on Dark)</h6>
-            <button class="btn btn-outline-secondary-alt me-2 mb-2">Black + White Text</button>
+            <p class="small mb-2 text-white">Alternative Outlines</p>
             <button class="btn btn-outline-primary-alt2 me-2 mb-2">Gold + White Text</button>
-            <button class="btn btn-outline-secondary-alt2 me-2 mb-2">Black + Gold Text</button>
-          </div>
-          <div class="mb-3">
-            <h6 class="mb-2 text-white">Disabled States</h6>
-            <button class="btn btn-blur me-2 mb-2" disabled>Blur Disabled</button>
-            <button class="btn btn-gradient me-2 mb-2" disabled>Gradient Disabled</button>
+            <button class="btn btn-outline-secondary-alt me-2 mb-2">Black + White Text</button>
           </div>
         </div>
       </section>
@@ -428,7 +440,7 @@
       <!-- Accordions -->
       <section id="accordions" class="style-guide-section">
         <h2>Accordions</h2>
-        <p class="section-intro">Bootstrap accordions with Mia Aesthetics brand styling. Perfect for FAQs and collapsible content sections.</p>
+        <p class="section-intro">Bootstrap accordions with brand styling for FAQs and collapsible content.</p>
 
         <div class="accordion" id="demoAccordion">
           <div class="accordion-item">
@@ -437,8 +449,7 @@
             </h2>
             <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#demoAccordion">
               <div class="accordion-body">
-                Mia Aesthetics specializes in a comprehensive range of cosmetic surgery procedures including Brazilian Butt Lift (BBL), liposuction, tummy tuck, breast augmentation, mommy makeover, and more. Each
-                procedure is performed by board-certified surgeons with extensive experience.
+                Mia Aesthetics specializes in cosmetic surgery procedures including Brazilian Butt Lift (BBL), liposuction, tummy tuck, breast augmentation, and mommy makeover. Each procedure is performed by board-certified surgeons.
               </div>
             </div>
           </div>
@@ -450,8 +461,7 @@
             </h2>
             <div id="collapseTwo" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
               <div class="accordion-body">
-                You can schedule a free consultation by filling out our online form, calling our patient coordinators, or visiting one of our convenient locations. Virtual consultations are also available for your
-                convenience. <a href="#">Learn more about our consultation process</a>.
+                Schedule a free consultation by filling out our online form, calling our patient coordinators, or visiting one of our locations. Virtual consultations are also available.
               </div>
             </div>
           </div>
@@ -463,8 +473,7 @@
             </h2>
             <div id="collapseThree" class="accordion-collapse collapse" data-bs-parent="#demoAccordion">
               <div class="accordion-body">
-                We offer multiple financing options to make your procedure affordable. This includes partnerships with leading medical financing companies, flexible payment plans, and special promotional offers. Our
-                patient coordinators can help you find the best option for your budget.
+                We offer multiple financing options including partnerships with medical financing companies, flexible payment plans, and promotional offers.
               </div>
             </div>
           </div>
@@ -474,46 +483,38 @@
       <!-- Utility Classes -->
       <section id="utilities" class="style-guide-section">
         <h2>Utility Classes</h2>
-        <p class="section-intro">Quick reference for commonly used utility classes in the theme.</p>
+        <p class="section-intro">Quick reference for commonly used utility classes.</p>
 
+        <h3>Text Colors</h3>
+        <div class="component-example component-example--white mb-4">
+          <p class="text-mia-gold mb-2">.text-mia-gold</p>
+          <p class="text-mia-black mb-0">.text-mia-black</p>
+        </div>
+        <div class="component-example component-example--dark mb-4">
+          <p class="text-mia-white mb-2">.text-mia-white</p>
+          <p class="text-mia-gold mb-0">.text-mia-gold</p>
+        </div>
+
+        <h3>Background Colors</h3>
         <div class="table-responsive">
           <table class="table token-table">
             <thead>
               <tr>
                 <th>Class</th>
-                <th>Description</th>
                 <th>CSS Property</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><code>.text-mia-gold</code></td>
-                <td>Gold text color</td>
-                <td>color: var(--mia-gold)</td>
-              </tr>
-              <tr>
-                <td><code>.text-mia-black</code></td>
-                <td>Black text color</td>
-                <td>color: var(--mia-black)</td>
-              </tr>
-              <tr>
-                <td><code>.text-mia-white</code></td>
-                <td>White text color</td>
-                <td>color: var(--mia-white)</td>
-              </tr>
-              <tr>
                 <td><code>.bg-mia-gold</code></td>
-                <td>Gold background</td>
                 <td>background-color: var(--mia-gold)</td>
               </tr>
               <tr>
                 <td><code>.bg-mia-black</code></td>
-                <td>Black background</td>
                 <td>background-color: var(--mia-black)</td>
               </tr>
               <tr>
                 <td><code>.bg-mia-white</code></td>
-                <td>White background</td>
                 <td>background-color: var(--mia-white)</td>
               </tr>
             </tbody>
@@ -525,7 +526,7 @@
     <!-- Footer -->
     <div class="bg-mia-black py-4 mt-5">
       <div class="container text-center">
-        <p class="text-mia-white mb-0">&copy; 2025 Mia Aesthetics. Design System v4.0</p>
+        <p class="text-mia-white mb-0">&copy; 2026 Mia Aesthetics. Design System v4.1</p>
       </div>
     </div>
 
