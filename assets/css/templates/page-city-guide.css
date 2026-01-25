@@ -1,5 +1,5 @@
 .city-guide-archive-section .lead {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   max-width: 800px;
 }
 
@@ -98,11 +98,6 @@
 
 .city-guide-list-item h3 a:hover {
   color: var(--mia-black);
-}
-
-.city-guide-list-item .text-muted {
-  font-size: 1rem;
-  color: var(--mia-gray-muted);
 }
 
 @media (max-width: 767.98px) {

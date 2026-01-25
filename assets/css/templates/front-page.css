@@ -439,7 +439,7 @@
 
 .homepage-surgeon-location {
   font-size: 0.875rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   margin-bottom: 0.75rem;
   display: flex;
   align-items: center;
@@ -452,7 +452,7 @@
 }
 
 .homepage-surgeon-location a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   text-decoration: none;
 }
 

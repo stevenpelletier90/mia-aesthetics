@@ -63,7 +63,7 @@ $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
 				?>
 				<div class="alert alert-warning text-center" role="alert">
 					<p class="mb-0">El formulario de contacto no está disponible temporalmente.</p>
-					<small class="text-muted">Por favor llámenos directamente para consultas.</small>
+					<small>Por favor llámenos directamente para consultas.</small>
 				</div>
 				<?php
 			}

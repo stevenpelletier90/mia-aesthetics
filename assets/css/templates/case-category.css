@@ -26,7 +26,7 @@
 }
 
 .taxonomy-description {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1.125rem;
   line-height: 1.6;
 }

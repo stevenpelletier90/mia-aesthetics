@@ -130,7 +130,7 @@
 }
 
 .patient-stats span:not(.stat-label) {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
 }
 
 .patient-stats {
@@ -176,7 +176,7 @@
 }
 
 .resource-card .description {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   font-size: 1rem;
   line-height: 1.3;
 }

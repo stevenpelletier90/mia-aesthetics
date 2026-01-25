@@ -47,7 +47,7 @@
 }
 
 .patient-info-label {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 0.875rem;
   font-weight: 600;
   letter-spacing: 0.05em;
@@ -215,7 +215,7 @@
 }
 
 .related-case-meta {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1rem;
   font-weight: 400;
 }

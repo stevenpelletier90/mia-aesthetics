@@ -138,7 +138,7 @@ a.consent-trigger:hover i {
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid var(--mia-gray-muted);
+  border: 1px solid var(--mia-gray-dark);
   border-radius: var(--radius-sm);
   background-color: var(--mia-white);
   color: var(--mia-black);
@@ -165,7 +165,7 @@ a.consent-trigger:hover i {
   padding-right: 2.5rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid var(--mia-gray-muted);
+  border: 1px solid var(--mia-gray-dark);
   border-radius: var(--radius-sm);
   background-color: var(--mia-white);
   color: var(--mia-black);
@@ -199,7 +199,7 @@ a.consent-trigger:hover i {
   padding: 0.625rem 0.75rem;
   line-height: 1.5;
   font-size: 16px;
-  border: 1px solid var(--mia-gray-muted);
+  border: 1px solid var(--mia-gray-dark);
   border-radius: var(--radius-sm);
   background-color: var(--mia-white);
   color: var(--mia-black);
@@ -218,7 +218,7 @@ a.consent-trigger:hover i {
 }
 
 .consultation-card .gform_wrapper :is(input, textarea)::placeholder {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   opacity: 1;
 }
 
@@ -249,7 +249,7 @@ a.consent-trigger:hover i {
 
 .consultation-card .gform_wrapper .gfield_checkbox label {
   font-size: 14px;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--mia-white);
   line-height: 1.4;
   margin: 0;
   cursor: pointer;
@@ -411,7 +411,7 @@ a.consent-trigger:hover i {
   position: relative;
   padding-left: 1.5rem;
   margin-bottom: 0.75rem;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--mia-white);
   line-height: 1.5;
 }
 

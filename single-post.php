@@ -52,7 +52,7 @@ get_header(); ?>
 								<?php
 								$thumbnail_caption = get_the_post_thumbnail_caption();
 								if ( '' !== $thumbnail_caption ) {
-									echo '<figcaption class="text-muted small">' . esc_html( $thumbnail_caption ) . '</figcaption>';
+									echo '<figcaption class="small">' . esc_html( $thumbnail_caption ) . '</figcaption>';
 								}
 								?>
 							</figure>

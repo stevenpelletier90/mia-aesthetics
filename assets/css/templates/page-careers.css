@@ -55,7 +55,7 @@
   line-height: 1.6;
   margin-bottom: 0;
   font-weight: 400;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
 }
 
 .careers-hero__cta {
@@ -91,7 +91,7 @@
 
 .stats-content p {
   font-size: clamp(1rem, 2vw, 1.125rem);
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   margin-bottom: 2rem;
   text-align: left;
 }
@@ -136,7 +136,7 @@
 
 .core-values__subtitle {
   font-size: 1.25rem;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   max-width: 600px;
   margin: 0 auto;
   line-height: 1.6;
@@ -196,7 +196,7 @@
 
 .value-description {
   font-size: 1rem;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   line-height: 1.7;
   margin: 0;
 }
@@ -261,7 +261,7 @@
   line-height: 1.7;
   margin-bottom: 3rem;
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-  color: rgba(255, 255, 255, 0.95);
+  color: var(--mia-white);
 }
 
 .foundation-cta {
@@ -287,7 +287,7 @@
 
 .find-location__subtitle {
   font-size: 1.25rem;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -334,7 +334,7 @@
 .benefits-subtitle {
   font-size: 1.1rem;
   line-height: 1.7;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   margin: 0;
   text-align: left;
 }
@@ -465,7 +465,7 @@
 .benefit-list li {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   margin-bottom: 1rem;
   padding-left: 1.25rem;
   position: relative;
@@ -515,7 +515,7 @@
 
 .testimonials-subtitle {
   font-size: 1.25rem;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   max-width: 700px;
   margin: 0 auto;
   line-height: 1.6;
@@ -610,7 +610,7 @@
 
 .author-location {
   font-size: 0.9rem;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   margin-bottom: 0;
 }
 
@@ -636,7 +636,7 @@
 
 #testimonialsCarousel .carousel-control-prev-icon,
 #testimonialsCarousel .carousel-control-next-icon {
-  background-color: var(--mia-gray-muted);
+  background-color: var(--mia-gray-dark);
   border-radius: var(--radius-full);
   width: 2.5rem;
   height: 2.5rem;
@@ -646,7 +646,7 @@
 
 #testimonialsCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
 #testimonialsCarousel .carousel-control-next:hover .carousel-control-next-icon {
-  background-color: var(--mia-gray-muted);
+  background-color: var(--mia-gray-dark);
   transition: all 0.2s ease;
 }
 
@@ -710,7 +710,7 @@
 .careers-footer .footer-text {
   font-size: 1rem;
   line-height: 1.7;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--mia-white);
   margin-bottom: 1.5rem;
 }
 
@@ -721,7 +721,7 @@
 }
 
 .careers-footer .footer-link {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   text-decoration: none;
   font-size: 0.95rem;
   transition: all 0.2s ease;
@@ -831,12 +831,12 @@
 
 .careers-footer .copyright p {
   font-size: 0.9rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--mia-white);
   margin: 0;
 }
 
 .careers-footer .copyright a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   text-decoration: none;
   transition: color 0.2s ease;
 }
@@ -855,7 +855,7 @@
 }
 
 .careers-footer .legal-links a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   text-decoration: none;
   font-size: 0.9rem;
   transition: color 0.2s ease;
@@ -868,14 +868,14 @@
 }
 
 .careers-footer .link-separator {
-  color: rgba(255, 255, 255, 0.4);
+  color: var(--mia-white);
   font-size: 0.9rem;
   user-select: none;
 }
 
 .careers-footer .disclaimer {
   font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--mia-white);
   font-style: italic;
 }
 

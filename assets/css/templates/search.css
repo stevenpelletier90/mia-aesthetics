@@ -14,7 +14,7 @@
 }
 
 .search-results .post-header p.lead {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1.1rem;
 }
 
@@ -57,7 +57,7 @@
   color: var(--mia-gold);
 }
 
-.search-results .card-body .text-muted {
+.search-results .card-body .search-type-badge {
   background-color: var(--mia-gold-light);
   padding: 0.25rem 0.5rem;
   border-radius: var(--radius-sm);
@@ -73,7 +73,7 @@
 .search-results .no-results {
   text-align: center;
   padding: 3rem 2rem;
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
 }
 
 .search-results .no-results h3 {

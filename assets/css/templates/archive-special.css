@@ -11,7 +11,7 @@
 }
 
 .specials-hero .lead {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 20px;
   font-weight: 400;
   margin: 0 auto 32px;
@@ -32,12 +32,7 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition: all 0.2s ease;
-}
-
-.special-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
+  position: relative;
 }
 
 .special-card-image {
@@ -50,16 +45,6 @@
   height: 100%;
   object-fit: cover;
   width: 100%;
-}
-
-.special-card-image a {
-  display: block;
-  height: 100%;
-}
-
-.special-card-image a:focus {
-  outline: 3px solid var(--mia-gold);
-  outline-offset: 2px;
 }
 
 .special-card-body {
@@ -88,7 +73,7 @@
 }
 
 .special-card-excerpt {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   flex-grow: 1;
   font-size: 0.95rem;
   line-height: 1.6;
@@ -106,6 +91,8 @@
 .special-card .btn {
   align-self: flex-start;
   margin-top: auto;
+  position: relative;
+  z-index: 1;
 }
 
 .specials-language-toggle {
@@ -210,7 +197,7 @@
 }
 
 .specials-grid .text-center p {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 18px;
 }
 

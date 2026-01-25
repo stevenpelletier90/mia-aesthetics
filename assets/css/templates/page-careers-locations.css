@@ -139,7 +139,7 @@
 }
 
 .dept-breakdown .accordion-body .lead {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 0;
@@ -193,7 +193,7 @@
 }
 
 .job-function-description {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 0;
@@ -252,7 +252,7 @@
 }
 
 .page-template-page-careers-locations main .accordion-body .lead {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 32px;
@@ -310,14 +310,14 @@
 }
 
 .position-description {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 0.9rem;
   line-height: 1.6;
   margin: 0;
 }
 
 .job-listings {
-  border-top: 2px solid #f0f0f0;
+  border-top: 2px solid var(--mia-gray-light);
   padding-top: 48px;
 }
 
@@ -346,7 +346,7 @@
 
 .no-jobs-message {
   background: var(--mia-gold-light);
-  border: 2px dashed #dee2e6;
+  border: 2px dashed var(--mia-gray-light);
 }
 
 .no-jobs-message i {
@@ -391,7 +391,7 @@
 }
 
 .benefits-subtitle {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
@@ -522,7 +522,7 @@
 }
 
 .benefit-list li {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 16px;
@@ -646,7 +646,7 @@
 }
 
 .page-template-page-careers-locations .surgeon-card p {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   font-family: var(--font-body);
   font-size: 0.9rem;
   font-style: italic;
@@ -851,7 +851,7 @@
   }
 
   .page-template-page-careers-locations .team-section .surgeon-card p {
-    color: var(--mia-gray-muted);
+    color: var(--mia-gray-dark);
     font-size: 0.85rem;
     font-style: normal;
     margin-bottom: 12px;

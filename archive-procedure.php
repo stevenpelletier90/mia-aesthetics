@@ -196,7 +196,7 @@ get_header(); ?>
 			<div class="row mb-5">
 				<div class="col-12 text-center">
 					<h2 class="section-heading mb-3">Watch Our Featured Videos</h2>
-					<p class="lead text-muted">Learn more about our procedures, results, and patient experiences.</p>
+					<p class="lead">Learn more about our procedures, results, and patient experiences.</p>
 				</div>
 			</div>
 			<?php

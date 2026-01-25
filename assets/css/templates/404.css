@@ -14,7 +14,7 @@
 }
 
 .error-404 .post-header p.lead {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
   font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;

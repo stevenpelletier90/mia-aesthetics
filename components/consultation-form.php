@@ -70,7 +70,7 @@ $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
 				?>
 				<div class="alert alert-warning text-center" role="alert">
 					<p class="mb-0">Contact form is temporarily unavailable.</p>
-					<small class="text-muted">Please call us directly for consultations.</small>
+					<small>Please call us directly for consultations.</small>
 				</div>
 				<?php
 			}

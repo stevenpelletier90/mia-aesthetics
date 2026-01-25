@@ -21,7 +21,7 @@
   font-weight: 600;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
 }
 
 .footer-columns {
@@ -49,7 +49,7 @@
 }
 
 .footer-menu a:hover {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
   text-decoration: underline;
 }
 
@@ -122,11 +122,11 @@
 }
 
 .locations-section .accordion-button:hover {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
 }
 
 .locations-section .accordion-button:hover::after {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
 }
 
 .locations-section .accordion-button:focus {
@@ -157,7 +157,7 @@
 
 .locations-section .accordion-body {
   padding: 1rem 1.5rem;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   background-color: var(--mia-black);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   flex-grow: 1;
@@ -177,7 +177,7 @@
 }
 
 .locations-section .accordion-body a.surgeon-link:hover {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
   text-decoration: none;
 }
 
@@ -195,16 +195,16 @@
 
 .locations-section .accordion-body a.surgeon-link:hover .surgeon-arrow {
   opacity: 1;
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
 }
 
 /* Location link override - gold by default */
 .location-link a.surgeon-link {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
 }
 
 .location-link a.surgeon-link .surgeon-arrow {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
 }
 
 .footer-bottom {
@@ -232,7 +232,7 @@
 }
 
 .footer-links a {
-  color: rgba(255, 255, 255, 0.6);
+  color: var(--mia-white);
   text-decoration: none;
   transition: color 0.2s ease;
   font-size: 1rem;
@@ -240,7 +240,7 @@
 }
 
 .footer-links a:hover {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
   text-decoration: underline;
 }
 

@@ -99,7 +99,7 @@ $locations = new WP_Query(
 										}
 										?>
 										<?php if ( '' !== $street || '' !== $city || '' !== $state || '' !== $zip ) : ?>
-											<div class="text-muted mb-1">
+											<div class="small mb-1">
 												<?php if ( '' !== $street && '0' !== $street ) : ?>
 													<div><?php echo esc_html( $street ); ?></div>
 												<?php endif; ?>

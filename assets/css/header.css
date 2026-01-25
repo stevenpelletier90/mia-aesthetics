@@ -273,7 +273,7 @@
 
   /* Override default dropdown-item colors for mega menu */
   .mega-menu .list-unstyled .dropdown-item {
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--mia-white);
   }
 
   .mega-menu .list-unstyled .dropdown-item:hover {

@@ -627,7 +627,7 @@ get_header(); ?>
 				</a>
 			</div>
 			<div class="contact-item mt-3">
-				<small class="text-muted">Please send your curriculum vitae for consideration.</small>
+				<small>Please send your curriculum vitae for consideration.</small>
 			</div>
 			</div>
 		</div>

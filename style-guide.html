@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mia Aesthetics - Design System</title>
     <!-- Bootstrap and FontAwesome from npm -->
-    <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../assets/css/fonts.css" />
-    <link rel="stylesheet" href="../assets/css/base.css" />
-    <link rel="stylesheet" href="../assets/css/components/button.css" />
-    <link rel="stylesheet" href="../assets/css/pages/page-virtual-consultation.css" />
-    <link rel="stylesheet" href="../assets/vendor/fontawesome/css/all.min.css" />
+    <link rel="stylesheet" href="assets/vendor/bootstrap/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/fonts.css" />
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <link rel="stylesheet" href="assets/css/components/button.css" />
+    <link rel="stylesheet" href="assets/css/templates/page-virtual-consultation.css" />
+    <link rel="stylesheet" href="assets/vendor/fontawesome/css/all.min.css" />
     <style>
       .style-guide-section {
         margin: 4rem 0;
         padding: 3rem 0;
-        border-bottom: 1px solid #e2e8f0;
+        border-bottom: 1px solid var(--mia-gray-light);
       }
       .style-guide-section:last-child {
         border-bottom: none;
@@ -46,7 +46,7 @@
       }
       .color-swatch-value {
         font-size: 0.75rem;
-        color: var(--mia-gray-muted);
+        color: var(--mia-gray-dark);
         font-family: monospace;
       }
       .token-table {
@@ -59,9 +59,43 @@
         font-size: 0.8125rem;
       }
       .section-intro {
-        color: var(--mia-gray-muted);
+        color: var(--mia-gray-dark);
         font-size: 1.125rem;
         margin-bottom: 2rem;
+      }
+      /* Component example variants */
+      .component-example--white {
+        background: var(--mia-white);
+      }
+      .component-example--dark {
+        background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+      }
+      /* Color swatch backgrounds */
+      .swatch-gold { background: var(--mia-gold); }
+      .swatch-gold-dark { background: var(--mia-gold-dark); }
+      .swatch-gold-light { background: var(--mia-gold-light); }
+      .swatch-gold-aaa { background: var(--mia-gold-aaa); }
+      .swatch-black { background: var(--mia-black); }
+      .swatch-pure-black { background: var(--mia-pure-black); }
+      .swatch-white { background: var(--mia-white); }
+      .swatch-gray-dark { background: var(--mia-gray-dark); }
+      .swatch-gray-light { background: var(--mia-gray-light); }
+      .swatch-link { background: var(--mia-link); }
+      .swatch-link-hover { background: var(--mia-link-hover); }
+      .swatch-gold-10 { background: var(--mia-gold-10); }
+      .swatch-gold-20 { background: var(--mia-gold-20); }
+      .swatch-gold-30 { background: var(--mia-gold-30); }
+      .swatch-gold-40 { background: var(--mia-gold-40); }
+      .swatch-gold-50 { background: var(--mia-gold-50); }
+      /* Radius examples */
+      .radius-example {
+        width: 60px;
+        height: 40px;
+        background: var(--mia-gold);
+      }
+      .radius-example--circle {
+        width: 40px;
+        height: 40px;
       }
     </style>
   </head>
@@ -85,42 +119,42 @@
         <div class="row g-3 mb-4">
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold)"></div>
+              <div class="color-swatch-box swatch-gold"></div>
               <div class="color-swatch-name">Gold</div>
               <div class="color-swatch-value">--mia-gold<br />#c8b273</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-dark)"></div>
+              <div class="color-swatch-box swatch-gold-dark"></div>
               <div class="color-swatch-name">Gold Dark</div>
               <div class="color-swatch-value">--mia-gold-dark<br />#be9e42</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-light)"></div>
+              <div class="color-swatch-box swatch-gold-light"></div>
               <div class="color-swatch-name">Gold Light</div>
               <div class="color-swatch-value">--mia-gold-light<br />#f9f5ee</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-black)"></div>
+              <div class="color-swatch-box swatch-black"></div>
               <div class="color-swatch-name">Black</div>
               <div class="color-swatch-value">--mia-black<br />#1b1b1b</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-pure-black)"></div>
+              <div class="color-swatch-box swatch-pure-black"></div>
               <div class="color-swatch-name">Pure Black</div>
               <div class="color-swatch-value">--mia-pure-black<br />#000000</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-white)"></div>
+              <div class="color-swatch-box swatch-white"></div>
               <div class="color-swatch-name">White</div>
               <div class="color-swatch-value">--mia-white<br />#ffffff</div>
             </div>
@@ -132,35 +166,35 @@
         <div class="row g-3 mb-4">
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-10)"></div>
+              <div class="color-swatch-box swatch-gold-10"></div>
               <div class="color-swatch-name">Gold 10%</div>
               <div class="color-swatch-value">--mia-gold-10</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-20)"></div>
+              <div class="color-swatch-box swatch-gold-20"></div>
               <div class="color-swatch-name">Gold 20%</div>
               <div class="color-swatch-value">--mia-gold-20</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-30)"></div>
+              <div class="color-swatch-box swatch-gold-30"></div>
               <div class="color-swatch-name">Gold 30%</div>
               <div class="color-swatch-value">--mia-gold-30</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-40)"></div>
+              <div class="color-swatch-box swatch-gold-40"></div>
               <div class="color-swatch-name">Gold 40%</div>
               <div class="color-swatch-value">--mia-gold-40</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gold-50)"></div>
+              <div class="color-swatch-box swatch-gold-50"></div>
               <div class="color-swatch-name">Gold 50%</div>
               <div class="color-swatch-value">--mia-gold-50</div>
             </div>
@@ -172,28 +206,35 @@
         <div class="row g-3 mb-4">
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gray-dark)"></div>
+              <div class="color-swatch-box swatch-gray-dark"></div>
               <div class="color-swatch-name">Gray Dark</div>
               <div class="color-swatch-value">--mia-gray-dark<br />#222</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-gray-muted)"></div>
-              <div class="color-swatch-name">Gray Muted</div>
-              <div class="color-swatch-value">--mia-gray-muted<br />#666</div>
+              <div class="color-swatch-box swatch-gray-light"></div>
+              <div class="color-swatch-name">Gray Light</div>
+              <div class="color-swatch-value">--mia-gray-light<br />#dee2e6</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-link)"></div>
+              <div class="color-swatch-box swatch-gold-aaa"></div>
+              <div class="color-swatch-name">Gold AAA</div>
+              <div class="color-swatch-value">--mia-gold-aaa<br />#e8d5a3</div>
+            </div>
+          </div>
+          <div class="col-6 col-md-4 col-lg-2">
+            <div class="color-swatch">
+              <div class="color-swatch-box swatch-link"></div>
               <div class="color-swatch-name">Link</div>
               <div class="color-swatch-value">--mia-link<br />#0066cc</div>
             </div>
           </div>
           <div class="col-6 col-md-4 col-lg-2">
             <div class="color-swatch">
-              <div class="color-swatch-box" style="background: var(--mia-link-hover)"></div>
+              <div class="color-swatch-box swatch-link-hover"></div>
               <div class="color-swatch-name">Link Hover</div>
               <div class="color-swatch-value">--mia-link-hover<br />#004499</div>
             </div>
@@ -215,27 +256,27 @@
               <tr>
                 <td><code>--radius-none</code></td>
                 <td>0</td>
-                <td><div style="width: 60px; height: 40px; background: var(--mia-gold); border-radius: var(--radius-none)"></div></td>
+                <td><div class="radius-example rounded-0"></div></td>
               </tr>
               <tr>
                 <td><code>--radius-sm</code></td>
                 <td>4px</td>
-                <td><div style="width: 60px; height: 40px; background: var(--mia-gold); border-radius: var(--radius-sm)"></div></td>
+                <td><div class="radius-example rounded-1"></div></td>
               </tr>
               <tr>
                 <td><code>--radius-md</code></td>
                 <td>8px</td>
-                <td><div style="width: 60px; height: 40px; background: var(--mia-gold); border-radius: var(--radius-md)"></div></td>
+                <td><div class="radius-example rounded-2"></div></td>
               </tr>
               <tr>
                 <td><code>--radius-lg</code></td>
                 <td>12px</td>
-                <td><div style="width: 60px; height: 40px; background: var(--mia-gold); border-radius: var(--radius-lg)"></div></td>
+                <td><div class="radius-example rounded-3"></div></td>
               </tr>
               <tr>
                 <td><code>--radius-full</code></td>
                 <td>50%</td>
-                <td><div style="width: 40px; height: 40px; background: var(--mia-gold); border-radius: var(--radius-full)"></div></td>
+                <td><div class="radius-example radius-example--circle rounded-circle"></div></td>
               </tr>
             </tbody>
           </table>
@@ -249,22 +290,22 @@
 
         <!-- Font Stacks -->
         <h3>Font Stacks</h3>
-        <div class="component-example" style="background: white">
+        <div class="component-example component-example--white">
           <div class="mb-4">
-            <h4 style="font-family: var(--font-heading)">Montserrat - Headings</h4>
+            <h4>Montserrat - Headings</h4>
             <p class="mb-1"><code>--font-heading</code></p>
-            <p class="text-muted mb-0" style="font-family: var(--font-heading)">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789</p>
+            <p class="mb-0">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789</p>
           </div>
           <div>
             <h4>Open Sans - Body</h4>
             <p class="mb-1"><code>--font-body</code></p>
-            <p class="text-muted mb-0" style="font-family: var(--font-body)">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789</p>
+            <p class="mb-0">ABCDEFGHIJKLMNOPQRSTUVWXYZ<br />abcdefghijklmnopqrstuvwxyz<br />0123456789</p>
           </div>
         </div>
 
         <!-- Headings -->
         <h3>Headings</h3>
-        <div class="component-example" style="background: white">
+        <div class="component-example component-example--white">
           <h1>H1 - Page Title (2.5rem)</h1>
           <h2>H2 - Section Heading (2rem)</h2>
           <h3>H3 - Subsection Heading (1.75rem)</h3>
@@ -275,7 +316,7 @@
 
         <!-- Body Text -->
         <h3>Body Text</h3>
-        <div class="component-example" style="background: white">
+        <div class="component-example component-example--white">
           <p class="lead">Lead paragraph - larger introductory text for hero sections and article intros. Perfect for drawing attention to key messaging.</p>
           <p>Regular paragraph text - the standard body text optimized for readability with proper line spacing (1.625) and comfortable reading. This text should be easily scannable and accessible across all devices.</p>
           <p>
@@ -285,7 +326,7 @@
 
         <!-- Text Utilities -->
         <h3>Text Color Utilities</h3>
-        <div class="component-example" style="background: white">
+        <div class="component-example component-example--white">
           <p class="text-mia-gold mb-2">.text-mia-gold - Brand gold for highlights</p>
           <p class="text-mia-black mb-2">.text-mia-black - Primary text color</p>
           <div class="bg-mia-black p-3 rounded">
@@ -302,7 +343,7 @@
 
         <!-- Button Sizes -->
         <h3>Button Sizes</h3>
-        <div class="component-example" style="background: white">
+        <div class="component-example component-example--white">
           <div class="mb-3">
             <h6 class="mb-2">Small (.btn-sm)</h6>
             <button class="btn btn-primary btn-sm me-2 mb-2"><i class="fa-solid fa-calendar-check"></i> Small Primary</button>
@@ -322,7 +363,7 @@
 
         <!-- On Light Background -->
         <h3>On Light Background</h3>
-        <div class="component-example" style="background: white">
+        <div class="component-example component-example--white">
           <div class="mb-3">
             <h6 class="mb-2">Core Buttons</h6>
             <button class="btn btn-primary me-2 mb-2">Primary (Gold)</button>
@@ -357,7 +398,7 @@
 
         <!-- On Dark Background -->
         <h3>On Dark Background</h3>
-        <div class="component-example" style="background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%)">
+        <div class="component-example component-example--dark">
           <div class="mb-3">
             <h6 class="mb-2 text-white">Core Buttons</h6>
             <button class="btn btn-primary me-2 mb-2">Primary (Gold)</button>
@@ -484,11 +525,11 @@
     <!-- Footer -->
     <div class="bg-mia-black py-4 mt-5">
       <div class="container text-center">
-        <p class="text-mia-white mb-0">&copy; 2024 Mia Aesthetics. Design System v3.0</p>
+        <p class="text-mia-white mb-0">&copy; 2025 Mia Aesthetics. Design System v4.0</p>
       </div>
     </div>
 
     <!-- Bootstrap JS from npm -->
-    <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

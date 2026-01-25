@@ -62,7 +62,7 @@ get_header(); ?>
 										</a>
 									</h2>
 									<?php the_excerpt(); ?>
-									<div class="text-muted small">
+									<div class="search-type-badge">
 										<?php
 										$search_post_type = get_post_type();
 										if ( false !== $search_post_type ) {

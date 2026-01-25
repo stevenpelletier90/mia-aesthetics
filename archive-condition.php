@@ -122,7 +122,7 @@ get_header(); ?>
 			<?php else : ?>
 				<div class="row">
 					<div class="col-12">
-						<p class="text-center text-muted">No conditions found.</p>
+						<p class="text-center">No conditions found.</p>
 					</div>
 				</div>
 			<?php endif; ?>

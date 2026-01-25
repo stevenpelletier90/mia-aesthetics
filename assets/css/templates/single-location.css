@@ -352,7 +352,7 @@
   }
 
   i:last-child {
-    color: var(--mia-gray-muted);
+    color: var(--mia-gray-dark);
     font-size: 0.75rem;
     transition: transform 0.2s ease;
   }
@@ -424,7 +424,7 @@
   p {
     font-family: var(--font-body);
     font-size: clamp(0.85rem, 1.5vw + 0.3rem, 0.95rem);
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--mia-white);
     margin-bottom: 1.25rem;
     font-style: italic;
   }
@@ -527,7 +527,7 @@
     }
 
     p {
-      color: var(--mia-gray-muted);
+      color: var(--mia-gray-dark);
       font-size: 0.85rem;
       margin-bottom: 0.75rem;
       font-style: normal;

@@ -108,21 +108,19 @@ get_header();
 									<div class="special-card">
 										<?php if ( has_post_thumbnail() ) : ?>
 											<div class="special-card-image">
-												<a href="<?php the_permalink(); ?>">
-													<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
-												</a>
+												<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
 											</div>
 										<?php endif; ?>
 										<div class="special-card-body">
 											<h2 class="special-card-title">
-												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+												<a href="<?php the_permalink(); ?>" class="stretched-link"><?php the_title(); ?></a>
 											</h2>
 											<?php if ( has_excerpt() ) : ?>
 												<div class="special-card-excerpt">
 													<?php the_excerpt(); ?>
 												</div>
 											<?php endif; ?>
-											<a href="<?php the_permalink(); ?>" class="btn btn-primary">
+											<a href="<?php the_permalink(); ?>" class="btn btn-primary" aria-label="Learn more about <?php echo esc_attr( get_the_title() ); ?>">
 												Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 											</a>
 										</div>
@@ -135,18 +133,16 @@ get_header();
 							<div class="col-lg-6 col-md-6 mb-4">
 								<div class="special-card">
 									<div class="special-card-image">
-										<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>">
-											<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg' ) ); ?>" alt="Skinny Shot Special" class="img-fluid" width="1200" height="630" loading="lazy">
-										</a>
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg' ) ); ?>" alt="Skinny Shot Special" class="img-fluid" width="1200" height="630" loading="lazy">
 									</div>
 									<div class="special-card-body">
 										<h2 class="special-card-title">
-											<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>">Skinny Shot Special</a>
+											<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="stretched-link">Skinny Shot Special</a>
 										</h2>
 										<div class="special-card-excerpt">
 											<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
 										</div>
-										<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="btn btn-primary">
+										<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="btn btn-primary" aria-label="Learn more about Skinny Shot Special">
 											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>
@@ -156,18 +152,16 @@ get_header();
 							<div class="col-lg-6 col-md-6 mb-4">
 								<div class="special-card">
 									<div class="special-card-image">
-										<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">
-											<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/j-plasma-promo.jpg' ) ); ?>" alt="J-Plasma Skin Tightening Special" class="img-fluid" width="800" height="600" loading="lazy">
-										</a>
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/j-plasma-promo.jpg' ) ); ?>" alt="J-Plasma Skin Tightening Special" class="img-fluid" width="800" height="600" loading="lazy">
 									</div>
 									<div class="special-card-body">
 										<h2 class="special-card-title">
-											<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">J-Plasma Skin Tightening</a>
+											<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="stretched-link">J-Plasma Skin Tightening</a>
 										</h2>
 										<div class="special-card-excerpt">
 											<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
 										</div>
-										<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="btn btn-primary">
+										<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="btn btn-primary" aria-label="Learn more about J-Plasma Skin Tightening">
 											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>
@@ -210,21 +204,19 @@ get_header();
 									<div class="special-card">
 										<?php if ( has_post_thumbnail() ) : ?>
 											<div class="special-card-image">
-												<a href="<?php the_permalink(); ?>">
-													<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
-												</a>
+												<?php the_post_thumbnail( 'medium_large', array( 'class' => 'img-fluid' ) ); ?>
 											</div>
 										<?php endif; ?>
 										<div class="special-card-body">
 											<h2 class="special-card-title">
-												<a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
+												<a href="<?php the_permalink(); ?>" class="stretched-link"><?php the_title(); ?></a>
 											</h2>
 											<?php if ( has_excerpt() ) : ?>
 												<div class="special-card-excerpt">
 													<?php the_excerpt(); ?>
 												</div>
 											<?php endif; ?>
-											<a href="<?php the_permalink(); ?>" class="btn btn-primary">
+											<a href="<?php the_permalink(); ?>" class="btn btn-primary" aria-label="Learn more about <?php echo esc_attr( get_the_title() ); ?>">
 												Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 											</a>
 										</div>
@@ -237,18 +229,16 @@ get_header();
 							<div class="col-lg-6 col-md-6 mb-4">
 								<div class="special-card">
 									<div class="special-card-image">
-										<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>">
-											<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg' ) ); ?>" alt="Skinny Shot Special" class="img-fluid" width="1200" height="630" loading="lazy">
-										</a>
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Skinny-Shot-1200x630px.jpg' ) ); ?>" alt="Skinny Shot Special" class="img-fluid" width="1200" height="630" loading="lazy">
 									</div>
 									<div class="special-card-body">
 										<h2 class="special-card-title">
-											<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>">Skinny Shot Special</a>
+											<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="stretched-link">Skinny Shot Special</a>
 										</h2>
 										<div class="special-card-excerpt">
 											<p>Transform your weight loss journey with our revolutionary Skinny Shot treatment. Safe, effective, and physician-supervised.</p>
 										</div>
-										<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="btn btn-primary">
+										<a href="<?php echo esc_url( home_url( '/weight-loss/' ) ); ?>" class="btn btn-primary" aria-label="Learn more about Skinny Shot Special">
 											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>
@@ -258,18 +248,16 @@ get_header();
 							<div class="col-lg-6 col-md-6 mb-4">
 								<div class="special-card">
 									<div class="special-card-image">
-										<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">
-											<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/j-plasma-promo.jpg' ) ); ?>" alt="J-Plasma Skin Tightening Special" class="img-fluid" width="800" height="600" loading="lazy">
-										</a>
+										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/j-plasma-promo.jpg' ) ); ?>" alt="J-Plasma Skin Tightening Special" class="img-fluid" width="800" height="600" loading="lazy">
 									</div>
 									<div class="special-card-body">
 										<h2 class="special-card-title">
-											<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">J-Plasma Skin Tightening</a>
+											<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="stretched-link">J-Plasma Skin Tightening</a>
 										</h2>
 										<div class="special-card-excerpt">
 											<p>Revolutionary skin tightening technology for dramatic results without invasive surgery. Tighten and rejuvenate your skin today.</p>
 										</div>
-										<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="btn btn-primary">
+										<a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>" class="btn btn-primary" aria-label="Learn more about J-Plasma Skin Tightening">
 											Learn More <i class="fas fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									</div>

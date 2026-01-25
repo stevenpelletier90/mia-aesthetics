@@ -29,17 +29,17 @@
 }
 
 .breadcrumb-inline a {
-  color: #0066cc;
+  color: var(--mia-link);
   text-decoration: none;
 }
 
 .breadcrumb-inline a:hover,
 .breadcrumb-inline a:focus {
-  color: #004499;
+  color: var(--mia-link-hover);
 }
 
 .breadcrumb-inline .breadcrumb_last {
-  color: var(--mia-gray-muted);
+  color: var(--mia-gray-dark);
 }
 
 @media (min-width: 992px) {
@@ -57,11 +57,11 @@
 /* Dark variant for dark backgrounds (hero sections) */
 .breadcrumb-inline.dark {
   margin-bottom: 1rem;
-  color: rgba(255, 255, 255, 0.5);
+  color: var(--mia-white);
 }
 
 .breadcrumb-inline.dark a {
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--mia-white);
   text-decoration: none;
 }
 
