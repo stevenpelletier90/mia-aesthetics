@@ -42,40 +42,6 @@
   outline-offset: -2px;
 }
 
-.hero-cta-wrapper {
-  position: absolute;
-  bottom: 3.5rem;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
-  text-align: center;
-}
-
-/* Hero CTA Button - matches banner black/gold theme */
-.hero-cta {
-  background: rgba(0, 0, 0, 0.85);
-  border: 1px solid var(--mia-gold);
-  border-radius: 0;
-  color: var(--mia-white);
-  display: inline-block;
-  font-family: var(--font-heading);
-  font-size: 1.125rem;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  padding: 1rem 2.5rem;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: all 0.3s ease;
-}
-
-.hero-cta:hover,
-.hero-cta:focus {
-  background: var(--mia-white);
-  border-color: var(--mia-white);
-  color: var(--mia-black);
-  text-decoration: none;
-}
-
 .hero-boxes {
   border-top: none;
   display: flex;
@@ -916,35 +882,6 @@
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
-/* Larger hero button on widescreen */
-@media (min-width: 1400px) {
-  .hero-cta-wrapper {
-    bottom: 4rem;
-  }
-
-  .hero-cta {
-    font-size: 1.25rem;
-    padding: 1.125rem 3rem;
-  }
-}
-
-@media (max-width: 1399px) {
-  .hero-cta-wrapper {
-    bottom: 2.5rem;
-  }
-}
-
-@media (max-width: 1200px) {
-  .hero-cta-wrapper {
-    bottom: 2rem;
-  }
-
-  .hero-cta {
-    font-size: 1rem;
-    padding: 0.875rem 2rem;
-  }
-}
-
 @media (min-width: 992px) {
   .about-section {
     padding: 8rem 0;
@@ -952,15 +889,6 @@
 }
 
 @media (max-width: 991px) {
-  .hero-cta-wrapper {
-    bottom: 1.5rem;
-  }
-
-  .hero-cta {
-    font-size: 0.9375rem;
-    padding: 0.75rem 1.75rem;
-  }
-
   .hero-box-heading {
     font-size: clamp(1.25rem, 2.5vw, 1.75rem);
   }
@@ -1144,10 +1072,6 @@
 
   .hero-carousel img {
     object-position: top center;
-  }
-
-  .hero-cta-wrapper {
-    bottom: 1.5rem;
   }
 
   .hero-box::before {
@@ -1342,7 +1266,6 @@
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
-  .hero-cta,
   .hero-box-link .hero-box-image,
   .hero-box-link .hero-box-overlay,
   .hero-box-link .btn,
