@@ -142,6 +142,11 @@ function mia_needs_case_card(): bool {
  * Check if current page needs FAQ component
  */
 function mia_needs_faq(): bool {
+	// Hardcoded FAQ pages.
+	if ( is_post_type_archive( 'fat-transfer' ) ) {
+		return true;
+	}
+
 	// Check for ACF FAQ field that indicates FAQs are present.
 	if ( function_exists( 'get_field' ) ) {
 		$faq_section = get_field( 'faq_section' );
