@@ -40,6 +40,7 @@
             <property name="customAutoEscapedFunctions" type="array">
                 <!-- Custom theme functions that handle escaping internally -->
                 <!-- Note: Removed the_field/the_sub_field as they don't auto-escape -->
+                <element value="mia_render_inline_breadcrumbs"/>
             </property>
         </properties>
     </rule>

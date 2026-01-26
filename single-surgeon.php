@@ -63,7 +63,8 @@ $gallery_url = home_url( '/before-after/before-after-by-doctor/' ) . '?doctor=' 
 								</div>
 							</div>
 						</div>
-					<?php else :
+						<?php
+					else :
 						$headshot_id = get_field( 'surgeon_headshot' );
 						if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
 							$headshot_url = wp_get_attachment_image_url( (int) $headshot_id, 'large' );

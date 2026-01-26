@@ -11,88 +11,88 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- Hero/Intro Section -->
 <div class="container py-5">
-  <section class="hero-section">
-    <div class="row align-items-center g-3 g-lg-5">
-      <div class="col-lg-7 mb-3 mb-lg-0">
-        <div class="procedure-intro-content">
+	<section class="hero-section">
+	<div class="row align-items-center g-3 g-lg-5">
+		<div class="col-lg-7 mb-3 mb-lg-0">
+		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-          <h2 class="display-6 mb-3 fw-bold">Male Breast Procedures at Mia Aesthetics</h2>
-          <div class="lead-text">
-            <p>
-              More formally referred to as gynecomastia surgery, gyno surgery is a surgical procedure performed to remove excess male breast tissue. Although not a health concern, the formation of
-              breast tissue in men (gynecomastia) can have an extremely negative impact on self-esteem, often causing men to avoid sports, intimacy, swimming, and other pursuits that make it difficult
-              to hide the chest. If you or a loved one is struggling with gynecomastia, gyno surgery can help.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-5">
-        <div class="procedure-image-wrapper position-relative">
-          <div class="image-frame rounded overflow-hidden">
-            <div class="ratio ratio-16x9">
-              <iframe src="https://www.youtube.com/embed/NVcUkP4mN-E" title="Male Breast Procedures Gynecomastia Surgery" allowfullscreen loading="lazy"></iframe>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+			<h2 class="display-6 mb-3 fw-bold">Male Breast Procedures at Mia Aesthetics</h2>
+			<div class="lead-text">
+			<p>
+				More formally referred to as gynecomastia surgery, gyno surgery is a surgical procedure performed to remove excess male breast tissue. Although not a health concern, the formation of
+				breast tissue in men (gynecomastia) can have an extremely negative impact on self-esteem, often causing men to avoid sports, intimacy, swimming, and other pursuits that make it difficult
+				to hide the chest. If you or a loved one is struggling with gynecomastia, gyno surgery can help.
+			</p>
+			</div>
+		</div>
+		</div>
+		<div class="col-lg-5">
+		<div class="procedure-image-wrapper position-relative">
+			<div class="image-frame rounded overflow-hidden">
+			<div class="ratio ratio-16x9">
+				<iframe src="https://www.youtube.com/embed/NVcUkP4mN-E" title="Male Breast Procedures Gynecomastia Surgery" allowfullscreen loading="lazy"></iframe>
+			</div>
+			</div>
+		</div>
+		</div>
+	</div>
+	</section>
 
-  <!-- Patient Case Study Section -->
-  <section class="case-study-section py-5">
-    <div class="row align-items-center g-3 g-lg-5">
-      <div class="col-lg-6">
-        <div class="case-study-visual position-relative">
-          <div class="image-container rounded overflow-hidden">
-            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-breast-reduction.jpg' ) ); ?>" alt="Gynecomastia Case Study - Patient Results" class="img-fluid w-100" loading="lazy" />
-          </div>
-          <div class="result-badge position-absolute top-0 end-0 p-2">
-            <span class="badge bg-mia-gold text-mia-black px-2 py-1">
-              <i class="fa-solid fa-star me-1"></i>
-              Actual Patient Results
-            </span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6">
-        <div class="case-study-info">
-          <div class="section-header mb-3">
-            <h2 class="display-6 fw-bold">Mia Aesthetics Patient Case Study</h2>
-          </div>
+	<!-- Patient Case Study Section -->
+	<section class="case-study-section py-5">
+	<div class="row align-items-center g-3 g-lg-5">
+		<div class="col-lg-6">
+		<div class="case-study-visual position-relative">
+			<div class="image-container rounded overflow-hidden">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-breast-reduction.jpg' ) ); ?>" alt="Gynecomastia Case Study - Patient Results" class="img-fluid w-100" loading="lazy" />
+			</div>
+			<div class="result-badge position-absolute top-0 end-0 p-2">
+			<span class="badge bg-mia-gold text-mia-black px-2 py-1">
+				<i class="fa-solid fa-star me-1"></i>
+				Actual Patient Results
+			</span>
+			</div>
+		</div>
+		</div>
+		<div class="col-lg-6">
+		<div class="case-study-info">
+			<div class="section-header mb-3">
+			<h2 class="display-6 fw-bold">Mia Aesthetics Patient Case Study</h2>
+			</div>
 
-          <p class="mb-3">
-            <strong>This actual Mia Aesthetics gyno surgery patient enjoyed optimal results after following post-op instructions.</strong>
-          </p>
+			<p class="mb-3">
+			<strong>This actual Mia Aesthetics gyno surgery patient enjoyed optimal results after following post-op instructions.</strong>
+			</p>
 
-          <div class="patient-stats border rounded p-2 mb-3">
-            <ul class="list-unstyled mb-0">
-              <li class="mb-1 d-flex align-items-center">
-                <span class="stat-label me-2">Procedure:</span>
-                <span>Gynecomastia Surgery</span>
-              </li>
-              <li class="mb-1 d-flex align-items-center">
-                <span class="stat-label me-2">Age:</span>
-                <span>31</span>
-              </li>
-              <li class="mb-1 d-flex align-items-center">
-                <span class="stat-label me-2">Height:</span>
-                <span>6'2"</span>
-              </li>
-              <li class="mb-0 d-flex align-items-center">
-                <span class="stat-label me-2">Weight:</span>
-                <span>242 lbs</span>
-              </li>
-            </ul>
-          </div>
+			<div class="patient-stats border rounded p-2 mb-3">
+			<ul class="list-unstyled mb-0">
+				<li class="mb-1 d-flex align-items-center">
+				<span class="stat-label me-2">Procedure:</span>
+				<span>Gynecomastia Surgery</span>
+				</li>
+				<li class="mb-1 d-flex align-items-center">
+				<span class="stat-label me-2">Age:</span>
+				<span>31</span>
+				</li>
+				<li class="mb-1 d-flex align-items-center">
+				<span class="stat-label me-2">Height:</span>
+				<span>6'2"</span>
+				</li>
+				<li class="mb-0 d-flex align-items-center">
+				<span class="stat-label me-2">Weight:</span>
+				<span>242 lbs</span>
+				</li>
+			</ul>
+			</div>
 
-          <div class="results-note p-2 rounded bg-mia-black text-mia-white">
-            <p class="mb-0">
-              <i class="fa-solid fa-star me-2 text-mia-gold"></i>
-              <strong>Post-gyno surgery results will vary, but our surgeons are highly trained to give you the best results possible.</strong>
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+			<div class="results-note p-2 rounded bg-mia-black text-mia-white">
+			<p class="mb-0">
+				<i class="fa-solid fa-star me-2 text-mia-gold"></i>
+				<strong>Post-gyno surgery results will vary, but our surgeons are highly trained to give you the best results possible.</strong>
+			</p>
+			</div>
+		</div>
+		</div>
+	</div>
+	</section>
 </div>

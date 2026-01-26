@@ -10,26 +10,24 @@
 
 get_header();
 
-// Query locations that have a city_guide post object assigned.
-$locations = new WP_Query(
-	array(
-		'post_type'      => 'location',
-		'posts_per_page' => -1,
-		'orderby'        => 'title',
-		'order'          => 'ASC',
-		'meta_query'     => array(
-			array(
-				'key'     => 'city_guide',
-				'compare' => 'EXISTS',
-			),
-			array(
-				'key'     => 'city_guide',
-				'value'   => '',
-				'compare' => '!=',
-			),
-		),
-	)
-);
+// Get cached location IDs that have city guides assigned.
+$city_guide_location_ids = mia_get_city_guide_location_ids();
+
+// Query locations using cached IDs (fast query, no meta_query needed).
+if ( count( $city_guide_location_ids ) > 0 ) {
+	$locations = new WP_Query(
+		array(
+			'post_type'      => 'location',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'post__in'       => $city_guide_location_ids,
+		)
+	);
+} else {
+	// No locations with city guides - create empty query.
+	$locations = new WP_Query( array( 'post__in' => array( 0 ) ) );
+}
 ?>
 
 <main id="primary">

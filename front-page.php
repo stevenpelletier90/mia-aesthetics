@@ -254,8 +254,8 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 						$location_title    = '';
 						$location_id       = 0;
 
-						if ( null !== $location && is_object( $location ) && property_exists( $location, 'ID' ) ) {
-							$location_id    = (int) $location->ID;
+						if ( $location instanceof WP_Post ) {
+							$location_id    = $location->ID;
 							$location_title = $location->post_title;
 						}
 

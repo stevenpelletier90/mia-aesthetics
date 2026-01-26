@@ -553,6 +553,52 @@ function mia_get_non_surgical_by_category() {
 }
 
 /**
+ * Get location IDs that have a city guide assigned
+ *
+ * Uses transient caching to avoid slow meta_query on every page load.
+ * Returns array of location post IDs that have a city_guide field set.
+ *
+ * @return array<int> Array of location post IDs with city guides.
+ */
+function mia_get_city_guide_location_ids(): array {
+	$transient_key = 'mia_city_guide_location_ids';
+	$cached_ids    = get_transient( $transient_key );
+
+	if ( is_array( $cached_ids ) ) {
+		return $cached_ids;
+	}
+
+	// Query all locations (fast query without meta_query).
+	$all_locations = new WP_Query(
+		array(
+			'post_type'              => 'location',
+			'posts_per_page'         => -1,
+			'post_status'            => 'publish',
+			'fields'                 => 'ids',
+			'no_found_rows'          => true,
+			'update_post_term_cache' => false,
+		)
+	);
+
+	$city_guide_ids = array();
+
+	if ( function_exists( 'get_field' ) && is_array( $all_locations->posts ) ) {
+		foreach ( $all_locations->posts as $location_id ) {
+			$post_id    = is_int( $location_id ) ? $location_id : $location_id->ID;
+			$city_guide = get_field( 'city_guide', $post_id );
+			if ( null !== $city_guide && false !== $city_guide && '' !== $city_guide ) {
+				$city_guide_ids[] = $post_id;
+			}
+		}
+	}
+
+	// Cache for 12 hours.
+	set_transient( $transient_key, $city_guide_ids, 12 * HOUR_IN_SECONDS );
+
+	return $city_guide_ids;
+}
+
+/**
  * Clear query-related caches when relevant posts are updated
  *
  * @param int $post_id The post ID being updated.
@@ -569,6 +615,11 @@ function mia_clear_query_caches( $post_id ): void {
 	// Clear search exclusion cache if a page is updated.
 	if ( 'page' === $post_type ) {
 		delete_transient( 'mia_excluded_search_pages' );
+	}
+
+	// Clear city guide location cache when locations are updated.
+	if ( 'location' === $post_type ) {
+		delete_transient( 'mia_city_guide_location_ids' );
 	}
 }
 

@@ -11,130 +11,130 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- Hero/Intro Section -->
 <div class="container">
-  <section class="procedure-section py-5">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <?php echo mia_render_inline_breadcrumbs(); ?>
-        <h2>Lipo 360</h2>
-        <p>
-          Lipo 360, commonly referred to as "360-degree liposuction," is a comprehensive body contouring procedure. It targets multiple areas of the midsection to achieve a more circumferential,
-          aesthetically pleasing body contour.
-        </p>
-        <p>
-          Unlike traditional liposuction which might focus on a single area like the abdomen or the flanks, lipo 360 involves removing excess fat from around the entire circumference of the torso —
-          including the abdomen, waist, love handles (flanks), and back.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <div class="procedure-image">
-          <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/body-image.jpg' ) ); ?>" alt="Lipo 360 body contouring results" class="img-fluid w-100" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
+	<section class="procedure-section py-5">
+	<div class="row align-items-center">
+		<div class="col-lg-6 mb-4 mb-lg-0">
+		<?php echo mia_render_inline_breadcrumbs(); ?>
+		<h2>Lipo 360</h2>
+		<p>
+			Lipo 360, commonly referred to as "360-degree liposuction," is a comprehensive body contouring procedure. It targets multiple areas of the midsection to achieve a more circumferential,
+			aesthetically pleasing body contour.
+		</p>
+		<p>
+			Unlike traditional liposuction which might focus on a single area like the abdomen or the flanks, lipo 360 involves removing excess fat from around the entire circumference of the torso —
+			including the abdomen, waist, love handles (flanks), and back.
+		</p>
+		</div>
+		<div class="col-lg-6">
+		<div class="procedure-image">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/body-image.jpg' ) ); ?>" alt="Lipo 360 body contouring results" class="img-fluid w-100" loading="lazy" />
+		</div>
+		</div>
+	</div>
+	</section>
 
-  <!-- Quick Links Section -->
-  <section class="procedure-section procedure-links-section py-5">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-header mb-5 text-center">
-          <h2 class="display-6 fw-bold">Learn More About Lipo 360</h2>
-        </div>
-      </div>
-    </div>
-    <div class="row g-3">
-      <div class="col-sm-6 col-lg-4">
-        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/lipo-360/recovery-timeline/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between p-3">
-          <span class="link-text">Recovery Timeline</span>
-          <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <a href="<?php echo esc_url( home_url( '/calculate-your-bmi/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between p-3">
-          <span class="link-text">Calculate Your BMI</span>
-          <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
-        </a>
-      </div>
-      <div class="col-sm-6 col-lg-4">
-        <a href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between p-3">
-          <span class="link-text">Before & After</span>
-          <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
-        </a>
-      </div>
-    </div>
-  </section>
+	<!-- Quick Links Section -->
+	<section class="procedure-section procedure-links-section py-5">
+	<div class="row">
+		<div class="col-12">
+		<div class="section-header mb-5 text-center">
+			<h2 class="display-6 fw-bold">Learn More About Lipo 360</h2>
+		</div>
+		</div>
+	</div>
+	<div class="row g-3">
+		<div class="col-sm-6 col-lg-4">
+		<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/lipo-360/recovery-timeline/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between p-3">
+			<span class="link-text">Recovery Timeline</span>
+			<i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
+		</a>
+		</div>
+		<div class="col-sm-6 col-lg-4">
+		<a href="<?php echo esc_url( home_url( '/calculate-your-bmi/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between p-3">
+			<span class="link-text">Calculate Your BMI</span>
+			<i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
+		</a>
+		</div>
+		<div class="col-sm-6 col-lg-4">
+		<a href="<?php echo esc_url( home_url( '/before-after/lipo-360/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between p-3">
+			<span class="link-text">Before & After</span>
+			<i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
+		</a>
+		</div>
+	</div>
+	</section>
 
-  <!-- Comparison Section -->
-  <section class="procedure-section py-5">
-    <h2>Classic Liposuction Vs. Lipo 360</h2>
-    <div class="row">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <h3>Classic Liposuction</h3>
-        <p>
-          Classic liposuction and lipo 360 are both effective cosmetic procedures for removing excess fat, but they target different areas and serve different aesthetic goals. Classic liposuction
-          removes fat from specific areas of the body. It is one of the most common plastic surgery procedures worldwide.
-        </p>
-        <p>
-          Liposuction can be applied to various parts of the body, including the abdomen, thighs, buttocks, arms, chin, and neck. The focus is usually on one or a few specific areas where fat is
-          stubborn or disproportionate.
-        </p>
-      </div>
-      <div class="col-lg-6">
-        <h3>Lipo 360</h3>
-        <p>
-          Lipo 360 is a more comprehensive form of liposuction that targets the midsection from all angles, hence the "360" descriptor. This procedure targets the entire torso to achieve a more
-          complete and balanced appearance.
-        </p>
-        <p>
-          It is particularly effective for individuals looking for a significant reshaping that encompasses the entire midsection, often sought by those desiring a more defined waistline and a
-          smoother transition between their upper and lower body.
-        </p>
-      </div>
-    </div>
-  </section>
+	<!-- Comparison Section -->
+	<section class="procedure-section py-5">
+	<h2>Classic Liposuction Vs. Lipo 360</h2>
+	<div class="row">
+		<div class="col-lg-6 mb-4 mb-lg-0">
+		<h3>Classic Liposuction</h3>
+		<p>
+			Classic liposuction and lipo 360 are both effective cosmetic procedures for removing excess fat, but they target different areas and serve different aesthetic goals. Classic liposuction
+			removes fat from specific areas of the body. It is one of the most common plastic surgery procedures worldwide.
+		</p>
+		<p>
+			Liposuction can be applied to various parts of the body, including the abdomen, thighs, buttocks, arms, chin, and neck. The focus is usually on one or a few specific areas where fat is
+			stubborn or disproportionate.
+		</p>
+		</div>
+		<div class="col-lg-6">
+		<h3>Lipo 360</h3>
+		<p>
+			Lipo 360 is a more comprehensive form of liposuction that targets the midsection from all angles, hence the "360" descriptor. This procedure targets the entire torso to achieve a more
+			complete and balanced appearance.
+		</p>
+		<p>
+			It is particularly effective for individuals looking for a significant reshaping that encompasses the entire midsection, often sought by those desiring a more defined waistline and a
+			smoother transition between their upper and lower body.
+		</p>
+		</div>
+	</div>
+	</section>
 
-  <!-- Benefits Section -->
-  <section class="procedure-section">
-    <div class="row align-items-center">
-      <div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
-        <h2>Main Benefits of Lipo 360</h2>
-        <ul>
-          <li>Aesthetic improvement</li>
-          <li>Enhanced contouring</li>
-          <li>Significant impact</li>
-          <li>Convenience</li>
-          <li>Alleviate transition areas</li>
-        </ul>
-      </div>
-      <div class="col-lg-6 order-lg-1">
-        <div class="procedure-image">
-          <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/tummy-tuck-2.jpg' ) ); ?>" alt="Lipo 360 comprehensive body sculpting" class="img-fluid w-100" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
+	<!-- Benefits Section -->
+	<section class="procedure-section">
+	<div class="row align-items-center">
+		<div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
+		<h2>Main Benefits of Lipo 360</h2>
+		<ul>
+			<li>Aesthetic improvement</li>
+			<li>Enhanced contouring</li>
+			<li>Significant impact</li>
+			<li>Convenience</li>
+			<li>Alleviate transition areas</li>
+		</ul>
+		</div>
+		<div class="col-lg-6 order-lg-1">
+		<div class="procedure-image">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/tummy-tuck-2.jpg' ) ); ?>" alt="Lipo 360 comprehensive body sculpting" class="img-fluid w-100" loading="lazy" />
+		</div>
+		</div>
+	</div>
+	</section>
 
-  <!-- Good Candidate Section -->
-  <section class="procedure-section py-5">
-    <div class="row align-items-center">
-      <div class="col-lg-6 mb-4 mb-lg-0">
-        <h2>Are You a Good Candidate for Lipo 360?</h2>
-        <p>To be a good candidate you should be:</p>
-        <ul>
-          <li>Close to your ideal body weight</li>
-          <li>A nonsmoker</li>
-          <li>In need of fat removal only</li>
-          <li>In good general health</li>
-          <li>Realistic in your expectations</li>
-          <li>Looking for targeted fat removal</li>
-          <li>Willing to follow post-op instructions</li>
-        </ul>
-      </div>
-      <div class="col-lg-6">
-        <div class="procedure-image">
-          <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/02/lipo-recovery-feat-image-1.jpg' ) ); ?>" alt="Lipo 360 candidate" class="img-fluid w-100" loading="lazy" />
-        </div>
-      </div>
-    </div>
-  </section>
+	<!-- Good Candidate Section -->
+	<section class="procedure-section py-5">
+	<div class="row align-items-center">
+		<div class="col-lg-6 mb-4 mb-lg-0">
+		<h2>Are You a Good Candidate for Lipo 360?</h2>
+		<p>To be a good candidate you should be:</p>
+		<ul>
+			<li>Close to your ideal body weight</li>
+			<li>A nonsmoker</li>
+			<li>In need of fat removal only</li>
+			<li>In good general health</li>
+			<li>Realistic in your expectations</li>
+			<li>Looking for targeted fat removal</li>
+			<li>Willing to follow post-op instructions</li>
+		</ul>
+		</div>
+		<div class="col-lg-6">
+		<div class="procedure-image">
+			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/02/lipo-recovery-feat-image-1.jpg' ) ); ?>" alt="Lipo 360 candidate" class="img-fluid w-100" loading="lazy" />
+		</div>
+		</div>
+	</div>
+	</section>
 </div>

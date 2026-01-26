@@ -76,10 +76,10 @@ function mia_aesthetics_breadcrumbs(): void {
  * Returns breadcrumb HTML for inline use in templates.
  * Supports optional class parameter for styling variations.
  *
- * @param string $class Optional additional CSS class.
+ * @param string $additional_class Optional additional CSS class.
  * @return string Breadcrumb HTML output.
  */
-function mia_render_inline_breadcrumbs( string $class = '' ): string {
+function mia_render_inline_breadcrumbs( string $additional_class = '' ): string {
 	if ( ! function_exists( 'yoast_breadcrumb' ) ) {
 		return '';
 	}
@@ -98,8 +98,8 @@ function mia_render_inline_breadcrumbs( string $class = '' ): string {
 
 	// Build wrapper class.
 	$wrapper_class = 'breadcrumb-inline';
-	if ( '' !== $class ) {
-		$wrapper_class .= ' ' . sanitize_html_class( $class );
+	if ( '' !== $additional_class ) {
+		$wrapper_class .= ' ' . sanitize_html_class( $additional_class );
 	}
 
 	// Return breadcrumb HTML without container (for inline use).
