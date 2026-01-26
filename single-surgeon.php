@@ -102,7 +102,8 @@ $gallery_url = home_url( '/before-after/before-after-by-doctor/' ) . '?doctor=' 
 
 							// Type safety checks.
 							if ( false !== $location_title && false !== $location_url ) {
-								$location_title = preg_replace( '/, [A-Z]{2}$/', '', $location_title ) ?? $location_title;
+								$location_city  = explode( ', ', $location_title )[0];
+								$location_title = 'Mia Aesthetics ' . $location_city;
 								?>
 						<p class="surgeon-location"><i class="fas fa-map-marker-alt" aria-hidden="true"></i> <a href="<?php echo esc_url( $location_url ); ?>"><?php echo esc_html( $location_title ); ?></a></p>
 								<?php

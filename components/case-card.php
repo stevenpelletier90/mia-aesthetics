@@ -94,7 +94,7 @@ if ( false === $case_permalink ) {
 			</div>
 
 			<div class="case-card-action">
-				<a href="<?php echo esc_url( $case_permalink ); ?>" class="btn btn-primary">
+				<a href="<?php echo esc_url( $case_permalink ); ?>" class="btn btn-primary" aria-label="View Case: <?php echo esc_attr( get_the_title() ); ?>">
 					View Case <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 				</a>
 			</div>

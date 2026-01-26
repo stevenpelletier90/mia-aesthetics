@@ -66,15 +66,17 @@ get_header(); ?>
 						);
 
 						$mia_aesthetics_has_children = $mia_aesthetics_child_conditions->have_posts();
+						$mia_aesthetics_parent_title = get_the_title();
 						?>
 						<div class="condition-group mb-4">
 							<div class="condition-parent">
 								<div class="d-flex align-items-center justify-content-between mb-3">
 									<h2 class="condition-title mb-0">
-										<?php the_title(); ?>
+										<?php echo esc_html( $mia_aesthetics_parent_title ); ?>
 									</h2>
 									<a href="<?php the_permalink(); ?>"
-										class="view-main-condition btn btn-sm btn-outline-primary">
+										class="view-main-condition btn btn-sm btn-outline-primary-alt"
+										aria-label="View main page for <?php echo esc_attr( $mia_aesthetics_parent_title ); ?>">
 										<i class="fa-solid fa-external-link me-1" aria-hidden="true"></i>
 										View Main Page
 									</a>
@@ -90,7 +92,7 @@ get_header(); ?>
 											?>
 											<div class="col-lg-3 col-md-4 col-sm-6">
 												<div class="condition-item">
-													<a href="<?php the_permalink(); ?>" class="condition-link">
+													<a href="<?php the_permalink(); ?>" class="condition-link" aria-label="<?php echo esc_attr( get_the_title() . ' - ' . $mia_aesthetics_parent_title ); ?>">
 														<span class="condition-name"><?php the_title(); ?></span>
 														<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 													</a>
@@ -106,8 +108,8 @@ get_header(); ?>
 									<div class="row g-2">
 										<div class="col-lg-3 col-md-4 col-sm-6">
 											<div class="condition-item standalone">
-												<a href="<?php the_permalink(); ?>" class="condition-link">
-													<span class="condition-name"><?php the_title(); ?></span>
+												<a href="<?php the_permalink(); ?>" class="condition-link" aria-label="<?php echo esc_attr( $mia_aesthetics_parent_title ); ?>">
+													<span class="condition-name"><?php echo esc_html( $mia_aesthetics_parent_title ); ?></span>
 													<i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 												</a>
 											</div>

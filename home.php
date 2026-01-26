@@ -58,7 +58,7 @@ get_header(); ?>
 									<?php the_excerpt(); ?>
 								</div>
 								<div class="card-footer">
-									<a href="<?php the_permalink(); ?>" class="read-more-link">
+									<a href="<?php the_permalink(); ?>" class="read-more-link" aria-label="Read more about <?php echo esc_attr( get_the_title() ); ?>">
 										<span>Read More</span> <i class="fas fa-arrow-right" aria-hidden="true"></i>
 									</a>
 								</div>

@@ -1225,14 +1225,7 @@
   }
 
   .carousel-indicators {
-    margin-top: 1.5rem !important;
-    justify-content: center;
-  }
-
-  .carousel-indicators [data-bs-target] {
-    width: 8px !important;
-    height: 8px !important;
-    margin: 0 0.2rem !important;
+    display: none;
   }
 
   #testimonialsCarousel .carousel-control-prev {

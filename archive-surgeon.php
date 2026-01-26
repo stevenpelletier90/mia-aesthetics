@@ -109,7 +109,7 @@ get_header(); ?>
 										$surgeon_permalink = get_permalink();
 										if ( false !== $surgeon_permalink ) :
 											?>
-										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-bio-link text-decoration-none"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View Bio</span></a>
+										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="surgeon-bio-link text-decoration-none" aria-label="View Bio for <?php echo esc_attr( get_the_title() ); ?>"><i class="fas fa-chevron-right me-2" aria-hidden="true"></i><span>View Bio</span></a>
 										<?php endif; ?>
 									</div>
 								</div>

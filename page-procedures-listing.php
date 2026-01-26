@@ -87,11 +87,11 @@ get_header();
 									</figure>
 									<div class="procedure-content">
 										<h2 class="procedure-title">
-											<a href="<?php echo esc_url( $procedure_link ); ?>">
+											<a href="<?php echo esc_url( $procedure_link ); ?>" aria-label="<?php echo esc_attr( $procedure_title ); ?> procedure">
 												<?php echo esc_html( $procedure_title ); ?>
 											</a>
 										</h2>
-										<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-outline-primary btn-sm" role="button">
+										<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-outline-primary-alt btn-sm" role="button" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
 											Learn More
 										</a>
 									</div>

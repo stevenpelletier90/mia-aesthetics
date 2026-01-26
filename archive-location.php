@@ -102,8 +102,9 @@ get_header();
 									<?php
 									$location_view_permalink = get_permalink();
 									if ( false !== $location_view_permalink ) :
+										$location_city = explode( ', ', get_the_title() )[0];
 										?>
-									<a href="<?php echo esc_url( $location_view_permalink ); ?>" class="btn btn-sm btn-primary">
+									<a href="<?php echo esc_url( $location_view_permalink ); ?>" class="btn btn-sm btn-primary" aria-label="View Mia Aesthetics <?php echo esc_attr( $location_city ); ?>">
 										View <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 									<?php endif; ?>

@@ -1,0 +1,178 @@
+<style>
+  /* Existing styles */
+  form {
+    background-color: transparent;
+    padding: 20px;
+    max-width: 600px; /* Increased max-width to accommodate two fields side-by-side comfortably */
+    width: 100%;
+    margin: 0 auto;
+    box-sizing: border-box; /* Ensure padding is included in the element's total width */
+  }
+  label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: bold;
+    color: #333; /* Added a default text color for labels */
+  }
+  input[type='text'],
+  textarea,
+  select {
+    width: 100%;
+    padding: 10px;
+    /* margin-bottom: 15px; Removed this margin from individual fields and will apply it to containers */
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 16px;
+    resize: vertical;
+    color: #333; /* Added a default text color for inputs */
+  }
+  input[type='submit'] {
+    width: 100%;
+    padding: 10px;
+    background-color: #c8b273 !important;
+    border: none !important;
+    border-radius: 4px;
+    color: #1b1b1b !important;
+    font-size: 16px;
+    font-weight: 700 !important;
+    cursor: pointer;
+    box-sizing: border-box;
+    margin-top: 20px; /* Added space above the submit button */
+    transition:
+      background-color 0.3s ease,
+      color 0.3s ease; /* Added smooth transition for hover effect */
+  }
+  input[type='submit']:hover {
+    background-color: #1b1b1b !important;
+    color: #c8b273 !important;
+  }
+
+  /* New styles for layout using Flexbox */
+  .form-row {
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next line on smaller screens */
+    gap: 20px; /* Adds space between flex items (fields) */
+    margin-bottom: 15px; /* Adds space between rows of fields */
+  }
+
+  .form-field {
+    flex: 1; /* Allows each form-field to grow and shrink to fill available space */
+    min-width: 200px; /* Minimum width before fields start wrapping */
+    /* Individual field margin-bottom is no longer needed here */
+  }
+
+  /* Style for full-width text area */
+  .form-full-width {
+    margin-bottom: 15px; /* Add margin below the full-width description field */
+  }
+
+  /* Adjustments for responsiveness on smaller screens */
+  @media (max-width: 480px) {
+    .form-row {
+      flex-direction: column; /* Stack items vertically on very small screens */
+      gap: 0; /* Remove gap when stacked vertically */
+    }
+
+    .form-field {
+      min-width: 100%; /* Ensure fields take full width when stacked */
+      margin-bottom: 15px; /* Add back margin when stacked */
+    }
+
+    .form-row:last-child {
+      margin-bottom: 0; /* Remove bottom margin from the last row when stacked */
+    }
+  }
+</style>
+<form action="https://webto.salesforce.com/servlet/servlet.WebToCase?encoding=UTF-8&orgId=00D41000002Eojo" method="POST">
+  <input type="hidden" name="orgid" value="00D41000002Eojo" />
+  <input type="hidden" name="recordType" id="recordType" value="012PJ0000009mew" />
+  <input type="hidden" name="status" id="status" value="Needs Review" />
+  <input type="hidden" name="retURL" value="https://v3.miaaesthetics.com/thank-you-patient-portal/" />
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="name">Contact Name</label>
+      <input id="name" maxlength="80" name="name" type="text" required />
+    </div>
+    <div class="form-field">
+      <label for="email">Email</label>
+      <input id="email" maxlength="80" name="email" type="text" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="phone">Phone</label>
+      <input id="phone" maxlength="40" name="phone" type="text" required />
+    </div>
+    <div class="form-field">
+      <label for="subject">Subject</label>
+      <input id="subject" maxlength="80" name="subject" type="text" required />
+    </div>
+  </div>
+
+  <div class="form-row">
+    <div class="form-field">
+      <label for="supportReasons">Support Reasons</label>
+      <select id="supportReasons" name="00NPJ000001KTa0" title="Support Reasons" required>
+        <option value="">--None--</option>
+        <option value="Portal Login Issues">Portal Login Issues</option>
+        <option value="Account Changes">Account Changes</option>
+        <option value="General Questions">General Questions</option>
+        <option value="Labs">Labs</option>
+        <option value="Invoice Issues">Invoice Issues</option>
+        <option value="Form Issues">Form Issues</option>
+        <option value="Portal Technical Issues">Portal Technical Issues</option>
+      </select>
+    </div>
+    <div class="form-field">
+      <label for="supportSubReason">Support Sub-Reason</label>
+      <select id="supportSubReason" name="00NPJ000001KTa7" title="Support Sub-Reason" required>
+        <option value="">--None--</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-full-width">
+    <label for="description">Description</label>
+    <textarea id="description" name="description" required style="resize: vertical"></textarea>
+  </div>
+
+  <input type="hidden" id="external" name="external" value="1" />
+
+  <div>
+    <input type="submit" name="submit" />
+  </div>
+</form>
+
+<script>
+  document.getElementById('supportReasons').addEventListener('change', function () {
+    var supportSubReason = document.getElementById('supportSubReason');
+    var selectedReason = this.value;
+
+    // Clear previous options
+    supportSubReason.innerHTML = '<option value="">--None--</option>';
+
+    // Define sub-options for each main option
+    var options = {
+      'Portal Login Issues': ['Password Reset', 'Password Lockout', 'Forgot Username', 'Other'],
+      'Account Changes': ['Email Address Changes', 'Phone Number Changes', 'Name Changes', 'Other'],
+      'General Questions': ['Change Surgery Date', 'Changing Procedures', 'Other'],
+      Labs: ['Unable to Upload Results', 'Other'],
+      'Invoice Issues': ['Unable to Make Payments via Portal', 'Other'],
+      'Form Issues': ['Unable to Open Forms', 'Forms not Loading', 'Form Already Completed', 'Other'],
+      'Portal Technical Issues': ['Unable to Submit Form', 'Previous Surgery Date Displaying', 'Form Past Due', 'Other'],
+    };
+
+    // Add new options based on the selected reason
+    if (options[selectedReason]) {
+      options[selectedReason].forEach(function (option) {
+        var opt = document.createElement('option');
+        opt.value = option;
+        opt.textContent = option;
+        supportSubReason.appendChild(opt);
+      });
+    }
+  });
+</script>

@@ -30,7 +30,7 @@
 
 .breadcrumb-inline a {
   color: var(--mia-link);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .breadcrumb-inline a:hover,
@@ -62,7 +62,7 @@
 
 .breadcrumb-inline.dark a {
   color: var(--mia-white);
-  text-decoration: none;
+  text-decoration: underline;
 }
 
 .breadcrumb-inline.dark a:hover,

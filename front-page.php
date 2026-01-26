@@ -302,7 +302,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 										</p>
 									<?php endif; ?>
 									<?php if ( false !== $surgeon_permalink ) : ?>
-										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="homepage-surgeon-bio-link">
+										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="homepage-surgeon-bio-link" aria-label="View Bio for <?php echo esc_attr( get_the_title() ); ?>">
 											View Bio <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
 										</a>
 									<?php endif; ?>

@@ -32,6 +32,11 @@ $ajax               = $args['ajax'] ?? $ajax ?? true;
 $tabindex           = $args['tabindex'] ?? $tabindex ?? null;
 $field_values       = $args['field_values'] ?? $field_values ?? null;
 $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
+$heading_level      = $args['heading_level'] ?? $heading_level ?? 3;
+
+// Ensure heading level is valid (2-6).
+$heading_level = max( 2, min( 6, (int) $heading_level ) );
+$heading_tag   = 'h' . $heading_level;
 ?>
 
 <div class="card shadow-sm consultation-card <?php echo esc_attr( $additional_classes ); ?>" 
@@ -39,9 +44,9 @@ $additional_classes = $args['additional_classes'] ?? $additional_classes ?? '';
 	aria-label="<?php echo esc_attr( $card_title ); ?>">
 	<div class="card-body p-4">
 		<?php if ( $show_title ) : ?>
-			<h3 class="card-title text-center mb-4">
+			<<?php echo esc_html( $heading_tag ); ?> class="card-title text-center mb-4">
 				<?php echo esc_html( $card_title ); ?>
-			</h3>
+			</<?php echo esc_html( $heading_tag ); ?>>
 		<?php endif; ?>
 
 		<?php if ( $show_description ) : ?>

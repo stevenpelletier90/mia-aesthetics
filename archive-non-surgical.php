@@ -70,7 +70,7 @@ get_header(); ?>
 											<?php echo esc_html( $procedure_title ); ?>
 										</a>
 									</h2>
-									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary">
+									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
 										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 								</div>
@@ -118,7 +118,7 @@ get_header(); ?>
 											<?php echo esc_html( $procedure_title ); ?>
 										</a>
 									</h2>
-									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary">
+									<a href="<?php echo esc_url( $procedure_link ); ?>" class="btn btn-primary" aria-label="Learn more about <?php echo esc_attr( $procedure_title ); ?>">
 										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 								</div>

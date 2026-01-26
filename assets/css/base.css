@@ -175,6 +175,7 @@ p {
 
 a {
   color: var(--mia-link);
+  font-weight: 600;
   text-decoration: underline;
   transition: color var(--transition-fast);
 }

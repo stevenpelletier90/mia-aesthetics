@@ -24,9 +24,9 @@ get_header(); ?>
 					
 					<?php
 					if ( has_term( 'spanish-specials', 'special-category' ) ) {
-						get_template_part( 'components/consultation-form-spanish' );
+						get_template_part( 'components/consultation-form-spanish', null, array( 'heading_level' => 2 ) );
 					} else {
-						get_template_part( 'components/consultation-form' );
+						get_template_part( 'components/consultation-form', null, array( 'heading_level' => 2 ) );
 					}
 					?>
 					

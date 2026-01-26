@@ -123,7 +123,7 @@ $locations = new WP_Query(
 									<?php endif; ?>
 								</div>
 								<div class="city-guide-action">
-									<a href="<?php echo esc_url( $city_guide_url ); ?>" class="btn btn-sm btn-primary">
+									<a href="<?php echo esc_url( $city_guide_url ); ?>" class="btn btn-sm btn-primary" aria-label="Learn more about <?php echo esc_attr( get_the_title() ); ?>">
 										Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 									</a>
 								</div>
@@ -224,7 +224,7 @@ $locations = new WP_Query(
 										<?php endif; ?>
 									</div>
 									<div class="city-guide-cta-buttons">
-										<a href="<?php echo esc_url( $city_guide_url ); ?>" class="btn btn-primary">
+										<a href="<?php echo esc_url( $city_guide_url ); ?>" class="btn btn-primary" aria-label="Learn more about <?php echo esc_attr( get_the_title() ); ?>">
 											Learn More <i class="fas fa-arrow-right ms-1" aria-hidden="true"></i>
 										</a>
 									</div>
