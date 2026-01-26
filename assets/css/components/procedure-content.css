@@ -591,6 +591,10 @@
     -webkit-text-fill-color: unset !important;
     color: var(--mia-black) !important;
   }
+
+  .fixed-bg-section h2.text-white {
+    color: var(--mia-black) !important;
+  }
 }
 
 /* Comparison table mobile */
