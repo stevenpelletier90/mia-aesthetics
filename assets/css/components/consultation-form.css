@@ -46,6 +46,14 @@ a.consent-trigger:hover i {
   color: var(--mia-white);
 }
 
+.consultation-card .card-title {
+  font-size: 1.375rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+
 .consultation-card .btn-primary {
   background-color: var(--mia-gold);
   border-color: var(--mia-gold);

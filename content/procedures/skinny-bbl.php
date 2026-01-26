@@ -1,0 +1,155 @@
+<?php
+/**
+ * Skinny BBL Procedure Content
+ *
+ * @package Mia_Aesthetics
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+<!-- Hero/Intro Section -->
+<div class="container">
+  <section class="procedure-section py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <div class="procedure-intro-content">
+          <h2 class="display-6 fw-bold mb-4 text-gradient">What is a Skinny BBL?</h2>
+          <div class="lead-text mb-4">
+            <p class="fs-5">
+              A skinny BBL is a specialized Brazilian butt lift designed for leaner individuals with
+              less body fat. As in a traditional BBL, the surgeon extracts donor fat using
+              liposuction and then meticulously injects it into the buttocks to create a more
+              desirable shape. The procedure enhances the buttocks while maintaining a natural look
+              that complements the patient's slender frame. Because of the limited fat available,
+              achieving the desired results may require a more strategic approach.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="procedure-image-wrapper position-relative">
+          <div class="image-frame rounded-3 overflow-hidden">
+            <img
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/bbl-gray-bg.jpg' ) ); ?>"
+              alt="Skinny BBL body contouring results"
+              class="img-fluid w-100"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works -->
+  <section class="procedure-section py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 order-lg-2">
+        <div class="procedure-details">
+          <div class="section-header mb-4">
+            <h2 class="display-6 fw-bold mt-2">How Skinny BBL Surgery Works</h2>
+          </div>
+
+          <div class="procedure-overview mb-4">
+            <p class="mb-3">
+              Every person is different, so the specific details of every surgery are different as
+              well. Generally, however, a skinny BBL occurs as follows:
+            </p>
+            <ol>
+              <li class="mb-2">
+                You will have a detailed consultation with a surgeon or surgical coordinator to
+                create a fat harvesting plan.
+              </li>
+              <li class="mb-2">
+                Your care team will prep you for surgery and place you under general anesthesia on
+                the day of surgery.
+              </li>
+              <li class="mb-2">
+                Liposuction will be performed to harvest fat from areas like the abdomen, flanks,
+                lower back, thighs, and sometimes arms.
+              </li>
+              <li class="mb-2">
+                The harvested fat will be purified to ensure only the highest quality fat cells are
+                used.
+              </li>
+              <li class="mb-2">
+                Your surgeon will precisely inject the purified fat into specific buttocks areas to
+                enhance shape, size, and contour using ultrasound technology.
+              </li>
+              <li class="mb-0">
+                We will monitor you after your procedure until you are ready to go home.
+              </li>
+            </ol>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5 order-lg-1 d-none d-lg-block">
+        <div class="procedure-visual position-relative">
+          <div class="image-container rounded-3 overflow-hidden">
+            <img
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/bbl-beach-tall.jpg' ) ); ?>"
+              alt="Skinny BBL procedure process"
+              class="img-fluid w-100"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Candidacy Section -->
+  <section class="procedure-section py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="candidacy-content">
+          <div class="section-header mb-4">
+            <h2 class="display-6 fw-bold mt-2">Skinny BBL Weight, BMI, and Other Requirements</h2>
+          </div>
+
+          <div class="candidacy-overview mb-4">
+            <p class="mb-3">
+              There is no minimum weight requirement for a skinny BBL. It matters only that you have
+              adequate fat for harvesting and transfer. In general, a skinny BBL requires that you
+              be or have:
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-2">
+                <i class="fa-solid fa-check text-gold me-2"></i>A BMI of 25 or less
+              </li>
+              <li class="mb-2">
+                <i class="fa-solid fa-check text-gold me-2"></i>Adequate donor fat
+              </li>
+              <li class="mb-2">
+                <i class="fa-solid fa-check text-gold me-2"></i>Able to maintain a stable weight
+              </li>
+              <li class="mb-2">
+                <i class="fa-solid fa-check text-gold me-2"></i>Good overall health
+              </li>
+              <li class="mb-2"><i class="fa-solid fa-check text-gold me-2"></i>A nonsmoker</li>
+              <li class="mb-2">
+                <i class="fa-solid fa-check text-gold me-2"></i>Realistic expectations
+              </li>
+              <li class="mb-0">
+                <i class="fa-solid fa-check text-gold me-2"></i>Adequate commitment to recovery
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="candidacy-visual position-relative">
+          <div class="image-container rounded-3 overflow-hidden">
+            <img
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/bbl-stock.jpg' ) ); ?>"
+              alt="Ideal candidate for skinny BBL"
+              class="img-fluid w-100"
+              loading="lazy"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

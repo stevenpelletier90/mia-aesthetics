@@ -33,7 +33,6 @@ $heading_tag   = 'h' . $heading_level;
 ?>
 
 <div class="card shadow-sm consultation-card <?php echo esc_attr( $additional_classes ); ?>"
-	role="complementary"
 	aria-label="<?php echo esc_attr( $card_title ); ?>">
 	<div class="card-body p-4">
 		<?php if ( $show_title ) : ?>

@@ -21,6 +21,7 @@ require_once get_template_directory() . '/inc/display-control-helpers.php';
 require_once get_template_directory() . '/inc/breadcrumb-display.php';
 require_once get_template_directory() . '/inc/cta-display.php';
 require_once get_template_directory() . '/inc/social-media-helpers.php';
+require_once get_template_directory() . '/inc/procedure-content.php';
 
 // Feature modules.
 require_once get_template_directory() . '/inc/featured-image-column.php';

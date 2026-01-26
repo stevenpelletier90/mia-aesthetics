@@ -71,15 +71,15 @@ function mia_aesthetics_breadcrumbs(): void {
 }
 
 /**
- * Shortcode for breadcrumbs
+ * Render inline breadcrumbs
  *
- * Use [mia_breadcrumbs] in content to display breadcrumbs inline.
- * Supports optional class attribute for styling variations.
+ * Returns breadcrumb HTML for inline use in templates.
+ * Supports optional class parameter for styling variations.
  *
- * @param array<string, string> $atts Shortcode attributes.
+ * @param string $class Optional additional CSS class.
  * @return string Breadcrumb HTML output.
  */
-function mia_aesthetics_breadcrumbs_shortcode( $atts ): string {
+function mia_render_inline_breadcrumbs( string $class = '' ): string {
 	if ( ! function_exists( 'yoast_breadcrumb' ) ) {
 		return '';
 	}
@@ -96,19 +96,10 @@ function mia_aesthetics_breadcrumbs_shortcode( $atts ): string {
 		return '';
 	}
 
-	// Parse shortcode attributes.
-	$atts = shortcode_atts(
-		array(
-			'class' => '',
-		),
-		$atts,
-		'mia_breadcrumbs'
-	);
-
 	// Build wrapper class.
 	$wrapper_class = 'breadcrumb-inline';
-	if ( is_string( $atts['class'] ) && '' !== $atts['class'] ) {
-		$wrapper_class .= ' ' . sanitize_html_class( $atts['class'] );
+	if ( '' !== $class ) {
+		$wrapper_class .= ' ' . sanitize_html_class( $class );
 	}
 
 	// Return breadcrumb HTML without container (for inline use).
@@ -119,4 +110,3 @@ function mia_aesthetics_breadcrumbs_shortcode( $atts ): string {
 
 	return $output;
 }
-add_shortcode( 'mia_breadcrumbs', 'mia_aesthetics_breadcrumbs_shortcode' );

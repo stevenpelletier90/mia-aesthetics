@@ -86,7 +86,7 @@ $gallery_url = home_url( '/before-after/before-after-by-doctor/' ) . '?doctor=' 
 				</div>
 				<div class="col-lg-6">
 					<div class="surgeon-hero-content">
-						<?php echo do_shortcode( '[mia_breadcrumbs class="dark"]' ); ?>
+						<?php echo mia_render_inline_breadcrumbs( 'dark' ); ?>
 						<h1 class="surgeon-name"><?php echo esc_html( get_the_title() ); ?></h1>
 						<?php
 						$location = get_field( 'surgeon_location' );

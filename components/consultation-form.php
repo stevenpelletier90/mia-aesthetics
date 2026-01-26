@@ -39,8 +39,7 @@ $heading_level = max( 2, min( 6, (int) $heading_level ) );
 $heading_tag   = 'h' . $heading_level;
 ?>
 
-<div class="card shadow-sm consultation-card <?php echo esc_attr( $additional_classes ); ?>" 
-	role="complementary" 
+<div class="card shadow-sm consultation-card <?php echo esc_attr( $additional_classes ); ?>"
 	aria-label="<?php echo esc_attr( $card_title ); ?>">
 	<div class="card-body p-4">
 		<?php if ( $show_title ) : ?>

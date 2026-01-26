@@ -72,7 +72,22 @@ if ( $current_post instanceof WP_Post ) {
 
 		<article class="single-treatment">
 			<section class="main-content">
-				<?php the_content(); ?>
+				<?php
+				$mia_content_map  = mia_get_procedure_content_map();
+				$mia_post_id      = get_the_ID();
+				$mia_content_file = null;
+
+				if ( false !== $mia_post_id && isset( $mia_content_map[ $mia_post_id ] ) ) {
+					$mia_content_file = get_template_directory() . '/content/procedures/' . $mia_content_map[ $mia_post_id ];
+				}
+
+				if ( null !== $mia_content_file && file_exists( $mia_content_file ) ) {
+					include $mia_content_file;
+				} else {
+					// Fallback to WordPress editor content if no PHP file exists.
+					the_content();
+				}
+				?>
 			</section>
 
 			<aside class="resources-featured-section py-5" aria-labelledby="resources-heading">

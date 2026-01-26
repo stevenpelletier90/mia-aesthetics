@@ -1,0 +1,181 @@
+<?php
+/**
+ * Blepharoplasty Procedure Content
+ *
+ * @package Mia_Aesthetics
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+?>
+<div class="container py-5">
+  <!-- Hero/Intro Section -->
+  <section class="procedure-section procedure-hero-section">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <div class="procedure-intro-content">
+[mia_breadcrumbs]
+          <h2 class="display-6 mb-4">What is an Eyelid Lift?</h2>
+          <div class="lead-text mb-4">
+            <p class="fs-5">
+              <strong>Eyelid lift surgery, also known as blepharoplasty, is a popular and effective procedure that rejuvenates the eye area, creating a younger and more alert expression.</strong>
+              It can also make the eyes look bigger. Performed on the upper lid, lower lid, or both, an eyelid lift is often sought by both men and women for an assortment of reasons. An eyelid lift
+              can correct the following issues:
+            </p>
+            <ul class="list-unstyled">
+              <li class="mb-2 d-flex align-items-start">
+                <i class="fa-solid fa-circle-check text-gold me-2 mt-1"></i>
+                <span>A double eyelid</span>
+              </li>
+              <li class="mb-2 d-flex align-items-start">
+                <i class="fa-solid fa-circle-check text-gold me-2 mt-1"></i>
+                <span>Puffy under-eye bags</span>
+              </li>
+              <li class="mb-2 d-flex align-items-start">
+                <i class="fa-solid fa-circle-check text-gold me-2 mt-1"></i>
+                <span>Peripheral vision blocked by sagging lids</span>
+              </li>
+              <li class="mb-2 d-flex align-items-start">
+                <i class="fa-solid fa-circle-check text-gold me-2 mt-1"></i>
+                <span>Damage to the eyelid caused by an injury, illness, or congenital issue</span>
+              </li>
+              <li class="mb-2 d-flex align-items-start">
+                <i class="fa-solid fa-circle-check text-gold me-2 mt-1"></i>
+                <span>Difficulty applying eye makeup</span>
+              </li>
+            </ul>
+            <p class="fs-5">
+              Although not always the case, eyelid surgery is frequently paired with a
+              <a href="/cosmetic-plastic-surgery/face/brow-lift/">brow lift</a>.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-5">
+        <div class="procedure-image-wrapper position-relative">
+          <div class="image-frame rounded-3 overflow-hidden">
+            <img src="/wp-content/uploads/2025/09/stock-face-2.jpg" alt="Eyelid Lift Blepharoplasty Procedure" class="img-fluid w-100" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Quick Links Section -->
+  <section class="procedure-section procedure-links-section py-5">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-header mb-5 text-center">
+          <h2 class="display-6">Learn More About Blepharoplasty</h2>
+        </div>
+      </div>
+    </div>
+    <div class="row g-3">
+      <div class="col-sm-6 col-lg-3">
+        <a href="/surgery-preparation/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+          <span class="link-text">Surgery Preparation</span>
+          <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
+        </a>
+      </div>
+
+      <div class="col-sm-6 col-lg-3">
+        <a href="/financing/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+          <span class="link-text">Deposit Info</span>
+          <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- About the Procedure -->
+  <section class="procedure-section about-procedure-section py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6 order-lg-2">
+        <div class="procedure-details">
+          <div class="section-header mb-4">
+            <h2 class="display-6 mt-2">About the Eyelid Lift Procedure</h2>
+          </div>
+
+          <div class="procedure-overview mb-4">
+            <p class="mb-3">
+              On the day of your surgery, your doctor will send you off to sleep using general anesthesia before getting to work. If he is working on your upper eyelid, he will make his incision along
+              the natural crease or fold of your eyelid. He will remove any excess skin, muscle and fat as necessary and then close the incision using sutures, surgical tape, or adhesives.
+            </p>
+            <p class="mb-0">
+              If your surgeon is repairing your lower lid, he will make his incision either just below your lash line or just inside your eyelid. Through this incision he will remove or redistribute
+              extra fat and muscle as well as any sagging skin. Again, he will close the incision using the method he feels is best.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6 order-lg-1">
+        <div class="procedure-visual position-relative">
+          <div class="image-container rounded-3 overflow-hidden">
+            <img src="/wp-content/uploads/2025/09/eyelid-lift-exam.jpg" alt="Blepharoplasty Process" class="img-fluid w-100" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Recovery Section -->
+  <section class="procedure-section recovery-section py-5">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="recovery-content">
+          <div class="section-header mb-4">
+            <h2 class="display-6 mt-2">Eyelid Lift/Blepharoplasty Recovery</h2>
+          </div>
+
+          <div class="recovery-overview mb-4">
+            <p class="mb-3">
+              Immediately after eyelid surgery, your doctor will apply a lubricating ointment to your eyes. This may cause your vision to be a bit blurry. This is perfectly normal and not a sign that
+              something is wrong. You may also notice light sensitivity and double vision.
+            </p>
+            <p class="mb-3">
+              You will experience swelling and bruising around the eyes, and your incisions may itch as they heal. You'll need to avoid rubbing your eyes even if they itch and avoid wearing contact
+              lenses for at least 2 weeks.
+            </p>
+            <p class="mb-3">
+              Noticeable discomfort or swelling should subside within 48 hours, and we will prescribe pain medication to keep you comfortable. You'll need to keep your head elevated as much as
+              possible and may find ice packs can help reduce swelling and discomfort the night of and day after your surgery.
+            </p>
+            <p class="mb-3">
+              After one to two weeks, you can gradually resume normal activities like office work and light household chores. However, heavy lifting, exercise, and other strenuous activities need to
+              be postponed for several more weeks.
+            </p>
+            <p class="mb-0">You'll begin to see the preliminary results from eyelid surgery in six to eight weeks, but your final results won't appear until about six months after surgery.</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-6">
+        <div class="recovery-visual position-relative">
+          <div class="image-container rounded-3 overflow-hidden">
+            <img src="/wp-content/uploads/2025/09/face-small-1.jpg" alt="Blepharoplasty Recovery" class="img-fluid w-100" />
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Results Duration Section -->
+  <section class="procedure-section results-section py-5">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="results-content">
+          <div class="section-header mb-4">
+            <h2 class="display-6 mt-2">Is an Eyelid Lift Permanent?</h2>
+          </div>
+
+          <div class="results-overview mb-4">
+            <p class="mb-0">
+              Cosmetic surgery performed on the lower eyelid is permanent. It is extremely rare for a patient to need future surgeries in this area. The upper eyelid can start to droop again, however.
+              Upper eyelid surgeries can last a lifetime, but some patients see new changes to their eyelids 5 to 7 years after the procedure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
