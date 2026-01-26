@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7 mb-4 mb-lg-0">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4">What Is Chin Lipo?</h2>
           <div class="lead-text mb-4">
             <p class="fs-5">
@@ -37,9 +37,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/chin-lipo-male.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/chin-lipo-male.jpg' ) ); ?>"
               alt="Chin Liposuction Procedure"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -59,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row g-3">
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/cosmetic-plastic-surgery/face/chin-lipo/surgery-preparation/"
+          href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/surgery-preparation/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Surgery Preparations</span>
@@ -68,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/cosmetic-plastic-surgery/face/chin-lipo/combinations/"
+          href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/combinations/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Combinations</span>
@@ -77,7 +78,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/cosmetic-plastic-surgery/face/chin-lipo/men/"
+          href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/men/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Chin Lipo For Men</span>
@@ -86,7 +87,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/cosmetic-plastic-surgery/face/chin-lipo/how-to-maintain-results/"
+          href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/how-to-maintain-results/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">How To Maintain Results</span>
@@ -135,9 +136,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="why-choose-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/face-procedure-2.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-procedure-2.jpg' ) ); ?>"
               alt="Chin Lipo Benefits"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -159,7 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               Jawline contouring with chin liposuction is a fairly short surgery, taking only about
               30 to 60 minutes. You may choose to be under general anesthesia for your procedure or
               opt for
-              <a href="/cosmetic-plastic-surgery/body/awake-liposuction/">awake liposuction</a>,
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/awake-liposuction/' ) ); ?>">awake liposuction</a>,
               which uses a local anesthetic to keep you comfortable. At Mia Aesthetics, our
               experienced plastic surgeons perform chin lipo in a sterile environment using advanced
               techniques that provide extreme precision.
@@ -179,9 +181,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="how-it-works-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/face-procedure-3.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-procedure-3.jpg' ) ); ?>"
               alt="Chin Lipo Process"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -201,16 +204,16 @@ if ( ! defined( 'ABSPATH' ) ) {
           <div class="candidacy-overview mb-4">
             <p class="mb-0">
               To be a good candidate for double chin removal with liposuction, you should be free of
-              significant medical issues that might complicate the procedure. It’s also best if you
+              significant medical issues that might complicate the procedure. It's also best if you
               have good skin elasticity so that your skin can snap back into place rather than
               sagging after the excess fat is gone. There are skin tightening procedures such as
-              <a href="/non-surgical/j-plasma-skin-tightening/">J-plasma</a> that can help if your
-              skin elasticity isn’t perfect. Chin lipo might not be a good idea for you if you have
+              <a href="<?php echo esc_url( home_url( '/non-surgical/j-plasma-skin-tightening/' ) ); ?>">J-plasma</a> that can help if your
+              skin elasticity isn't perfect. Chin lipo might not be a good idea for you if you have
               medical issues that can interfere with healing, such as uncontrolled diabetes or
               hypertension. To that end, we do require smokers to quit before their procedure as the
-              chemicals in cigarette smoke negatively impact the body’s healing ability. If severe
+              chemicals in cigarette smoke negatively impact the body's healing ability. If severe
               skin laxity accompanies your double chin, a
-              <a href="/cosmetic-plastic-surgery/face/neck-lift/"> neck lift </a>
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/' ) ); ?>"> neck lift </a>
               may provide you with better jawline contouring.
             </p>
           </div>
@@ -220,9 +223,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="candidacy-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/ideal-candidate.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/ideal-candidate.jpg' ) ); ?>"
               alt="Chin Lipo Candidate Assessment"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -242,7 +246,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           <div class="recovery-overview mb-4">
             <p class="mb-3">
               Immediately after your jawline contouring, you will notice some mild
-              <a href="/cosmetic-plastic-surgery/face/chin-lipo/swelling-timeline/">swelling</a>,
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/swelling-timeline/' ) ); ?>">swelling</a>,
               bruising, and tightness around your chin and jawline. This is expected and not cause
               for alarm. As part of your post-op care, your plastic surgeon will require that you:
             </p>
@@ -279,7 +283,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </p>
             <p class="mb-0">
               Find out more about
-              <a href="/cosmetic-plastic-surgery/face/chin-lipo/recovery/">chin lipo recovery</a>
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/recovery/' ) ); ?>">chin lipo recovery</a>
               today.
             </p>
           </div>
@@ -289,9 +293,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/older-woman-chin.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/older-woman-chin.jpg' ) ); ?>"
               alt="Chin Lipo Recovery"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>

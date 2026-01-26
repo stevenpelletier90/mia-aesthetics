@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7 mb-4 mb-lg-0">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 mb-4">What is an Eyelid Lift?</h2>
           <div class="lead-text mb-4">
             <p class="fs-5">
@@ -47,7 +47,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </ul>
             <p class="fs-5">
               Although not always the case, eyelid surgery is frequently paired with a
-              <a href="/cosmetic-plastic-surgery/face/brow-lift/">brow lift</a>.
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/brow-lift/' ) ); ?>">brow lift</a>.
             </p>
           </div>
         </div>
@@ -55,7 +55,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-5">
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/stock-face-2.jpg" alt="Eyelid Lift Blepharoplasty Procedure" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/stock-face-2.jpg' ) ); ?>" alt="Eyelid Lift Blepharoplasty Procedure" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -73,14 +73,14 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
     <div class="row g-3">
       <div class="col-sm-6 col-lg-3">
-        <a href="/surgery-preparation/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Surgery Preparation</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
 
       <div class="col-sm-6 col-lg-3">
-        <a href="/financing/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Deposit Info</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
@@ -112,7 +112,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-6 order-lg-1">
         <div class="procedure-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/eyelid-lift-exam.jpg" alt="Blepharoplasty Process" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/eyelid-lift-exam.jpg' ) ); ?>" alt="Blepharoplasty Process" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -152,7 +152,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-6">
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/face-small-1.jpg" alt="Blepharoplasty Recovery" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-small-1.jpg' ) ); ?>" alt="Blepharoplasty Recovery" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>

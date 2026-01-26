@@ -37,7 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
   }
 
   .procedure-parallax-section {
-    background-image: url('/wp-content/uploads/2025/11/mia-background-dots.jpg');
+    background-image: url('<?php echo esc_url( home_url( '/wp-content/uploads/2025/11/mia-background-dots.jpg' ) ); ?>');
     background-attachment: fixed;
     background-position: center;
     background-size: cover;
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-5">
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/11/lip-lift-results.jpg" alt="Lip Lift Results" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/11/lip-lift-results.jpg' ) ); ?>" alt="Lip Lift Results" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -127,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <!-- Full Width Image Break -->
 <section class="procedure-image-break position-relative overflow-hidden">
   <div class="image-break-wrapper">
-    <img src="/wp-content/uploads/2025/11/lip-lift-2.jpg" alt="Lip Lift Procedure" class="w-100" />
+    <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/11/lip-lift-2.jpg' ) ); ?>" alt="Lip Lift Procedure" class="w-100" loading="lazy" />
   </div>
 </section>
 

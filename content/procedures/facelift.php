@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4 text-gradient">What Exactly is a Facelift?</h2>
           <div class="lead-text">
             <p class="fs-5 mb-3">
@@ -35,9 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/hispanic-face.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/hispanic-face.jpg' ) ); ?>"
               alt="Facelift Procedure"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -59,7 +60,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row g-3">
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/surgery-preparation/"
+          href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Surgery Preparation</span>
@@ -68,7 +69,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/financing/"
+          href="<?php echo esc_url( home_url( '/financing/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Deposit Info</span>
@@ -154,9 +155,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/face-procedure-6.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-procedure-6.jpg' ) ); ?>"
               alt="Facelift Process"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -203,9 +205,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/buccal-fat-removal-4.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/buccal-fat-removal-4.jpg' ) ); ?>"
               alt="Facelift Recovery"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -270,9 +273,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="candidacy-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/facelift-5.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/facelift-5.jpg' ) ); ?>"
               alt="Facelift Candidate Assessment"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>

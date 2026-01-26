@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4 text-gradient">What is a Neck Lift?</h2>
           <div class="lead-text">
             <p class="fs-5 mb-0">
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-5 d-none d-lg-block">
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/face-procedure-3.jpg" alt="Neck Lift Procedure" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-procedure-3.jpg' ) ); ?>" alt="Neck Lift Procedure" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -49,19 +49,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
     <div class="row g-3">
       <div class="col-sm-6 col-lg-4">
-        <a href="/surgery-preparation/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Surgery Preparation</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/cosmetic-plastic-surgery/face/neck-lift/recovery-timeline/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/recovery-timeline/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Recovery</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/financing/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/financing/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Deposit Info</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
@@ -74,7 +74,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="neck-lift-fixed-bg fixed-bg-section py-5 d-flex flex-column align-items-center">
   <!-- Mobile image - shown above content on mobile -->
   <div class="neck-lift-mobile-image mb-4 d-lg-none">
-    <img src="/wp-content/uploads/2025/09/woman-background.jpg" alt="Neck Lift Process" class="img-fluid w-100" />
+    <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/woman-background.jpg' ) ); ?>" alt="Neck Lift Process" class="img-fluid w-100" loading="lazy" />
   </div>
 
   <div class="container flex-grow-1 d-flex align-items-center">
@@ -148,7 +148,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           </ul>
           <p class="mt-4 mb-0">
             We recommend reading our complete
-            <a href="/cosmetic-plastic-surgery/face/neck-lift/recovery-timeline/">neck lift recovery timeline</a>
+            <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/neck-lift/recovery-timeline/' ) ); ?>">neck lift recovery timeline</a>
             to get a more comprehensive overview.
           </p>
         </div>
@@ -156,7 +156,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-4">
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/face-square.jpg" alt="Neck Lift Recovery" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-square.jpg' ) ); ?>" alt="Neck Lift Recovery" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>

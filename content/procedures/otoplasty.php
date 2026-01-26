@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4 text-gradient">What is Ear Pinning/Otoplasty?</h2>
           <div class="lead-text">
             <p class="fs-5 mb-0">
@@ -28,7 +28,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-5 d-none d-lg-block">
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/otoplasty-1.jpg" alt="Ear Pinning Otoplasty Procedure" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/otoplasty-1.jpg' ) ); ?>" alt="Ear Pinning Otoplasty Procedure" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -48,25 +48,25 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
     <div class="row g-3">
       <div class="col-sm-6 col-lg-4">
-        <a href="/surgery-preparation/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Surgery Preparation</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/recovery/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/recovery/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Otoplasty Recovery</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/how-long-do-results-last/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/how-long-do-results-last/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Is Otoplasty Permanent</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/procedure-combinations/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/ear-pinning-otoplasty/procedure-combinations/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Surgery Combinations</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
@@ -102,7 +102,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-6 order-lg-1">
         <div class="procedure-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/otoplasty-2.jpg" alt="Otoplasty Process" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/otoplasty-2.jpg' ) ); ?>" alt="Otoplasty Process" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-6">
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/otoplasty-3.jpg" alt="Otoplasty Recovery" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/otoplasty-3.jpg' ) ); ?>" alt="Otoplasty Recovery" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>

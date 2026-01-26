@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7 mb-4 mb-lg-0">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4 text-gradient">What is a Brow Lift?</h2>
           <div class="lead-text mb-4">
             <p class="fs-5">
@@ -23,7 +23,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               in sagging, which can make you look sad, tired, or even angry. If the brow droops low
               enough, it can also interfere with your peripheral vision. In this case, a brow lift
               is often paired with
-              <a href="/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/"
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/eyelid-lift-blepharoplasty/' ) ); ?>"
                 >blepharoplasty</a
               >
               (a surgical repair or lifting of the eyelids). You may also develop two vertical lines
@@ -45,9 +45,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/browlift.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/browlift.jpg' ) ); ?>"
               alt="Brow Lift Procedure"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -69,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row g-3">
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/surgery-preparation/"
+          href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Surgery Preparation</span>
@@ -78,7 +79,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       </div>
       <div class="col-sm-6 col-lg-3">
         <a
-          href="/financing/"
+          href="<?php echo esc_url( home_url( '/financing/' ) ); ?>"
           class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3"
         >
           <span class="link-text">Finance Your Brow Lift</span>
@@ -108,7 +109,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           <ul class="mb-3">
             <li class="mb-2">
               <strong>Endoscopic:</strong> During an
-              <a href="/what-is-an-endoscopic-brow-lift/">endoscopic brow lift</a>, the surgeon
+              <a href="<?php echo esc_url( home_url( '/what-is-an-endoscopic-brow-lift/' ) ); ?>">endoscopic brow lift</a>, the surgeon
               makes small, 1-inch incisions at your hairline. He then uses a small camera to help
               him visualize and manipulate his surgical instruments and work within your brow,
               suturing tissue in place. This procedure is minimally invasive, allowing for faster
@@ -128,7 +129,7 @@ if ( ! defined( 'ABSPATH' ) ) {
             </li>
             <li class="mb-0">
               <strong>Temporal:</strong> A more minimal approach, the
-              <a href="/what-is-a-temporal-brow-lift/">temporal brow lift</a> involves incisions at
+              <a href="<?php echo esc_url( home_url( '/what-is-a-temporal-brow-lift/' ) ); ?>">temporal brow lift</a> involves incisions at
               either side of the forehead and focuses on the outer third of the brow on either side.
             </li>
           </ul>
@@ -144,9 +145,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/browlift-2.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/browlift-2.jpg' ) ); ?>"
               alt="Brow Lift Process"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -184,9 +186,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/eyelid-lift-2.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/eyelid-lift-2.jpg' ) ); ?>"
               alt="Brow Lift Recovery"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>

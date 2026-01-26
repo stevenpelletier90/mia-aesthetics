@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-3 g-lg-5">
       <div class="col-lg-6 mb-3 mb-lg-0">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-3">Male Tummy Tuck</h2>
           <div class="lead-text">
             <p>
@@ -34,9 +34,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/male-black.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-black.jpg' ) ); ?>"
               alt="Male Tummy Tuck - Fit male physique at beach"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -51,9 +52,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="case-study-visual position-relative">
           <div class="image-container rounded overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/male-tummy-tuck-result.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-tummy-tuck-result.jpg' ) ); ?>"
               alt="Male Tummy Tuck Case Study - Patient Results"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
           <div class="result-badge position-absolute top-0 end-0 p-2">

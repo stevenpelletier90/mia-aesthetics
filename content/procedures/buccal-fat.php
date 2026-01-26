@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7 mb-4 mb-lg-0">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4 text-gradient">What Is Buccal Fat Removal?</h2>
           <div class="lead-text mb-4">
             <p class="fs-5">
@@ -35,9 +35,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/buccal-fat-removal.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/buccal-fat-removal.jpg' ) ); ?>"
               alt="Buccal Fat Removal Procedure"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -77,9 +78,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/buccal-fat-removal-2.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/buccal-fat-removal-2.jpg' ) ); ?>"
               alt="Buccal Fat Removal Process"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -99,7 +101,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           </div>
           <p class="mb-3">
             Because the action happens inside your mouth,
-            <a href="/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/recovery/">
+            <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/recovery/' ) ); ?>">
               recovering from a buccal fat removal procedure
             </a>
             is a little different from typical surgery recovery. Following your procedure, you'll
@@ -140,9 +142,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="recovery-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/face-procedure-6.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-procedure-6.jpg' ) ); ?>"
               alt="Buccal Fat Removal Recovery"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -177,7 +180,7 @@ if ( ! defined( 'ABSPATH' ) ) {
           </p>
           <p class="mb-0">
             Related:
-            <a href="/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/what-is-the-best-age/"
+            <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/buccal-cheek-fat-removal/what-is-the-best-age/' ) ); ?>"
               >What is the Best Age to Get Buccal Fat Removal Surgery?</a
             >
           </p>
@@ -187,9 +190,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="age-considerations-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/buccal-fat-removal-4.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/buccal-fat-removal-4.jpg' ) ); ?>"
               alt="Buccal Fat Removal Age Considerations"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>

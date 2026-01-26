@@ -15,12 +15,12 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-3 g-lg-5">
       <div class="col-lg-6 mb-3 mb-lg-0">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <div class="lead-text">
             <p>
               If you've been watching what you eat, hitting the gym, and doing countless sit-ups but
               still can't get the physique you want, it may be time to consider
-              <a href="/cosmetic-plastic-surgery/body/liposuction/">liposuction</a>. Once thought to
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/liposuction/' ) ); ?>">liposuction</a>. Once thought to
               be the domain of women, more and more men are opting for and benefiting from plastic
               surgery, and liposuction for men is a popular procedure. The truth is that no matter
               how many things you do right, you may have stubborn fat deposits that just don't
@@ -37,6 +37,7 @@ if ( ! defined( 'ABSPATH' ) ) {
                 src="https://www.youtube.com/embed/-6vlma82PqA"
                 title="Male Liposuction Procedure Video"
                 allowfullscreen
+                loading="lazy"
               ></iframe>
             </div>
           </div>
@@ -52,9 +53,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="case-study-visual position-relative">
           <div class="image-container rounded overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/male-liposuction.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-liposuction.jpg' ) ); ?>"
               alt="Male Liposuction Case Study - Patient Results"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
           <div class="result-badge position-absolute top-0 end-0 p-2">
@@ -132,7 +134,7 @@ if ( ! defined( 'ABSPATH' ) ) {
               Although the mechanics of liposuction for men work the same as they do for women, it's
               important to note that men have thicker, more fibrous fat than women which can make it
               harder to remove. For best results, you want to work with experienced
-              <a href="/plastic-surgeons/"> surgeons like those at Mia Aesthetics </a> who are adept
+              <a href="<?php echo esc_url( home_url( '/plastic-surgeons/' ) ); ?>"> surgeons like those at Mia Aesthetics </a> who are adept
               at performing body contouring procedures on men as well as women.
             </p>
           </div>
@@ -142,9 +144,10 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="procedure-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
             <img
-              src="/wp-content/uploads/2025/09/male-lipo.jpg"
+              src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-lipo.jpg' ) ); ?>"
               alt="Male Liposuction Process"
               class="img-fluid w-100"
+              loading="lazy"
             />
           </div>
         </div>
@@ -182,9 +185,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="card treatment-area-card h-100 text-center">
           <div class="card-body">
             <h6 class="card-title mb-0">
-              <a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/"
-                >Breasts (gynecomastia)</a
-              >
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>">Breasts (gynecomastia)</a>
             </h6>
           </div>
         </div>
@@ -214,7 +215,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="card treatment-area-card h-100 text-center">
           <div class="card-body">
             <h6 class="card-title mb-0">
-              <a href="/cosmetic-plastic-surgery/face/chin-lipo/men/">Chin</a>
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/men/' ) ); ?>">Chin</a>
             </h6>
           </div>
         </div>
@@ -258,7 +259,7 @@ if ( ! defined( 'ABSPATH' ) ) {
         <div class="card treatment-area-card h-100 text-center">
           <div class="card-body">
             <h6 class="card-title mb-0">
-              <a href="/cosmetic-plastic-surgery/body/male-liposuction/pubic-area/">Pubic area</a>
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-liposuction/pubic-area/' ) ); ?>">Pubic area</a>
             </h6>
           </div>
         </div>
@@ -280,21 +281,19 @@ if ( ! defined( 'ABSPATH' ) ) {
             <li>Abdomen</li>
             <li>Chest</li>
             <li>
-              <a href="/cosmetic-plastic-surgery/breast/male-breast-procedures/"
-                >Breasts (gynecomastia)</a
-              >
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/breast/male-breast-procedures/' ) ); ?>">Breasts (gynecomastia)</a>
             </li>
             <li>Flanks (love handles)</li>
             <li>Lower back</li>
             <li>Upper arms</li>
-            <li><a href="/cosmetic-plastic-surgery/face/chin-lipo/men/">Chin</a></li>
+            <li><a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/chin-lipo/men/' ) ); ?>">Chin</a></li>
             <li>Hips</li>
             <li>Thighs</li>
             <li>Knees</li>
             <li>Ankles</li>
             <li>Neck</li>
             <li>
-              <a href="/cosmetic-plastic-surgery/body/male-liposuction/pubic-area/">Pubic area</a>
+              <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/body/male-liposuction/pubic-area/' ) ); ?>">Pubic area</a>
             </li>
             <li>Armpits</li>
           </ul>
@@ -309,9 +308,10 @@ if ( ! defined( 'ABSPATH' ) ) {
     <!-- Mobile image - shown above content on mobile -->
     <div class="male-lipo-mobile-image mb-4 d-lg-none">
       <img
-        src="/wp-content/uploads/2025/09/male-lipo-measurement.jpg"
+        src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/male-lipo-measurement.jpg' ) ); ?>"
         alt="Male Liposuction Benefits and Candidacy"
         class="img-fluid w-100"
+        loading="lazy"
       />
     </div>
 

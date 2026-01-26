@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
     <div class="row align-items-center g-5">
       <div class="col-lg-7">
         <div class="procedure-intro-content">
-[mia_breadcrumbs]
+<?php echo mia_render_inline_breadcrumbs(); ?>
           <h2 class="display-6 fw-bold mb-4 text-gradient">What Is a Mini Facelift?</h2>
           <div class="lead-text">
             <p class="fs-5 mb-0">
@@ -29,7 +29,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-5 d-none d-lg-block">
         <div class="procedure-image-wrapper position-relative">
           <div class="image-frame rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/face-hispanic.jpg" alt="Mini Facelift Procedure" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-hispanic.jpg' ) ); ?>" alt="Mini Facelift Procedure" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -49,19 +49,19 @@ if ( ! defined( 'ABSPATH' ) ) {
     </div>
     <div class="row g-3 justify-content-center">
       <div class="col-sm-6 col-lg-4">
-        <a href="/surgery-preparation/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/surgery-preparation/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Surgery Preparation</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/cosmetic-plastic-surgery/face/mini-facelift/recovery/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/mini-facelift/recovery/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">Recovery</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
       </div>
       <div class="col-sm-6 col-lg-4">
-        <a href="/cosmetic-plastic-surgery/face/mini-facelift/best-age-to-get-one/" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
+        <a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/mini-facelift/best-age-to-get-one/' ) ); ?>" class="procedure-link-item d-flex align-items-center justify-content-between px-3 py-3">
           <span class="link-text">What Is The Best Age For a Mini Facelift?</span>
           <i class="fas fa-arrow-right link-arrow" aria-hidden="true"></i>
         </a>
@@ -138,7 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-4 order-lg-1">
         <div class="comparison-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/face-square.jpg" alt="Mini Facelift vs Traditional Facelift" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-square.jpg' ) ); ?>" alt="Mini Facelift vs Traditional Facelift" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -179,7 +179,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-6">
         <div class="candidacy-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/facelift-5.jpg" alt="Mini Facelift Candidate Assessment" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/facelift-5.jpg' ) ); ?>" alt="Mini Facelift Candidate Assessment" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
@@ -191,7 +191,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 <section class="mini-facelift-fixed-bg fixed-bg-section py-5 d-flex flex-column align-items-center">
   <!-- Mobile image - shown above content on mobile -->
   <div class="mini-facelift-mobile-image mb-4 d-lg-none">
-    <img src="/wp-content/uploads/2025/09/faces-1.jpg" alt="Mini Facelift Procedure Process" class="img-fluid w-100" />
+    <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/faces-1.jpg' ) ); ?>" alt="Mini Facelift Procedure Process" class="img-fluid w-100" loading="lazy" />
   </div>
 
   <div class="container flex-grow-1 d-flex align-items-center">
@@ -280,7 +280,7 @@ if ( ! defined( 'ABSPATH' ) ) {
       <div class="col-lg-6">
         <div class="why-choose-visual position-relative">
           <div class="image-container rounded-3 overflow-hidden">
-            <img src="/wp-content/uploads/2025/09/face-procedure-2.jpg" alt="Why Choose Mia Aesthetics" class="img-fluid w-100" />
+            <img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/face-procedure-2.jpg' ) ); ?>" alt="Why Choose Mia Aesthetics" class="img-fluid w-100" loading="lazy" />
           </div>
         </div>
       </div>
