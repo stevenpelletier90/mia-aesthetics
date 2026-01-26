@@ -122,8 +122,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row justify-content-center">
 		<div class="col-lg-8 col-xl-7">
 		<div class="bbl-recovery-content">
-			<div class="section-header">
-			<h2>Brazilian Butt Lift Recovery</h2>
+			<div class="section-header text-start text-lg-center">
+			<h2 class="text-white">Brazilian Butt Lift Recovery</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">

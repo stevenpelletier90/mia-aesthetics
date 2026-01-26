@@ -319,8 +319,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="row g-4">
 		<div class="col-lg-6">
 			<div class="fixed-bg-content-box p-0 p-lg-4">
-			<div class="section-header mb-4">
-				<h2>
+			<div class="section-header mb-4 text-start text-lg-center">
+				<h2 class="text-white">
 				What Benefits do Men Experience From Liposuction?
 				</h2>
 			</div>
@@ -335,8 +335,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 		</div>
 		<div class="col-lg-6">
 			<div class="fixed-bg-content-box p-0 p-lg-4">
-			<div class="section-header mb-4">
-				<h2>Am I a Good Candidate?</h2>
+			<div class="section-header mb-4 text-start text-lg-center">
+				<h2 class="text-white">Am I a Good Candidate?</h2>
 			</div>
 			<p class="mb-0">
 				Good candidates for male liposuction are men who are generally in good health and

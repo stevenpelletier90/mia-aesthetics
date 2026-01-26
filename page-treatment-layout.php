@@ -96,7 +96,7 @@ if ( $current_post instanceof WP_Post ) {
 						<div class="col-12">
 							<div class="text-center mb-4">
 								<h3 id="resources-heading" class="h3 mb-3 text-white">Additional Resources</h3>
-								<p class="text-white opacity-75">Helpful information and related procedures to support your journey</p>
+								<p class="text-white">Helpful information and related procedures to support your journey</p>
 							</div>
 						</div>
 					</div>

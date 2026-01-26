@@ -100,7 +100,7 @@
 }
 
 .resources-featured-section {
-  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  background-color: var(--mia-black);
   border-block: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -131,7 +131,7 @@
 }
 
 .resource-card strong {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.3;
@@ -144,7 +144,7 @@
 }
 
 .resource-card i {
-  color: var(--mia-gold);
+  color: var(--mia-gold-aaa);
   font-size: 1.25rem;
   width: 24px;
 }

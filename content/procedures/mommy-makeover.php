@@ -12,8 +12,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 <div class="container">
 	<!-- Hero/Intro Section -->
 	<section class="py-5">
-	<div class="row align-items-center g-5">
-		<div class="col-lg-6 mb-4 mb-lg-0">
+	<div class="row justify-content-center">
+		<div class="col-12 col-lg-10 col-xl-8 text-center">
 <?php echo mia_render_inline_breadcrumbs(); ?>
 		<h2>What is a Mommy Makeover?</h2>
 		<p class="mb-3">
@@ -31,16 +31,6 @@ if ( ! defined( 'ABSPATH' ) ) {
 			be whatever you want. We can fully customize your procedure, combining whatever surgeries
 			you'd like so long as your surgeon feels they're safe to do together.
 		</p>
-		</div>
-		<div class="col-lg-6">
-		<div class="ratio ratio-16x9">
-			<iframe
-			src="https://www.youtube.com/embed/k51zdkjPhHg"
-			title="Mommy Makeover Procedure Video"
-			allowfullscreen
-			loading="lazy"
-			></iframe>
-		</div>
 		</div>
 	</div>
 	</section>
@@ -113,8 +103,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row justify-content-center">
 		<div class="col-lg-8 col-xl-7">
 		<div class="procedures-content">
-			<div class="section-header">
-			<h2>
+			<div class="section-header text-start text-lg-center">
+			<h2 class="text-white">
 				Which Specific Procedures Can Be Included in a Mommy Makeover?
 			</h2>
 			</div>

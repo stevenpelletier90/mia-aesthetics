@@ -16,10 +16,15 @@
   --mia-gray-dark: #222;
   --mia-gray-light: #dee2e6;
 
-  /* Links */
-  --mia-link: #0066cc;
-  --mia-link-visited: #551a8b;
-  --mia-link-hover: #004499;
+  /* Links (light backgrounds - AAA compliant) */
+  --mia-link: #005299; /* ~7.2:1 on white */
+  --mia-link-visited: #551a8b; /* ~8.5:1 on white */
+  --mia-link-hover: #003d80; /* ~10.5:1 on white */
+
+  /* Links (dark backgrounds - AAA compliant) */
+  --mia-link-light: #6eb5ff; /* ~7.5:1 on #1b1b1b */
+  --mia-link-light-visited: #c4a5d9; /* ~6:1 on #1b1b1b */
+  --mia-link-light-hover: #8dc6ff; /* ~9:1 on #1b1b1b */
 
   /* Gold Opacity */
   --mia-gold-10: rgba(200, 178, 115, 0.1);

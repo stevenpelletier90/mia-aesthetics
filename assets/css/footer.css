@@ -1,5 +1,5 @@
 .site-footer {
-  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  background-color: var(--mia-black);
   color: var(--mia-white);
   padding-top: 4rem;
   padding-bottom: 5rem;

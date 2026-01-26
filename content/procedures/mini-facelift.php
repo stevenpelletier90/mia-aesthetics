@@ -198,8 +198,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row justify-content-center">
 		<div class="col-lg-8 col-xl-7">
 		<div class="process-content">
-			<div class="section-header mb-4">
-			<h2>The Procedure and Recovery Process</h2>
+			<div class="section-header mb-4 text-start text-lg-center">
+			<h2 class="text-white">The Procedure and Recovery Process</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">

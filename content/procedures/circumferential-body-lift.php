@@ -10,40 +10,42 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <!-- Hero/Intro Section -->
-<div class="container">
-	<section class="procedure-section procedure-intro py-5">
-	<div class="row align-items-center g-5">
-		<div class="col-lg-7">
-		<div class="procedure-intro-content">
-<?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2>What is a Circumferential Body Lift?</h2>
-			<div class="lead-text">
-			<p class="fs-5">
-				A circumferential body lift, also known as a lower body lift or a belt lipectomy, is a
-				comprehensive cosmetic surgery that aims to reshape and tighten the mid and lower body
-				by removing excess skin and fat. This procedure is particularly beneficial for
-				individuals who have experienced significant weight loss, such as after bariatric
-				surgery, and are left with loose, hanging skin around their abdomen, hips, thighs, and
-				buttocks.
-			</p>
+<section class="procedure-section procedure-intro py-5">
+	<div class="container">
+		<div class="row align-items-center g-5">
+			<div class="col-lg-7">
+				<div class="procedure-intro-content">
+					<?php echo mia_render_inline_breadcrumbs(); ?>
+					<h2>What is a Circumferential Body Lift?</h2>
+					<div class="lead-text">
+						<p class="fs-5">
+							A circumferential body lift, also known as a lower body lift or a belt lipectomy, is a
+							comprehensive cosmetic surgery that aims to reshape and tighten the mid and lower body
+							by removing excess skin and fat. This procedure is particularly beneficial for
+							individuals who have experienced significant weight loss, such as after bariatric
+							surgery, and are left with loose, hanging skin around their abdomen, hips, thighs, and
+							buttocks.
+						</p>
+					</div>
+				</div>
 			</div>
-		</div>
-		</div>
-		<div class="col-lg-5 d-none d-lg-block">
-		<div class="procedure-image-wrapper position-relative">
-			<div class="image-frame rounded-3 overflow-hidden">
-			<img
-				src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/body-tall.jpg' ) ); ?>"
-				alt="Circumferential Body Lift"
-				class="img-fluid w-100"
-				loading="lazy"
-			/>
+			<div class="col-lg-5 d-none d-lg-block">
+				<div class="procedure-image-wrapper position-relative">
+					<div class="image-frame rounded-3 overflow-hidden">
+						<img
+							src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/body-tall.jpg' ) ); ?>"
+							alt="Circumferential Body Lift"
+							class="img-fluid w-100"
+							loading="lazy"
+						/>
+					</div>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
-	</section>
+</section>
 
+<div class="container">
 	<!-- Combined Comparison Section -->
 	<section class="procedure-section comparisons-combined-section py-5">
 	<div class="row">
@@ -134,8 +136,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row justify-content-center">
 		<div class="col-lg-8 col-xl-7">
 		<div class="how-it-works-content">
-			<div class="section-header mb-4">
-			<h2>
+			<div class="section-header mb-4 text-start text-lg-center">
+			<h2 class="text-white">
 				How a Circumferential Body Lift Works
 			</h2>
 			</div>
