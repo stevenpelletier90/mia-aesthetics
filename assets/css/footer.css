@@ -163,49 +163,33 @@
   flex-grow: 1;
 }
 
-/* Base styles for all surgeon links */
-.locations-section .accordion-body a.surgeon-link {
-  color: var(--mia-white);
-  text-decoration: none;
+/* Location link - gold and bold */
+.locations-section .accordion-body .location-link a {
+  color: var(--mia-gold-aaa);
+  text-decoration: underline;
   transition: all 0.2s ease;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.locations-section .accordion-body .location-link a:hover {
+  color: var(--mia-white);
+}
+
+/* Surgeon links - white and normal weight */
+.locations-section .accordion-body .surgeons-list a.surgeon-link {
+  color: var(--mia-white);
+  text-decoration: underline;
+  transition: all 0.2s ease;
   padding: 4px 0;
   font-size: 1rem;
   font-weight: normal;
 }
 
-.locations-section .accordion-body a.surgeon-link:hover {
-  color: var(--mia-gold-aaa);
-  text-decoration: none;
-}
-
-.locations-section .accordion-body a.surgeon-link:hover span {
-  text-decoration: underline;
-}
-
-.locations-section .accordion-body a.surgeon-link .surgeon-arrow {
-  font-size: 1rem;
-  opacity: 0.7;
-  margin-left: 8px;
-  transition: all 0.2s ease;
-  color: var(--mia-white);
-}
-
-.locations-section .accordion-body a.surgeon-link:hover .surgeon-arrow {
-  opacity: 1;
+.locations-section .accordion-body .surgeons-list a.surgeon-link:hover {
   color: var(--mia-gold-aaa);
 }
 
-/* Location link override - gold by default */
-.location-link a.surgeon-link {
-  color: var(--mia-gold-aaa);
-}
-
-.location-link a.surgeon-link .surgeon-arrow {
-  color: var(--mia-gold-aaa);
-}
 
 .footer-bottom {
   margin-top: 2rem;
@@ -308,9 +292,6 @@
     font-size: 1rem;
   }
 
-  .surgeon-link {
-    font-size: 1rem;
-  }
 }
 
 @media (max-width: 480px) {
@@ -331,10 +312,6 @@
   .locations-section .accordion-body {
     padding: 0.75rem;
     font-size: 1rem;
-  }
-
-  .surgeon-arrow {
-    font-size: 0.7rem;
   }
 
   .footer-links li {

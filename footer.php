@@ -91,10 +91,7 @@
 						<div class="accordion-body" id="location-description-<?php echo esc_attr( (string) $location['id'] ); ?>">
 							<!-- Location Link -->
 							<div class="location-link mb-3">
-								<a href="<?php echo esc_url( $location['url'] ); ?>" class="surgeon-link">
-									<span>View <?php echo esc_html( $location['title'] ); ?> Location</span>
-									<i class="fas fa-arrow-right surgeon-arrow" aria-hidden="true"></i>
-								</a>
+								<a href="<?php echo esc_url( $location['url'] ); ?>">Mia Aesthetics <?php echo esc_html( explode( ',', $location['title'] )[0] ); ?></a>
 							</div>
 							
 							<?php if ( isset( $location['surgeons'] ) && count( $location['surgeons'] ) > 0 ) : ?>
@@ -103,10 +100,7 @@
 										<?php foreach ( $location['surgeons'] as $surgeon ) : ?>
 											<?php if ( isset( $surgeon['url'] ) && '' !== $surgeon['url'] ) : ?>
 											<li class="mb-2">
-												<a href="<?php echo esc_url( $surgeon['url'] ); ?>" class="surgeon-link">
-													<span><?php echo esc_html( $surgeon['title'] ); ?></span>
-													<i class="fas fa-arrow-right surgeon-arrow" aria-hidden="true"></i>
-												</a>
+												<a href="<?php echo esc_url( $surgeon['url'] ); ?>" class="surgeon-link"><?php echo esc_html( $surgeon['title'] ); ?></a>
 											</li>
 											<?php endif; ?>
 										<?php endforeach; ?>
@@ -149,7 +143,8 @@
 						<li><a href="<?php echo esc_url( home_url( '/patient-privacy-practices/' ) ); ?>">Patient Privacy Practices</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/terms-and-conditions/' ) ); ?>">Terms & Conditions</a></li>
 						<li><a href="<?php echo esc_url( home_url( '/terms-of-use/' ) ); ?>">Terms of Use</a></li>
-						<li><a href="<?php echo esc_url( home_url( '/website-sms-terms-and-conditions/' ) ); ?>">SMS Terms & Conditions</a></li>						
+						<li><a href="<?php echo esc_url( home_url( '/website-sms-terms-and-conditions/' ) ); ?>">SMS Terms & Conditions</a></li>
+						<li><a href="#">Your Privacy Choices</a></li>						
 					</ul>
 				</nav>
 			</div>
