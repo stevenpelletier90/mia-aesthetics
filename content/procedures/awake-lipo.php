@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7 mb-4 mb-lg-0">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is Awake Lipo?</h2>
+			<h2>What is Awake Lipo?</h2>
 			<div class="lead-text mb-4">
 			<p class="fs-5">
 				Awake liposuction is a minimally invasive procedure where the patient is awake during
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">How Does Awake Lipo Work?</h2>
+			<h2>How Does Awake Lipo Work?</h2>
 			</div>
 
 			<div class="procedure-overview mb-4">
@@ -88,7 +88,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="benefits-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">What Are the Benefits of Awake Lipo?</h2>
+			<h2>What Are the Benefits of Awake Lipo?</h2>
 			</div>
 
 			<div class="benefits-overview mb-4">
@@ -137,7 +137,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-lg-12">
 		<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">What Parts of the Body Can Be Treated?</h2>
+			<h2>What Parts of the Body Can Be Treated?</h2>
 		</div>
 
 		<div class="treatment-areas-info mb-4">
@@ -188,7 +188,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="candidacy-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Am I a Good Candidate for Awake Lipo?</h2>
+			<h2>Am I a Good Candidate for Awake Lipo?</h2>
 			</div>
 
 			<div class="candidacy-overview mb-4">

@@ -70,7 +70,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="case-study-info">
 			<div class="section-header mb-3">
-			<h2 class="display-6 fw-bold">Mia Aesthetics Patient Case Study</h2>
+			<h2>Mia Aesthetics Patient Case Study</h2>
 			</div>
 
 			<p class="mb-3">
@@ -121,7 +121,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">How Does Male Liposuction Work?</h2>
+			<h2>How Does Male Liposuction Work?</h2>
 			</div>
 
 			<div class="procedure-overview mb-4">
@@ -160,7 +160,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-4 text-start text-lg-center">
-			<h2 class="display-6 fw-bold mt-2">What Parts of the Body Can Be Treated?</h2>
+			<h2>What Parts of the Body Can Be Treated?</h2>
 			<p class="lead">Liposuction can treat almost any area of the body, including the:</p>
 		</div>
 		</div>
@@ -320,7 +320,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 			<div class="fixed-bg-content-box p-0 p-lg-4">
 			<div class="section-header mb-4">
-				<h2 class="fixed-bg-heading text-start text-lg-center">
+				<h2>
 				What Benefits do Men Experience From Liposuction?
 				</h2>
 			</div>
@@ -336,7 +336,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 			<div class="fixed-bg-content-box p-0 p-lg-4">
 			<div class="section-header mb-4">
-				<h2 class="fixed-bg-heading text-start text-lg-center">Am I a Good Candidate?</h2>
+				<h2>Am I a Good Candidate?</h2>
 			</div>
 			<p class="mb-0">
 				Good candidates for male liposuction are men who are generally in good health and
@@ -361,7 +361,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-start text-lg-center">
-			<h2 class="display-6 fw-bold mt-2">What Should I Expect During the Procedure?</h2>
+			<h2>What Should I Expect During the Procedure?</h2>
 			<p class="lead">Here is an outline of the steps we take during liposuction surgery:</p>
 		</div>
 		</div>

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7 mb-4 mb-lg-0">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is Labiaplasty?</h2>
+			<h2>What is Labiaplasty?</h2>
 			<div class="lead-text mb-4">
 			<p class="fs-5">
 				Labiaplasty, also known as labia reduction or vaginal rejuvenation, reshapes the external appearance of the genitalia for both cosmetic reasons and to treat any functional impairment.
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Lasbiaplasty</h2>
+			<h2>Learn More About Lasbiaplasty</h2>
 		</div>
 		</div>
 	</div>
@@ -73,7 +73,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="about-procedure-content">
 			<div class="section-header mb-4">
-			<h2 class="fixed-bg-heading text-start text-lg-center">The Labiaplasty/Vaginal Rejuvenation Procedure</h2>
+			<h2>The Labiaplasty/Vaginal Rejuvenation Procedure</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">
@@ -116,7 +116,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Labiaplasty Recovery</h2>
+			<h2>Labiaplasty Recovery</h2>
 			</div>
 
 			<p class="mb-0">

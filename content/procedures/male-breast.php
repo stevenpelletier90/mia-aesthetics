@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7 mb-3 mb-lg-0">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 mb-3 fw-bold">Male Breast Procedures at Mia Aesthetics</h2>
+			<h2>Male Breast Procedures at Mia Aesthetics</h2>
 			<div class="lead-text">
 			<p>
 				More formally referred to as gynecomastia surgery, gyno surgery is a surgical procedure performed to remove excess male breast tissue. Although not a health concern, the formation of
@@ -57,7 +57,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="case-study-info">
 			<div class="section-header mb-3">
-			<h2 class="display-6 fw-bold">Mia Aesthetics Patient Case Study</h2>
+			<h2>Mia Aesthetics Patient Case Study</h2>
 			</div>
 
 			<p class="mb-3">

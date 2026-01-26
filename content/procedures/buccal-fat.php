@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7 mb-4 mb-lg-0">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What Is Buccal Fat Removal?</h2>
+			<h2>What Is Buccal Fat Removal?</h2>
 			<div class="lead-text mb-4">
 			<p class="fs-5">
 				Chubby cheeks are cute when you're a toddler, but they make a lot of adults feel
@@ -54,7 +54,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">About The Buccal Fat Removal Procedure</h2>
+			<h2>About The Buccal Fat Removal Procedure</h2>
 			</div>
 			<p class="mb-3">
 			During your buccal fat removal, your doctor will sedate you through intravenous sedation
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Buccal/Cheek Fat Removal Recovery</h2>
+			<h2>Buccal/Cheek Fat Removal Recovery</h2>
 			</div>
 			<p class="mb-3">
 			Because the action happens inside your mouth,
@@ -161,7 +161,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
 		<div class="age-considerations-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Buccal Fat and Age</h2>
+			<h2>Buccal Fat and Age</h2>
 			</div>
 			<p class="mb-3">
 			Not everyone is a good candidate for a buccal fat removal procedure. Even if you don't

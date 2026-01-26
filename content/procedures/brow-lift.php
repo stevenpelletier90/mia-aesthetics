@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7 mb-4 mb-lg-0">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is a Brow Lift?</h2>
+			<h2>What is a Brow Lift?</h2>
 			<div class="lead-text mb-4">
 			<p class="fs-5">
 				As we age, gravity pulls on our bodies, including on the brow. This sometimes results
@@ -63,7 +63,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Brow Lift</h2>
+			<h2>Learn More About Brow Lift</h2>
 		</div>
 		</div>
 	</div>
@@ -97,7 +97,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2 mb-4 mb-lg-0">
 		<div class="procedure-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">About The Brow Lift Procedure</h2>
+			<h2>About The Brow Lift Procedure</h2>
 			</div>
 			<p class="mb-3">
 			Your surgeon has several surgical techniques to choose from when performing a brow lift,
@@ -164,7 +164,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Brow Lift Recovery</h2>
+			<h2>Brow Lift Recovery</h2>
 			</div>
 			<p class="mb-3">
 			After brow lift surgery, your forehead will be swollen and bruised. You should plan to

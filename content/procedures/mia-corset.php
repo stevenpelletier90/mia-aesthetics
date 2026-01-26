@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <!-- Hero/Intro Section -->
-<section class="procedure-hero py-5">
+<section class="procedure-section procedure-intro py-5">
 	<div class="container">
 	<div class="row align-items-center">
 		<div class="col-lg-7">

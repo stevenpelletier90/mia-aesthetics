@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is a Neck Lift?</h2>
+			<h2>What is a Neck Lift?</h2>
 			<div class="lead-text">
 			<p class="fs-5 mb-0">
 				Medically known as a platysmaplasty, a neck lift is a surgical tool used to correct wrinkles and sagging skin on the neck. These common signs of aging often create a condition that is
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Neck Lift</h2>
+			<h2>Learn More About Neck Lift</h2>
 		</div>
 		</div>
 	</div>
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="fixed-bg-heading text-start text-lg-center">About The Neck Lift Procedure</h2>
+			<h2>About The Neck Lift Procedure</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Neck Lift/Rhytidectomy Recovery</h2>
+			<h2>Neck Lift/Rhytidectomy Recovery</h2>
 			</div>
 			<p>
 			The specifics of your neck lift recovery will depend on the extent of the surgery and your unique healing rate. Typically, patients return to their daily activities and work about two

@@ -9,14 +9,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="container py-5">
-	<!-- Hero/Intro Section -->
-	<section class="procedure-section procedure-hero-section">
-	<div class="row align-items-center g-5">
-		<div class="col-lg-7 mb-4 mb-lg-0">
-		<div class="procedure-intro-content">
-<?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 mb-4">What is an Eyelid Lift?</h2>
+<!-- Hero/Intro Section -->
+<section class="procedure-section procedure-intro py-5">
+	<div class="container">
+		<div class="row align-items-center g-5">
+			<div class="col-lg-7 mb-4 mb-lg-0">
+				<div class="procedure-intro-content">
+					<?php echo mia_render_inline_breadcrumbs(); ?>
+					<h2>What is an Eyelid Lift?</h2>
 			<div class="lead-text mb-4">
 			<p class="fs-5">
 				<strong>Eyelid lift surgery, also known as blepharoplasty, is a popular and effective procedure that rejuvenates the eye area, creating a younger and more alert expression.</strong>
@@ -45,29 +45,31 @@ if ( ! defined( 'ABSPATH' ) ) {
 				<span>Difficulty applying eye makeup</span>
 				</li>
 			</ul>
-			<p class="fs-5">
-				Although not always the case, eyelid surgery is frequently paired with a
-				<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/brow-lift/' ) ); ?>">brow lift</a>.
-			</p>
+					<p class="fs-5">
+						Although not always the case, eyelid surgery is frequently paired with a
+						<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/face/brow-lift/' ) ); ?>">brow lift</a>.
+					</p>
+				</div>
 			</div>
-		</div>
 		</div>
 		<div class="col-lg-5">
-		<div class="procedure-image-wrapper position-relative">
-			<div class="image-frame rounded-3 overflow-hidden">
-			<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/stock-face-2.jpg' ) ); ?>" alt="Eyelid Lift Blepharoplasty Procedure" class="img-fluid w-100" loading="lazy" />
+			<div class="procedure-image-wrapper position-relative">
+				<div class="image-frame rounded-3 overflow-hidden">
+					<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/stock-face-2.jpg' ) ); ?>" alt="Eyelid Lift Blepharoplasty Procedure" class="img-fluid w-100" loading="lazy" />
+				</div>
 			</div>
 		</div>
-		</div>
 	</div>
-	</section>
+	</div>
+</section>
 
+<div class="container py-5">
 	<!-- Quick Links Section -->
-	<section class="procedure-section procedure-links-section py-5">
+	<section class="procedure-section procedure-links-section">
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6">Learn More About Blepharoplasty</h2>
+			<h2>Learn More About Blepharoplasty</h2>
 		</div>
 		</div>
 	</div>
@@ -94,7 +96,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 mt-2">About the Eyelid Lift Procedure</h2>
+			<h2>About the Eyelid Lift Procedure</h2>
 			</div>
 
 			<div class="procedure-overview mb-4">
@@ -125,7 +127,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 mt-2">Eyelid Lift/Blepharoplasty Recovery</h2>
+			<h2>Eyelid Lift/Blepharoplasty Recovery</h2>
 			</div>
 
 			<div class="recovery-overview mb-4">
@@ -165,7 +167,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-12">
 		<div class="results-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 mt-2">Is an Eyelid Lift Permanent?</h2>
+			<h2>Is an Eyelid Lift Permanent?</h2>
 			</div>
 
 			<div class="results-overview mb-4">

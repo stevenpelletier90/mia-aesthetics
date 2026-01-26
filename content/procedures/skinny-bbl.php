@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row align-items-center g-5">
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="procedure-intro-content">
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is a Skinny BBL?</h2>
+			<h2>What is a Skinny BBL?</h2>
 			<div class="lead-text mb-4">
 			<p class="fs-5">
 				A skinny BBL is a specialized Brazilian butt lift designed for leaner individuals with
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7 order-lg-2">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">How Skinny BBL Surgery Works</h2>
+			<h2>How Skinny BBL Surgery Works</h2>
 			</div>
 
 			<div class="procedure-overview mb-4">
@@ -105,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-5">
 		<div class="candidacy-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Skinny BBL Weight, BMI, and Other Requirements</h2>
+			<h2>Skinny BBL Weight, BMI, and Other Requirements</h2>
 			</div>
 
 			<div class="candidacy-overview mb-4">

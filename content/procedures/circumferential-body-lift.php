@@ -11,12 +11,12 @@ if ( ! defined( 'ABSPATH' ) ) {
 ?>
 <!-- Hero/Intro Section -->
 <div class="container">
-	<section class="procedure-section procedure-hero-section py-5">
+	<section class="procedure-section procedure-intro py-5">
 	<div class="row align-items-center g-5">
 		<div class="col-lg-7">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold">What is a Circumferential Body Lift?</h2>
+			<h2>What is a Circumferential Body Lift?</h2>
 			<div class="lead-text">
 			<p class="fs-5">
 				A circumferential body lift, also known as a lower body lift or a belt lipectomy, is a
@@ -49,7 +49,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header text-start text-lg-center">
-			<h2 class="display-6 fw-bold">How Does a Body Lift Compare?</h2>
+			<h2>How Does a Body Lift Compare?</h2>
 			<p class="lead">Understanding the key differences between procedures</p>
 		</div>
 		</div>
@@ -135,7 +135,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="how-it-works-content">
 			<div class="section-header mb-4">
-			<h2 class="fixed-bg-heading text-start text-lg-center">
+			<h2>
 				How a Circumferential Body Lift Works
 			</h2>
 			</div>
@@ -189,7 +189,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="candidacy-content">
 			<div class="section-header">
-			<h2 class="display-6 fw-bold mt-2">Are You a Good Candidate?</h2>
+			<h2>Are You a Good Candidate?</h2>
 			</div>
 
 			<div class="candidacy-overview">

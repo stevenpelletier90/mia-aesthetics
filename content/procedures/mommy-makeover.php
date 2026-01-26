@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row align-items-center g-5">
 		<div class="col-lg-6 mb-4 mb-lg-0">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-		<h2 class="display-6 fw-bold mb-4 text-gradient">What is a Mommy Makeover?</h2>
+		<h2>What is a Mommy Makeover?</h2>
 		<p class="mb-3">
 			You adore your children, but you may not feel the same about the ways your body has
 			changed since having them. If you want your pre-mommy body back, we can help.
@@ -50,7 +50,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About the Mommy Makeover</h2>
+			<h2>Learn More About the Mommy Makeover</h2>
 		</div>
 		</div>
 	</div>
@@ -114,7 +114,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="procedures-content">
 			<div class="section-header">
-			<h2 class="fixed-bg-heading text-start text-lg-center">
+			<h2>
 				Which Specific Procedures Can Be Included in a Mommy Makeover?
 			</h2>
 			</div>
@@ -187,7 +187,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<section class="py-5">
 	<div class="d-flex align-items-center gap-5 flex-column flex-lg-row">
 		<div class="flex-lg-1">
-		<h2 class="display-3 mb-4">Mommy Makeover Recovery</h2>
+		<h2>Mommy Makeover Recovery</h2>
 		<p class="mb-3">
 			The specifics of your recovery will depend on which procedures you elect to undergo.
 			Generally, however, patients can drive in one week, walk five miles on a flat surface in

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What Exactly is a Facelift?</h2>
+			<h2>What Exactly is a Facelift?</h2>
 			<div class="lead-text">
 			<p class="fs-5 mb-3">
 				Facelifts remove and tighten excess skin and reposition fat deposits and muscles that
@@ -53,7 +53,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Facelift</h2>
+			<h2>Learn More About Facelift</h2>
 		</div>
 		</div>
 	</div>
@@ -132,7 +132,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">About the Facelift Procedure</h2>
+			<h2>About the Facelift Procedure</h2>
 			</div>
 			<p class="mb-3">
 			General anesthesia is almost always used for full facelifts so that patients are
@@ -174,7 +174,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Facelift Recovery</h2>
+			<h2>Facelift Recovery</h2>
 			</div>
 			<p class="mb-3">
 			Swelling, bruising and bleeding at the incision sites are typical after a facelift.
@@ -224,7 +224,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="candidacy-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Are You the Right Candidate for a Facelift?</h2>
+			<h2>Are You the Right Candidate for a Facelift?</h2>
 			</div>
 			<p class="mb-3">
 			Ideal candidates for a facelift are in general good health, have a positive self-image

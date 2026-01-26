@@ -100,7 +100,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row align-items-center">
 		<div class="col-lg-7 mb-3 mb-lg-0">
 		<div class="procedure-intro-content">
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is a Lip Lift?</h2>
+			<h2>What is a Lip Lift?</h2>
 			<div class="lead-text">
 			<p class="fs-5">
 				For the right candidates, lip lifts can permanently give the lips a fuller and more youthful appearance. Interestingly, the procedure improves the look of the lips without touching them.
@@ -138,7 +138,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-10">
 		<div class="procedure-details">
 			<div class="section-header mb-4 text-center">
-			<h2 class="display-6 fw-bold mt-2">How Lip Lift Surgery Works</h2>
+			<h2>How Lip Lift Surgery Works</h2>
 			</div>
 			<p class="mb-3">
 			You may be feeling a bit skeptical at this point, wondering how our plastic surgeons improve your lips without touching them, but it can be done! Removing skin beneath the nose and pulling
@@ -182,7 +182,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row justify-content-center">
 		<div class="col-lg-10">
 		<div class="section-header mb-4 text-center">
-			<h2 class="display-6 fw-bold">Types of Lip Lift Procedures</h2>
+			<h2>Types of Lip Lift Procedures</h2>
 		</div>
 		<p class="mb-4">
 			Your plastic surgeon has several different incision shapes to choose from during a lip lift, including the Italian, central, and gullwing. They will be happy to discuss the specifics of your
@@ -217,7 +217,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-10">
 		<div class="age-considerations-content">
 			<div class="section-header mb-4 text-center">
-			<h2 class="display-6 fw-bold mt-2">What Makes a Lip Lift Different from Fillers</h2>
+			<h2>What Makes a Lip Lift Different from Fillers</h2>
 			</div>
 			<p class="mb-3">
 			Today we're talking about lip lifts, but lip fillers are quite popular and better known. Upon learning about lifts, patients often wonder how they differ from filler. The main differences
@@ -242,7 +242,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-10">
 		<div class="recovery-content">
 			<div class="section-header mb-4 text-center">
-			<h2 class="display-6 fw-bold mt-2">Who is a Good Candidate for a Lip Lift?</h2>
+			<h2>Who is a Good Candidate for a Lip Lift?</h2>
 			</div>
 			<p class="mb-3">
 			At your free virtual consultation, your surgical coordinator will answer your questions about lip lifts and determine whether you're a good candidate for the procedure. There are both
@@ -287,7 +287,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="row justify-content-center">
 		<div class="col-lg-10">
 			<div class="text-center mb-5">
-			<h2 class="display-6 fw-bold mb-4 section-title">What to Expect After Lip Lift Surgery</h2>
+			<h2>What to Expect After Lip Lift Surgery</h2>
 			<p class="fs-5 mx-auto col-lg-10">
 				We will send you home from your procedure with a detailed list of aftercare instructions, but many patients like knowing what to expect beforehand. This can help calm any fear of the
 				unknown and allows you to prepare for your recovery. It's best to have everything you need before coming home from your lip lift so you can relax and focus on healing rather than running

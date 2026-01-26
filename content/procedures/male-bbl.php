@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 mb-3 mb-lg-0">
 		<div class="procedure-intro-content">
 			<?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-3">How the BBL For Men Works</h2>
+			<h2>How the BBL For Men Works</h2>
 			<div class="lead-text">
 			<p>
 				A male BBL works the same way as a female BBL, although the end goal is slightly different. During a BBL, your surgeon will perform liposuction to remove excess fat from certain areas of
@@ -64,7 +64,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="case-study-info">
 			<div class="section-header mb-3">
-			<h2 class="display-6 fw-bold">Mia Aesthetics Patient Case Study</h2>
+			<h2>Mia Aesthetics Patient Case Study</h2>
 			</div>
 
 			<p class="mb-3">

@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is Rhinoplasty?</h2>
+			<h2>What is Rhinoplasty?</h2>
 			<div class="lead-text">
 			<p class="fs-5 mb-3">
 				Rhinoplasty is a procedure that reshapes the nose. Patients may seek out rhinoplasty because they want a more symmetrical and harmonious facial appearance or a change in the overall
@@ -48,7 +48,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Rhinoplasty</h2>
+			<h2>Learn More About Rhinoplasty</h2>
 		</div>
 		</div>
 	</div>
@@ -76,7 +76,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">About the Rhinoplasty Procedure</h2>
+			<h2>About the Rhinoplasty Procedure</h2>
 			</div>
 			<p class="mb-3">
 			Rhinoplasty is typically an outpatient procedure, allowing patients to return home the day of surgery. General anesthesia keeps patients safe and comfortable during the procedure.
@@ -111,7 +111,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Rhinoplasty Recovery</h2>
+			<h2>Rhinoplasty Recovery</h2>
 			</div>
 			<p class="mb-3">
 			Initial recovery from rhinoplasty involves supporting the new nose structure while it heals with packing, bandages or splints. These supports are generally removed after a few weeks.

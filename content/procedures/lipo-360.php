@@ -38,7 +38,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Lipo 360</h2>
+			<h2>Learn More About Lipo 360</h2>
 		</div>
 		</div>
 	</div>

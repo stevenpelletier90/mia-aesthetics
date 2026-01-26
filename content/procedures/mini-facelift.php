@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What Is a Mini Facelift?</h2>
+			<h2>What Is a Mini Facelift?</h2>
 			<div class="lead-text">
 			<p class="fs-5 mb-0">
 				A mini facelift is a surgical procedure that reduces signs of aging for a more youthful, rejuvenated look. This particular surgery focuses on the lower portion of the face and jawline,
@@ -43,7 +43,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Mini Facelift</h2>
+			<h2>Learn More About Mini Facelift</h2>
 		</div>
 		</div>
 	</div>
@@ -77,7 +77,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 order-lg-2">
 		<div class="comparison-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Mini Facelift vs. Traditional Facelift</h2>
+			<h2>Mini Facelift vs. Traditional Facelift</h2>
 			</div>
 			<p class="mb-4">
 			There are a few key differences between a mini facelift and a traditional facelift. It's important to understand them so you can choose the correct procedure for you and your unique needs.
@@ -153,7 +153,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="candidacy-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Who Is a Good Candidate?</h2>
+			<h2>Who Is a Good Candidate?</h2>
 			</div>
 			<p class="mb-3">Not everyone is a good candidate for every surgery. Ideal candidates for a mini facelift are people who meet the following criteria:</p>
 			<ul class="list-unstyled mb-0">
@@ -199,7 +199,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="process-content">
 			<div class="section-header mb-4">
-			<h2 class="fixed-bg-heading text-start text-lg-center">The Procedure and Recovery Process</h2>
+			<h2>The Procedure and Recovery Process</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">
@@ -251,7 +251,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="why-choose-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Why Choose Mia Aesthetics for Your Mini Facelift?</h2>
+			<h2>Why Choose Mia Aesthetics for Your Mini Facelift?</h2>
 			</div>
 			<p class="mb-3">
 			At Mia Aesthetics, we know that you have many plastic surgery clinics to choose from. Of course, we want you to choose us, and there are many compelling reasons to do so. These include

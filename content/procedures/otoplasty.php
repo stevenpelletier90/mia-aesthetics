@@ -16,7 +16,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-7">
 		<div class="procedure-intro-content">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4 text-gradient">What is Ear Pinning/Otoplasty?</h2>
+			<h2>What is Ear Pinning/Otoplasty?</h2>
 			<div class="lead-text">
 			<p class="fs-5 mb-0">
 				Otoplasty is a cosmetic surgery that corrects protruding or deformed ears by fixing abnormalities in the ear structure. It repositions, resizes and/or reshapes the ears. In some cases,
@@ -42,7 +42,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Otoplasty</h2>
+			<h2>Learn More About Otoplasty</h2>
 		</div>
 		</div>
 	</div>
@@ -82,7 +82,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">About the Ear Pinning Procedure</h2>
+			<h2>About the Ear Pinning Procedure</h2>
 			</div>
 			<p class="mb-3">
 			Although the exact surgical technique used will depend on several factors, the basics of otoplasty remain the same: First, incisions are made in the ear and used to remove extra fat and
@@ -117,7 +117,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold">Otoplasty Recovery</h2>
+			<h2>Otoplasty Recovery</h2>
 			</div>
 			<p class="mb-0">
 			Bandages are placed around the head after surgery to keep the ears in place, protect them and help them heal. The initial bandage will typically get swapped out with a lighter bandage

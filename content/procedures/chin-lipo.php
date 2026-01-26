@@ -9,51 +9,53 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 ?>
-<div class="container py-5">
-	<!-- Hero/Intro Section -->
-	<section class="procedure-section procedure-hero-section">
-	<div class="row align-items-center g-5">
-		<div class="col-lg-7 mb-4 mb-lg-0">
-		<div class="procedure-intro-content">
-<?php echo mia_render_inline_breadcrumbs(); ?>
-			<h2 class="display-6 fw-bold mb-4">What Is Chin Lipo?</h2>
-			<div class="lead-text mb-4">
-			<p class="fs-5">
-				It happens suddenly—you're just going along living your life and then one day you look
-				in the mirror and it's there. The dreaded double chin has appeared! Fortunately, there
-				is no need to get upset. Your next step is looking into chin liposuction.
-			</p>
-			<p class="fs-5">
-				Called chin lipo for short, this procedure removes excess fat from beneath your chin.
-				The process is minimally invasive but provides maximum results, delivering a dramatic
-				new jawline contour. Perhaps the best news is that the fat cells removed during the
-				procedure are gone for good. So long as you maintain a stable weight, your new chin
-				will stay with you for many happy years.
-			</p>
+<!-- Hero/Intro Section -->
+<section class="procedure-section procedure-intro py-5">
+	<div class="container">
+		<div class="row align-items-center g-5">
+			<div class="col-lg-7 mb-4 mb-lg-0">
+				<div class="procedure-intro-content">
+					<?php echo mia_render_inline_breadcrumbs(); ?>
+					<h2>What Is Chin Lipo?</h2>
+					<div class="lead-text mb-4">
+						<p class="fs-5">
+							It happens suddenly—you're just going along living your life and then one day you look
+							in the mirror and it's there. The dreaded double chin has appeared! Fortunately, there
+							is no need to get upset. Your next step is looking into chin liposuction.
+						</p>
+						<p class="fs-5">
+							Called chin lipo for short, this procedure removes excess fat from beneath your chin.
+							The process is minimally invasive but provides maximum results, delivering a dramatic
+							new jawline contour. Perhaps the best news is that the fat cells removed during the
+							procedure are gone for good. So long as you maintain a stable weight, your new chin
+							will stay with you for many happy years.
+						</p>
+					</div>
+				</div>
 			</div>
-		</div>
-		</div>
-		<div class="col-lg-5">
-		<div class="procedure-image-wrapper position-relative">
-			<div class="image-frame rounded-3 overflow-hidden">
-			<img
-				src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/chin-lipo-male.jpg' ) ); ?>"
-				alt="Chin Liposuction Procedure"
-				class="img-fluid w-100"
-				loading="lazy"
-			/>
+			<div class="col-lg-5">
+				<div class="procedure-image-wrapper position-relative">
+					<div class="image-frame rounded-3 overflow-hidden">
+						<img
+							src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/09/chin-lipo-male.jpg' ) ); ?>"
+							alt="Chin Liposuction Procedure"
+							class="img-fluid w-100"
+							loading="lazy"
+						/>
+					</div>
+				</div>
 			</div>
-		</div>
 		</div>
 	</div>
-	</section>
+</section>
 
+<div class="container py-5">
 	<!-- Quick Links Section -->
-	<section class="procedure-section procedure-links-section py-5">
+	<section class="procedure-section procedure-links-section">
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Chin Lipo</h2>
+			<h2>Learn More About Chin Lipo</h2>
 		</div>
 		</div>
 	</div>
@@ -103,7 +105,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="why-choose-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Why Choose Chin Lipo?</h2>
+			<h2>Why Choose Chin Lipo?</h2>
 			</div>
 
 			<div class="why-choose-overview mb-4">
@@ -153,7 +155,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="how-it-works-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">How the Surgery Works</h2>
+			<h2>How the Surgery Works</h2>
 			</div>
 
 			<div class="how-it-works-overview mb-4">
@@ -198,7 +200,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-lg-2">
 		<div class="candidacy-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Who Is a Good Candidate for Chin Lipo?</h2>
+			<h2>Who Is a Good Candidate for Chin Lipo?</h2>
 			</div>
 
 			<div class="candidacy-overview mb-4">
@@ -240,7 +242,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Recovery and What to Expect After Surgery</h2>
+			<h2>Recovery and What to Expect After Surgery</h2>
 			</div>
 
 			<div class="recovery-overview mb-4">

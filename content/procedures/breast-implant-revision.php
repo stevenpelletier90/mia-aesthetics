@@ -10,7 +10,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 ?>
 <!-- Hero/Intro Section -->
-<section class="procedure-hero py-5">
+<section class="procedure-section procedure-intro py-5">
 	<div class="container">
 	<div class="row align-items-center">
 		<div class="col-lg-7">
@@ -40,7 +40,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About Breast Implant Revision</h2>
+			<h2>Learn More About Breast Implant Revision</h2>
 		</div>
 		</div>
 	</div>

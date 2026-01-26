@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row align-items-center g-3 g-lg-5">
 		<div class="col-lg-6 mb-3 mb-lg-0">
 		<?php echo mia_render_inline_breadcrumbs(); ?>
-		<h2 class="display-6 fw-bold mb-4">What is the Brazilian Butt Lift (BBL)?</h2>
+		<h2>What is the Brazilian Butt Lift (BBL)?</h2>
 		<p class="fs-5 mb-3">
 			The Brazilian butt lift (BBL), sculpts the buttocks and adds volume using the patient's own fat from other areas of the body. No matter the patient's age, genetics, or other factors, butt
 			enhancement can lift, tighten, and improve the overall appearance of the buttocks.
@@ -35,7 +35,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About the BBL</h2>
+			<h2>Learn More About the BBL</h2>
 		</div>
 		</div>
 	</div>
@@ -85,7 +85,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">About the Brazilian Butt Lift (BBL) Procedure</h2>
+			<h2>About the Brazilian Butt Lift (BBL) Procedure</h2>
 			</div>
 			<div class="procedure-overview">
 			<p class="mb-3">
@@ -123,7 +123,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="bbl-recovery-content">
 			<div class="section-header">
-			<h2 class="fixed-bg-heading text-start text-lg-center">Brazilian Butt Lift Recovery</h2>
+			<h2>Brazilian Butt Lift Recovery</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">
@@ -149,7 +149,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 order-2 order-lg-1 mb-4 mb-lg-0">
 		<div class="procedure-details">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Is BBL Painful?</h2>
+			<h2>Is BBL Painful?</h2>
 			</div>
 			<div class="procedure-overview">
 			<p class="mb-3">

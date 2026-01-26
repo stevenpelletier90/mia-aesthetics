@@ -15,7 +15,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row align-items-center g-3 g-lg-5">
 		<div class="col-lg-7 mb-3 mb-lg-0">
 <?php echo mia_render_inline_breadcrumbs(); ?>
-		<h2 class="display-6 fw-bold mb-4">What is a Thigh Lift?</h2>
+		<h2>What is a Thigh Lift?</h2>
 		<p class="fs-5 mb-0">
 			Thigh lift surgery is a solution to sagging thigh skin. The procedure helps redefine,
 			tighten and re-contour the thighs and lower body. Benefits of a thigh lift are improved
@@ -39,7 +39,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 	<div class="row">
 		<div class="col-12">
 		<div class="section-header mb-5 text-center">
-			<h2 class="display-6 fw-bold">Learn More About the Arm Lift</h2>
+			<h2>Learn More About the Arm Lift</h2>
 		</div>
 		</div>
 	</div>
@@ -83,7 +83,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-8 col-xl-7">
 		<div class="about-procedure-content">
 			<div class="section-header">
-			<h2 class="fixed-bg-heading text-start text-lg-center">About The Thigh Procedure</h2>
+			<h2>About The Thigh Procedure</h2>
 			</div>
 
 			<div class="fixed-bg-content-box p-0 p-lg-4">
@@ -113,7 +113,7 @@ if ( ! defined( 'ABSPATH' ) ) {
 		<div class="col-lg-6 mb-4 mb-lg-0">
 		<div class="recovery-content">
 			<div class="section-header mb-4">
-			<h2 class="display-6 fw-bold mt-2">Thigh Lift Recovery</h2>
+			<h2>Thigh Lift Recovery</h2>
 			</div>
 			<div class="recovery-overview">
 			<p class="mb-3">
