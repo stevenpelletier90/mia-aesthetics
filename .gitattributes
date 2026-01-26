@@ -1,3 +1,6 @@
+# Auto-normalize line endings
+* text=auto
+
 # Exclude dev and build-only files from git archives (production zip)
 /.gitignore export-ignore
 /.gitattributes export-ignore
