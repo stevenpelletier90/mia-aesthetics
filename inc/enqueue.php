@@ -101,6 +101,11 @@ function mia_enqueue_conditional_components(): void {
 	if ( mia_needs_breadcrumb() ) {
 		mia_load_component_assets( 'breadcrumb' );
 	}
+
+	// Procedure Content - Load on treatment layout pages (procedure content files).
+	if ( mia_needs_procedure_content() ) {
+		mia_load_component_assets( 'procedure-content' );
+	}
 }
 
 /**
@@ -184,6 +189,18 @@ function mia_needs_location_search_careers(): bool {
 function mia_needs_virtual_consultation_maps(): bool {
 	// Load Google Maps on virtual consultation page for location auto-selection.
 	if ( is_page_template( 'page-virtual-consultation.php' ) ) {
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Check if current page needs procedure content component
+ */
+function mia_needs_procedure_content(): bool {
+	// Pages using treatment layout (loads procedure content files).
+	if ( is_page_template( 'page-treatment-layout.php' ) ) {
 		return true;
 	}
 

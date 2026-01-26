@@ -1,12 +1,36 @@
+/* ==========================================================================
+   Breadcrumb Components
+
+   Variants:
+   - .breadcrumb-nav          : Standard nav bar (black text, gold hover)
+   - .breadcrumb-inline       : Inline in content (blue links)
+   - .breadcrumb-inline.dark  : For dark backgrounds (white text, gold hover)
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   Shared Base Styles
+   -------------------------------------------------------------------------- */
+.breadcrumb-nav,
+.breadcrumb-inline {
+  font-family: var(--font-body);
+}
+
+.breadcrumb-nav a,
+.breadcrumb-inline a {
+  text-decoration: underline;
+}
+
+/* --------------------------------------------------------------------------
+   Standard Breadcrumb Nav (black/gold)
+   Used in: breadcrumb component wrapper
+   -------------------------------------------------------------------------- */
 .breadcrumb-nav {
   padding: 0.75rem 0;
-  font-family: var(--font-body);
   background: var(--mia-white);
 }
 
 .breadcrumb-nav a {
   color: var(--mia-gray-dark);
-  text-decoration: underline;
 }
 
 .breadcrumb-nav a:hover,
@@ -18,10 +42,12 @@
   color: var(--mia-gray-dark);
 }
 
-/* Inline breadcrumbs (used via shortcode in content) */
+/* --------------------------------------------------------------------------
+   Inline Breadcrumbs (blue links)
+   Used in: procedure templates
+   -------------------------------------------------------------------------- */
 .breadcrumb-inline {
   margin-bottom: 1rem;
-  font-family: var(--font-body);
   font-size: 0.875rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -30,7 +56,6 @@
 
 .breadcrumb-inline a {
   color: var(--mia-link);
-  text-decoration: underline;
 }
 
 .breadcrumb-inline a:hover,
@@ -42,6 +67,30 @@
   color: var(--mia-gray-dark);
 }
 
+/* --------------------------------------------------------------------------
+   Inline Dark Variant (white/gold)
+   Used in: dark hero sections (e.g., single-surgeon)
+   -------------------------------------------------------------------------- */
+.breadcrumb-inline.dark {
+  color: var(--mia-white);
+}
+
+.breadcrumb-inline.dark a {
+  color: var(--mia-white);
+}
+
+.breadcrumb-inline.dark a:hover,
+.breadcrumb-inline.dark a:focus {
+  color: var(--mia-gold);
+}
+
+.breadcrumb-inline.dark .breadcrumb_last {
+  color: var(--mia-gold);
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Adjustments
+   -------------------------------------------------------------------------- */
 @media (min-width: 992px) {
   .breadcrumb-inline {
     margin-bottom: 1.5rem;
@@ -52,24 +101,4 @@
   .breadcrumb-inline {
     text-align: center;
   }
-}
-
-/* Dark variant for dark backgrounds (hero sections) */
-.breadcrumb-inline.dark {
-  margin-bottom: 1rem;
-  color: var(--mia-white);
-}
-
-.breadcrumb-inline.dark a {
-  color: var(--mia-white);
-  text-decoration: underline;
-}
-
-.breadcrumb-inline.dark a:hover,
-.breadcrumb-inline.dark a:focus {
-  color: var(--mia-gold);
-}
-
-.breadcrumb-inline.dark .breadcrumb_last {
-  color: var(--mia-gold);
 }
