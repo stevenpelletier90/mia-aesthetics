@@ -20,14 +20,5 @@
       "dealerdirect/phpcodesniffer-composer-installer": true,
       "phpstan/extension-installer": true
     }
-  },
-  "scripts": {
-    "phpcs": "phpcs",
-    "phpcbf": "phpcbf",
-    "phpstan": "phpstan analyse --memory-limit=2G --no-progress",
-    "phpcs:json": "sh -c 'mkdir -p reports && ./vendor/bin/phpcs -q --report=json > reports/phpcs.json || true'",
-    "phpstan:json": "sh -c 'mkdir -p reports && ./vendor/bin/phpstan analyse -n --error-format=json > reports/phpstan.json || true'",
-    "qa": "composer phpcbf && composer phpcs && composer phpstan",
-    "qa:reports": "composer phpcs:json && composer phpstan:json"
   }
 }

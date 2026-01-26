@@ -15,16 +15,5 @@
     "prettier": "^3.8.1",
     "stylelint": "^17.0.0",
     "stylelint-config-standard": "^40.0.0"
-  },
-  "scripts": {
-    "build:vendor": "node scripts/build-vendor.js",
-    "lint:js": "eslint \"assets/js/**/*.js\" \"scripts/**/*.js\"",
-    "lint:css": "stylelint \"assets/css/**/*.css\"",
-    "format": "prettier --write \"**/*.{js,css,json,md}\" --ignore-path .prettierignore",
-    "format:check": "prettier --check \"**/*.{js,css,json,md}\" --ignore-path .prettierignore",
-    "lint": "npm run lint:js && npm run lint:css",
-    "phpcs": "powershell \".\\vendor\\bin\\phpcs --standard=.\\phpcs.xml\"",
-    "phpcs:fix": "powershell \".\\vendor\\bin\\phpcbf --standard=.\\phpcs.xml\"",
-    "phpstan": "powershell \".\\vendor\\bin\\phpstan analyze --memory-limit=2G\""
   }
 }
