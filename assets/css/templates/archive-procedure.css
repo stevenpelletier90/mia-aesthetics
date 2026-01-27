@@ -1,5 +1,15 @@
+/* ==========================================================================
+   Archive Procedure Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Procedure Category Cards
+   ========================================================================== */
+
 .procedure-category-card {
-  transition: all 0.2s ease;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
   border-radius: var(--radius-lg);
   overflow: hidden;
   border: 2px solid var(--mia-gold);
@@ -11,6 +21,11 @@
 .procedure-category-card:hover {
   transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
+}
+
+.procedure-category-card:focus-within {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
 }
 
 .category-image-container {
@@ -41,7 +56,9 @@
   background-color: var(--mia-gold);
   color: var(--mia-black);
   border: none;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
 }
 
 .category-badge:focus,
@@ -79,6 +96,10 @@
   color: var(--mia-gold);
 }
 
+/* ==========================================================================
+   Procedure Links
+   ========================================================================== */
+
 .procedure-links li {
   margin-bottom: 0.5rem;
   padding-left: 0;
@@ -92,7 +113,7 @@
 .procedure-links a:not(.btn) {
   color: var(--mia-white);
   font-size: 0.9rem;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -128,6 +149,12 @@
   color: var(--mia-white);
 }
 
+.procedure-links a:focus {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 .view-all-link {
   font-weight: 600;
   margin-top: 1rem;
@@ -145,16 +172,9 @@
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
 }
 
-.procedure-category-card:focus-within {
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
-}
-
-.procedure-links a:focus {
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
 
 @media (max-width: 991.98px) {
   .category-image-container {
@@ -189,6 +209,10 @@
     font-size: 1rem;
   }
 }
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .procedure-category-card,

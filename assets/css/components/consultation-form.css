@@ -21,10 +21,6 @@ a.consent-trigger:hover span {
   border-bottom-color: var(--mia-white);
 }
 
-a.consent-trigger:hover i {
-  transform: translateX(4px);
-}
-
 a.consent-trigger i {
   transition:
     transform 0.2s ease,
@@ -34,6 +30,7 @@ a.consent-trigger i {
 }
 
 a.consent-trigger:hover i {
+  transform: translateX(4px);
   color: var(--mia-white);
 }
 

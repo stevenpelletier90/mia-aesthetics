@@ -1,18 +1,16 @@
+/* ==========================================================================
+   Single Surgeon Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Hero Section
+   ========================================================================== */
+
 .surgeon-hero {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   overflow: hidden;
   padding: 4rem 0;
   position: relative;
-
-  @media (max-width: 991px) {
-    padding: 3rem 0;
-  }
-
-  .row {
-    @media (min-width: 992px) {
-      flex-direction: row-reverse;
-    }
-  }
 }
 
 .surgeon-hero-image {
@@ -28,7 +26,6 @@
     width: 100%;
   }
 
-  /* Automatic placeholder styling when no image exists */
   &:not(:has(img)) {
     align-items: center;
     aspect-ratio: 4/5;
@@ -75,19 +72,8 @@
 
 .surgeon-hero-content {
   padding-right: 3rem;
-
-  @media (max-width: 1199px) {
-    padding-right: 2rem;
-  }
-
-  @media (max-width: 991px) {
-    padding-right: 0;
-    padding-top: 2rem;
-    text-align: center;
-  }
 }
 
-/* Bootstrap .badge provides base styles; we customize for brand */
 .surgeon-badge {
   background: var(--mia-black);
   border: 1px solid var(--mia-gold);
@@ -106,14 +92,6 @@
   font-weight: 600;
   line-height: 1.2;
   margin-bottom: 1rem;
-
-  @media (max-width: 991px) {
-    font-size: 2.5rem;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 2rem;
-  }
 }
 
 .surgeon-hero .surgeon-location {
@@ -138,28 +116,17 @@
       text-decoration: none;
     }
   }
-
-  @media (max-width: 991px) {
-    justify-content: center;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 1rem;
-  }
 }
 
 .surgeon-hero-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-
-  @media (max-width: 991px) {
-    align-items: center;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 }
+
+/* ==========================================================================
+   Content Area
+   ========================================================================== */
 
 .surgeon-content-area {
   background: var(--mia-white);
@@ -168,19 +135,6 @@
 
 .surgeon-main-column {
   padding-right: 3rem;
-
-  @media (max-width: 1199px) {
-    padding-right: 2rem;
-  }
-
-  @media (max-width: 991px) {
-    padding-right: 0;
-  }
-
-  @media (max-width: 767px) {
-    display: flex;
-    flex-direction: column;
-  }
 }
 
 .section-title {
@@ -209,20 +163,10 @@
       transform: translateX(-50%);
     }
   }
-
-  @media (max-width: 767px) {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
-  }
 }
 
 .surgeon-bio-section {
   margin-bottom: 4rem;
-
-  @media (max-width: 767px) {
-    margin-bottom: 1.5rem;
-    order: 2;
-  }
 }
 
 .bio-content {
@@ -241,6 +185,10 @@
     margin-bottom: 1rem;
   }
 }
+
+/* ==========================================================================
+   Video Components
+   ========================================================================== */
 
 .video-container {
   border-radius: var(--radius-lg);
@@ -294,7 +242,9 @@
   position: absolute;
   top: 50%;
   transform: translate(-50%, -50%);
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
   width: 5rem;
 
   i {
@@ -304,24 +254,18 @@
   }
 }
 
+/* ==========================================================================
+   Expertise Section
+   ========================================================================== */
+
 .surgeon-expertise-section {
   margin-bottom: 4rem;
-
-  @media (max-width: 767px) {
-    margin-bottom: 2rem;
-    order: 3;
-  }
 }
 
 .expertise-grid {
   display: grid;
   gap: 2rem;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-  @media (max-width: 767px) {
-    gap: 1.5rem;
-    grid-template-columns: 1fr;
-  }
 }
 
 .expertise-card {
@@ -331,19 +275,17 @@
   display: flex;
   gap: 1.5rem;
   padding: 2rem;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
     background: var(--mia-white);
     border-color: var(--mia-gold);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     transform: translateY(-5px);
-  }
-
-  @media (max-width: 767px) {
-    flex-direction: column;
-    padding: 1.5rem;
-    text-align: center;
   }
 }
 
@@ -401,13 +343,13 @@
   }
 }
 
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
+
 .surgeon-sidebar {
   position: sticky;
   top: 6.25rem;
-
-  @media (max-width: 991px) {
-    position: static;
-  }
 }
 
 .sidebar-card {
@@ -417,38 +359,6 @@
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
   padding: 2rem;
-
-  @media (min-width: 992px) {
-    &:first-child {
-      background: var(--mia-black);
-      border: 2px solid var(--mia-gold);
-      box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
-
-      .sidebar-card-title {
-        color: var(--mia-white);
-      }
-
-      .surgeon-info-list {
-        li {
-          border-bottom: 1px solid rgba(200, 178, 115, 0.2);
-          color: var(--mia-white);
-        }
-
-        a {
-          color: var(--mia-white);
-
-          &:hover {
-            color: var(--mia-gold);
-          }
-        }
-      }
-    }
-  }
-
-  @media (max-width: 767px) {
-    margin-bottom: 1.5rem;
-    padding: 1.5rem;
-  }
 }
 
 .sidebar-card-title {
@@ -522,7 +432,10 @@
   display: flex;
   padding: 1rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 
   &:hover {
     background: var(--mia-white);
@@ -553,14 +466,142 @@
   }
 }
 
-@media (max-width: 767px) {
-  .surgeon-content-area {
-    padding: 2rem 0;
+/* ==========================================================================
+   Responsive - min-width (ascending)
+   ========================================================================== */
+
+@media (min-width: 992px) {
+  .surgeon-hero .row {
+    flex-direction: row-reverse;
+  }
+
+  .sidebar-card:first-child {
+    background: var(--mia-black);
+    border: 2px solid var(--mia-gold);
+    box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
+
+    .sidebar-card-title {
+      color: var(--mia-white);
+    }
+
+    .surgeon-info-list {
+      li {
+        border-bottom: 1px solid rgba(200, 178, 115, 0.2);
+        color: var(--mia-white);
+      }
+
+      a {
+        color: var(--mia-white);
+
+        &:hover {
+          color: var(--mia-gold);
+        }
+      }
+    }
   }
 }
 
 /* ==========================================================================
-   REDUCED MOTION PREFERENCES
+   Responsive - max-width (descending)
+   ========================================================================== */
+
+@media (max-width: 1199px) {
+  .surgeon-hero-content {
+    padding-right: 2rem;
+  }
+
+  .surgeon-main-column {
+    padding-right: 2rem;
+  }
+}
+
+@media (max-width: 991px) {
+  .surgeon-hero {
+    padding: 3rem 0;
+  }
+
+  .surgeon-hero-content {
+    padding-right: 0;
+    padding-top: 2rem;
+    text-align: center;
+  }
+
+  .surgeon-hero .surgeon-name {
+    font-size: 2.5rem;
+  }
+
+  .surgeon-hero .surgeon-location {
+    justify-content: center;
+  }
+
+  .surgeon-hero-actions {
+    align-items: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .surgeon-main-column {
+    padding-right: 0;
+  }
+
+  .surgeon-sidebar {
+    position: static;
+  }
+}
+
+@media (max-width: 767px) {
+  .surgeon-hero .surgeon-name {
+    font-size: 2rem;
+  }
+
+  .surgeon-hero .surgeon-location {
+    font-size: 1rem;
+  }
+
+  .surgeon-content-area {
+    padding: 2rem 0;
+  }
+
+  .surgeon-main-column {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .surgeon-bio-section {
+    margin-bottom: 1.5rem;
+    order: 2;
+  }
+
+  .surgeon-expertise-section {
+    margin-bottom: 2rem;
+    order: 3;
+  }
+
+  .expertise-grid {
+    gap: 1.5rem;
+    grid-template-columns: 1fr;
+  }
+
+  .expertise-card {
+    flex-direction: column;
+    padding: 1.5rem;
+    text-align: center;
+  }
+
+  .sidebar-card {
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
+  }
+}
+
+/* ==========================================================================
+   Reduced Motion Preferences
    ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {

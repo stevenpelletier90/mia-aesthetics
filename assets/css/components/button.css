@@ -27,6 +27,7 @@
 .btn .fa-arrow-left {
   margin-right: 0 !important;
   margin-left: 0.5rem !important;
+  transition: transform 0.2s ease;
 }
 
 .btn-primary {
@@ -358,11 +359,6 @@
   background-color: transparent !important;
   border-color: rgba(0, 0, 0, 0.4) !important;
   color: var(--mia-gold-50) !important;
-}
-
-.btn .fa-arrow-right,
-.btn .fa-arrow-left {
-  transition: transform 0.2s ease;
 }
 
 .btn:hover .fa-arrow-right {

@@ -3,8 +3,9 @@
    ========================================================================== */
 
 /* ==========================================================================
-   Hero Section - Background Image with Dark Overlay
+   Hero Section
    ========================================================================== */
+
 .location-hero {
   position: relative;
   min-height: 80vh;
@@ -93,7 +94,6 @@
   text-align: center;
 }
 
-/* Video in Hero */
 .location-video {
   max-width: 100%;
   margin: 0 auto;
@@ -103,8 +103,9 @@
 }
 
 /* ==========================================================================
-   Location Info Bar - Full Width Dark Bar Below Hero
+   Location Info Bar
    ========================================================================== */
+
 .location-info-bar {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border-top: 1px solid var(--mia-gold-30);
@@ -148,8 +149,9 @@
 }
 
 /* ==========================================================================
-   Video Thumbnail Styles
+   Video Thumbnail
    ========================================================================== */
+
 .video-thumbnail {
   position: absolute;
   top: 0;
@@ -193,7 +195,9 @@
   justify-content: center;
   align-items: center;
   opacity: 0.9;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
   border: 3px solid var(--mia-gold);
 
   i {
@@ -204,31 +208,22 @@
 }
 
 /* ==========================================================================
-   Section Spacing - Mobile-First Vertical Padding
+   Section Spacing
    ========================================================================== */
 
-/* Mobile: padding-top only to prevent double-spacing between sections */
 .location-article,
 .team-section {
-  padding: 2rem 0 2rem;
+  padding: 2rem 0;
 }
 
 .location-faq-section {
   padding: 2rem 0 2.5rem;
 }
 
-/* Desktop: restore full vertical padding */
-@media (min-width: 768px) {
-  .location-article,
-  .team-section,
-  .location-faq-section {
-    padding: 3rem 0;
-  }
-}
-
 /* ==========================================================================
-   Content Area Styles
+   Content Area
    ========================================================================== */
+
 .sidebar-section.border-radius-none {
   border-radius: var(--radius-none);
 }
@@ -286,6 +281,7 @@
 /* ==========================================================================
    Sidebar Card & Resource Links
    ========================================================================== */
+
 .sidebar-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
@@ -327,7 +323,10 @@
   display: flex;
   padding: 1rem;
   text-decoration: none;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease;
 
   &:hover {
     background: var(--mia-white);
@@ -359,8 +358,9 @@
 }
 
 /* ==========================================================================
-   Surgeon Cards - Team Section
+   Surgeon Cards
    ========================================================================== */
+
 .surgeon-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border-radius: var(--radius-lg);
@@ -386,30 +386,18 @@
     margin-bottom: 1.5rem;
     display: block;
     margin-inline: auto;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
     padding: 3px;
-
-    @media (min-width: 768px) {
-      width: 8.75rem;
-      height: 8.75rem;
-    }
   }
 
-  /* Automatic placeholder icon when no image exists */
-  &:not(:has(img)) {
-    &::before {
-      content: "\f007";
-      font-family: "Font Awesome 7 Free";
-      font-size: 5rem;
-      color: var(--mia-gold);
-      opacity: 0.4;
-      display: block;
-      margin-bottom: 1.5rem;
-
-      @media (min-width: 768px) {
-        font-size: 6rem;
-      }
-    }
+  &:not(:has(img))::before {
+    content: "\f007";
+    font-family: "Font Awesome 7 Free";
+    font-size: 5rem;
+    color: var(--mia-gold);
+    opacity: 0.4;
+    display: block;
+    margin-bottom: 1.5rem;
   }
 
   h3 {
@@ -431,10 +419,47 @@
 }
 
 /* ==========================================================================
-   Responsive Styles
+   Responsive - min-width (ascending)
    ========================================================================== */
 
-/* Tablet and below - Hero adjustments */
+@media (min-width: 768px) {
+  .location-article,
+  .team-section,
+  .location-faq-section {
+    padding: 3rem 0;
+  }
+
+  .surgeon-card img {
+    width: 8.75rem;
+    height: 8.75rem;
+  }
+
+  .surgeon-card:not(:has(img))::before {
+    font-size: 6rem;
+  }
+}
+
+@media (min-width: 992px) {
+  .location-hero .hero-form {
+    display: block;
+  }
+}
+
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
+
+@media (max-width: 1200px) and (min-width: 992px) {
+  .location-hero .hero-form {
+    flex: 0 0 450px;
+    width: 450px;
+  }
+
+  .location-hero .hero-content {
+    padding: 0 1.5rem;
+  }
+}
+
 @media (max-width: 991px) {
   .location-hero {
     min-height: auto;
@@ -459,10 +484,7 @@
   .location-hero .hero-form {
     display: none;
   }
-}
 
-/* Tablet and below - Info bar adjustments */
-@media (max-width: 991px) {
   .location-info-bar .info-items {
     gap: 1rem 1.5rem;
   }
@@ -478,10 +500,33 @@
   }
 }
 
-/* Mobile - Surgeon cards horizontal layout */
 @media (max-width: 767px) {
   .location-video {
     max-width: 100%;
+  }
+
+  .location-hero .hero-content {
+    padding: 0 1rem;
+  }
+
+  .location-hero .consultation-card {
+    margin: 0 0.5rem;
+  }
+
+  .location-info-bar .info-items {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0 1rem;
+  }
+
+  .location-info-bar .info-item {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .location-info-bar .info-item-hours {
+    order: unset;
   }
 
   .team-section .surgeon-card {
@@ -540,52 +585,5 @@
       min-width: auto;
       width: auto;
     }
-  }
-
-  /* Info bar stacks on mobile */
-  .location-info-bar .info-items {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0 1rem;
-  }
-
-  .location-info-bar .info-item {
-    width: 100%;
-    justify-content: flex-start;
-  }
-
-  .location-info-bar .info-item-hours {
-    order: unset;
-  }
-}
-
-/* Mobile adjustments */
-@media (max-width: 767px) {
-  .location-hero .hero-content {
-    padding: 0 1rem;
-  }
-
-  .location-hero .consultation-card {
-    margin: 0 0.5rem;
-  }
-}
-
-/* Large tablet - Form size adjustment */
-@media (max-width: 1200px) and (min-width: 992px) {
-  .location-hero .hero-form {
-    flex: 0 0 450px;
-    width: 450px;
-  }
-
-  .location-hero .hero-content {
-    padding: 0 1.5rem;
-  }
-}
-
-/* Desktop - Ensure form is visible */
-@media (min-width: 992px) {
-  .location-hero .hero-form {
-    display: block;
   }
 }

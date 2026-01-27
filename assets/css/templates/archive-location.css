@@ -1,7 +1,19 @@
+/* ==========================================================================
+   Archive Location Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Page Header
+   ========================================================================== */
+
 .location-archive-section .lead {
   color: var(--mia-gray-dark);
   max-width: 800px;
 }
+
+/* ==========================================================================
+   Location Cards
+   ========================================================================== */
 
 .location-card {
   display: flex;
@@ -68,7 +80,7 @@
 
 .location-phone {
   color: var(--mia-white);
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   font-weight: 600;
   display: inline-flex;
   align-items: center;
@@ -100,6 +112,10 @@
   flex-direction: column;
   gap: 0.5rem;
 }
+
+/* ==========================================================================
+   Mobile List View
+   ========================================================================== */
 
 .location-mobile-list {
   padding: 0;
@@ -134,14 +150,28 @@
   color: var(--mia-black);
 }
 
-.location-phone {
-  color: var(--mia-white);
-  transition: color 0.2s ease;
+/* ==========================================================================
+   Responsive - min-width (ascending)
+   ========================================================================== */
+
+@media (min-width: 992px) {
+  .location-card-img-top {
+    height: 240px;
+  }
+
+  .location-cards-container .row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .location-cards-container .col {
+    display: flex;
+  }
 }
 
-.location-phone:hover {
-  color: var(--mia-gold);
-}
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
 
 @media (max-width: 767.98px) {
   .location-card-img-top {
@@ -152,7 +182,6 @@
     padding: 1rem;
   }
 
-  /* Mobile phone number styling */
   .location-mobile-list .location-phone {
     color: var(--mia-black);
     text-decoration: none;
@@ -179,21 +208,5 @@
 
   .location-mobile-list .location-phone:hover .phone-number {
     border-bottom-color: var(--mia-black);
-  }
-}
-
-@media (min-width: 992px) {
-  .location-card-img-top {
-    height: 240px;
-  }
-
-  /* Equal height cards on desktop */
-  .location-cards-container .row {
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .location-cards-container .col {
-    display: flex;
   }
 }

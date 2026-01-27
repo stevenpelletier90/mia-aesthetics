@@ -1,16 +1,32 @@
+/* ==========================================================================
+   Archive Case Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Case Category Cards
+   ========================================================================== */
+
 .case-category-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   border: 2px solid var(--mia-gold);
   border-radius: var(--radius-md);
   box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition:
+    box-shadow 0.2s ease,
+    transform 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .case-category-card:hover {
   box-shadow: 0 10px 30px rgba(200, 178, 115, 0.2);
   transform: translateY(-2px);
   border-color: var(--mia-gold);
+}
+
+.case-category-card:focus-within {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
 }
 
 .category-image-container {
@@ -66,6 +82,10 @@
   line-height: 1.5;
 }
 
+/* ==========================================================================
+   Case Links
+   ========================================================================== */
+
 .case-links li {
   margin-bottom: 0.5rem;
   padding-left: 0;
@@ -79,7 +99,7 @@
 .case-links a:not(.btn) {
   color: var(--mia-white);
   font-size: 1rem;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -115,10 +135,20 @@
   color: var(--mia-white);
 }
 
+.case-links a:focus {
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
 .section-heading {
   color: var(--mia-black);
   font-family: var(--font-heading);
 }
+
+/* ==========================================================================
+   Browse By Surgeon Section
+   ========================================================================== */
 
 .browse-by-surgeon {
   background-image: url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=600&fit=crop");
@@ -168,7 +198,34 @@
   margin-right: auto;
 }
 
-/* Stacked Surgeon Avatars */
+.browse-by-surgeon .btn {
+  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.3);
+}
+
+.browse-by-surgeon .btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(200, 178, 115, 0.4);
+}
+
+.browse-by-surgeon .btn i {
+  transition: transform 0.3s ease;
+  margin-left: 0.5rem;
+}
+
+.browse-by-surgeon .btn:hover i {
+  transform: translateX(5px);
+}
+
+.browse-by-surgeon .btn:focus {
+  outline: 2px solid var(--mia-white);
+  outline-offset: 3px;
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
+}
+
+/* ==========================================================================
+   Surgeon Avatars
+   ========================================================================== */
+
 .surgeon-avatars {
   display: flex;
   justify-content: center;
@@ -201,43 +258,20 @@
   border-color: var(--mia-white);
 }
 
-/* Button Enhancement for Browse Section */
-.browse-by-surgeon .btn {
-  box-shadow: 0 4px 15px rgba(200, 178, 115, 0.3);
+/* ==========================================================================
+   Responsive - min-width (ascending)
+   ========================================================================== */
+
+@media (min-width: 1200px) {
+  .category-image-container {
+    height: 400px;
+  }
 }
 
-.browse-by-surgeon .btn:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 6px 20px rgba(200, 178, 115, 0.4);
-}
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
 
-.browse-by-surgeon .btn i {
-  transition: transform 0.3s ease;
-  margin-left: 0.5rem;
-}
-
-.browse-by-surgeon .btn:hover i {
-  transform: translateX(5px);
-}
-
-.case-category-card:focus-within {
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
-}
-
-.case-links a:focus {
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
-  border-radius: var(--radius-sm);
-}
-
-.browse-by-surgeon .btn:focus {
-  outline: 2px solid var(--mia-white);
-  outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
-}
-
-/* Responsive Design for Browse by Surgeon */
 @media (max-width: 991.98px) {
   .browse-by-surgeon {
     min-height: 450px;
@@ -260,6 +294,14 @@
 
   .surgeon-avatars {
     height: 60px;
+  }
+
+  .category-image-container {
+    height: 280px;
+  }
+
+  .case-category-card .card-body {
+    padding: 1.25rem;
   }
 }
 
@@ -291,6 +333,14 @@
     height: 50px;
     margin-bottom: 1.5rem;
   }
+
+  .category-image-container {
+    height: 220px;
+  }
+
+  .case-category-card .card-body {
+    padding: 1rem;
+  }
 }
 
 @media (max-width: 575.98px) {
@@ -321,7 +371,6 @@
     height: 45px;
   }
 
-  /* Hide last 2 avatars on very small screens */
   .surgeon-avatar:nth-child(n + 5) {
     display: none;
   }
@@ -330,35 +379,7 @@
     width: 100%;
     max-width: 300px;
   }
-}
 
-@media (min-width: 1200px) {
-  .category-image-container {
-    height: 400px;
-  }
-}
-
-@media (max-width: 991.98px) {
-  .category-image-container {
-    height: 280px;
-  }
-
-  .case-category-card .card-body {
-    padding: 1.25rem;
-  }
-}
-
-@media (max-width: 767.98px) {
-  .category-image-container {
-    height: 220px;
-  }
-
-  .case-category-card .card-body {
-    padding: 1rem;
-  }
-}
-
-@media (max-width: 575.98px) {
   .category-image-container {
     height: 300px;
   }
@@ -371,6 +392,10 @@
     font-size: 1rem;
   }
 }
+
+/* ==========================================================================
+   Accessibility
+   ========================================================================== */
 
 @media (prefers-reduced-motion: reduce) {
   .case-category-card,

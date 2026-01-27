@@ -83,14 +83,8 @@ body {
   }
 }
 
-/* Selection */
+/* Selection - standard ::selection supported in all browsers since 2018 */
 ::selection {
-  background-color: var(--mia-gold);
-  color: var(--mia-white);
-  text-shadow: none;
-}
-
-::-moz-selection {
   background-color: var(--mia-gold);
   color: var(--mia-white);
   text-shadow: none;

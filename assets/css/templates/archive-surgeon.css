@@ -1,3 +1,11 @@
+/* ==========================================================================
+   Archive Surgeon Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Surgeon Cards
+   ========================================================================== */
+
 .surgeon-card {
   height: 100%;
   position: relative;
@@ -6,7 +14,7 @@
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   border: 2px solid var(--mia-gold);
-  transition: all 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .surgeon-card:hover {
@@ -63,11 +71,15 @@
   text-decoration: none;
 }
 
+/* ==========================================================================
+   Bio Link
+   ========================================================================== */
+
 .surgeon-bio-link {
   color: var(--mia-white);
   font-size: 0.9rem;
   font-weight: 600;
-  transition: all 0.2s ease;
+  transition: color 0.2s ease;
   display: inline-flex;
   align-items: center;
   text-decoration: none;
@@ -89,6 +101,7 @@
 
 .surgeon-bio-link:hover i {
   transform: translateX(4px);
+  color: var(--mia-white);
 }
 
 .surgeon-bio-link i {
@@ -99,13 +112,15 @@
   text-decoration: none;
 }
 
-.surgeon-bio-link:hover i {
-  color: var(--mia-white);
-}
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
 
 @media (max-width: 767.98px) {
   .surgeon-img-container {
     --container-size: 100px;
+    margin-right: 1rem;
+    margin-bottom: 0;
   }
 
   .surgeon-archive-headshot {
@@ -117,11 +132,6 @@
     flex-direction: row;
     text-align: left;
     align-items: center;
-  }
-
-  .surgeon-img-container {
-    margin-right: 1rem;
-    margin-bottom: 0;
   }
 
   .surgeon-info {

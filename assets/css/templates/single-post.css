@@ -1,3 +1,11 @@
+/* ==========================================================================
+   Single Post Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Article & Header
+   ========================================================================== */
+
 article {
   background: linear-gradient(135deg, rgba(200, 178, 115, 0.15) 0%, rgba(255, 255, 255, 1) 100%);
   box-shadow: 0 8px 25px rgba(27, 27, 27, 0.12);
@@ -17,12 +25,6 @@ article {
     font-size: 1.25rem;
     font-weight: 400;
   }
-
-  @media (max-width: 767px) {
-    h1 {
-      font-size: 1.75rem;
-    }
-  }
 }
 
 .post-meta {
@@ -34,10 +36,13 @@ article {
   }
 }
 
+/* ==========================================================================
+   Content Area
+   ========================================================================== */
+
 .content {
   line-height: 1.8;
 
-  /* Ensure paragraphs use the content line-height */
   p {
     line-height: 1.8;
   }
@@ -64,12 +69,11 @@ article {
     margin-left: 0;
     padding-left: 1.5rem;
   }
-
-
-  @media (max-width: 767px) {
-    font-size: 1rem;
-  }
 }
+
+/* ==========================================================================
+   Related Topics & Badges
+   ========================================================================== */
 
 .related-topics {
   .h5 {
@@ -88,11 +92,12 @@ article {
   }
 }
 
-/* Custom badge variant for Mia Aesthetics brand - extends Bootstrap .badge */
 .badge-mia {
   background-color: var(--mia-gold-light);
   color: var(--mia-black);
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease;
 
   &:hover {
     background-color: var(--mia-gold);
@@ -101,15 +106,9 @@ article {
   }
 }
 
-.sidebar {
-  @media (max-width: 991px) {
-    margin-top: 2.5rem;
-  }
-
-  @media (max-width: 767px) {
-    margin-top: 2rem;
-  }
-}
+/* ==========================================================================
+   Sidebar
+   ========================================================================== */
 
 .sidebar-card {
   background: var(--mia-black);
@@ -117,10 +116,6 @@ article {
   border-radius: var(--radius-lg);
   box-shadow: 0 5px 20px rgba(200, 178, 115, 0.1);
   padding: 2rem;
-
-  @media (max-width: 767px) {
-    padding: 1.5rem;
-  }
 }
 
 .sidebar-card-title {
@@ -178,6 +173,10 @@ article {
   }
 }
 
+/* ==========================================================================
+   Related Articles
+   ========================================================================== */
+
 .related-articles {
   li {
     padding: 0;
@@ -207,5 +206,33 @@ article {
     font-size: 0.875rem;
     font-weight: 600;
     line-height: 1.4;
+  }
+}
+
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
+
+@media (max-width: 991px) {
+  .sidebar {
+    margin-top: 2.5rem;
+  }
+}
+
+@media (max-width: 767px) {
+  .post-header h1 {
+    font-size: 1.75rem;
+  }
+
+  .content {
+    font-size: 1rem;
+  }
+
+  .sidebar {
+    margin-top: 2rem;
+  }
+
+  .sidebar-card {
+    padding: 1.5rem;
   }
 }

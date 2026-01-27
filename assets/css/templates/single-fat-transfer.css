@@ -1,3 +1,11 @@
+/* ==========================================================================
+   Single Fat Transfer Template Styles
+   ========================================================================== */
+
+/* ==========================================================================
+   Overview Section
+   ========================================================================== */
+
 .overview-section {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
@@ -45,6 +53,10 @@
   margin-top: 0.1em;
 }
 
+/* ==========================================================================
+   Table of Contents
+   ========================================================================== */
+
 .toc-container {
   background-color: var(--mia-white);
   border: 1px solid var(--mia-gray-light);
@@ -63,15 +75,6 @@
     padding-bottom: 0.625rem;
     color: var(--mia-black);
     font-weight: 600;
-  }
-
-  @media (max-width: 991.98px) {
-    display: none;
-  }
-
-  @media (min-width: 992px) {
-    max-height: calc(100vh - 40px);
-    overflow-y: auto;
   }
 }
 
@@ -95,7 +98,9 @@ body.admin-bar .toc-container {
   .nav-link {
     color: var(--mia-black);
     text-decoration: none;
-    transition: all 0.2s ease;
+    transition:
+      color 0.2s ease,
+      background-color 0.2s ease;
     display: block;
     padding: 0.375rem 0.625rem;
     border-left: 3px solid transparent;
@@ -115,6 +120,10 @@ body.admin-bar .toc-container {
   }
 }
 
+/* ==========================================================================
+   Content Headings
+   ========================================================================== */
+
 .content h2 {
   padding-top: 1.25rem;
   margin-top: 1rem;
@@ -122,18 +131,37 @@ body.admin-bar .toc-container {
   padding-bottom: 0.625rem;
 }
 
+/* ==========================================================================
+   Responsive - min-width (ascending)
+   ========================================================================== */
+
+@media (min-width: 992px) {
+  .toc-container {
+    max-height: calc(100vh - 40px);
+    overflow-y: auto;
+  }
+}
+
+/* ==========================================================================
+   Responsive - max-width (descending)
+   ========================================================================== */
+
 @media (max-width: 991.98px) {
-  .single-condition .overview-section {
+  .toc-container {
+    display: none;
+  }
+
+  .single-fat-transfer .overview-section {
     margin-bottom: 1.5rem;
     padding: 1.5rem 1rem;
   }
 
-  .single-condition article {
+  .single-fat-transfer article {
     padding-top: 1.5rem;
     padding-bottom: 2rem;
   }
 
-  .single-condition .post-header h1 {
+  .single-fat-transfer .post-header h1 {
     font-size: clamp(1.75rem, 5vw, 2.5rem);
   }
 }
