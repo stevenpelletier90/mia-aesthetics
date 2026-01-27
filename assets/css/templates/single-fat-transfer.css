@@ -10,21 +10,21 @@
   background: var(--mia-white);
   border: 1px solid var(--mia-gold-light);
   border-radius: var(--radius-lg);
-  padding: 2rem 1.5rem 1.5rem;
-  margin-bottom: 2rem;
   box-shadow: none;
   color: var(--mia-black);
+  margin-bottom: 2rem;
+  padding: 2rem 1.5rem 1.5rem;
 
   h2 {
-    margin-top: 0;
-    margin-bottom: 1.25rem;
+    background: none;
     border-bottom: none;
-    padding-bottom: 0;
+    border-left: 4px solid var(--mia-gold);
     font-family: var(--font-heading);
     font-weight: 600;
-    border-left: 4px solid var(--mia-gold);
+    margin-bottom: 1.25rem;
+    margin-top: 0;
+    padding-bottom: 0;
     padding-left: 0.75rem;
-    background: none;
   }
 }
 
@@ -33,10 +33,10 @@
 }
 
 .overview-item {
-  margin-bottom: 1rem;
-  display: flex;
   align-items: flex-start;
+  display: flex;
   gap: 0.75rem;
+  margin-bottom: 1rem;
 
   &:last-child {
     margin-bottom: 0;
@@ -61,20 +61,20 @@
   background-color: var(--mia-white);
   border: 1px solid var(--mia-gray-light);
   border-radius: var(--radius-sm);
-  padding: 1.25rem;
-  margin-bottom: 2rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
+  padding: 1.25rem;
   position: sticky;
   top: 76px;
   z-index: 2;
 
   h3 {
-    margin-top: 0;
-    margin-bottom: 1rem;
     border-bottom: 2px solid var(--mia-gold);
-    padding-bottom: 0.625rem;
     color: var(--mia-black);
     font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    padding-bottom: 0.625rem;
   }
 }
 
@@ -84,8 +84,8 @@ body.admin-bar .toc-container {
 
 .toc-list {
   list-style-type: none;
-  padding-left: 0;
   margin-bottom: 0;
+  padding-left: 0;
 
   .nav-item {
     margin-bottom: 0.75rem;
@@ -96,26 +96,26 @@ body.admin-bar .toc-container {
   }
 
   .nav-link {
+    border-left: 3px solid transparent;
     color: var(--mia-black);
+    display: block;
+    font-family: var(--font-body);
+    padding: 0.375rem 0.625rem;
     text-decoration: none;
     transition:
       color 0.2s ease,
       background-color 0.2s ease;
-    display: block;
-    padding: 0.375rem 0.625rem;
-    border-left: 3px solid transparent;
-    font-family: var(--font-body);
 
     &:hover {
-      color: var(--mia-gold);
       background-color: rgba(0, 0, 0, 0.03);
+      color: var(--mia-gold);
     }
 
     &.active {
-      font-weight: 600;
-      color: var(--mia-gold);
-      border-left: 3px solid var(--mia-gold);
       background-color: rgba(200, 178, 115, 0.05);
+      border-left: 3px solid var(--mia-gold);
+      color: var(--mia-gold);
+      font-weight: 600;
     }
   }
 }
@@ -125,10 +125,10 @@ body.admin-bar .toc-container {
    ========================================================================== */
 
 .content h2 {
-  padding-top: 1.25rem;
-  margin-top: 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
   padding-bottom: 0.625rem;
+  padding-top: 1.25rem;
 }
 
 /* ==========================================================================
@@ -157,8 +157,8 @@ body.admin-bar .toc-container {
   }
 
   .single-fat-transfer article {
-    padding-top: 1.5rem;
     padding-bottom: 2rem;
+    padding-top: 1.5rem;
   }
 
   .single-fat-transfer .post-header h1 {

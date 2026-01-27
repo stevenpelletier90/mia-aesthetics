@@ -1,39 +1,39 @@
 .site-footer {
   background-color: var(--mia-black);
-  color: var(--mia-white);
-  padding-top: 4rem;
-  padding-bottom: 5rem;
-  position: relative;
-  font-family: var(--font-body);
   border-top: 1px solid var(--mia-gold);
+  color: var(--mia-white);
+  font-family: var(--font-body);
+  padding-bottom: 5rem;
+  padding-top: 4rem;
+  position: relative;
 }
 
 .wide-container {
-  max-width: 1800px;
   margin: 0 auto;
+  max-width: 1800px;
   padding-left: 4rem;
   padding-right: 4rem;
 }
 
 .footer-heading {
+  color: var(--mia-gold-aaa);
   font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
   margin-bottom: 1.5rem;
   text-transform: uppercase;
-  color: var(--mia-gold-aaa);
 }
 
 .footer-columns {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
   gap: 2rem;
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .footer-menu {
   list-style: none;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
 .footer-menu li {
@@ -42,10 +42,10 @@
 
 .footer-menu a {
   color: var(--mia-white);
-  text-decoration: none;
-  transition: all 0.2s ease;
   display: inline-block;
   font-size: 1rem;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .footer-menu a:hover {
@@ -54,15 +54,15 @@
 }
 
 .footer-divider {
+  background: rgba(255, 255, 255, 0.2);
   border: 0;
   height: 1px;
-  background: rgba(255, 255, 255, 0.2);
   opacity: 1;
 }
 
 .locations-section {
-  padding-top: 0;
   margin-top: 0;
+  padding-top: 0;
 }
 
 .locations-section h5.footer-heading {
@@ -70,10 +70,10 @@
 }
 
 .locations-section .accordion {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1rem;
   align-items: flex-start;
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(4, 1fr);
   margin-top: 1rem;
   padding: 0;
 }
@@ -82,39 +82,39 @@
   background-color: var(--mia-black);
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: var(--radius-DEFAULT);
-  overflow: hidden;
-  margin-bottom: 0.5rem;
-  width: 100%;
-  height: auto;
-  min-height: 56px;
   display: flex;
   flex-direction: column;
+  height: auto;
+  margin-bottom: 0.5rem;
+  min-height: 56px;
+  overflow: hidden;
+  width: 100%;
 }
 
 .locations-section .accordion-button {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  padding: 0.75rem 1.5rem;
   background-color: var(--mia-black);
-  color: var(--mia-white);
   border: none;
   box-shadow: none;
-  transition: color 0.2s ease;
-  height: 56px;
+  color: var(--mia-white);
   flex-shrink: 0;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  height: 56px;
+  padding: 0.75rem 1.5rem;
+  transition: color 0.2s ease;
 }
 
 .locations-section .accordion-button::after {
-  content: "\f078";
-  font-family: "Font Awesome 7 Free";
-  font-weight: 900;
   background-image: none;
   color: var(--mia-white);
+  content: "\f078";
+  flex-shrink: 0;
+  font-family: "Font Awesome 7 Free";
+  font-weight: 900;
+  height: auto;
+  margin-left: auto;
   transition: all 0.2s ease;
   width: auto;
-  height: auto;
-  flex-shrink: 0;
-  margin-left: auto;
 }
 
 .locations-section .accordion-button:not(.collapsed)::after {
@@ -130,14 +130,14 @@
 }
 
 .locations-section .accordion-button:focus {
-  box-shadow: none;
   border-color: rgba(200, 178, 115, 0.5);
+  box-shadow: none;
 }
 
 .locations-section .accordion-button:not(.collapsed) {
-  color: var(--mia-white);
   background-color: var(--mia-black);
   box-shadow: none;
+  color: var(--mia-white);
 }
 
 .locations-section .accordion-collapse {
@@ -156,20 +156,20 @@
 }
 
 .locations-section .accordion-body {
-  padding: 1rem 1.5rem;
-  color: var(--mia-white);
   background-color: var(--mia-black);
   border-top: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--mia-white);
   flex-grow: 1;
+  padding: 1rem 1.5rem;
 }
 
 /* Location link - gold and bold */
 .locations-section .accordion-body .location-link a {
   color: var(--mia-gold-aaa);
-  text-decoration: underline;
-  transition: all 0.2s ease;
   font-size: 1rem;
   font-weight: 600;
+  text-decoration: underline;
+  transition: all 0.2s ease;
 }
 
 .locations-section .accordion-body .location-link a:hover {
@@ -179,11 +179,11 @@
 /* Surgeon links - white and normal weight */
 .locations-section .accordion-body .surgeons-list a.surgeon-link {
   color: var(--mia-white);
-  text-decoration: underline;
-  transition: all 0.2s ease;
-  padding: 4px 0;
   font-size: 1rem;
   font-weight: normal;
+  padding: 4px 0;
+  text-decoration: underline;
+  transition: all 0.2s ease;
 }
 
 .locations-section .accordion-body .surgeons-list a.surgeon-link:hover {
@@ -192,10 +192,10 @@
 
 
 .footer-bottom {
-  margin-top: 2rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
   font-size: 1rem;
+  margin-top: 2rem;
+  padding-bottom: 2rem;
+  padding-top: 2rem;
   text-align: center;
 }
 
@@ -206,8 +206,8 @@
 }
 
 .disclaimer {
-  font-size: 1rem;
   color: var(--mia-white);
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -217,10 +217,10 @@
 
 .footer-links a {
   color: var(--mia-white);
-  text-decoration: none;
-  transition: color 0.2s ease;
   font-size: 1rem;
   padding: 4px 0;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .footer-links a:hover {
@@ -237,8 +237,8 @@
 
 @media (max-width: 1200px) {
   .footer-columns {
-    grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -250,8 +250,8 @@
 
 @media (max-width: 900px) {
   .locations-section .accordion {
-    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    grid-template-columns: repeat(2, 1fr);
   }
 }
 
@@ -261,8 +261,8 @@
   }
 
   .footer-columns {
-    grid-template-columns: 1fr;
     gap: 2rem;
+    grid-template-columns: 1fr;
   }
 
   .footer-column:first-child {
@@ -275,8 +275,8 @@
   }
 
   .locations-section .accordion {
-    grid-template-columns: 1fr;
     gap: 0.75rem;
+    grid-template-columns: 1fr;
   }
 
   .locations-section .accordion-button {
@@ -310,8 +310,8 @@
   }
 
   .locations-section .accordion-body {
-    padding: 0.75rem;
     font-size: 1rem;
+    padding: 0.75rem;
   }
 
   .footer-links li {

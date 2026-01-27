@@ -64,15 +64,15 @@ html {
 }
 
 body {
+  color: var(--mia-gray-dark);
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: var(--mia-gray-dark);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-rendering: optimizeLegibility;
+  font-weight: 400;
+  line-height: 1.5;
   overflow-x: hidden;
+  text-rendering: optimizeLegibility;
 }
 
 /* Mobile container padding */
@@ -112,10 +112,10 @@ h5,
 .h5,
 h6,
 .h6 {
+  color: var(--mia-black);
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.25;
-  color: var(--mia-black);
   margin-top: 0;
   text-transform: uppercase;
 }
@@ -157,8 +157,8 @@ h6,
 }
 
 p {
-  margin-bottom: 1rem;
   line-height: 1.625;
+  margin-bottom: 1rem;
 }
 
 /* Bootstrap .lead override */
@@ -191,8 +191,8 @@ a:focus {
 
 ul,
 ol {
-  margin-top: 0;
   margin-bottom: 1rem;
+  margin-top: 0;
   padding-left: 1.5rem;
 }
 
@@ -201,8 +201,8 @@ li {
 }
 
 .list-unstyled {
-  padding-left: 0;
   list-style: none;
+  padding-left: 0;
 }
 
 /* ==========================================================================

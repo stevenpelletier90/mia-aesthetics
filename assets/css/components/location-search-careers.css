@@ -1,24 +1,24 @@
 .location-search-widget.location-search-careers {
-  max-width: 600px;
   margin: 0 auto;
+  max-width: 600px;
   position: relative;
 }
 
 .location-search-careers .search-input-wrapper {
-  position: relative;
   margin-bottom: 1rem;
+  position: relative;
 }
 
 #location-search-careers {
-  width: 100%;
-  padding: 1rem 3rem 1rem 1.5rem;
-  font-size: 1.1rem;
   border: 2px solid var(--mia-gold);
   border-radius: var(--radius-sm);
-  outline: none;
-  transition: all 0.2s ease;
   box-sizing: border-box;
   font-family: var(--font-body);
+  font-size: 1.1rem;
+  outline: none;
+  padding: 1rem 3rem 1rem 1.5rem;
+  transition: all 0.2s ease;
+  width: 100%;
 }
 
 #location-search-careers:focus {
@@ -27,35 +27,35 @@
 }
 
 .location-search-careers .search-icon {
+  color: var(--mia-gray-dark);
+  font-size: 1.2rem;
+  pointer-events: none;
   position: absolute;
   right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
-  color: var(--mia-gray-dark);
-  font-size: 1.2rem;
-  pointer-events: none;
 }
 
 #search-dropdown-careers {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
   background: var(--mia-black);
   border: 1px solid var(--mia-gold-light);
   border-radius: var(--radius-lg);
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-  z-index: 9999;
   display: none;
-  max-width: 600px;
+  left: 0;
   margin: 0 auto;
+  max-width: 600px;
+  position: absolute;
+  right: 0;
+  top: 100%;
+  z-index: 9999;
 }
 
 #search-dropdown-careers .dropdown-item {
-  padding: 1rem 1.5rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  cursor: pointer;
   color: var(--mia-white);
+  cursor: pointer;
+  padding: 1rem 1.5rem;
   transition: background-color 0.2s ease;
 }
 
@@ -75,18 +75,18 @@
 }
 
 .location-search-careers #search-dropdown-careers .dropdown-item h4 {
-  margin: 0 0 0.25rem;
   color: var(--mia-white);
+  font-family: var(--font-heading);
   font-size: 1rem;
   font-weight: 600;
-  font-family: var(--font-heading);
+  margin: 0 0 0.25rem;
 }
 
 .location-search-careers #search-dropdown-careers .dropdown-item .location-address {
   color: var(--mia-white);
+  font-family: var(--font-body);
   font-size: 0.9rem;
   margin-bottom: 0.5rem;
-  font-family: var(--font-body);
 }
 
 .location-search-careers #search-dropdown-careers .dropdown-item .location-address div {
@@ -95,23 +95,23 @@
 
 .location-search-careers #search-dropdown-careers .dropdown-item .location-distance {
   background-color: var(--mia-gold);
+  border-radius: var(--radius-lg);
   color: var(--mia-black);
+  display: inline-block;
+  font-family: var(--font-body);
   font-size: 0.85rem;
   font-weight: 600;
-  padding: 0.25rem 0.75rem;
-  border-radius: var(--radius-lg);
-  display: inline-block;
   margin: 0.25rem 0.5rem 0.25rem 0;
-  font-family: var(--font-body);
+  padding: 0.25rem 0.75rem;
   text-decoration: none;
 }
 
 #search-dropdown-careers .no-results {
+  color: var(--mia-white);
+  font-family: var(--font-body);
+  font-style: italic;
   padding: 1.5rem;
   text-align: center;
-  color: var(--mia-white);
-  font-style: italic;
-  font-family: var(--font-body);
 }
 
 .location-search-careers .loading-skeleton {
@@ -120,9 +120,9 @@
 }
 
 .location-search-careers .skeleton-item {
-  padding: 1rem 1.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   animation: pulse 1.5s ease-in-out infinite;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1rem 1.5rem;
 }
 
 .location-search-careers .skeleton-item:last-child {
@@ -132,10 +132,10 @@
 .location-search-careers .skeleton-title,
 .location-search-careers .skeleton-address,
 .location-search-careers .skeleton-distance {
+  animation: shimmer 1.5s infinite;
   background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(255, 255, 255, 0.2) 50%, rgba(255, 255, 255, 0.1) 75%);
   background-size: 200% 100%;
   border-radius: var(--radius-sm);
-  animation: shimmer 1.5s infinite;
 }
 
 .location-search-careers .skeleton-title {
@@ -187,10 +187,10 @@
   }
 
   #search-dropdown-careers {
-    position: static;
-    margin-top: 1rem;
     border-radius: var(--radius-md);
     box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+    margin-top: 1rem;
+    position: static;
   }
 
   #search-dropdown-careers .dropdown-item {
@@ -220,12 +220,12 @@
 }
 
 .location-search-careers .spinner {
-  width: 20px;
-  height: 20px;
-  border: 2px solid var(--mia-gold-light);
-  border-top: 2px solid var(--mia-gold);
-  border-radius: var(--radius-full);
   animation: spin 1s linear infinite;
+  border: 2px solid var(--mia-gold-light);
+  border-radius: var(--radius-full);
+  border-top: 2px solid var(--mia-gold);
+  height: 20px;
+  width: 20px;
 }
 
 @keyframes spin {

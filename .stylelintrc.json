@@ -1,8 +1,18 @@
 {
   "extends": ["stylelint-config-standard"],
-  "plugins": ["stylelint-order"],
+  "plugins": ["stylelint-order", "stylelint-declaration-strict-value"],
   "rules": {
     "order/properties-alphabetical-order": true,
+
+    "scale-unlimited/declaration-strict-value": [
+      ["/color$/", "font-family"],
+      {
+        "ignoreValues": ["inherit", "transparent", "currentColor", "none", "initial", "unset"],
+        "disableFix": true,
+        "message": "Use CSS variable from base.css instead of hardcoded value"
+      }
+    ],
+
     "selector-class-pattern": null,
     "selector-id-pattern": null,
     "custom-property-pattern": null,
@@ -12,33 +22,27 @@
     "selector-no-vendor-prefix": null,
     "color-hex-length": null,
     "color-function-notation": null,
-    "color-function-alias-notation": null,
     "alpha-value-notation": null,
     "font-family-name-quotes": null,
     "value-keyword-case": null,
     "media-feature-range-notation": null,
-    "declaration-property-value-no-unknown": null,
     "function-url-quotes": null,
-    "selector-attribute-quotes": null,
     "font-family-no-missing-generic-family-keyword": null,
-    "no-empty-source": null,
-    "at-rule-descriptor-no-unknown": null,
+    "no-descending-specificity": null,
+    "declaration-block-no-redundant-longhand-properties": null,
     "property-no-unknown": [
       true,
       {
         "ignoreProperties": ["tap-highlight-color", "box-orient"]
       }
-    ],
-    "no-duplicate-selectors": null,
-    "no-descending-specificity": null,
-    "declaration-block-no-redundant-longhand-properties": null,
-    "property-no-deprecated": null,
-    "media-feature-name-value-no-unknown": null,
-
-    "comment-empty-line-before": null,
-    "rule-empty-line-before": null,
-    "at-rule-empty-line-before": null,
-    "declaration-empty-line-before": null
+    ]
   },
-  "ignoreFiles": ["**/*.min.css", "**/bootstrap/**", "**/fontawesome/**", "**/glide/**", "theme-bundle/**", "assets/vendor/**"]
+  "ignoreFiles": [
+    "**/*.min.css",
+    "**/bootstrap/**",
+    "**/fontawesome/**",
+    "**/glide/**",
+    "theme-bundle/**",
+    "assets/vendor/**"
+  ]
 }

@@ -7,51 +7,51 @@
    ========================================================================== */
 
 .location-hero {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  min-height: 80vh;
+  position: relative;
 }
 
 .location-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: rgba(27, 27, 27, 0.85);
+  content: "";
+  inset: 0;
+  position: absolute;
   z-index: 1;
 }
 
 .location-hero .hero-picture {
-  position: absolute;
-  inset: 0;
   height: 100%;
+  inset: 0;
+  position: absolute;
 }
 
 .location-hero .hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
   height: 100%;
+  inset: 0;
   object-fit: cover;
   object-position: center center;
+  position: absolute;
+  width: 100%;
   z-index: 0;
 }
 
 .location-hero .hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1320px;
   margin: 0 auto;
+  max-width: 1320px;
   padding: 0 0.75rem;
+  position: relative;
+  width: 100%;
+  z-index: 2;
 }
 
 .location-hero .hero-inner {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  display: flex;
   gap: 3rem;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -76,30 +76,30 @@
 .location-hero h1 {
   color: var(--mia-gold);
   font-family: var(--font-heading);
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   font-size: clamp(2.5rem, 5vw, 62px);
+  font-weight: 600;
   margin: 0 0 0.5rem;
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
 }
 
 .location-cta {
   color: var(--mia-white);
   font-family: var(--font-heading);
-  font-weight: 400;
   font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 400;
   margin: 0 0 2rem;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .location-video {
-  max-width: 100%;
-  margin: 0 auto;
   border-radius: var(--radius-sm);
-  overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;
+  max-width: 100%;
+  overflow: hidden;
 }
 
 /* ==========================================================================
@@ -108,33 +108,33 @@
 
 .location-info-bar {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-  border-top: 1px solid var(--mia-gold-30);
   border-bottom: 1px solid var(--mia-gold-30);
+  border-top: 1px solid var(--mia-gold-30);
   padding: 1.5rem 0;
 }
 
 .location-info-bar .info-items {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
   gap: 1.5rem 3rem;
+  justify-content: center;
 }
 
 .location-info-bar .info-item {
-  display: flex;
   align-items: center;
-  gap: 0.75rem;
   color: var(--mia-white);
+  display: flex;
   font-size: 1rem;
   font-weight: 500;
+  gap: 0.75rem;
 }
 
 .location-info-bar .info-item i {
   color: var(--mia-gold);
   font-size: 1.125rem;
-  width: 1.25rem;
   text-align: center;
+  width: 1.25rem;
 }
 
 .location-info-bar .info-item a {
@@ -153,19 +153,19 @@
    ========================================================================== */
 
 .video-thumbnail {
+  cursor: pointer;
+  height: 100%;
+  left: 0;
+  overflow: hidden;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  cursor: pointer;
-  overflow: hidden;
 
   img {
-    width: 100%;
     height: 100%;
     object-fit: cover;
     transition: transform 0.2s ease;
+    width: 100%;
   }
 
   &:hover img {
@@ -183,22 +183,22 @@
 }
 
 .video-play-button {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 4.375rem;
-  height: 4.375rem;
+  align-items: center;
   background-color: var(--mia-black);
+  border: 3px solid var(--mia-gold);
   border-radius: var(--radius-full);
   display: flex;
+  height: 4.375rem;
   justify-content: center;
-  align-items: center;
+  left: 50%;
   opacity: 0.9;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
-  border: 3px solid var(--mia-gold);
+  width: 4.375rem;
 
   i {
     color: var(--mia-gold);
@@ -231,8 +231,8 @@
 .sidebar-section {
   background-color: var(--mia-white);
   border-radius: var(--radius-md);
-  overflow: hidden;
   margin-bottom: 2rem;
+  overflow: hidden;
 }
 
 .card {
@@ -259,17 +259,17 @@
   color: var(--mia-black);
   font-weight: 600;
   margin-bottom: 1.5rem;
-  position: relative;
   padding-bottom: 0.75rem;
+  position: relative;
 
   &::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    width: 3.75rem;
-    height: 3px;
     background-color: var(--mia-gold);
+    bottom: 0;
+    content: "";
+    height: 3px;
+    left: 0;
+    position: absolute;
+    width: 3.75rem;
   }
 
   &.text-center::after {
@@ -363,58 +363,58 @@
 
 .surgeon-card {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border: 1px solid var(--mia-gold-20);
   border-radius: var(--radius-lg);
+  color: var(--mia-white);
   padding: 2rem 1.5rem;
   text-align: center;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  border: 1px solid var(--mia-gold-20);
-  color: var(--mia-white);
 
   &:hover {
-    transform: translateY(-3px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
+    transform: translateY(-3px);
   }
 
   img {
-    width: 7.5rem;
-    height: 7.5rem;
-    border-radius: var(--radius-full);
-    object-fit: cover;
-    border: 3px solid var(--mia-gold);
-    margin-bottom: 1.5rem;
-    display: block;
-    margin-inline: auto;
     background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
+    border: 3px solid var(--mia-gold);
+    border-radius: var(--radius-full);
+    display: block;
+    height: 7.5rem;
+    margin-inline: auto;
+    margin-bottom: 1.5rem;
+    object-fit: cover;
     padding: 3px;
+    width: 7.5rem;
   }
 
   &:not(:has(img))::before {
+    color: var(--mia-gold);
     content: "\f007";
+    display: block;
     font-family: "Font Awesome 7 Free";
     font-size: 5rem;
-    color: var(--mia-gold);
-    opacity: 0.4;
-    display: block;
     margin-bottom: 1.5rem;
+    opacity: 0.4;
   }
 
   h3 {
+    color: var(--mia-white);
     font-family: var(--font-heading);
     font-size: clamp(1.1rem, 2vw + 0.5rem, 1.3rem);
     font-weight: 600;
-    color: var(--mia-white);
-    margin-bottom: 0.5rem;
     line-height: 1.3;
+    margin-bottom: 0.5rem;
   }
 
   p {
+    color: var(--mia-white);
     font-family: var(--font-body);
     font-size: clamp(0.85rem, 1.5vw + 0.3rem, 0.95rem);
-    color: var(--mia-white);
-    margin-bottom: 1.25rem;
     font-style: italic;
+    margin-bottom: 1.25rem;
   }
 }
 
@@ -430,8 +430,8 @@
   }
 
   .surgeon-card img {
-    width: 8.75rem;
     height: 8.75rem;
+    width: 8.75rem;
   }
 
   .surgeon-card:not(:has(img))::before {
@@ -472,8 +472,8 @@
 
   .location-hero .hero-inner {
     flex-direction: column;
-    justify-content: center;
     gap: 2rem;
+    justify-content: center;
   }
 
   .location-hero .hero-left {
@@ -514,15 +514,15 @@
   }
 
   .location-info-bar .info-items {
-    flex-direction: column;
     align-items: flex-start;
+    flex-direction: column;
     gap: 0.75rem;
     padding: 0 1rem;
   }
 
   .location-info-bar .info-item {
-    width: 100%;
     justify-content: flex-start;
+    width: 100%;
   }
 
   .location-info-bar .info-item-hours {
@@ -530,15 +530,15 @@
   }
 
   .team-section .surgeon-card {
+    align-items: center;
     background: var(--mia-white);
     border: 1px solid var(--mia-gold-light);
-    color: var(--mia-black);
-    padding: 1rem;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: var(--mia-black);
     display: flex;
-    align-items: center;
-    text-align: left;
     min-height: 7.5rem;
+    padding: 1rem;
+    text-align: left;
 
     &:hover {
       border-color: var(--mia-gold);
@@ -547,42 +547,42 @@
     }
 
     img {
-      width: 6.25rem;
-      height: 6.25rem;
       border: 2px solid var(--mia-gold);
+      flex-shrink: 0;
+      height: 6.25rem;
       margin-bottom: 0;
       margin-right: 1.25rem;
-      flex-shrink: 0;
+      width: 6.25rem;
     }
 
     .surgeon-info {
-      flex: 1;
       display: flex;
+      flex: 1;
       flex-direction: column;
+      height: 100%;
       justify-content: center;
       text-align: left;
-      height: 100%;
     }
 
     h3 {
-      font-size: 1.1rem;
       color: var(--mia-black);
-      margin-bottom: 0.25rem;
+      font-size: 1.1rem;
       line-height: 1.3;
+      margin-bottom: 0.25rem;
     }
 
     p {
       color: var(--mia-gray-dark);
       font-size: 0.85rem;
-      margin-bottom: 0.75rem;
       font-style: normal;
+      margin-bottom: 0.75rem;
     }
 
     .btn {
-      font-size: 0.75rem;
-      padding: 0.4rem 0.8rem;
       align-self: flex-start;
+      font-size: 0.75rem;
       min-width: auto;
+      padding: 0.4rem 0.8rem;
       width: auto;
     }
   }

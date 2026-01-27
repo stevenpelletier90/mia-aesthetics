@@ -42,8 +42,8 @@
    -------------------------------------------------------------------------- */
 .procedure-image {
   border-radius: var(--radius-sm);
-  overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .procedure-image img {
@@ -52,8 +52,8 @@
 
 .procedure-image-wrapper {
   border-radius: var(--radius-lg);
-  overflow: hidden;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
 }
 
 .procedure-image-wrapper .image-frame {
@@ -63,8 +63,8 @@
 
 .procedure-visual .image-container {
   border-radius: var(--radius-sm);
-  overflow: hidden;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
 }
 
 .image-frame {
@@ -81,14 +81,14 @@
 .procedure-links-section .row.g-3 {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
   gap: 1rem;
+  justify-content: center;
 }
 
 .procedure-links-section .row.g-3 > * {
   flex: 0 0 auto;
-  width: calc(50% - 0.5rem);
   max-width: 400px;
+  width: calc(50% - 0.5rem);
 }
 
 .procedure-section .procedure-link-item {
@@ -96,57 +96,57 @@
   border: 1px solid var(--mia-gold);
   border-radius: var(--radius-md);
   color: var(--mia-white);
-  text-decoration: none;
-  transition: all 0.2s ease;
   font-family: var(--font-heading);
-  font-weight: 600;
   font-size: 1rem;
+  font-weight: 600;
   line-height: 1.4;
   min-height: 60px;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .procedure-section .procedure-link-item:hover {
   background: rgba(27, 27, 27, 0.8);
   border-color: var(--mia-gold);
+  box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3);
   color: var(--mia-white);
   text-decoration: none;
   transform: translateX(4px);
-  box-shadow: 0 4px 12px rgba(200, 178, 115, 0.3);
 }
 
 .procedure-section .procedure-link-item:focus {
+  color: var(--mia-white);
   outline: 2px solid var(--mia-gold);
   outline-offset: 2px;
-  color: var(--mia-white);
   text-decoration: none;
 }
 
 .procedure-section .procedure-link-item .link-text {
   flex: 1;
-  margin: 0;
   font-weight: 600;
+  margin: 0;
 }
 
 .procedure-section .procedure-link-item .link-arrow {
   color: var(--mia-gold);
   font-size: 1rem;
-  transition: transform 0.2s ease;
   margin-left: 1rem;
   opacity: 0.8;
+  transition: transform 0.2s ease;
 }
 
 .procedure-section .procedure-link-item:hover .link-arrow {
-  transform: translateX(4px);
   opacity: 1;
+  transform: translateX(4px);
 }
 
 /* --------------------------------------------------------------------------
    Procedure Steps
    -------------------------------------------------------------------------- */
 .procedure-step-card {
+  background: var(--mia-white);
   border: 1px solid var(--mia-gold);
   border-radius: var(--radius-md);
-  background: var(--mia-white);
   transition: all 0.2s ease;
 }
 
@@ -156,23 +156,23 @@
 
 .procedure-step-number,
 .male-lipo-step-number {
-  width: 3rem;
-  height: 3rem;
-  background: var(--mia-gold);
-  color: var(--mia-black);
-  border-radius: var(--radius-full);
-  font-weight: 600;
-  font-size: 1.25rem;
-  display: flex;
   align-items: center;
+  background: var(--mia-gold);
+  border-radius: var(--radius-full);
+  color: var(--mia-black);
+  display: flex;
+  font-size: 1.25rem;
+  font-weight: 600;
+  height: 3rem;
   justify-content: center;
+  width: 3rem;
 }
 
 .procedure-step-title {
   color: var(--mia-black);
   font-family: var(--font-heading);
-  font-weight: 600;
   font-size: 1.25rem;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
@@ -183,9 +183,9 @@
 }
 
 .content-wrapper p {
+  color: var(--mia-black);
   font-size: 1.125rem;
   line-height: 1.7;
-  color: var(--mia-black);
   margin-bottom: 1.25rem;
 }
 
@@ -193,19 +193,19 @@
    Fixed Background Sections (Parallax-style sections)
    -------------------------------------------------------------------------- */
 .fixed-bg-section {
-  position: relative;
   color: var(--mia-white);
-  min-height: 600px;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+  min-height: 600px;
+  position: relative;
   width: 100vw;
 }
 
 .fixed-bg-section::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: rgba(0, 0, 0, 0.7);
+  content: "";
+  inset: 0;
+  position: absolute;
   z-index: 1;
 }
 
@@ -221,11 +221,11 @@
 
 .fixed-bg-heading {
   background: linear-gradient(135deg, var(--mia-gold-light), var(--mia-gold));
-  background-clip: text;
   -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background-clip: text;
   color: var(--mia-gold);
   font-family: var(--font-heading);
+  -webkit-text-fill-color: transparent;
 }
 
 .fixed-bg-link {
@@ -240,20 +240,20 @@
 
 /* Procedure-specific fixed backgrounds */
 .male-lipo-fixed-bg {
-  position: relative;
   background: url("/wp-content/uploads/2025/09/male-lipo-measurement.jpg") center center/cover fixed;
   color: var(--mia-white);
-  min-height: 600px;
   margin-left: calc(-50vw + 50%);
   margin-right: calc(-50vw + 50%);
+  min-height: 600px;
+  position: relative;
   width: 100vw;
 }
 
 .male-lipo-fixed-bg::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: rgba(0, 0, 0, 0.7);
+  content: "";
+  inset: 0;
+  position: absolute;
   z-index: 1;
 }
 
@@ -316,13 +316,13 @@
 }
 
 .bbl-info-card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .bbl-info-card i {
-  font-size: 2.5rem;
   color: var(--mia-gold);
+  font-size: 2.5rem;
 }
 
 .bbl-info-card h3 {
@@ -354,32 +354,32 @@
   background: var(--mia-white);
   border: 1px solid var(--mia-gold);
   border-radius: var(--radius-lg);
+  height: 100%;
   padding: 2rem 1.5rem;
   text-align: center;
   transition: all 0.2s ease;
-  height: 100%;
 }
 
 .info-card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(255, 193, 7, 0.15);
+  transform: translateY(-2px);
 }
 
 .info-card .card-icon {
-  margin-bottom: 1rem;
   font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
 
 .info-card h3 {
   color: var(--mia-black);
-  margin-bottom: 1rem;
   font-weight: 600;
+  margin-bottom: 1rem;
 }
 
 .info-card p {
   color: var(--mia-gray);
-  margin-bottom: 0;
   line-height: 1.6;
+  margin-bottom: 0;
 }
 
 /* --------------------------------------------------------------------------
@@ -389,13 +389,13 @@
   background: linear-gradient(135deg, rgba(13, 202, 240, 0.08) 0%, rgba(13, 202, 240, 0.04) 100%);
   border: 1px solid rgba(13, 202, 240, 0.3);
   border-radius: var(--radius-md);
-  padding: 1.25rem;
   margin: 1rem 0;
+  padding: 1.25rem;
 }
 
 .info-note p {
-  margin-bottom: 0;
   color: var(--mia-black);
+  margin-bottom: 0;
 }
 
 .info-note i {
@@ -415,14 +415,14 @@
 }
 
 .treatment-area-card:hover {
-  transform: translateY(-2px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .treatment-area-card .card-title {
   color: var(--mia-black);
-  font-weight: 600;
   font-size: 1rem;
+  font-weight: 600;
 }
 
 /* --------------------------------------------------------------------------
@@ -433,11 +433,11 @@
 }
 
 .result-badge .badge {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
   font-family: var(--font-heading);
   font-size: 0.75rem;
   font-weight: 600;
   letter-spacing: 0.025em;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .case-study-section {
@@ -447,8 +447,8 @@
 }
 
 .case-study-section .image-container {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   border-radius: var(--radius-lg);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .case-study-info .section-header h2 {
@@ -460,13 +460,13 @@
    Comparison Table
    -------------------------------------------------------------------------- */
 .comparison-table {
-  width: 100%;
   background-color: var(--mia-black);
-  color: var(--mia-white);
   border: 1px solid var(--mia-gold);
-  border-radius: var(--radius-md);
-  overflow: hidden;
   border-collapse: collapse;
+  border-radius: var(--radius-md);
+  color: var(--mia-white);
+  overflow: hidden;
+  width: 100%;
 }
 
 .comparison-table th,
@@ -479,26 +479,26 @@
 .comparison-table thead th {
   background-color: var(--mia-black);
   border-bottom: 2px solid var(--mia-gold);
-  font-weight: 600;
-  font-family: var(--font-heading);
-  text-align: center;
   color: var(--mia-gold);
+  font-family: var(--font-heading);
   font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
 }
 
 .comparison-table tbody th {
   background-color: var(--mia-gold);
-  font-weight: 600;
   color: var(--mia-black);
-  text-align: left;
   font-family: var(--font-heading);
   font-size: 1rem;
+  font-weight: 600;
+  text-align: left;
 }
 
 .comparison-table tbody td {
   background-color: var(--mia-black);
-  text-align: center;
   color: var(--mia-white);
+  text-align: center;
 }
 
 /* --------------------------------------------------------------------------
@@ -506,17 +506,17 @@
    -------------------------------------------------------------------------- */
 @media (min-width: 992px) {
   .procedure-links-section .row.g-3 > * {
-    width: calc(33.333% - 0.67rem);
     max-width: 350px;
+    width: calc(33.333% - 0.67rem);
   }
 }
 
 @media (max-width: 991.98px) {
   .procedure-step-number,
   .male-lipo-step-number {
-    width: 2.5rem;
-    height: 2.5rem;
     font-size: 1rem;
+    height: 2.5rem;
+    width: 2.5rem;
   }
 
   .procedure-intro-content {
@@ -533,27 +533,27 @@
   }
 
   .treatment-areas-mobile-list li {
-    position: relative;
-    padding-left: 1rem;
     margin-bottom: 0.5rem;
+    padding-left: 1rem;
+    position: relative;
   }
 
   .treatment-areas-mobile-list li::before {
-    content: "•";
     color: var(--mia-gold);
+    content: "•";
     font-weight: bold;
-    position: absolute;
     left: 0;
+    position: absolute;
   }
 
   .fixed-bg-section {
-    background-image: none !important;
     background-attachment: scroll;
+    background-image: none !important;
     margin: 0;
-    width: auto;
     margin-left: 0;
     min-height: auto;
     padding: 0;
+    width: auto;
   }
 
   .fixed-bg-section::before {
@@ -586,10 +586,10 @@
 
   .fixed-bg-heading {
     background: none !important;
-    background-clip: unset !important;
     -webkit-background-clip: unset !important;
-    -webkit-text-fill-color: unset !important;
+    background-clip: unset !important;
     color: var(--mia-black) !important;
+    -webkit-text-fill-color: unset !important;
   }
 
   .fixed-bg-section h2.text-white {
@@ -600,9 +600,9 @@
 /* Comparison table mobile */
 @media (max-width: 767.98px) {
   .comparison-table {
-    display: block;
-    border: none;
     background: transparent;
+    border: none;
+    display: block;
   }
 
   .comparison-table thead {
@@ -614,36 +614,36 @@
   }
 
   .comparison-table tr {
-    display: block;
     background-color: var(--mia-black);
     border: 1px solid var(--mia-gold);
     border-radius: var(--radius-md);
+    display: block;
     margin-bottom: 1.5rem;
     overflow: hidden;
   }
 
   .comparison-table th[scope="row"] {
-    display: block;
     background-color: var(--mia-gold) !important;
-    color: var(--mia-black) !important;
-    text-align: center !important;
-    font-weight: 600 !important;
-    font-family: var(--font-heading) !important;
-    padding: 1rem !important;
     border: none !important;
     border-bottom: 2px solid var(--mia-gold) !important;
+    color: var(--mia-black) !important;
+    display: block;
+    font-family: var(--font-heading) !important;
     font-size: 1.1rem;
+    font-weight: 600 !important;
     margin-bottom: 0;
+    padding: 1rem !important;
+    text-align: center !important;
   }
 
   .comparison-table td {
-    display: block;
-    border: none !important;
-    padding: 1rem !important;
     background-color: var(--mia-black);
-    color: var(--mia-white);
-    position: relative;
+    border: none !important;
     border-bottom: 1px solid var(--mia-gold-30) !important;
+    color: var(--mia-white);
+    display: block;
+    padding: 1rem !important;
+    position: relative;
   }
 
   .comparison-table td:last-child {
@@ -651,11 +651,11 @@
   }
 
   .comparison-table td::before {
-    content: attr(data-label) ": ";
     color: var(--mia-gold);
-    font-weight: 600;
-    font-family: var(--font-heading);
+    content: attr(data-label) ": ";
     display: inline;
+    font-family: var(--font-heading);
+    font-weight: 600;
     margin-right: 0.5rem;
   }
 }

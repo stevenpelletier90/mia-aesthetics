@@ -156,8 +156,8 @@
 
 .sticky-special .special-card-image::before {
   background: linear-gradient(135deg, rgba(200, 178, 115, 0.1) 0%, rgba(200, 178, 115, 0) 100%);
-  inset: 0;
   content: "";
+  inset: 0;
   pointer-events: none;
   position: absolute;
   z-index: 1;

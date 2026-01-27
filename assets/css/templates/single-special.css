@@ -4,33 +4,33 @@ body.single-special {
 }
 
 .special-container {
-  width: 100%;
   padding: 3rem 1rem;
+  width: 100%;
 }
 
 .special-content-wrapper {
-  max-width: 600px;
   margin-inline: auto;
+  max-width: 600px;
 }
 
 .special-hero-image {
-  width: 100%;
-  max-width: 100%;
+  align-items: center;
   aspect-ratio: 6/1;
   background: linear-gradient(45deg, var(--mia-black), var(--mia-black));
   border-radius: var(--radius-sm);
-  margin-bottom: 1rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
   color: var(--mia-white);
+  display: flex;
   font-size: 1.125rem;
+  justify-content: center;
+  margin-bottom: 1rem;
+  max-width: 100%;
   overflow: hidden;
   position: relative;
+  width: 100%;
 
   &:has(img) {
-    opacity: 1;
     background: transparent;
+    opacity: 1;
   }
 
   &:not(:has(img)) {
@@ -38,16 +38,16 @@ body.single-special {
   }
 
   img {
-    width: 100%;
     height: auto;
     object-fit: contain;
     object-position: center;
+    width: 100%;
   }
 }
 
 .single-special .main-content {
-  padding: 2rem 0;
   color: var(--mia-white);
+  padding: 2rem 0;
 
   > * + * {
     margin-top: 2.5rem;
@@ -55,10 +55,10 @@ body.single-special {
 }
 
 .special-disclaimer {
-  margin-top: 1rem;
-  font-size: 0.875rem;
   color: var(--mia-white);
+  font-size: 0.875rem;
   line-height: 1.5;
+  margin-top: 1rem;
 
   p {
     margin-bottom: 0.5rem;
@@ -76,9 +76,9 @@ body.single-special {
     h2,
     h3 {
       color: var(--mia-gold);
-      margin-top: 1.5rem;
-      margin-bottom: 1rem;
       font-weight: 600;
+      margin-bottom: 1rem;
+      margin-top: 1.5rem;
     }
   }
 
@@ -86,12 +86,12 @@ body.single-special {
   &:has(ul, ol) {
     ul,
     ol {
-      padding-left: 1.5rem;
       margin: 1rem 0;
+      padding-left: 1.5rem;
 
       li {
-        margin-bottom: 0.5rem;
         line-height: 1.6;
+        margin-bottom: 0.5rem;
 
         &::marker {
           color: var(--mia-gold);

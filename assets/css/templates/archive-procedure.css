@@ -7,20 +7,20 @@
    ========================================================================== */
 
 .procedure-category-card {
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border: 2px solid var(--mia-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  color: var(--mia-white);
+  overflow: hidden;
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 2px solid var(--mia-gold);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
-  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-  color: var(--mia-white);
 }
 
 .procedure-category-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
+  transform: translateY(-5px);
 }
 
 .procedure-category-card:focus-within {
@@ -30,8 +30,8 @@
 
 .category-image-container {
   height: 250px;
-  position: relative;
   overflow: hidden;
+  position: relative;
 }
 
 .category-image-container img {
@@ -49,13 +49,13 @@
 }
 
 .category-badge {
+  backdrop-filter: blur(4px);
+  background-color: var(--mia-gold);
+  border: none;
+  color: var(--mia-black);
   font-size: 0.75rem;
   font-weight: 600;
   text-transform: uppercase;
-  backdrop-filter: blur(4px);
-  background-color: var(--mia-gold);
-  color: var(--mia-black);
-  border: none;
   transition:
     background-color 0.2s ease,
     transform 0.2s ease;
@@ -70,14 +70,14 @@
 }
 
 .procedure-category-card .card-body {
-  padding: 1.5rem;
   background: transparent;
+  padding: 1.5rem;
 }
 
 .procedure-category-card .card-text {
+  color: var(--mia-white);
   font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--mia-white);
 }
 
 .procedure-category-card h2 {
@@ -111,13 +111,13 @@
 }
 
 .procedure-links a:not(.btn) {
-  color: var(--mia-white);
-  font-size: 0.9rem;
-  transition: color 0.2s ease;
-  display: inline-flex;
   align-items: center;
-  text-decoration: none;
+  color: var(--mia-white);
+  display: inline-flex;
+  font-size: 0.9rem;
   padding-bottom: 2px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .procedure-links a:not(.btn) span {
@@ -138,11 +138,11 @@
 }
 
 .procedure-links a:not(.btn) i {
+  color: var(--mia-gold);
+  text-decoration: none;
   transition:
     transform 0.2s ease,
     color 0.2s ease;
-  color: var(--mia-gold);
-  text-decoration: none;
 }
 
 .procedure-links a:not(.btn):hover i {
@@ -150,15 +150,15 @@
 }
 
 .procedure-links a:focus {
+  border-radius: var(--radius-sm);
   outline: 2px solid var(--mia-gold);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 .view-all-link {
+  display: inline-block;
   font-weight: 600;
   margin-top: 1rem;
-  display: inline-block;
 }
 
 .procedure-links .btn {
@@ -168,8 +168,8 @@
 .procedure-video-card {
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-sm);
-  overflow: hidden;
   box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+  overflow: hidden;
 }
 
 /* ==========================================================================

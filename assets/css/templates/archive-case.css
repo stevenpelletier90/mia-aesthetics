@@ -19,9 +19,9 @@
 }
 
 .case-category-card:hover {
+  border-color: var(--mia-gold);
   box-shadow: 0 10px 30px rgba(200, 178, 115, 0.2);
   transform: translateY(-2px);
-  border-color: var(--mia-gold);
 }
 
 .case-category-card:focus-within {
@@ -50,13 +50,13 @@
 }
 
 .category-badge {
+  backdrop-filter: blur(4px);
+  background-color: var(--mia-black);
+  border: none;
+  color: var(--mia-gold);
   font-size: 1rem;
   font-weight: 600;
   text-transform: uppercase;
-  backdrop-filter: blur(4px);
-  background-color: var(--mia-black);
-  color: var(--mia-gold);
-  border: none;
   transition: background-color 0.2s;
 }
 
@@ -97,13 +97,13 @@
 }
 
 .case-links a:not(.btn) {
-  color: var(--mia-white);
-  font-size: 1rem;
-  transition: color 0.2s ease;
-  display: inline-flex;
   align-items: center;
-  text-decoration: none;
+  color: var(--mia-white);
+  display: inline-flex;
+  font-size: 1rem;
   padding-bottom: 2px;
+  text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .case-links a:not(.btn) span {
@@ -124,11 +124,11 @@
 }
 
 .case-links a:not(.btn) i {
+  color: var(--mia-gold);
+  text-decoration: none;
   transition:
     transform 0.2s ease,
     color 0.2s ease;
-  color: var(--mia-gold);
-  text-decoration: none;
 }
 
 .case-links a:not(.btn):hover i {
@@ -136,9 +136,9 @@
 }
 
 .case-links a:focus {
+  border-radius: var(--radius-sm);
   outline: 2px solid var(--mia-gold);
   outline-offset: 2px;
-  border-radius: var(--radius-sm);
 }
 
 .section-heading {
@@ -151,24 +151,24 @@
    ========================================================================== */
 
 .browse-by-surgeon {
+  align-items: center;
   background-image: url("https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=1600&h=600&fit=crop");
-  background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  min-height: 550px;
+  background-size: cover;
   display: flex;
-  align-items: center;
-  padding: 6rem 0;
   margin-top: 0;
+  min-height: 550px;
+  padding: 6rem 0;
 }
 
 .browse-by-surgeon-overlay {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.85) 100%);
+  height: 100%;
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
   width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.85) 100%);
   z-index: 1;
 }
 
@@ -182,20 +182,20 @@
 
 .browse-by-surgeon h1 {
   color: var(--mia-white);
-  font-weight: 700;
   font-size: 3rem;
-  margin-bottom: 1rem;
+  font-weight: 700;
   line-height: 1.2;
+  margin-bottom: 1rem;
 }
 
 .browse-by-surgeon .lead {
   color: var(--mia-white);
-  opacity: 0.95;
   font-size: 1.25rem;
   line-height: 1.6;
-  max-width: 700px;
   margin-left: auto;
   margin-right: auto;
+  max-width: 700px;
+  opacity: 0.95;
 }
 
 .browse-by-surgeon .btn {
@@ -203,13 +203,13 @@
 }
 
 .browse-by-surgeon .btn:hover {
-  transform: translateY(-3px);
   box-shadow: 0 6px 20px rgba(200, 178, 115, 0.4);
+  transform: translateY(-3px);
 }
 
 .browse-by-surgeon .btn i {
-  transition: transform 0.3s ease;
   margin-left: 0.5rem;
+  transition: transform 0.3s ease;
 }
 
 .browse-by-surgeon .btn:hover i {
@@ -217,9 +217,9 @@
 }
 
 .browse-by-surgeon .btn:focus {
+  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
   outline: 2px solid var(--mia-white);
   outline-offset: 3px;
-  box-shadow: 0 0 0 4px rgba(255, 255, 255, 0.3);
 }
 
 /* ==========================================================================
@@ -227,25 +227,25 @@
    ========================================================================== */
 
 .surgeon-avatars {
-  display: flex;
-  justify-content: center;
   align-items: center;
+  display: flex;
   height: 70px;
+  justify-content: center;
   margin-bottom: 2rem;
 }
 
 .surgeon-avatar {
-  width: 70px;
-  height: 70px;
-  border-radius: var(--radius-full);
+  background-color: var(--mia-white);
   border: 4px solid var(--mia-gold);
+  border-radius: var(--radius-full);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+  height: 70px;
   object-fit: cover;
+  position: relative;
   transition:
     transform 0.2s ease,
     z-index 0s;
-  position: relative;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
-  background-color: var(--mia-white);
+  width: 70px;
 }
 
 .surgeon-avatar:not(:first-child) {
@@ -253,9 +253,9 @@
 }
 
 .surgeon-avatar:hover {
+  border-color: var(--mia-white);
   transform: scale(1.15) translateY(-5px);
   z-index: 10;
-  border-color: var(--mia-white);
 }
 
 /* ==========================================================================
@@ -287,9 +287,9 @@
   }
 
   .surgeon-avatar {
-    width: 60px;
-    height: 60px;
     border-width: 3px;
+    height: 60px;
+    width: 60px;
   }
 
   .surgeon-avatars {
@@ -320,9 +320,9 @@
   }
 
   .surgeon-avatar {
-    width: 50px;
-    height: 50px;
     border-width: 3px;
+    height: 50px;
+    width: 50px;
   }
 
   .surgeon-avatar:not(:first-child) {
@@ -358,9 +358,9 @@
   }
 
   .surgeon-avatar {
-    width: 45px;
-    height: 45px;
     border-width: 2px;
+    height: 45px;
+    width: 45px;
   }
 
   .surgeon-avatar:not(:first-child) {
@@ -376,8 +376,8 @@
   }
 
   .browse-by-surgeon .btn {
-    width: 100%;
     max-width: 300px;
+    width: 100%;
   }
 
   .category-image-container {

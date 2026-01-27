@@ -30,14 +30,14 @@
 }
 
 .page-indicator {
-  font-weight: 600;
   color: var(--mia-gray-dark);
+  font-weight: 600;
 }
 
 .read-more-link {
   color: var(--mia-black);
-  text-decoration: none;
   font-weight: 600;
+  text-decoration: none;
 }
 
 .read-more-link i {
@@ -46,40 +46,40 @@
 
 /* Blog Card Styles - Similar to Procedure Archive Cards */
 .blog-card {
-  transition: all 0.2s ease;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  border: 2px solid var(--mia-gold);
-  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border: 2px solid var(--mia-gold);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
   color: var(--mia-white);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  transition: all 0.2s ease;
 }
 
 .blog-card:hover {
-  transform: translateY(-5px);
   box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
+  transform: translateY(-5px);
 }
 
 .blog-card .card-img-top {
-  width: 100%;
+  border-radius: var(--radius-none);
   height: 250px;
   object-fit: cover;
-  border-radius: var(--radius-none);
+  width: 100%;
 }
 
 .blog-card .card-body {
-  padding: 1.5rem;
   background: transparent;
   flex: 1;
+  padding: 1.5rem;
 }
 
 .blog-card .card-body h2 {
   color: var(--mia-white);
+  font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 1rem;
-  font-size: 1.25rem;
 }
 
 .blog-card .card-body h2 a {
@@ -93,27 +93,27 @@
 }
 
 .blog-card .card-body p {
+  color: var(--mia-white);
   font-size: 0.95rem;
   line-height: 1.5;
-  color: var(--mia-white);
   margin-bottom: 1rem;
 }
 
 .blog-card .card-footer {
-  padding: 1.5rem;
-  border: none;
   background: transparent;
+  border: none;
   margin-top: auto;
+  padding: 1.5rem;
 }
 
 .blog-card .read-more-link {
-  color: var(--mia-white);
-  font-size: 0.9rem;
-  transition: all 0.2s ease;
-  display: inline-flex;
   align-items: center;
-  text-decoration: none;
+  color: var(--mia-white);
+  display: inline-flex;
+  font-size: 0.9rem;
   padding-bottom: 2px;
+  text-decoration: none;
+  transition: all 0.2s ease;
 }
 
 .blog-card .read-more-link span {
@@ -130,12 +130,12 @@
 }
 
 .blog-card .read-more-link i {
+  color: var(--mia-gold);
+  margin-left: 0.5rem;
+  text-decoration: none;
   transition:
     transform 0.2s ease,
     color 0.2s ease;
-  color: var(--mia-gold);
-  text-decoration: none;
-  margin-left: 0.5rem;
 }
 
 .blog-card .read-more-link:hover i {

@@ -34,19 +34,24 @@ Project guide for the Mia Aesthetics WordPress theme. Written for AI-assisted de
 ```bash
 # Setup
 npm install && composer install
-npm run build:vendor   # Build Bootstrap + FontAwesome
 
-# Linting
-npm run lint           # JS + CSS (ESLint + Stylelint)
-npm run phpcs          # PHP CodeSniffer check
-npm run phpcs:fix      # Auto-fix PHP issues
-npm run phpstan        # Static analysis (Level 8)
-npm run format         # Prettier format all
-npm run format:check   # Check formatting without writing
+# CSS Linting (Stylelint)
+npx stylelint "assets/css/**/*.css"           # Check CSS
+npx stylelint "assets/css/**/*.css" --fix     # Auto-fix CSS
 
-# Full QA Pipeline
-composer qa            # Run phpcbf → phpcs → phpstan
-composer qa:reports    # Generate JSON reports in /reports
+# JS Linting (ESLint)
+npx eslint "assets/js/**/*.js"                # Check JS
+
+# Formatting (Prettier)
+npx prettier --check .                         # Check formatting
+npx prettier --write .                         # Auto-format
+
+# PHP CodeSniffer
+./vendor/bin/phpcs                            # Check PHP
+./vendor/bin/phpcbf                           # Auto-fix PHP
+
+# PHPStan
+./vendor/bin/phpstan analyse --memory-limit=2G
 ```
 
 ## Design System
@@ -278,8 +283,8 @@ if ( $image_id && is_numeric( $image_id ) ) {
 The project uses maximum PHPStan strictness. All code must pass:
 
 ```bash
-npm run phpstan        # Level 8 + bleeding edge + strict rules
-npm run phpcs          # WordPress Coding Standards
+./vendor/bin/phpstan analyse --memory-limit=2G   # Level 8 + bleeding edge + strict rules
+./vendor/bin/phpcs                               # WordPress Coding Standards
 ```
 
 **Key rules enforced:**
@@ -391,7 +396,7 @@ Reference: [Claude Cookbook - Frontend Aesthetics](https://github.com/anthropics
 
 ## Gotchas
 
-- **Windows paths:** npm scripts use PowerShell wrappers for PHP tools (`phpcs`, `phpstan`)
+- **Windows paths:** Use `./vendor/bin/` prefix for PHP tools (`phpcs`, `phpstan`)
 - **PHPStan memory:** Requires 2GB memory limit (`--memory-limit=2G` already configured)
 - **Dropdown toggles:** Navigation dropdowns should link to real pages, not `href="#"` (causes SEO issues)
 - **ACF option fields:** Use `get_field('field_name', 'option')` for options pages

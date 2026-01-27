@@ -1,11 +1,11 @@
 .editor-styles-wrapper {
+  color: #1b1b1b;
   font-family: var(--font-body);
   font-size: 1rem;
-  font-weight: 400;
-  line-height: 1.5;
-  color: #1b1b1b;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  font-weight: 400;
+  line-height: 1.5;
 }
 
 .editor-styles-wrapper h1,
@@ -14,12 +14,12 @@
 .editor-styles-wrapper h4,
 .editor-styles-wrapper h5,
 .editor-styles-wrapper h6 {
+  color: #1b1b1b;
   font-family: var(--font-heading);
   font-weight: 600;
   line-height: 1.2;
-  color: #1b1b1b;
-  margin-top: 0;
   margin-bottom: 0.75rem;
+  margin-top: 0;
 }
 
 .editor-styles-wrapper h1 {
@@ -53,9 +53,9 @@
 }
 
 .editor-styles-wrapper p {
-  margin-bottom: 1rem;
   font-size: 1rem;
   line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .editor-styles-wrapper a {
@@ -75,24 +75,24 @@
 }
 
 .editor-styles-wrapper li {
-  margin-bottom: 0.5rem;
   line-height: 1.6;
+  margin-bottom: 0.5rem;
 }
 
 .editor-styles-wrapper blockquote {
-  font-style: italic;
   border-left: 4px solid #c8b273;
-  padding-left: 1rem;
-  margin: 1.5rem 0;
   color: #666;
+  font-style: italic;
+  margin: 1.5rem 0;
+  padding-left: 1rem;
 }
 
 .editor-styles-wrapper code {
+  background-color: #f8f9fa;
+  border-radius: var(--radius-sm);
   font-family: "SFMono-Regular", "Monaco", "Consolas", "Liberation Mono", "Courier New", monospace;
   font-size: 0.875rem;
-  background-color: #f8f9fa;
   padding: 0.25rem 0.5rem;
-  border-radius: var(--radius-sm);
 }
 
 .editor-styles-wrapper strong {

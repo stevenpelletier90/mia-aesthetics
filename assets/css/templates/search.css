@@ -21,14 +21,14 @@
 .search-results .card {
   border: 1px solid var(--mia-gold-light);
   border-radius: var(--radius-md);
-  transition: all 0.2s ease;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
 }
 
 .search-results .card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   border-color: var(--mia-gold);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
 }
 
 .search-results .card-img-top {
@@ -59,21 +59,21 @@
 
 .search-results .card-body .search-type-badge {
   background-color: var(--mia-gold-light);
-  padding: 0.25rem 0.5rem;
+  border: 1px solid var(--mia-gold-light);
   border-radius: var(--radius-sm);
+  color: var(--mia-black);
+  display: inline-block;
   font-size: 0.8rem;
   font-weight: 600;
-  text-transform: uppercase;
-  color: var(--mia-black);
-  border: 1px solid var(--mia-gold-light);
-  display: inline-block;
   margin-top: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  text-transform: uppercase;
 }
 
 .search-results .no-results {
-  text-align: center;
-  padding: 3rem 2rem;
   color: var(--mia-gray-dark);
+  padding: 3rem 2rem;
+  text-align: center;
 }
 
 .search-results .no-results h3 {
@@ -86,16 +86,16 @@
 }
 
 .search-results .pagination .page-link {
-  color: var(--mia-black);
   border-color: var(--mia-gold-light);
-  padding: 0.75rem 1rem;
+  color: var(--mia-black);
   font-weight: 600;
+  padding: 0.75rem 1rem;
 }
 
 .search-results .pagination .page-link:hover {
-  color: var(--mia-white);
   background-color: var(--mia-gold);
   border-color: var(--mia-gold);
+  color: var(--mia-white);
 }
 
 .search-results .pagination .page-item.active .page-link {

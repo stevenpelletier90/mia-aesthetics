@@ -1,33 +1,33 @@
 .treatment-hero {
-  position: relative;
-  min-height: 80vh;
-  display: flex;
   align-items: center;
+  display: flex;
   justify-content: center;
+  min-height: 80vh;
+  position: relative;
 }
 
 .treatment-hero::before {
-  content: "";
-  position: absolute;
-  inset: 0;
   background: rgba(27, 27, 27, 0.85);
+  content: "";
+  inset: 0;
+  position: absolute;
   z-index: 1;
 }
 
 .hero-content {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  max-width: 1320px;
   margin: 0 auto;
+  max-width: 1320px;
   padding: 0 0.75rem;
+  position: relative;
+  width: 100%;
+  z-index: 2;
 }
 
 .hero-inner {
-  display: flex;
   align-items: center;
-  justify-content: space-between;
+  display: flex;
   gap: 3rem;
+  justify-content: space-between;
   width: 100%;
 }
 
@@ -48,11 +48,11 @@
 .treatment-hero h1 {
   color: var(--mia-gold);
   font-family: var(--font-heading);
-  font-weight: 600;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   font-size: clamp(2.5rem, 5vw, 62px);
+  font-weight: 600;
   margin: 0 0 1rem;
   text-align: left;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
   text-transform: uppercase;
 }
 
@@ -71,32 +71,32 @@
 }
 
 .treatment-hero .pricing-info small {
-  opacity: 0.9;
   font-size: 1rem;
   font-style: italic;
+  opacity: 0.9;
 }
 
 .hero-bg {
-  position: absolute;
-  inset: 0;
-  width: 100vw;
   height: 100%;
+  inset: 0;
   object-fit: cover;
   object-position: center center;
+  position: absolute;
+  width: 100vw;
   z-index: 0;
 }
 
 .hero-picture {
-  position: absolute;
-  inset: 0;
-  width: 100vw;
   height: 100%;
+  inset: 0;
+  position: absolute;
+  width: 100vw;
 }
 
 .main-content {
-  width: 100%;
   max-width: 100%;
   overflow-x: hidden;
+  width: 100%;
 }
 
 .resources-featured-section {
@@ -115,25 +115,25 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-md);
   color: var(--mia-white);
-  transition: all 0.2s ease;
-  min-height: 80px;
-  width: 300px;
   max-width: 100%;
+  min-height: 80px;
+  transition: all 0.2s ease;
+  width: 300px;
 }
 
 .resource-card:hover,
 .resource-card:focus {
   background-color: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.4);
-  transform: translateY(-2px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   color: var(--mia-white);
+  transform: translateY(-2px);
 }
 
 .resource-card strong {
   color: var(--mia-gold-aaa);
-  font-weight: 600;
   font-size: 1rem;
+  font-weight: 600;
   line-height: 1.3;
 }
 
@@ -161,8 +161,8 @@
 
   .hero-inner {
     flex-direction: column;
-    justify-content: center;
     gap: 2rem;
+    justify-content: center;
   }
 
   .hero-text {

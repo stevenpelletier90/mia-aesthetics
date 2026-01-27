@@ -16,8 +16,8 @@
 .error-404 .post-header p.lead {
   color: var(--mia-gray-dark);
   font-size: 1.1rem;
-  max-width: 600px;
   margin: 0 auto;
+  max-width: 600px;
 }
 
 .search-form-404 {
@@ -31,8 +31,8 @@
 }
 
 .search-form-404 .search-wrapper {
-  max-width: 400px;
   margin: 0 auto;
+  max-width: 400px;
 }
 
 .search-form-404 .search-form {
@@ -40,45 +40,45 @@
 }
 
 .search-form-404 .search-field {
-  width: 100%;
-  padding: 0.75rem 1rem;
+  background-color: var(--mia-white);
   border: 2px solid var(--mia-gold-light);
   border-radius: var(--radius-sm);
-  font-size: 1rem;
   font-family: var(--font-body);
+  font-size: 1rem;
+  padding: 0.75rem 1rem;
   transition:
     border-color 0.2s ease,
     box-shadow 0.2s ease;
-  background-color: var(--mia-white);
+  width: 100%;
 }
 
 .search-form-404 .search-field:focus {
-  outline: none;
   border-color: var(--mia-gold);
   box-shadow: 0 0 0 0.2rem var(--mia-gold-20);
+  outline: none;
 }
 
 .search-form-404 .search-submit {
-  margin-top: 1rem;
   background-color: var(--mia-gold);
-  color: var(--mia-black);
   border: 2px solid var(--mia-gold);
-  padding: 0.75rem 2rem;
   border-radius: var(--radius-sm);
-  font-family: var(--font-body);
-  font-weight: 600;
-  text-transform: capitalize;
+  color: var(--mia-black);
   cursor: pointer;
-  transition: all 0.2s ease;
+  font-family: var(--font-body);
   font-size: 1rem;
+  font-weight: 600;
+  margin-top: 1rem;
+  padding: 0.75rem 2rem;
+  text-transform: capitalize;
+  transition: all 0.2s ease;
 }
 
 .search-form-404 .search-submit:hover,
 .search-form-404 .search-submit:focus {
   background-color: var(--mia-black);
   border-color: var(--mia-black);
-  color: var(--mia-gold);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  color: var(--mia-gold);
 }
 
 @media (max-width: 768px) {
