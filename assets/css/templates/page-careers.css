@@ -155,8 +155,10 @@
   border-radius: var(--radius-lg);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
   height: 100%;
+  opacity: 0;
   padding: 3rem 2.5rem;
   text-align: center;
+  transform: translateY(30px);
   transition: all 0.2s ease;
 }
 
@@ -199,12 +201,6 @@
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
-}
-
-.value-card {
-  opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.2s ease;
 }
 
 .value-card.animate-in {
@@ -546,21 +542,18 @@
 }
 
 .testimonial-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: space-between;
   min-height: 400px;
+  overflow: hidden;
   padding: 2rem;
 }
 
 .testimonial-card:hover {
   border-color: rgba(0, 0, 0, 0.12);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-.testimonial-content {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  justify-content: space-between;
-  overflow: hidden;
 }
 
 .testimonial-quote {

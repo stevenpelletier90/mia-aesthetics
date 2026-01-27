@@ -394,7 +394,7 @@
     color: var(--mia-gold);
     content: "\f007";
     display: block;
-    font-family: "Font Awesome 7 Free";
+    font-family: "Font Awesome 7 Free", sans-serif;
     font-size: 5rem;
     margin-bottom: 1.5rem;
     opacity: 0.4;

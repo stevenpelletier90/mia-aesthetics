@@ -119,10 +119,6 @@
   border-bottom-color: var(--mia-white);
 }
 
-.case-links a:not(.btn):hover i {
-  transform: translateX(4px);
-}
-
 .case-links a:not(.btn) i {
   color: var(--mia-gold);
   text-decoration: none;
@@ -133,6 +129,7 @@
 
 .case-links a:not(.btn):hover i {
   color: var(--mia-white);
+  transform: translateX(4px);
 }
 
 .case-links a:focus {
@@ -407,7 +404,7 @@
   }
 }
 
-@media (prefers-contrast: high) {
+@media (prefers-contrast: more) {
   .category-overlay {
     background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 100%);
   }

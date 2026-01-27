@@ -646,6 +646,8 @@ function mia_aesthetics_render_desktop_before_after_menu(): void {
 						<span>By Procedure</span>
 					</div>
 					<ul class="list-unstyled">
+						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/arm/' ) ); ?>
+						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/arm/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Arm Lift</a></li>
 						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
 						<li><a class="dropdown-item py-1" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
 						<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>
@@ -691,6 +693,8 @@ function mia_aesthetics_render_mobile_before_after_menu(): void {
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>View All Before & After</a></li>
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/before-after-by-doctor/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Results by Surgeon</a></li>
+		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/arm/' ) ); ?>
+		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/arm/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Arm Lift</a></li>
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/bbl/' ) ); ?>
 		<li><a class="dropdown-item" href="<?php echo esc_url( home_url( '/before-after/bbl/' ) ); ?>" <?php echo $is_exact ? 'aria-current="page"' : ''; ?>>Brazilian Butt Lift (BBL)</a></li>
 		<?php $is_exact = mia_aesthetics_is_current_url( home_url( '/before-after/breast-augmentation/' ) ); ?>

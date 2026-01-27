@@ -109,7 +109,7 @@
   color: var(--mia-white);
   content: "\f078";
   flex-shrink: 0;
-  font-family: "Font Awesome 7 Free";
+  font-family: "Font Awesome 7 Free", sans-serif;
   font-weight: 900;
   height: auto;
   margin-left: auto;
