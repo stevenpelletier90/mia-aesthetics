@@ -233,6 +233,11 @@ $gallery_url = home_url( '/before-after/before-after-by-doctor/' ) . '?doctor=' 
 									<span>Financing Options</span>
 									<i class="fas fa-chevron-right" aria-hidden="true"></i>
 								</a>
+								<a href="<?php echo esc_url( home_url( '/cosmetic-plastic-surgery/' ) ); ?>" class="resource-link">
+									<i class="fas fa-stethoscope" aria-hidden="true"></i>
+									<span>Our Procedures</span>
+									<i class="fas fa-chevron-right" aria-hidden="true"></i>
+								</a>
 							</div>
 						</div>
 					</div>

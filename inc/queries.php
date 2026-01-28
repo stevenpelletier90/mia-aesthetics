@@ -599,6 +599,35 @@ function mia_get_city_guide_location_ids(): array {
 }
 
 /**
+ * Get surgeons assigned to a specific location.
+ *
+ * @param int $location_id The location post ID.
+ * @return WP_Query Query object with surgeons at this location.
+ */
+function mia_get_surgeons_by_location( int $location_id ): WP_Query {
+	return new WP_Query(
+		array(
+			'post_type'              => 'surgeon',
+			'posts_per_page'         => -1,
+			'orderby'                => 'menu_order',
+			'order'                  => 'ASC',
+			// Meta query filters surgeons by their assigned location.
+			// Performance acceptable: small dataset, WP Engine object cache, WP Rocket page cache.
+			// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
+			'meta_query'             => array(
+				array(
+					'key'     => 'surgeon_location',
+					'value'   => $location_id,
+					'compare' => '=',
+				),
+			),
+			'update_post_term_cache' => false,
+			'no_found_rows'          => true,
+		)
+	);
+}
+
+/**
  * Clear query-related caches when relevant posts are updated
  *
  * @param int $post_id The post ID being updated.

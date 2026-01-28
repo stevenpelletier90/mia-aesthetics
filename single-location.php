@@ -275,25 +275,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 			<h2 class="section-title text-center">Our <?php echo esc_html( get_the_title() ); ?> Team</h2>
 			<div class="row g-4 surgeon-list">
 				<?php
-				$args = array(
-					'post_type'              => 'surgeon',
-					'posts_per_page'         => -1,
-					'orderby'                => 'menu_order',
-					'order'                  => 'ASC',
-					// phpcs:ignore WordPress.DB.SlowDBQuery.slow_db_query_meta_query
-					'meta_query'             => array(
-						array(
-							'key'     => 'surgeon_location',
-							'value'   => (int) get_the_ID(),
-							'compare' => '=',
-						),
-					),
-					// Performance optimizations.
-					'update_post_meta_cache' => true,
-					'update_post_term_cache' => false,
-					'no_found_rows'          => true,
-				);
-				$surgeons = new WP_Query( $args );
+				$surgeons = mia_get_surgeons_by_location( (int) get_the_ID() );
 
 				// Determine column classes based on surgeon count.
 				$surgeon_count = $surgeons->post_count;
