@@ -215,7 +215,7 @@ $gallery_url = home_url( '/before-after/before-after-by-doctor/' ) . '?doctor=' 
 							</ul>
 						</div>
 
-						<div class="sidebar-card">
+						<div class="sidebar-card patient-resources-card">
 							<h3 class="sidebar-card-title">Patient Resources</h3>
 							<div class="resource-links">
 								<a href="<?php echo esc_url( home_url( '/surgical-journey/' ) ); ?>" class="resource-link">
