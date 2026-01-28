@@ -81,7 +81,7 @@
 }
 
 .resource-link i:last-child {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 0.75rem;
   transition: transform 0.2s ease;
 }
@@ -248,7 +248,7 @@
 }
 
 .bio-content {
-  color: var(--mia-black);
+  color: var(--mia-text);
   font-size: 1.125rem;
 }
 
@@ -350,7 +350,7 @@
 }
 
 .expertise-content p {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   line-height: 1.6;
   margin-bottom: 1rem;
 }
@@ -414,7 +414,7 @@
 .surgeon-info-list li {
   align-items: flex-start;
   border-bottom: 1px solid var(--mia-gold-light);
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   display: flex;
   gap: 1rem;
   padding: 0.75rem 0;
@@ -462,7 +462,7 @@
 }
 
 .patient-resources-card {
-  border: 1px solid var(--mia-gold);
+  border: 1px solid var(--mia-gold-50);
   box-shadow: none;
 }
 

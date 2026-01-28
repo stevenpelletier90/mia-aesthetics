@@ -358,7 +358,7 @@
 }
 
 .patient-stats span:not(.stat-label) {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
 }
 
 /* --------------------------------------------------------------------------
@@ -569,7 +569,7 @@
 
   .fixed-bg-content-box p,
   .fixed-bg-content-box li {
-    color: var(--mia-gray-dark) !important;
+    color: var(--mia-text) !important;
   }
 
   .fixed-bg-link {

@@ -66,8 +66,8 @@ npx prettier --write .                         # Auto-format
 --mia-gold-dark: #be9e42;    /* Hover states */
 --mia-gold-light: #f9f5ee;   /* Light section backgrounds */
 --mia-white: #ffffff;        /* Text on dark, cards */
---mia-gray-dark: #222;       /* Dark gray backgrounds */
---mia-gray-muted: #666;      /* Muted text */
+--mia-text: #222;            /* Body text color */
+--mia-gray-muted: #666;      /* Muted/secondary text */
 
 /* Link Colors */
 --mia-link: #0066cc;         /* Default link color */

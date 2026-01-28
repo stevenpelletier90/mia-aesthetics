@@ -27,7 +27,7 @@
 }
 
 .location-search-careers .search-icon {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 1.2rem;
   pointer-events: none;
   position: absolute;

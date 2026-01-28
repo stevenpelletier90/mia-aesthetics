@@ -77,7 +77,7 @@
 
 .faqs-section .accordion .accordion-item .accordion-body {
   background-color: var(--mia-white);
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   line-height: 1.6;
   padding: 1.5rem;
 }

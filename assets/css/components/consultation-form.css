@@ -146,7 +146,7 @@ a.consent-trigger:hover i {
 
 .consultation-card .gform_wrapper :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"]) {
   background-color: var(--mia-white);
-  border: 1px solid var(--mia-gray-dark);
+  border: 1px solid var(--mia-text);
   border-radius: var(--radius-sm);
   box-sizing: border-box;
   color: var(--mia-black);
@@ -174,7 +174,7 @@ a.consent-trigger:hover i {
   appearance: none;
   background-color: var(--mia-white);
   background-image: none;
-  border: 1px solid var(--mia-gray-dark);
+  border: 1px solid var(--mia-text);
   border-radius: var(--radius-sm);
   box-sizing: border-box;
   color: var(--mia-black);
@@ -207,7 +207,7 @@ a.consent-trigger:hover i {
 
 .consultation-card .gform_wrapper textarea {
   background-color: var(--mia-white);
-  border: 1px solid var(--mia-gray-dark);
+  border: 1px solid var(--mia-text);
   border-radius: var(--radius-sm);
   box-sizing: border-box;
   color: var(--mia-black);
@@ -229,7 +229,7 @@ a.consent-trigger:hover i {
 }
 
 .consultation-card .gform_wrapper :is(input, textarea)::placeholder {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   opacity: 1;
 }
 

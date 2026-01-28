@@ -135,12 +135,12 @@
 }
 
 .resource-link i:last-child {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 0.75rem;
   transition: transform 0.2s ease;
 }
 
-.surgeon-card img {
+.surgeon-item img {
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-white) 100%);
   border: 3px solid var(--mia-gold);
   border-radius: var(--radius-full);
@@ -261,16 +261,26 @@
   overflow: hidden;
 }
 
+.location-content {
+  color: var(--mia-text);
+  font-size: 1rem;
+}
+
+.location-content p {
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
 .card {
   border-radius: var(--radius-md);
 }
 
 .card-body {
   padding: 1rem;
+}
 
-  strong {
-    color: var(--mia-black);
-  }
+.card-body strong {
+  color: var(--mia-black);
 }
 
 .card-title {
@@ -287,21 +297,21 @@
   margin-bottom: 1.5rem;
   padding-bottom: 0.75rem;
   position: relative;
+}
 
-  &::after {
-    background-color: var(--mia-gold);
-    bottom: 0;
-    content: "";
-    height: 3px;
-    left: 0;
-    position: absolute;
-    width: 3.75rem;
-  }
+.section-title::after {
+  background-color: var(--mia-gold);
+  bottom: 0;
+  content: "";
+  height: 3px;
+  left: 0;
+  position: absolute;
+  width: 3.75rem;
+}
 
-  &.text-center::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
+.section-title.text-center::after {
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 /* ==========================================================================
@@ -322,16 +332,16 @@
   font-weight: 600;
   margin-bottom: 1.5rem;
   position: relative;
+}
 
-  &::after {
-    background: var(--mia-gold);
-    bottom: -0.5rem;
-    content: "";
-    height: 2px;
-    left: 0;
-    position: absolute;
-    width: 1.875rem;
-  }
+.sidebar-card-title::after {
+  background: var(--mia-gold);
+  bottom: -0.5rem;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 1.875rem;
 }
 
 .resource-links {
@@ -371,21 +381,30 @@
   transform: translateX(3px);
 }
 
+.patient-resources-card {
+  border: 1px solid var(--mia-gold-50);
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   Team Section
+   ========================================================================== */
+
+.team-section {
+  border-top: 1px solid var(--mia-gold-30);
+}
+
 /* ==========================================================================
    Surgeon Cards
    ========================================================================== */
 
-.surgeon-card {
-  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-  border: 1px solid var(--mia-gold-20);
-  border-radius: var(--radius-lg);
-  color: var(--mia-white);
+.surgeon-item {
+  color: var(--mia-black);
   padding: 2rem 1.5rem;
   text-align: center;
-  transition: box-shadow 0.2s ease;
 }
 
-.surgeon-card:not(:has(img))::before {
+.surgeon-item:not(:has(img))::before {
   color: var(--mia-gold);
   content: "\f007";
   display: block;
@@ -395,8 +414,8 @@
   opacity: 0.4;
 }
 
-.surgeon-card h3 {
-  color: var(--mia-white);
+.surgeon-item h3 {
+  color: var(--mia-black);
   font-family: var(--font-heading);
   font-size: clamp(1.1rem, 2vw + 0.5rem, 1.3rem);
   font-weight: 600;
@@ -404,17 +423,14 @@
   margin-bottom: 0.5rem;
 }
 
-.surgeon-card p {
-  color: var(--mia-white);
+.surgeon-item p {
+  color: var(--mia-text);
   font-family: var(--font-body);
   font-size: clamp(0.85rem, 1.5vw + 0.3rem, 0.95rem);
   font-style: italic;
   margin-bottom: 1.25rem;
 }
 
-.surgeon-card:hover {
-  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-}
 
 /* ==========================================================================
    Responsive - min-width (ascending)
@@ -427,12 +443,12 @@
     padding: 3rem 0;
   }
 
-  .surgeon-card img {
+  .surgeon-item img {
     height: 8.75rem;
     width: 8.75rem;
   }
 
-  .surgeon-card:not(:has(img))::before {
+  .surgeon-item:not(:has(img))::before {
     font-size: 6rem;
   }
 }
@@ -499,6 +515,10 @@
 }
 
 @media (max-width: 767px) {
+  .location-content p {
+    line-height: 1.625;
+  }
+
   .location-video {
     max-width: 100%;
   }
@@ -527,7 +547,7 @@
     order: unset;
   }
 
-  .team-section .surgeon-card {
+  .team-section .surgeon-item {
     align-items: center;
     background: var(--mia-white);
     border: 1px solid var(--mia-gold-light);
@@ -537,50 +557,50 @@
     min-height: 7.5rem;
     padding: 1rem;
     text-align: left;
+  }
 
-    &:hover {
-      border-color: var(--mia-gold);
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    }
+  .team-section .surgeon-item:hover {
+    border-color: var(--mia-gold);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  }
 
-    img {
-      border: 2px solid var(--mia-gold);
-      flex-shrink: 0;
-      height: 6.25rem;
-      margin-bottom: 0;
-      margin-right: 1.25rem;
-      width: 6.25rem;
-    }
+  .team-section .surgeon-item img {
+    border: 2px solid var(--mia-gold);
+    flex-shrink: 0;
+    height: 6.25rem;
+    margin-bottom: 0;
+    margin-right: 1.25rem;
+    width: 6.25rem;
+  }
 
-    .surgeon-info {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      height: 100%;
-      justify-content: center;
-      text-align: left;
-    }
+  .team-section .surgeon-item .surgeon-info {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+    text-align: left;
+  }
 
-    h3 {
-      color: var(--mia-black);
-      font-size: 1.1rem;
-      line-height: 1.3;
-      margin-bottom: 0.25rem;
-    }
+  .team-section .surgeon-item h3 {
+    color: var(--mia-black);
+    font-size: 1.1rem;
+    line-height: 1.3;
+    margin-bottom: 0.25rem;
+  }
 
-    p {
-      color: var(--mia-gray-dark);
-      font-size: 0.85rem;
-      font-style: normal;
-      margin-bottom: 0.75rem;
-    }
+  .team-section .surgeon-item p {
+    color: var(--mia-text);
+    font-size: 0.85rem;
+    font-style: normal;
+    margin-bottom: 0.75rem;
+  }
 
-    .btn {
-      align-self: flex-start;
-      font-size: 0.75rem;
-      min-width: auto;
-      padding: 0.4rem 0.8rem;
-      width: auto;
-    }
+  .team-section .surgeon-item .btn {
+    align-self: flex-start;
+    font-size: 0.75rem;
+    min-width: auto;
+    padding: 0.4rem 0.8rem;
+    width: auto;
   }
 }

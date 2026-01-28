@@ -299,7 +299,7 @@
 }
 
 .stat-label {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-family: var(--font-heading);
   font-size: clamp(14px, 2vw, 16px);
   font-weight: 600;

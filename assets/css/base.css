@@ -12,9 +12,9 @@
   --mia-pure-black: #000000;
   --mia-white: #ffffff;
 
-  /* Neutrals */
-  --mia-gray-dark: #222;
-  --mia-gray-light: #dee2e6;
+  /* Text */
+  --mia-text: #222;
+  --mia-gray-muted: #666;
 
   /* Links (light backgrounds - AAA compliant) */
   --mia-link: #005299; /* ~7.2:1 on white */
@@ -64,7 +64,7 @@ html {
 }
 
 body {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-family: var(--font-body);
   font-size: 1rem;
   -webkit-font-smoothing: antialiased;
@@ -229,7 +229,7 @@ li {
 
 /* Text muted - use design system color */
 .text-muted {
-  color: var(--mia-gray-dark) !important;
+  color: var(--mia-text) !important;
 }
 
 /* ==========================================================================

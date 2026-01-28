@@ -51,7 +51,7 @@
 }
 
 .careers-hero__text p {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: clamp(1.125rem, 2.5vw, 1.25rem);
   font-weight: 400;
   line-height: 1.6;
@@ -135,7 +135,7 @@
 }
 
 .core-values__subtitle {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 1.25rem;
   line-height: 1.6;
   margin: 0 auto;
@@ -196,7 +196,7 @@
 }
 
 .value-description {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 1rem;
   line-height: 1.7;
   margin: 0;
@@ -281,7 +281,7 @@
 }
 
 .find-location__subtitle {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 1.25rem;
   line-height: 1.6;
   margin: 0 auto;
@@ -327,7 +327,7 @@
 }
 
 .benefits-subtitle {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 1.1rem;
   line-height: 1.7;
   margin: 0;
@@ -457,7 +457,7 @@
 }
 
 .benefit-list li {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 0.95rem;
   line-height: 1.6;
   margin-bottom: 1rem;
@@ -508,7 +508,7 @@
 }
 
 .testimonials-subtitle {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 1.25rem;
   line-height: 1.6;
   margin: 0 auto;
@@ -600,7 +600,7 @@
 }
 
 .author-location {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   font-size: 0.9rem;
   margin-bottom: 0;
 }
@@ -627,7 +627,7 @@
 
 #testimonialsCarousel .carousel-control-prev-icon,
 #testimonialsCarousel .carousel-control-next-icon {
-  background-color: var(--mia-gray-dark);
+  background-color: var(--mia-text);
   background-position: center;
   background-size: 50%;
   border-radius: var(--radius-full);
@@ -637,7 +637,7 @@
 
 #testimonialsCarousel .carousel-control-prev:hover .carousel-control-prev-icon,
 #testimonialsCarousel .carousel-control-next:hover .carousel-control-next-icon {
-  background-color: var(--mia-gray-dark);
+  background-color: var(--mia-text);
   transition: all 0.2s ease;
 }
 

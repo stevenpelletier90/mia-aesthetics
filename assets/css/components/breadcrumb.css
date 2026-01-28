@@ -40,7 +40,7 @@
    Link Styles (base before hover)
    -------------------------------------------------------------------------- */
 .breadcrumb-nav a {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
   text-decoration: underline;
 }
 
@@ -60,11 +60,11 @@
 }
 
 .breadcrumb-nav .breadcrumb_last {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
 }
 
 .breadcrumb-inline .breadcrumb_last {
-  color: var(--mia-gray-dark);
+  color: var(--mia-text);
 }
 
 /* --------------------------------------------------------------------------

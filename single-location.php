@@ -218,14 +218,14 @@ $mia_location_hero_id = get_post_thumbnail_id();
 		<article class="location-article">
 			<div class="container">
 				<div class="row gx-5">
-					<div class="col-md-7">
+					<div class="col-md-8">
 						<div class="location-content">
 							<?php the_content(); ?>
 						</div>
 					</div>
 
-					<aside class="col-md-5" role="complementary" aria-label="Related resources">
-						<div class="sidebar-card">
+					<aside class="col-md-4" role="complementary" aria-label="Related resources">
+						<div class="sidebar-card patient-resources-card">
 							<h3 class="sidebar-card-title">Patient Resources</h3>
 							<div class="resource-links">
 								<?php
@@ -301,7 +301,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 						?>
 
 						<div class="col-12 col-md-6 col-lg-3">
-							<div class="surgeon-card text-center">
+							<div class="surgeon-item text-center">
 								<?php
 								$surgeon_headshot_id = get_field( 'surgeon_headshot' );
 								if ( null !== $surgeon_headshot_id && is_numeric( $surgeon_headshot_id ) ) :

@@ -59,7 +59,7 @@
 
 .toc-container {
   background-color: var(--mia-white);
-  border: 1px solid var(--mia-gray-light);
+  border: 1px solid var(--mia-gold-50);
   border-radius: var(--radius-sm);
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
   margin-bottom: 2rem;
