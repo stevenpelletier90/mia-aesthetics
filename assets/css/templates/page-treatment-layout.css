@@ -47,9 +47,9 @@
 
 .treatment-hero h1 {
   color: var(--mia-gold);
-  font-family: var(--font-heading);
+  
   font-size: clamp(2.5rem, 5vw, 62px);
-  font-weight: 600;
+  
   margin: 0 0 1rem;
   text-align: left;
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
@@ -106,7 +106,7 @@
 
 .resources-featured-section h3 {
   color: var(--mia-white);
-  font-family: var(--font-heading);
+  
   text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
 

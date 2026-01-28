@@ -76,9 +76,9 @@
 
 .location-search-careers #search-dropdown-careers .dropdown-item h4 {
   color: var(--mia-white);
-  font-family: var(--font-heading);
+  
   font-size: 1rem;
-  font-weight: 600;
+  
   margin: 0 0 0.25rem;
 }
 

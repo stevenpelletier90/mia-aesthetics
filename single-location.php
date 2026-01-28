@@ -295,12 +295,26 @@ $mia_location_hero_id = get_post_thumbnail_id();
 				);
 				$surgeons = new WP_Query( $args );
 
+				// Determine column classes based on surgeon count.
+				$surgeon_count = $surgeons->post_count;
+				if ( 1 === $surgeon_count ) {
+					$col_classes = 'col-12 col-md-6 col-lg-4';
+				} elseif ( 2 === $surgeon_count ) {
+					$col_classes = 'col-12 col-md-6';
+				} elseif ( 3 === $surgeon_count ) {
+					$col_classes = 'col-12 col-md-4';
+				} elseif ( 4 === $surgeon_count ) {
+					$col_classes = 'col-12 col-sm-6 col-xl-3';
+				} else {
+					$col_classes = 'col-12 col-sm-6 col-md-4 col-xl-3';
+				}
+
 				if ( $surgeons->have_posts() ) :
 					while ( $surgeons->have_posts() ) :
 						$surgeons->the_post();
 						?>
 
-						<div class="col-12 col-md-4">
+						<div class="<?php echo esc_attr( $col_classes ); ?>">
 							<div class="surgeon-item">
 								<?php
 								$surgeon_headshot_id = get_field( 'surgeon_headshot' );

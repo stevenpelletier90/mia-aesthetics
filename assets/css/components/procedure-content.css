@@ -320,7 +320,7 @@
 
 .bbl-recovery-content-box h2 {
   color: var(--mia-gold);
-  font-family: var(--font-heading);
+  
 }
 
 .bbl-info-card {
@@ -340,9 +340,9 @@
 }
 
 .bbl-info-card h3 {
-  color: var(--mia-black);
-  font-family: var(--font-heading);
-  font-weight: 600;
+  
+  
+  
 }
 
 /* --------------------------------------------------------------------------
@@ -384,8 +384,8 @@
 }
 
 .info-card h3 {
-  color: var(--mia-black);
-  font-weight: 600;
+  
+  
   margin-bottom: 1rem;
 }
 
@@ -453,7 +453,7 @@
 }
 
 .case-study-info .section-header h2 {
-  color: var(--mia-black);
+  
   font-size: clamp(1.5rem, 3vw, 2rem);
 }
 

@@ -76,7 +76,7 @@ body.single-special {
     h2,
     h3 {
       color: var(--mia-gold);
-      font-weight: 600;
+      
       margin-bottom: 1rem;
       margin-top: 1.5rem;
     }

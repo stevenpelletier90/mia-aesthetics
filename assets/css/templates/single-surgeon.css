@@ -216,9 +216,7 @@
 }
 
 .section-title {
-  color: var(--mia-black);
   font-size: 2rem;
-  font-weight: 600;
   margin-bottom: 2rem;
   padding-bottom: 1rem;
   position: relative;
@@ -258,7 +256,7 @@
 }
 
 .bio-content h3 {
-  color: var(--mia-black);
+  
   font-size: 1.5rem;
   margin-bottom: 1rem;
   margin-top: 2rem;
@@ -343,9 +341,9 @@
 }
 
 .expertise-content h3 {
-  color: var(--mia-black);
+  
   font-size: 1.25rem;
-  font-weight: 600;
+  
   margin-bottom: 0.75rem;
 }
 

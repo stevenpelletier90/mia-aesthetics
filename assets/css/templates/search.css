@@ -3,9 +3,9 @@
 }
 
 .search-results .post-header h1 {
-  color: var(--mia-black);
-  font-family: var(--font-heading);
-  font-weight: 600;
+  
+  
+  
 }
 
 .search-results .post-header h1 span {
@@ -41,8 +41,8 @@
 }
 
 .search-results .card-body h2 {
-  color: var(--mia-black);
-  font-weight: 600;
+  
+  
   margin-bottom: 1rem;
 }
 
@@ -76,7 +76,7 @@
 }
 
 .search-results .no-results h3 {
-  color: var(--mia-black);
+  
   margin-bottom: 1rem;
 }
 

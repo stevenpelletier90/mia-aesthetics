@@ -12,7 +12,7 @@
 
 .location-header h1 {
   color: var(--mia-gold);
-  font-weight: 600;
+  
   margin-bottom: 24px;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
@@ -76,9 +76,9 @@
 }
 
 .dept-breakdown h3 {
-  color: var(--mia-black);
+  
   font-size: 1.75rem;
-  font-weight: 600;
+  
   margin-bottom: 24px;
   padding-bottom: 12px;
   position: relative;
@@ -184,9 +184,9 @@
 }
 
 .job-functions h3 {
-  color: var(--mia-black);
+  
   font-size: 1.75rem;
-  font-weight: 600;
+  
   margin-bottom: 24px;
   padding-bottom: 12px;
   position: relative;
@@ -348,8 +348,8 @@
 }
 
 .job-item h4 {
-  color: var(--mia-black);
-  font-weight: 600;
+  
+  
   margin-bottom: 12px;
 }
 
@@ -600,7 +600,7 @@
 .page-template-page-careers-locations .section-title {
   color: var(--mia-black);
   font-family: var(--font-heading);
-  font-weight: 600;
+  
   margin-bottom: 48px;
 }
 
@@ -632,9 +632,9 @@
 
 .page-template-page-careers-locations .surgeon-card h3 {
   color: var(--mia-white);
-  font-family: var(--font-heading);
+  
   font-size: 1.2rem;
-  font-weight: 600;
+  
   line-height: 1.3;
   margin-bottom: 8px;
 }
@@ -807,7 +807,7 @@
     background: var(--mia-white);
     border: 1px solid var(--mia-gold-light);
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-    color: var(--mia-black);
+    
     display: flex;
     min-height: 120px;
     padding: 16px;
@@ -837,7 +837,7 @@
   }
 
   .page-template-page-careers-locations .team-section .surgeon-card h3 {
-    color: var(--mia-black);
+    
     font-size: 1.1rem;
     line-height: 1.3;
     margin-bottom: 4px;

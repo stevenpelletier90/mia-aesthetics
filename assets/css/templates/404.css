@@ -4,13 +4,11 @@
 
 .error-404 .post-header h1 {
   color: var(--mia-gold);
-  font-weight: 600;
   text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .error-404 .post-header h2 {
-  color: var(--mia-black);
-  font-weight: 600;
+  
 }
 
 .error-404 .post-header p.lead {
@@ -25,8 +23,7 @@
 }
 
 .search-form-404 h3 {
-  color: var(--mia-black);
-  font-weight: 600;
+  
   margin-bottom: 1.5rem;
 }
 
