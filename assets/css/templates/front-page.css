@@ -532,13 +532,12 @@
     top: 4rem;
     width: 36px;
   }
-
-  .carousel-counter {
-    display: block;
-  }
 }
 
 @media (max-width: 575.98px) {
+  .carousel-counter {
+    display: block;
+  }
   .surgeons-section {
     padding: 2.5rem 0;
   }
