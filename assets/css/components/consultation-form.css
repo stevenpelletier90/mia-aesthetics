@@ -58,6 +58,14 @@ a.consent-trigger:hover i {
   font-weight: 600;
 }
 
+.consent-modal .btn-primary {
+  background-color: var(--mia-gold);
+  border-color: var(--mia-gold);
+  color: var(--mia-black);
+  font-weight: 600;
+  transition: all 0.2s ease;
+}
+
 .consultation-card .btn-primary:hover {
   background-color: var(--mia-gold);
   border-color: var(--mia-gold);
@@ -232,16 +240,6 @@ a.consent-trigger:hover i {
   margin: 0;
   margin-block: 0 !important;
   padding: 0;
-
-  /* Enhanced visual for checked checkboxes */
-  &:has(input:checked) {
-    .gchoice {
-      label {
-        color: var(--mia-white);
-        font-weight: 500;
-      }
-    }
-  }
 }
 
 .consultation-card .gform_wrapper .gfield_checkbox .gchoice {
@@ -258,6 +256,12 @@ a.consent-trigger:hover i {
   font-size: 14px;
   line-height: 1.4;
   margin: 0;
+}
+
+/* Enhanced visual for checked checkboxes */
+.consultation-card .gform_wrapper .gfield_checkbox:has(input:checked) .gchoice label {
+  color: var(--mia-white);
+  font-weight: 500;
 }
 
 .consultation-card .gform_wrapper .gform_footer {
@@ -333,7 +337,7 @@ a.consent-trigger:hover i {
 @media (max-width: 768px) {
   .consultation-card .gform_wrapper .gform_fields {
     display: block !important;
-    grid-gap: 0.5rem !important;
+    gap: 0.5rem !important;
   }
 
   .consultation-card .gform_wrapper .gfield {
@@ -470,14 +474,6 @@ a.consent-trigger:hover i {
   background-color: rgba(255, 255, 255, 0.1);
   border-color: var(--mia-white);
   color: var(--mia-white);
-}
-
-.consent-modal .btn-primary {
-  background-color: var(--mia-gold);
-  border-color: var(--mia-gold);
-  color: var(--mia-black);
-  font-weight: 600;
-  transition: all 0.2s ease;
 }
 
 .consent-modal .btn-primary:hover {

@@ -91,6 +91,14 @@
   transition: border-bottom-color 0.2s ease;
 }
 
+.surgeon-bio-link i {
+  color: var(--mia-gold);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
 .surgeon-bio-link:hover {
   color: var(--mia-gold);
 }
@@ -102,14 +110,6 @@
 .surgeon-bio-link:hover i {
   color: var(--mia-white);
   transform: translateX(4px);
-}
-
-.surgeon-bio-link i {
-  color: var(--mia-gold);
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    color 0.2s ease;
 }
 
 /* ==========================================================================

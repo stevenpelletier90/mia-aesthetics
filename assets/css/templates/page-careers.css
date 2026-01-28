@@ -557,13 +557,13 @@
 }
 
 .testimonial-quote {
-  box-orient: vertical;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 6;
   color: var(--mia-black);
   display: -webkit-box;
   flex-grow: 1;
   font-size: 1.1rem;
   font-style: italic;
-  line-clamp: 6;
   line-height: 1.7;
   margin-bottom: 2rem;
   overflow: hidden;
@@ -614,17 +614,17 @@
   width: auto;
 }
 
-#testimonialsCarousel .carousel-control-prev:hover,
-#testimonialsCarousel .carousel-control-next:hover {
-  opacity: 1;
-}
-
 #testimonialsCarousel .carousel-control-prev {
   left: -15px;
 }
 
 #testimonialsCarousel .carousel-control-next {
   right: -15px;
+}
+
+#testimonialsCarousel .carousel-control-prev:hover,
+#testimonialsCarousel .carousel-control-next:hover {
+  opacity: 1;
 }
 
 #testimonialsCarousel .carousel-control-prev-icon,
@@ -834,11 +834,6 @@
   transition: color 0.2s ease;
 }
 
-.careers-footer .copyright a:hover {
-  color: var(--mia-gold);
-  text-decoration: underline;
-}
-
 .careers-footer .legal-links {
   align-items: center;
   display: flex;
@@ -853,6 +848,11 @@
   text-decoration: none;
   transition: color 0.2s ease;
   white-space: nowrap;
+}
+
+.careers-footer .copyright a:hover {
+  color: var(--mia-gold);
+  text-decoration: underline;
 }
 
 .careers-footer .legal-links a:hover {

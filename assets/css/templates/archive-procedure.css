@@ -125,6 +125,12 @@
   transition: border-bottom-color 0.2s ease;
 }
 
+.procedure-links a:focus {
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+}
+
 .procedure-links a:not(.btn):hover {
   color: var(--mia-gold);
 }
@@ -144,12 +150,6 @@
 .procedure-links a:not(.btn):hover i {
   color: var(--mia-white);
   transform: translateX(4px);
-}
-
-.procedure-links a:focus {
-  border-radius: var(--radius-sm);
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
 }
 
 .view-all-link {

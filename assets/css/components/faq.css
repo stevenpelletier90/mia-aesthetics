@@ -57,10 +57,6 @@
   color: var(--mia-black);
 }
 
-.faqs-section .accordion .accordion-item .accordion-button:not(.collapsed)::after {
-  filter: brightness(0.8);
-}
-
 .faqs-section .accordion .accordion-item .accordion-button::after {
   background-image: none;
   color: var(--mia-gold);
@@ -69,6 +65,10 @@
   font-size: 1.2rem;
   font-weight: 900;
   transition: transform 0.2s ease;
+}
+
+.faqs-section .accordion .accordion-item .accordion-button:not(.collapsed)::after {
+  filter: brightness(0.8);
 }
 
 .faqs-section .accordion .accordion-item .accordion-button.collapsed::after {

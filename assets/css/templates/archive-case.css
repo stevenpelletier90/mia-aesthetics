@@ -83,6 +83,32 @@
 }
 
 /* ==========================================================================
+   Icon Styles (ordered by specificity)
+   ========================================================================== */
+
+.browse-by-surgeon .btn i {
+  margin-left: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.case-links a:not(.btn) i {
+  color: var(--mia-gold);
+  text-decoration: none;
+  transition:
+    transform 0.2s ease,
+    color 0.2s ease;
+}
+
+.browse-by-surgeon .btn:hover i {
+  transform: translateX(5px);
+}
+
+.case-links a:not(.btn):hover i {
+  color: var(--mia-white);
+  transform: translateX(4px);
+}
+
+/* ==========================================================================
    Case Links
    ========================================================================== */
 
@@ -111,31 +137,18 @@
   transition: border-bottom-color 0.2s ease;
 }
 
+.case-links a:focus {
+  border-radius: var(--radius-sm);
+  outline: 2px solid var(--mia-gold);
+  outline-offset: 2px;
+}
+
 .case-links a:not(.btn):hover {
   color: var(--mia-gold);
 }
 
 .case-links a:not(.btn):hover span {
   border-bottom-color: var(--mia-white);
-}
-
-.case-links a:not(.btn) i {
-  color: var(--mia-gold);
-  text-decoration: none;
-  transition:
-    transform 0.2s ease,
-    color 0.2s ease;
-}
-
-.case-links a:not(.btn):hover i {
-  color: var(--mia-white);
-  transform: translateX(4px);
-}
-
-.case-links a:focus {
-  border-radius: var(--radius-sm);
-  outline: 2px solid var(--mia-gold);
-  outline-offset: 2px;
 }
 
 .section-heading {
@@ -202,15 +215,6 @@
 .browse-by-surgeon .btn:hover {
   box-shadow: 0 6px 20px rgba(200, 178, 115, 0.4);
   transform: translateY(-3px);
-}
-
-.browse-by-surgeon .btn i {
-  margin-left: 0.5rem;
-  transition: transform 0.3s ease;
-}
-
-.browse-by-surgeon .btn:hover i {
-  transform: translateX(5px);
 }
 
 .browse-by-surgeon .btn:focus {

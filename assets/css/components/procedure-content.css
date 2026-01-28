@@ -21,6 +21,33 @@
 }
 
 /* --------------------------------------------------------------------------
+   Component Paragraph Styles
+   Note: These lower-specificity selectors must come before nested p selectors
+   -------------------------------------------------------------------------- */
+.content-wrapper p {
+  color: var(--mia-black);
+  font-size: 1.125rem;
+  line-height: 1.7;
+  margin-bottom: 1.25rem;
+}
+
+.bbl-recovery-content-box p {
+  color: var(--mia-white);
+  line-height: 1.6;
+}
+
+.info-card p {
+  color: var(--mia-gray);
+  line-height: 1.6;
+  margin-bottom: 0;
+}
+
+.info-note p {
+  color: var(--mia-black);
+  margin-bottom: 0;
+}
+
+/* --------------------------------------------------------------------------
    Procedure Intro Content
    -------------------------------------------------------------------------- */
 .procedure-intro-content {
@@ -56,6 +83,10 @@
   overflow: hidden;
 }
 
+.image-frame {
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
 .procedure-image-wrapper .image-frame {
   border-radius: var(--radius-sm);
   overflow: hidden;
@@ -65,10 +96,6 @@
   border-radius: var(--radius-sm);
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-}
-
-.image-frame {
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 /* --------------------------------------------------------------------------
@@ -180,13 +207,6 @@
    -------------------------------------------------------------------------- */
 .content-wrapper {
   padding-left: 0;
-}
-
-.content-wrapper p {
-  color: var(--mia-black);
-  font-size: 1.125rem;
-  line-height: 1.7;
-  margin-bottom: 1.25rem;
 }
 
 /* --------------------------------------------------------------------------
@@ -303,11 +323,6 @@
   font-family: var(--font-heading);
 }
 
-.bbl-recovery-content-box p {
-  color: var(--mia-white);
-  line-height: 1.6;
-}
-
 .bbl-info-card {
   background: var(--mia-white);
   border: 1px solid var(--mia-gold);
@@ -376,12 +391,6 @@
   margin-bottom: 1rem;
 }
 
-.info-card p {
-  color: var(--mia-gray);
-  line-height: 1.6;
-  margin-bottom: 0;
-}
-
 /* --------------------------------------------------------------------------
    Info Note (Breast Lift)
    -------------------------------------------------------------------------- */
@@ -391,11 +400,6 @@
   border-radius: var(--radius-md);
   margin: 1rem 0;
   padding: 1.25rem;
-}
-
-.info-note p {
-  color: var(--mia-black);
-  margin-bottom: 0;
 }
 
 .info-note i {

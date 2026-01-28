@@ -3,6 +3,85 @@
    ========================================================================== */
 
 /* ==========================================================================
+   Base Styles (lower specificity - must come first)
+   ========================================================================== */
+
+.video-container {
+  border-radius: var(--radius-lg);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.video-play-button {
+  align-items: center;
+  background-color: var(--mia-black);
+  border: 3px solid var(--mia-gold);
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  display: flex;
+  height: 5rem;
+  justify-content: center;
+  left: 50%;
+  opacity: 0.9;
+  position: absolute;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
+  width: 5rem;
+}
+
+.video-play-button i {
+  color: var(--mia-gold);
+  font-size: 1.75rem;
+  margin-left: 5px;
+}
+
+.expertise-icon i {
+  color: var(--mia-gold);
+  font-size: 2rem;
+}
+
+.expertise-link i {
+  color: var(--mia-gold);
+  transition: transform 0.2s ease;
+}
+
+.surgeon-info-list i {
+  color: var(--mia-gold);
+  flex-shrink: 0;
+  width: 1.5rem;
+}
+
+.surgeon-info-list a {
+  color: var(--mia-gold);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.surgeon-hero-image:not(:has(img)) i {
+  font-size: 6rem;
+  opacity: 0.3;
+}
+
+.expertise-link:hover i {
+  transform: translateX(3px);
+}
+
+.resource-link i:first-child {
+  color: var(--mia-gold);
+  margin-right: 1rem;
+  width: 1.25rem;
+}
+
+.resource-link i:last-child {
+  color: var(--mia-gray-dark);
+  font-size: 0.75rem;
+  transition: transform 0.2s ease;
+}
+
+/* ==========================================================================
    Hero Section
    ========================================================================== */
 
@@ -17,34 +96,29 @@
   margin: 0 auto;
   max-width: 25rem;
   position: relative;
+}
 
-  img {
-    background: linear-gradient(135deg, var(--mia-white) 0%, var(--mia-gold-light) 100%);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    height: auto;
-    width: 100%;
-  }
+.surgeon-hero-image img {
+  background: linear-gradient(135deg, var(--mia-white) 0%, var(--mia-gold-light) 100%);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  height: auto;
+  width: 100%;
+}
 
-  &:not(:has(img)) {
-    align-items: center;
-    aspect-ratio: 4/5;
-    background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
-    border-radius: var(--radius-sm);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
+.surgeon-hero-image:not(:has(img)) {
+  align-items: center;
+  aspect-ratio: 4/5;
+  background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
+  border-radius: var(--radius-sm);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+}
 
-    .placeholder-content {
-      color: white;
-      text-align: center;
-    }
-
-    i {
-      font-size: 6rem;
-      opacity: 0.3;
-    }
-  }
+.surgeon-hero-image:not(:has(img)) .placeholder-content {
+  color: white;
+  text-align: center;
 }
 
 .surgeon-image-accent {
@@ -190,12 +264,6 @@
    Video Components
    ========================================================================== */
 
-.video-container {
-  border-radius: var(--radius-lg);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
-}
-
 .video-thumbnail {
   cursor: pointer;
   height: 100%;
@@ -204,54 +272,26 @@
   position: absolute;
   top: 0;
   width: 100%;
-
-  img {
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.2s ease;
-    width: 100%;
-  }
-
-  &:hover {
-    img {
-      transform: scale(1.05);
-    }
-
-    .video-play-button {
-      background-color: var(--mia-gold);
-      transform: translate(-50%, -50%) scale(1.1);
-
-      i {
-        color: var(--mia-black);
-      }
-    }
-  }
 }
 
-.video-play-button {
-  align-items: center;
-  background-color: var(--mia-black);
-  border: 3px solid var(--mia-gold);
-  border-radius: var(--radius-full);
-  cursor: pointer;
-  display: flex;
-  height: 5rem;
-  justify-content: center;
-  left: 50%;
-  opacity: 0.9;
-  position: absolute;
-  top: 50%;
-  transform: translate(-50%, -50%);
-  transition:
-    background-color 0.2s ease,
-    transform 0.2s ease;
-  width: 5rem;
+.video-thumbnail img {
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.2s ease;
+  width: 100%;
+}
 
-  i {
-    color: var(--mia-gold);
-    font-size: 1.75rem;
-    margin-left: 5px;
-  }
+.video-thumbnail:hover img {
+  transform: scale(1.05);
+}
+
+.video-thumbnail:hover .video-play-button {
+  background-color: var(--mia-gold);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+
+.video-thumbnail:hover .video-play-button i {
+  color: var(--mia-black);
 }
 
 /* ==========================================================================
@@ -298,26 +338,19 @@
   height: 3.125rem;
   justify-content: center;
   width: 3.125rem;
-
-  i {
-    color: var(--mia-gold);
-    font-size: 1.5rem;
-  }
 }
 
-.expertise-content {
-  h3 {
-    color: var(--mia-black);
-    font-size: 1.25rem;
-    font-weight: 600;
-    margin-bottom: 0.75rem;
-  }
+.expertise-content h3 {
+  color: var(--mia-black);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
 
-  p {
-    color: var(--mia-gray-dark);
-    line-height: 1.6;
-    margin-bottom: 1rem;
-  }
+.expertise-content p {
+  color: var(--mia-gray-dark);
+  line-height: 1.6;
+  margin-bottom: 1rem;
 }
 
 .expertise-link {
@@ -328,19 +361,10 @@
   gap: 0.5rem;
   text-decoration: none;
   transition: color 0.2s ease;
+}
 
-  &:hover {
-    color: var(--mia-gold);
-
-    i {
-      transform: translateX(3px);
-    }
-  }
-
-  i {
-    font-size: 0.85em;
-    transition: transform 0.2s ease;
-  }
+.expertise-link:hover {
+  color: var(--mia-gold);
 }
 
 /* ==========================================================================
@@ -383,38 +407,24 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
 
-  li {
-    align-items: flex-start;
-    border-bottom: 1px solid var(--mia-gold-light);
-    color: var(--mia-gray-dark);
-    display: flex;
-    gap: 1rem;
-    padding: 0.75rem 0;
+.surgeon-info-list li {
+  align-items: flex-start;
+  border-bottom: 1px solid var(--mia-gold-light);
+  color: var(--mia-gray-dark);
+  display: flex;
+  gap: 1rem;
+  padding: 0.75rem 0;
+}
 
-    &:last-child {
-      border-bottom: none;
-    }
-  }
+.surgeon-info-list li:last-child {
+  border-bottom: none;
+}
 
-  i {
-    color: var(--mia-gold);
-    flex-shrink: 0;
-    margin-top: 0.2rem;
-    text-align: center;
-    width: 1.25rem;
-  }
-
-  a {
-    color: var(--mia-black);
-    font-weight: 600;
-    text-decoration: none;
-
-    &:hover {
-      color: var(--mia-gold);
-      text-decoration: underline;
-    }
-  }
+.surgeon-info-list a:hover {
+  color: var(--mia-gold);
+  text-decoration: underline;
 }
 
 .resource-links {
@@ -436,34 +446,22 @@
     background-color 0.2s ease,
     border-color 0.2s ease,
     color 0.2s ease;
+}
 
-  &:hover {
-    background: var(--mia-white);
-    border-color: var(--mia-gold);
-    color: var(--mia-gold);
-    text-decoration: none;
+.resource-link span {
+  flex-grow: 1;
+  font-weight: 600;
+}
 
-    i:last-child {
-      transform: translateX(3px);
-    }
-  }
+.resource-link:hover {
+  background: var(--mia-white);
+  border-color: var(--mia-gold);
+  color: var(--mia-gold);
+  text-decoration: none;
+}
 
-  i:first-child {
-    color: var(--mia-gold);
-    margin-right: 1rem;
-    width: 1.25rem;
-  }
-
-  span {
-    flex-grow: 1;
-    font-weight: 600;
-  }
-
-  i:last-child {
-    color: var(--mia-gray-dark);
-    font-size: 0.75rem;
-    transition: transform 0.2s ease;
-  }
+.resource-link:hover i:last-child {
+  transform: translateX(3px);
 }
 
 /* ==========================================================================

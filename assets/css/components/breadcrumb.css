@@ -15,11 +15,6 @@
   font-family: var(--font-body);
 }
 
-.breadcrumb-nav a,
-.breadcrumb-inline a {
-  text-decoration: underline;
-}
-
 /* --------------------------------------------------------------------------
    Standard Breadcrumb Nav (black/gold)
    Used in: breadcrumb component wrapper
@@ -27,19 +22,6 @@
 .breadcrumb-nav {
   background: var(--mia-white);
   padding: 0.75rem 0;
-}
-
-.breadcrumb-nav a {
-  color: var(--mia-gray-dark);
-}
-
-.breadcrumb-nav a:hover,
-.breadcrumb-nav a:focus {
-  color: var(--mia-gold);
-}
-
-.breadcrumb-nav .breadcrumb_last {
-  color: var(--mia-gray-dark);
 }
 
 /* --------------------------------------------------------------------------
@@ -54,13 +36,31 @@
   text-transform: uppercase;
 }
 
+/* --------------------------------------------------------------------------
+   Link Styles (base before hover)
+   -------------------------------------------------------------------------- */
+.breadcrumb-nav a {
+  color: var(--mia-gray-dark);
+  text-decoration: underline;
+}
+
 .breadcrumb-inline a {
   color: var(--mia-link);
+  text-decoration: underline;
+}
+
+.breadcrumb-nav a:hover,
+.breadcrumb-nav a:focus {
+  color: var(--mia-gold);
 }
 
 .breadcrumb-inline a:hover,
 .breadcrumb-inline a:focus {
   color: var(--mia-link-hover);
+}
+
+.breadcrumb-nav .breadcrumb_last {
+  color: var(--mia-gray-dark);
 }
 
 .breadcrumb-inline .breadcrumb_last {

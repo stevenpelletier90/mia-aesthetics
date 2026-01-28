@@ -102,6 +102,23 @@
   overflow: hidden;
 }
 
+/* Icon Base Styles (lower specificity - must come before higher specificity selectors) */
+.no-jobs-message i {
+  color: var(--mia-gold);
+  opacity: 0.6;
+}
+
+.benefit-icon i {
+  color: var(--mia-gold);
+  font-size: 1.75rem;
+}
+
+.video-play-button i {
+  color: var(--mia-white);
+  font-size: 1.5rem;
+  margin-left: 3px;
+}
+
 .dept-breakdown .accordion-button {
   background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
   border: none;
@@ -111,6 +128,23 @@
   font-weight: 600;
   padding: 20px 24px;
   transition: all 0.2s ease;
+}
+
+.page-template-page-careers-locations main .accordion-button {
+  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
+  border: none;
+  box-shadow: none;
+  color: var(--mia-black);
+  font-size: 1.25rem;
+  font-weight: 600;
+  padding: 20px 24px;
+  transition: all 0.2s ease;
+}
+
+.page-template-page-careers-locations main .accordion-button i {
+  color: var(--mia-gold);
+  font-size: 1.25rem;
+  transition: color 0.2s ease;
 }
 
 .dept-breakdown .accordion-button:not(.collapsed) {
@@ -215,17 +249,6 @@
   margin-bottom: 0;
 }
 
-.page-template-page-careers-locations main .accordion-button {
-  background: linear-gradient(135deg, var(--mia-gold-light) 0%, var(--mia-gold-light) 100%);
-  border: none;
-  box-shadow: none;
-  color: var(--mia-black);
-  font-size: 1.25rem;
-  font-weight: 600;
-  padding: 20px 24px;
-  transition: all 0.2s ease;
-}
-
 .page-template-page-careers-locations main .accordion-button:not(.collapsed) {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   box-shadow: none;
@@ -256,12 +279,6 @@
   font-size: 1.1rem;
   line-height: 1.7;
   margin-bottom: 32px;
-}
-
-.page-template-page-careers-locations main .accordion-button i {
-  color: var(--mia-gold);
-  font-size: 1.25rem;
-  transition: color 0.2s ease;
 }
 
 .position-card-expanded {
@@ -347,11 +364,6 @@
 .no-jobs-message {
   background: var(--mia-gold-light);
   border: 2px dashed var(--mia-gray-light);
-}
-
-.no-jobs-message i {
-  color: var(--mia-gold);
-  opacity: 0.6;
 }
 
 .benefits-section {
@@ -496,11 +508,6 @@
   width: 140px;
 }
 
-.benefit-icon i {
-  color: var(--mia-gold);
-  font-size: 1.75rem;
-}
-
 .benefit-svg-icon {
   filter: brightness(0) saturate(100%) invert(85%) sepia(28%) saturate(1000%) hue-rotate(345deg) brightness(90%) contrast(86%);
   height: 80px;
@@ -590,12 +597,6 @@
   transform: translate(-50%, -50%) scale(1.1);
 }
 
-.video-play-button i {
-  color: var(--mia-white);
-  font-size: 1.5rem;
-  margin-left: 3px;
-}
-
 .page-template-page-careers-locations .team-section {
   background-color: var(--mia-gold-light);
 }
@@ -682,6 +683,10 @@
 
   .dept-breakdown h3,
   .job-functions h3 {
+    font-size: 1.5rem;
+  }
+
+  .benefit-icon i {
     font-size: 1.5rem;
   }
 
@@ -781,10 +786,6 @@
   .benefit-icon {
     height: 120px;
     width: 120px;
-  }
-
-  .benefit-icon i {
-    font-size: 1.5rem;
   }
 
   .benefit-svg-icon {
