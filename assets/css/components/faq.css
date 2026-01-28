@@ -13,13 +13,10 @@
 }
 
 .faqs-section h2 {
-  
-  
   letter-spacing: 0.03em;
   padding-bottom: 1rem;
   position: relative;
   text-align: center;
-  text-transform: uppercase;
 }
 
 .faqs-section h2::after {

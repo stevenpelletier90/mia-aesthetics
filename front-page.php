@@ -262,24 +262,22 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 						$headshot_id = get_field( 'surgeon_headshot' );
 						?>
 						<div class="surgeon-slide">
-							<div class="homepage-surgeon-card">
-								<div class="homepage-surgeon-image">
-									<?php
-									if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
-										echo wp_get_attachment_image(
-											(int) $headshot_id,
-											'medium_large',
-											false,
-											array(
-												'class' => 'homepage-surgeon-headshot',
-												'alt'   => get_the_title() . ' Headshot',
-											)
-										);
-									elseif ( has_post_thumbnail() ) :
-										the_post_thumbnail( 'medium_large', array( 'class' => 'homepage-surgeon-headshot' ) );
-									endif;
-									?>
-								</div>
+							<div class="homepage-surgeon-item">
+								<?php
+								if ( null !== $headshot_id && '' !== $headshot_id && is_numeric( $headshot_id ) ) :
+									echo wp_get_attachment_image(
+										(int) $headshot_id,
+										'medium_large',
+										false,
+										array(
+											'class' => 'homepage-surgeon-headshot',
+											'alt'   => get_the_title() . ' Headshot',
+										)
+									);
+								elseif ( has_post_thumbnail() ) :
+									the_post_thumbnail( 'medium_large', array( 'class' => 'homepage-surgeon-headshot' ) );
+								endif;
+								?>
 								<div class="homepage-surgeon-info">
 									<h3 class="homepage-surgeon-name">
 										<?php if ( false !== $surgeon_permalink ) : ?>
@@ -290,7 +288,6 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 									</h3>
 									<?php if ( '' !== $location_title && 0 !== $location_id ) : ?>
 										<p class="homepage-surgeon-location">
-											<i class="fa-solid fa-location-dot" aria-hidden="true"></i>
 											<?php
 											$location_permalink = get_permalink( $location_id );
 											if ( false !== $location_permalink ) :
@@ -302,9 +299,7 @@ $has_separate_widescreen = $hero_widescreen_id !== $hero_desktop_id && '' !== $w
 										</p>
 									<?php endif; ?>
 									<?php if ( false !== $surgeon_permalink ) : ?>
-										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="homepage-surgeon-bio-link" aria-label="View Bio for <?php echo esc_attr( get_the_title() ); ?>">
-											View Bio <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-										</a>
+										<a href="<?php echo esc_url( $surgeon_permalink ); ?>" class="homepage-surgeon-bio-link">View Bio</a>
 									<?php endif; ?>
 								</div>
 							</div>

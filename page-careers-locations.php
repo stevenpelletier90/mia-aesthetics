@@ -19,7 +19,7 @@ get_header();
 <main id="primary">
 <?php mia_aesthetics_breadcrumbs(); ?>
 
-	<section class="location-header py-5">
+	<section class="location-header">
 		<div class="container">
 			<div class="row align-items-center">
 				<div class="col-lg-6">

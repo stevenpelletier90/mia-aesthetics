@@ -2,12 +2,6 @@
   background-color: var(--mia-gold-light);
 }
 
-.search-results .post-header h1 {
-  
-  
-  
-}
-
 .search-results .post-header h1 span {
   color: var(--mia-gold);
   font-style: italic;
@@ -41,8 +35,6 @@
 }
 
 .search-results .card-body h2 {
-  
-  
   margin-bottom: 1rem;
 }
 
@@ -76,7 +68,6 @@
 }
 
 .search-results .no-results h3 {
-  
   margin-bottom: 1rem;
 }
 
