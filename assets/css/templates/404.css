@@ -54,7 +54,7 @@
 
 .search-form-404 .search-field:focus {
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 0.2rem var(--mia-gold-20);
+  box-shadow: 0 0 0 0.2rem var(--mia-gold-50);
   outline: none;
 }
 

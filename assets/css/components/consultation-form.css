@@ -162,7 +162,7 @@ a.consent-trigger:hover i {
 .consultation-card .gform_wrapper :is(input[type="text"], input[type="email"], input[type="tel"], input[type="number"], input[type="url"]):focus {
   background-color: var(--mia-white);
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 2px var(--mia-gold-30);
+  box-shadow: 0 0 0 2px var(--mia-gold-50);
   outline: none;
 }
 
@@ -201,7 +201,7 @@ a.consent-trigger:hover i {
 .consultation-card .gform_wrapper select:focus {
   background-color: var(--mia-white);
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 2px var(--mia-gold-30);
+  box-shadow: 0 0 0 2px var(--mia-gold-50);
   outline: none;
 }
 
@@ -224,7 +224,7 @@ a.consent-trigger:hover i {
 .consultation-card .gform_wrapper textarea:focus {
   background-color: var(--mia-white);
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 2px var(--mia-gold-30);
+  box-shadow: 0 0 0 2px var(--mia-gold-50);
   outline: none;
 }
 
@@ -512,9 +512,9 @@ a.consent-trigger:hover i {
 
 /* Modal Z-Index Fix - Force it above everything */
 .modal-backdrop {
-  z-index: 10000 !important;
+  z-index: var(--z-modal) !important;
 }
 
 .modal {
-  z-index: 10001 !important;
+  z-index: calc(var(--z-modal) + 1) !important;
 }

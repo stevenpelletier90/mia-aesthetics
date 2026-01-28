@@ -437,7 +437,9 @@
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    transform 0.2s ease;
   width: 48px;
   z-index: 2;
 }
@@ -685,7 +687,7 @@
 }
 
 .procedure-tabs .nav-link:hover {
-  background-color: var(--mia-gold-10);
+  background-color: var(--mia-gold-50);
   border-color: transparent;
 }
 
@@ -755,7 +757,7 @@
 
 #procedureDropdown:focus {
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 3px var(--mia-gold-30);
+  box-shadow: 0 0 0 3px var(--mia-gold-50);
 }
 
 .procedure-links {

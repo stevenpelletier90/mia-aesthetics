@@ -170,9 +170,9 @@
 .value-icon {
   align-items: center;
   background: var(--mia-gold-light);
-  border: 2px solid var(--mia-gold-20);
+  border: 2px solid var(--mia-gold-50);
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 15px var(--mia-gold-20);
+  box-shadow: 0 4px 15px var(--mia-gold-50);
   display: flex;
   height: 140px;
   justify-content: center;
@@ -342,8 +342,8 @@
 }
 
 .founders-quote {
-  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--mia-gold-10) 100%);
-  border: 1px solid var(--mia-gold-20);
+  background: linear-gradient(135deg, rgba(200, 178, 115, 0.05) 0%, var(--mia-gold-50) 100%);
+  border: 1px solid var(--mia-gold-50);
   border-radius: var(--radius-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
   font-style: normal;
@@ -354,7 +354,7 @@
 }
 
 .founders-quote::before {
-  background: radial-gradient(circle, var(--mia-gold-10) 0%, transparent 70%);
+  background: radial-gradient(circle, var(--mia-gold-50) 0%, transparent 70%);
   content: "";
   height: 200%;
   pointer-events: none;
@@ -421,9 +421,9 @@
 .benefit-icon {
   align-items: center;
   background: var(--mia-gold-light);
-  border: 2px solid var(--mia-gold-20);
+  border: 2px solid var(--mia-gold-50);
   border-radius: var(--radius-full);
-  box-shadow: 0 4px 15px var(--mia-gold-20);
+  box-shadow: 0 4px 15px var(--mia-gold-50);
   display: flex;
   height: 140px;
   justify-content: center;
@@ -1272,7 +1272,7 @@
   }
 
   .careers-footer .footer-bottom {
-    border-top: 1px solid var(--mia-gold-20);
+    border-top: 1px solid var(--mia-gold-50);
     padding-top: 1.5rem;
   }
 

@@ -53,7 +53,7 @@
 }
 
 .faqs-section .accordion .accordion-item .accordion-button:not(.collapsed) {
-  background-color: var(--mia-gold-10);
+  background-color: var(--mia-gold-50);
   color: var(--mia-black);
 }
 

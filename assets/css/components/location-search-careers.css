@@ -23,7 +23,7 @@
 
 #location-search-careers:focus {
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 3px var(--mia-gold-10);
+  box-shadow: 0 0 0 3px var(--mia-gold-50);
 }
 
 .location-search-careers .search-icon {
@@ -48,7 +48,7 @@
   position: absolute;
   right: 0;
   top: 100%;
-  z-index: 9999;
+  z-index: var(--z-header);
 }
 
 #search-dropdown-careers .dropdown-item {

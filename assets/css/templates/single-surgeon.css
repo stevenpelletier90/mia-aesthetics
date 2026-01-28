@@ -333,7 +333,7 @@
 
 .expertise-icon {
   align-items: center;
-  background: var(--mia-gold-10);
+  background: var(--mia-gold-50);
   border-radius: var(--radius-full);
   display: flex;
   flex-shrink: 0;

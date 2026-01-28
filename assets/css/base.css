@@ -27,10 +27,6 @@
   --mia-link-light-hover: #8dc6ff; /* ~9:1 on #1b1b1b */
 
   /* Gold Opacity */
-  --mia-gold-10: rgba(200, 178, 115, 0.1);
-  --mia-gold-20: rgba(200, 178, 115, 0.2);
-  --mia-gold-30: rgba(200, 178, 115, 0.3);
-  --mia-gold-40: rgba(200, 178, 115, 0.4);
   --mia-gold-50: rgba(200, 178, 115, 0.5);
 
   /* Typography */
@@ -45,13 +41,11 @@
   --radius-full: 50%;
   --radius-DEFAULT: 4px;
 
-  /* Z-Index */
+  /* Z-Index Scale */
   --z-sticky: 1020;
-  --z-tooltip: 1070;
+  --z-dropdown: 1050;
   --z-header: 9999;
-
-  /* Transitions */
-  --transition-fast: 0.2s ease-in-out;
+  --z-modal: 10000;
 }
 
 /* ==========================================================================
@@ -114,10 +108,9 @@ h6,
 .h6 {
   color: var(--mia-black);
   font-family: var(--font-heading);
-  font-weight: 600;
+  font-weight: 700;
   line-height: 1.25;
   margin-top: 0;
-  text-transform: uppercase;
 }
 
 h1,
@@ -176,7 +169,7 @@ a {
   color: var(--mia-link);
   font-weight: 600;
   text-decoration: underline;
-  transition: color var(--transition-fast);
+  transition: color 0.2s ease;
 }
 
 a:hover,

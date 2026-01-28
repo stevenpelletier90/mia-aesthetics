@@ -240,7 +240,7 @@
 .virtual-consultation-form .form-control:focus {
   background-color: var(--mia-white);
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 4px var(--mia-gold-20);
+  box-shadow: 0 0 0 4px var(--mia-gold-50);
   outline: none;
 }
 
@@ -306,7 +306,7 @@
 .location-hint {
   align-items: center;
   animation: fade-up 0.3s ease;
-  background-color: var(--mia-gold-10);
+  background-color: var(--mia-gold-50);
   border-left: 3px solid var(--mia-gold);
   border-radius: var(--radius-sm);
   color: var(--mia-gold-dark);
@@ -390,7 +390,7 @@
 
 .form-check-input:focus {
   border-color: var(--mia-gold);
-  box-shadow: 0 0 0 4px var(--mia-gold-20);
+  box-shadow: 0 0 0 4px var(--mia-gold-50);
   outline: none;
 }
 

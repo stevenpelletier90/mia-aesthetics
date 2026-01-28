@@ -640,7 +640,7 @@
   .comparison-table td {
     background-color: var(--mia-black);
     border: none !important;
-    border-bottom: 1px solid var(--mia-gold-30) !important;
+    border-bottom: 1px solid var(--mia-gold-50) !important;
     color: var(--mia-white);
     display: block;
     padding: 1rem !important;

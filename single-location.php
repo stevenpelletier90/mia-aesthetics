@@ -216,15 +216,15 @@ $mia_location_hero_id = get_post_thumbnail_id();
 		</section>
 
 		<article class="location-article">
-			<div class="container">
+			<div class="container-xl">
 				<div class="row gx-5">
-					<div class="col-md-8">
+					<div class="col-12 location-main">
 						<div class="location-content">
 							<?php the_content(); ?>
 						</div>
 					</div>
 
-					<aside class="col-md-4" role="complementary" aria-label="Related resources">
+					<aside class="col-12 location-sidebar" role="complementary" aria-label="Related resources">
 						<div class="sidebar-card patient-resources-card">
 							<h3 class="sidebar-card-title">Patient Resources</h3>
 							<div class="resource-links">
@@ -273,7 +273,7 @@ $mia_location_hero_id = get_post_thumbnail_id();
 	<section class="team-section">
 		<div class="container">
 			<h2 class="section-title text-center">Our <?php echo esc_html( get_the_title() ); ?> Team</h2>
-			<div class="row g-4 justify-content-center">
+			<div class="row g-4 surgeon-list">
 				<?php
 				$args = array(
 					'post_type'              => 'surgeon',
@@ -300,8 +300,8 @@ $mia_location_hero_id = get_post_thumbnail_id();
 						$surgeons->the_post();
 						?>
 
-						<div class="col-12 col-md-6 col-lg-3">
-							<div class="surgeon-item text-center">
+						<div class="col-12 col-md-4">
+							<div class="surgeon-item">
 								<?php
 								$surgeon_headshot_id = get_field( 'surgeon_headshot' );
 								if ( null !== $surgeon_headshot_id && is_numeric( $surgeon_headshot_id ) ) :
@@ -331,10 +331,11 @@ $mia_location_hero_id = get_post_thumbnail_id();
 									<h3><?php the_title(); ?></h3>
 									<p>Plastic Surgeon</p>
 									<a href="<?php the_permalink(); ?>" class="btn btn-primary btn-sm" aria-label="View <?php echo esc_attr( get_the_title() ); ?>'s profile">
-										View Profile <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+										View Profile
 									</a>
 								</div>
 							</div>
+							<hr class="surgeon-divider" role="separator" aria-hidden="true">
 						</div>
 
 						<?php

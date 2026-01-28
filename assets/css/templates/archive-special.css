@@ -167,7 +167,7 @@
   animation: pulse 2s infinite;
   background: var(--mia-gold);
   border-radius: var(--radius-lg);
-  box-shadow: 0 2px 8px var(--mia-gold-30);
+  box-shadow: 0 2px 8px var(--mia-gold-50);
   color: var(--mia-white);
   font-size: 14px;
   font-weight: 600;
@@ -183,7 +183,7 @@
 }
 
 .sticky-special:hover {
-  box-shadow: 0 4px 15px var(--mia-gold-30);
+  box-shadow: 0 4px 15px var(--mia-gold-50);
 }
 
 .sticky-special .special-card-title a {
@@ -203,7 +203,7 @@
 
 @keyframes pulse {
   0% {
-    box-shadow: 0 2px 8px var(--mia-gold-30);
+    box-shadow: 0 2px 8px var(--mia-gold-50);
   }
 
   50% {
@@ -211,7 +211,7 @@
   }
 
   100% {
-    box-shadow: 0 2px 8px var(--mia-gold-30);
+    box-shadow: 0 2px 8px var(--mia-gold-50);
   }
 }
 
