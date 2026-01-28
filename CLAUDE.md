@@ -381,6 +381,26 @@ Reference: [Claude Cookbook - Frontend Aesthetics](https://github.com/anthropics
 }
 ```
 
+## AI-Assisted Frontend Development
+
+When working on frontend/CSS tasks, use these tools for better results:
+
+### Sequential Thinking (`mcp__sequential-thinking__sequentialthinking`)
+
+Use for complex frontend problems:
+- Planning responsive breakpoints and mobile layouts
+- Breaking down multi-step CSS refactors
+- Verifying spacing, sizing, and alignment decisions
+- Analyzing component hierarchy and structure
+
+### Frontend Design Skill (`/frontend-design`)
+
+Invoke for significant UI work:
+- Creating new components or page sections
+- Redesigning existing layouts
+- Building production-grade interfaces
+- Ensuring high design quality and avoiding generic aesthetics
+
 ## Anti-Patterns
 
 **CSS:** Inline styles, hardcoded colors, Bootstrap blue buttons, `border-radius > 4px` on buttons, generic AI aesthetics (Inter, Roboto, purple gradients)
