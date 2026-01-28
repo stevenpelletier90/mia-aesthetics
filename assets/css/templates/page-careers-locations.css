@@ -2,6 +2,18 @@
   border-radius: var(--radius-none);
 }
 
+/* ==========================================================================
+   Location Article Section
+   ========================================================================== */
+
+.page-template-page-careers-locations .location-article {
+  padding: 2rem 0;
+}
+
+/* ==========================================================================
+   Location Header Section
+   ========================================================================== */
+
 .location-header {
   background: linear-gradient(135deg, var(--mia-black) 0%, var(--mia-pure-black) 100%);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
@@ -595,6 +607,11 @@
 
 .page-template-page-careers-locations .team-section {
   background-color: var(--mia-gold-light);
+  padding: 2rem 0;
+}
+
+.page-template-page-careers-locations .location-faq-section {
+  padding: 2rem 0 2.5rem;
 }
 
 .page-template-page-careers-locations .section-title {
@@ -648,6 +665,12 @@
 }
 
 @media (min-width: 768px) {
+  .page-template-page-careers-locations .location-article,
+  .page-template-page-careers-locations .team-section,
+  .page-template-page-careers-locations .location-faq-section {
+    padding: 3rem 0;
+  }
+
   .surgeon-card img {
     height: 140px;
     width: 140px;

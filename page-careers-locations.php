@@ -204,20 +204,20 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 		</div>
 	</section>
 
-	<article class="py-5">
+	<article class="location-article">
 		<div class="container">
 			<?php
 			while ( have_posts() ) :
 				the_post();
 				?>
 				<div class="location-content">
-					<h2 class="text-center mb-5">Career Opportunities</h2>
+					<h2 class="section-title text-center">Career Opportunities</h2>
 					<?php the_content(); ?>
-					
+
 					<!-- High Level Dept Breakdown -->
 					<div class="dept-breakdown mt-5">
 						<h3 class="mb-4">High Level Department Breakdown</h3>
-						
+
 						<div class="accordion" id="deptAccordion">
 							<!-- Outpatient Surgical Centers -->
 							<div class="accordion-item mb-3">
@@ -230,7 +230,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 								<div id="collapseOutpatient" class="accordion-collapse collapse" aria-labelledby="headingOutpatient">
 									<div class="accordion-body">
 										<p class="lead">Our frontline team members who directly aid patients throughout the surgical journey. Check openings at our clinic and join the team responsible for providing moments of Mia magic through each interaction.</p>
-										
+
 										<div class="row g-4 mt-3">
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
@@ -238,98 +238,98 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 													<p class="job-function-description">Medical Assistants at Mia Aesthetics play a vital role in supporting patient care and the clinical team. They assist with pre- and post-op care, take vitals, prep exam rooms, and help educate patients throughout their recovery. This role combines clinical skill with compassion in a fast-paced, aesthetics-driven setting.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">PRNs</h4>
 													<p class="job-function-description">PRNs at Mia Aesthetics provide flexible, high-quality support wherever needed—pre-op, post-op, or during surgery. This role suits experienced professionals who thrive in a fast-paced setting and value flexible, team-based work.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Registered Nurses</h4>
 													<p class="job-function-description">Registered Nurses at Mia Aesthetics support patients through every step of surgery—from pre-op assessments to post-op recovery. They provide education, assist in procedures, and ensure safe, comfortable healing. Clinical skill, communication, and compassion are essential.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Field Trainers</h4>
 													<p class="job-function-description">Field Trainers at Mia Aesthetics onboard and train new staff across clinics, ensuring consistent protocols and high standards in care and service. They serve as mentors, combining clinical expertise with strong communication and a passion for teaching.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">RN Clinical Trainers</h4>
 													<p class="job-function-description">RN Clinical Trainers at Mia Aesthetics onboard and educate nursing staff, ensuring consistent, high-quality care. With strong leadership and clinical expertise, they lead training, reinforce safety standards, and promote a culture of continuous learning.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Clinical Operations Specialists</h4>
 													<p class="job-function-description">Clinical Operations Specialists at Mia Aesthetics are the first point of contact, managing check-ins, scheduling, and records with professionalism and care. Their attention to detail and strong communication keep the clinic running smoothly and patients supported throughout their visit.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">OR Circulators</h4>
 													<p class="job-function-description">OR Circulators at Mia Aesthetics ensure smooth, safe surgeries by prepping the OR, supporting the surgical team, and advocating for patients. This fast-paced role demands precision, communication, and attention to detail.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">In-Clinic Surgical Coordinators</h4>
 													<p class="job-function-description">In-Clinic Surgical Coordinators at Mia Aesthetics guide patients through their surgical journey, managing documentation, scheduling, and communication. This fast-paced role requires strong multitasking, attention to detail, and compassionate support.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Surgical Assistants</h4>
 													<p class="job-function-description">Surgical Assistants at Mia Aesthetics support surgeons during procedures by prepping the OR, positioning patients, and handling instruments. This hands-on role demands clinical skill, focus, and a commitment to excellent patient care.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Social Media Coordinators</h4>
 													<p class="job-function-description">As a Social Media Coordinator at Mia Aesthetics, you'll create content, share patient stories, and grow our presence on Instagram, TikTok, and Facebook. This creative, fast-paced role blends storytelling with strategy to connect and inspire.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Clinic Administrator/Practice Manager</h4>
 													<p class="job-function-description">Clinic Administrator/Practice Manager leads daily operations of the plastic surgery center, managing staff, scheduling, billing, and compliance to ensure a smooth, patient-focused experience. Strong leadership, organization, and customer service skills are key.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Clinical Assistants</h4>
 													<p class="job-function-description">Clinical Assistants at Mia Aesthetics support patient care by prepping rooms, assisting in procedures, and ensuring comfort. This role requires organization, attention to detail, and compassion to help deliver a smooth clinical experience.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Licensed Massage Therapists</h4>
 													<p class="job-function-description">As a Licensed Massage Therapist at Mia Aesthetics, you support post-op recovery through lymphatic massages that reduce swelling and promote healing. You help patients feel cared for and comfortable during their transformation journey.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Cleaning Personnel</h4>
 													<p class="job-function-description">Cleaning Personnel at Mia Aesthetics ensure a clean, safe, and welcoming environment by sanitizing patient rooms, surgical areas, and common spaces. Their attention to detail is key to maintaining high hygiene standards and supporting quality care.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">OR Sterilizers</h4>
@@ -352,7 +352,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 								<div id="collapseTraining" class="accordion-collapse collapse" aria-labelledby="headingTraining">
 									<div class="accordion-body">
 										<p class="lead">Help onboard and train new staff across Mia locations nationwide. Join the team ensuring consistent protocols and high standards in care and service. Serve as mentor, combining strong coaching, communication, and teaching abilities with a passion for helping others.</p>
-										
+
 										<div class="row g-4 mt-3">
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
@@ -360,7 +360,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 													<p class="job-function-description">Field Trainers at Mia Aesthetics onboard and train new staff across clinics, ensuring consistent protocols and high standards in care and service. They serve as mentors, combining clinical expertise with strong communication and a passion for teaching.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">RN Clinical Trainers</h4>
@@ -383,7 +383,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 								<div id="collapseCX" class="accordion-collapse collapse" aria-labelledby="headingCX">
 									<div class="accordion-body">
 										<p class="lead">Our behind-the-scenes teams that support our patients throughout their surgical journey. Check out our customer support openings and become a caring team member supporting internal and external communications needed to make our patients dreams become reality.</p>
-										
+
 										<div class="row g-4 mt-3">
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
@@ -391,21 +391,21 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 													<p class="job-function-description">Working at the Mia Aesthetics CX Center of Excellence makes you the friendly voice that supports and guides our patients along their journey. You will be a helpful point of contact for patients and the backbone of our support center. Strong communications skills, attention to detail, and a passion for servicing others are key to success in these roles.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Social Media Coordinators</h4>
 													<p class="job-function-description">As a Social Media Coordinator at Mia Aesthetics, you'll create content, share patient stories, and grow our presence on Instagram, TikTok, and Facebook. This creative, fast-paced role blends storytelling with strategy to connect and inspire.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Labs and Clearance Coordinators</h4>
 													<p class="job-function-description">Labs and Clearance Coordinators at Mia Aesthetics manage pre-op clearances by reviewing labs, coordinating tests, and ensuring all documentation is complete. Their organization and communication help keep surgeries safe and on schedule.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Medical Compliance Specialists</h4>
@@ -428,7 +428,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 								<div id="collapsePeople" class="accordion-collapse collapse" aria-labelledby="headingPeople">
 									<div class="accordion-body">
 										<p class="lead">Manager roles that directly impact team members play a mission critical role in accomplishing our goal in delivering the highest quality of plastic surgery at affordable prices. Check out our people leader roles, including departments such as marketing, finance, compliance, operations, etc.</p>
-										
+
 										<div class="row g-4 mt-3">
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
@@ -436,7 +436,7 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 													<p class="job-function-description">Clinic Administrator/Practice Manager leads daily operations of the plastic surgery center, managing staff, scheduling, billing, and compliance to ensure a smooth, patient-focused experience. Strong leadership, organization, and customer service skills are key.</p>
 												</div>
 											</div>
-											
+
 											<div class="col-lg-6">
 												<div class="job-function-card h-100 p-4 border rounded">
 													<h4 class="job-function-title">Director of Operations</h4>
@@ -449,115 +449,116 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 							</div>
 						</div>
 					</div>
-
-					<!-- Benefits Section -->
-					<section class="benefits-section mt-5">
-						<div class="benefits-top-content mb-5">
-							<div class="row align-items-center">
-								<!-- Left Column: Headings and Paragraphs -->
-								<div class="col-lg-6">
-									<div class="benefits-header">
-										<p class="section-tagline">What We Offer</p>
-										<h3 class="benefits-title">Benefits</h3>
-										<p class="benefits-subtitle">At Mia Aesthetics, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
-									</div>
-								</div>
-								
-								<!-- Right Column: Founders Quote -->
-								<div class="col-lg-6">
-									<div class="founders-quote-wrapper">
-										<blockquote class="founders-quote">
-											<div class="quote-icon">
-												<i class="fas fa-quote-left" aria-hidden="true"></i>
-											</div>
-											<p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
-											<footer class="quote-attribution">
-												<span class="attribution-line"></span>
-												<span class="attribution-text">Our Founders</span>
-											</footer>
-										</blockquote>
-									</div>
-								</div>
-							</div>
-						</div>
-
-						<div class="row g-4">
-							<!-- Health & Wellness -->
-							<div class="col-lg-3 col-md-6">
-								<div class="benefit-card h-100 p-4 text-center">
-									<div class="benefit-icon mb-3">
-										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Health-Wellness.svg' ) ); ?>" alt="Health & Wellness" class="benefit-svg-icon">
-									</div>
-									<h4 class="benefit-title">Health & Wellness</h4>
-									<ul class="benefit-list">
-										<li><strong>Medical, Dental, and Vision:</strong> Available to employees, their dependents, and domestic partners</li>
-										<li><strong>Additional Benefits:</strong> Short-Term Disability, Long-Term Disability, Dependent Care Flexible Spending Account, Healthcare Flexible Spending Account</li>
-										<li><strong>Employee Assistance Program (EAP):</strong> Available to all employees</li>
-									</ul>
-								</div>
-							</div>
-
-							<!-- Time To Unwind -->
-							<div class="col-lg-3 col-md-6">
-								<div class="benefit-card h-100 p-4 text-center">
-									<div class="benefit-icon mb-3">
-										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/PTO.svg' ) ); ?>" alt="Time To Unwind" class="benefit-svg-icon">
-									</div>
-									<h4 class="benefit-title">Time To Unwind</h4>
-									<ul class="benefit-list">
-										<li><strong>Paid Time Off (PTO):</strong> Accrue from date of hire; PTO for vacation, personal appointments, illness, and other events</li>
-										<li><strong>Paid Holidays:</strong> Recognized company holidays throughout the calendar year</li>
-										<li><strong>Paid Leave:</strong> As dictated by applicable state law</li>
-									</ul>
-								</div>
-							</div>
-
-							<!-- Financial Well-Being -->
-							<div class="col-lg-3 col-md-6">
-								<div class="benefit-card h-100 p-4 text-center">
-									<div class="benefit-icon mb-3">
-										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Financial.svg' ) ); ?>" alt="Financial Well-Being" class="benefit-svg-icon">
-									</div>
-									<h4 class="benefit-title">Financial Well-Being</h4>
-									<ul class="benefit-list">
-										<li><strong>Competitive Pay</strong></li>
-										<li><strong>401k with employer match & no vesting schedule</strong></li>
-									</ul>
-								</div>
-							</div>
-
-							<!-- Other Perks -->
-							<div class="col-lg-3 col-md-6">
-								<div class="benefit-card h-100 p-4 text-center">
-									<div class="benefit-icon mb-3">
-										<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Other-Perks.svg' ) ); ?>" alt="Other Perks" class="benefit-svg-icon">
-									</div>
-									<h4 class="benefit-title">Other Perks</h4>
-									<ul class="benefit-list">
-										<li><strong>Discounts on service offerings</strong></li>
-										<li><strong>Celebratory company-wide event(s)</strong></li>
-									</ul>
-								</div>
-							</div>
-						</div>
-
-						<!-- Benefits CTA -->
-						<div class="text-center mt-5">
-							<a href="<?php echo esc_url( home_url( '/careers/' ) ); ?>" class="btn btn-primary btn-lg">
-								Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
-							</a>
-						</div>
-					</section>
-
 				</div>
 			<?php endwhile; ?>
 		</div>
 	</article>
 
-	<!-- Team Section -->
-	<section class="team-section py-5">
+	<!-- Benefits Section - Full width background -->
+	<section class="benefits-section">
 		<div class="container">
-			<h2 class="section-title text-center mb-5">Meet the <?php echo esc_html( get_the_title() ); ?> Team</h2>
+			<div class="benefits-top-content mb-5">
+				<div class="row align-items-center">
+					<!-- Left Column: Headings and Paragraphs -->
+					<div class="col-lg-6">
+						<div class="benefits-header">
+							<p class="section-tagline">What We Offer</p>
+							<h3 class="benefits-title">Benefits</h3>
+							<p class="benefits-subtitle">At Mia Aesthetics, we support our team and their families with benefits that care for their physical, mental, and financial well-being.</p>
+						</div>
+					</div>
+
+					<!-- Right Column: Founders Quote -->
+					<div class="col-lg-6">
+						<div class="founders-quote-wrapper">
+							<blockquote class="founders-quote">
+								<div class="quote-icon">
+									<i class="fas fa-quote-left" aria-hidden="true"></i>
+								</div>
+								<p class="quote-text">"Our growth has taught us many things, and we have learned that building a strong brand stands on the execution of excellent customer service driven by employee happiness."</p>
+								<footer class="quote-attribution">
+									<span class="attribution-line"></span>
+									<span class="attribution-text">Our Founders</span>
+								</footer>
+							</blockquote>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row g-4">
+				<!-- Health & Wellness -->
+				<div class="col-lg-3 col-md-6">
+					<div class="benefit-card h-100 p-4 text-center">
+						<div class="benefit-icon mb-3">
+							<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Health-Wellness.svg' ) ); ?>" alt="Health & Wellness" class="benefit-svg-icon">
+						</div>
+						<h4 class="benefit-title">Health & Wellness</h4>
+						<ul class="benefit-list">
+							<li><strong>Medical, Dental, and Vision:</strong> Available to employees, their dependents, and domestic partners</li>
+							<li><strong>Additional Benefits:</strong> Short-Term Disability, Long-Term Disability, Dependent Care Flexible Spending Account, Healthcare Flexible Spending Account</li>
+							<li><strong>Employee Assistance Program (EAP):</strong> Available to all employees</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Time To Unwind -->
+				<div class="col-lg-3 col-md-6">
+					<div class="benefit-card h-100 p-4 text-center">
+						<div class="benefit-icon mb-3">
+							<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/PTO.svg' ) ); ?>" alt="Time To Unwind" class="benefit-svg-icon">
+						</div>
+						<h4 class="benefit-title">Time To Unwind</h4>
+						<ul class="benefit-list">
+							<li><strong>Paid Time Off (PTO):</strong> Accrue from date of hire; PTO for vacation, personal appointments, illness, and other events</li>
+							<li><strong>Paid Holidays:</strong> Recognized company holidays throughout the calendar year</li>
+							<li><strong>Paid Leave:</strong> As dictated by applicable state law</li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Financial Well-Being -->
+				<div class="col-lg-3 col-md-6">
+					<div class="benefit-card h-100 p-4 text-center">
+						<div class="benefit-icon mb-3">
+							<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Financial.svg' ) ); ?>" alt="Financial Well-Being" class="benefit-svg-icon">
+						</div>
+						<h4 class="benefit-title">Financial Well-Being</h4>
+						<ul class="benefit-list">
+							<li><strong>Competitive Pay</strong></li>
+							<li><strong>401k with employer match & no vesting schedule</strong></li>
+						</ul>
+					</div>
+				</div>
+
+				<!-- Other Perks -->
+				<div class="col-lg-3 col-md-6">
+					<div class="benefit-card h-100 p-4 text-center">
+						<div class="benefit-icon mb-3">
+							<img src="<?php echo esc_url( home_url( '/wp-content/uploads/2025/08/Other-Perks.svg' ) ); ?>" alt="Other Perks" class="benefit-svg-icon">
+						</div>
+						<h4 class="benefit-title">Other Perks</h4>
+						<ul class="benefit-list">
+							<li><strong>Discounts on service offerings</strong></li>
+							<li><strong>Celebratory company-wide event(s)</strong></li>
+						</ul>
+					</div>
+				</div>
+			</div>
+
+			<!-- Benefits CTA -->
+			<div class="text-center mt-5">
+				<a href="<?php echo esc_url( home_url( '/careers/' ) ); ?>" class="btn btn-primary btn-lg">
+					Join Our Team <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+				</a>
+			</div>
+		</div>
+	</section>
+
+	<!-- Team Section -->
+	<section class="team-section">
+		<div class="container">
+			<h2 class="section-title text-center">Meet the <?php echo esc_html( get_the_title() ); ?> Team</h2>
 			<div class="row g-4 justify-content-center">
 				<?php
 				// Get the linked main location from ACF relationship field.
@@ -640,14 +641,16 @@ if ( is_array( $mia_aesthetics_location_map ) && count( $mia_aesthetics_location
 		</div>
 	</section>
 
-	<section class="py-5">
-		<div class="container">            
-			<?php
-			// Function output should be escaped if it returns HTML.
-			echo wp_kses_post( mia_aesthetics_display_faqs() );
-			?>
-					</div>
+	<?php
+	$faq_output = mia_aesthetics_display_faqs();
+	if ( '' !== $faq_output ) :
+		?>
+	<section class="location-faq-section">
+		<div class="container">
+			<?php echo wp_kses_post( $faq_output ); ?>
+		</div>
 	</section>
+	<?php endif; ?>
 
 </main>
 
