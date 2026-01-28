@@ -11,8 +11,7 @@
 .wide-container {
   margin: 0 auto;
   max-width: 1800px;
-  padding-left: 4rem;
-  padding-right: 4rem;
+  padding-inline: 4rem;
 }
 
 .footer-heading {

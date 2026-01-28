@@ -332,7 +332,6 @@
 
 .bbl-info-card:hover {
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
 }
 
 .bbl-info-card i {
@@ -377,7 +376,6 @@
 
 .info-card:hover {
   box-shadow: 0 6px 20px rgba(255, 193, 7, 0.15);
-  transform: translateY(-2px);
 }
 
 .info-card .card-icon {
@@ -420,7 +418,6 @@
 
 .treatment-area-card:hover {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
 }
 
 .treatment-area-card .card-title {

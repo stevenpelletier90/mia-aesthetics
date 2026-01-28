@@ -11,22 +11,17 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .procedure-card:hover {
   box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
-  transform: translateY(-8px);
 }
 
 .procedure-card.animate-ready {
   opacity: 0;
   transform: translateY(20px);
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .procedure-card.animate-in {

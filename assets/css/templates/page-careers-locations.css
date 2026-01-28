@@ -212,7 +212,6 @@
 .job-function-card:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
 }
 
 .job-function-title {
@@ -307,7 +306,6 @@
 .position-card-expanded:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
 }
 
 .position-card-expanded:hover::before {
@@ -347,7 +345,6 @@
 .job-item:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  transform: translateY(-3px);
 }
 
 .job-item h4 {
@@ -492,7 +489,6 @@
 .benefit-card:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 12px 25px rgba(0, 0, 0, 0.15);
-  transform: translateY(-5px);
 }
 
 .benefit-icon {
@@ -615,14 +611,11 @@
   color: var(--mia-white);
   padding: 32px 24px;
   text-align: center;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .page-template-page-careers-locations .surgeon-card:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
 }
 
 .page-template-page-careers-locations .surgeon-card img {
@@ -824,7 +817,6 @@
   .page-template-page-careers-locations .team-section .surgeon-card:hover {
     border-color: var(--mia-gold);
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-    transform: translateY(-2px);
   }
 
   .page-template-page-careers-locations .team-section .surgeon-card img {

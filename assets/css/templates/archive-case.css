@@ -14,14 +14,12 @@
   overflow: hidden;
   transition:
     box-shadow 0.2s ease,
-    transform 0.2s ease,
     border-color 0.2s ease;
 }
 
 .case-category-card:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 10px 30px rgba(200, 178, 115, 0.2);
-  transform: translateY(-2px);
 }
 
 .case-category-card:focus-within {

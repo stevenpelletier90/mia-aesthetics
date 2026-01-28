@@ -69,11 +69,7 @@
   color: inherit;
   overflow: hidden;
   position: relative;
-  transition:
-    border-color 0.2s ease,
-    background-color 0.2s ease,
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .patient-info-arrow {
@@ -83,9 +79,7 @@
   position: absolute;
   right: 0.75rem;
   top: 0.75rem;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .patient-info-card-link:hover {
@@ -93,7 +87,6 @@
   border-color: var(--mia-gold);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   color: inherit;
-  transform: translateY(-2px);
 }
 
 .patient-info-card-link:hover .patient-info-arrow {
@@ -187,10 +180,7 @@
   background: var(--mia-white);
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: var(--radius-sm);
-  transition:
-    border-color 0.2s ease,
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
 .related-case-link {
@@ -240,15 +230,12 @@
 .related-case-arrow {
   color: var(--mia-gold);
   opacity: 0.7;
-  transition:
-    opacity 0.2s ease,
-    transform 0.2s ease;
+  transition: opacity 0.2s ease, transform 0.2s ease;
 }
 
 .related-case-item:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
-  transform: translateY(-1px);
 }
 
 .related-case-item:hover .related-case-arrow {

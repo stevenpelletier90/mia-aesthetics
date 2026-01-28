@@ -24,14 +24,11 @@
   flex-direction: column;
   height: 100%;
   overflow: hidden;
-  transition:
-    box-shadow 0.2s ease,
-    transform 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .location-card:hover {
   box-shadow: 0 8px 25px rgba(200, 178, 115, 0.3);
-  transform: translateY(-2px);
 }
 
 .location-card-img-top {

@@ -382,9 +382,7 @@
   color: var(--mia-white);
   padding: 2rem 1.5rem;
   text-align: center;
-  transition:
-    transform 0.2s ease,
-    box-shadow 0.2s ease;
+  transition: box-shadow 0.2s ease;
 }
 
 .surgeon-card:not(:has(img))::before {
@@ -416,7 +414,6 @@
 
 .surgeon-card:hover {
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.2);
-  transform: translateY(-3px);
 }
 
 /* ==========================================================================
@@ -544,7 +541,6 @@
     &:hover {
       border-color: var(--mia-gold);
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
-      transform: translateY(-2px);
     }
 
     img {

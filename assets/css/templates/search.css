@@ -28,7 +28,6 @@
 .search-results .card:hover {
   border-color: var(--mia-gold);
   box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-  transform: translateY(-2px);
 }
 
 .search-results .card-img-top {
